@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Outline: Development Mode</title>
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../src/global/global.css"
+      media="all"
+    />
+
+    <script src="../dist/outline.js" type="module"></script>
+    <script src="../dist/outline-legacy.js" nomodule></script>
+    <style>
+      hr {
+        margin: 1rem auto;
+      }
+      div {
+        max-width: 800px;
+        margin: 2rem auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Link component test</h2>
+      <outline-link
+        ><a href="http://google.com/" target="_blank"
+          >Fully Slotted Link Tag</a
+        ></outline-link
+      >
+      <hr />
+      <outline-link
+        url="http://google.com/"
+        linkText="A link element using properties"
+      ></outline-link>
+    </div>
+
+    <div>
+      <h2>Lit2 Class Extension Sample</h2>
+      <my-element>
+        <p>This is an instance of &lt;my-element&gt;.</p>
+      </my-element>
+      <hr />
+      <extended-element>
+        <p>This is &lt;extended-element&gt; that extends &lt;my-element&gt;.</p>
+      </extended-element>
+      <hr />
+      <double-extended-element>
+        <p>
+          This is &lt;double-extended-element&gt; that extends
+          &lt;extended-element&gt;.
+        </p>
+      </double-extended-element>
+    </div>
+  </body>
+</html>
