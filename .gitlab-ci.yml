@@ -1,5 +1,5 @@
 default:
-  image: node:14
+  image: node:latest
 
 cache: &global_cache
   paths:
@@ -44,6 +44,9 @@ Test and Build:
     - beta
     - rc
     - /^issue/
+    - /^task/
+    - /^feature/
+    - /^bug/
 
 # Gitlab Pages deploy only supported for main branch.
 # Issue branches use the CI_ENVIRONMENT_URL.
@@ -65,21 +68,21 @@ pages:
 # @see https://docs.gitlab.com/13.11/ee/ci/examples/semantic-release.html#set-up-cicd-variables
 # Uncomment the following after setting up the appropriate CI/CD access token (GITLAB_TOKEN)
 # in your project settings.
-package:
-  stage: release
-  script:
-    - env
-    - yarn ci
-    - |
-      {
-        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
-        echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
-      } | tee --append .npmrc
-    - yarn semantic-release
-  cache: *global_cache
-  only:
-    - dev
-    - alpha
-    - beta
-    - rc
-    - next
+# package:
+#   stage: release
+#   script:
+#     - env
+#     - yarn ci
+#     - |
+#       {
+#         echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+#         echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
+#       } | tee --append .npmrc
+#     - yarn semantic-release
+#   cache: *global_cache
+#   only:
+#     - dev
+#     - alpha
+#     - beta
+#     - rc
+#     - next
