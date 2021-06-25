@@ -20,13 +20,13 @@ export class OutlineContainer extends OutlineElement {
   hasPadding = true;
 
   /**
-   * Whether or not this is a full bleed container. 
+   * Whether or not this is a full bleed container.
    */
   @property({ type: Boolean })
   fullBleed = false;
 
   /**
-   * The horizontal placement of the container. 
+   * The horizontal position of the container.
    */
   @property({ type: String, reflect: true })
   containerAlign: HorizontalAlignment = 'center';
