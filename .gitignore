@@ -6,6 +6,7 @@ custom-elements.json
 .aws
 .hidden
 *.lit.ts
+*.generated.css
 
 *~
 *.sw[mnpcod]
