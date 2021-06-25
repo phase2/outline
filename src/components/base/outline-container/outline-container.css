@@ -1,0 +1,101 @@
+:host {
+  @apply block px-6 max-w-full-screen-w font-body;
+}
+
+@screen sm {
+  :host {
+    @apply max-w-screen-sm;
+  }
+}
+
+@screen md {
+  :host {
+    @apply max-w-screen-md;
+  }
+}
+
+@screen lg {
+  :host {
+    @apply max-w-screen-lg;
+  }
+}
+
+@screen xl {
+  :host {
+    @apply max-w-screen-xl;
+  }
+}
+
+@screen xxl {
+  :host {
+    @apply max-w-screen-xxl;
+  }
+}
+
+@screen xxl {
+  :host {
+    @apply max-w-screen-xxxl;
+  }
+}
+
+:host([has-padding='false']) {
+  @apply px-0;
+}
+
+:host([full-bleed='']),
+:host([full-bleed='true']) {
+  @apply max-w-full;
+}
+
+@screen sm {
+  :host([full-bleed='']),
+  :host([full-bleed='true']) {
+    @apply max-w-full;
+  }
+}
+
+@screen md {
+  :host([full-bleed='']),
+  :host([full-bleed='true']) {
+    @apply max-w-full;
+  }
+}
+
+@screen lg {
+  :host([full-bleed='']),
+  :host([full-bleed='true']) {
+    @apply max-w-full;
+  }
+}
+
+@screen xl {
+  :host([full-bleed='']),
+  :host([full-bleed='true']) {
+    @apply max-w-full;
+  }
+}
+
+@screen xxl {
+  :host([full-bleed='']),
+  :host([full-bleed='true']) {
+    @apply max-w-full;
+  }
+}
+
+@screen xxxl {
+  :host([full-bleed='']),
+  :host([full-bleed='true']) {
+    @apply max-w-full;
+  }
+}
+
+:host([container-align='left']) {
+  @apply ml-0 mr-auto;
+}
+:host([container-align='']),
+:host([container-align='center']) {
+  @apply mx-auto;
+}
+:host([container-align='right']) {
+  @apply ml-auto mr-0;
+}

@@ -1,10 +1,10 @@
-import tailwindConfig from '../resolved-tailwind-config';
-export { ALL_COLORS } from '../resolved-tailwind-config';
+import tailwindConfig from '../../../../resolved-tailwind-config';
+export { ALL_COLORS } from '../../../../resolved-tailwind-config';
 
 /**
  * Pass along all the Tailwind colors
  */
-export type { Color } from '../resolved-tailwind-config';
+export type { Color } from '../../../../resolved-tailwind-config';
 
 export type SpacingTokens = keyof typeof tailwindConfig.spacing;
 
