@@ -48,7 +48,7 @@ export const Container = ({
 }: Options): HTMLTemplateResult =>
   html`
     <outline-container
-      class="text-left rounded-xl border-2 border-dashed bg-blue-50 border-blue-600 py-10 md:py-20 my-10 md:my-20"
+      class="text-left rounded-xl border-2 border-dashed bg-demo-lightBlue border-demo-darkBlue py-10 md:py-20 my-10 md:my-20"
       has-padding="${ifDefined(hasPadding)}"
       full-bleed="${ifDefined(fullBleed)}"
       container-align="${ifDefined(containerAlign)}"
