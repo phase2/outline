@@ -40,17 +40,12 @@ export class OutlineHeading extends OutlineElement {
 
   render(): TemplateResult {
     const classes = {
-      [`text${this.capitalizeFirstLetter(this.levelSize)}`]: true,
-      [`font${this.capitalizeFirstLetter(this.levelStyle)}`]: true,
+      [`outline-text--${this.levelSize}`]: true,
+      [`outline-font--${this.levelStyle}`]: true,
     };
     return html`
       <${unsafeStatic(this.level as string)} class=${classMap(classes)}>
         <slot></slot>
       </${unsafeStatic(this.level as string)}>`;
   }
-
-  //TODO: Move to utils file
-  capitalizeFirstLetter = (str: string): string => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
 }

@@ -2,79 +2,79 @@
   @apply block;
 }
 
-.textXs {
+.outline-text--xs {
   @apply text-xs;
 }
 
-.textSm {
+.outline-text--sm {
   @apply text-sm;
 }
 
-.textBase {
+.outline-text--base {
   @apply text-base;
 }
 
-.textLg {
+.outline-text--lg {
   @apply text-lg;
 }
 
-.textXl {
+.outline-text--xl {
   @apply text-xl;
 }
 
-.text2xl {
+.outline-text--2xl {
   @apply text-2xl;
 }
 
-.text3xl {
+.outline-text--3xl {
   @apply text-3xl;
 }
 
-.text4xl {
+.outline-text--4xl {
   @apply text-4xl;
 }
 
-.text5xl {
+.outline-text--5xl {
   @apply text-5xl;
 }
 
-.text6xl {
+.outline-text--6xl {
   @apply text-6xl;
 }
 
-.text7xl {
+.outline-text--7xl {
   @apply text-7xl;
 }
 
-.text8xl {
+.outline-text--8xl {
   @apply text-8xl;
 }
 
-.text9xl {
+.outline-text--9xl {
   @apply text-9xl;
 }
 
-.fontThin {
+.outline-font--thin {
   @apply font-thin;
 }
-.fontExtralight {
+.outline-font--extralight {
   @apply font-extralight;
 }
-.fontLight {
+.outline-font--light {
   @apply font-light;
 }
-.fontNormal {
+.outline-font--normal {
   @apply font-normal;
 }
-.fontSemibold {
+.outline-font--semibold {
   @apply font-semibold;
 }
-.fontBold {
+.outline-font--bold {
   @apply font-bold;
 }
-.fontExtrabold {
+.outline-font--extrabold {
   @apply font-extrabold;
 }
-.fontBlack {
+.outline-font--black {
   @apply font-black;
 }
