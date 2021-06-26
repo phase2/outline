@@ -1,0 +1,80 @@
+:host {
+  @apply block;
+}
+
+.textXs {
+  @apply text-xs;
+}
+
+.textSm {
+  @apply text-sm;
+}
+
+.textBase {
+  @apply text-base;
+}
+
+.textLg {
+  @apply text-lg;
+}
+
+.textXl {
+  @apply text-xl;
+}
+
+.text2xl {
+  @apply text-2xl;
+}
+
+.text3xl {
+  @apply text-3xl;
+}
+
+.text4xl {
+  @apply text-4xl;
+}
+
+.text5xl {
+  @apply text-5xl;
+}
+
+.text6xl {
+  @apply text-6xl;
+}
+
+.text7xl {
+  @apply text-7xl;
+}
+
+.text8xl {
+  @apply text-8xl;
+}
+
+.text9xl {
+  @apply text-9xl;
+}
+
+.fontThin {
+  @apply font-thin;
+}
+.fontExtralight {
+  @apply font-extralight;
+}
+.fontLight {
+  @apply font-light;
+}
+.fontNormal {
+  @apply font-normal;
+}
+.fontSemibold {
+  @apply font-semibold;
+}
+.fontBold {
+  @apply font-bold;
+}
+.fontExtrabold {
+  @apply font-extrabold;
+}
+.fontBlack {
+  @apply font-black;
+}
