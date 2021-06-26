@@ -25,6 +25,10 @@ bg-ui-errorText
 bg-ui-warningText
 bg-ui-infoText
 bg-ui-successText
+bg-demo-darkBlue
+bg-demo-lightBlue
+bg-demo-darkGray
+bg-demo-lightGray
 bg-gray-50
 bg-gray-100
 bg-gray-200
@@ -131,6 +135,10 @@ text-ui-errorText
 text-ui-warningText
 text-ui-infoText
 text-ui-successText
+text-demo-darkBlue
+text-demo-lightBlue
+text-demo-darkGray
+text-demo-lightGray
 text-gray-50
 text-gray-100
 text-gray-200
@@ -237,6 +245,10 @@ border-ui-errorText
 border-ui-warningText
 border-ui-infoText
 border-ui-successText
+border-demo-darkBlue
+border-demo-lightBlue
+border-demo-darkGray
+border-demo-lightGray
 border-gray-50
 border-gray-100
 border-gray-200

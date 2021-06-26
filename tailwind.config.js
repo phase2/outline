@@ -69,6 +69,14 @@ module.exports = {
         infoText: 'var(--ui-infoText)',
         successText: 'var(--ui-successText)',
       },
+      // Demo styles specific to Storybook implementation.
+      // Do not remove.
+      demo: {
+        darkBlue: 'var(--demo-darkBlue)',
+        lightBlue: 'var(--demo-lightBlue)',
+        darkGray: 'var(--demo-darkGray)',
+        lightGray: 'var(--demo-lightGray)',
+      },
       // The defaults are completely overwritten, so manually including
       // sets from Tailwind CSS we want to use.
       // You may remove any/all of these items assuming you have removed

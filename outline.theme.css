@@ -29,6 +29,12 @@
   --ui-infoText: #1d4ed8;
   --ui-successText: #047857;
 
+  /* Demo colors used for default component demonstrations */
+  --demo-darkBlue: #2563eb;
+  --demo-lightBlue: #eff6ff;
+  --demo-darkGray: #3f3f46;
+  --demo-lightGray: #f4f4f5;
+
   /* Default Tailwind CSS Colors converted to CSS Variables. */
   --gray-50: #fafafa;
   --gray-100: #f5f5f5;
