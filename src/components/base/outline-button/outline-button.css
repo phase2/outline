@@ -1,0 +1,50 @@
+.btn {
+  @apply px-12 py-4 text-lg leading-tight rounded-xl cursor-pointer transition-colors duration-300 font-body no-underline inline-flex content-center;
+}
+
+.btn outline-icon {
+  @apply relative w-6 ml-2 -mb-2;
+}
+
+.btn.primary {
+  @apply bg-blue-700 text-neutral-white;
+
+  &:hover,
+  &:focus {
+    @apply bg-neutral-black text-neutral-white;
+  }
+
+  &:disabled {
+    @apply cursor-not-allowed text-gray-500 bg-gray-300;
+  }
+}
+
+.btn.secondary {
+  @apply bg-gray-300 text-gray-800;
+
+  &:hover,
+  &:focus {
+    @apply bg-neutral-black text-neutral-white;
+  }
+
+  &:disabled {
+    @apply cursor-not-allowed text-gray-500 bg-gray-300;
+  }
+}
+
+.btn.tertiary {
+  @apply bg-blue-300 text-gray-800;
+
+  &:hover,
+  &:focus {
+    @apply bg-neutral-black text-neutral-white;
+  }
+
+  &:disabled {
+    @apply cursor-not-allowed text-gray-500 bg-gray-300;
+  }
+}
+
+.btn.none {
+  @apply flex items-center text-base px-4;
+}
