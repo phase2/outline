@@ -1,6 +1,7 @@
 import { LitElement, html, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap, ClassInfo } from 'lit/directives/class-map.js';
+import { OutlineElement } from '../outline-element/outline-element';
 import componentStyles from './outline-card.css.lit';
 
 type AllowedColors =
@@ -20,7 +21,7 @@ type AllowedColors =
  * @slot footer - The footer slot.
  */
 @customElement('outline-card')
-export class OutlineCard extends LitElement {
+export class OutlineCard extends OutlineElement {
   static styles = [componentStyles];
 
   /**
