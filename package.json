@@ -67,6 +67,7 @@
     "lit"
   ],
   "dependencies": {
+    "jarallax": "^1.12.7",
     "lit": "^2.0.0-rc.2"
   },
   "devDependencies": {

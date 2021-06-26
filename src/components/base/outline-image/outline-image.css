@@ -1,0 +1,33 @@
+:host {
+  @apply block;
+
+  &([parallax]) figure {
+    @apply h-half-screen-h;
+    clip-path: inset(0 0 0 0);
+  }
+
+  &([parallax='false']) figure {
+    @apply h-auto;
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@screen lg {
+  :host {
+    &([parallax='false']) figure {
+      @apply h-auto;
+    }
+  }
+}
+
+figure {
+  @apply block m-0;
+}
+
+::slotted([slot='caption']) {
+  @apply font-body text-sm mt-2;
+}
+
+::slotted(img) {
+  @apply w-full;
+}
