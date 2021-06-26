@@ -3,8 +3,8 @@ const fs = require('fs');
 const path = require('path');
 const { format, resolveConfig: resolvePrettierConfig } = require('prettier');
 const resolveTailwindConfig = require('tailwindcss/resolveConfig');
-const flattenColorPalette = require('tailwindcss/lib/util/flattenColorPalette')
-  .default;
+const flattenColorPalette =
+  require('tailwindcss/lib/util/flattenColorPalette').default;
 
 const tailwindConfig = require('../tailwind.config');
 
