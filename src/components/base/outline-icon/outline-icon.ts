@@ -99,12 +99,14 @@ const solid: Record<IconTypeSolid, string> = {
   searchSolid,
 };
 
-const icons: Record<IconTypeCustom | IconTypeSolid | IconTypeOutline, string> =
-  {
-    ...custom,
-    ...solid,
-    ...outline,
-  };
+const icons: Record<
+  IconTypeCustom | IconTypeSolid | IconTypeOutline,
+  string
+> = {
+  ...custom,
+  ...solid,
+  ...outline,
+};
 
 @customElement('outline-icon')
 export class OutlineIcon extends OutlineElement {
