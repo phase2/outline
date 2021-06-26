@@ -29,7 +29,7 @@ export default {
 
 const Template = ({ imageUrl, caption, parallax }): TemplateResult => html`
   <outline-image parallax="${ifDefined(parallax)}">
-    <img src="${imageUrl}" slot="multimedia" alt="Random Image" />
+    <img src="${imageUrl}" alt="Random Image" />
     <outline-container slot="caption">${caption}</outline-container>
   </outline-image>
 `;
