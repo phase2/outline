@@ -3,7 +3,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeHidden } from '../outline-element/utils/utils';
 import sampleImage1 from '../../../.storybook/static/media/color/Codeworkbench_color.jpg';
 import './outline-card';
-import './outline-card.css';
 import '../outline-container/outline-container';
 // import '../outline-heading/outline-heading'
 
