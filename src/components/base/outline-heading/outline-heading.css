@@ -1,0 +1,80 @@
+:host {
+  @apply block;
+}
+
+.outline-text--xs {
+  @apply text-xs;
+}
+
+.outline-text--sm {
+  @apply text-sm;
+}
+
+.outline-text--base {
+  @apply text-base;
+}
+
+.outline-text--lg {
+  @apply text-lg;
+}
+
+.outline-text--xl {
+  @apply text-xl;
+}
+
+.outline-text--2xl {
+  @apply text-2xl;
+}
+
+.outline-text--3xl {
+  @apply text-3xl;
+}
+
+.outline-text--4xl {
+  @apply text-4xl;
+}
+
+.outline-text--5xl {
+  @apply text-5xl;
+}
+
+.outline-text--6xl {
+  @apply text-6xl;
+}
+
+.outline-text--7xl {
+  @apply text-7xl;
+}
+
+.outline-text--8xl {
+  @apply text-8xl;
+}
+
+.outline-text--9xl {
+  @apply text-9xl;
+}
+
+.outline-font--thin {
+  @apply font-thin;
+}
+.outline-font--extralight {
+  @apply font-extralight;
+}
+.outline-font--light {
+  @apply font-light;
+}
+.outline-font--normal {
+  @apply font-normal;
+}
+.outline-font--semibold {
+  @apply font-semibold;
+}
+.outline-font--bold {
+  @apply font-bold;
+}
+.outline-font--extrabold {
+  @apply font-extrabold;
+}
+.outline-font--black {
+  @apply font-black;
+}
