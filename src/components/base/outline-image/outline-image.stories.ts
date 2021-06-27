@@ -64,13 +64,13 @@ ParallaxImage.decorators = [
   //TODO determine appropriate typing for Story
   (Story): TemplateResult => html`
     <outline-container class="mt-64">
-      <!-- <outline-heading level="h2" level-style="2xl" class="my-6">
+      <!-- <outline-heading level="hh2" levelstyle="2xl" class="my-6">
         Scroll to see parallax in action
       </outline-heading> -->
     </outline-container>
     <div style="margin: 20em 0;">${Story()}</div>
     <outline-container class="mb-64">
-      <!-- <outline-heading level-style="3xl" class="my-6">
+      <!-- <outline-heading levelstyle="3xl" class="my-6">
         Scroll to see parallax in action
       </outline-heading> -->
     </outline-container>

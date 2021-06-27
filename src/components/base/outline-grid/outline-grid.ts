@@ -19,13 +19,13 @@ export class OutlineGrid extends OutlineElement {
   /**
    * Whether or not this container has padding.
    */
-  @property({ type: Boolean })
+  @property({ type: Boolean, reflect: true })
   hasPadding = true;
 
   /**
    * Whether or not this is a full bleed container.
    */
-  @property({ type: Boolean })
+  @property({ type: Boolean, reflect: true })
   fullBleed = false;
 
   /**

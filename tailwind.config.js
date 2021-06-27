@@ -12,7 +12,10 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   mode: 'jit',
-  purge: ['./src/**/*.{ts,tsx,mdx,html,txt,css}'],
+  purge: [
+    './src/**/*.{ts,tsx,mdx,html,txt,css}',
+    './src/.storybook/**/*.{ts,tsx,mdx,html,txt,css}',
+  ],
   theme: {
     // Utilizing CSS properties here (screens) caused
     // the responsive tailwind classes to simply fail.
