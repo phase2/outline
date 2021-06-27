@@ -10,34 +10,13 @@ module.exports = {
     // Explicitly order the main documentation.
     './stories/documentation/tooling.stories.mdx',
     './stories/documentation/contributing.stories.mdx',
-    // './stories/documentation/project.stories.mdx',
+    './stories/documentation/roadmap.stories.mdx',
     // // Other stories in the .storybook directory.
-    './stories/**/*.stories.mdx',
-    //'./stories/**/*.stories.js',
+    './stories/**/*.stories.@(js|ts|mdx)',
     // All other components in src directory.
-    '../components/**/*.stories.@(ts|tsx|mdx)',
-    // Compiled components in the dist directory.
-    //'../../dist/components/**/*.stories.@(js|mdx)',
+    '../components/**/*.stories.@(js|ts|mdx)',
   ],
-  // typescript: {
-  //   check: false,
-  //   checkOptions: {},
-  //   reactDocgen: 'react-docgen-typescript',
-  //   reactDocgenTypescriptOptions: {
-  //     shouldExtractLiteralValuesFromEnum: true,
-  //     propFilter: prop =>
-  //       prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
-  //   },
-  // },
   addons: [
-    // '@storybook/addon-postcss',
-    // {
-    //   name: '@storybook/addon-docs',
-    //   options: {
-    //     configureJSX: true,
-    //     babelOptions: {},
-    //   },
-    // },
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -52,7 +31,6 @@ module.exports = {
     '@storybook/addon-a11y',
     //'storybook-addon-themes',
     // Add everything below here
-
     // Incompatible with addon-docs (the show code button on Docs pages)
     //'@storybook/addon-storysource',
   ],
