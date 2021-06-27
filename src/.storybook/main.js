@@ -8,8 +8,8 @@ module.exports = {
   },
   stories: [
     // Explicitly order the main documentation.
-    // './stories/documentation/tooling.stories.mdx',
-    // './stories/documentation/contributing.stories.mdx',
+    './stories/documentation/tooling.stories.mdx',
+    './stories/documentation/contributing.stories.mdx',
     // './stories/documentation/project.stories.mdx',
     // // Other stories in the .storybook directory.
     './stories/**/*.stories.mdx',

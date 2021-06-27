@@ -23,23 +23,24 @@ export class OutlineHeading extends OutlineElement {
   /**
    * The heading tag to apply: h1 | h2 | h3 | h4 | h5 | h6
    */
-  @property()
+  @property({ type: String, reflect: true })
   level: AllowedHeadingLevels = 'h2';
 
   /**
    * The heading level size to apply. Optional override to default styles for a given level
    */
-  @property()
-  levelSize: AllowedHeadingSizes = '3xl';
+  @property({ type: String, reflect: true })
+  levelSize: AllowedHeadingSizes = '2xl';
 
   /**
    * The heading level style to apply. Optional override to default styles for a given level
    */
-  @property()
+  @property({ type: String, reflect: true })
   levelStyle: AllowedHeadingStyles = 'bold';
 
   render(): TemplateResult {
     const classes = {
+      'outline-text': true,
       [`outline-text--${this.levelSize}`]: true,
       [`outline-font--${this.levelStyle}`]: true,
     };

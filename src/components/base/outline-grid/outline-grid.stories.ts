@@ -92,7 +92,7 @@ RowsAndColumns.args = {
   gapSize: 'small',
   defaultSlot: html`
     <outline-column col-span-default="12" content-align="middle" class="pb-6">
-      <!-- <outline-heading level="2" level-style="2">
+      <!-- <outline-heading level="h2" levelstyle="2">
         Column/Row Spanning</outline-heading
       > -->
       <h2>Column/Row Spanning</h2>
@@ -139,7 +139,7 @@ EqualColumns.args = {
   gapSize: 'small',
   defaultSlot: html`
     <outline-column col-span-default="12" class="pb-6">
-      <!-- <outline-heading level="2" level-style="2">
+      <!-- <outline-heading level="h2" levelstyle="2">
         >Equal Column Grid</outline-heading
       > -->
       <h2>Equal Column Grid</h2>
@@ -171,7 +171,7 @@ FullBleed.args = {
   fullBleed: true,
   defaultSlot: html`
     <outline-column col-span-default="12" class="pb-6">
-      <!-- <outline-heading level="2" level-style="2">
+      <!-- <outline-heading level="h2" levelstyle="2">
         >Equal Column Grid</outline-heading
       > -->
       <h2>Equal Column Grid</h2>
@@ -202,7 +202,7 @@ AsymmetricLeft.args = {
   gapSize: 'small',
   defaultSlot: html`
     <outline-column col-span-default="12" class="pb-6">
-      <!-- <outline-heading level="2" level-style="2">
+      <!-- <outline-heading level="h2" levelstyle="2">
         >Asymmetrical Grid</outline-heading
       > -->
       <h2>Asymmetrical Grid</h2>
@@ -233,7 +233,7 @@ AsymmetricRight.args = {
   gapSize: 'small',
   defaultSlot: html`
     <outline-column col-span-default="12" class="pb-6">
-      <!-- <outline-heading level="2" level-style="2">
+      <!-- <outline-heading level="h2" levelstyle="2">
         >Asymmetrical Grid</outline-heading
       > -->
       <h2>Asymmetrical Grid</h2>
@@ -264,14 +264,14 @@ AsymmetricLeftWithBorder.args = {
   gapSize: '',
   defaultSlot: html`
     <outline-column col-span-default="12" class="pb-6">
-      <!-- <outline-heading level="2" level-style="2">
+      <!-- <outline-heading level="h2" levelstyle="2">
         >Asymmetrical Grid With Divider</outline-heading
       > -->
       <h2>Asymmetrical Grid With Divider</h2>
     </outline-column>
 
     <outline-column col-span-default="12" class="pb-2">
-      <!-- <outline-heading level="3" level-style="3">
+      <!-- <outline-heading level="h3" levelstyle="3">
         Border gap size: small</outline-heading
       > -->
       <h3>Border gap size: small</h3>
@@ -309,7 +309,7 @@ AsymmetricLeftWithBorder.args = {
     </outline-column>
 
     <outline-column col-span-default="12" class="pb-2 border-t-2 mt-6 pt-4">
-      <!-- <outline-heading level="3" level-style="3">
+      <!-- <outline-heading level="h3" levelstyle="3">
         Border gap size: medium</outline-heading
       > -->
       <h3>Border gap size: medium</h3>
@@ -347,7 +347,7 @@ AsymmetricLeftWithBorder.args = {
     </outline-column>
 
     <outline-column col-span-default="12" class="pb-2 border-t-2 mt-6 pt-4">
-      <!-- <outline-heading level="3" level-style="3">
+      <!-- <outline-heading level="h3" levelstyle="3">
         Border gap size: large</outline-heading
       > -->
       <h3>Border gap size: large</h3>
@@ -390,7 +390,7 @@ export const OffsetLeft = Template.bind({});
 OffsetLeft.args = {
   defaultSlot: html`
     <outline-column col-span-default="12" class="pb-6">
-      <!-- <outline-heading level="2" level-style="2"> >Offset Left</outline-heading> -->
+      <!-- <outline-heading level="h2" levelstyle="2"> >Offset Left</outline-heading> -->
       <h2>Offset Left</h2>
     </outline-column>
     <outline-column
@@ -409,7 +409,7 @@ export const OffsetRight = Template.bind({});
 OffsetRight.args = {
   defaultSlot: html`
     <outline-column col-span-default="12" class="pb-6">
-      <!-- <outline-heading level="2" level-style="2">
+      <!-- <outline-heading level="h2" levelstyle="2">
         >Offset Right</outline-heading
       > -->
       <h2>Offset Right</h2>

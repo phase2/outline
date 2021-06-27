@@ -63,7 +63,7 @@ export default {
   args: {
     cardContent: html`
       <div slot="content" class="p-4">
-        <!-- <outline-heading level="2" level-size="xxl" level-size="light"
+        <!-- <outline-heading level="h2" levelsize="xxl" levelsize="light"
           >This is a sample card. It has content in the content
           slot.</outline-heading
         > -->
@@ -133,8 +133,8 @@ CardWithImageHeader.args = {
     <div slot="content" class="p-4">
       <!-- <outline-heading
         level="h2"
-        level-size="5xl"
-        level-style="semibold"
+        levelsize="5xl"
+        levelstyle="semibold"
         class="mb-6"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -183,8 +183,8 @@ const cleanTemplate = (): TemplateResult =>
         <div slot="header">
           <!-- <outline-heading
             level="h2"
-            level-size="2xl"
-            level-style="normal"
+            levelsize="2xl"
+            levelstyle="normal"
             class="p-4 text-neutral-white"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.

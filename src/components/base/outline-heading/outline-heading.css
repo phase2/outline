@@ -2,16 +2,22 @@
   @apply block;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  @apply m-0 mb-4;
+}
+
+/* Moved to top to allow easier override */
+.outline-text,
+.outline-text--base {
+  @apply text-base;
+}
+
 .outline-text--xs {
   @apply text-xs;
 }
 
 .outline-text--sm {
   @apply text-sm;
-}
-
-.outline-text--base {
-  @apply text-base;
 }
 
 .outline-text--lg {

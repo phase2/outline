@@ -63,7 +63,7 @@ export default {
   decorators: [
     Story => html`
       <outline-container>
-        <!-- <outline-heading level="2" level-style="2" class="my-10"
+        <!-- <outline-heading level="h2" levelstyle="2" class="my-10"
           >Responsive Grid</outline-heading
         > -->
         <h2>Responsive Grid</h2>
