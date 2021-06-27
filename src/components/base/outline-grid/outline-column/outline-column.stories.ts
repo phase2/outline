@@ -1,6 +1,6 @@
-import { html, HTMLTemplateResult, TemplateResult } from 'lit';
-import { ifDefined } from 'lit-html/directives/if-defined';
-import { repeat } from 'lit-html/directives/repeat';
+import { html, HTMLTemplateResult } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined';
+import { repeat } from 'lit/directives/repeat';
 
 import {
   argTypeSlotContent,

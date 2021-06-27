@@ -2,7 +2,7 @@ import { OutlineElement } from '../outline-element/outline-element';
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-grid.css.lit';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined';
 import type { HorizontalAlignment, Size } from '../outline-element/utils/types';
 import '../outline-container/outline-container';
 /**

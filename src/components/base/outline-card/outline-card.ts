@@ -1,4 +1,4 @@
-import { LitElement, html, TemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { classMap, ClassInfo } from 'lit/directives/class-map.js';
 import { OutlineElement } from '../outline-element/outline-element';

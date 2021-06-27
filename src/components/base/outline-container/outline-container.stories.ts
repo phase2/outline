@@ -1,10 +1,7 @@
 import { html, HTMLTemplateResult } from 'lit';
-import { ifDefined } from 'lit-html/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined';
 import type { HorizontalAlignment } from './config';
-import {
-  argTypeSlotContent,
-  argTypeHorizontalAlign,
-} from '../outline-element/utils/utils';
+import { argTypeHorizontalAlign } from '../outline-element/utils/utils';
 import './outline-container';
 
 export default {

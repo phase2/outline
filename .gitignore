@@ -7,6 +7,8 @@ custom-elements.json
 .hidden
 *.lit.ts
 *.generated.css
+resolved-tailwind-config.ts
+src/safelist.txt
 
 *~
 *.sw[mnpcod]
