@@ -17,7 +17,7 @@ export default {
       name: 'Alignment of the Container',
       defaultValue: 'center',
     },
-    hasPadding: {
+    isNested: {
       name: 'Padding',
       control: {
         type: 'boolean',
@@ -33,20 +33,20 @@ export default {
 };
 
 interface Options {
-  hasPadding?: boolean;
+  isNested?: boolean;
   fullBleed?: boolean;
   containerAlign?: HorizontalAlignment;
 }
 
 export const Container = ({
-  hasPadding,
+  isNested,
   fullBleed,
   containerAlign,
 }: Options): HTMLTemplateResult =>
   html`
     <outline-container
       class="text-left rounded-xl border-2 border-dashed bg-demo-lightBlue border-demo-darkBlue py-10 md:py-20 my-10 md:my-20"
-      has-padding="${ifDefined(hasPadding)}"
+      is-nested="${ifDefined(isNested)}"
       full-bleed="${ifDefined(fullBleed)}"
       container-align="${ifDefined(containerAlign)}"
     >
