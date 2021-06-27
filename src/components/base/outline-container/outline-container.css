@@ -37,8 +37,8 @@
     @apply max-w-screen-xxxl;
   }
 }
-
-:host([has-padding='false']) {
+:host([is-nested]),
+:host([is-nested='true']) {
   @apply px-0;
 }
 

@@ -16,19 +16,31 @@ export class OutlineContainer extends OutlineElement {
   /**
    * Whether or not this container has padding.
    */
-  @property({ type: Boolean })
-  hasPadding = true;
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'is-nested',
+  })
+  isNested = true;
 
   /**
    * Whether or not this is a full bleed container.
    */
-  @property({ type: Boolean })
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'full-bleed',
+  })
   fullBleed = false;
 
   /**
    * The horizontal position of the container.
    */
-  @property({ type: String, reflect: true })
+  @property({
+    type: String,
+    reflect: true,
+    attribute: 'container-align',
+  })
   containerAlign: HorizontalAlignment = 'center';
 
   /**

@@ -24,7 +24,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
 
 # Outline Component Design
 
-<outline-grid gap-size="small" has-padding="false" full-bleed="true">
+<outline-grid gap-size="none" is-nested full-bleed>
   <outline-column
     col-span-default="12"
     col-span-lg="5"
@@ -50,7 +50,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
 <div class="text-xl pt-20 md:pt-10">
   <outline-heading level="h2" levelsize="3xl" class="my-8 md:my-16">Outline is built with tools including:</outline-heading>
   <div class="w-full pb-10 md:pb-24">
-    <outline-grid gap-size="small" has-padding="false" full-bleed="true">
+    <outline-grid gap-size="small" isNested full-bleed="true">
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -96,7 +96,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
   </div>
   
   <div class="pb-10 md:pb-24">
-    <outline-grid gap-size="small" has-padding="false">
+    <outline-grid gap-size="small" isNested>
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -143,45 +143,101 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
     </outline-grid>
   </div>
 
-  <div class="pb-10 md:pb-24">
-    <outline-grid gap-size="small" has-padding="false">
-      <outline-column col-span-default="12" col-span-md="2" content-align="top" row-span="3" class="text-center pb-10 md:pb-0">
-        <outline-link linkhref="https://storybook.js.org/" linktarget="_blank">
-          <img src={storybookLogo} class="w-40 mx-auto my-0" />
-        </outline-link>
-      </outline-column>
-      <outline-column col-span-default="12" col-span-md="10" class="text-left px-10">
-        <outline-heading level="h2" levelsize="4xl" levelstyle="light" class="border-b border-demo-lightGray pb-4 mb-4">Storybook</outline-heading>
-        <outline-heading level="h3" levelsize="2xl">Build bulletproof UI components faster</outline-heading>
-        <p>Storybook is an open source tool for developing UI components in isolation for React, Vue, Angular, and more. It makes building stunning UIs organized and efficient.</p>
-      </outline-column>
-      <outline-column col-span-default="12" col-span-md="5" class="p-4 px-10 border-demo-lightGray md:border-r md:border-b text-left md:mt-10">
-        <img src={storybookSearch} class="w-2/3"/>
-        <outline-heading level="h3" levelsize="2xl">Find any component in your app</outline-heading>
-        <p>Storybook is a searchable, single source of truth for your UI components.</p>
-      </outline-column>
-      <outline-column col-span-default="12" col-span-md="5" class="p-4 px-10 border-demo-lightGray md:border-b text-left md:mt-10">
-        <img src={storybookCollaborate} class="w-2/3" />
-        <outline-heading level="h3" levelsize="2xl">Get timely feedback during development</outline-heading>
-        <p>Collaborate on UI implementation with your team by deploying Storybook to the cloud.</p>
-      </outline-column>
-      <outline-column col-span-default="12" col-span-md="5" class="p-4 px-10 border-demo-lightGray md:border-r text-left">
-        <img src={storybookReuse} class="w-2/3" />
-        <outline-heading level="h3" levelsize="2xl">Share components across screens and apps</outline-heading>
-        <p>Every story is a use case that your team can find and reuse.</p>
-      </outline-column>
-      <outline-column col-span-default="12" col-span-md="5" class="p-4 px-10 text-left">
-        <img src={storybookDocument} class="w-2/3" />
-        <outline-heading level="h3" levelsize="2xl">Generate a styleguide automatically</outline-heading>
-        <p>Write Markdown/MDX to generate a customizable site that is perfect for component libraries and design systems.</p>
-      </outline-column>
-    </outline-grid>
-  </div>
+{' '}
 
-
+<div class="pb-10 md:pb-24">
+  <outline-grid gap-size="small" isNested>
+    <outline-column
+      col-span-default="12"
+      col-span-md="2"
+      content-align="top"
+      row-span="3"
+      class="text-center pb-10 md:pb-0"
+    >
+      <outline-link linkhref="https://storybook.js.org/" linktarget="_blank">
+        <img src={storybookLogo} class="w-40 mx-auto my-0" />
+      </outline-link>
+    </outline-column>
+    <outline-column
+      col-span-default="12"
+      col-span-md="10"
+      class="text-left px-10"
+    >
+      <outline-heading
+        level="h2"
+        levelsize="4xl"
+        levelstyle="light"
+        class="border-b border-demo-lightGray pb-4 mb-4"
+      >
+        Storybook
+      </outline-heading>
+      <outline-heading level="h3" levelsize="2xl">
+        Build bulletproof UI components faster
+      </outline-heading>
+      <p>
+        Storybook is an open source tool for developing UI components in
+        isolation for React, Vue, Angular, and more. It makes building stunning
+        UIs organized and efficient.
+      </p>
+    </outline-column>
+    <outline-column
+      col-span-default="12"
+      col-span-md="5"
+      class="p-4 px-10 border-demo-lightGray md:border-r md:border-b text-left md:mt-10"
+    >
+      <img src={storybookSearch} class="w-2/3" />
+      <outline-heading level="h3" levelsize="2xl">
+        Find any component in your app
+      </outline-heading>
+      <p>
+        Storybook is a searchable, single source of truth for your UI
+        components.
+      </p>
+    </outline-column>
+    <outline-column
+      col-span-default="12"
+      col-span-md="5"
+      class="p-4 px-10 border-demo-lightGray md:border-b text-left md:mt-10"
+    >
+      <img src={storybookCollaborate} class="w-2/3" />
+      <outline-heading level="h3" levelsize="2xl">
+        Get timely feedback during development
+      </outline-heading>
+      <p>
+        Collaborate on UI implementation with your team by deploying Storybook
+        to the cloud.
+      </p>
+    </outline-column>
+    <outline-column
+      col-span-default="12"
+      col-span-md="5"
+      class="p-4 px-10 border-demo-lightGray md:border-r text-left"
+    >
+      <img src={storybookReuse} class="w-2/3" />
+      <outline-heading level="h3" levelsize="2xl">
+        Share components across screens and apps
+      </outline-heading>
+      <p>Every story is a use case that your team can find and reuse.</p>
+    </outline-column>
+    <outline-column
+      col-span-default="12"
+      col-span-md="5"
+      class="p-4 px-10 text-left"
+    >
+      <img src={storybookDocument} class="w-2/3" />
+      <outline-heading level="h3" levelsize="2xl">
+        Generate a styleguide automatically
+      </outline-heading>
+      <p>
+        Write Markdown/MDX to generate a customizable site that is perfect for
+        component libraries and design systems.
+      </p>
+    </outline-column>
+  </outline-grid>
+</div>
 
 <div class="w-full pb-10 md:pb-24">
-  <outline-grid gap-size="small" has-padding="false">
+  <outline-grid gap-size="small" isNested>
     <outline-column
       col-span-default="12"
       col-span-md="2"
@@ -237,7 +293,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
 </div>
 
   <div class="w-full pb-10 md:pb-24">
-    <outline-grid gap-size="small" has-padding="false">
+    <outline-grid gap-size="small" isNested>
       <outline-column
         col-span-default="12"
         col-span-md="2"
