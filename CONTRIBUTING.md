@@ -1,12 +1,14 @@
 # Contributing to Outline
 
-> This document serves to help understand how to setup a local Outline environment, and how to contribute.
+> This document serves to help understand how to setup a local Outline environment, and how to contribute to the open source Outline project For project specific details, please consult the README.md in your project.
 
 ## Setup
 
-After pulling code to your local environment, run the following steps to ensure your environment is installed and up to date.
+Run the following steps to ensure your environment is installed and up to date. This assumes you are using [NVM](https://github.com/nvm-sh/nvm) locally to manage your NPM version(s).
 
 ```bash
+# Checkout the repository.
+git clone git@github.com:phase2/outline.git && cd outline
 # Ensure you are using the correct version of `npm`.
 nvm use
 # Install project dependencies.
