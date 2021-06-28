@@ -4,7 +4,7 @@
 
 ## Code of Conduct
 
-We have a [Code of Conduct]([./CODE_OF_CONDUCT.md](https://github.com/phase2/outline/blob/next/CODE_OF_CONDUCT.md)), please follow it in all interactions with project maintainers and fellow users.
+We have a [Code of Conduct](https://github.com/phase2/outline/blob/next/CODE_OF_CONDUCT.md), please follow it in all interactions with project maintainers and fellow users.
 
 ## Setup
 
