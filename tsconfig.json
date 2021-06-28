@@ -32,7 +32,7 @@
       }
     ]
   },
-  "include": ["./src/components/**/*.ts", "./src/components/**/*.tsx"],
+  "include": ["./src/components/**/*.ts", "./src/imports.d.ts"],
   "exclude": [
     "./src/components/**/*.stories.ts",
     "./src/components/**/*.lit.ts"
