@@ -1,5 +1,5 @@
 default:
-  image: node:latest
+  image: node:14
 
 cache: &global_cache
   paths:
