@@ -38,9 +38,3 @@ export class MyElement extends LitElement {
     `;
   }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'my-element': MyElement;
-  }
-}

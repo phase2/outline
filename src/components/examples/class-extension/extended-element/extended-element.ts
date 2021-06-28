@@ -56,9 +56,3 @@ export class ExtendedElement extends MyElement {
   //   this.count++;
   // }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'extended-element': ExtendedElement;
-  }
-}

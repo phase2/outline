@@ -1,4 +1,4 @@
-import { css, CSSResultGroup } from 'lit';
+import { html, css, CSSResultGroup, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ExtendedElement } from '../extended-element/extended-element';
 
@@ -37,27 +37,14 @@ export class DoubleExtendedElement extends ExtendedElement {
   @property()
   extra = 'New property on the ExtendedElement class.';
 
-  // render(): TemplateResult {
-  //   return html`
-  //     <h1>${this.name}!</h1>
-  //     <button @click=${this._onClick} part="button">
-  //       Click Count: ${this.count}
-  //     </button>
-  //     <slot></slot>
-  //     ${this.extra}
-  //   `;
-  // }
-
-  // When this private method is enabled in the extended class, error is thrown.
-  // Class 'ExtendedElement' incorrectly extends base class 'MyElement'.
-  // Types have separate declarations of a private property '_onClick'.
-  // private _onClick() {
-  //   this.count++;
-  // }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'double-extended-element': DoubleExtendedElement;
+  render(): TemplateResult {
+    return html`
+      <h1>${this.name}!</h1>
+      <button @click=${this._onClick} part="button">
+        Click Count: ${this.count}
+      </button>
+      <slot></slot>
+      ${this.extra}
+    `;
   }
 }
