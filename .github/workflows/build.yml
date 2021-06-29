@@ -151,7 +151,7 @@ jobs:
       - name: Build Storybook
         run: yarn storybook.prod
 
-  ref-test: 
+  ref-test:
     name: Testing reference
     runs-on: ubuntu-latest
     container:
@@ -160,14 +160,15 @@ jobs:
     steps:
       - name: What is the git reference?
         run: echo ${{ github.ref }}
-        
+
   upload-storybook-artifact:
     name: Upload Storybook Artifact
     runs-on: ubuntu-latest
     needs: build-storybook
     container:
       image: node:14
-    if: ${{ github.ref == 'refs/heads/feature/storybook-deploy-action' }}
+    # @todo: Remove test specific to a non-next branch.
+    if: ${{ github.ref == 'refs/pull/29/merge' }}
     steps:
       - uses: actions/cache@v2
         id: storybook-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
