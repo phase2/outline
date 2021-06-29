@@ -142,3 +142,12 @@ jobs:
 
       - name: Build Storybook
         run: yarn storybook.prod
+
+      # @see https://github.com/marketplace/actions/upload-a-build-artifact
+      - uses: actions/upload-artifact@v2
+        # Develop branch only
+        if: github.ref == 'refs/heads/feature/storybook-deploy-action'
+        with:
+          name: storybook-latest
+          path: storybook-static/
+          retention-days: 1
