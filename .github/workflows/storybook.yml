@@ -7,11 +7,12 @@ on:
     #   - './src/components/**'
     branches:
       - next
+      - feature/storybook-deploy-action
   pull_request:
     branches:
-      - /^feature/
+      - feature/storybook-deploy-action
   # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+  # workflow_dispatch:
 
 jobs:
   deploy:
@@ -21,8 +22,6 @@ jobs:
       image: node:14
 
     steps:
-      - uses: actions/checkout@v2
-
       - uses: actions/download-artifact@v2
         with:
           name: storybook-latest
