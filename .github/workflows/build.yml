@@ -12,29 +12,25 @@ on:
     branches:
       [next, dev, alpha, beta, rc, /^issue/, /^task/, /^feature/, /^bug/]
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
   build:
-    name: Setup Installation
+    name: Outline Build
     runs-on: ubuntu-latest
     container:
       image: node:14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
       - name: Install
         run: yarn install --cache-folder .yarn
 
       - name: Lint
         run: yarn lint
-  
+
       - name: Build
         run: yarn build
-  
+
       - name: Build Storybook
         run: yarn storybook.prod
