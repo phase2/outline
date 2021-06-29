@@ -157,7 +157,7 @@ jobs:
     needs: build-storybook
     container:
       image: node:14
-    # if: github.ref == 'refs/heads/feature/storybook-deploy-action'
+    if: github.ref == 'refs/heads/feature/storybook-deploy-action'
     steps:
       - uses: actions/cache@v2
         id: storybook-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
