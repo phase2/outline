@@ -15,7 +15,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  setup:
+  build:
     name: Setup Installation
     runs-on: ubuntu-latest
     container:
@@ -29,41 +29,12 @@ jobs:
       # Runs a single command using the runners shell
       - name: Install
         run: yarn install --cache-folder .yarn
-  test:
-    name: Run Tests
-    runs-on: ubuntu-latest
-    needs: setup
-    container:
-      image: node:14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Runs a single command using the runners shell
       - name: Lint
         run: yarn lint
   
-  build-dist:
-    name: Package Build
-    runs-on: ubuntu-latest
-    needs: test
-    container:
-      image: node:14
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Runs a single command using the runners shell
       - name: Build
         run: yarn build
   
-  build-storybook:
-    name: Storybook Build
-    runs-on: ubuntu-latest
-    needs: test
-    container:
-      image: node:14
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Runs a single command using the runners shell
       - name: Build Storybook
         run: yarn storybook.prod
