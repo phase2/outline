@@ -151,13 +151,23 @@ jobs:
       - name: Build Storybook
         run: yarn storybook.prod
 
+  ref-test: 
+    name: Testing reference
+    runs-on: ubuntu-latest
+    container:
+      image: node:14
+
+    steps:
+      - name: What is the git reference?
+        run: echo ${{ github.ref }}
+        
   upload-storybook-artifact:
     name: Upload Storybook Artifact
     runs-on: ubuntu-latest
     needs: build-storybook
     container:
       image: node:14
-    if: github.ref == 'refs/heads/feature/storybook-deploy-action'
+    if: ${{ github.ref == 'refs/heads/feature/storybook-deploy-action' }}
     steps:
       - uses: actions/cache@v2
         id: storybook-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
