@@ -17,6 +17,7 @@ jobs:
   # This workflow contains a single job called "build"
   setup:
     name: Setup Installation
+    runs-on: ubuntu-latest
     container:
       image: node:14
 
@@ -30,6 +31,7 @@ jobs:
         run: yarn install --cache-folder .yarn
   test:
     name: Run Tests
+    runs-on: ubuntu-latest
     needs: setup
     container:
       image: node:14
@@ -42,6 +44,7 @@ jobs:
   
   build-dist:
     name: Package Build
+    runs-on: ubuntu-latest
     needs: test
     container:
       image: node:14
@@ -54,6 +57,7 @@ jobs:
   
   build-storybook:
     name: Storybook Build
+    runs-on: ubuntu-latest
     needs: test
     container:
       image: node:14
