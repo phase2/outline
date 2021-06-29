@@ -1,0 +1,32 @@
+name: Storybook Deployment
+on:
+  # This deployment only occurs when code is pushed/merged to next.
+  push:
+    # paths:
+    #   - './src/storybook/stories/**'
+    #   - './src/components/**'
+    branches:
+      - next
+  pull_request:
+    branches:
+      - /^feature/
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    container:
+      image: node:14
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v2
+        with:
+          name: storybook-latest
+          path: storybook
+
+      - name: Display structure of downloaded files
+        run: ls -lah ./storybook
