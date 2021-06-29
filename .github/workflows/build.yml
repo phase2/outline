@@ -16,8 +16,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   setup:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    name: Setup Installation
     container:
       image: node:14
 
@@ -30,8 +29,7 @@ jobs:
       - name: Install
         run: yarn install --cache-folder .yarn
   test:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    name: Run Tests
     needs: setup
     container:
       image: node:14
@@ -41,9 +39,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Lint
         run: yarn lint
+  
   build-dist:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    name: Package Build
     needs: test
     container:
       image: node:14
@@ -53,9 +51,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build
         run: yarn build
+  
   build-storybook:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    name: Storybook Build
     needs: test
     container:
       image: node:14
