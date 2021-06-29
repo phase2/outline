@@ -177,7 +177,7 @@ jobs:
     container:
       image: node:14
     # @todo: Remove test specific to a non-next branch.
-    if: ${{ github.ref == 'refs/heads/next' || github.head_ref == 'refs/heads/feature/storybook-deploy-action'}}
+    if: ${{ github.ref == 'refs/heads/next' || github.head_ref == 'feature/storybook-deploy-action'}}
     steps:
       - uses: actions/cache@v2
         id: storybook-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
