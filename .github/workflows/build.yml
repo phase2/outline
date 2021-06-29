@@ -7,30 +7,108 @@ on:
   # Triggers the workflow on push or pull request events but only for the next branch
   push:
     branches:
-      [next, dev, alpha, beta, rc, /^issue/, /^task/, /^feature/, /^bug/]
+      - next
+      - dev
+      - alpha
+      - beta
+      - rc
+      - /^issue/
+      - /^task/
+      - /^feature/
+      - /^bug/
   pull_request:
     branches:
-      [next, dev, alpha, beta, rc, /^issue/, /^task/, /^feature/, /^bug/]
+      - next
+      - dev
+      - alpha
+      - beta
+      - rc
+      - /^issue/
+      - /^task/
+      - /^feature/
+      - /^bug/
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "build"
-  build:
-    name: Outline Build
+  setup:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
     container:
       image: node:14
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install
+        run: yarn install --prefer-offline
+
+  test:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    needs: setup
+    container:
+      image: node:14
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+            
       - name: Install
-        run: yarn install --cache-folder .yarn
+        run: yarn install --prefer-offline
 
       - name: Lint
         run: yarn lint
 
-      - name: Build
-        run: yarn build
+  # build-dist:
+  #   # The type of runner that the job will run on
+  #   runs-on: ubuntu-latest
+  #   needs: test
+  #   container:
+  #     image: node:14
 
-      - name: Build Storybook
-        run: yarn storybook.prod
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     # Runs a single command using the runners shell
+  #     - name: Build
+  #       run: yarn build
+  # build-storybook:
+  #   # The type of runner that the job will run on
+  #   runs-on: ubuntu-latest
+  #   needs: test
+  #   container:
+  #     image: node:14
+
+  #   # Steps represent a sequence of tasks that will be executed as part of the job
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     # Runs a single command using the runners shell
+  #     - name: Build Storybook
+  #       run: yarn storybook.prod
