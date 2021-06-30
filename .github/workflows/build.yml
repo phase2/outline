@@ -73,7 +73,7 @@ jobs:
           echo github.head_ref ${{ github.head_ref }}
           echo github.job ${{ github.job }}
           echo github.run_id ${{ github.run_id }}
-          echo github.workflow ${{ github.workflow }}
+          echo github.workflow "${{ github.workflow }}"
           echo github.action ${{ github.action }}
 
   test:
