@@ -1,18 +1,12 @@
 name: Storybook Deployment
 on:
-  # This deployment only occurs when code is pushed/merged to next.
-  push:
-    # paths:
-    #   - './src/storybook/stories/**'
-    #   - './src/components/**'
-    branches:
+  workflow_run:
+    workflows: ["Build & Test Codebase"]
+    branches: 
       - next
       - feature/storybook-deploy-action
-  pull_request:
-    branches:
-      - feature/storybook-deploy-action
-  # Allows you to run this workflow manually from the Actions tab
-  # workflow_dispatch:
+    types: 
+      - completed
 
 jobs:
   deploy:
