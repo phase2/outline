@@ -1,11 +1,11 @@
 name: Storybook Deployment
 on:
   workflow_run:
-    workflows: ["Build & Test Codebase"]
-    branches: 
+    workflows: ['Build & Test Codebase']
+    branches:
       - next
       - feature/storybook-deploy-action
-    types: 
+    types:
       - completed
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Display structure of downloaded files
         run: ls -lah ./storybook
-  
+
   debug:
     name: Debugging Information
     runs-on: ubuntu-latest
