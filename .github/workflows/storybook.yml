@@ -11,8 +11,6 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    container:
-      image: node:14
 
     steps:
       - name: Download artifact
@@ -49,8 +47,6 @@ jobs:
   debug:
     name: Debugging Information
     runs-on: ubuntu-latest
-    container:
-      image: node:14
 
     # The steps for the debug job.
     steps:
