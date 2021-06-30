@@ -1,0 +1,43 @@
+name: Storybook Deployment
+on:
+  workflow_run:
+    workflows: ['Build & Test Codebase']
+    branches:
+      - next
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    container:
+      image: node:14
+
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: storybook-latest
+          path: storybook
+
+      - name: Display structure of downloaded files
+        run: ls -lah ./storybook
+
+  debug:
+    name: Debugging Information
+    runs-on: ubuntu-latest
+    container:
+      image: node:14
+
+    steps:
+      - name: What environment variables are present?
+        run: env
+      - name: What (useful) GitHub variables are present?
+        run: |
+          echo github.action ${{ github.action }}
+          echo github.ref ${{ github.ref }}
+          echo github.head_ref ${{ github.head_ref }}
+          echo github.job ${{ github.job }}
+          echo github.run_id ${{ github.run_id }}
+          echo github.workflow "${{ github.workflow }}"
+          echo github.action ${{ github.action }}
