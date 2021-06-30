@@ -4,7 +4,6 @@ on:
     workflows: ['Build & Test Codebase']
     branches:
       - next
-      - feature/storybook-deploy-action
     types:
       - completed
 
