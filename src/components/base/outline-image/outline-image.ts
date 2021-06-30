@@ -22,13 +22,15 @@ export class OutlineImage extends OutlineElement {
   }
 
   captionSlotTemplate(): TemplateResult | null {
-    return !this.hasCaptionSlot ? null : html`<slot name="caption"></slot>`;
+    return !this.hasCaptionSlot
+      ? null
+      : html`<figcaption><slot name="caption"></slot></figcaption>`;
   }
 
   render(): TemplateResult {
     return html`
       <figure><slot></slot></figure>
-      <figcaption>${this.captionSlotTemplate()}</figcaption>
+      ${this.captionSlotTemplate()}
     `;
   }
 }

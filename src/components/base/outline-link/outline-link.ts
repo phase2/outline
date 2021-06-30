@@ -2,7 +2,7 @@
 import { OutlineElement } from '../outline-element/outline-element';
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { LinkTargetType, LinkRelType } from './config';
 import componentStyles from './outline-link.css.lit';
 

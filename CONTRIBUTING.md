@@ -28,6 +28,27 @@ Primary component development is done and demonstrated via [Storybook](https://s
 yarn start
 ```
 
+## Testing
+
+All PRs require passing tests before the PR will be reviewed
+
+Test files should be located in a test folder in your component directory with a .test.ts extension i.e. `src/components/base/outline-element/test/outline-element.test.ts`
+
+Testing is handled by [Web Test Runner](https://modern-web.dev/guides/test-runner/getting-started/) and uses [Playwright](https://playwright.dev/) to test modern browsers locally.
+
+Run tests on Chromium, Firefox, and Webkit using
+`yarn run test:local`
+
+You can also append one or more browsers to test on specifically i.e.
+`BROWSERS=firefox,chromium yarn run test`
+
+Optionally you can run tests using [BrowserStack](https://www.browserstack.com/) by running 
+`yarn run test:browserstack`
+Note: You must enter your username and access key in the .env file to use BrowserStack testing
+
+More info on writing tests for web components can be found at [Open-WC.org](https://open-wc.org/docs/testing/helpers/)
+
+
 ## Pull Requests
 
 Pull requests are greatly appreciated! To ensure a smooth review process, please follow these steps:
