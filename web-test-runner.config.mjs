@@ -5,13 +5,18 @@ import { browserstackLauncher as createBrowserstackLauncher } from '@web/test-ru
 import dotenv from 'dotenv';
 dotenv.config();
 
+// prettier-ignore
 const browserstackEnabled = () => {
   return (
-    process.env.BROWSER_STACK_USERNAME && process.env.BROWSER_STACK_ACCESS_KEY
-  );
+    (process.env.BROWSER_STACK_USERNAME &&
+    process.env.BROWSER_STACK_ACCESS_KEY)
+    ? true
+    : false
+  )
 };
+
 const browserstackLauncher = config => {
-  createBrowserstackLauncher({
+  return createBrowserstackLauncher({
     capabilities: {
       'browserstack.user': process.env.BROWSER_STACK_USERNAME,
       'browserstack.key': process.env.BROWSER_STACK_ACCESS_KEY,
@@ -29,6 +34,7 @@ const playwrightBrowsers = {
   firefox: playwrightLauncher({ product: 'firefox' }),
   webkit: playwrightLauncher({ product: 'webkit' }),
 };
+
 const browserstackBrowsers = browserstackEnabled()
   ? {
       // browser testing via browserstack
