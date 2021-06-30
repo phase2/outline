@@ -5,7 +5,12 @@ import { browserstackLauncher as createBrowserstackLauncher } from '@web/test-ru
 import dotenv from 'dotenv';
 dotenv.config();
 
-const browserstackLauncher = config =>
+const browserstackEnabled = () => {
+  return (
+    process.env.BROWSER_STACK_USERNAME && process.env.BROWSER_STACK_ACCESS_KEY
+  );
+};
+const browserstackLauncher = config => {
   createBrowserstackLauncher({
     capabilities: {
       'browserstack.user': process.env.BROWSER_STACK_USERNAME,
@@ -16,42 +21,48 @@ const browserstackLauncher = config =>
       ...config,
     },
   });
+};
 
-const browsers = {
+const playwrightBrowsers = {
   // local browser testing via playwright
   chromium: playwrightLauncher({ product: 'chromium' }),
   firefox: playwrightLauncher({ product: 'firefox' }),
   webkit: playwrightLauncher({ product: 'webkit' }),
-
-  // browser testing via browserstack
-  chromiumBS: browserstackLauncher({
-    browserName: 'Chrome',
-    os: 'Windows',
-    os_version: '10',
-  }),
-  firefoxBS: browserstackLauncher({
-    browserName: 'Firefox',
-    os: 'Windows',
-    os_version: '10',
-  }),
-  edge: browserstackLauncher({
-    browserName: 'MicrosoftEdge',
-    os: 'Windows',
-    os_version: '10',
-  }),
-  ie11: browserstackLauncher({
-    browserName: 'IE',
-    browser_version: '11.0',
-    os: 'Windows',
-    os_version: '10',
-  }),
-  safari: browserstackLauncher({
-    browserName: 'Safari',
-    browser_version: '14.0',
-    os: 'OS X',
-    os_version: 'Big Sur',
-  }),
 };
+const browserstackBrowsers = browserstackEnabled()
+  ? {
+      // browser testing via browserstack
+      chromiumBS: browserstackLauncher({
+        browserName: 'Chrome',
+        os: 'Windows',
+        os_version: '10',
+      }),
+      firefoxBS: browserstackLauncher({
+        browserName: 'Firefox',
+        os: 'Windows',
+        os_version: '10',
+      }),
+      edge: browserstackLauncher({
+        browserName: 'MicrosoftEdge',
+        os: 'Windows',
+        os_version: '10',
+      }),
+      ie11: browserstackLauncher({
+        browserName: 'IE',
+        browser_version: '11.0',
+        os: 'Windows',
+        os_version: '10',
+      }),
+      safari: browserstackLauncher({
+        browserName: 'Safari',
+        browser_version: '14.0',
+        os: 'OS X',
+        os_version: 'Big Sur',
+      }),
+    }
+  : {};
+
+const browsers = Object.assign({}, playwrightBrowsers, browserstackBrowsers);
 
 // Prepend BROWSERS=x,y to `yarn run test` to run a subset of browsers
 // e.g. `BROWSERS=chromium,firefox yarn run test`

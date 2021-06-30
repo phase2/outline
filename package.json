@@ -46,7 +46,9 @@
     "storybook.prod": "yarn prep && yarn storybook.wait && NODE_ENV=production build-storybook -c src/.storybook -o storybook-static",
     "storybook.prod.build": "concurrently -n \"prep,rollup,storybook\" -c \"cyan,blue,green\" \"yarn:prep\" \"yarn:rollup\" \"yarn:storybook.prod\"",
     "storybook.prod.serve": "wds --app-index storybook-static/index.html --node-resolve",
-    "lint": "eslint . && prettier --check .",
+    "lint": "yarn lint.eslint && yarn lint.test",
+    "lint.eslint": "eslint .",
+    "lint.prettier": "prettier --check .",
     "fmt": "concurrently \"yarn:fmt.code\" \"yarn:fmt.svg\"",
     "fmt.code": "eslint --fix . && prettier --write .",
     "fmt.svg": "svgo -f ./src -r --config=.svgo.yml",
@@ -60,9 +62,8 @@
     "rollup.watch": "yarn rollup -w",
     "rollup": "yarn rollup.bundle",
     "test": "tsc && wtr",
-    "test:local": "BROWSERS=chromium,firefox,webkit yarn run test",
-    "test:browserstack": "BROWSERS=chromiumBS,firefoxBS,edge,ie11,safari yarn run test",
-    "test:watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"BROWSERS=chromium wtr --watch\""
+    "wtr": "wtr",
+    "test.watch": "tsc && concurrently -k -r \"tsc --watch --preserveWatchOutput\" \"BROWSERS=chromium wtr --watch\""
   },
   "keywords": [
     "web-components",

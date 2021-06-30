@@ -106,8 +106,14 @@ jobs:
       - name: Install from cache
         run: yarn install --prefer-offline
 
-      - name: Lint
-        run: yarn lint
+      - name: Run eslint
+        run: yarn lint.eslint
+
+      - name: Run prettier
+        run: yarn lint.prettier
+
+      - name: Run tests
+        run: yarn test
 
   # Job to build and cache the distribution package.
   build-dist:
