@@ -15,10 +15,17 @@ jobs:
       image: node:14
 
     steps:
-      - uses: actions/download-artifact@v2
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
         with:
+          # Required, workflow file name or ID
+          workflow: build.yml
+          workflow_conclusion: success
+          # Optional, will use the branch
+          branch: next
           name: storybook-latest
-          path: storybook
+          # Optional, directory where to extract artifact. Defaults to the artifact name (see `name` input)
+          path: storybook/
 
       - name: Display structure of downloaded files
         run: ls -lah ./storybook

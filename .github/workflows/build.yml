@@ -188,7 +188,8 @@ jobs:
             ${{ runner.os }}-storybook-
 
       # @see https://github.com/marketplace/actions/upload-a-build-artifact
-      - uses: actions/upload-artifact@v2
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v2
         with:
           name: storybook-latest
           path: storybook-static/
