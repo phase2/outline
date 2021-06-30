@@ -92,7 +92,7 @@ jobs:
         with:
           node-version: '14'
       # @see https://github.com/marketplace/actions/run-playwright-tests
-      - uses: microsoft/playwright-github-action@v1c
+      - uses: microsoft/playwright-github-action@v1
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
