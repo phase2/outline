@@ -26,32 +26,32 @@ jobs:
           # Optional, directory where to extract artifact.
           path: storybook/
 
-      - name: List files 
+      - name: List files
         run: ls -lah ./storybook
-  
+
       - name: Check GitHub Pages status
         uses: crazy-max/ghaction-github-status@v2
         with:
           pages_threshold: major_outage
-      
+
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: storybook
           build_dir: storybook
-          commit_message: "chore(deploy): Storybook"
+          commit_message: 'chore(deploy): Storybook'
           keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  
+
   # Job to log some basic data useful in workflow development.
   debug:
     name: Debugging Information
     runs-on: ubuntu-latest
     container:
       image: node:14
-    
+
     # The steps for the debug job.
     steps:
       - name: What environment variables are present?

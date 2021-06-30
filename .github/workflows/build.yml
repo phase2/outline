@@ -45,7 +45,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - uses: actions/cache@v2
-        id: yarn-cache 
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -54,14 +54,14 @@ jobs:
 
       - name: Install
         run: yarn install --prefer-offline
-  
-  # Job to log some basic data useful in workflow development. 
+
+  # Job to log some basic data useful in workflow development.
   debug:
     name: Debugging Information
     runs-on: ubuntu-latest
     container:
       image: node:14
-    
+
     # The steps for the debug job.
     steps:
       - name: What environment variables are present?
@@ -75,8 +75,8 @@ jobs:
           echo github.run_id ${{ github.run_id }}
           echo github.workflow "${{ github.workflow }}"
           echo github.action ${{ github.action }}
-  
-  # Job to run tests, linters and formatting checks. 
+
+  # Job to run tests, linters and formatting checks.
   test:
     name: Testing & Linting
     runs-on: ubuntu-latest
@@ -108,8 +108,8 @@ jobs:
 
       - name: Lint
         run: yarn lint
-  
-  # Job to build and cache the distribution package. 
+
+  # Job to build and cache the distribution package.
   build-dist:
     name: Build Package(s)
     runs-on: ubuntu-latest
@@ -135,7 +135,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      
+
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
         id: dist-cache
@@ -150,7 +150,7 @@ jobs:
 
       - name: Build
         run: yarn build
-  
+
   build-storybook:
     name: Build Storybook
     runs-on: ubuntu-latest
@@ -191,7 +191,7 @@ jobs:
 
       - name: Build Storybook
         run: yarn storybook.prod
-  # 
+  #
   upload-storybook-artifact:
     name: Upload Storybook Artifact
     runs-on: ubuntu-latest
