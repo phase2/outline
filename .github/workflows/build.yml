@@ -45,7 +45,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache 
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -54,13 +54,15 @@ jobs:
 
       - name: Install
         run: yarn install --prefer-offline
-
+  
+  # Job to log some basic data useful in workflow development. 
   debug:
     name: Debugging Information
     runs-on: ubuntu-latest
     container:
       image: node:14
-
+    
+    # The steps for the debug job.
     steps:
       - name: What environment variables are present?
         run: env
@@ -73,7 +75,8 @@ jobs:
           echo github.run_id ${{ github.run_id }}
           echo github.workflow "${{ github.workflow }}"
           echo github.action ${{ github.action }}
-
+  
+  # Job to run tests, linters and formatting checks. 
   test:
     name: Testing & Linting
     runs-on: ubuntu-latest
@@ -81,7 +84,7 @@ jobs:
     container:
       image: node:14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # The steps for the test job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
@@ -93,7 +96,7 @@ jobs:
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -105,7 +108,8 @@ jobs:
 
       - name: Lint
         run: yarn lint
-
+  
+  # Job to build and cache the distribution package. 
   build-dist:
     name: Build Package(s)
     runs-on: ubuntu-latest
@@ -113,7 +117,7 @@ jobs:
     container:
       image: node:14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # The steps for the build-dist job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
@@ -125,18 +129,28 @@ jobs:
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
+      
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: dist-cache
+        with:
+          path: dist/
+          key: ${{ runner.os }}-dist-${{ hashFiles('./storybook-static/') }}
+          restore-keys: |
+            ${{ runner.os }}-dist-
 
       - name: Install from cache
         run: yarn install --prefer-offline
 
       - name: Build
         run: yarn build
+  
   build-storybook:
     name: Build Storybook
     runs-on: ubuntu-latest
@@ -144,7 +158,7 @@ jobs:
     container:
       image: node:14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # The steps for the build-storybook job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
@@ -156,7 +170,7 @@ jobs:
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -165,7 +179,7 @@ jobs:
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
-        id: storybook-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: storybook-cache
         with:
           path: storybook-static/
           key: ${{ runner.os }}-storybook-${{ hashFiles('./storybook-static/') }}
@@ -177,7 +191,7 @@ jobs:
 
       - name: Build Storybook
         run: yarn storybook.prod
-
+  # 
   upload-storybook-artifact:
     name: Upload Storybook Artifact
     runs-on: ubuntu-latest
@@ -190,7 +204,7 @@ jobs:
     steps:
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
-        id: storybook-cache # use this to check for `cache-hit` (`steps.build-storybook.outputs.cache-hit != 'true'`)
+        id: storybook-cache
         with:
           path: storybook-static/
           key: ${{ runner.os }}-storybook-${{ hashFiles('./storybook-static/') }}
