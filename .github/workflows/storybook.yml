@@ -21,10 +21,9 @@ jobs:
           # Required, workflow file name or ID
           workflow: build.yml
           workflow_conclusion: success
-          # Optional, will use the branch
           branch: next
           name: storybook-latest
-          # Optional, directory where to extract artifact. Defaults to the artifact name (see `name` input)
+          # Optional, directory where to extract artifact.
           path: storybook/
 
       - name: Display structure of downloaded files

@@ -4,7 +4,7 @@ name: Build & Test Codebase
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the next branch
+  # Which branches to test on push/merge.
   push:
     branches:
       - next
@@ -12,10 +12,7 @@ on:
       - alpha
       - beta
       - rc
-      - /^issue/
-      - /^task/
-      - /^feature/
-      - /^bug/
+  # Which branches to test on pull request.
   pull_request:
     branches:
       - next
@@ -28,19 +25,20 @@ on:
       - /^feature/
       - /^bug/
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+# The jobs for the build workflow.
 jobs:
-  # This workflow contains a single job called "build"
+  # Basic setup job to prepare codebase.
   setup:
     name: Installation & Caching
     runs-on: ubuntu-latest
     container:
       image: node:14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
+    # The steps for the setup job.
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -85,12 +83,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
+      # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
@@ -114,12 +115,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
+      # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
@@ -142,12 +146,15 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
+      # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
         id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
@@ -156,6 +163,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
         id: storybook-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
@@ -176,11 +184,13 @@ jobs:
     needs: build-storybook
     container:
       image: node:14
-    # @todo: Remove test specific to a non-next branch.
+
+    # Only perform the storybook upload if we are on the `next` branch.
     if: ${{ github.ref == 'refs/heads/next'}}
     steps:
+      # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v2
-        id: storybook-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: storybook-cache # use this to check for `cache-hit` (`steps.build-storybook.outputs.cache-hit != 'true'`)
         with:
           path: storybook-static/
           key: ${{ runner.os }}-storybook-${{ hashFiles('./storybook-static/') }}
