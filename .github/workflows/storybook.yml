@@ -39,7 +39,7 @@ jobs:
           target_branch: storybook
           build_dir: storybook
           commit_message: 'chore(deploy): Storybook'
-          keep_history: true
+          keep_history: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
