@@ -116,8 +116,8 @@ jobs:
       - name: Run prettier
         run: yarn lint.prettier
 
-      - name: Run tests
-        run: yarn test
+      # - name: Run tests
+      #   run: yarn test
 
   # Job to build and cache the distribution package.
   build-dist:
