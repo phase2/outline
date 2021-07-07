@@ -39,25 +39,6 @@ jobs:
           target_branch: storybook
           build_dir: storybook
           commit_message: 'chore(deploy): Storybook'
-          keep_history: false
+          keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  # Job to log some basic data useful in workflow development.
-  debug:
-    name: Debugging Information
-    runs-on: ubuntu-latest
-
-    # The steps for the debug job.
-    steps:
-      - name: What environment variables are present?
-        run: env
-      - name: What (useful) GitHub variables are present?
-        run: |
-          echo github.action ${{ github.action }}
-          echo github.ref ${{ github.ref }}
-          echo github.head_ref ${{ github.head_ref }}
-          echo github.job ${{ github.job }}
-          echo github.run_id ${{ github.run_id }}
-          echo github.workflow "${{ github.workflow }}"
-          echo github.action ${{ github.action }}
