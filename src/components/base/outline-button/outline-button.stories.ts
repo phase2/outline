@@ -18,7 +18,7 @@ export default {
   component: 'outline-button',
   argTypes: {
     ...argTypeSlotContent,
-    ...argTypeTarget,
+    target: argTypeTarget,
     disabled: {
       control: {
         type: 'boolean',
