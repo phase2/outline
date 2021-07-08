@@ -51,6 +51,8 @@ Primary component development is done and demonstrated via [Storybook](https://s
 yarn start
 ```
 
+Load [http://localhost:6006](http://localhost:6006) in a browser.
+
 ## Testing
 
 All PRs require passing tests before the PR will be reviewed
