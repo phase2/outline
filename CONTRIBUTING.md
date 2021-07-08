@@ -10,6 +10,8 @@ We have a [Code of Conduct](https://github.com/phase2/outline/blob/next/CODE_OF_
 
 Run the following steps to ensure your environment is installed and up to date. This assumes you are using [NVM](https://github.com/nvm-sh/nvm) locally to manage your NPM version(s).
 
+*If you would like to use Docker containers, see below.*
+
 ```bash
 # Checkout the repository.
 git clone git@github.com:phase2/outline.git && cd outline
@@ -17,6 +19,27 @@ git clone git@github.com:phase2/outline.git && cd outline
 nvm use
 # Install project dependencies.
 yarn install
+```
+
+### Docker Compose local development
+
+You can use Docker Desktop to create a container which contains the dependencies to build the project.
+
+```bash
+# Create / Recreate the containers.
+docker compose up -d
+
+# SSH into the container.
+docker compose exec node bash
+
+# Install the project dependencies.
+yarn install
+
+# Disconnect from the container
+exit
+
+# Shut down the container
+docker compose down
 ```
 
 ## Storybook Development

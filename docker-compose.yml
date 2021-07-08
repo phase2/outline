@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  node:
+    # See `.nvmrc`
+    image: "node:14"
+    container_name: node_outline
+    user: "node"
+    working_dir: /home/node/app
+    volumes:
+      - .:/home/node/app
+    ports:
+      # See `storybook.dev` in `package.json`
+      - "6006:6006"
+    # Allow us to log in and keep the connection open.
+    tty: true
