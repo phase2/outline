@@ -77,7 +77,7 @@ Run tests on Chromium, Firefox, and Webkit using
 You can also append one or more browsers to test on specifically i.e.
 `BROWSERS=firefox,chromium yarn run test`
 
-Optionally you can run tests using [BrowserStack](https://www.browserstack.com/) by running 
+Optionally you can run tests using [BrowserStack](https://www.browserstack.com/) by running
 `yarn run test:browserstack`
 Note: You must enter your username and access key in the .env file to use BrowserStack testing
 
@@ -93,7 +93,7 @@ Pull requests are greatly appreciated! To ensure a smooth review process, please
 2. Please discuss the general shape of the change ahead of time and include screenshots where appropriate. This can save much time for reviewers and submitters alike. Many times there may be existing ideas on how to handle an issue that are not fully written out, and asking about it will bring out more details.
 3. All PRs that change behavior or fix bugs should have new or updated tests.
 4. Try to create a set of descriptive commits that each do one focused change. Avoid commits like "oops", and prefer commits like "Added method foo to Bar".
-5. When addressing review comments, try to add new commits, rather than modifying previous commits. This makes it easier for reviewers to see what changed since the last review. 
+5. When addressing review comments, try to add new commits, rather than modifying previous commits. This makes it easier for reviewers to see what changed since the last review.
 6. Please run `yarn lint` and `yarn fmt` before submitting PRs. PRs that don't lint and aren't formatted will fail continuous integration tests.
 
 ---
@@ -101,6 +101,7 @@ Pull requests are greatly appreciated! To ensure a smooth review process, please
 ## Commit messages
 
 Outline uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
 > The Conventional Commits specification is a lightweight convention on top of commit messages. It provides an easy set of rules for creating an explicit commit history; which makes it easier to write automated tools on top of. This convention dovetails with [SemVer](https://semver.org/), by describing the features, fixes, and breaking changes made in commit messages.
 
 ### Sample commit messages
@@ -132,7 +133,7 @@ This will create a major release. (1.0.0 --> 2.0.0)
 
 ## Code Cleanup
 
-Code is not automatically formatted upon commit. As a matter of best practices, you should run `yarn fmt` and `yarn lint` prior to committing code in order that pipelines will not fail in the `Test and Build` task.  
+Code is not automatically formatted upon commit. As a matter of best practices, you should run `yarn fmt` and `yarn lint` prior to committing code in order that pipelines will not fail in the `Test and Build` task.
 
 ### Run all Prettier and SVG formatting
 
@@ -170,6 +171,7 @@ yarn build
 ```
 
 ---
+
 > To only run the rollup build, which handles the component bundling into modern and legacy builds:
 
 ### One time build
