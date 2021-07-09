@@ -1,9 +1,8 @@
 {
   "name": "@phase2tech/outline",
   "description": "Outline Component Design",
-  "private": true,
   "main": "dist/outline.js",
-  "module": "dist/custom-elements/index.js",
+  "module": "dist/outline.js",
   "es2015": "dist/outline-legacy.js",
   "es2017": "dist/outline.js",
   "unpkg": "dist/outline.js",
