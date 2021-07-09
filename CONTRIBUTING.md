@@ -10,25 +10,45 @@ We have a [Code of Conduct](https://github.com/phase2/outline/blob/next/CODE_OF_
 
 Run the following steps to ensure your environment is installed and up to date. This assumes you are using [NVM](https://github.com/nvm-sh/nvm) locally to manage your NPM version(s).
 
+### Checkout the repository
+
 ```bash
-# Checkout the repository.
 git clone git@github.com:phase2/outline.git && cd outline
-# Ensure you are using the correct version of `npm`.
+```
+
+---
+
+### Ensure you are using the correct version of `npm`
+
+```bash
 nvm use
-# Install project dependencies.
+```
+
+If you need to update your node version, see the [usage documentation](https://github.com/nvm-sh/nvm#usage) for nvm.
+
+---
+
+### Install project dependencies
+
+```bash
 yarn install
 ```
+
+---
 
 ## Storybook Development
 
 Primary component development is done and demonstrated via [Storybook](https://storybook.js.org/).
 
+### Start storybook instance.
+
 ```bash
-# Start storybook instance.
 yarn start
 ```
 
-## Testing
+---
+
+## Testing (pending)
 
 All PRs require passing tests before the PR will be reviewed
 
@@ -48,6 +68,7 @@ Note: You must enter your username and access key in the .env file to use Browse
 
 More info on writing tests for web components can be found at [Open-WC.org](https://open-wc.org/docs/testing/helpers/)
 
+---
 
 ## Pull Requests
 
@@ -59,6 +80,8 @@ Pull requests are greatly appreciated! To ensure a smooth review process, please
 4. Try to create a set of descriptive commits that each do one focused change. Avoid commits like "oops", and prefer commits like "Added method foo to Bar".
 5. When addressing review comments, try to add new commits, rather than modifying previous commits. This makes it easier for reviewers to see what changed since the last review. 
 6. Please run `yarn lint` and `yarn fmt` before submitting PRs. PRs that don't lint and aren't formatted will fail continuous integration tests.
+
+---
 
 ## Commit messages
 
@@ -90,18 +113,35 @@ BREAKING CHANGE - Requires a rewrite of all your code.
 
 This will create a major release. (1.0.0 --> 2.0.0)
 
+---
+
 ## Code Cleanup
 
 Code is not automatically formatted upon commit. As a matter of best practices, you should run `yarn fmt` and `yarn lint` prior to committing code in order that pipelines will not fail in the `Test and Build` task.  
 
+### Run all Prettier and SVG formatting
+
 ```bash
-# Run all Prettier and SVG formatting.
 yarn fmt
-# Run Prettier formatting.
+```
+
+---
+
+### Run Prettier formatting
+
+```bash
 yarn fmt.code
-# Run svgo formatting.
+```
+
+---
+
+### Run svgo formatting
+
+```bash
 yarn fmt.svg
 ```
+
+---
 
 ## Production builds
 
@@ -114,14 +154,24 @@ Runs both `tsc` and `yarn rollup` to handle the following:
 yarn build
 ```
 
-To only run the rollup build, which handles the component bundling into modern and legacy builds:
+---
+> To only run the rollup build, which handles the component bundling into modern and legacy builds:
+
+### One time build
 
 ```bash
-# One time build.
 yarn rollup
-# Enable in watch mode.
+```
+
+---
+
+### Enable in watch mode
+
+```bash
 yarn rollup.watch
 ```
+
+---
 
 ## Resetting local environment
 
