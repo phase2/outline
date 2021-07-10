@@ -1,0 +1,7 @@
+:host {
+  @apply flex;
+}
+
+.accordion-buttton {
+  @apply border-0 bg-neutral-transparent;
+}
