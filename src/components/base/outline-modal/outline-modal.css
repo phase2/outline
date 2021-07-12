@@ -8,7 +8,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,7 +37,9 @@
 }
 
 /* We need a double slash on the unicode because of templates later. */
-#close:before { content: "\\2715"; }
+#close:before {
+  content: '\\2715';
+}
 
 #main {
   padding: 1.62rem;
