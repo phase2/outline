@@ -17,7 +17,7 @@ export class OutlineModal extends OutlineElement {
   /**
    * The size of the modal.
    */
-  @property({ type: String }) size: ModalSize;
+  @property({ type: String }) size?: ModalSize = 'medium';
 
   render(): TemplateResult {
     return html`
