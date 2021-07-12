@@ -22,12 +22,12 @@ import tailwindThemeConfig from '../../../resolved-tailwind-config';
       ([set, variants]) => html`
         <div>
           <div
-            class="flex flex-col space-y-3 sm:flex-row text-xs sm:space-y-0 sm:space-x-4 pb-8 border-b border-gray-300"
+            class="flex flex-col space-y-3 sm:flex-row text-xs sm:space-y-0 sm:space-x-4 pb-8 border-b border-demo-lightGray"
           >
             <div class="w-32 flex-shrink-0">
               <div class="h-10 flex flex-col justify-center">
                 <div>
-                  <code class="text-xs text-gray-500">colors.${set}</code>
+                  <code class="text-xs text-demo-darkGray">colors.${set}</code>
                 </div>
               </div>
             </div>
@@ -37,7 +37,7 @@ import tailwindThemeConfig from '../../../resolved-tailwind-config';
               ${Object.entries(variants).map(
                 ([name, value]) => html`
                   <div
-                    class="space-y-1.5 my-2 lg:my-4 pb-2 lg:pb-4 border-b border-gray-300"
+                    class="space-y-1.5 my-2 lg:my-4 pb-2 lg:pb-4 border-b border-demo-lightGray"
                   >
                     <div
                       class="h-16 w-full rounded shadow bg-${set}-${name}"
