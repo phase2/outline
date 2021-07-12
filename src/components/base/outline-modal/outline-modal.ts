@@ -23,12 +23,30 @@ export class OutlineModal extends OutlineElement {
   @state()
   _isOpen = false;
 
-  private _handleModalTrigger(): void {
-    this._isOpen = true;
+  private _handleModalTrigger(event: MouseEvent | KeyboardEvent): void {
+    let shouldOpen = false;
+
+    switch (event.type) {
+      case 'click':
+        shouldOpen = true;
+        break;
+      case 'keyup':
+        if ('key' in event && event.key === 'Enter') {
+          shouldOpen = true;
+          break;
+        }
+    }
+
+    if (shouldOpen) {
+      this._isOpen = true;
+    }
   }
 
-  private _handleModalClose(): void {
-    this._isOpen = false;
+  private _handleModalClose(event: Event): void {
+    // Only trigger if we click directly on the event that wants to receive the click.
+    if (event.target === event.currentTarget) {
+      this._isOpen = false;
+    }
   }
 
   private _overlayTemplate(): TemplateResult {
@@ -36,12 +54,30 @@ export class OutlineModal extends OutlineElement {
 
     if (this._isOpen) {
       template = html`
-        <div id="overlay" class="${this.size}">
-          <div id="close" @click="${this._handleModalClose}">Close</div>
-          <div id="header">
-            <slot name="outline-modal--header"></slot>
+        <div
+          id="overlay"
+          tabindex="-1"
+          class="${this.size}"
+          @click="${this._handleModalClose}"
+        >
+          <div
+            id="container"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="header"
+          >
+            <div id="header">
+              <slot id="title" name="outline-modal--header"></slot>
+              <button
+                id="close"
+                aria-label="Close modal"
+                @click="${this._handleModalClose}"
+              ></button>
+            </div>
+            <div id="main">
+              <slot></slot>
+            </div>
           </div>
-          <slot></slot>
         </div>
       `;
     }
@@ -51,7 +87,12 @@ export class OutlineModal extends OutlineElement {
 
   render(): TemplateResult {
     return html`
-      <div id="trigger" @click="${this._handleModalTrigger}">
+      <div
+        id="trigger"
+        tabindex="0"
+        @click="${this._handleModalTrigger}"
+        @keyup="${this._handleModalTrigger}"
+      >
         <slot name="outline-modal--trigger"></slot>
       </div>
       ${this._overlayTemplate()}

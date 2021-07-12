@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container {
+  background-color: #fff;
+  min-width: 320px;
+  max-width: 500px;
+  max-height: 100vh;
+  border-radius: 4px;
+  overflow-y: auto;
+}
+
+#header {
+  position: relative;
+  padding: 1.62rem 1.62rem 0 1.62rem;
+}
+
+#close {
+  background: transparent;
+  border: 0;
+  position: absolute;
+  top: 0.62rem;
+  right: 0.62rem;
+}
+
+/* We need a double slash on the unicode because of templates later. */
+#close:before { content: "\\2715"; }
+
+#main {
+  padding: 1.62rem;
+}
