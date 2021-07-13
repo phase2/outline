@@ -4,10 +4,16 @@ import './outline-accordion';
 export default {
   title: 'Molecules/Accordion',
   component: 'outline-accordion',
+  argTypes: {
+    singleLeaf: { control: { type: 'boolean' } },
+  },
 };
 
-const Template = ({ data }): TemplateResult =>
-  html` <outline-accordion .data=${data}> </outline-accordion> `;
+const Template = ({ data, singleLeaf }): TemplateResult =>
+  html`
+    <outline-accordion .data=${data} .singlePanel=${singleLeaf}>
+    </outline-accordion>
+  `;
 
 export const Accordion = Template.bind({});
 Accordion.args = {
@@ -25,4 +31,5 @@ Accordion.args = {
       content: html`<p>Praesent ut ligula non mi</p>`,
     },
   ],
+  singleLeaf: true,
 };
