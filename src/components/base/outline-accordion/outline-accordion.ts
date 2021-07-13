@@ -1,13 +1,19 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { OutlineElement } from '../outline-element/outline-element';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import componentStyles from './outline-accordion.css.lit';
 
 export type AccordionPanel = {
   heading: string;
+  // TODO: Discuss removing "@typescript-eslint/no-explicit-any" rule. Potentially change to content: any.
   content: unknown;
 };
 
+/**
+ * Accordion Component
+ * @element outline-accordion
+ */
 @customElement('outline-accordion')
 export class OutlineAccordion extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
@@ -60,7 +66,7 @@ export class OutlineAccordion extends OutlineElement {
                 .hidden=${!this.active.includes(`${this.seed}-${index}`)}
                 tabindex="0"
               >
-                <slot name="content-${index}"> ${panel.content} </slot>
+                ${unsafeHTML(`${panel.content}`)}
               </div>
             </div>`
         )}

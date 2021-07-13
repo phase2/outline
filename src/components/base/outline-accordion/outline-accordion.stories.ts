@@ -20,15 +20,15 @@ Accordion.args = {
   data: [
     {
       heading: 'I am heading 1',
-      content: html`<p>Praesent ut ligula non mi</p>`,
+      content: `<div class="test"><h3>I'm magic!!!</h3><p>Praesent ut ligula non mi</p></div> `,
     },
     {
       heading: 'I am heading 2',
-      content: html`<p>Praesent ut ligula non mi</p>`,
+      content: `<p>Praesent ut ligula non mi</p>`,
     },
     {
       heading: 'I am heading 3',
-      content: html`<p>Praesent ut ligula non mi</p>`,
+      content: `<p>Praesent ut ligula non mi</p>`,
     },
   ],
   singleLeaf: true,
