@@ -1,40 +1,23 @@
 * {
-  box-sizing: border-box;
+  @apply box-border;
 }
 
 #overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 99999;
+  @apply fixed top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center bg-black bg-opacity-6;
 }
 
 #container {
-  background-color: #fff;
+  @apply overflow-y-auto bg-white rounded-sm min-h-screen;
   min-width: 320px;
   max-width: 500px;
-  max-height: 100vh;
-  border-radius: 4px;
-  overflow-y: auto;
 }
 
 #header {
-  position: relative;
-  padding: 1.62rem 1.62rem 0 1.62rem;
+  @apply relative px-6 pt-6;
 }
 
 #close {
-  background: transparent;
-  border: 0;
-  position: absolute;
-  top: 0.62rem;
-  right: 0.62rem;
+  @apply absolute bg-transparent border-0 top-2.5 right-2.5;
 }
 
 /* We need a double slash on the unicode because of templates later. */
@@ -43,5 +26,5 @@
 }
 
 #main {
-  padding: 1.62rem;
+  @apply p-6;
 }
