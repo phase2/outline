@@ -41,6 +41,37 @@ export default {
   },
   parameters: {
     docs: {
+      description: {
+        component: `
+## Accessibility
+
+- If a trigger is supplied as a slot, that element can be focused and triggered with the keyboard (\`Tab\` and \`Enter\`)
+- The \`Escape\` button can be used to close the modal
+- The close button can be focused and triggered with the keyboard (\`Tab\` and \`Enter\`)
+
+## Variations
+
+You can set the \`size\` to change the size of the modal.
+
+## Events
+
+Events are triggered by the modal.
+
+- \`opened\`
+- \`closed\`
+
+## Properties
+
+You can access the boolean \`isOpen\` property to determine if the modal is open.
+
+## Triggering the modal
+
+You can add a trigger slot to the modal \`slot="outline-modal--trigger"\`.
+
+You can also manually trigger the modal with the \`.open()\` method. Similarly, you can close the modal with \`.close()\`.
+
+`,
+      },
       source: {
         code: `
 <outline-modal size="{{ size }}">
