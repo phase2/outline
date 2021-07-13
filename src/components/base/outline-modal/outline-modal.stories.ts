@@ -11,21 +11,45 @@ export default {
     triggerSlot: {
       name: 'slot="outline-modal--trigger"',
       description: 'The trigger slot. For example, an "open modal" button.',
+      table: {
+        category: 'Slots',
+      },
       // We aren't setting a control type here so we can edit the value using the infered object.
     },
     headerSlot: {
       name: 'slot="outline-modal--header"',
       description: 'The header slot. For example a header title.',
+      table: {
+        category: 'Slots',
+      },
       // We aren't setting a control type here so we can edit the value using the infered object.
     },
     // This is the modal content.
     // We aren't setting a control type here so we can edit the value using the infered object.
-    ...argTypeSlotContent,
+    defaultSlot: {
+      ...argTypeSlotContent.defaultSlot,
+      table: {
+        category: 'Slots',
+      },
+    },
     size: {
       name: 'size',
       description: 'The size of the modal.',
       options: modalSizes,
       control: { type: 'select' },
+    },
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<outline-modal size="{{ size }}">
+  <outline-link slot="outline-modal--trigger">{{ triggerSlot}}</outline-link>
+  <outline-heading slot="outline-modal--header">{{ headerSlot}}</outline-heading>
+  {{ defaultSlot }}
+</outline-modal>
+        `,
+      },
     },
   },
 };
