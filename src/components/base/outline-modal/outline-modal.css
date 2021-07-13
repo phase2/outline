@@ -3,11 +3,14 @@
 }
 
 #overlay {
-  @apply fixed top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center bg-black bg-opacity-6;
+  @apply fixed top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center bg-opacity-60 bg-neutral-black;
+
+  /* Tailwind background opacity with customizations wasn't working.\`bg-opacity-60 bg-neutral-black\` */
+  background-color: rgb(0, 0, 0, var(--tw-bg-opacity));
 }
 
 #container {
-  @apply overflow-y-auto bg-white rounded-sm min-h-screen;
+  @apply overflow-y-auto rounded-sm max-h-screen bg-neutral-white;
   min-width: 320px;
   max-width: 500px;
 }
@@ -17,7 +20,7 @@
 }
 
 #close {
-  @apply absolute bg-transparent border-0 top-2.5 right-2.5;
+  @apply absolute border-0 top-2.5 right-2.5 bg-neutral-transparent;
 }
 
 /* We need a double slash on the unicode because of templates later. */
