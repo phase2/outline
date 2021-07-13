@@ -1,5 +1,5 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-modal.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
 
@@ -20,8 +20,28 @@ export class OutlineModal extends OutlineElement {
   @property({ type: String })
   size?: ModalSize = 'medium';
 
-  @state()
-  _isOpen = false;
+  @property({ attribute: false })
+  isOpen = false;
+
+  async open(): Promise<void> {
+    if (!this.isOpen) {
+      this.isOpen = true;
+
+      await this.updateComplete;
+
+      this.dispatchEvent(new CustomEvent('opened'));
+    }
+  }
+
+  async close(): Promise<void> {
+    if (this.isOpen) {
+      this.isOpen = false;
+
+      await this.updateComplete;
+
+      this.dispatchEvent(new CustomEvent('closed'));
+    }
+  }
 
   private _handleModalTrigger(event: MouseEvent | KeyboardEvent): void {
     let shouldOpen = false;
@@ -38,21 +58,21 @@ export class OutlineModal extends OutlineElement {
     }
 
     if (shouldOpen) {
-      this._isOpen = true;
+      this.open();
     }
   }
 
   private _handleModalClose(event: Event): void {
     // Only trigger if we click directly on the event that wants to receive the click.
     if (event.target === event.currentTarget) {
-      this._isOpen = false;
+      this.close();
     }
   }
 
   private _overlayTemplate(): TemplateResult {
     let template = html``;
 
-    if (this._isOpen) {
+    if (this.isOpen) {
       template = html`
         <div
           id="overlay"
