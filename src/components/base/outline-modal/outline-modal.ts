@@ -1,5 +1,5 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, query } from 'lit/decorators.js';
 import componentStyles from './outline-modal.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
 
@@ -23,11 +23,16 @@ export class OutlineModal extends OutlineElement {
   @property({ attribute: false })
   isOpen = false;
 
+  @query('#overlay')
+  private overlayElement!: HTMLDivElement;
+
   async open(): Promise<void> {
     if (!this.isOpen) {
       this.isOpen = true;
 
       await this.updateComplete;
+
+      this.overlayElement.focus();
 
       this.dispatchEvent(new CustomEvent('opened'));
     }
@@ -69,6 +74,12 @@ export class OutlineModal extends OutlineElement {
     }
   }
 
+  private _handleOverlayKeyup(event: KeyboardEvent): void {
+    if (event.key === 'Escape') {
+      this.close();
+    }
+  }
+
   private _overlayTemplate(): TemplateResult {
     let template = html``;
 
@@ -79,6 +90,7 @@ export class OutlineModal extends OutlineElement {
           tabindex="-1"
           class="${this.size}"
           @click="${this._handleModalClose}"
+          @keyup="${this._handleOverlayKeyup}"
         >
           <div
             id="container"
