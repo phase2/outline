@@ -108,6 +108,13 @@ export class OutlineAccordion extends OutlineElement {
     this.requestUpdate();
   }
 
+  /**
+   *
+   * @param event
+   * @returns void
+   * Adds up/down arrow keyboard navigation.
+   * TODO: try to refactor to something simpler.
+   */
   handleKeyboardNav(event: KeyboardEvent) {
     let index = 0;
     const panels = this.shadowRoot?.querySelectorAll('.accordion-button');
@@ -132,9 +139,5 @@ export class OutlineAccordion extends OutlineElement {
     }
     const focusTarget = panels?.[index] as HTMLElement;
     focusTarget.focus();
-  }
-
-  setFocus(buttonID: string) {
-    this.shadowRoot?.getElementById(buttonID)?.focus();
   }
 }
