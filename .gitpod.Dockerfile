@@ -1,7 +1,11 @@
 FROM gitpod/workspace-full
-SHELL ["/bin/bash", "-c"]
 
 RUN sudo apt-get -qq update
 
-# Install nvm
-RUN bash -c ". .nvm/nvm.sh && nvm install v16 && nvm alias default v16"
+USER gitpod
+
+# Fix node version we develop against
+ARG OUTLINE_NODE_VERSION=16
+RUN bash -c ". .nvm/nvm.sh \
+    && nvm install $OUTLINE_NODE_VERSION"
+ENV PATH=/home/gitpod/.nvm/versions/node/v${OUTLINE_NODE_VERSION}/bin:$PATH
