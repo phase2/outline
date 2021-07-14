@@ -29,6 +29,9 @@ export class OutlineModal extends OutlineElement {
   @query('#overlay')
   private overlayElement!: HTMLDivElement;
 
+  @query('#trigger')
+  private triggerElement!: HTMLDivElement;
+
   async open(): Promise<void> {
     if (!this.isOpen) {
       this.isOpen = true;
@@ -48,6 +51,8 @@ export class OutlineModal extends OutlineElement {
       await this.updateComplete;
 
       this.dispatchEvent(new CustomEvent('closed'));
+
+      this.triggerElement.focus();
     }
   }
 
