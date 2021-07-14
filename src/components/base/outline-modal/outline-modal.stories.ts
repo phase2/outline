@@ -112,8 +112,12 @@ Small.args = {
     </outline-heading>
   `,
   defaultSlot: html`
-<p>Here is a first line of the modal.</p>
-<p>This has a longer line so we can test line breaks, etc. This is going to be another sentence so we can see a longer paragraph. How about this? Thanks.</p>
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
   `,
   size: 'small',
 };
@@ -129,9 +133,13 @@ Medium.args = {
     The modal header
   </outline-heading>`,
   defaultSlot: html`
-<p>Here is a first line of the modal.</p>
-<p>This has a longer line so we can test line breaks, etc. This is going to be another sentence so we can see a longer paragraph. How about this? Thanks.</p>
-    `,
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
+  `,
   size: 'medium',
 };
 
@@ -148,9 +156,13 @@ FullScreen.args = {
     </outline-heading>
   `,
   defaultSlot: html`
-<p>Here is a first line of the modal.</p>
-<p>This has a longer line so we can test line breaks, etc. This is going to be another sentence so we can see a longer paragraph. How about this? Thanks.</p>
-    `,
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
+  `,
   size: 'full-screen',
 };
 
@@ -167,7 +179,11 @@ ButtonTrigger.args = {
     </outline-heading>
   `,
   defaultSlot: html`
-<p>Here is a first line of the modal.</p>
-<p>This has a longer line so we can test line breaks, etc. This is going to be another sentence so we can see a longer paragraph. How about this? Thanks.</p>
-    `,
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
+  `,
 };
