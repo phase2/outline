@@ -25,7 +25,7 @@
   ],
   "license": "BSD-3-Clause",
   "scripts": {
-    "preinstall": "npx check-node-version --node $(cat .nvmrc)",
+    "preinstall": "npx check-node-version --node $(cat .nvmrc) -y",
     "prestart": "yarn prep",
     "start": "yarn storybook.dev.watch",
     "prep": "yarn generate.safelist && yarn postcss.storybook && yarn generate.resolved-tailwind && yarn generate.custom-elements && yarn generate.component-css",
