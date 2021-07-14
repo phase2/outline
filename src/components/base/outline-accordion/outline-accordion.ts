@@ -6,8 +6,9 @@ import componentStyles from './outline-accordion.css.lit';
 
 export type AccordionPanel = {
   heading: string;
-  // TODO: Discuss removing "@typescript-eslint/no-explicit-any" rule. Potentially change to content: any.
-  content: unknown;
+  /*eslint-disable @typescript-eslint/no-explicit-any*/
+  content: any;
+  /*eslint-enable @typescript-eslint/no-explicit-any*/
 };
 
 /**
@@ -24,15 +25,9 @@ export class OutlineAccordion extends OutlineElement {
    */
   @property({ type: Array }) data!: AccordionPanel[];
   /**
-   * Set to 'true' to create an accordion that can only have one panel open ata a time.
+   * Set to 'true' to create an accordion that can only have one panel open at a time.
    */
   @property({ type: Boolean }) singlePanel = false;
-
-  /**
-   * ID of the most recently triggered panel.
-   * If the id is new, sets focus on the panel content div to facilitate screen readers.
-   */
-  @state() focused: string;
 
   /**
    * Array of active/open panels.
@@ -52,7 +47,8 @@ export class OutlineAccordion extends OutlineElement {
             html` <div class="accordion-panel">
               <h4 class="accordion-heading">
                 <button
-                  class="accordion-buttton"
+                  class="accordion-button"
+                  id="${this.seed}-${index}-button"
                   aria-expanded=${this.active.includes(`${this.seed}-${index}`)}
                   aria-controls="${this.seed}-${index}"
                   @click=${() => this.toggleHidden(`${this.seed}-${index}`)}
@@ -61,10 +57,11 @@ export class OutlineAccordion extends OutlineElement {
                 </button>
               </h4>
               <div
+                role="region"
+                aria-labelledby="${this.seed}-${index}-button"
                 class="accordion-content"
                 id="${this.seed}-${index}"
                 .hidden=${!this.active.includes(`${this.seed}-${index}`)}
-                tabindex="0"
               >
                 ${unsafeHTML(`${panel.content}`)}
               </div>
@@ -74,6 +71,10 @@ export class OutlineAccordion extends OutlineElement {
     `;
   }
 
+  /**
+   * Takes the element id of content <div>
+   * to maintain state list of active/open panels.
+   */
   setActive(contentId: string) {
     if (this.singlePanel) {
       if (this.isActive(contentId)) {
@@ -87,12 +88,6 @@ export class OutlineAccordion extends OutlineElement {
     return this.active.push(contentId);
   }
 
-  setFocused(contentId: string) {
-    this.focused === contentId
-      ? (this.focused = '')
-      : (this.focused = contentId);
-  }
-
   /**
    *
    * Dupliacted/un-utilized in the template due to lit-plugin error
@@ -103,14 +98,12 @@ export class OutlineAccordion extends OutlineElement {
     return this.active.includes(contentId);
   }
 
+  /**
+   * Click event handler that calls setActive to update compoenent state,
+   * and then initiates a compoenent update.
+   */
   toggleHidden(contentId: string) {
     this.setActive(contentId);
-    this.setFocused(contentId);
     this.requestUpdate();
-  }
-
-  updated() {
-    const focusEle = this.shadowRoot?.getElementById(this.focused);
-    focusEle?.focus();
   }
 }
