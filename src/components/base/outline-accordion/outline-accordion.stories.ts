@@ -9,15 +9,15 @@ export default {
   },
 };
 
-const Template = ({ data, singleLeaf }): TemplateResult =>
+const Template = ({ panels, singleLeaf }): TemplateResult =>
   html`
-    <outline-accordion .data=${data} .singlePanel=${singleLeaf}>
+    <outline-accordion .panels=${panels} .singlePanel=${singleLeaf}>
     </outline-accordion>
   `;
 
 export const Accordion = Template.bind({});
 Accordion.args = {
-  data: [
+  panels: [
     {
       heading: 'I am heading 1',
       content: `<div class="test"><h3>I'm magic!!!</h3><p>Praesent ut ligula non mi</p></div> `,

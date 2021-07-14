@@ -20,10 +20,10 @@ export class OutlineAccordion extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   /**
-   * The data aray of <AccordionPanel> objects.
+   * The panels aray of <AccordionPanel> objects.
    * AccordionPanel.content is of indeterminate type, and is passed into the panel <slot>.
    */
-  @property({ type: Array }) data!: AccordionPanel[];
+  @property({ type: Array }) panels!: AccordionPanel[];
   /**
    * Set to 'true' to create an accordion that can only have one panel open at a time.
    */
@@ -42,7 +42,7 @@ export class OutlineAccordion extends OutlineElement {
   render(): TemplateResult {
     return html`
       <div class="accordion">
-        ${this.data.map(
+        ${this.panels.map(
           (panel, index) =>
             html` <div class="accordion-panel">
               <h4 class="accordion-heading">
