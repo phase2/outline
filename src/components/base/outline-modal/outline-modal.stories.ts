@@ -103,7 +103,7 @@ export const Small = Template.bind({});
 Small.args = {
   triggerSlot: html`
     <outline-link slot="outline-modal--trigger">
-      Open small modal
+      <p>Open small modal.</p>
     </outline-link>
   `,
   headerSlot: html`
@@ -111,7 +111,10 @@ Small.args = {
       The modal header
     </outline-heading>
   `,
-  defaultSlot: html`<p>A small modal.</p>`,
+  defaultSlot: html`
+<p>Here is a first line of the modal.</p>
+<p>This has a longer line so we can test line breaks, etc. This is going to be another sentence so we can see a longer paragraph. How about this? Thanks.</p>
+  `,
   size: 'small',
 };
 
@@ -125,7 +128,10 @@ Medium.args = {
   headerSlot: html` <outline-heading slot="outline-modal--header">
     The modal header
   </outline-heading>`,
-  defaultSlot: html`<p>A medium modal.</p>`,
+  defaultSlot: html`
+<p>Here is a first line of the modal.</p>
+<p>This has a longer line so we can test line breaks, etc. This is going to be another sentence so we can see a longer paragraph. How about this? Thanks.</p>
+    `,
   size: 'medium',
 };
 
@@ -141,7 +147,10 @@ FullScreen.args = {
       The modal header
     </outline-heading>
   `,
-  defaultSlot: html`<p>A full screen modal.</p>`,
+  defaultSlot: html`
+<p>Here is a first line of the modal.</p>
+<p>This has a longer line so we can test line breaks, etc. This is going to be another sentence so we can see a longer paragraph. How about this? Thanks.</p>
+    `,
   size: 'full-screen',
 };
 
@@ -157,5 +166,8 @@ ButtonTrigger.args = {
       The modal header
     </outline-heading>
   `,
-  defaultSlot: html`<p>A small modal.</p>`,
+  defaultSlot: html`
+<p>Here is a first line of the modal.</p>
+<p>This has a longer line so we can test line breaks, etc. This is going to be another sentence so we can see a longer paragraph. How about this? Thanks.</p>
+    `,
 };

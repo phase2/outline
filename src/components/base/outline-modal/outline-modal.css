@@ -10,9 +10,16 @@
 }
 
 #container {
-  @apply overflow-y-auto rounded-sm max-h-screen bg-neutral-white;
+  @apply overflow-y-auto rounded-sm max-h-screen bg-neutral-white max-w-full md:max-w-quarter-screen-w;
   min-width: 320px;
-  max-width: 500px;
+
+  #overlay.medium & {
+    @apply md:max-w-half-screen-w;
+  }
+
+  #overlay.full-screen & {
+    @apply w-full-screen-w max-w-full-screen-w h-full-screen-h md:w-full-screen-w md:max-w-full-screen-w;
+  }
 }
 
 #header {
