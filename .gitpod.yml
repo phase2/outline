@@ -1,7 +1,7 @@
 tasks:
   - init: |
       nvm install 16
-      yarn -y
+      yarn
     command: |
       yarn start
 
