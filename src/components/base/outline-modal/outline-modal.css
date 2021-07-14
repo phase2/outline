@@ -38,3 +38,7 @@
 #main {
   @apply p-6;
 }
+
+#accessibility-description {
+  @apply hidden;
+}

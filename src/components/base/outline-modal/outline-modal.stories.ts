@@ -24,6 +24,14 @@ export default {
       },
       // We aren't setting a control type here so we can edit the value using the infered object.
     },
+    accessibilityDescription: {
+      name: 'slot="outline-modal--accessibility-description"',
+      description: 'An description for accessibility. It is not visible.',
+      table: {
+        category: 'Slots',
+      },
+      // We aren't setting a control type here so we can edit the value using the infered object.
+    },
     // This is the modal content.
     // We aren't setting a control type here so we can edit the value using the infered object.
     defaultSlot: {
@@ -45,6 +53,9 @@ export default {
         component: `
 ## Accessibility
 
+Based on guidelines from [WAI-ARIA Authoring Practices 1.1: Modal Dialog Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html).
+
+- Modal uses full screen on small devices
 - If a trigger is supplied as a slot, that element can be focused and triggered with the keyboard (\`Tab\` and \`Enter\`)
 - The \`Escape\` button can be used to close the modal
 - The close button can be focused and triggered with the keyboard (\`Tab\` and \`Enter\`)
@@ -77,6 +88,7 @@ You can also manually trigger the modal with the \`.open()\` method. Similarly, 
 <outline-modal size="{{ size }}">
   <outline-link slot="outline-modal--trigger">{{ triggerSlot}}</outline-link>
   <outline-heading slot="outline-modal--header">{{ headerSlot}}</outline-heading>
+  <p slot="outline-modal--accessibility-description">{{ accessibilityDescription }}</p>
   {{ defaultSlot }}
 </outline-modal>
         `,
@@ -88,13 +100,14 @@ You can also manually trigger the modal with the \`.open()\` method. Similarly, 
 const Template = ({
   triggerSlot,
   headerSlot,
+  accessibilityDescription,
   defaultSlot,
   size,
 }): TemplateResult => {
   return html`
     <outline-modal size="${ifDefined(size)}">
       ${ifDefined(triggerSlot)} ${ifDefined(headerSlot)}
-      ${ifDefined(defaultSlot)}
+      ${ifDefined(defaultSlot)} ${ifDefined(accessibilityDescription)}
     </outline-modal>
   `;
 };
@@ -110,6 +123,11 @@ Small.args = {
     <outline-heading slot="outline-modal--header">
       The modal header
     </outline-heading>
+  `,
+  accessibilityDescription: html`
+    <p slot="outline-modal--accessibility-description">
+      This is an accessibility description about the modal.
+    </p>
   `,
   defaultSlot: html`
     <p>Here is a first line of the modal.</p>
@@ -177,6 +195,23 @@ ButtonTrigger.args = {
     <outline-heading slot="outline-modal--header">
       The modal header
     </outline-heading>
+  `,
+  defaultSlot: html`
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
+  `,
+};
+
+export const NoHeader = Template.bind({});
+NoHeader.args = {
+  triggerSlot: html`
+    <outline-link slot="outline-modal--trigger">
+      <p>Open modal without header.</p>
+    </outline-link>
   `,
   defaultSlot: html`
     <p>Here is a first line of the modal.</p>
