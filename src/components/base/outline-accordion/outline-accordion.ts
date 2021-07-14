@@ -52,6 +52,7 @@ export class OutlineAccordion extends OutlineElement {
                   aria-expanded=${this.active.includes(`${this.seed}-${index}`)}
                   aria-controls="${this.seed}-${index}"
                   @click=${() => this.toggleHidden(`${this.seed}-${index}`)}
+                  @keyup="${this.handleKeyboardNav}"
                 >
                   ${panel.heading}
                 </button>
@@ -105,5 +106,35 @@ export class OutlineAccordion extends OutlineElement {
   toggleHidden(contentId: string) {
     this.setActive(contentId);
     this.requestUpdate();
+  }
+
+  handleKeyboardNav(event: KeyboardEvent) {
+    let index = 0;
+    const panels = this.shadowRoot?.querySelectorAll('.accordion-button');
+    const start = Array.prototype.indexOf.call(
+      panels,
+      event.target as HTMLElement
+    );
+
+    // bail on wrong key
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') {
+      return;
+    }
+    if (event.key === 'ArrowDown') {
+      if (panels?.length && start + 1 > panels?.length - 1) {
+        index = 0;
+      } else index = start + 1;
+    }
+    if (event.key === 'ArrowUp') {
+      if (panels?.length && start - 1 < 0) {
+        index = panels?.length - 1;
+      } else index = start - 1;
+    }
+    const focusTarget = panels?.[index] as HTMLElement;
+    focusTarget.focus();
+  }
+
+  setFocus(buttonID: string) {
+    this.shadowRoot?.getElementById(buttonID)?.focus();
   }
 }
