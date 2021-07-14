@@ -46,6 +46,12 @@ export default {
       options: modalSizes,
       control: { type: 'select' },
     },
+    elementToFocusSelector: {
+      name: 'elementToFocusSelector',
+      description:
+        'An element to focus on when the modal is opened. This might be a primary call to action such as "accept". If no value is provided, the modal will try to find the best thing to focus on. Should be a valid CSS selector.',
+      control: { type: 'text' },
+    },
   },
   parameters: {
     docs: {
@@ -58,6 +64,16 @@ This component renders a trigger and modal. When the trigger is active, the moda
 You can add a trigger slot to the modal \`slot="outline-modal--trigger"\`.
 
 You can also manually trigger the modal with the \`.open()\` method. Similarly, you can close the modal with \`.close()\`.
+
+## Triggering the modal close with Javascript
+
+You could make a button within the modal to close it.
+
+Example:
+
+\`\`\`HTML
+<button class="accept" onClick="document.querySelectorAll('outline-modal').forEach((node) => {if(node.isOpen){node.close();}})">
+\`\`\`
 
 ## Variations
 
@@ -73,9 +89,11 @@ Based on guidelines from [WAI-ARIA Authoring Practices 1.1: Modal Dialog Example
 ### Optional features
 - If a header is supplied as a slot, it is referenced with \`aria-labelledby\`
 - If an accessibility description is supplied by a slot, it is referenced with \`aria-describedby\`
+- The system will try to focus the first focusable element. If you would like, you can provide a selector with the \`elementToFocusSelector\` attribute and this will be focused.
 
 ### Keyboard navigation
 - If a trigger is supplied as a slot, that element can be focused and triggered with the keyboard (\`Tab\` and \`Enter\`)
+- On open, the modal will focus on the first focusable element, or the modal wrapper if none can be focused.
 - The \`Escape\` button can be used to close the modal
 - The close button can be focused and triggered with the keyboard (\`Tab\` and \`Enter\`)
 - When the modal is closed, the trigger is focused.
@@ -114,9 +132,13 @@ const Template = ({
   accessibilityDescription,
   defaultSlot,
   size,
+  elementToFocusSelector,
 }): TemplateResult => {
   return html`
-    <outline-modal size="${ifDefined(size)}">
+    <outline-modal
+      size="${ifDefined(size)}"
+      elementToFocusSelector="${ifDefined(elementToFocusSelector)}"
+    >
       ${ifDefined(triggerSlot)} ${ifDefined(headerSlot)}
       ${ifDefined(defaultSlot)} ${ifDefined(accessibilityDescription)}
     </outline-modal>
@@ -231,5 +253,63 @@ NoHeader.args = {
       be another sentence so we can see a longer paragraph. How about this?
       Thanks.
     </p>
+  `,
+};
+
+// @todo I could not set focus on the `outline-button` element, but a standard `button` works.
+export const CustomFocusElement = Template.bind({});
+CustomFocusElement.args = {
+  triggerSlot: html`
+    <outline-link slot="outline-modal--trigger">
+      <p>Open modal and focus on accept button.</p>
+    </outline-link>
+  `,
+  headerSlot: html`
+    <outline-heading slot="outline-modal--header">
+      The modal header
+    </outline-heading>
+  `,
+  defaultSlot: html`
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
+    <outline-button class="cancel">Cancel</outline-button>
+    <button
+      class="accept"
+      onClick="document.querySelectorAll('outline-modal').forEach((node) => {if(node.isOpen){node.close();}})"
+    >
+      Accept
+    </button>
+  `,
+  elementToFocusSelector: '.accept',
+};
+
+export const AutoFocusedElement = Template.bind({});
+AutoFocusedElement.args = {
+  triggerSlot: html`
+    <outline-link slot="outline-modal--trigger">
+      <p>Open modal and focus on accept button automatically.</p>
+    </outline-link>
+  `,
+  headerSlot: html`
+    <outline-heading slot="outline-modal--header">
+      The modal header
+    </outline-heading>
+  `,
+  defaultSlot: html`
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
+    <button
+      onClick="document.querySelectorAll('outline-modal').forEach((node) => {if(node.isOpen){node.close();}})"
+    >
+      Accept
+    </button>
   `,
 };

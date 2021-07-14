@@ -26,6 +26,9 @@ export class OutlineModal extends OutlineElement {
   @property({ attribute: false })
   isOpen = false;
 
+  @property({ type: String })
+  elementToFocusSelector?: string | undefined;
+
   @query('#overlay')
   private overlayElement!: HTMLDivElement;
 
@@ -38,7 +41,7 @@ export class OutlineModal extends OutlineElement {
 
       await this.updateComplete;
 
-      this.overlayElement.focus();
+      this._focusOnModalElement();
 
       this.dispatchEvent(new CustomEvent('opened'));
     }
@@ -56,6 +59,41 @@ export class OutlineModal extends OutlineElement {
     }
   }
 
+  private _focusOnModalElement(): void {
+    let elementToFocus: HTMLElement = this.overlayElement;
+
+    if (this.elementToFocusSelector !== undefined) {
+      const attributeDefinedElementToFocus = this.querySelector(
+        this.elementToFocusSelector
+      ) as HTMLElement | null;
+
+      if (attributeDefinedElementToFocus !== null) {
+        elementToFocus = attributeDefinedElementToFocus;
+      }
+    }
+
+    if (this.elementToFocusSelector === undefined) {
+      // See https://stackoverflow.com/questions/1599660/which-html-elements-can-receive-focus.
+      const automaticallySelectedElementToFocus = this.querySelector(`
+        a[href]:not([tabindex="-1"]),
+        area[href]:not([tabindex="-1"]),
+        input:not([disabled]):not([tabindex="-1"]),
+        select:not([disabled]):not([tabindex="-1"]),
+        textarea:not([disabled]):not([tabindex="-1"]),
+        button:not([disabled]):not([tabindex="-1"]),
+        iframe:not([tabindex="-1"]),
+        [tabindex]:not([tabindex="-1"]),
+        [contentEditable=true]:not([tabindex="-1"])
+      `) as HTMLElement | null;
+
+      if (automaticallySelectedElementToFocus !== null) {
+        elementToFocus = automaticallySelectedElementToFocus;
+      }
+    }
+
+    elementToFocus.focus();
+  }
+
   private _handleModalTrigger(event: MouseEvent | KeyboardEvent): void {
     let shouldOpen = false;
 
@@ -63,9 +101,12 @@ export class OutlineModal extends OutlineElement {
       case 'click':
         shouldOpen = true;
         break;
-      case 'keyup':
+      case 'keydown':
         if ('key' in event && event.key === 'Enter') {
           shouldOpen = true;
+          // This prevents a focused element from also triggering.
+          // For example, the modal opens and the "accept" button is focused and then triggered and the modal closes.
+          event.preventDefault();
           break;
         }
     }
@@ -167,7 +208,7 @@ export class OutlineModal extends OutlineElement {
         id="trigger"
         tabindex="0"
         @click="${this._handleModalTrigger}"
-        @keyup="${this._handleModalTrigger}"
+        @keydown="${this._handleModalTrigger}"
       >
         <slot name="outline-modal--trigger"></slot>
       </div>
