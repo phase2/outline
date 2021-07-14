@@ -9,14 +9,15 @@ export const modalSizes: ModalSize[] = ['small', 'medium', 'full-screen'];
 
 /**
  * The Outline Modal component
+ * @element outline-modal
+ * @slot default - The modal contents
+ * @slot outline-modal--trigger - The trigger for the modal
+ * @slot outline-modal--header - The header in the modal
  */
 @customElement('outline-modal')
 export class OutlineModal extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
-  /**
-   * The size of the modal.
-   */
   @property({ type: String })
   size?: ModalSize = 'medium';
 
