@@ -10,7 +10,7 @@
 }
 
 #container {
-  @apply overflow-y-auto rounded-sm max-h-screen bg-neutral-white max-w-full md:max-w-quarter-screen-w;
+  @apply overflow-y-auto rounded-sm h-screen bg-neutral-white max-w-full md:max-w-quarter-screen-w md:h-auto;
   min-width: 320px;
 
   #overlay.medium & {
