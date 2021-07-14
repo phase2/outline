@@ -8,9 +8,9 @@ module.exports = {
   },
   stories: [
     // Explicitly order the main documentation.
+    './stories/documentation/welcome.stories.mdx',
     './stories/documentation/tooling.stories.mdx',
     './stories/documentation/contributing.stories.mdx',
-    './stories/documentation/roadmap.stories.mdx',
     // // Other stories in the .storybook directory.
     './stories/**/*.stories.@(js|ts|mdx)',
     // All other components in src directory.
@@ -29,10 +29,6 @@ module.exports = {
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    //'storybook-addon-themes',
-    // Add everything below here
-    // Incompatible with addon-docs (the show code button on Docs pages)
-    //'@storybook/addon-storysource',
   ],
   webpackFinal: async config => {
     /**

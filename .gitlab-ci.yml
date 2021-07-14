@@ -1,5 +1,5 @@
 default:
-  image: node:14
+  image: node:16
 
 cache: &global_cache
   paths:
@@ -38,11 +38,8 @@ Test and Build:
       - dist/
   cache: *global_cache
   only:
+    - master
     - next
-    - dev
-    - alpha
-    - beta
-    - rc
     - /^issue/
     - /^task/
     - /^feature/
@@ -58,31 +55,30 @@ pages:
     paths:
       - public
   only:
-    - alpha
-    - beta
-    - rc
-    - dev
+    - master
     - next
 
 # We need to make this run last because semantic release changes the git hash.
 # @see https://docs.gitlab.com/13.11/ee/ci/examples/semantic-release.html#set-up-cicd-variables
 # Uncomment the following after setting up the appropriate CI/CD access token (GITLAB_TOKEN)
 # in your project settings.
-# package:
-#   stage: release
-#   script:
-#     - env
-#     - yarn ci
-#     - |
-#       {
-#         echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
-#         echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
-#       } | tee --append .npmrc
-#     - yarn semantic-release
-#   cache: *global_cache
-#   only:
-#     - dev
-#     - alpha
-#     - beta
-#     - rc
-#     - next
+package:
+  stage: release
+  script:
+    - env
+    - yarn ci
+    # Setup .npmrc to connect to package repository.
+    - |
+      {
+        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+        echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
+      } | tee --append .npmrc
+    # Install semantic release & required dependencies 
+    # to publish package to GitLab.
+    - npm install -g semantic-release@17 @semantic-release/gitlab @semantic-release/npm @semantic-release/commit-analyzer
+    - semantic-release
+  cache: *global_cache
+  only:
+    - master
+    - next
+
