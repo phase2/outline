@@ -96,6 +96,7 @@ Based on guidelines from [WAI-ARIA Authoring Practices 1.1: Modal Dialog Example
 - On open, the modal will focus on the first focusable element, or the modal wrapper if none can be focused.
 - The \`Escape\` button can be used to close the modal
 - The close button can be focused and triggered with the keyboard (\`Tab\` and \`Enter\`)
+- Focus in kept within the modal (\`Tab\`, \`Shift+Tab\`)
 - When the modal is closed, the trigger is focused.
 
 ## Javascript interaction
@@ -304,7 +305,7 @@ CustomFocusElement.args = {
       be another sentence so we can see a longer paragraph. How about this?
       Thanks.
     </p>
-    <outline-button class="cancel">Cancel</outline-button>
+    <button class="cancel">Cancel</button>
     <button
       class="accept"
       onClick="
@@ -316,7 +317,7 @@ CustomFocusElement.args = {
           }
         )
       "
-      onkeyup="
+      onkeydown="
         if (event.key === 'Enter') {
           document.querySelectorAll('outline-modal').forEach(
             (node) => {
@@ -364,7 +365,7 @@ AutoFocusedElement.args = {
           }
         )
       "
-      onkeyup="
+      onkeydown="
         if (event.key === 'Enter') {
           document.querySelectorAll('outline-modal').forEach(
             (node) => {

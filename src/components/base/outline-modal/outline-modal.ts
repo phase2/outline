@@ -8,6 +8,20 @@ export type ModalSize = 'small' | 'medium' | 'full-screen';
 
 export const modalSizes: ModalSize[] = ['small', 'medium', 'full-screen'];
 
+// See https://stackoverflow.com/questions/1599660/which-html-elements-can-receive-focus.
+// @todo make this re-usable across components?
+const focusableElementSelector = `
+  a[href]:not([tabindex="-1"]),
+  area[href]:not([tabindex="-1"]),
+  input:not([disabled]):not([tabindex="-1"]),
+  select:not([disabled]):not([tabindex="-1"]),
+  textarea:not([disabled]):not([tabindex="-1"]),
+  button:not([disabled]):not([tabindex="-1"]),
+  iframe:not([tabindex="-1"]),
+  [tabindex]:not([tabindex="-1"]),
+  [contentEditable=true]:not([tabindex="-1"])
+`;
+
 /**
  * The Outline Modal component
  * @element outline-modal
@@ -50,7 +64,7 @@ export class OutlineModal extends OutlineElement {
           tabindex="-1"
           class="${this.size}"
           @click="${this._handleModalClose}"
-          @keyup="${this._handleOverlayKeyup}"
+          @keydown="${this._handleOverlayKeyup}"
         >
           <div
             id="container"
@@ -67,7 +81,7 @@ export class OutlineModal extends OutlineElement {
                 id="close"
                 aria-label="Close modal"
                 @click="${this._handleModalClose}"
-                @keyup="${this._handleModalCloseKeyup}"
+                @keydown="${this._handleModalCloseKeyup}"
               ></button>
             </div>
             <div id="main">
@@ -121,6 +135,8 @@ export class OutlineModal extends OutlineElement {
       await this.updateComplete;
 
       this._focusOnModalElement();
+
+      this._trapFocusWithinModal();
 
       this.dispatchEvent(new CustomEvent('opened'));
     }
@@ -183,14 +199,14 @@ export class OutlineModal extends OutlineElement {
     }
   }
 
-  @query('#overlay')
-  private overlayElement!: HTMLDivElement;
+  @query('#close')
+  private closeElement!: HTMLDivElement;
 
   @property({ type: String })
   elementToFocusSelector?: string | undefined;
 
   private _focusOnModalElement(): void {
-    let elementToFocus: HTMLElement = this.overlayElement;
+    let elementToFocus: HTMLElement = this.closeElement;
 
     if (this.elementToFocusSelector !== undefined) {
       const attributeDefinedElementToFocus = this.querySelector(
@@ -203,18 +219,9 @@ export class OutlineModal extends OutlineElement {
     }
 
     if (this.elementToFocusSelector === undefined) {
-      // See https://stackoverflow.com/questions/1599660/which-html-elements-can-receive-focus.
-      const automaticallySelectedElementToFocus = this.querySelector(`
-        a[href]:not([tabindex="-1"]),
-        area[href]:not([tabindex="-1"]),
-        input:not([disabled]):not([tabindex="-1"]),
-        select:not([disabled]):not([tabindex="-1"]),
-        textarea:not([disabled]):not([tabindex="-1"]),
-        button:not([disabled]):not([tabindex="-1"]),
-        iframe:not([tabindex="-1"]),
-        [tabindex]:not([tabindex="-1"]),
-        [contentEditable=true]:not([tabindex="-1"])
-      `) as HTMLElement | null;
+      const automaticallySelectedElementToFocus = this.querySelector(
+        focusableElementSelector
+      ) as HTMLElement | null;
 
       if (automaticallySelectedElementToFocus !== null) {
         elementToFocus = automaticallySelectedElementToFocus;
@@ -222,5 +229,35 @@ export class OutlineModal extends OutlineElement {
     }
 
     elementToFocus.focus();
+  }
+
+  private _trapFocusWithinModal(): void {
+    // We will use the close button as the first focusable element.
+
+    let lastFocusableElement: HTMLElement = this.closeElement;
+
+    const focusableElements: NodeListOf<HTMLElement> = this.querySelectorAll(
+      focusableElementSelector
+    );
+
+    if (focusableElements.length > 0) {
+      lastFocusableElement = focusableElements[focusableElements.length - 1];
+    }
+
+    lastFocusableElement.addEventListener('keydown', event => {
+      if (event.key === 'Tab' && event.shiftKey === false) {
+        event.preventDefault();
+
+        this.closeElement.focus();
+      }
+    });
+
+    this.closeElement.addEventListener('keydown', event => {
+      if (event.key === 'Tab' && event.shiftKey) {
+        event.preventDefault();
+
+        lastFocusableElement.focus();
+      }
+    });
   }
 }
