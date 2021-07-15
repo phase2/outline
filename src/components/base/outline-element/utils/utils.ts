@@ -86,6 +86,7 @@ export const argTypeSize = {
 
 export const argTypeColor = {
   name: 'Color',
+  description: 'Select from a pre-defined list of colors.',
   control: {
     type: 'select',
     options: ALL_COLORS,
