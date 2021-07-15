@@ -113,8 +113,12 @@ You can access the boolean \`isOpen\` property to determine if the modal is open
 `,
       },
       source: {
+        // This code sample will be used for every example unless overridden.
         code: `
-<outline-modal size="{{ size }}">
+<outline-modal
+  size="{{ size }}"
+  elementToFocusSelector="{{ elementToFocusSelector }}"
+>
   <outline-link slot="outline-modal--trigger">{{ triggerSlot}}</outline-link>
   <outline-heading slot="outline-modal--header">{{ headerSlot}}</outline-heading>
   <p slot="outline-modal--accessibility-description">{{ accessibilityDescription }}</p>
@@ -156,11 +160,6 @@ Small.args = {
     <outline-heading slot="outline-modal--header">
       The modal header
     </outline-heading>
-  `,
-  accessibilityDescription: html`
-    <p slot="outline-modal--accessibility-description">
-      This is an accessibility description about the modal.
-    </p>
   `,
   defaultSlot: html`
     <p>Here is a first line of the modal.</p>
@@ -256,6 +255,35 @@ NoHeader.args = {
   `,
 };
 
+// This demonstrates an accessibility feature.
+export const AccessibilityDescription = Template.bind({});
+AccessibilityDescription.args = {
+  triggerSlot: html`
+    <outline-link slot="outline-modal--trigger">
+      <p>Open a modal with an accessibility description.</p>
+    </outline-link>
+  `,
+  headerSlot: html`
+    <outline-heading slot="outline-modal--header">
+      The modal header
+    </outline-heading>
+  `,
+  accessibilityDescription: html`
+    <p slot="outline-modal--accessibility-description">
+      This is an accessibility description about the modal.
+    </p>
+  `,
+  defaultSlot: html`
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
+  `,
+};
+
+// This demonstrates an accessibility feature.
 // @todo I could not set focus on the `outline-button` element, but a standard `button` works.
 export const CustomFocusElement = Template.bind({});
 CustomFocusElement.args = {
@@ -287,6 +315,7 @@ CustomFocusElement.args = {
   elementToFocusSelector: '.accept',
 };
 
+// This demonstrates an accessibility feature.
 export const AutoFocusedElement = Template.bind({});
 AutoFocusedElement.args = {
   triggerSlot: html`
