@@ -67,6 +67,7 @@ export class OutlineModal extends OutlineElement {
                 id="close"
                 aria-label="Close modal"
                 @click="${this._handleModalClose}"
+                @keyup="${this._handleModalCloseKeyup}"
               ></button>
             </div>
             <div id="main">
@@ -171,6 +172,13 @@ export class OutlineModal extends OutlineElement {
 
   private _handleOverlayKeyup(event: KeyboardEvent): void {
     if (event.key === 'Escape') {
+      this.close();
+    }
+  }
+
+  // For some reason on the `Docs` tab of Storybook, the `click` event for the close button doesn't work with the `Enter` key without also watching the `keyup` event. This isn't the case on the `Canvas` tab.
+  private _handleModalCloseKeyup(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
       this.close();
     }
   }

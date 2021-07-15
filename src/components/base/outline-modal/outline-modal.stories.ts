@@ -307,7 +307,26 @@ CustomFocusElement.args = {
     <outline-button class="cancel">Cancel</outline-button>
     <button
       class="accept"
-      onClick="document.querySelectorAll('outline-modal').forEach((node) => {if(node.isOpen){node.close();}})"
+      onClick="
+        document.querySelectorAll('outline-modal').forEach(
+          (node) => {
+            if(node.isOpen){
+              node.close();
+            }
+          }
+        )
+      "
+      onkeyup="
+        if (event.key === 'Enter') {
+          document.querySelectorAll('outline-modal').forEach(
+            (node) => {
+              if(node.isOpen){
+                node.close();
+              }
+            }
+          )
+        }
+      "
     >
       Accept
     </button>
@@ -336,7 +355,26 @@ AutoFocusedElement.args = {
       Thanks.
     </p>
     <button
-      onClick="document.querySelectorAll('outline-modal').forEach((node) => {if(node.isOpen){node.close();}})"
+      onClick="
+        document.querySelectorAll('outline-modal').forEach(
+          (node) => {
+            if(node.isOpen){
+              node.close();
+            }
+          }
+        )
+      "
+      onkeyup="
+        if (event.key === 'Enter') {
+          document.querySelectorAll('outline-modal').forEach(
+            (node) => {
+              if(node.isOpen){
+                node.close();
+              }
+            }
+          )
+        }
+      "
     >
       Accept
     </button>
