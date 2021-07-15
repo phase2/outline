@@ -5,6 +5,7 @@ tasks:
   - init: |
       yarn
     command: |
+      nvm install 16
       yarn start
 
 vscode:
