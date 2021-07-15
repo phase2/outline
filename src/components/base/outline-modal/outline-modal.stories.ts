@@ -72,7 +72,29 @@ You could make a button within the modal to close it.
 Example:
 
 \`\`\`HTML
-<button class="accept" onClick="document.querySelectorAll('outline-modal').forEach((node) => {if(node.isOpen){node.close();}})">
+<button
+  class="accept"
+  onClick="
+    document.querySelectorAll('outline-modal').forEach(
+      (node) => {
+        if(node.isOpen){
+          node.close();
+        }
+      }
+    )
+  "
+  onkeydown="
+    if (event.key === 'Enter') {
+      document.querySelectorAll('outline-modal').forEach(
+        (node) => {
+          if(node.isOpen){
+            node.close();
+          }
+        }
+      )
+    }
+  "
+>Accept</button>
 \`\`\`
 
 ## Variations
