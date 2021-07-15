@@ -3,6 +3,7 @@ image:
 
 tasks:
   - init: |
+      nvm install 16
       yarn
     command: |
       nvm install 16
