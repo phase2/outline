@@ -91,31 +91,31 @@ const Template = ({
 
 export const Information = Template.bind({});
 Information.args = {
-  defaultSlot: html` Here is an informational message. `,
+  defaultSlot: html`Here is an informational message.`,
   statusType: 'information',
 };
 
 export const Warning = Template.bind({});
 Warning.args = {
-  defaultSlot: html` Here is a warning message. `,
+  defaultSlot: html`Here is a warning message.`,
   statusType: 'warning',
 };
 
 export const Error = Template.bind({});
 Error.args = {
-  defaultSlot: html` Here is an error message. `,
+  defaultSlot: html`Here is an error message.`,
   statusType: 'error',
 };
 
 export const Success = Template.bind({});
 Success.args = {
-  defaultSlot: html` Here is a success message. `,
+  defaultSlot: html`Here is a success message.`,
   statusType: 'success',
 };
 
 export const Small = Template.bind({});
 Small.args = {
-  defaultSlot: html` Here is a small alert message. `,
+  defaultSlot: html`Here is a small alert message.`,
   size: 'small',
 };
 
