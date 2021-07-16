@@ -63,10 +63,7 @@ export class OutlineAlert extends OutlineElement {
     if (this.size === 'large') {
       template = html`
         <div id="header">
-          <slot name="outline-alert--header">
-            ${this.statusType.charAt(0).toUpperCase() +
-            this.statusType.slice(1)}
-          </slot>
+          <slot name="outline-alert--header">${this.statusType}</slot>
         </div>
       `;
     }
