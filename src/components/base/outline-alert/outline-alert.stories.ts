@@ -49,7 +49,7 @@ This component renders an alert.
   statusType="{{ statusType }}"
   size="{{ size }}"
 >
-  <outline-heading slot="outline-alert--header">{{ headerSlot }}</outline-heading>
+  <span slot="outline-alert--header">{{ headerSlot }}</span>
   {{ defaultSlot }}
 </outline-alert>
         `,
@@ -106,6 +106,6 @@ Small.args = {
 
 export const Header = Template.bind({});
 Header.args = {
-  headerSlot: html` Here is an alert with a custom header. `,
+  headerSlot: html`<span slot="outline-alert--header">Here is an alert with a custom header.</span>`,
   defaultSlot: html` Here is a message. `,
 };

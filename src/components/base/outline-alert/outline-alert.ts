@@ -26,14 +26,16 @@ export class OutlineAlert extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   @property({ type: String })
-  size?: AlertSize = 'large';
+  size: AlertSize = 'large';
 
   @property({ type: String })
-  statusType?: AlertStatusType = 'information';
+  statusType: AlertStatusType = 'information';
 
   render(): TemplateResult {
     return html`
-      <slot name="outline-alert--header">Information</slot>
+      <slot name="outline-alert--header">
+        ${this.statusType.charAt(0).toUpperCase() + this.statusType.slice(1)}
+      </slot>
       <slot></slot>
     `;
   }
