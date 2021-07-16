@@ -31,16 +31,33 @@ export class OutlineAlert extends OutlineElement {
   @property({ type: String })
   statusType: AlertStatusType = 'information';
 
+  @property({ type: Boolean })
+  shouldShowIcon = true;
+
   render(): TemplateResult {
     // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
     return html`
       <div id="body">
-        ${this._headerTemplate()}
+        ${this._iconTemplate()} ${this._headerTemplate()}
         <div id="message">
           <slot></slot>
         </div>
       </div>
     `;
+  }
+
+  private _iconTemplate(): TemplateResult {
+    let template = html``;
+
+    if (this.shouldShowIcon === true) {
+      template = html`
+        <div id="icon">
+          <!--@todo include icon when we have that ready.-->
+        </div>
+      `;
+    }
+
+    return template;
   }
 
   private _headerTemplate(): TemplateResult {

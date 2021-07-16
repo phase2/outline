@@ -34,12 +34,24 @@ export default {
       options: alertSizes,
       control: { type: 'select' },
     },
+    shouldShowIcon: {
+      description: '(not yet implemented) Should we show the icon',
+      control: { type: 'boolean' },
+    },
   },
   parameters: {
     docs: {
       description: {
         component: `
 This component renders an alert.
+
+## Variation
+
+You can set the type of alert with \`statusType\`.
+
+You can use a smaller alert with \`size\` of \`small\`.
+
+You can remove the icon with \`shouldShowIcon\` set to \`false\`.
 `,
       },
       source: {
@@ -48,6 +60,7 @@ This component renders an alert.
 <outline-alert
   statusType="{{ statusType }}"
   size="{{ size }}"
+  shouldShowIcon="{{ shouldShowIcon }}"
 >
   <span slot="outline-alert--header">{{ headerSlot }}</span>
   {{ defaultSlot }}
@@ -63,11 +76,13 @@ const Template = ({
   defaultSlot,
   statusType,
   size,
+  shouldShowIcon,
 }): TemplateResult => {
   return html`
     <outline-alert
       statusType="${ifDefined(statusType)}"
       size="${ifDefined(size)}"
+      shouldShowIcon="${ifDefined(shouldShowIcon)}"
     >
       ${ifDefined(headerSlot)} ${ifDefined(defaultSlot)}
     </outline-alert>
@@ -112,4 +127,10 @@ Header.args = {
     </span>
   `,
   defaultSlot: html` Here is a message. `,
+};
+
+export const NoIcon = Template.bind({});
+NoIcon.args = {
+  defaultSlot: html`Here is an alert with no icon.`,
+  shouldShowIcon: false,
 };
