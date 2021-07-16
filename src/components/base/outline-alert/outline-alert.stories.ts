@@ -134,3 +134,11 @@ NoIcon.args = {
   defaultSlot: html`Here is an alert with no icon.`,
   shouldShowIcon: false,
 };
+
+export const MessageWithLink = Template.bind({});
+MessageWithLink.args = {
+  defaultSlot: html`
+    Here is an alert with a link.
+    <outline-link linkhref="#">Click here</outline-link>
+  `,
+};
