@@ -1,5 +1,5 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-alert.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
 
