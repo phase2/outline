@@ -38,6 +38,10 @@ export default {
       description: '(not yet implemented) Should we show the icon',
       control: { type: 'boolean' },
     },
+    isInteractive: {
+      description: 'Is there an interaction in the alert, such as a button.',
+      control: { type: 'boolean' },
+    },
   },
   parameters: {
     docs: {
@@ -52,6 +56,10 @@ You can set the type of alert with \`statusType\`.
 You can use a smaller alert with \`size\` of \`small\`.
 
 You can remove the icon with \`shouldShowIcon\` set to \`false\`.
+
+## Accessibility
+
+If the alert has an interaction, you should indicate this with \`isInteractive\` set to \`true\`.
 `,
       },
       source: {
@@ -61,6 +69,7 @@ You can remove the icon with \`shouldShowIcon\` set to \`false\`.
   statusType="{{ statusType }}"
   size="{{ size }}"
   shouldShowIcon="{{ shouldShowIcon }}"
+  isInteractive="{{ isInteractive }}"
 >
   <span slot="outline-alert--header">{{ headerSlot }}</span>
   {{ defaultSlot }}
@@ -77,12 +86,14 @@ const Template = ({
   statusType,
   size,
   shouldShowIcon,
+  isInteractive,
 }): TemplateResult => {
   return html`
     <outline-alert
       statusType="${ifDefined(statusType)}"
       size="${ifDefined(size)}"
       shouldShowIcon="${ifDefined(shouldShowIcon)}"
+      isInteractive="${ifDefined(isInteractive)}"
     >
       ${ifDefined(headerSlot)} ${ifDefined(defaultSlot)}
     </outline-alert>
@@ -135,10 +146,11 @@ NoIcon.args = {
   shouldShowIcon: false,
 };
 
-export const MessageWithLink = Template.bind({});
-MessageWithLink.args = {
+export const InteractiveAlert = Template.bind({});
+InteractiveAlert.args = {
   defaultSlot: html`
-    Here is an alert with a link.
+    Here is an alert with an interaction.
     <outline-link linkhref="#">Click here</outline-link>
   `,
+  isInteractive: true,
 };

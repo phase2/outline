@@ -34,10 +34,13 @@ export class OutlineAlert extends OutlineElement {
   @property({ type: Boolean })
   shouldShowIcon = true;
 
+  @property({ type: Boolean })
+  isInteractive = false;
+
   render(): TemplateResult {
     // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
     return html`
-      <div id="body">
+      <div id="body" role="${this.isInteractive ? 'alertdialog' : 'alert'}">
         ${this._iconTemplate()} ${this._headerTemplate()}
         <div id="message">
           <slot></slot>
