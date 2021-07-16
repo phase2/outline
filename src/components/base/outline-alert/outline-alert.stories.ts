@@ -94,8 +94,8 @@ const Template = ({
     <outline-alert
       statusType="${ifDefined(statusType)}"
       size="${ifDefined(size)}"
-      shouldShowIcon="${ifDefined(shouldShowIcon)}"
-      isInteractive="${ifDefined(isInteractive)}"
+      shouldShowIcon="${ifDefined(shouldShowIcon ? 'true' : undefined)}"
+      isInteractive="${ifDefined(isInteractive ? 'true' : undefined)}"
     >
       ${ifDefined(headerSlot)} ${ifDefined(defaultSlot)}
     </outline-alert>
