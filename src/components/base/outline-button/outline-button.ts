@@ -71,7 +71,7 @@ export class OutlineButton extends OutlineElement {
         </button> `;
   }
 
-  updated() {
+  firstUpdated() {
     // checks if user has set "tabindex" or "disabled" on the <outline-button> element,
     // and if so does nothing, else adds tabindex = 0 to give <outline-button> normal tab order behavior and make it focusable.
     if (this.hasAttribute('tabindex') || this.hasAttribute('disabled')) {
