@@ -12,6 +12,10 @@ tasks:
 vscode:
   extensions:
     - bradlc.vscode-tailwindcss
+    - pranaygp.vscode-css-peek
+    - runem.lit-plugin
+    - silvenon.mdx
+    - streetsidesoftware.code-spell-checker
 
 ports:
   # Used by Storybook
