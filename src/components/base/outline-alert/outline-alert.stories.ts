@@ -106,6 +106,10 @@ Small.args = {
 
 export const Header = Template.bind({});
 Header.args = {
-  headerSlot: html`<span slot="outline-alert--header">Here is an alert with a custom header.</span>`,
+  headerSlot: html`
+    <span slot="outline-alert--header">
+      Here is an alert with a custom header.
+    </span>
+  `,
   defaultSlot: html` Here is a message. `,
 };

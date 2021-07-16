@@ -32,11 +32,31 @@ export class OutlineAlert extends OutlineElement {
   statusType: AlertStatusType = 'information';
 
   render(): TemplateResult {
+    // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
     return html`
-      <slot name="outline-alert--header">
-        ${this.statusType.charAt(0).toUpperCase() + this.statusType.slice(1)}
-      </slot>
-      <slot></slot>
+      <div id="body">
+        ${this._headerTemplate()}
+        <div id="message">
+          <slot></slot>
+        </div>
+      </div>
     `;
+  }
+
+  private _headerTemplate(): TemplateResult {
+    let template = html``;
+
+    if (this.size === 'large') {
+      template = html`
+        <div id="header">
+          <slot name="outline-alert--header">
+            ${this.statusType.charAt(0).toUpperCase() +
+            this.statusType.slice(1)}
+          </slot>
+        </div>
+      `;
+    }
+
+    return template;
   }
 }

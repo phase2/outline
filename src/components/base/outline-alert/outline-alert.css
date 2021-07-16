@@ -1,0 +1,28 @@
+/* The default is information. */
+#body {
+  @apply block border-solid border-0 border-l-8 p-4 bg-ui-info text-ui-infoText;
+
+  border-color: var(--ui-infoText);
+}
+
+#header {
+  @apply font-bold text-lg;
+}
+
+:host([statusType='warning']) #body {
+  @apply bg-ui-warning text-ui-warningText;
+
+  border-color: var(--ui-warningText);
+}
+
+:host([statusType='error']) #body {
+  @apply bg-ui-error text-ui-errorText;
+
+  border-color: var(--ui-errorText);
+}
+
+:host([statusType='success']) #body {
+  @apply bg-ui-success text-ui-successText;
+
+  border-color: var(--ui-successText);
+}
