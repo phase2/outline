@@ -57,6 +57,8 @@ You can use a smaller alert with \`size\` of \`small\`.
 
 You can remove the icon with \`shouldShowIcon\` set to \`false\`.
 
+You can customize the header by adding a \`outline-alert--header\` slot.
+
 ## Accessibility
 
 If the alert has an interaction, you should indicate this with \`isInteractive\` set to \`true\`.
