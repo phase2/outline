@@ -51,17 +51,32 @@ export class OutlineButton extends OutlineElement {
    */
   @property({ type: Boolean }) disabled: boolean;
 
+  // setting tabindex="-1" prevents 'double tabbing'
   render(): TemplateResult {
     return this.url !== undefined
       ? html` <a
           class="btn ${this.variant}"
           href=${this.url}
+          tabindex="-1"
           target=${this.target}
         >
           <slot></slot>
         </a>`
-      : html` <button class="btn ${this.variant}" .disabled=${this.disabled}>
+      : html`<button
+          tabindex="-1"
+          class="btn ${this.variant}"
+          .disabled=${this.disabled}
+        >
           <slot></slot>
-        </button>`;
+        </button> `;
+  }
+
+  updated() {
+    // checks if user has set "tabindex" or "disabled" on the <outline-button> element,
+    // and if so does nothing, else adds tabindex = 0 to give <outline-button> normal tab order behavior and make it focusable.
+    if (this.hasAttribute('tabindex') || this.hasAttribute('disabled')) {
+      return;
+    }
+    this.setAttribute('tabindex', '0');
   }
 }
