@@ -39,7 +39,7 @@ export class OutlineModal extends OutlineElement {
       <div
         id="trigger"
         tabindex="0"
-        @click="${this._handleTriggerClick}"
+        @click="${this.open}"
         @keydown="${this._handleTriggerKeydown}"
       >
         <slot name="outline-modal--trigger"></slot>
@@ -80,7 +80,7 @@ export class OutlineModal extends OutlineElement {
               <button
                 id="close"
                 aria-label="Close modal"
-                @click="${this._handleCloseClick}"
+                @click="${this.close}"
                 @keydown="${this._handleCloseKeydown}"
               ></button>
             </div>
@@ -157,10 +157,6 @@ export class OutlineModal extends OutlineElement {
   @query('#trigger')
   private triggerElement!: HTMLDivElement;
 
-  private _handleTriggerClick(): void {
-    this.open();
-  }
-
   private _handleTriggerKeydown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       // This prevents a focused element from also triggering.
@@ -182,10 +178,6 @@ export class OutlineModal extends OutlineElement {
     if (event.key === 'Escape') {
       this.close();
     }
-  }
-
-  private _handleCloseClick(): void {
-    this.close();
   }
 
   // For some reason on the `Docs` tab of Storybook, the `click` event for the close button doesn't work with the `Enter` key without also watching the `keyup` event. This isn't the case on the `Canvas` tab.
