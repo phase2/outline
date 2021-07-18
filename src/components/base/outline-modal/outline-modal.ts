@@ -39,8 +39,8 @@ export class OutlineModal extends OutlineElement {
       <div
         id="trigger"
         tabindex="0"
-        @click="${this._handleModalTrigger}"
-        @keydown="${this._handleModalTrigger}"
+        @click="${this._handleTriggerClick}"
+        @keydown="${this._handleTriggerKeydown}"
       >
         <slot name="outline-modal--trigger"></slot>
       </div>
@@ -63,8 +63,8 @@ export class OutlineModal extends OutlineElement {
           id="overlay"
           tabindex="-1"
           class="${this.size}"
-          @click="${this._handleModalClose}"
-          @keydown="${this._handleOverlayKeyup}"
+          @click="${this._handleOverlayClick}"
+          @keydown="${this._handleOverlayKeydown}"
         >
           <div
             id="container"
@@ -80,8 +80,8 @@ export class OutlineModal extends OutlineElement {
               <button
                 id="close"
                 aria-label="Close modal"
-                @click="${this._handleModalClose}"
-                @keydown="${this._handleModalCloseKeyup}"
+                @click="${this._handleCloseClick}"
+                @keydown="${this._handleCloseKeydown}"
               ></button>
             </div>
             <div id="main">
@@ -134,9 +134,9 @@ export class OutlineModal extends OutlineElement {
 
       await this.updateComplete;
 
-      this._focusOnModalElement();
+      this._focusOnElement();
 
-      this._trapFocusWithinModal();
+      this._trapFocus();
 
       this.dispatchEvent(new CustomEvent('opened'));
     }
@@ -157,43 +157,39 @@ export class OutlineModal extends OutlineElement {
   @query('#trigger')
   private triggerElement!: HTMLDivElement;
 
-  private _handleModalTrigger(event: MouseEvent | KeyboardEvent): void {
-    let shouldOpen = false;
+  private _handleTriggerClick(): void {
+    this.open();
+  }
 
-    switch (event.type) {
-      case 'click':
-        shouldOpen = true;
-        break;
-      case 'keydown':
-        if ('key' in event && event.key === 'Enter') {
-          shouldOpen = true;
-          // This prevents a focused element from also triggering.
-          // For example, the modal opens and the "accept" button is focused and then triggered and the modal closes.
-          event.preventDefault();
-          break;
-        }
-    }
+  private _handleTriggerKeydown(event: KeyboardEvent): void {
+    if (event.key === 'Enter') {
+      // This prevents a focused element from also triggering.
+      // For example, the modal opens and the "accept" button is focused and then triggered and the modal closes.
+      event.preventDefault();
 
-    if (shouldOpen) {
       this.open();
     }
   }
 
-  private _handleModalClose(event: Event): void {
+  private _handleOverlayClick(event: MouseEvent): void {
     // Only trigger if we click directly on the event that wants to receive the click.
     if (event.target === event.currentTarget) {
       this.close();
     }
   }
 
-  private _handleOverlayKeyup(event: KeyboardEvent): void {
+  private _handleOverlayKeydown(event: KeyboardEvent): void {
     if (event.key === 'Escape') {
       this.close();
     }
   }
 
+  private _handleCloseClick(): void {
+    this.close();
+  }
+
   // For some reason on the `Docs` tab of Storybook, the `click` event for the close button doesn't work with the `Enter` key without also watching the `keyup` event. This isn't the case on the `Canvas` tab.
-  private _handleModalCloseKeyup(event: KeyboardEvent): void {
+  private _handleCloseKeydown(event: KeyboardEvent): void {
     if (event.key === 'Enter') {
       this.close();
     }
@@ -205,7 +201,7 @@ export class OutlineModal extends OutlineElement {
   @property({ type: String })
   elementToFocusSelector?: string | undefined;
 
-  private _focusOnModalElement(): void {
+  private _focusOnElement(): void {
     let elementToFocus: HTMLElement = this.closeElement;
 
     if (this.elementToFocusSelector !== undefined) {
@@ -231,7 +227,7 @@ export class OutlineModal extends OutlineElement {
     elementToFocus.focus();
   }
 
-  private _trapFocusWithinModal(): void {
+  private _trapFocus(): void {
     // We will use the close button as the first focusable element.
 
     let lastFocusableElement: HTMLElement = this.closeElement;
