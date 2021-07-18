@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit/directives/if-defined';
 import { argTypeSlotContent } from '../outline-element/utils/utils';
 

@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeHidden } from '../outline-element/utils/utils';
 import sampleImage1 from '../../../.storybook/static/media/color/Codeworkbench_color.jpg';
@@ -96,7 +96,7 @@ const Template = ({
   html`
     <outline-container>
       <outline-card
-        hasshadow="${ifDefined(hasShadow)}"
+        ?hasshadow=${ifDefined(hasShadow)}
         isrounded="${ifDefined(isRounded)}"
         bgcolorheader="${ifDefined(bgColorHeader)}"
         bgcolorcontent="${ifDefined(bgColorContent)}"

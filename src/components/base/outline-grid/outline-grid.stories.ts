@@ -1,4 +1,4 @@
-import { html, HTMLTemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit-html';
 import { ifDefined } from 'lit/directives/if-defined';
 
 import { argTypeGapSize } from '../outline-element/utils/utils';
@@ -72,7 +72,7 @@ const Template = ({
   isNested,
   fullBleed,
   defaultSlot,
-}: Options): HTMLTemplateResult => html`
+}: Options): TemplateResult => html`
   <outline-grid
     gap-size="${ifDefined(gapSize)}"
     gap-size-sm="${ifDefined(gapSizeSm)}"
