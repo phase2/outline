@@ -70,9 +70,17 @@ export class OutlineModal extends OutlineElement {
             id="container"
             role="dialog"
             aria-modal="true"
-            aria-labelledby="${ifDefined(this._getHeaderTitleSlotId())}"
+            aria-labelledby="${ifDefined(
+              this.querySelector('[slot="outline-modal--header"]') !== null
+                ? 'header'
+                : undefined
+            )}"
             aria-describedby="${ifDefined(
-              this._getAccessibilityDescriptionId()
+              this.querySelector(
+                '[slot="outline-modal--accessibility-description"]'
+              ) !== null
+                ? 'accessibility-description'
+                : undefined
             )}"
           >
             <div id="header">
@@ -97,35 +105,6 @@ export class OutlineModal extends OutlineElement {
     }
 
     return template;
-  }
-
-  private _getHeaderTitleSlotId(): string | null {
-    let id = null;
-
-    // When this was a class property, it wasn't finding the slot as expected.
-    const headerSlot: HTMLSlotElement | null = this.querySelector(
-      '[slot="outline-modal--header"]'
-    );
-
-    if (headerSlot !== null) {
-      id = 'header';
-    }
-
-    return id;
-  }
-
-  private _getAccessibilityDescriptionId(): string | null {
-    let id = null;
-
-    // When this was a class property, it wasn't finding the slot as expected.
-    const accessibilityDescriptionSlot: HTMLSlotElement | null =
-      this.querySelector('[slot="outline-modal--accessibility-description"]');
-
-    if (accessibilityDescriptionSlot !== null) {
-      id = 'accessibility-description';
-    }
-
-    return id;
   }
 
   async open(): Promise<void> {
