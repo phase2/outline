@@ -173,29 +173,23 @@ export class OutlineModal extends OutlineElement {
   elementToFocusSelector?: string | undefined;
 
   private _focusOnElement(): void {
-    let elementToFocus: HTMLElement = this.closeElement;
+    const defaultElement: HTMLElement = this.closeElement;
 
-    if (this.elementToFocusSelector !== undefined) {
-      const attributeDefinedElementToFocus = this.querySelector(
-        this.elementToFocusSelector
-      ) as HTMLElement | null;
+    const attributeDefinedElement =
+      this.elementToFocusSelector !== undefined
+        ? (this.querySelector(
+            this.elementToFocusSelector
+          ) as HTMLElement | null)
+        : null;
 
-      if (attributeDefinedElementToFocus !== null) {
-        elementToFocus = attributeDefinedElementToFocus;
-      }
-    }
+    const automaticallySelectedElement = this.querySelector(
+      focusableElementSelector
+    ) as HTMLElement | null;
 
-    if (this.elementToFocusSelector === undefined) {
-      const automaticallySelectedElementToFocus = this.querySelector(
-        focusableElementSelector
-      ) as HTMLElement | null;
+    const element =
+      attributeDefinedElement ?? automaticallySelectedElement ?? defaultElement;
 
-      if (automaticallySelectedElementToFocus !== null) {
-        elementToFocus = automaticallySelectedElementToFocus;
-      }
-    }
-
-    elementToFocus.focus();
+    element.focus();
   }
 
   private _trapFocus(): void {
