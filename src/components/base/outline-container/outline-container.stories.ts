@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-html';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import type { HorizontalAlignment } from './config';
 import { argTypeHorizontalAlign } from '../outline-element/utils/utils';

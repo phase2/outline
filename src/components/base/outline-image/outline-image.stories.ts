@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-html';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import sampleImage from '../../../.storybook/static/media/color/Creative_Process_color.jpg';
 import { argTypeHidden } from '../outline-element/utils/utils';

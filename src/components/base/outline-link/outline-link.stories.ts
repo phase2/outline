@@ -1,4 +1,4 @@
-import { html, TemplateResult } from 'lit-html';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import { argTypeRel, argTypeTarget, argTypeHref } from './config';
 import type { LinkTargetType, LinkRelType } from './config';
