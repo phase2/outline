@@ -193,27 +193,24 @@ export class OutlineModal extends OutlineElement {
   }
 
   private _trapFocus(): void {
-    // We will use the close button as the first focusable element.
+    const firstFocusableElement = this.closeElement;
 
-    let lastFocusableElement: HTMLElement = this.closeElement;
+    const focusableSlottedElements: NodeListOf<HTMLElement> =
+      this.querySelectorAll(focusableElementSelector);
 
-    const focusableElements: NodeListOf<HTMLElement> = this.querySelectorAll(
-      focusableElementSelector
-    );
-
-    if (focusableElements.length > 0) {
-      lastFocusableElement = focusableElements[focusableElements.length - 1];
-    }
+    const lastFocusableElement =
+      focusableSlottedElements[focusableSlottedElements.length - 1] ??
+      firstFocusableElement;
 
     lastFocusableElement.addEventListener('keydown', event => {
       if (event.key === 'Tab' && event.shiftKey === false) {
         event.preventDefault();
 
-        this.closeElement.focus();
+        firstFocusableElement.focus();
       }
     });
 
-    this.closeElement.addEventListener('keydown', event => {
+    firstFocusableElement.addEventListener('keydown', event => {
       if (event.key === 'Tab' && event.shiftKey) {
         event.preventDefault();
 
