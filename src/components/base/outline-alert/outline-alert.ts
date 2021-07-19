@@ -29,7 +29,20 @@ export class OutlineAlert extends OutlineElement {
     // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
     return html`
       <div id="body" role="${this.isInteractive ? 'alertdialog' : 'alert'}">
-        ${this._iconTemplate()} ${this._headerTemplate()}
+        ${this.shouldShowIcon === true
+          ? html`
+              <div id="icon">
+                <!--@todo include icon when we have that ready.-->
+              </div>
+            `
+          : html``}
+        ${this.size === 'large'
+          ? html`
+              <div id="header">
+                <slot name="outline-alert--header">${this.statusType}</slot>
+              </div>
+            `
+          : html``}
         <div id="message">
           <slot></slot>
         </div>
@@ -40,36 +53,8 @@ export class OutlineAlert extends OutlineElement {
   @property({ type: Boolean })
   isInteractive = false;
 
-  private _iconTemplate(): TemplateResult {
-    let template = html``;
-
-    if (this.shouldShowIcon === true) {
-      template = html`
-        <div id="icon">
-          <!--@todo include icon when we have that ready.-->
-        </div>
-      `;
-    }
-
-    return template;
-  }
-
   @property({ type: Boolean })
   shouldShowIcon = true;
-
-  private _headerTemplate(): TemplateResult {
-    let template = html``;
-
-    if (this.size === 'large') {
-      template = html`
-        <div id="header">
-          <slot name="outline-alert--header">${this.statusType}</slot>
-        </div>
-      `;
-    }
-
-    return template;
-  }
 
   @property({ type: String })
   size: AlertSize = 'large';
