@@ -195,12 +195,8 @@ export class OutlineModal extends OutlineElement {
   private _trapFocus(): void {
     const firstFocusableElement = this.closeElement;
 
-    const focusableSlottedElements: NodeListOf<HTMLElement> =
-      this.querySelectorAll(focusableElementSelector);
-
     const lastFocusableElement =
-      focusableSlottedElements[focusableSlottedElements.length - 1] ??
-      firstFocusableElement;
+      this.lastFocusableSlottedElement ?? firstFocusableElement;
 
     lastFocusableElement.addEventListener('keydown', event => {
       if (event.key === 'Tab' && event.shiftKey === false) {
@@ -217,5 +213,14 @@ export class OutlineModal extends OutlineElement {
         lastFocusableElement.focus();
       }
     });
+  }
+
+  private get lastFocusableSlottedElement(): HTMLElement | null {
+    const focusableSlottedElements: NodeListOf<HTMLElement> =
+      this.querySelectorAll(focusableElementSelector);
+
+    return (
+      focusableSlottedElements[focusableSlottedElements.length - 1] ?? null
+    );
   }
 }
