@@ -3,6 +3,10 @@
    preventing literal edge cases where a user can click on the edge or corner of the button and defeate states like disabled */
   @apply flex rounded-xl;
 }
+
+:host([disabled]) {
+  @apply cursor-not-allowed pointer-events-none;
+}
 .btn {
   @apply px-12 py-4 text-lg leading-tight rounded-xl cursor-pointer transition-colors duration-300 font-body no-underline inline-flex content-center;
 }

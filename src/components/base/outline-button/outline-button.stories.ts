@@ -23,6 +23,7 @@ export default {
       control: {
         type: 'boolean',
       },
+      // defaultValue: false
     },
     url: {
       control: {
@@ -54,14 +55,18 @@ const Template = ({
   url,
   target,
   variant,
+  onClick,
+  onKeyUp,
 }): TemplateResult =>
   html`
     <outline-button
       url="${ifDefined(url)}"
       target="${ifDefined(target)}"
       variant="${variant}"
-      disabled="${ifDefined(disabled)}"
+      ?disabled="${disabled}"
       icon="${ifDefined(icon)}"
+      @click="${onClick}"
+      @keyup="${onKeyUp}"
     >
       ${defaultSlot}
     </outline-button>
@@ -85,6 +90,14 @@ export const PrimaryButton = Template.bind({});
 PrimaryButton.args = {
   defaultSlot: 'Primary button',
   variant: 'primary',
+  onClick: (e: Event) => {
+    e.preventDefault(), console.log('onClick called!!');
+  },
+  onKeyUp: (e: KeyboardEvent) => {
+    if (e.key === ' ') {
+      console.log(e);
+    }
+  },
 };
 
 export const SecondaryButton = Template.bind({});

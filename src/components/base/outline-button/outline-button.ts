@@ -3,6 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { LinkTargetType } from '../outline-link/config';
 import componentStyles from './outline-button.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 // import {
 //   IconTypeOutline,
@@ -49,34 +50,52 @@ export class OutlineButton extends OutlineElement {
    * Whether the button is disabled. Only applies to
    * implementations not using the url property
    */
-  @property({ type: Boolean }) disabled: boolean;
+  @property({ type: Boolean, reflect: true }) disabled = false;
 
-  // setting tabindex="-1" prevents 'double tabbing'
+  /**
+   * A click handler to be passedto @click attribute
+   */
+  @property() onClick: () => void;
+
+  /**
+   * A keyUp handler to be passed to the @keyUp attribute
+   */
+  @property() onKeyUp: () => void;
+
   render(): TemplateResult {
     return this.url !== undefined
       ? html` <a
           class="btn ${this.variant}"
           href=${this.url}
-          tabindex="-1"
           target=${this.target}
+          role="button"
+          aria-disabled=${!!this.disabled}
+          tabindex="-1"
         >
           <slot></slot>
         </a>`
       : html`<button
           tabindex="-1"
           class="btn ${this.variant}"
-          .disabled=${this.disabled}
+          .disabled="${this.disabled}"
+          aria-disabled="${!!this.disabled}"
         >
           <slot></slot>
-        </button> `;
+        </button>`;
   }
 
-  firstUpdated() {
+  updated() {
     // checks if user has set "tabindex" or "disabled" on the <outline-button> element,
-    // and if so does nothing, else adds tabindex = 0 to give <outline-button> normal tab order behavior and make it focusable.
-    if (this.hasAttribute('tabindex') || this.hasAttribute('disabled')) {
-      return;
+    // and manages tabindex and aria-disabled attribues on the <outline-button> element itself.
+    if (this.hasAttribute('disabled')) {
+      this.setAttribute('aria-disabled', 'true');
+    } else {
+      this.setAttribute('aria-disabled', 'false');
     }
-    this.setAttribute('tabindex', '0');
+    if (!this.hasAttribute('tabindex') && !this.hasAttribute('disabled')) {
+      this.setAttribute('tabindex', '0');
+    } else {
+      this.removeAttribute('tabindex');
+    }
   }
 }
