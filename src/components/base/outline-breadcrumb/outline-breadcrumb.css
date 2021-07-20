@@ -1,0 +1,11 @@
+:host,
+a,
+::slotted(a) {
+  @apply underline font-body text-brand-primary transition-colors duration-300;
+}
+
+:host(:hover),
+a:hover,
+::slotted(a:hover) {
+  @apply text-brand-secondary no-underline;
+}
