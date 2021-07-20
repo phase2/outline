@@ -4,7 +4,7 @@
   @apply flex rounded-xl;
 }
 
-:host([disabled]) {
+:host([isDisabled]) {
   @apply cursor-not-allowed pointer-events-none;
 }
 .btn {
@@ -22,12 +22,11 @@
   &:focus {
     @apply bg-neutral-black text-neutral-white;
   }
-
-  &:disabled {
-    @apply cursor-not-allowed text-gray-500 bg-gray-300;
-  }
 }
 
+.btn.primary[aria-disabled=true] {
+  @apply cursor-not-allowed text-gray-500 bg-gray-300;
+}
 .btn.secondary {
   @apply bg-gray-300 text-gray-800;
 
@@ -36,9 +35,9 @@
     @apply bg-neutral-black text-neutral-white;
   }
 
-  &:disabled {
-    @apply cursor-not-allowed text-gray-500 bg-gray-300;
-  }
+}
+.btn.secondary[aria-disabled=true] {
+  @apply cursor-not-allowed text-gray-500 bg-gray-300;
 }
 
 .btn.tertiary {
@@ -49,9 +48,10 @@
     @apply bg-neutral-black text-neutral-white;
   }
 
-  &:disabled {
-    @apply cursor-not-allowed text-gray-500 bg-gray-300;
-  }
+}
+
+.btn.tertiary[aria-disabled=true] {
+  @apply cursor-not-allowed text-gray-500 bg-gray-300;
 }
 
 .btn.none {

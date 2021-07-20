@@ -49,7 +49,7 @@ export class OutlineButton extends OutlineElement {
    * Whether the button is disabled. Only applies to
    * implementations not using the url property
    */
-  @property({ type: Boolean, reflect: true }) disabled = false;
+  @property({ type: Boolean }) isDisabled = false;
 
   /**
    * A click handler to be passedto @click attribute
@@ -61,6 +61,16 @@ export class OutlineButton extends OutlineElement {
    */
   @property() onKeyUp: () => void;
 
+  /**
+   * Sets role attribute to "button", for accessibility purposes.
+   */
+  @property({ type: String, reflect: true }) role = 'button';
+
+  /**
+   * Sets tabindex attribute to default "0", for accessibility purposes.
+   */
+  @property({ type: String, reflect: true }) tabindex = '0';
+
   render(): TemplateResult {
     return this.url !== undefined
       ? html` <a
@@ -68,7 +78,7 @@ export class OutlineButton extends OutlineElement {
           href=${this.url}
           target=${this.target}
           role="button"
-          aria-disabled=${!!this.disabled}
+          aria-disabled=${!!this.isDisabled}
           tabindex="-1"
         >
           <slot></slot>
@@ -76,25 +86,18 @@ export class OutlineButton extends OutlineElement {
       : html`<button
           tabindex="-1"
           class="btn ${this.variant}"
-          .disabled="${this.disabled}"
-          aria-disabled="${!!this.disabled}"
+          aria-disabled="${!!this.isDisabled}"
         >
           <slot></slot>
         </button>`;
   }
 
   updated() {
-    // checks if user has set "tabindex" or "disabled" on the <outline-button> element,
-    // and manages tabindex and aria-disabled attribues on the <outline-button> element itself.
-    if (this.hasAttribute('disabled')) {
+    // checks the isDisabled prop and manages aria-disabled attribues on the <outline-button> element itself.
+    if (this.hasAttribute('isDisabled')) {
       this.setAttribute('aria-disabled', 'true');
     } else {
       this.setAttribute('aria-disabled', 'false');
-    }
-    if (!this.hasAttribute('tabindex') && !this.hasAttribute('disabled')) {
-      this.setAttribute('tabindex', '0');
-    } else {
-      this.removeAttribute('tabindex');
     }
   }
 }

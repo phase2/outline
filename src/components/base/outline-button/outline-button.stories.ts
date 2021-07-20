@@ -19,7 +19,7 @@ export default {
   argTypes: {
     ...argTypeSlotContent,
     target: argTypeTarget,
-    disabled: {
+    isDisabled: {
       control: {
         type: 'boolean',
       },
@@ -49,7 +49,7 @@ export default {
 
 const Template = ({
   defaultSlot,
-  disabled,
+  isDisabled,
   icon,
   url,
   target,
@@ -62,7 +62,7 @@ const Template = ({
       url="${ifDefined(url)}"
       target="${ifDefined(target)}"
       variant="${variant}"
-      ?disabled="${disabled}"
+      ?isDisabled="${isDisabled}"
       icon="${ifDefined(icon)}"
       @click="${onClick}"
       @keyup="${onKeyUp}"
