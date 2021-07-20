@@ -24,7 +24,7 @@
   }
 }
 
-.btn.primary[aria-disabled=true] {
+.btn.primary[aria-disabled='true'] {
   @apply cursor-not-allowed text-gray-500 bg-gray-300;
 }
 .btn.secondary {
@@ -34,9 +34,8 @@
   &:focus {
     @apply bg-neutral-black text-neutral-white;
   }
-
 }
-.btn.secondary[aria-disabled=true] {
+.btn.secondary[aria-disabled='true'] {
   @apply cursor-not-allowed text-gray-500 bg-gray-300;
 }
 
@@ -47,10 +46,9 @@
   &:focus {
     @apply bg-neutral-black text-neutral-white;
   }
-
 }
 
-.btn.tertiary[aria-disabled=true] {
+.btn.tertiary[aria-disabled='true'] {
   @apply cursor-not-allowed text-gray-500 bg-gray-300;
 }
 
