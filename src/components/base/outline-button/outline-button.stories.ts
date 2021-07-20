@@ -23,7 +23,6 @@ export default {
       control: {
         type: 'boolean',
       },
-      // defaultValue: false
     },
     url: {
       control: {
