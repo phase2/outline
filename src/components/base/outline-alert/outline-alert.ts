@@ -50,14 +50,14 @@ export class OutlineAlert extends OutlineElement {
                 <!--@todo include icon when we have that ready.-->
               </div>
             `
-          : html``}
+          : null}
         ${this.size === 'large'
           ? html`
               <div id="header">
                 <slot name="outline-alert--header">${this.statusType}</slot>
               </div>
             `
-          : html``}
+          : null}
         <div id="message">
           <slot></slot>
         </div>
