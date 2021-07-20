@@ -1,5 +1,5 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import componentStyles from './outline-modal.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { ifDefined } from 'lit/directives/if-defined';
@@ -54,6 +54,26 @@ export class OutlineModal extends OutlineElement {
   @property({ type: String })
   size?: ModalSize = 'medium';
 
+  @state()
+  _hasHeaderSlot: boolean;
+
+  @state()
+  _hasAccessibilityDescriptionSlot: boolean;
+
+  connectedCallback() {
+    super.connectedCallback();
+    this._handleSlotChange();
+  }
+
+  private _handleSlotChange(): void {
+    this._hasHeaderSlot =
+      this.querySelector('[slot="outline-modal--header"]') !== null;
+    this._hasAccessibilityDescriptionSlot =
+      this.querySelector(
+        '[slot="outline-modal--accessibility-description"]'
+      ) !== null;
+  }
+
   private _overlayTemplate(): TemplateResult {
     let template = html``;
 
@@ -71,20 +91,20 @@ export class OutlineModal extends OutlineElement {
             role="dialog"
             aria-modal="true"
             aria-labelledby="${ifDefined(
-              this.querySelector('[slot="outline-modal--header"]') !== null
-                ? 'header'
-                : undefined
+              this._hasHeaderSlot ? 'header' : undefined
             )}"
             aria-describedby="${ifDefined(
-              this.querySelector(
-                '[slot="outline-modal--accessibility-description"]'
-              ) !== null
+              this._hasAccessibilityDescriptionSlot
                 ? 'accessibility-description'
                 : undefined
             )}"
           >
             <div id="header">
-              <slot id="title" name="outline-modal--header"></slot>
+              <slot
+                id="title"
+                name="outline-modal--header"
+                @slotchange="${this._handleSlotChange}"
+              ></slot>
               <button
                 id="close"
                 aria-label="Close modal"
@@ -100,6 +120,7 @@ export class OutlineModal extends OutlineElement {
         <slot
           id="accessibility-description"
           name="outline-modal--accessibility-description"
+          @slotchange="${this._handleSlotChange}"
         ></slot>
       `;
     }
