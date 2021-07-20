@@ -25,6 +25,21 @@ export const alertStatusTypes: AlertStatusType[] = [
 export class OutlineAlert extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
+  @property({ type: String })
+  statusType: AlertStatusType = 'information';
+
+  /**
+   * This is important context for screen readers.
+   */
+  @property({ type: Boolean })
+  isInteractive = false;
+
+  @property({ type: Boolean })
+  shouldShowIcon = true;
+
+  @property({ type: String })
+  size: AlertSize = 'large';
+
   render(): TemplateResult {
     // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
     return html`
@@ -49,16 +64,4 @@ export class OutlineAlert extends OutlineElement {
       </div>
     `;
   }
-
-  @property({ type: Boolean })
-  isInteractive = false;
-
-  @property({ type: Boolean })
-  shouldShowIcon = true;
-
-  @property({ type: String })
-  size: AlertSize = 'large';
-
-  @property({ type: String })
-  statusType: AlertStatusType = 'information';
 }
