@@ -1,14 +1,13 @@
 import { html, HTMLTemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import { argTypeRel, argTypeTarget, argTypeHref } from './config';
-import type { LinkTargetType, LinkRelType } from './config';
 import sampleImage from '../../../.storybook/static/media/color/Creative_Process_color.jpg';
 // Import the component itself.
-import './outline-link';
+import './outline-breadcrumb';
 
 export default {
-  title: 'Atoms/Link',
-  component: 'outline-link',
+  title: 'Molecules/Breadcrumb',
+  component: 'outline-breadcrumb',
   argTypes: {
     linkHref: {
       ...argTypeHref,

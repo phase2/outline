@@ -3,15 +3,15 @@ import { OutlineElement } from '../outline-element/outline-element';
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import type { LinkTargetType, LinkRelType } from './config';
-import componentStyles from './outline-link.css.lit';
+import type { OutlineLINK } from '../outline-link/outline-link';
+import componentStyles from './outline-breadcrumb.css.lit';
 
 /**
  * The Outline  Link component
  * @slot - The default, and only slot for this element.
  */
-@customElement('outline-link')
-export class OutlineLink extends OutlineElement {
+@customElement('outline-breadcrumb')
+export class OutlineBreadcrumb extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   /**
