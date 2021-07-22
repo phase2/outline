@@ -1,0 +1,38 @@
+:host {
+  @apply inline-flex flex-col;
+}
+
+.tooltip {
+  @apply flex relative justify-center;
+}
+
+.tooltip-tip {
+  @apply absolute inline-flex p-2 opacity-0 text-center;
+  border: black solid 1px;
+  background-color: whitesmoke;
+  transition-property: opacity;
+  transition: 200ms;
+}
+
+.position-top {
+  @apply bottom-full;
+}
+
+.position-bottom {
+  @apply top-full;
+}
+
+.position-right {
+  @apply left-full;
+}
+
+.position-left {
+  @apply right-full;
+}
+
+.tooltip:hover > .tooltip-tip {
+  @apply opacity-100;
+  transition-property: opacity;
+  transition: 1000ms;
+  transition-delay: 1000ms;
+}
