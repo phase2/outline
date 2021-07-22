@@ -4,11 +4,8 @@
   @apply flex rounded-xl;
 }
 
-:host([isDisabled]) {
-  @apply cursor-not-allowed pointer-events-none;
-}
 .btn {
-  @apply px-12 py-4 text-lg leading-tight rounded-xl cursor-pointer transition-colors duration-300 font-body no-underline inline-flex content-center;
+  @apply leading-tight rounded-xl cursor-pointer transition-colors duration-300 font-body no-underline inline-flex content-center;
 }
 
 .btn outline-icon {
@@ -25,7 +22,7 @@
 }
 
 .btn.primary[aria-disabled='true'] {
-  @apply cursor-not-allowed text-gray-500 bg-gray-300;
+  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300;
 }
 .btn.secondary {
   @apply bg-gray-300 text-gray-800;
@@ -36,7 +33,7 @@
   }
 }
 .btn.secondary[aria-disabled='true'] {
-  @apply cursor-not-allowed text-gray-500 bg-gray-300;
+  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300;
 }
 
 .btn.tertiary {
@@ -49,9 +46,21 @@
 }
 
 .btn.tertiary[aria-disabled='true'] {
-  @apply cursor-not-allowed text-gray-500 bg-gray-300;
+  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300;
 }
 
 .btn.none {
   @apply flex items-center text-base px-4;
+}
+
+.small {
+  @apply px-1 text-sm;
+}
+
+.medium {
+  @apply px-4 text-lg;
+}
+
+.large {
+  @apply px-12 py-4 text-lg;
 }
