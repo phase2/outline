@@ -7,16 +7,22 @@ export default {
   component: 'outline-tooltip',
   argTypes: {
     id: {
+      description:
+        '**Required**: Sets the id used by accessibility technologies to associate the tooltip with the target element.',
       control: {
         type: 'text',
       },
     },
     tip: {
+      description:
+        'An optional prop to pass the tip info. Can also be passed via the "tip-info" slot.',
       control: {
         type: 'text',
       },
     },
     position: {
+      description:
+        'Sets the cardinal position of the tool-tip display on hover',
       control: {
         type: 'select',
         options: ['top', 'bottom', 'left', 'right'],

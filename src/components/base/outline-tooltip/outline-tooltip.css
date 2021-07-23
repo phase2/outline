@@ -15,19 +15,19 @@
 }
 
 .position-top {
-  @apply bottom-full;
+  @apply bottom-full mb-2;
 }
 
 .position-bottom {
-  @apply top-full;
+  @apply top-full mt-2;
 }
 
 .position-right {
-  @apply left-full;
+  @apply left-full ml-2;
 }
 
 .position-left {
-  @apply right-full;
+  @apply right-full mr-2;
 }
 
 .tooltip:hover > .tooltip-tip {
