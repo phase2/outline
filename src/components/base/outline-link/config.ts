@@ -31,7 +31,8 @@ export const argTypeHref = {
 
 export const argTypeTarget = {
   name: 'Link Target',
-  description: 'https://www.w3schools.com/tags/att_a_target.asp',
+  description:
+    '**LinkTargetType(_blank, _self, _parent, _top):** https://www.w3schools.com/tags/att_a_target.asp',
   control: {
     type: 'select',
     options: ['_blank', '_self', '_parent', '_top'],

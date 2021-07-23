@@ -6,6 +6,7 @@ import { argTypeSlotContent } from '../../base/outline-element/utils/utils';
 import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
 import { TooltipPosition } from '../outline-tooltip/outline-tooltip';
+
 const buttonOptions: ButtonVariant[] = [
   'none',
   'primary',
@@ -29,38 +30,51 @@ export default {
     ...argTypeSlotContent,
     target: argTypeTarget,
     isDisabled: {
+      description:
+        '**Boolean:** Set whether the button is disabled. Only applies to implementations not using the url property',
       control: {
         type: 'boolean',
       },
     },
     url: {
+      description:
+        '**String:** The url to use for a link. This will render an anchor element. Do not set this prop if you want to render a button element.',
       control: {
         type: 'text',
       },
     },
     variant: {
+      description:
+        '**ButtonVariant (none, primary, secondary, teritary)**: The button style variant to use.',
       control: {
         type: 'select',
         options: buttonOptions,
       },
     },
     size: {
+      description:
+        '**ButtonSize (small, medium, large)** The button size to use',
       control: {
         type: 'select',
         options: sizeOptions,
       },
     },
     disabledInfo: {
+      description:
+        '**String:** Sets the text for screen readers and tooltips for disabled buttons. If your button can be disabled you must provide a short explanitory reason.',
       control: {
         type: 'text',
       },
     },
     tooltipInfo: {
+      description: '**String:** Sets the text for screen readers and tooltips.',
       control: {
         type: 'text',
       },
     },
     position: {
+      description:
+        '**TooltipPosition (top, bottom, left, right)** Sets the position of the **tooltipInfo** / **disabledInfo** display on hover.',
       control: {
         type: 'select',
         options: tooltipPositionOptions,
@@ -72,6 +86,14 @@ export default {
     //     options: AllIcons,
     //   },
     // },
+    onClick: {
+      description:
+        'A click handler to be passed only to onClick. **DO NOT USE** `@click` on this component.',
+    },
+    onKeyUp: {
+      description:
+        'A keyUp handler to be passed to the onKeyUp. **DO NOT USE** `@keyup` on this component.',
+    },
   },
   args: {
     variant: 'primary',
