@@ -5,13 +5,23 @@ export default {
   title: 'Molecules/Accordion',
   component: 'outline-accordion',
   argTypes: {
-    singleLeaf: { control: { type: 'boolean' } },
+    singlePanel: {
+      description:
+        'Boolean attribute that determines if the accordion can have multiple panels opne at one time. Defaults to false.',
+      control: {
+        type: 'boolean',
+      },
+    },
+    panels: {
+      description:
+        'Takes an array of AccordioPanel objects. `{heading: string, content: any}`',
+    },
   },
 };
 
-const Template = ({ panels, singleLeaf }): TemplateResult =>
+const Template = ({ panels, singlePanel }): TemplateResult =>
   html`
-    <outline-accordion .panels=${panels} .singlePanel=${singleLeaf}>
+    <outline-accordion .panels=${panels} ?singlePanel=${singlePanel}>
     </outline-accordion>
   `;
 
@@ -31,5 +41,5 @@ Accordion.args = {
       content: `<p>Praesent ut ligula non mi</p>`,
     },
   ],
-  singleLeaf: true,
+  singlePanel: false,
 };
