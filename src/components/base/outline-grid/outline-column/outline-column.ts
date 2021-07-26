@@ -12,6 +12,8 @@ type rowSpanRange = 1 | 2 | 3 | 4 | 5 | 6;
 
 /**
  * The Outline Column component
+ * @element outline-column
+ *
  * @slot - The default, and only slot for this element.
  */
 @customElement('outline-column')
@@ -20,54 +22,64 @@ export class OutlineColumn extends OutlineElement {
   /**
    * The number of columns wide this column should be.
    */
-  @property({ type: Number, reflect: true }) colSpanDefault: colSpanRange = 12;
+  @property({ type: Number, reflect: true, attribute: 'col-span-default' })
+  colSpanDefault: colSpanRange = 12;
 
   /**
    * The number of columns wide this column should be on small+ screens.
    */
-  @property({ type: Number, reflect: true }) colSpanSm: colSpanRange;
+  @property({ type: Number, reflect: true, attribute: 'col-span-sm' })
+  colSpanSm: colSpanRange;
 
   /**
    * The number of columns wide this column should be on medium+ screens.
    */
-  @property({ type: Number, reflect: true }) colSpanMd: colSpanRange;
+  @property({ type: Number, reflect: true, attribute: 'col-span-md' })
+  colSpanMd: colSpanRange;
 
   /**
    * The number of columns wide this column should be on large+ screens.
    */
-  @property({ type: Number, reflect: true }) colSpanLg: colSpanRange;
+  @property({ type: Number, reflect: true, attribute: 'col-span-lg' })
+  colSpanLg: colSpanRange;
 
   /**
    * The number of columns wide this column should be on extra large+ screens.
    */
-  @property({ type: Number, reflect: true }) colSpanXl: colSpanRange;
+  @property({ type: Number, reflect: true, attribute: 'col-span-xl' })
+  colSpanXl: colSpanRange;
 
   /**
    * The number of columns wide this column should be on extra extra large+ screens.
    */
-  @property({ type: Number, reflect: true }) colSpan2xl: colSpanRange;
+  @property({ type: Number, reflect: true, attribute: 'col-span-2xl' })
+  colSpan2xl: colSpanRange;
 
   /**
    * The number of rows this column will span.
    */
-  @property({ type: Number, reflect: true }) rowSpan: rowSpanRange = 1;
+  @property({ type: Number, reflect: true, attribute: 'row-span' })
+  rowSpan: rowSpanRange = 1;
   /**
    * The vertical placement of content inside of the column.
    */
-  @property({ type: String, reflect: true }) contentAlign: VerticalAlignment =
-    'middle';
+  @property({ type: String, reflect: true, attribute: 'content-align' })
+  contentAlign: VerticalAlignment = 'middle';
   /**
    * Handles the display of a left divider.
    */
-  @property({ type: Boolean, reflect: true }) hasLeftDivider: boolean;
+  @property({ type: Boolean, reflect: true, attribute: 'has-left-divider' })
+  hasLeftDivider: boolean;
   /**
    * Handles the display of a right divider.
    */
-  @property({ type: Boolean, reflect: true }) hasRightDivider: boolean;
+  @property({ type: Boolean, reflect: true, attribute: 'has-right-divider' })
+  hasRightDivider: boolean;
   /**
    * Handles the spacing around border.
    */
-  @property({ type: String, reflect: true }) borderGapSize: Size;
+  @property({ type: String, reflect: true, attribute: 'border-gap-size' })
+  borderGapSize: Size;
 
   render(): TemplateResult {
     return html`<slot></slot>`;
