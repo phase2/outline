@@ -1,4 +1,4 @@
-import { html, HTMLTemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import { argTypeRel, argTypeTarget, argTypeHref } from './config';
 import type { LinkTargetType, LinkRelType } from './config';
@@ -47,7 +47,7 @@ export const Link = ({
   linkRel,
   linkText,
   linkTarget,
-}: Options): HTMLTemplateResult =>
+}: Options): TemplateResult =>
   html`
     <outline-link
       linkHref="${ifDefined(linkHref)}"
@@ -58,14 +58,14 @@ export const Link = ({
     </outline-link>
   `;
 
-export const PropsAndSlottedText = (): HTMLTemplateResult =>
+export const PropsAndSlottedText = (): TemplateResult =>
   html`
     <outline-link linkHref="https://outline.phase2tech.com">
       Link using properties, with slotted link text
     </outline-link>
   `;
 
-export const PropertiesOnly = (): HTMLTemplateResult =>
+export const PropertiesOnly = (): TemplateResult =>
   html`
     <outline-link
       linkHref="https://outline.phase2tech.com"
@@ -73,7 +73,7 @@ export const PropertiesOnly = (): HTMLTemplateResult =>
     ></outline-link>
   `;
 
-export const FullySlotted = (): HTMLTemplateResult =>
+export const FullySlotted = (): TemplateResult =>
   html`
     <outline-link>
       <a href="https://outline.phase2tech.com" target="_blank">
@@ -82,7 +82,7 @@ export const FullySlotted = (): HTMLTemplateResult =>
     </outline-link>
   `;
 
-export const SlottedImageLink = (): HTMLTemplateResult =>
+export const SlottedImageLink = (): TemplateResult =>
   html`
     <outline-link>
       <a href="https://outline.phase2tech.com" target="_blank">
