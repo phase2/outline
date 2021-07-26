@@ -60,7 +60,7 @@
     "rollup.bundle": "rollup -c -m",
     "rollup.watch": "yarn rollup -w",
     "rollup": "yarn rollup.bundle",
-    "test": "tsc && wtr"
+    "test": "yarn build && wtr"
   },
   "keywords": [
     "web-components",
