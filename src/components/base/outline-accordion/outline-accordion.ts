@@ -24,6 +24,7 @@ export class OutlineAccordion extends OutlineElement {
    * AccordionPanel.content is of indeterminate type, and is passed into the panel <slot>.
    */
   @property({ type: Array }) panels!: AccordionPanel[];
+
   /**
    * Set to 'true' to create an accordion that can only have one panel open at a time.
    */
