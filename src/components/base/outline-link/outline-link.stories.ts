@@ -1,4 +1,4 @@
-import { html, HTMLTemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import { argTypeRel, argTypeTarget, argTypeHref } from './config';
 import type { LinkTargetType, LinkRelType } from './config';
@@ -33,6 +33,32 @@ export default {
     linkTarget: '_blank',
     linkText: 'Sample Link',
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+This component renders a link as an \`a\` element.
+
+The default slot can be text or other elements such as images.
+
+## Difference from an \`a\` element.
+
+_@todo specify why this would be used instead of an \`a\` element._
+        `,
+      },
+      source: {
+        code: `
+<outline-link
+  linkHref="{{ linkHref }}"
+  linkRel="{{ linkRel }}"
+  linkTarget="{{ linkTarget }}"
+>
+  {{ defaultSlot }}
+</outline-link>
+        `,
+      },
+    },
+  },
 };
 
 interface Options {
@@ -47,7 +73,7 @@ export const Link = ({
   linkRel,
   linkText,
   linkTarget,
-}: Options): HTMLTemplateResult =>
+}: Options): TemplateResult =>
   html`
     <outline-link
       linkHref="${ifDefined(linkHref)}"
@@ -58,14 +84,14 @@ export const Link = ({
     </outline-link>
   `;
 
-export const PropsAndSlottedText = (): HTMLTemplateResult =>
+export const PropsAndSlottedText = (): TemplateResult =>
   html`
     <outline-link linkHref="https://outline.phase2tech.com">
       Link using properties, with slotted link text
     </outline-link>
   `;
 
-export const PropertiesOnly = (): HTMLTemplateResult =>
+export const PropertiesOnly = (): TemplateResult =>
   html`
     <outline-link
       linkHref="https://outline.phase2tech.com"
@@ -73,7 +99,7 @@ export const PropertiesOnly = (): HTMLTemplateResult =>
     ></outline-link>
   `;
 
-export const FullySlotted = (): HTMLTemplateResult =>
+export const FullySlotted = (): TemplateResult =>
   html`
     <outline-link>
       <a href="https://outline.phase2tech.com" target="_blank">
@@ -82,7 +108,7 @@ export const FullySlotted = (): HTMLTemplateResult =>
     </outline-link>
   `;
 
-export const SlottedImageLink = (): HTMLTemplateResult =>
+export const SlottedImageLink = (): TemplateResult =>
   html`
     <outline-link>
       <a href="https://outline.phase2tech.com" target="_blank">
