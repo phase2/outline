@@ -2,11 +2,19 @@ import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import componentStyles from './outline-modal.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 export type ModalSize = 'small' | 'medium' | 'full-screen';
 
 export const modalSizes: ModalSize[] = ['small', 'medium', 'full-screen'];
+
+// This is helpful in testing.
+export interface OutlineModalInterface extends HTMLElement {
+  isOpen: Boolean;
+  size?: ModalSize;
+  open: () => void;
+  close: () => void;
+}
 
 // See https://stackoverflow.com/questions/1599660/which-html-elements-can-receive-focus.
 // @todo make this re-usable across components?
@@ -31,8 +39,17 @@ const focusableElementSelector = `
  * @slot outline-modal--accessibility-description - The accessibility description which is used by screen readers.
  */
 @customElement('outline-modal')
-export class OutlineModal extends OutlineElement {
+export class OutlineModal
+  extends OutlineElement
+  implements OutlineModalInterface
+{
   static styles: CSSResultGroup = [componentStyles];
+
+  @property({ attribute: false })
+  isOpen = false;
+
+  @property({ type: String })
+  size?: ModalSize = 'medium';
 
   render(): TemplateResult {
     return html`
@@ -47,12 +64,6 @@ export class OutlineModal extends OutlineElement {
       ${this._overlayTemplate()}
     `;
   }
-
-  @property({ attribute: false })
-  isOpen = false;
-
-  @property({ type: String })
-  size?: ModalSize = 'medium';
 
   @state()
   _hasHeaderSlot: boolean;
