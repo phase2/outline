@@ -17,20 +17,60 @@ export default {
   argTypes: {
     color: argTypeColor,
     icon: {
+      description: 'Select from a pre-defined list of icons.',
       control: {
         type: 'select',
         options: IconList,
       },
     },
     variant: {
+      description: 'Is the icon solid or does it use an outline.',
       control: {
         type: 'select',
         options: IconVariant,
       },
     },
     url: {
+      description: 'Specify your own source URL for an icon.',
       control: {
         type: 'text',
+      },
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+This component renders an icon as an \`img\` element.
+
+## Choosing the icon to render
+
+### Choosing a pre-defined icon
+
+You can select from a predefined \`icon\`.
+
+_@todo add documentation about \`variant\` and \`color\` when those are implemented._
+
+### Specifying your own source URL
+
+If you specify a \`url\`, this will be used.
+
+## Differences from an \`img\` element
+
+This component allows to vary the icon using attributes rather than selecting a new icon.
+
+_@todo specify why this would be used instead of an \`img\` element when the \`url\` pattern is used._
+
+        `,
+      },
+      source: {
+        code: `
+<outline-icon
+  icon="{{ icon }}"
+  url="{{ url }}"
+  color="{{ color }}"
+></outline-icon>
+        `,
       },
     },
   },
