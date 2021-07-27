@@ -33,6 +33,32 @@ export default {
     linkTarget: '_blank',
     linkText: 'Sample Link',
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+This component renders a link as an \`a\` element.
+
+The default slot can be text or other elements such as images.
+
+## Difference from an \`a\` element.
+
+_@todo specify why this would be used instead of an \`a\` element._
+        `,
+      },
+      source: {
+        code: `
+<outline-link
+  linkHref="{{ linkHref }}"
+  linkRel="{{ linkRel }}"
+  linkTarget="{{ linkTarget }}"
+>
+  {{ defaultSlot }}
+</outline-link>
+        `,
+      },
+    },
+  },
 };
 
 interface Options {
