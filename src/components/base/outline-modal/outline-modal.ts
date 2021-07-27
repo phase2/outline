@@ -11,6 +11,7 @@ export const modalSizes: ModalSize[] = ['small', 'medium', 'full-screen'];
 // This is helpful in testing.
 export interface OutlineModalInterface extends HTMLElement {
   isOpen: Boolean;
+  shouldForceAction: Boolean;
   size?: ModalSize;
   open: () => void;
   close: () => void;
@@ -47,6 +48,12 @@ export class OutlineModal
 
   @property({ attribute: false })
   isOpen = false;
+
+  /**
+   * If we force the user to take an action, the consumer must provide a way to close the modal on their own.
+   */
+  @property({ type: Boolean })
+  shouldForceAction = false;
 
   @property({ type: String })
   size?: ModalSize = 'medium';
@@ -116,12 +123,16 @@ export class OutlineModal
                 name="outline-modal--header"
                 @slotchange="${this._handleSlotChange}"
               ></slot>
-              <button
-                id="close"
-                aria-label="Close modal"
-                @click="${this.close}"
-                @keydown="${this._handleCloseKeydown}"
-              ></button>
+              ${this.shouldForceAction
+                ? null
+                : html`
+                    <button
+                      id="close"
+                      aria-label="Close modal"
+                      @click="${this.close}"
+                      @keydown="${this._handleCloseKeydown}"
+                    ></button>
+                  `}
             </div>
             <div id="main">
               <slot></slot>
@@ -180,13 +191,16 @@ export class OutlineModal
 
   private _handleOverlayClick(event: MouseEvent): void {
     // Only trigger if we click directly on the event that wants to receive the click.
-    if (event.target === event.currentTarget) {
+    if (
+      event.target === event.currentTarget &&
+      this.shouldForceAction === false
+    ) {
       this.close();
     }
   }
 
   private _handleOverlayKeydown(event: KeyboardEvent): void {
-    if (event.key === 'Escape') {
+    if (event.key === 'Escape' && this.shouldForceAction === false) {
       this.close();
     }
   }
@@ -199,13 +213,13 @@ export class OutlineModal
   }
 
   @query('#close')
-  private closeElement!: HTMLDivElement;
+  private closeElement: HTMLDivElement | null;
 
   @property({ type: String })
   elementToFocusSelector?: string | undefined;
 
   private _focusOnElement(): void {
-    const defaultElement: HTMLElement = this.closeElement;
+    const defaultElement = this.shouldForceAction ? null : this.closeElement;
 
     const attributeDefinedElement =
       this.elementToFocusSelector !== undefined
@@ -221,38 +235,49 @@ export class OutlineModal
     const element =
       attributeDefinedElement ?? automaticallySelectedElement ?? defaultElement;
 
-    element.focus();
+    if (element !== null) {
+      element.focus();
+    }
   }
 
   private _trapFocus(): void {
-    const firstFocusableElement = this.closeElement;
+    const firstFocusableElement = this.shouldForceAction
+      ? this.firstFocusableSlottedElement
+      : this.closeElement;
 
-    const lastFocusableElement =
-      this.lastFocusableSlottedElement ?? firstFocusableElement;
+    if (firstFocusableElement !== null) {
+      const lastFocusableElement =
+        this.lastFocusableSlottedElement ?? firstFocusableElement;
 
-    lastFocusableElement.addEventListener('keydown', event => {
-      if (event.key === 'Tab' && event.shiftKey === false) {
-        event.preventDefault();
+      lastFocusableElement.addEventListener('keydown', event => {
+        if (event.key === 'Tab' && event.shiftKey === false) {
+          event.preventDefault();
 
-        firstFocusableElement.focus();
-      }
-    });
+          firstFocusableElement.focus();
+        }
+      });
 
-    firstFocusableElement.addEventListener('keydown', event => {
-      if (event.key === 'Tab' && event.shiftKey) {
-        event.preventDefault();
+      firstFocusableElement.addEventListener('keydown', event => {
+        if (event.key === 'Tab' && event.shiftKey) {
+          event.preventDefault();
 
-        lastFocusableElement.focus();
-      }
-    });
+          lastFocusableElement.focus();
+        }
+      });
+    }
+  }
+
+  private get firstFocusableSlottedElement(): HTMLElement | null {
+    const focusableSlottedElements: NodeListOf<HTMLElement> =
+      this.querySelectorAll(focusableElementSelector);
+
+    return Array.from(focusableSlottedElements).slice(0)[0] ?? null;
   }
 
   private get lastFocusableSlottedElement(): HTMLElement | null {
     const focusableSlottedElements: NodeListOf<HTMLElement> =
       this.querySelectorAll(focusableElementSelector);
 
-    return (
-      focusableSlottedElements[focusableSlottedElements.length - 1] ?? null
-    );
+    return Array.from(focusableSlottedElements).slice(-1)[0] ?? null;
   }
 }
