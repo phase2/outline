@@ -1,4 +1,4 @@
-import { OutlineModal } from '../outline-modal';
+import { OutlineModal as OutlineComponent } from '../outline-modal';
 import { expect, waitUntil } from '@open-wc/testing';
 
 // We are using these generic names so we can hopefully generalize this process or at least make copy & paste easier.
@@ -22,13 +22,13 @@ describe(componentElementName, () => {
     // If we don't use the component at least once, its JS will never be loaded and the component won't render. :(
     const componentElement = document.createElement(componentElementName);
 
-    expect(componentElement).is.instanceOf(OutlineModal);
+    expect(componentElement).is.instanceOf(OutlineComponent);
   });
 
   it('Slot elements while interacting with the modal.', async () => {
     const modalElement = document.createElement(
       componentElementName
-    ) as OutlineModal;
+    ) as OutlineComponent;
 
     /**
      * <button slot="outline-modal--trigger">
