@@ -9,9 +9,7 @@ import svg from 'rollup-plugin-svg';
 export default {
   // Output all components to a single exported file.
   input: {
-    include: [
-      'src/components/**/*.ts',
-    ],
+    include: ['src/components/**/*.ts'],
     exclude: [
       'src/components/**/*.stories.ts',
       'src/components/**/*.css.lit.ts',
