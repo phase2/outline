@@ -46,6 +46,12 @@ export default {
       options: modalSizes,
       control: { type: 'select' },
     },
+    shouldForceAction: {
+      name: 'shouldForceAction',
+      description:
+        'Force the user to take an action by removing close features. The modal contents will need to provide a way to close the modal.',
+      control: { type: 'boolean' },
+    },
     elementToFocusSelector: {
       name: 'elementToFocusSelector',
       description:
@@ -101,6 +107,8 @@ Example:
 
 You can set the \`size\` to change the size of the modal.
 
+You can force the user to take an action by setting \`shouldForceAction\`. In this situation, the modal contents will need to provide a way to close the modal since the standard close features will not be provided.
+
 ## Accessibility
 
 Based on guidelines from [WAI-ARIA Authoring Practices 1.1: Modal Dialog Example](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html).
@@ -140,6 +148,7 @@ You can access the boolean \`isOpen\` property to determine if the modal is open
         code: `
 <outline-modal
   size="{{ size }}"
+  {{ shouldForceAction }}
   elementToFocusSelector="{{ elementToFocusSelector }}"
 >
   <outline-link slot="outline-modal--trigger">{{ triggerSlot}}</outline-link>
@@ -159,11 +168,13 @@ const Template = ({
   accessibilityDescription,
   defaultSlot,
   size,
+  shouldForceAction,
   elementToFocusSelector,
 }): TemplateResult => {
   return html`
     <outline-modal
       size="${ifDefined(size)}"
+      ?shouldForceAction="${shouldForceAction}"
       elementToFocusSelector="${ifDefined(elementToFocusSelector)}"
     >
       ${ifDefined(triggerSlot)} ${ifDefined(headerSlot)}
@@ -402,4 +413,53 @@ AutoFocusedElement.args = {
       Accept
     </button>
   `,
+};
+
+export const ForceAction = Template.bind({});
+ForceAction.args = {
+  triggerSlot: html`
+    <outline-link slot="outline-modal--trigger">
+      <p>Open modal and force an action.</p>
+    </outline-link>
+  `,
+  headerSlot: html`
+    <outline-heading slot="outline-modal--header">
+      The modal header
+    </outline-heading>
+  `,
+  defaultSlot: html`
+    <p>Here is a first line of the modal.</p>
+    <p>
+      This has a longer line so we can test line breaks, etc. This is going to
+      be another sentence so we can see a longer paragraph. How about this?
+      Thanks.
+    </p>
+    <button
+      class="accept"
+      onClick="
+        document.querySelectorAll('outline-modal').forEach(
+          (node) => {
+            if(node.isOpen){
+              node.close();
+            }
+          }
+        )
+      "
+      onkeydown="
+        if (event.key === 'Enter') {
+          document.querySelectorAll('outline-modal').forEach(
+            (node) => {
+              if(node.isOpen){
+                node.close();
+              }
+            }
+          )
+        }
+      "
+    >
+      Accept
+    </button>
+  `,
+  shouldForceAction: true,
+  elementToFocusSelector: '.accept',
 };
