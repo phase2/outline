@@ -10,6 +10,26 @@ export default {
   component: 'outline-image',
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `
+This component renders an image with an optional caption as a \`figure\` element and a \`figcaption\` element.
+
+## Difference between \`figure\` and \`figcaption\` element
+
+_@todo describe why this would be used instead._
+
+        `,
+      },
+      source: {
+        code: `
+<outline-image>
+  {{ defaultSlot }}
+  <outline-container slot="caption">{{ caption }}</outline-container>
+</outline-image>
+        `,
+      },
+    },
   },
   argTypes: {
     imageUrl: argTypeHidden,
