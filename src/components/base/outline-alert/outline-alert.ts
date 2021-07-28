@@ -3,16 +3,16 @@ import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-alert.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
 
-export type AlertSize = 'small' | 'large';
-export const alertSizes: AlertSize[] = ['small', 'large'];
+export const alertSizes = ['small', 'large'] as const;
+export type AlertSize = typeof alertSizes[number];
 
-export type AlertStatusType = 'information' | 'warning' | 'error' | 'success';
-export const alertStatusTypes: AlertStatusType[] = [
+export const alertStatusTypes = [
   'information',
   'warning',
   'error',
   'success',
-];
+] as const;
+export type AlertStatusType = typeof alertStatusTypes[number];
 
 // This can be useful for testing.
 export interface OutlineAlertInterface extends HTMLElement {
