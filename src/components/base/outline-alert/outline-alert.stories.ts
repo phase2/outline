@@ -70,8 +70,8 @@ If the alert has an interaction, you should indicate this with \`isInteractive\`
 <outline-alert
   statusType="{{ statusType }}"
   size="{{ size }}"
-  shouldShowIcon="{{ shouldShowIcon }}"
-  isInteractive="{{ isInteractive }}"
+  {{ shouldShowIcon }}
+  {{ isInteractive }}
 >
   <span slot="outline-alert--header">{{ headerSlot }}</span>
   {{ defaultSlot }}
