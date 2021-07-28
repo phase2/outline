@@ -1,4 +1,4 @@
-import { html, HTMLTemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import { repeat } from 'lit/directives/repeat';
 
@@ -99,7 +99,7 @@ const Template = ({
   const colArray = new Array(numContentCols);
   return repeat(
     colArray,
-    (): HTMLTemplateResult => html`
+    (): TemplateResult => html`
       <outline-column
         content-align="${ifDefined(contentAlign)}"
         col-span-default="${colSpanDefault}"
