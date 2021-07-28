@@ -9,3 +9,12 @@ a:hover,
 ::slotted(a:hover) {
   @apply text-brand-secondary no-underline;
 }
+
+a.last {
+    @apply no-underline font-thin;
+}
+
+:host,
+ol {
+    @apply inline-flex list-none;
+}
