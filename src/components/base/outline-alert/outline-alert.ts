@@ -14,6 +14,14 @@ export const alertStatusTypes: AlertStatusType[] = [
   'success',
 ];
 
+// This can be useful for testing.
+export interface OutlineAlertInterface extends HTMLElement {
+  statusType: AlertStatusType;
+  size: AlertSize;
+  isInteractive: Boolean;
+  shouldShowIcon: Boolean;
+}
+
 /**
  * The Outline Alert component
  *
@@ -22,7 +30,10 @@ export const alertStatusTypes: AlertStatusType[] = [
  * @slot outline-alert--header - The header in the alert
  */
 @customElement('outline-alert')
-export class OutlineAlert extends OutlineElement {
+export class OutlineAlert
+  extends OutlineElement
+  implements OutlineAlertInterface
+{
   static styles: CSSResultGroup = [componentStyles];
 
   @property({ type: String })
