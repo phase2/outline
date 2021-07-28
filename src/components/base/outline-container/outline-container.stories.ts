@@ -1,4 +1,4 @@
-import { html, HTMLTemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import type { HorizontalAlignment } from './config';
 import { argTypeHorizontalAlign } from '../outline-element/utils/utils';
@@ -42,7 +42,7 @@ export const Container = ({
   isNested,
   fullBleed,
   containerAlign,
-}: Options): HTMLTemplateResult =>
+}: Options): TemplateResult =>
   html`
     <outline-container
       class="text-left rounded-xl border-2 border-dashed bg-demo-lightBlue border-demo-darkBlue py-10 md:py-20 my-10 md:my-20"

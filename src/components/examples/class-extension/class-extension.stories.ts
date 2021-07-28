@@ -1,4 +1,4 @@
-import { html, HTMLTemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit-html';
 
 import './double-extended-element/double-extended-element';
 import './extended-element/extended-element';
@@ -16,7 +16,7 @@ export default {
   },
 };
 
-export const MyElement = (): HTMLTemplateResult => {
+export const MyElement = (): TemplateResult => {
   return html`
     <my-element>
       <p>This is an instance of &lt;my-element&gt;.</p>
@@ -24,7 +24,7 @@ export const MyElement = (): HTMLTemplateResult => {
   `;
 };
 
-export const ExtendedElement = (): HTMLTemplateResult => {
+export const ExtendedElement = (): TemplateResult => {
   return html`
     <extended-element>
       <p>
@@ -35,7 +35,7 @@ export const ExtendedElement = (): HTMLTemplateResult => {
   `;
 };
 
-export const DoubleExtendedElement = (): HTMLTemplateResult => {
+export const DoubleExtendedElement = (): TemplateResult => {
   return html`
     <double-extended-element>
       <p>
@@ -46,6 +46,6 @@ export const DoubleExtendedElement = (): HTMLTemplateResult => {
   `;
 };
 
-export const SimpleExample = (): HTMLTemplateResult => {
+export const SimpleExample = (): TemplateResult => {
   return html` <my-element></my-element> `;
 };
