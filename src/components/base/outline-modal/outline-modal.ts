@@ -4,9 +4,8 @@ import componentStyles from './outline-modal.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-export type ModalSize = 'small' | 'medium' | 'full-screen';
-
-export const modalSizes: ModalSize[] = ['small', 'medium', 'full-screen'];
+export const modalSizes = ['small', 'medium', 'full-screen'] as const;
+export type ModalSize = typeof modalSizes[number];
 
 // This is helpful in testing.
 export interface OutlineModalInterface extends HTMLElement {
