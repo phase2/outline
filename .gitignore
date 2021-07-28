@@ -2,7 +2,6 @@
 storybook-static/
 custom-elements.json
 .env
-.npmrc
 .aws
 .hidden
 *.lit.ts
