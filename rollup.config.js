@@ -14,6 +14,7 @@ export default {
       'src/components/**/*.stories.ts',
       'src/components/**/*.css.lit.ts',
       'src/components/**/*.test.ts',
+      'src/components/examples/**/*'
     ],
   },
   output: [
