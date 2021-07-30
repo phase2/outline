@@ -8,10 +8,12 @@
 
 .tooltip-tip {
   @apply absolute inline-flex p-2 opacity-0 text-center;
+  visibility: hidden;
+  pointer-events: visible;
   border: black solid 1px;
   background-color: whitesmoke;
-  transition-property: opacity;
-  transition: 200ms;
+  transition: 300ms;
+  transition-delay: 800ms;
 }
 
 .position-top {
@@ -30,9 +32,10 @@
   @apply right-full mr-2;
 }
 
-.tooltip:hover > .tooltip-tip {
+.tooltip:hover > .tooltip-tip,
+.tooltip:focus > .tooltip-tip {
   @apply opacity-100;
-  transition-property: opacity;
-  transition: 1000ms;
-  transition-delay: 1000ms;
+  visibility: visible;
+  transition: 500ms;
+  transition-delay: 500ms;
 }
