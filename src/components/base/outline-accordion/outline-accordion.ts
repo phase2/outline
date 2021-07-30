@@ -91,16 +91,17 @@ export class OutlineAccordion extends OutlineElement {
   }
 
   /**
-   *
+   * @param string
+   * @returns boolean
    * Dupliacted/un-utilized in the template due to lit-plugin error
    * Type '() => boolean' is not assignable to 'boolean'lit-plugin(no-incompatible-type-binding)(2304)
    */
-
   isActive(contentId: string): boolean {
     return this.active.includes(contentId);
   }
 
   /**
+   * @param string
    * Click event handler that calls setActive to update compoenent state,
    * and then initiates a compoenent update.
    */
@@ -110,7 +111,6 @@ export class OutlineAccordion extends OutlineElement {
   }
 
   /**
-   *
    * @param event
    * @returns void
    * Adds up/down arrow keyboard navigation.
