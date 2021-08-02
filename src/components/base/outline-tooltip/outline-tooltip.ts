@@ -49,22 +49,41 @@ export class OutlineTooltip extends OutlineElement {
    */
   @query('.tip-info') tipString: HTMLElement;
 
+  /**
+   * Ref to tooltip button.
+   */
+  @query('#tip-button') tipButton: HTMLButtonElement;
+
   render(): TemplateResult {
     return html`
-      <div class="tooltip" @mouseover=${this.adjustRect}>
+      <div
+        class="tooltip"
+        @mouseover=${this.adjustRect}
+        @mouseout=${this.toggleHidden}
+      >
         <slot aria-describedby=${this.id}></slot>
-        <div
-          class="tooltip-tip position-${this.position}"
-          id=${this.id}
-          role="tooltip"
-        >
+        <div class="tooltip-tip position-${this.position}">
           ${!this.tip
-            ? html`<slot id="tip-info" name="tip-info"></slot>`
+            ? html`<slot id=${this.id} name="tip-info"></slot>`
             : html`<div class="tip-info">${unsafeHTML(`${this.tip}`)}</div>`}
-          <outline-button @click="${this.close}">x</outline-button>
+          <outline-button
+            id="tip-button"
+            aria-label="close tooltip"
+            @click="${this.close}"
+            aria-hidden="true"
+          ></outline-button>
         </div>
       </div>
     `;
+  }
+
+  /**
+   * Toggles button aria-hidden state.
+   */
+  toggleHidden() {
+    const isHidden =
+      this.tipButton.getAttribute('aria-hidden') === 'true' ? 'false' : 'true';
+    this.tipButton.setAttribute('aria-hidden', isHidden);
   }
 
   /**
@@ -72,7 +91,8 @@ export class OutlineTooltip extends OutlineElement {
    */
   close() {
     const ele = this.shadowRoot?.querySelector('.tooltip-tip') as HTMLElement;
-    ele.setAttribute('style', 'opacity: 0;');
+    ele.setAttribute('style', 'display: none;');
+    this.toggleHidden();
   }
 
   /**
@@ -84,6 +104,7 @@ export class OutlineTooltip extends OutlineElement {
       ? (this.tipString?.getBoundingClientRect() as DOMRect)
       : (this.tipSlot[0]?.getBoundingClientRect() as DOMRect);
 
+    this.toggleHidden();
     const isVisable =
       rect.top >= 0 &&
       rect.left >= 0 &&

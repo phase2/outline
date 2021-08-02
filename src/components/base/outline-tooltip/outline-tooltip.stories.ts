@@ -37,12 +37,10 @@ const InlineTemplate = ({ id, tip, position }): TemplateResult =>
     <outline-grid gap-size="small">
       <outline-column col-span-default="6">
         <outline-heading>Hover over all caps text below.</outline-heading>
-
         <p>
-          Donec id justo. Suspendisse non nisl sit amet velit hendrerit rutrum.
-          Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero.
+          mauris ipsum aliquam libero.
           <outline-tooltip
-            id="${ifDefined(id)}"
+            .id="${id}"
             tip="${ifDefined(tip)}"
             position="${position}"
           >
@@ -61,7 +59,7 @@ const FormTemplate = ({ id, position }): TemplateResult =>
         <outline-heading> Simulated Disabled Form Button. </outline-heading>
         <div>
           <form>
-            <outline-tooltip id="${id}" position="${position}">
+            <outline-tooltip .id="${id}" position="${position}">
               <span slot="tip-info"> Enter a valid email address here </span>
               <input
                 type="text"
