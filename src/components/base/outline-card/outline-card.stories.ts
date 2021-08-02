@@ -96,7 +96,7 @@ const Template = ({
   html`
     <outline-container>
       <outline-card
-        hasshadow="${ifDefined(hasShadow)}"
+        ?hasshadow=${ifDefined(hasShadow)}
         isrounded="${ifDefined(isRounded)}"
         bgcolorheader="${ifDefined(bgColorHeader)}"
         bgcolorcontent="${ifDefined(bgColorContent)}"
