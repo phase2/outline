@@ -98,6 +98,32 @@ export default {
   args: {
     variant: 'primary',
   },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+This component renders a button that can either be a link or trigger an action.
+
+## Difference from \`button\` element
+
+This is rendered as an \`a\` element if a link and a \`button\` element if not a link. This allows for consistent styling that matches the user expectation of a button while matching the browser expectation for those elements.
+        `,
+      },
+      source: {
+        code: `
+<outline-button
+  url="{{ url }}"
+  target="{{ target }}"
+  variant="{{ variant }}"
+  disabled="{{ disabled }}"
+  icon="{{ icon }}"
+>
+  {{ defaultSlot }}
+</outline-button>
+        `,
+      },
+    },
+  },
 };
 
 const Template = ({

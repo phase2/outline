@@ -22,18 +22,21 @@ export default {
   argTypes: {
     ...argTypeSlotContent,
     level: {
+      description: 'HTML level. Used by screen readers.',
       control: {
         type: 'select',
         options: levelOptions,
       },
     },
     levelSize: {
+      description: 'Presentation level. Used for styling.',
       control: {
         type: 'select',
         options: HeadingSizes,
       },
     },
     levelStyle: {
+      description: 'Presentation style. Font weight variation.',
       control: {
         type: 'select',
         options: HeadingStyles,
@@ -43,6 +46,35 @@ export default {
   args: {
     defaultSlot:
       'Sample heading text that should take up multiple lines so we can test for proper size and leading.',
+  },
+  parameters: {
+    docs: {
+      description: {
+        component: `
+This component renders a heading.
+
+## Difference from \`h1\`, \`h2\`, etc elements
+
+This is rendered as various \`h1\`, etc elements, but is styled based on the \`levelsize\`. This allows screen readers to properly read the structure of a page even when this diverges from the visual presentation of these headers.
+
+## Variation
+
+You can also set the font weight using the \`levelstyle\` attribute.
+
+        `,
+      },
+      source: {
+        code: `
+<outline-heading
+  level="{{ level }}"
+  levelsize="{{ levelSize }}"
+  levelstyle="{{ levelStyle }}"
+>
+  {{ defaultSlot}
+</outline-heading>
+        `,
+      },
+    },
   },
 };
 

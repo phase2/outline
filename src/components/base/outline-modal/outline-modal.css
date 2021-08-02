@@ -1,0 +1,40 @@
+#overlay {
+  @apply fixed top-0 left-0 right-0 bottom-0 z-50 flex items-center justify-center bg-opacity-60 bg-neutral-black;
+
+  /* Tailwind background opacity with customizations wasn't working.\`bg-opacity-60 bg-neutral-black\` */
+  background-color: rgb(0, 0, 0, var(--tw-bg-opacity));
+}
+
+#container {
+  @apply overflow-y-auto rounded-sm h-screen bg-neutral-white max-w-full md:max-w-quarter-screen-w md:h-auto;
+  min-width: 320px;
+
+  #overlay.medium & {
+    @apply md:max-w-half-screen-w;
+  }
+
+  #overlay.full-screen & {
+    @apply w-full-screen-w max-w-full-screen-w h-full-screen-h md:w-full-screen-w md:max-w-full-screen-w;
+  }
+}
+
+#header {
+  @apply relative px-6 pt-6;
+}
+
+#close {
+  @apply absolute border-0 top-2.5 right-2.5 bg-neutral-transparent;
+}
+
+/* We need a double slash on the unicode because of templates later. */
+#close:before {
+  content: '\\2715';
+}
+
+#main {
+  @apply p-6;
+}
+
+#accessibility-description {
+  @apply hidden;
+}

@@ -6,7 +6,13 @@
 
 We have a [Code of Conduct](https://github.com/phase2/outline/blob/next/CODE_OF_CONDUCT.md), please follow it in all interactions with project maintainers and fellow users.
 
-## Setup
+## Using Gitpod
+
+If you have a web browser, you can get a fully pre-configured development environment with one click:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/phase2/outline)
+
+## Local Setup
 
 Run the following steps to ensure your environment is installed and up to date. This assumes you are using [NVM](https://github.com/nvm-sh/nvm) locally to manage your NPM version(s).
 
