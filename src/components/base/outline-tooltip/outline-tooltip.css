@@ -7,9 +7,13 @@
 }
 
 .tooltip-tip {
-  @apply absolute inline-flex opacity-0 text-center h-0 w-0 overflow-hidden p-2;
+  @apply absolute inline-flex opacity-0 text-center overflow-hidden p-2;
+  visibility: hidden;
+  pointer-events: visible;
   border: black solid 1px;
   background-color: whitesmoke;
+  transition: all 500ms;
+  transition-delay: 300ms;
 }
 
 .position-top {
@@ -30,7 +34,8 @@
 
 .tooltip:hover > .tooltip-tip,
 .tooltip:focus > .tooltip-tip {
-  @apply opacity-100 h-auto w-auto;
-  transition: opacity 500ms;
+  @apply opacity-100;
+  visibility: visible;
+  transition: opacity 1000ms;
   transition-delay: 500ms;
 }
