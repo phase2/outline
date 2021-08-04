@@ -68,11 +68,6 @@ export class OutlineButton extends OutlineElement {
   @property() onKeyUp: () => void;
 
   /**
-   * Sets tabindex attribute to default "-1", for accessibility purposes.
-   */
-  @property({ type: String, reflect: true }) tabindex = '-1';
-
-  /**
    * Sets the text for screen readers and tooltips for disabled buttons.
    * If your button can be disabled you must provide a short explanitory reason.
    */
