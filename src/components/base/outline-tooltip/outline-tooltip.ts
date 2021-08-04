@@ -60,6 +60,8 @@ export class OutlineTooltip extends OutlineElement {
         class="tooltip"
         @mouseover=${this.adjustRect}
         @mouseout=${this.toggleHidden}
+        @keydown=${this.onEsc}
+        tabindex="-1"
       >
         <slot aria-describedby=${this.id}></slot>
         <div class="tooltip-tip position-${this.position}">
@@ -76,6 +78,14 @@ export class OutlineTooltip extends OutlineElement {
       </div>
     `;
   }
+
+  /**
+   * Hides tooltip on 'esc' keypress.
+   * Works with screen readers only.
+   */
+
+  onEsc = (event: KeyboardEvent) =>
+    event.key === 'Escape' ? this.close() : null;
 
   /**
    * Toggles button aria-hidden state.
