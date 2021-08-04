@@ -99,7 +99,7 @@ export class OutlineButton extends OutlineElement {
           <outline-tooltip
             position="${ifDefined(this.position)}"
             id="information-tip-${this.seed}"
-            tip=${this.setAriaDescription()}
+            tip=${ifDefined(this.setAriaDescription())}
           >
             ${this.basicTemplate()}
           </outline-tooltip>
