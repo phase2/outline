@@ -50,7 +50,7 @@ export const Container = ({
       full-bleed="${ifDefined(fullBleed)}"
       container-align="${ifDefined(containerAlign)}"
     >
-      <!-- <outline-heading level="h2" levelsize="2xl" class="mb-4"
+      <!-- <outline-heading level="h2" level-size="2xl" class="mb-4"
         >Container</outline-heading
       > -->
       <p>
