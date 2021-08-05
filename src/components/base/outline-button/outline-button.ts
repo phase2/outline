@@ -3,7 +3,6 @@ import { customElement, property } from 'lit/decorators.js';
 import { LinkTargetType } from '../outline-link/config';
 import componentStyles from './outline-button.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
-import { ifDefined } from 'lit/directives/if-defined';
 
 // import {
 //   IconTypeOutline,
