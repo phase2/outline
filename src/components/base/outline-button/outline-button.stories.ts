@@ -5,7 +5,6 @@ import { argTypeTarget } from '../outline-link/config';
 import { argTypeSlotContent } from '../../base/outline-element/utils/utils';
 import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
-import { TooltipPosition } from '../outline-tooltip/outline-tooltip';
 
 const buttonOptions: ButtonVariant[] = [
   'none',
@@ -15,13 +14,6 @@ const buttonOptions: ButtonVariant[] = [
 ];
 
 const sizeOptions: ButtonSize[] = ['small', 'medium', 'large'];
-
-const tooltipPositionOptions: TooltipPosition[] = [
-  'bottom',
-  'top',
-  'left',
-  'right',
-];
 
 export default {
   title: 'Atoms/Button',
@@ -59,41 +51,12 @@ export default {
         options: sizeOptions,
       },
     },
-    disabledInfo: {
-      description:
-        '**String:** Sets the text for screen readers and tooltips for disabled buttons. If your button can be disabled you must provide a short explanitory reason.',
-      control: {
-        type: 'text',
-      },
-    },
-    tooltipInfo: {
-      description: '**String:** Sets the text for screen readers and tooltips.',
-      control: {
-        type: 'text',
-      },
-    },
-    position: {
-      description:
-        '**TooltipPosition (top, bottom, left, right)** Sets the position of the **tooltipInfo** / **disabledInfo** display on hover.',
-      control: {
-        type: 'select',
-        options: tooltipPositionOptions,
-      },
-    },
     // icon: {
     //   control: {
     //     type: 'select',
     //     options: AllIcons,
     //   },
     // },
-    onClick: {
-      description:
-        'A click handler to be passed only to onClick. **DO NOT USE** `@click` on this component.',
-    },
-    onKeyUp: {
-      description:
-        'A keyUp handler to be passed to the onKeyUp. **DO NOT USE** `@keyup` on this component.',
-    },
   },
   args: {
     variant: 'primary',
@@ -136,9 +99,6 @@ const Template = ({
   size,
   onClick,
   onKeyUp,
-  disabledInfo,
-  tooltipInfo,
-  position,
 }): TemplateResult =>
   html`
     <outline-button
@@ -148,11 +108,8 @@ const Template = ({
       size="${size}"
       ?isDisabled="${isDisabled}"
       icon="${ifDefined(icon)}"
-      onClick="${onClick}"
-      onKeyUp="${onKeyUp}"
-      disabledInfo="${disabledInfo}"
-      tooltipInfo="${tooltipInfo}"
-      position="${position}"
+      @click="${onClick}"
+      @keyup="${onKeyUp}"
     >
       ${defaultSlot}
     </outline-button>
@@ -163,7 +120,6 @@ Link.args = {
   defaultSlot: 'Link button',
   url: '#',
   size: 'medium',
-  position: 'bottom',
 };
 
 export const IconLink = Template.bind({});
@@ -173,7 +129,6 @@ IconLink.args = {
   url: '#',
   variant: 'primary',
   icon: 'arrowNarrowRightOutline',
-  position: 'bottom',
 };
 
 export const PrimaryButton = Template.bind({});
@@ -191,7 +146,6 @@ PrimaryButton.args = {
       console.log(e);
     }
   },
-  position: 'bottom',
 };
 
 export const SecondaryButton = Template.bind({});
@@ -199,7 +153,6 @@ SecondaryButton.args = {
   defaultSlot: 'Secondary button',
   variant: 'secondary',
   size: 'medium',
-  position: 'bottom',
 };
 
 export const TertiaryButton = Template.bind({});
@@ -207,5 +160,4 @@ TertiaryButton.args = {
   defaultSlot: 'Tertiary button',
   variant: 'tertiary',
   size: 'medium',
-  position: 'bottom',
 };
