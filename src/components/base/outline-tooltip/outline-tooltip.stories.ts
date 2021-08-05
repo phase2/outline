@@ -75,13 +75,11 @@ const FormTemplate = ({ id, position }): TemplateResult =>
 
 export const WithTipProp = InlineTemplate.bind({});
 WithTipProp.args = {
-  id: 'tooltip-id',
   tip: '<div><h2>Thing of Import</h2><p>Important information to be shared by this tooltip</p></div>',
   position: 'bottom',
 };
 
 export const WithTipInfoSlot = FormTemplate.bind({});
 WithTipInfoSlot.args = {
-  id: 'tooltip-1',
   position: 'top',
 };

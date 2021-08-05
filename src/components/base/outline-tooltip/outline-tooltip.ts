@@ -23,10 +23,10 @@ export class OutlineTooltip extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   /**
-   *  REQUIRED: An ID string that associated components will need for
+   *  An ID string that associated components can use for
    *  accessibility/screen reader compliance.
    */
-  @property({ type: String }) id!: string;
+  @property({ type: String }) id: string;
 
   /**
    * An optional prop to pass the tip info. Can also be passed via the
@@ -54,6 +54,11 @@ export class OutlineTooltip extends OutlineElement {
    */
   @query('#tip-button') tipButton: HTMLButtonElement;
 
+  /**
+   * Used to provied a unique ID if no id prop supplied.
+   */
+  seed = Math.floor(Math.random() * 10000);
+
   render(): TemplateResult {
     return html`
       <div
@@ -63,11 +68,21 @@ export class OutlineTooltip extends OutlineElement {
         @keydown=${this.onEsc}
         tabindex="-1"
       >
-        <slot aria-describedby=${this.id}></slot>
+        <slot
+          aria-describedby=${this.id ? this.id : `tooltip-${this.seed}`}
+        ></slot>
         <div class="tooltip-tip position-${this.position}">
           ${!this.tip
-            ? html`<slot id=${this.id} name="tip-info"></slot>`
-            : html`<div class="tip-info">${unsafeHTML(`${this.tip}`)}</div>`}
+            ? html`<slot
+                id=${this.id ? this.id : `tooltip-${this.seed}`}
+                name="tip-info"
+              ></slot>`
+            : html`<div
+                class="tip-info"
+                id=${this.id ? this.id : `tooltip-${this.seed}`}
+              >
+                ${unsafeHTML(`${this.tip}`)}
+              </div>`}
           <outline-button
             id="tip-button"
             aria-label="close tooltip"
@@ -83,7 +98,6 @@ export class OutlineTooltip extends OutlineElement {
    * Hides tooltip on 'esc' keypress.
    * Works with screen readers only.
    */
-
   onEsc = (event: KeyboardEvent) =>
     event.key === 'Escape' ? this.close() : null;
 
