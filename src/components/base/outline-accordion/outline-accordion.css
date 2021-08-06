@@ -1,0 +1,19 @@
+.accordion-button {
+  @apply border-0 bg-neutral-transparent;
+}
+
+.accordion-panel {
+  border: black solid 2px;
+  border-top: none;
+}
+.accordion-heading {
+  @apply py-2 px-4;
+}
+
+.accordion-heading {
+  @apply m-0;
+}
+
+div.accordion-panel:first-of-type {
+  border: black solid 2px;
+}
