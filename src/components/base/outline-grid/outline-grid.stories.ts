@@ -265,7 +265,7 @@ AsymmetricLeftWithBorder.args = {
     </outline-column>
 
     <outline-column col-span-default="12" class="pb-2">
-      <!-- <outline-heading level="h3" levelstyle="3">
+      <!-- <outline-heading level="h3" level-style="3">
         Border gap size: small</outline-heading
       > -->
       <h3>Border gap size: small</h3>
