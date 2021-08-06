@@ -55,11 +55,11 @@ This component renders a heading.
 
 ## Difference from \`h1\`, \`h2\`, etc elements
 
-This is rendered as various \`h1\`, etc elements, but is styled based on the \`levelsize\`. This allows screen readers to properly read the structure of a page even when this diverges from the visual presentation of these headers.
+This is rendered as various \`h1\`, etc elements, but is styled based on the \`level-size\`. This allows screen readers to properly read the structure of a page even when this diverges from the visual presentation of these headers.
 
 ## Variation
 
-You can also set the font weight using the \`levelstyle\` attribute.
+You can also set the font weight using the \`level-style\` attribute.
 
         `,
       },
@@ -67,8 +67,8 @@ You can also set the font weight using the \`levelstyle\` attribute.
         code: `
 <outline-heading
   level="{{ level }}"
-  levelsize="{{ levelSize }}"
-  levelstyle="{{ levelStyle }}"
+  level-size="{{ level-size }}"
+  level-style="{{ levelStyle }}"
 >
   {{ defaultSlot}
 </outline-heading>
@@ -88,8 +88,8 @@ const Template = ({
     <outline-container>
       <outline-heading
         level="${ifDefined(level)}"
-        levelsize="${ifDefined(levelSize)}"
-        levelstyle="${ifDefined(levelStyle)}"
+        level-size="${ifDefined(levelSize)}"
+        level-style="${ifDefined(levelStyle)}"
       >
         ${defaultSlot}
       </outline-heading>
