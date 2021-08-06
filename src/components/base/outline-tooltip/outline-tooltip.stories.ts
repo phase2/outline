@@ -7,13 +7,6 @@ export default {
   title: 'Atoms/Tooltip',
   component: 'outline-tooltip',
   argTypes: {
-    id: {
-      description:
-        '**Required**: Sets the id used by accessibility technologies to associate the tooltip with the target element.',
-      control: {
-        type: 'text',
-      },
-    },
     tip: {
       description:
         'An optional prop to pass the tip info. Can also be passed via the "tip-info" slot.',
@@ -32,19 +25,15 @@ export default {
   },
 };
 
-const InlineTemplate = ({ id, tip, position }): TemplateResult =>
+const InlineTemplate = ({ tip, position }): TemplateResult =>
   html`
     <outline-grid gap-size="small">
       <outline-column col-span-default="6">
-        <outline-heading>Hover over all caps text below.</outline-heading>
+        <outline-heading>Using tip property.</outline-heading>
         <p>
           mauris ipsum aliquam libero.
-          <outline-tooltip
-            .id="${id}"
-            tip="${ifDefined(tip)}"
-            position="${position}"
-          >
-            TOOL-TIP WRAPPED AROUND THIS TEXT.
+          <outline-tooltip tip="${ifDefined(tip)}" position="${position}">
+            WRAPPED TEXT.
           </outline-tooltip>
           Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus.
         </p>
@@ -52,34 +41,30 @@ const InlineTemplate = ({ id, tip, position }): TemplateResult =>
     </outline-grid>
   `;
 
-const FormTemplate = ({ id, position }): TemplateResult =>
+const FormTemplate = ({ position }): TemplateResult =>
   html`
-    <outline-grid>
+    <outline-grid gap-size="small">
       <outline-column col-span-default="6">
-        <outline-heading> Simulated Disabled Form Button. </outline-heading>
-        <div>
-          <form>
-            <outline-tooltip .id="${id}" position="${position}">
-              <span slot="tip-info"> Enter a valid email address here </span>
-              <input
-                type="text"
-                style=${`border: blue solid 2px`}
-                placeholder="your email address"
-              />
-            </outline-tooltip>
-          </form>
-        </div>
+        <outline-heading>Using 'tip-info' slot .</outline-heading>
+        <p>
+          mauris ipsum aliquam libero.
+          <outline-tooltip position="${position}">
+            <span slot="tip-info">Important information</span>
+            <outline-link url="#"> wrapped link.</outline-link>
+          </outline-tooltip>
+          Praesent metus tellus, elementum eu, semper a, adipiscing nec, purus.
+        </p>
       </outline-column>
     </outline-grid>
   `;
 
 export const WithTipProp = InlineTemplate.bind({});
 WithTipProp.args = {
-  tip: '<div><h2>Thing of Import</h2><p>Important information to be shared by this tooltip</p></div>',
+  tip: '<p>Important information to be shared by this tooltip</p>',
   position: 'bottom',
 };
 
 export const WithTipInfoSlot = FormTemplate.bind({});
 WithTipInfoSlot.args = {
-  position: 'top',
+  position: 'bottom',
 };

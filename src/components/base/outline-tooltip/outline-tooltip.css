@@ -6,6 +6,10 @@
   @apply flex relative justify-center;
 }
 
+.tooltip-button {
+  @apply h-4 w-8;
+}
+
 .tooltip-tip {
   @apply absolute inline-flex opacity-0 text-center overflow-hidden p-2;
   visibility: hidden;
@@ -13,7 +17,7 @@
   border: black solid 1px;
   background-color: whitesmoke;
   transition: all 500ms;
-  transition-delay: 300ms;
+  transition-delay: 200ms;
 }
 
 .position-top {
@@ -36,6 +40,6 @@
 .tooltip:focus > .tooltip-tip {
   @apply opacity-100;
   visibility: visible;
-  transition: opacity 1000ms;
-  transition-delay: 500ms;
+  transition: opacity 700ms;
+  transition-delay: 200ms;
 }
