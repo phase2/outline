@@ -6,16 +6,21 @@ export default {
   component: 'outline-list',
   argTypes: {
     listType: {
+      description:
+        '**Options: ol, ul, div** <br> Determines which type of list is rendered.',
       control: {
         type: 'select',
         options: ['ul', 'ol', 'div'],
       },
     },
-    navLabel: {
-      control: { type: 'text' },
-    },
     orientation: {
+      description: '**Options: row, column** <br> Sets orientation of list',
       control: { type: 'select', options: ['row', 'column'] },
+    },
+    navLabel: {
+      description:
+        'If set will wrap list in a nav tag with the passed string set as the aria-label',
+      control: { type: 'text' },
     },
   },
 };
