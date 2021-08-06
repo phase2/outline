@@ -54,6 +54,16 @@ export class OutlineButton extends OutlineElement {
    */
   @property({ type: Boolean }) isDisabled = false;
 
+  /**
+   * A click handler to be passed only to onClick. DO NOT USE @click on this component.
+   */
+  @property() onClick: () => void;
+
+  /**
+   * A keyUp handler to be passed to the onKeyUp. DO NOT USE @keyup on this component.
+   */
+  @property() onKeyUp: () => void;
+
   render(): TemplateResult {
     return this.url
       ? html` <a
@@ -67,6 +77,8 @@ export class OutlineButton extends OutlineElement {
       : html`<button
           class="btn ${this.variant} ${this.size}"
           aria-disabled="${this.isDisabled}"
+          .onclick="${this.onClick}"
+          .onkeyup="${this.onKeyUp}"
         >
           <slot></slot>
         </button> `;

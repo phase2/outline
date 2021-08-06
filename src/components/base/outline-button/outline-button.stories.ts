@@ -108,8 +108,8 @@ const Template = ({
       size="${size}"
       ?isDisabled="${isDisabled}"
       icon="${ifDefined(icon)}"
-      @click="${onClick}"
-      @keyup="${onKeyUp}"
+      .onClick="${onClick}"
+      .onKeyUp="${onKeyUp}"
     >
       ${defaultSlot}
     </outline-button>
@@ -136,16 +136,6 @@ PrimaryButton.args = {
   defaultSlot: 'Primary button',
   size: 'medium',
   variant: 'primary',
-  onClick: (e: Event) => {
-    e.preventDefault();
-    console.log('onClick called!!');
-  },
-  onKeyUp: (e: KeyboardEvent) => {
-    e.preventDefault();
-    if (e.key === ' ') {
-      console.log(e);
-    }
-  },
 };
 
 export const SecondaryButton = Template.bind({});
