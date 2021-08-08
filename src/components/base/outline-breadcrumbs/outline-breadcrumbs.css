@@ -10,7 +10,13 @@ a:hover,
 }
 
 :host(:after),
-span:after,
-::slotted(span:after) {
+a::after,
+::slotted(a:after) {
     content: '>';
+}
+
+:host(:active),
+a.active,
+::slotted(a.active) {
+    @apply underline;
 }
