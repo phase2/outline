@@ -1,20 +1,17 @@
 :host,
 a,
 ::slotted(a) {
-  @apply underline font-body text-brand-primary transition-colors duration-300;
+    @apply underline font-body text-yellow-500 transition-colors duration-300 mr-4;
 }
 
 :host(:hover),
 a:hover,
 ::slotted(a:hover) {
-  @apply text-brand-secondary no-underline;
+    @apply text-brand-secondary no-underline;
 }
 
-a.last {
-    @apply no-underline font-thin;
-}
-
-:host,
-ol {
-    @apply inline-flex list-none;
+:host(:after),
+span:after,
+::slotted(span:after) {
+    content: '>';
 }

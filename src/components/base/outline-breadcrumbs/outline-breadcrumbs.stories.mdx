@@ -1,0 +1,32 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+import './outline-breadcrumbs';
+
+<Meta
+  title="Navigation/Breadcrumbs"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Breadcrumb Navigation
+
+> Typically used in a Drupal consumer to display a horizontal list of links showing your path to the current page.
+
+<Canvas>
+  <outline-breadcrumbs>
+        <div class="breadbox">
+          <nav class="breadcrumb container-12">
+            <span><a href="#">Home</a></span>
+            <span><a href="#">Federal Contracting</a></span>
+            <span><a href="#">Contracting Assistance Programs</a></span>
+            <span><a href="#" class="active">Women-owned small business federal contracting program</a></span>
+          </nav>
+        </div>
+  </outline-breadcrumbs>
+</Canvas>
