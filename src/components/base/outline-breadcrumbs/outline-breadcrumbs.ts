@@ -13,6 +13,10 @@ import { SlottedController } from '../../controllers/slotted-controller';
  * @slot - The default only slot for this element.
  */
 
+// const icon = document.createElement("span")
+// icon.append("fa-chevron-right");
+// console.log(icon.textContent);
+
 @customElement('outline-breadcrumbs')
 export class OutlineBreadcrumbs extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];

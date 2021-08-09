@@ -1,7 +1,7 @@
 :host,
 a,
 ::slotted(a) {
-    @apply underline font-body text-brand-primary transition-colors duration-300 mr-4 no-underline;
+    @apply font-body text-brand-primary transition-colors duration-300 mr-4 no-underline;
 }
 
 a:hover,
@@ -9,9 +9,12 @@ a:hover,
     @apply text-brand-secondary underline;
 }
 
+
+/*This is supposed to work https://github.com/WICG/webcomponents/issues/655*/
+
 :host(:after),
 a::after,
-::slotted(a:after) {
+::slotted(a)::after {
     content: '>';
 }
 
