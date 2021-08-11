@@ -4,6 +4,10 @@
   @apply flex rounded-xl;
 }
 
+.btn[aria-disabled='true']  {
+  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300 !important;
+}
+
 .btn {
   @apply leading-tight rounded-xl cursor-pointer transition-colors duration-300 font-body no-underline inline-flex content-center;
 }
@@ -21,9 +25,6 @@
   }
 }
 
-.btn.primary[aria-disabled='true'] {
-  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300;
-}
 .btn.secondary {
   @apply bg-gray-300 text-gray-800;
 
@@ -31,9 +32,6 @@
   &:focus {
     @apply bg-neutral-black text-neutral-white;
   }
-}
-.btn.secondary[aria-disabled='true'] {
-  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300;
 }
 
 .btn.tertiary {
@@ -43,10 +41,6 @@
   &:focus {
     @apply bg-neutral-black text-neutral-white;
   }
-}
-
-.btn.tertiary[aria-disabled='true'] {
-  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300;
 }
 
 .btn.none {
