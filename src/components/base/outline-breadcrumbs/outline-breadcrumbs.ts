@@ -5,34 +5,34 @@ import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-breadcrumbs.css.lit';
 import { SlottedController } from '../../controllers/slotted-controller';
 
-// import componentStyles from './outline-breadcrumbs.css.lit';
-
 /**
  * The Outline  Breadcrumbs component
  * @element Outline-Breadcrumbs
  * @slot - The default only slot for this element.
  */
 
-const icon = document.createElement('span');
-icon.append('<i> > </>');
-console.log(icon.textContent);
+// const icon = document.createElement('span');
+// icon.append('<i> > </>');
+// console.log(icon.textContent);
 
 @customElement('outline-breadcrumbs')
 export class OutlineBreadcrumbs extends OutlineElement {
   static styles: CSSResultGroup = [
     componentStyles,
-    // css`
-    //   a::after {
-    //     content: '/';
-    //   }
-    // `
+    css`
+      span.last::after {
+        display: none;
+      }
+      span::after {
+        content: '/';
+        margin: 0 15px 10px;
+      }
+    `,
   ];
-
   private slottedController = new SlottedController(this);
 
   render(): TemplateResult {
-    return;
-    html` <div class="outline-breadcrumbs">
+    return html` <div class="outline-breadcrumbs">
       <slot></slot>
     </div>`;
   }

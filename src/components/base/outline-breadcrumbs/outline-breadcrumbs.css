@@ -9,13 +9,6 @@ a:hover,
   @apply text-brand-secondary underline;
 }
 
-/*This is supposed to work https://github.com/WICG/webcomponents/issues/655*/
-
-:host(:after),
-a::after,
-::slotted(a)::after {
-  content: '>';
-}
 
 :host(:active),
 a.active,
