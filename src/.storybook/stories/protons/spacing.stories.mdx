@@ -1,0 +1,76 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
+
+import { extractPx } from '../../../components/base/outline-element/utils/utils';
+import tailwindThemeConfig from '../../../resolved-tailwind-config';
+
+<Meta
+  title="Protons/Spacing"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Spacing values
+
+<Story name="Spacing">
+  {() => {
+    const spacings = Object.entries(tailwindThemeConfig.spacing).map(
+      ([name, value]) => html`
+        <tr>
+          <td class="py-2 text-center border-b border-demo-darkGray">
+            ${name}
+          </td>
+          <td class="py-2 text-center border-b border-demo-darkGray">
+            ${value}
+          </td>
+          <td class="py-2 text-center border-b border-demo-darkGray">
+            ${extractPx(value)}
+          </td>
+          <td class="py-2 text-center border-b border-demo-darkGray">
+            <div class="rounded h-6 bg-demo-darkBlue w-${name}"></div>
+          </td>
+        </tr>
+      `
+    );
+    return html`
+      <div class="prose">
+        <h2 class="group flex whitespace-pre-wrap mb-0" id="overview">
+          <span class="sr-only">Overview</span>
+        </h2>
+        <p>
+          The consistent, finite set of spacings used throughout components.
+        </p>
+        <div class="mt-10"></div>
+      </div>
+      <table
+        class="w-full rounded-2xl table-auto shadow-lg border bg-demo-lightGray overflow-hidden"
+      >
+        <thead class="text-xl font-display">
+          <tr class="border border-neutral-gray-700 bg-demo-darkGray">
+            <th scope="col" class="p-3 font-semibold text-neutral-white">
+              Name
+            </th>
+            <th scope="col" class="p-3 font-semibold text-neutral-white">
+              Size
+            </th>
+            <th scope="col" class="p-3 font-semibold text-neutral-white">
+              Pixels
+            </th>
+            <th scope="col" class="p-3 font-semibold text-neutral-white">
+              Example
+            </th>
+          </tr>
+        </thead>
+        <tbody class="font-body">
+          ${spacings}
+        </tbody>
+      </table>
+    `;
+  }}
+</Story>

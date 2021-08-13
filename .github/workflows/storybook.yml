@@ -1,0 +1,44 @@
+name: Storybook Deployment
+on:
+  workflow_run:
+    workflows: ['Build & Test Codebase']
+    branches:
+      - next
+    types:
+      - completed
+
+jobs:
+  deploy:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          # Required, workflow file name or ID
+          workflow: build.yml
+          workflow_conclusion: success
+          branch: next
+          name: storybook-latest
+          # Optional, directory where to extract artifact.
+          path: storybook/
+
+      - name: List files
+        run: ls -lah ./storybook
+
+      - name: Check GitHub Pages status
+        uses: crazy-max/ghaction-github-status@v2
+        with:
+          pages_threshold: major_outage
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: storybook
+          build_dir: storybook
+          commit_message: 'chore(deploy): Storybook'
+          keep_history: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

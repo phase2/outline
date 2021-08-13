@@ -1,4 +1,4 @@
-import { html, HTMLTemplateResult } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 import { repeat } from 'lit/directives/repeat';
 
@@ -63,7 +63,7 @@ export default {
   decorators: [
     Story => html`
       <outline-container>
-        <!-- <outline-heading level="h2" levelstyle="2" class="my-10"
+        <!-- <outline-heading level="h2" level-style="2" class="my-10"
           >Responsive Grid</outline-heading
         > -->
         <h2>Responsive Grid</h2>
@@ -99,7 +99,7 @@ const Template = ({
   const colArray = new Array(numContentCols);
   return repeat(
     colArray,
-    (): HTMLTemplateResult => html`
+    (): TemplateResult => html`
       <outline-column
         content-align="${ifDefined(contentAlign)}"
         col-span-default="${colSpanDefault}"

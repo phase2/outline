@@ -10,6 +10,26 @@ export default {
   component: 'outline-image',
   parameters: {
     layout: 'fullscreen',
+    docs: {
+      description: {
+        component: `
+This component renders an image with an optional caption as a \`figure\` element and a \`figcaption\` element.
+
+## Difference between \`figure\` and \`figcaption\` element
+
+_@todo describe why this would be used instead._
+
+        `,
+      },
+      source: {
+        code: `
+<outline-image>
+  {{ defaultSlot }}
+  <outline-container slot="caption">{{ caption }}</outline-container>
+</outline-image>
+        `,
+      },
+    },
   },
   argTypes: {
     imageUrl: argTypeHidden,
@@ -44,35 +64,4 @@ ImageWithCaption.decorators = [
   //TODO determine appropriate typing for Story
   (Story): TemplateResult =>
     html` <div class="w-9/12 mx-auto">${Story()}</div> `,
-];
-
-export const ImageComponent = Template.bind({});
-ImageComponent.args = {
-  caption: 'A simple caption text',
-};
-ImageComponent.decorators = [
-  //TODO determine appropriate typing for Story
-  (Story): TemplateResult =>
-    html` <div class="w-9/12 mx-auto mt-8">${Story()}</div> `,
-];
-
-export const ParallaxImage = Template.bind({});
-ParallaxImage.args = {
-  parallax: true,
-};
-ParallaxImage.decorators = [
-  //TODO determine appropriate typing for Story
-  (Story): TemplateResult => html`
-    <outline-container class="mt-64">
-      <!-- <outline-heading level="hh2" levelstyle="2xl" class="my-6">
-        Scroll to see parallax in action
-      </outline-heading> -->
-    </outline-container>
-    <div style="margin: 20em 0;">${Story()}</div>
-    <outline-container class="mb-64">
-      <!-- <outline-heading levelstyle="3xl" class="my-6">
-        Scroll to see parallax in action
-      </outline-heading> -->
-    </outline-container>
-  `,
 ];

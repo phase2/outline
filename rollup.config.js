@@ -4,10 +4,18 @@ import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import multi from '@rollup/plugin-multi-entry';
 import typescript from 'rollup-plugin-typescript2';
+import svg from 'rollup-plugin-svg';
 
 export default {
   // Output all components to a single exported file.
-  input: 'src/**/*[!(stories|lit)].ts{?,x}',
+  input: {
+    include: ['src/components/**/*.ts'],
+    exclude: [
+      'src/components/**/*.stories.ts',
+      'src/components/**/*.css.lit.ts',
+      'src/components/**/*.test.ts',
+    ],
+  },
   output: [
     {
       // Modern bundle.
@@ -41,5 +49,6 @@ export default {
     }),
     summary(),
     multi(),
+    svg(),
   ],
 };

@@ -1,0 +1,222 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Build & Test Codebase
+
+# Controls when the workflow will run
+on:
+  # Which branches to test on push/merge.
+  push:
+    branches:
+      - next
+      - dev
+      - alpha
+      - beta
+      - rc
+  # Which branches to test on pull request.
+  pull_request:
+    branches:
+      - next
+      - dev
+      - alpha
+      - beta
+      - rc
+      - /^issue/
+      - /^task/
+      - /^feature/
+      - /^bug/
+
+# The jobs for the build workflow.
+jobs:
+  # Basic setup job to prepare codebase.
+  setup:
+    name: Installation & Caching
+    runs-on: ubuntu-latest
+
+    # The steps for the setup job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install
+        run: yarn install --prefer-offline
+
+  # Job to run tests, linters and formatting checks.
+  test:
+    name: Testing & Linting
+    runs-on: ubuntu-latest
+    needs: setup
+
+    # The steps for the test job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+      # @see https://github.com/marketplace/actions/run-playwright-tests
+      - uses: microsoft/playwright-github-action@v1
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install from cache
+        run: yarn install --prefer-offline
+
+      - name: Run eslint
+        run: yarn lint.eslint
+
+      - name: Run prettier
+        run: yarn lint.prettier
+
+      # - name: Run tests
+      #   run: yarn test
+
+  # Job to build and cache the distribution package.
+  build-dist:
+    name: Build Package(s)
+    runs-on: ubuntu-latest
+    needs: test
+
+    # The steps for the build-dist job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: dist-cache
+        with:
+          path: dist/
+          key: ${{ runner.os }}-dist-${{ hashFiles('./storybook-static/') }}
+          restore-keys: |
+            ${{ runner.os }}-dist-
+
+      - name: Install from cache
+        run: yarn install --prefer-offline
+
+      - name: Build
+        run: yarn build
+
+  build-storybook:
+    name: Build Storybook
+    runs-on: ubuntu-latest
+    needs: test
+
+    # The steps for the build-storybook job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: storybook-cache
+        with:
+          path: storybook-static/
+          key: ${{ runner.os }}-storybook-${{ hashFiles('./storybook-static/') }}
+          restore-keys: |
+            ${{ runner.os }}-storybook-
+
+      - name: Install from cache
+        run: yarn install --prefer-offline
+
+      - name: Build Storybook
+        run: yarn storybook.prod
+  #
+  upload-storybook-artifact:
+    name: Upload Storybook Artifact
+    runs-on: ubuntu-latest
+    needs: build-storybook
+
+    # Only perform the storybook upload if we are on the `next` branch.
+    if: ${{ github.ref == 'refs/heads/next'}}
+    steps:
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: storybook-cache
+        with:
+          path: storybook-static/
+          key: ${{ runner.os }}-storybook-${{ hashFiles('./storybook-static/') }}
+          restore-keys: |
+            ${{ runner.os }}-storybook-
+
+      # @see https://github.com/marketplace/actions/upload-a-build-artifact
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-latest
+          path: storybook-static/
+          retention-days: 1

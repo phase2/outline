@@ -27,17 +27,18 @@ export class OutlineButton extends OutlineElement {
    * The url to use for a link. This will render an anchor element.
    * Do not set this prop if you want to render a button element.
    */
-  @property() url: string;
+  @property({ type: String }) url: string;
 
   /**
    * The target to use for a link, used in conjunction with the url attribute.
    */
-  @property() target: LinkTargetType = '_self';
+  @property({ type: String }) target: LinkTargetType = '_self';
 
   /**
    * The button style variant to use.
    */
-  @property({ reflect: true }) variant: ButtonVariant = 'primary';
+  @property({ reflect: true, attribute: 'button-variant' })
+  variant: ButtonVariant = 'primary';
 
   /**
    * Choose which predefined icon to add to the link
@@ -48,7 +49,7 @@ export class OutlineButton extends OutlineElement {
    * Whether the button is disabled. Only applies to
    * implementations not using the url property
    */
-  @property() disabled: boolean;
+  @property({ type: Boolean }) disabled: boolean;
 
   render(): TemplateResult {
     return this.url !== undefined
@@ -58,13 +59,9 @@ export class OutlineButton extends OutlineElement {
           target=${this.target}
         >
           <slot></slot>
-          <!-- ${this.icon &&
-          html`<outline-icon icon=${this.icon}></outline-icon>`} -->
         </a>`
       : html` <button class="btn ${this.variant}" .disabled=${this.disabled}>
           <slot></slot>
-          <!-- ${this.icon &&
-          html`<outline-icon icon=${this.icon}></outline-icon>`} -->
         </button>`;
   }
 }
