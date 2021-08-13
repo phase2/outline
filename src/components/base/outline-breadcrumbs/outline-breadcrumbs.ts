@@ -1,6 +1,6 @@
 // Our base component, which all others extend.
 import { OutlineElement } from '../outline-element/outline-element';
-import { CSSResultGroup, html, TemplateResult } from 'lit';
+import { CSSResultGroup, html, css, TemplateResult, CSSResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-breadcrumbs.css.lit';
 import { SlottedController } from '../../controllers/slotted-controller';
@@ -19,11 +19,20 @@ console.log(icon.textContent);
 
 @customElement('outline-breadcrumbs')
 export class OutlineBreadcrumbs extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [
+    componentStyles,
+    // css`
+    //   a::after {
+    //     content: '/';
+    //   }
+    // `
+  ];
+
   private slottedController = new SlottedController(this);
 
   render(): TemplateResult {
-    return html` <div class="outline-breadcrumbs">
+    return;
+    html` <div class="outline-breadcrumbs">
       <slot></slot>
     </div>`;
   }
