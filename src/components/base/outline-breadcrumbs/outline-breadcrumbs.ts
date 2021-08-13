@@ -1,6 +1,6 @@
 // Our base component, which all others extend.
 import { OutlineElement } from '../outline-element/outline-element';
-import { CSSResultGroup, html, css, TemplateResult, CSSResult } from 'lit';
+import { CSSResultGroup, html, css, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-breadcrumbs.css.lit';
 import { SlottedController } from '../../controllers/slotted-controller';
@@ -10,10 +10,6 @@ import { SlottedController } from '../../controllers/slotted-controller';
  * @element Outline-Breadcrumbs
  * @slot - The default only slot for this element.
  */
-
-// const icon = document.createElement('span');
-// icon.append('<i> > </>');
-// console.log(icon.textContent);
 
 @customElement('outline-breadcrumbs')
 export class OutlineBreadcrumbs extends OutlineElement {
