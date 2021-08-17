@@ -1,12 +1,9 @@
-image:
-  file: .gitpod.Dockerfile
+# https://www.gitpod.io/docs/config-start-tasks
 
 tasks:
   - init: |
-      nvm install 16
       yarn
     command: |
-      nvm install 16
       yarn start
 
 vscode:
@@ -21,7 +18,6 @@ ports:
   # Used by Storybook
   - port: 6006
     onOpen: open-preview
-    visibility: private
 
 github:
   prebuilds:
