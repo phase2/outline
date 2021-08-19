@@ -21,27 +21,33 @@ export class OutlineList extends OutlineElement {
    * Determines which type of list is rendered.
    * ol | ul | div
    */
-  @property({ type: String })
+  @property({ type: String, attribute: 'list-type' })
   listType: ListType;
 
   /**
    * Sets orientation of list.
    * column | row
    */
-  @property({ type: String, attribute: true })
+  @property({ type: String })
   orientation: ListOrientation = 'column';
 
   /**
    * If set will wrap list in a nav tag
    * with the passed string set as the aria-label.
    */
-  @property({ type: String, reflect: false })
+  @property({ type: String, attribute: 'nav-label' })
   navLabel: string | undefined;
 
   render(): TemplateResult {
     return this.navLabel
-      ? html` <nav aria-label="${this.navLabel}">${this.listCase()}</nav> `
-      : html`${this.listCase()}`;
+      ? html`
+          <slot name="heading"></slot>
+          <nav aria-label="${this.navLabel}">${this.listCase()}</nav>
+          <slot name="footer"></slot>
+        `
+      : html`<slot name="header"></slot>
+          ${this.listCase()}
+          <slot name="footer"></slot>`;
   }
 
   listCase() {
