@@ -36,7 +36,6 @@ jobs:
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          target_branch: storybook
           build_dir: storybook
           commit_message: 'chore(deploy): Storybook'
           keep_history: true
