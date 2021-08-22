@@ -9,7 +9,7 @@
     <link
       type="text/css"
       rel="stylesheet"
-      href="../src/global/global.css"
+      href="../outline.theme.css"
       media="all"
     />
 
@@ -19,43 +19,65 @@
       hr {
         margin: 1rem auto;
       }
-      div {
+      body {
         max-width: 800px;
         margin: 2rem auto;
+        font-family: sans-serif;
       }
     </style>
   </head>
   <body>
-    <div>
-      <h2>Link component test</h2>
-      <outline-link
-        ><a href="http://google.com/" target="_blank"
-          >Fully Slotted Link Tag</a
-        ></outline-link
-      >
-      <hr />
-      <outline-link
-        url="http://google.com/"
-        linkText="A link element using properties"
-      ></outline-link>
-    </div>
+    <h1>Outline example</h1>
+    <p>A few simple examples of including an outline component.</p>
 
-    <div>
-      <h2>Lit2 Class Extension Sample</h2>
-      <my-element>
-        <p>This is an instance of &lt;my-element&gt;.</p>
-      </my-element>
-      <hr />
-      <extended-element>
-        <p>This is &lt;extended-element&gt; that extends &lt;my-element&gt;.</p>
-      </extended-element>
-      <hr />
-      <double-extended-element>
-        <p>
-          This is &lt;double-extended-element&gt; that extends
-          &lt;extended-element&gt;.
-        </p>
-      </double-extended-element>
-    </div>
+    <h2>Files needed</h2>
+    <p>Include the <em>outline.js</em> and <em>outline-legacy.js</em> files.</p>
+    <p>Include a copy of <em>outline.theme.css</em>.</p>
+    <p>
+      The CSS file includes many CSS variables that you can customize for your
+      project.
+    </p>
+    <p>
+      Outline components will use these CSS variables in their rules. This
+      stylesheet applies all the variables to the <em>:root</em> selector which
+      in most cases is the <em>document</em>.
+    </p>
+
+    <pre>
+      &lt;link rel="stylesheet" href="outline.theme.css"&gt;
+      &lt;script type="module" src="outline.js"&gt;&lt;/script&gt;
+      &lt;script nomodule src="outline-legacy.js"&gt;&lt;/script&gt;
+    </pre>
+
+    <h2>Button example</h2>
+    <outline-button>This is a button!</outline-button>
+
+    <pre>
+      &lt;outline-button&gt;This is a button!&lt;/outline-button&gt;
+    </pre>
+
+    <h2>Link example with slotted A element</h2>
+    <outline-link>
+      <a href="http://google.com">Fully Slotted Link Tag</a>
+    </outline-link>
+
+    <pre>
+      &lt;outline-link&gt;
+        &lt;a href="http://google.com"&gt;Fully Slotted Link Tag&lt;/a&gt;
+      &lt;/outline-link&gt;
+    </pre>
+
+    <h2>Link example with attributes</h2>
+    <outline-link
+      linkHref="http://google.com"
+      linkText="A link element using properties"
+    ></outline-link>
+
+    <pre>
+      &lt;outline-link
+        linkHref="http://google.com"
+        linkText="A link element using properties"
+      &gt;&lt;/outline-link&gt;
+    </pre>
   </body>
 </html>

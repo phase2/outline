@@ -1,1 +1,8 @@
-This directory contains HTML files containing your element for development. By running `npm run build:watch` and `npm run serve` you can edit and see changes without bundling.
+This directory contains HTML files containing your element for development.
+
+## Running the server
+
+- Install dependencies with `yarn install`
+- Start the server with `yarn serve`
+
+Go to [http://localhost:8000/dev](http://localhost:8000/dev) to view the example.
