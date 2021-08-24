@@ -44,7 +44,7 @@ jobs:
   build-storybook:
     name: Build Storybook
     runs-on: ubuntu-latest
-    needs: test
+    needs: setup
 
     # The steps for the build-storybook job.
     steps:
@@ -89,6 +89,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
+    needs: build-storybook
 
     steps:
       # - name: Download artifact
