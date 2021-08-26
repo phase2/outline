@@ -25,7 +25,7 @@ export class OutlineBreadcrumbs extends OutlineElement {
       }
     `,
   ];
-  private slottedController = new SlottedController(this);
+  private = new SlottedController(this);
 
   render(): TemplateResult {
     return html` <div class="outline-breadcrumbs">
