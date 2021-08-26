@@ -70,7 +70,7 @@
     "lit": "^2.0.0-rc.2"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=14"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -101,6 +101,7 @@
     "@web/test-runner-playwright": "^0.8.6",
     "@webcomponents/webcomponentsjs": "^2.5.0",
     "babel-loader": "^8.2.2",
+    "chromatic": "^5.9.2",
     "concurrently": "^6.0.2",
     "deepmerge": "^4.2.2",
     "eslint": "^7.22.0",

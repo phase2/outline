@@ -1,5 +1,15 @@
+:host {
+  /* flex and border-radius constrain the actual boundaries of the element,
+   preventing literal edge cases where a user can click on the edge or corner of the button and defeate states like disabled */
+  @apply flex rounded-xl;
+}
+
+.btn[aria-disabled='true'] {
+  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300 !important;
+}
+
 .btn {
-  @apply px-12 py-4 text-lg leading-tight rounded-xl cursor-pointer transition-colors duration-300 font-body no-underline inline-flex content-center;
+  @apply leading-tight rounded-xl cursor-pointer transition-colors duration-300 font-body no-underline inline-flex content-center;
 }
 
 .btn outline-icon {
@@ -13,10 +23,6 @@
   &:focus {
     @apply bg-neutral-black text-neutral-white;
   }
-
-  &:disabled {
-    @apply cursor-not-allowed text-gray-500 bg-gray-300;
-  }
 }
 
 .btn.secondary {
@@ -25,10 +31,6 @@
   &:hover,
   &:focus {
     @apply bg-neutral-black text-neutral-white;
-  }
-
-  &:disabled {
-    @apply cursor-not-allowed text-gray-500 bg-gray-300;
   }
 }
 
@@ -39,12 +41,20 @@
   &:focus {
     @apply bg-neutral-black text-neutral-white;
   }
-
-  &:disabled {
-    @apply cursor-not-allowed text-gray-500 bg-gray-300;
-  }
 }
 
 .btn.none {
   @apply flex items-center text-base px-4;
+}
+
+.small {
+  @apply px-1 text-sm;
+}
+
+.medium {
+  @apply px-4 text-lg;
+}
+
+.large {
+  @apply px-12 py-4 text-lg;
 }
