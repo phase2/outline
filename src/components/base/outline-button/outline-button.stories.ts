@@ -3,7 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined';
 // import { AllIcons } from '../outline-icon/config';
 import { argTypeTarget } from '../outline-link/config';
 import { argTypeSlotContent } from '../../base/outline-element/utils/utils';
-import { ButtonVariant } from './outline-button';
+import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
 
 const buttonOptions: ButtonVariant[] = [
@@ -13,26 +13,42 @@ const buttonOptions: ButtonVariant[] = [
   'tertiary',
 ];
 
+const sizeOptions: ButtonSize[] = ['small', 'medium', 'large'];
+
 export default {
   title: 'Atoms/Button',
   component: 'outline-button',
   argTypes: {
     ...argTypeSlotContent,
     target: argTypeTarget,
-    disabled: {
+    isDisabled: {
+      description:
+        '**Boolean:** Set whether the button is disabled. Only applies to implementations not using the url property',
       control: {
         type: 'boolean',
       },
     },
     url: {
+      description:
+        '**String:** The url to use for a link. This will render an anchor element. Do not set this prop if you want to render a button element.',
       control: {
         type: 'text',
       },
     },
     variant: {
+      description:
+        '**ButtonVariant (none, primary, secondary, teritary)**: The button style variant to use.',
       control: {
         type: 'select',
         options: buttonOptions,
+      },
+    },
+    size: {
+      description:
+        '**ButtonSize (small, medium, large)** The button size to use',
+      control: {
+        type: 'select',
+        options: sizeOptions,
       },
     },
     // icon: {
@@ -75,19 +91,25 @@ This is rendered as an \`a\` element if a link and a \`button\` element if not a
 
 const Template = ({
   defaultSlot,
-  disabled,
+  isDisabled,
   icon,
   url,
   target,
   variant,
+  size,
+  onClick,
+  onKeyUp,
 }): TemplateResult =>
   html`
     <outline-button
       url="${ifDefined(url)}"
       target="${ifDefined(target)}"
       variant="${variant}"
-      disabled="${ifDefined(disabled)}"
+      size="${size}"
+      ?isDisabled="${isDisabled}"
       icon="${ifDefined(icon)}"
+      .onClick="${onClick}"
+      .onKeyUp="${onKeyUp}"
     >
       ${defaultSlot}
     </outline-button>
@@ -97,11 +119,13 @@ export const Link = Template.bind({});
 Link.args = {
   defaultSlot: 'Link button',
   url: '#',
+  size: 'medium',
 };
 
 export const IconLink = Template.bind({});
 IconLink.args = {
   defaultSlot: 'Link button w/icon',
+  size: 'medium',
   url: '#',
   variant: 'primary',
   icon: 'arrowNarrowRightOutline',
@@ -110,6 +134,7 @@ IconLink.args = {
 export const PrimaryButton = Template.bind({});
 PrimaryButton.args = {
   defaultSlot: 'Primary button',
+  size: 'medium',
   variant: 'primary',
 };
 
@@ -117,10 +142,12 @@ export const SecondaryButton = Template.bind({});
 SecondaryButton.args = {
   defaultSlot: 'Secondary button',
   variant: 'secondary',
+  size: 'medium',
 };
 
 export const TertiaryButton = Template.bind({});
 TertiaryButton.args = {
   defaultSlot: 'Tertiary button',
   variant: 'tertiary',
+  size: 'medium',
 };

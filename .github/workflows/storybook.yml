@@ -8,24 +8,26 @@ on:
       - completed
 
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
+  # Basic setup job to prepare codebase.
+  setup:
+    name: GitHub Pages
     runs-on: ubuntu-latest
 
+    # The steps for the setup job.
     steps:
-      - name: Download artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          # Required, workflow file name or ID
-          workflow: build.yml
-          workflow_conclusion: success
-          branch: next
-          name: storybook-latest
-          # Optional, directory where to extract artifact.
-          path: storybook/
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
 
-      - name: List files
-        run: ls -lah ./storybook
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install
+        run: yarn install
+
+      - name: Build Storybook
+        run: yarn storybook.prod
 
       - name: Check GitHub Pages status
         uses: crazy-max/ghaction-github-status@v2
@@ -36,9 +38,16 @@ jobs:
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
-          target_branch: storybook
-          build_dir: storybook
+          build_dir: storybook-static
           commit_message: 'chore(deploy): Storybook'
           keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # @see https://github.com/marketplace/actions/upload-a-build-artifact
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-latest
+          path: storybook-static/
+          retention-days: 30
