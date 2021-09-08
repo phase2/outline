@@ -17,12 +17,6 @@
     "name": "Phase2 Technology",
     "url": "https://phase2technology.com"
   },
-  "contributors": [
-    {
-      "name": "Jake Strawn",
-      "email": "jstrawn@phase2technology.com"
-    }
-  ],
   "license": "BSD-3-Clause",
   "scripts": {
     "prestart": "yarn prep",
