@@ -1,12 +1,12 @@
 :host,
 a,
 ::slotted(a) {
-  @apply font-body text-brand-primary transition-colors duration-300 mr-4 no-underline;
+  @apply font-body text-demo-darkBlue transition-colors duration-300 no-underline;
 }
 
 a:hover,
 ::slotted(a:hover) {
-  @apply text-brand-secondary underline;
+  @apply text-demo-mediumBlue underline;
 }
 
 :host(:active),

@@ -76,6 +76,7 @@ module.exports = {
       // Do not remove.
       demo: {
         darkBlue: 'var(--demo-darkBlue)',
+        mediumBlue: 'var(--demo-mediumBlue)',
         lightBlue: 'var(--demo-lightBlue)',
         darkGray: 'var(--demo-darkGray)',
         lightGray: 'var(--demo-lightGray)',
