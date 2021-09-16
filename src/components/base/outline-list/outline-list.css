@@ -1,9 +1,117 @@
+.list {
+  border: unset;
+  @apply flex flex-wrap p-0 m-0;
+}
+
+ul.list,
+ul.grid {
+  @apply list-none;
+}
+
+/* basic padding. 
+ Can be overridden by applying styles directly to the li */
+ul.list > ::slotted(li),
+ol.list > ::slotted(li),
+ul.grid > ::slotted(li),
+ol.grid > ::slotted(li) {
+  @apply p-2 flex items-center whitespace-nowrap;
+}
+
+.columns--2,
+.columns--3,
+.columns--4 {
+  display: flex;
+  flex-direction: column;
+}
+
 .row {
-  display: flex !important;
-  flex-direction: row !important;
+  display: flex;
+  flex-direction: row;
 }
 
 .column {
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mobile-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.mobile-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/*above sm*/
+
+ul.list.divided* > ::slotted(li:not(:last-of-type)) {
+  border-bottom: 0 !important;
+}
+
+@screen sm {
+  .mobile-col-center {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .mobile-col {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .mobile-row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .columns--2 {
+    @apply grid grid-cols-2;
+  }
+
+  .columns--3 {
+    @apply grid grid-cols-3 gap-1;
+  }
+
+  .columns--4 {
+    @apply grid grid-cols-4;
+  }
+  
+  :is(ul, ol, div).list.divided > ::slotted(li:not(:last-of-type))::after {
+    content: '|';
+    margin-left: 1rem;
+  }
+  
+  :is(ul, ol, div).list.divided > ::slotted(li:not(:last-of-type))::after {
+    color: white;
+  }
+  
+  :is(ul, ol, div).list.divided.blue > ::slotted(li:not(:last-of-type))::after {
+    color: #0080fe;
+  }
+
+  :is(ul, ol, div).list.divided.teal > ::slotted(li:not(:last-of-type))::after {
+    color: #72f1e4;
+  }
+
+  :is(ul, ol, div).list.divided.red > ::slotted(li:not(:last-of-type))::after {
+    color: #fa5c5c;
+  }
+
+  :is(ul, ol, div).list.divided.black > ::slotted(li:not(:last-of-type))::after {
+    color: black;
+  }
 }
