@@ -89,16 +89,16 @@ ul.list.divided* > ::slotted(li:not(:last-of-type)) {
   .columns--4 {
     @apply grid grid-cols-4;
   }
-  
+
   :is(ul, ol, div).list.divided > ::slotted(li:not(:last-of-type))::after {
     content: '|';
     margin-left: 1rem;
   }
-  
+
   :is(ul, ol, div).list.divided > ::slotted(li:not(:last-of-type))::after {
     color: white;
   }
-  
+
   :is(ul, ol, div).list.divided.blue > ::slotted(li:not(:last-of-type))::after {
     color: #0080fe;
   }
@@ -111,7 +111,8 @@ ul.list.divided* > ::slotted(li:not(:last-of-type)) {
     color: #fa5c5c;
   }
 
-  :is(ul, ol, div).list.divided.black > ::slotted(li:not(:last-of-type))::after {
+  :is(ul, ol, div).list.divided.black
+    > ::slotted(li:not(:last-of-type))::after {
     color: black;
   }
 }
