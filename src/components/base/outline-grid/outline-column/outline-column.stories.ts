@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
-import { repeat } from 'lit/directives/repeat';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { repeat } from 'lit/directives/repeat.js';
 
 import {
   argTypeSlotContent,

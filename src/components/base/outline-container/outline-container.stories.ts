@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import type { HorizontalAlignment } from './config';
 import { argTypeHorizontalAlign } from '../outline-element/utils/utils';
 import './outline-container';

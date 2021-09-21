@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 import { argTypeGapSize } from '../outline-element/utils/utils';
 import './outline-grid';

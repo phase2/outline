@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 // import { AllIcons } from '../outline-icon/config';
 import { argTypeTarget } from '../outline-link/config';
 import { argTypeSlotContent } from '../../base/outline-element/utils/utils';
