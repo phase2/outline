@@ -26,6 +26,7 @@
     "generate.safelist": "node scripts/generate-tw-safelist.js",
     "generate.custom-elements": "wca analyze 'src/components/**/*[!(stories|lit)].ts' --format json --outFile ./src/custom-elements.json",
     "generate.component-css": "node scripts/lit-styles.js",
+    "generate.icons": "yarn run fmt.svg && node ./scripts/generate-icons.js ",
     "prebuild": "yarn prep",
     "build": "tsc && yarn rollup",
     "wds": "wds --app-index dev/index.html --watch --node-resolve",

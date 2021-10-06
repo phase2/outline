@@ -1,0 +1,51 @@
+:host {
+  display: block;
+}
+
+.dropdown {
+  @apply ml-7 w-40;
+  height: 30px;
+}
+
+.icon-container {
+  @apply flex flex-wrap justify-start w-full border-2 border-neutral-grayLight box-border p-8;
+}
+
+.icon {
+  @apply flex flex-col w-20 items-center;
+}
+
+label {
+  @apply font-body text-gray-700 ml-7;
+
+  &.alt {
+    @apply text-neutral-white;
+  }
+}
+
+.main {
+  @apply rounded p-8;
+
+  &.alt {
+    @apply bg-blue-700;
+  }
+}
+
+outline-icon.alt {
+  @apply text-neutral-white;
+}
+
+.search {
+  @apply ml-14 h-6 w-60;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
