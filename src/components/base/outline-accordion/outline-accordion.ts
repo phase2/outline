@@ -1,34 +1,50 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
-import { OutlineElement } from '../outline-element/outline-element';
-import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import {
+  customElement,
+  property,
+  state,
+  queryAssignedNodes,
+} from 'lit/decorators.js';
+import { OutlineElement } from '../../base/outline-element/outline-element';
 import componentStyles from './outline-accordion.css.lit';
-
-export type AccordionPanel = {
-  heading: string;
-  /*eslint-disable @typescript-eslint/no-explicit-any*/
-  content: any;
-  /*eslint-enable @typescript-eslint/no-explicit-any*/
-};
+import { MobileController } from '../../controllers/mobile-controller';
+import '../outline-icon/outline-icon';
+import '../outline-heading/outline-heading';
 
 /**
  * Accordion Component
  * @element outline-accordion
+ * @slot panels: For outline-accordion-panels only.
  */
 @customElement('outline-accordion')
 export class OutlineAccordion extends OutlineElement {
+  private mobileController = new MobileController(this);
+
   static styles: CSSResultGroup = [componentStyles];
 
   /**
-   * The panels aray of <AccordionPanel> objects.
-   * AccordionPanel.content is of indeterminate type, and is passed into the panel <slot>.
+   * Optional title heading text.
    */
-  @property({ type: Array }) panels!: AccordionPanel[];
+  @property({ type: String })
+  label: string;
+
+  /**
+   * Sets to 'clean' variant
+   */
+  @property({ type: Boolean })
+  clean = false;
 
   /**
    * Set to 'true' to create an accordion that can only have one panel open at a time.
    */
-  @property({ type: Boolean }) singlePanel = false;
+  @property({ type: Boolean, attribute: 'single-panel' })
+  singlePanel = false;
+
+  /**
+   * Set to 'true' to open all panels at once. Specifically for enhanced editor experience.
+   */
+  @property({ type: Boolean })
+  allOpen = false;
 
   /**
    * Array of active/open panels.
@@ -36,39 +52,24 @@ export class OutlineAccordion extends OutlineElement {
   @state() active: string[] = [];
 
   /**
-   * Used to provied a unique ID to panel content <div> for accessibility purposes.
+   * ref to <outline-accordion-panels> in panels slot.
    */
-  seed = Math.floor(Math.random() * 10000);
+  @queryAssignedNodes('panels', true)
+  panels: HTMLSlotElement[];
 
   render(): TemplateResult {
     return html`
-      <div class="accordion">
-        ${this.panels.map(
-          (panel, index) =>
-            html` <div class="accordion-panel">
-              <h4 class="accordion-heading">
-                <button
-                  class="accordion-button"
-                  id="${this.seed}-${index}-button"
-                  aria-expanded=${this.active.includes(`${this.seed}-${index}`)}
-                  aria-controls="${this.seed}-${index}"
-                  @click=${() => this.toggleHidden(`${this.seed}-${index}`)}
-                  @keyup="${this.handleKeyboardNav}"
-                >
-                  ${panel.heading}
-                </button>
-              </h4>
-              <div
-                role="region"
-                aria-labelledby="${this.seed}-${index}-button"
-                class="accordion-content"
-                id="${this.seed}-${index}"
-                .hidden=${!this.active.includes(`${this.seed}-${index}`)}
-              >
-                ${unsafeHTML(`${panel.content}`)}
-              </div>
-            </div>`
-        )}
+      ${this.label
+        ? html`<h4 class="accordion-title ${this.isMobile()}">
+            ${this.label}
+          </h4>`
+        : null}
+      <div
+        class="accordion"
+        @click=${this.setActive}
+        @keydown=${this.handleKeyboardNav}
+      >
+        <slot name="panels"></slot>
       </div>
     `;
   }
@@ -77,38 +78,32 @@ export class OutlineAccordion extends OutlineElement {
    * Takes the element id of content <div>
    * to maintain state list of active/open panels.
    */
-  setActive(contentId: string) {
+  setActive(e: PointerEvent) {
+    const element = e?.target as HTMLElement;
+    const contentId = element.id;
+
+    // if single-panel = true
+
     if (this.singlePanel) {
-      if (this.isActive(contentId)) {
+      if (this.active.includes(contentId)) {
         return (this.active = []);
       }
       return (this.active = [contentId]);
     }
-    if (this.isActive(contentId)) {
+
+    // if single-panel = false
+
+    if (this.active.includes(contentId)) {
       return (this.active = this.active.filter(item => item !== contentId));
     }
-    return this.active.push(contentId);
+    return (this.active = [contentId, ...this.active]);
   }
 
   /**
-   * @param string
-   * @returns boolean
-   * Dupliacted/un-utilized in the template due to lit-plugin error
-   * Type '() => boolean' is not assignable to 'boolean'lit-plugin(no-incompatible-type-binding)(2304)
+   * @returns string | null
+   * Checks if the window is at mobile size.
    */
-  isActive(contentId: string): boolean {
-    return this.active.includes(contentId);
-  }
-
-  /**
-   * @param string
-   * Click event handler that calls setActive to update compoenent state,
-   * and then initiates a compoenent update.
-   */
-  toggleHidden(contentId: string) {
-    this.setActive(contentId);
-    this.requestUpdate();
-  }
+  isMobile = () => (this.mobileController.isMobile ? 'mobile' : null);
 
   /**
    * @param event
@@ -118,7 +113,7 @@ export class OutlineAccordion extends OutlineElement {
    */
   handleKeyboardNav(event: KeyboardEvent) {
     let index = 0;
-    const panels = this.shadowRoot?.querySelectorAll('.accordion-button');
+    const panels = this.panels;
     const start = Array.prototype.indexOf.call(
       panels,
       event.target as HTMLElement
@@ -139,6 +134,39 @@ export class OutlineAccordion extends OutlineElement {
       } else index = start - 1;
     }
     const focusTarget = panels?.[index] as HTMLElement;
-    focusTarget.focus();
+    focusTarget.shadowRoot?.querySelector('button')?.focus();
+  }
+
+  /**
+   * Sets 'clean' and 'active states on
+   * child <outline-accordion-panel> elements when the accordion updates.
+   */
+
+  firstUpdated() {
+    if (this.allOpen) {
+      this.panels.map(panel => {
+        this.active.push(panel.id);
+        panel.setAttribute('active', 'active');
+      });
+    }
+  }
+  updated() {
+    if (this.clean) {
+      this.panels.map(panel => panel.setAttribute('clean', 'clean'));
+    } else {
+      this.panels.map(panel => panel.removeAttribute('clean'));
+    }
+    if (this.allOpen) {
+      this.panels.map(panel => {
+        this.active.push(panel.id);
+        panel.setAttribute('active', 'active');
+      });
+    } else {
+      this.panels.map(panel =>
+        this.active.includes(panel.id)
+          ? panel.setAttribute('active', 'active')
+          : panel.removeAttribute('active')
+      );
+    }
   }
 }
