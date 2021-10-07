@@ -94,6 +94,7 @@
     "@web/test-runner-browserstack": "^0.4.2",
     "@web/test-runner-playwright": "^0.8.6",
     "@webcomponents/webcomponentsjs": "^2.5.0",
+    "autoprefixer": "^10.0.2",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.9.2",
     "concurrently": "^6.0.2",
