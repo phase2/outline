@@ -97,7 +97,7 @@
     "autoprefixer": "^10.0.2",
     "babel-loader": "^8.2.2",
     "chromatic": "^5.9.2",
-    "concurrently": "^6.0.2",
+    "concurrently": "^6.3.0",
     "deepmerge": "^4.2.2",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^7.2.0",
