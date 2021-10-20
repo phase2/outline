@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
-import { unsafeHTML } from 'lit/directives/unsafe-html';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import {
   listOrientations,
   listTypes,
