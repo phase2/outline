@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit';
 import './outline-alert';
 import { argTypeSlotContent } from '../../base/outline-element/utils/utils';
 import { alertSizes, alertStatusTypes } from './outline-alert';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 export default {
   title: 'Molecules/Alert',
