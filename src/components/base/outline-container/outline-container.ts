@@ -3,7 +3,7 @@ import { OutlineElement } from '../outline-element/outline-element';
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-container.css.lit';
-import type { HorizontalAlignment } from './config';
+import type { HorizontalAlignment } from '../outline-element/utils/types';
 
 /**
  * The Outline  Link component

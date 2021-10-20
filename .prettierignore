@@ -12,3 +12,4 @@ docs/
 .gitlab-ci/*
 *.lit.ts
 *.stories.mdx
+*.generated.css
