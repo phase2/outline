@@ -16,7 +16,7 @@
 }
 
 label {
-  @apply font-body text-gray-700 ml-7;
+  @apply font-body text-demo-darkGray ml-7;
 
   &.alt {
     @apply text-neutral-white;
