@@ -1,13 +1,13 @@
 .accordion-title {
-  @apply text-blue-700 text-4xl font-display;
+  @apply text-demo-darkBlue text-4xl font-display;
 }
 
 .accordion-title.mobile {
-  @apply text-blue-700 text-lg;
+  @apply text-demo-darkBlue text-lg;
 }
 
 .accordion-title:after {
-  @apply flex w-8 border border-solid border-blue-700 my-6;
+  @apply flex w-8 border border-solid border-demo-darkBlue my-6;
   content: '';
 }
 
