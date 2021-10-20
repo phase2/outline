@@ -16,20 +16,20 @@ export const screenSizeMap = new Map(
 
 /**
  * Usage:
- * 
+ *
  * Import `screenSizeMap` and `ScreenSizeController`:
  * import {
  *  screenSizeMap,
  *  ScreenSizeController,
  * } from '../../controllers/screen-size-controller';
- * 
+ *
  * Add the property to your class:
- * 
+ *
  * // eslint-disable-next-line
  * // @ts-ignore
  * // We are using the controller to watch for screen size changes, but don't need to use it otherwise.
  * private _screenSizeController = new ScreenSizeController(this);
- * 
+ *
  * Set a variable as needed:
  * const isMobile = window.innerWidth < (screenSizeMap.get('lg') as number);
  */
