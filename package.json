@@ -62,6 +62,7 @@
     "lit"
   ],
   "dependencies": {
+    "@splidejs/splide": "^3.2.1",
     "lit": "^2.0.0"
   },
   "engines": {
