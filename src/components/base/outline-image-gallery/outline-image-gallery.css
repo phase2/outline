@@ -1,0 +1,112 @@
+@import '@splidejs/splide/dist/css/splide-core.min.css';
+
+.splide {
+  @apply relative;
+}
+
+.splide__pagination {
+  display: none;
+}
+
+.splide__arrows {
+  @apply bg-brand-primary absolute flex justify-center bottom-0 left-0 z-40 w-full;
+  border-radius: 0;
+}
+
+.splide__arrow {
+  @apply flex-grow flex items-center;
+  background: none;
+  border: none;
+
+  &:hover {
+    @apply cursor-pointer;
+  }
+
+  &:disabled {
+    @apply cursor-not-allowed;
+  }
+}
+
+.splide__arrow svg {
+  fill: white;
+  width: 1.25rem;
+}
+
+.splide__arrow--prev {
+  @apply justify-end;
+  &:after {
+    @apply h-1/2 absolute;
+    content: '';
+    border-right: 1px solid var(--gray-200);
+    right: 50%;
+    top: 0.75rem;
+  }
+
+  & svg {
+    @apply justify-self-end;
+    transform: rotate(180deg);
+  }
+}
+
+::slotted(img) {
+  @apply object-cover bg-gray-100 !important;
+  border-radius: 0;
+  height: 12rem !important;
+  width: 100% !important;
+}
+
+
+.splide__slide.is-visible {
+  visibility: visible;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.slide-count {
+  @apply hidden font-body text-lg text-neutral-white rounded py-1 px-2;
+  background-color: #00000080;
+}
+
+@screen sm {
+  ::slotted(img) {
+    height: 16.25rem !important;
+  }
+}
+
+@screen md {
+  .splide__arrows {
+    @apply bottom-0;
+    height: 4.75rem;
+    width: 9.25rem;
+    border-radius: 0 5px 0 5px;
+  }
+
+  .splide__arrow {
+    @apply justify-center;
+  }
+
+  .splide__arrow--prev {
+    &:after {
+      top: 1.25rem;
+    }
+  }
+
+  .slide-count {
+    display: block;
+    @apply absolute bottom-8 right-8 z-50;
+  }
+
+  ::slotted(img) {
+    height: 31.25rem !important;
+    border-radius: 5px;
+  }
+}
