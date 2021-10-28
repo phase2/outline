@@ -2,15 +2,15 @@ import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, query } from 'lit/decorators.js';
 import Splide from '@splidejs/splide';
-import componentStyles from './outline-image-gallery.css.lit';
+import componentStyles from './outline-image-slider.css.lit';
 
 /**
- * The Image Gallery component
- * @element outline-image-gallery
+ * The Image Slider component
+ * @element outline-image-slider
  * @slot image-<number> - slots are generated in code, component accepts stack of desired elements to display
  */
-@customElement('outline-image-gallery')
-export class OutlineImageGallery extends OutlineElement {
+@customElement('outline-image-slider')
+export class OutlineImageSlider extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   @query('.splide')
