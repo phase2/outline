@@ -11,3 +11,5 @@ docs/
 .gitlab-ci.yml
 .gitlab-ci/*
 *.lit.ts
+*.stories.mdx
+*.generated.css

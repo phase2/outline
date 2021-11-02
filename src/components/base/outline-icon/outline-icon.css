@@ -1,3 +1,8 @@
 :host {
-  @apply inline-block;
+  display: flex;
+}
+
+:host svg {
+  height: inherit;
+  width: inherit;
 }
