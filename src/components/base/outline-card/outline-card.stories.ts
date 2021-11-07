@@ -249,3 +249,31 @@ CardWithHeaderAndFooter.args = {
     </div>
   `,
 };
+
+export const CardWithBreadcrumb = Template.bind({});
+CardWithBreadcrumb.args = {
+  cardFooter: html`
+    <div slot="header" class="p-4">
+      <outline-breadcrumbs>
+        <div class="breadbox">
+          <nav class="breadcrumb container-12">
+            <span>
+              <a href="#">Home</a>
+            </span>
+            <span>
+              <a href="#">About Us</a>
+            </span>
+            <span>
+              <a href="#">Our History</a>
+            </span>
+            <span class="last">
+              <a href="#" class="active">
+                That page that explains more about various things
+              </a>
+            </span>
+          </nav>
+        </div>
+      </outline-breadcrumbs>
+    </div>
+  `,
+};
