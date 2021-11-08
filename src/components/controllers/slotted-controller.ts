@@ -1,12 +1,16 @@
-import { ReactiveControllerHost, ReactiveController } from 'lit';
+import {
+  ReactiveControllerHost,
+  ReactiveController,
+  ReactiveElement,
+} from 'lit';
 
 export class SlottedController implements ReactiveController {
   host: ReactiveControllerHost;
-  hostEl: HTMLElement;
+  hostEl: ReactiveElement;
 
   constructor(host: ReactiveControllerHost) {
     (this.host = host).addController(this);
-    this.hostEl = this.host as unknown as HTMLElement;
+    this.hostEl = this.host as unknown as ReactiveElement;
   }
 
   hostConnected() {
