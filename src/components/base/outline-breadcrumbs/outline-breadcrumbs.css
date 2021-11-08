@@ -1,14 +1,11 @@
-a,
-::slotted(a) {
+a {
   @apply font-body text-demo-darkBlue transition-colors duration-300 no-underline;
 }
 
-a:hover,
-::slotted(a:hover) {
+a:hover {
   @apply text-demo-mediumBlue underline;
 }
 
-a.active,
-::slotted(a.active) {
+a.active {
   @apply underline;
 }
