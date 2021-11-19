@@ -1,0 +1,68 @@
+.button-wrapper {
+  @apply bg-neutral-white border border-solid border-brand-primary px-4 rounded;
+
+  &.open {
+    @apply rounded-t rounded-b-none;
+    padding-bottom: 1px;
+    border-bottom: none;
+  }
+}
+
+.dropdown-calendar-links {
+  @apply flex flex-col;
+}
+
+.dropdown-button {
+  @apply bg-neutral-white border-none flex flex-row font-body font-bold text-lg h-16 items-center justify-center rounded text-brand-primary;
+
+  & outline-icon {
+    @apply ml-4 mb-2 text-brand-primary;
+  }
+}
+
+.button-wrapper,
+.dropdown-button,
+.links-wrapper {
+  width: 15rem;
+}
+
+.links-wrapper {
+  @apply absolute bg-neutral-white px-4;
+
+  &.open {
+    @apply border border-solid border-brand-primary rounded-b z-10;
+    border-top: none;
+  }
+}
+
+li {
+  @apply list-none;
+}
+
+span.cal-link {
+  @apply flex flex-row py-2 items-center;
+
+  a {
+    @apply text-lg no-underline text-brand-primary mx-3 transition-colors;
+
+    &:hover {
+      @apply text-brand-primary transition-colors;
+    }
+  }
+
+  p {
+    @apply m-0 text-brand-primary text-base;
+  }
+}
+
+ul {
+  padding-inline-start: 0;
+
+  &.hidden {
+    @apply hidden;
+  }
+}
+
+.divider {
+  @apply mt-0 -mb-2;
+}
