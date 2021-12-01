@@ -1,0 +1,16 @@
+.list-item {
+  @apply flex flex-col list-none;
+
+  & a {
+    @apply no-underline !important;
+  }
+}
+
+.list-item--sub-menu {
+  @apply hidden flex-col list-none p-0;
+}
+
+.list-item[active] > .list-item--sub-menu{
+  @apply flex;
+}
+
