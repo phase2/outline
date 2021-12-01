@@ -12,4 +12,7 @@ docs/
 .gitlab-ci/*
 *.lit.ts
 *.stories.mdx
-*.generated.css
+.github/
+.octane-ci/
+.bin/
+.docksal/
