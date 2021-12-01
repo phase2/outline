@@ -8,7 +8,6 @@
   ],
   "plugins": [
     "@semantic-release/commit-analyzer",
-    "@semantic-release/gitlab",
-    "@semantic-release/npm",
+    "@semantic-release/npm"
   ]
 }
