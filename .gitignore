@@ -1,7 +1,7 @@
 /dist/
 storybook-static/
 custom-elements.json
-.env
+.env-local
 .aws
 .hidden
 *.lit.ts
