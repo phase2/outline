@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit';
 import './outline-modal';
-import { argTypeSlotContent } from '../../base/outline-element/utils/utils';
+import { argTypeSlotContent } from '../outline-element/utils/utils';
 import { modalSizes } from './outline-modal';
 import { ifDefined } from 'lit/directives/if-defined';
 

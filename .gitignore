@@ -7,7 +7,7 @@ custom-elements.json
 *.lit.ts
 *.generated.css
 resolved-tailwind-config.ts
-src/safelist.txt
+packages/core/src/safelist.txt
 
 *~
 *.sw[mnpcod]

@@ -33,12 +33,12 @@
     ]
   },
   "include": [
-    "./src/components/**/*.ts",
-    "./src/components/**/*/*.test.ts",
-    "./src/imports.d.ts"
+    "./packages/core/src/components/**/*.ts",
+    "./packages/core/src/components/**/*/*.test.ts",
+    "./packages/core/src/imports.d.ts"
   ],
   "exclude": [
-    "./src/components/**/*.stories.ts",
-    "./src/components/**/*.lit.ts"
+    "./packages/core/src/components/**/*.stories.ts",
+    "./packages/core/src/components/**/*.lit.ts"
   ]
 }

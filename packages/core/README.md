@@ -16,4 +16,4 @@ Outline is built with the following tools:
 
 ## Contributing to Outline
 
-Information regarding how to contribute to Outline development can be found in [CONTRIBUTING.md](./CONTRIBUTING.md).
+Information regarding how to contribute to Outline development can be found in [CONTRIBUTING.md](../../CONTRIBUTING.md).

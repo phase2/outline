@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined';
 // import { AllIcons } from '../outline-icon/config';
 import { argTypeTarget } from '../outline-link/config';
-import { argTypeSlotContent } from '../../base/outline-element/utils/utils';
+import { argTypeSlotContent } from '../outline-element/utils/utils';
 import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
 
