@@ -8,3 +8,7 @@ custom-elements.json
 storybook-static/
 *.js
 *.lit.ts
+.github/
+.octane-ci/
+.bin/
+.docksal/
