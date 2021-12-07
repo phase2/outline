@@ -1,0 +1,53 @@
+import { html } from 'lit';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import './outline-calendar-link-dropdown.ts';
+
+<Meta
+  title="Atoms/Calendar Link Dropdown"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Calendar Link Dropdown
+Add to calendar link generation powered by [calendar-link](https://github.com/AnandChowdhary/calendar-link)
+
+<Canvas>
+  <Story name="Calendar Link Dropdown">
+    {() => {
+      return html`
+      <div class='h-80'>
+        <outline-calendar-link-dropdown 
+          title='My Birthday'
+          start='2022-03-06 18:00:00 +0100'
+          end='2022-03-06 22:00:00 +0100'
+          description="It's my birthday, I can cry if I want to"
+          location='My house'
+          url="#"
+        >
+        </outline-calendar-link-dropdown>
+      </div>
+      `;
+    }}
+  </Story>
+</Canvas>
+
+## Calendar Link Dropdown Attributes
+
+- `title` string (required) - The event title. 
+- `start` string (required) - The event start time. Accepted values formats are JS Date | ISO 8601 string | Unix Timestamp
+- (*)`end` string - The event end time. Accepted values formats are JS Date | ISO 8601 string | Unix Timestamp
+- (*)`duration` [number, string] - The event duration. Format is an array with value(number) and unit(string) i.e [3, "hour"]. See allowed unit types [here](https://day.js.org/docs/en/durations/creating#list-of-all-available-units)
+- (*)`all-day` boolean - Whether this is an all day event. 
+- `description` string - Event description
+- `location` string - Event location
+- `busy` boolean - Whether to mark on calendar as busy
+- `guests` string[] - Emails of guests i.e ['user1@test.com', 'user2@test.com']
+- `url` string - Calendar document URL
+
+(*) You must provide either `end`, `duration`, or `all-day`.

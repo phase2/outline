@@ -5,6 +5,7 @@ import replace from '@rollup/plugin-replace';
 import multi from '@rollup/plugin-multi-entry';
 import typescript from 'rollup-plugin-typescript2';
 import svg from 'rollup-plugin-svg';
+import commonjs from '@rollup/plugin-commonjs';
 
 export default {
   // Output all components to a single exported file.
@@ -51,5 +52,10 @@ export default {
     summary(),
     multi(),
     svg(),
+    commonjs({
+      namedExports: {
+        'calender-link': ['google', 'outlook', 'ics', 'CalendarEvent'],
+      },
+    }),
   ],
 };
