@@ -36,7 +36,7 @@
     "preserve": "yarn prep",
     "serve": "concurrently -c \"cyan,blue\" \"yarn:rollup.watch\" \"yarn:wds\" --kill-others",
     "storybook.wait": "wait-on ./dist/storybook.css ./src/custom-elements.json ./src/resolved-tailwind-config.ts",
-    "storybook.dev": "start-storybook -c src/.storybook -s ./src/.storybook/static -p 6010",
+    "storybook.dev": "start-storybook -c src/.storybook -s ./src/.storybook/static -p 6042",
     "storybook.dev.watch": "concurrently -n \"css,storybook\" -c \"green,blue\" \"yarn:generate.css --watch\" \"yarn:storybook.dev\" --kill-others",
     "storybook.prod": "yarn prep && yarn storybook.wait && NODE_ENV=production build-storybook -c src/.storybook -o storybook-static",
     "lint": "yarn lint.eslint && yarn lint.prettier",
