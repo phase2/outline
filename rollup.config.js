@@ -23,11 +23,11 @@ export default {
       file: 'dist/outline.js',
       format: 'esm',
     },
-    {
-      // Legacy bundle.
-      file: 'dist/outline-legacy.js',
-      format: 'cjs',
-    },
+    // {
+    //   // Legacy bundle.
+    //   file: 'dist/outline-legacy.js',
+    //   format: 'cjs',
+    // },
   ],
   onwarn(warning) {
     if (warning.code !== 'THIS_IS_UNDEFINED') {

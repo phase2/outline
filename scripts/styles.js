@@ -106,14 +106,14 @@ if (options.watch) {
   gaze('*.css', (err, watcher) => {
     watcher.on('added', globalStylesheets);
     watcher.on('changed', globalStylesheets);
+    watcher.on('added', foucStylesheet);
+    watcher.on('changed', foucStylesheet);
   });
 
   // Watch components.
   gaze('src/components/**/*.css', (err, watcher) => {
     watcher.on('added', litify);
     watcher.on('changed', litify);
-    watcher.on('added', foucStylesheet);
-    watcher.on('changed', foucStylesheet);
   });
 }
 // ${prettier.format(result.css, {parser: "css"})}
