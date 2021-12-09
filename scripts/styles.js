@@ -14,39 +14,48 @@ const options = yargs.option('watch', {
   describe: 'Watch the file system for changes and render automatically',
 }).argv;
 
+/**
+ * Function declared via watcher to handle looping in any globally focus style generation.
+ */
+const createCssGlobals = () => {
+  globalStylesheets();
+  foucStylesheet();
+};
+
+/**
+ * Function to loop over config declared CSS source files to process.
+ */
 const globalStylesheets = () => {
   outline.css.global.forEach(style => {
     global(style.src, style.dest);
   });
 };
 
+/**
+ * Function to generate a project specific stylesheet to correct or minify the FOUC.
+ */
 const foucStylesheet = () => {
-  let style = '';
+  let style = '/* Prevent FOUC in all custom components */';
   if (outline.css.fouc.enabled && components.tags.length) {
-    components.tags.forEach(tag => {
-      /**
-       * Any rules created below with :not(:defined) do NOT require
-       * any negating rule with opacity:1. This allows for 2 things.
-       * 1. Drastically reduced CSS.
-       * 2. ensure we don't set opacity to 1 by default EVER. There
-       * could be any number of reasons that we would want it to
-       * inherit/revert to its previous value, and not 1.
-       */
+    components.tags.forEach((tag, index) => {
       style += `
-      /* Prevent FOUC on ${tag.name} */      
-      ${tag.name}:not(:defined) {
-        opacity: 0;
-      }
-      /* Prevent FOUC on all elements inside of ${tag.name} */
-      ${tag.name}:not(:defined) * {
-        opacity: 0;
-      }
-      `;
+${tag.name}:not(:defined),
+${tag.name}:not(:defined) *${index !== components.tags.length - 1 ? ',' : ''}`;
     });
+    style += ` {
+  opacity: 0;
+}
+    `;
     fs.writeFile(outline.css.fouc.dest, style, () => true);
   }
 };
 
+/**
+ * Function to process a source file and output to a destination via postcss.
+ *
+ * @param {string} src
+ * @param {string} dest
+ */
 const global = (src, dest) => {
   fs.readFile(src, (err, css) => {
     postcss([...config.plugins])
@@ -61,9 +70,13 @@ const global = (src, dest) => {
   });
 };
 
-const litify = filepath => {
+/**
+ * Function to wrap all generic .css files with CSS template literals suitable for consumption via Lit.
+ *
+ * @param {string} filepath
+ */
+const createCssLiterals = filepath => {
   const filename = filepath.replace(/^.*[\\\/]/, '');
-  //console.log(`${filename} was changed`);
   fs.readFile(filepath, (err, css) => {
     const nFilePath = `${filepath}.lit.ts`;
     postcss([...config.plugins])
@@ -74,12 +87,7 @@ const litify = filepath => {
           `
 import { css } from 'lit';
 export default css\`
-${
-  result.css
-  // .replace(/\\/g, '\\\\')
-  // .replace(/`/g, '\\`')
-  // .replace(/^(?:[\t ]*(?:\r?\n|\r))+/g, '')
-}\`;`,
+${result.css}\`;`,
           () => true
         );
       });
@@ -92,28 +100,24 @@ if (!fs.existsSync('dist')) {
 }
 
 // Run the global style generation.
-globalStylesheets();
-foucStylesheet();
+CreateCssStyleSheets();
 
 // Run the component style generation.
 glob('src/components/**/*.css', (err, files) => {
-  files.forEach(litify);
+  files.forEach(createCssLiterals);
 });
 
 // Watch mode with --watch in cli.
 if (options.watch) {
   // Watch globals.
   gaze('*.css', (err, watcher) => {
-    watcher.on('added', globalStylesheets);
-    watcher.on('changed', globalStylesheets);
-    watcher.on('added', foucStylesheet);
-    watcher.on('changed', foucStylesheet);
+    watcher.on('added', createCssGlobals);
+    watcher.on('changed', createCssGlobals);
   });
 
   // Watch components.
   gaze('src/components/**/*.css', (err, watcher) => {
-    watcher.on('added', litify);
-    watcher.on('changed', litify);
+    watcher.on('added', createCssLiterals);
+    watcher.on('changed', createCssLiterals);
   });
 }
-// ${prettier.format(result.css, {parser: "css"})}
