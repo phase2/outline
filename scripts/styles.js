@@ -100,7 +100,7 @@ if (!fs.existsSync('dist')) {
 }
 
 // Run the global style generation.
-CreateCssStyleSheets();
+createCssGlobals();
 
 // Run the component style generation.
 glob('src/components/**/*.css', (err, files) => {
