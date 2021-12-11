@@ -12,14 +12,16 @@ addParameters({
   options: {
     storySort: {
       order: [
+        'Getting Started',
         'Documentation',
-        'Protons',
-        'Atoms',
-        'Molecules',
-        'Organisms',
+        'Design Tokens',
+        'Media',
+        'Navigation',
+        'Content',
         'Templates',
         'Pages',
         'Code Examples',
+        'Utility Components',
       ],
     },
   },

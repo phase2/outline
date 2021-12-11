@@ -5,7 +5,7 @@ import { modalSizes } from './outline-modal';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 export default {
-  title: 'Molecules/Modal',
+  title: 'Content/Modal',
   component: 'outline-modal',
   argTypes: {
     triggerSlot: {

@@ -7,7 +7,7 @@ import sampleImage from '../../../.storybook/static/media/color/Creative_Process
 import './outline-link';
 
 export default {
-  title: 'Atoms/Link',
+  title: 'Navigation/Link',
   component: 'outline-link',
   argTypes: {
     linkHref: {
