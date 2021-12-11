@@ -12,7 +12,7 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   mode: 'jit',
-  purge: [
+  content: [
     './src/**/*.{ts,tsx,mdx,html,txt,css}',
     './src/.storybook/**/*.{ts,tsx,mdx,html,txt,css}',
   ],
@@ -240,7 +240,5 @@ module.exports = {
       },
     },
   },
-
-  variants: {},
   plugins: [],
 };
