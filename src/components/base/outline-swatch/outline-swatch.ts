@@ -24,7 +24,7 @@ export class OutlineSwatch
   static styles: CSSResultGroup = [componentStyles];
 
   @property({ type: String })
-  set: SwatchSet = 'primary';
+  set: SwatchSet = 'brand';
 
   @property({ type: String })
   color = 'blue';
