@@ -1,0 +1,36 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Developer/Helpful Commands"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Helpful Commands
+
+## Resetting local environment
+
+The following commands help clean a local environment.
+
+- Cleanup generated assets: `yarn clean`
+- Cleanup node packages: `yarn reset`
+- Full cleanup & restart: `yarn reboot`
+
+## Coding standards
+
+Code is not automatically formatted upon commit, but automated tests will fail if you don't format code according to the tooling (Prettier).
+
+You can run `yarn fmt` or configure your IDE to run these commands for you.
+
+_Caution: Prettier will sometimes format code in a weird way, so you may want to review its changes._
+
+### Linting
+
+You can run `yarn lint` to view any coding style warnings.

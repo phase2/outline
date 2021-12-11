@@ -1,0 +1,41 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Developer/Production Builds"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Production builds
+
+_This is handled by the Gitlab CI / CD environment_
+
+Runs both `yarn tsc` and `yarn rollup` to handle the following:
+
+- Packaging individual components to `dist` directory.
+- Packaging modern and legacy builds of all components to `dist` directory.
+
+```bash
+yarn build
+```
+
+> To only run the rollup build, which handles the component bundling into modern and legacy builds:
+
+## One time build
+
+```bash
+yarn rollup
+```
+
+## Enable in watch mode
+
+```bash
+yarn rollup.watch
+```
