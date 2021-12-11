@@ -16,7 +16,7 @@ const buttonOptions: ButtonVariant[] = [
 const sizeOptions: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default {
-  title: 'Atoms/Button',
+  title: 'Navigation/Button',
   component: 'outline-button',
   argTypes: {
     ...argTypeSlotContent,

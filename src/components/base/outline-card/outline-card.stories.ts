@@ -25,7 +25,7 @@ const argTypeColors = {
 };
 
 export default {
-  title: 'Molecules/Card',
+  title: 'Content/Card',
   component: 'outline-card',
   argTypes: {
     bgColorHeader: {

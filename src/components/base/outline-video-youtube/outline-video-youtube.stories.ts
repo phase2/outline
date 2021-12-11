@@ -3,7 +3,7 @@ import './outline-video-youtube';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 const configuration = {
-  title: 'Content/Youtube Video',
+  title: 'Media/Youtube Video',
   component: 'outline-video-youtube',
   argTypes: {
     videoID: {

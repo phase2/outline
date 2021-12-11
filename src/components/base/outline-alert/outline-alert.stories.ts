@@ -5,7 +5,7 @@ import { alertSizes, alertStatusTypes } from './outline-alert';
 import './outline-alert';
 
 export default {
-  title: 'Molecules/Alert',
+  title: 'Content/Alert',
   component: 'outline-alert',
   argTypes: {
     headerSlot: {
