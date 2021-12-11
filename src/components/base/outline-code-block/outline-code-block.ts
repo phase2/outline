@@ -2,6 +2,7 @@ import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, property, query } from 'lit/decorators.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+// @ts-expect-error fixes TS7016: Could not find a declaration file for module
 import Prism from './prism.js';
 import componentStyles from './outline-code-block.css.lit';
 
