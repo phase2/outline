@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { html } from 'lit';
+import { OutlineSwatch } from './outline-swatch';
+import { swatchSets } from '../outline-swatch-set/outline-swatch-set';
+
+<Meta
+  title="Utilities/Swatch"
+  component="outline-swatch"
+  argTypes={{
+    set: {
+      name: 'set',
+      options: swatchSets,
+      control: { type: 'select' },
+      description: 'The color set.',
+    },
+    color: {
+      name: 'color',
+      description: 'The color.',
+    },
+  }}
+/>
+
+export const Template = ({ set, color }) => html`
+  <outline-swatch set="${set}" color="${color}"> </outline-swatch>
+`;
+
+## Primary color
+
+<Canvas>
+  <Story
+    name="Primary Blue"
+    args={{
+      set: 'primary',
+      color: 'blue',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Secondary color
+
+<Canvas>
+  <Story
+    name="Secondary Green"
+    args={{
+      set: 'secondary',
+      color: 'green',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
