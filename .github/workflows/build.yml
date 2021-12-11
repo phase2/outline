@@ -62,7 +62,7 @@ jobs:
 
   # Job to run tests, linters and formatting checks.
   test:
-    name: Testing & Linting
+    name: Formatting & Linting
     runs-on: ubuntu-latest
     needs: setup
 
@@ -75,8 +75,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-      # @see https://github.com/marketplace/actions/run-playwright-tests
-      - uses: microsoft/playwright-github-action@v1
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -102,12 +100,9 @@ jobs:
       - name: Run prettier
         run: yarn lint.prettier
 
-      - name: Run tests
-        run: npx playwright install && yarn test
-
   # Job to build and cache the distribution package.
   build-dist:
-    name: Build Package(s)
+    name: Build & Test Package(s)
     runs-on: ubuntu-latest
     needs: test
 
@@ -150,6 +145,15 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      # @see https://github.com/marketplace/actions/run-playwright-tests
+      - uses: microsoft/playwright-github-action@v1  
+
+      - name: Setup playwright browsers
+        run: npx playwright install
+
+      - name: Run tests
+        run: yarn wtr
 
   build-storybook:
     name: Build Storybook
