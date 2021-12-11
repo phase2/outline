@@ -1,9 +1,11 @@
 import { html } from 'lit';
-import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
 import tailwindThemeConfig from '../../../resolved-tailwind-config';
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import '../../../components/base/outline-swatch-set/outline-swatch-set'
 
 <Meta
-  title="Protons/Colors"
+  title="Design Tokens/Colors/Solid"
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -14,80 +16,48 @@ import tailwindThemeConfig from '../../../resolved-tailwind-config';
   }}
 />
 
-# Default colors
+# Primary colors
 
-<Story name="Colors">
-  {() => {
-    const colorSets = Object.entries(tailwindThemeConfig.colors).map(
-      ([set, variants]) => html`
-        <div>
-          <div
-            class="flex flex-col space-y-3 sm:flex-row text-xs sm:space-y-0 sm:space-x-4 pb-8 border-b border-demo-lightGray"
-          >
-            <div class="w-32 flex-shrink-0">
-              <div class="h-10 flex flex-col justify-center">
-                <div>
-                  <code class="text-xs text-demo-darkGray">colors.${set}</code>
-                </div>
-              </div>
-            </div>
-            <div
-              class="min-w-0 flex-1 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-4 lg:gap-y-3 xxl:grid-cols-4 mb-8"
-            >
-              ${Object.entries(variants).map(
-                ([name, value]) => html`
-                  <div
-                    class="space-y-1.5 my-2 lg:my-4 pb-2 lg:pb-4 border-b border-demo-lightGray"
-                  >
-                    <div
-                      class="h-16 w-full rounded shadow bg-${set}-${name}"
-                    ></div>
-                    <div class="px-0.5">
-                      <div class="text-sm pt-2">
-                        <div class="flex flex-row justify-between">
-                          <span class="font-semibold"
-                            >${isNaN(name) ? 'Variant:' : 'Weight:'}</span
-                          ><code>${name}</code>
-                        </div>
-                        <div class="flex flex-row justify-between">
-                          <span class="font-semibold">CSS Variable:</span
-                          ><code>${value}</code>
-                        </div>
-                        <div class="flex flex-row justify-between">
-                          <span class="font-semibold">Background Color:</span
-                          ><code>bg-${set}-${name}</code>
-                        </div>
-                        <div class="flex flex-row justify-between">
-                          <span class="font-semibold">Text Color:</span
-                          ><code>text-${set}-${name}</code>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                `
-              )}
-            </div>
-          </div>
-        </div>
-      `
-    );
-    return html`
-      <div class="prose">
-        <h2
-          class="group flex whitespace-pre-wrap"
-          id="overview"
-          style="margin-bottom: 0px;"
-        >
-          <span class="sr-only">Overview</span>
-        </h2>
-        <p>
-          Outline includes an expertly-crafted default color palette
-          out-of-the-box that is a great starting point if you don't have your
-          own specific branding in mind.
-        </p>
-        <div class="mt-10"></div>
-      </div>
-      <div class="grid grid-cols-1 gap-8">${colorSets}</div>
-    `;
-  }}
-</Story>
+<outline-swatch-set set="brand"></outline-swatch-set>
+
+# Neutral colors
+
+<outline-swatch-set set="neutral"></outline-swatch-set>
+
+# UI colors
+
+<outline-swatch-set set="ui"></outline-swatch-set>
+
+# Tailwind Default Color Palettes
+
+## Gray
+
+<outline-swatch-set set="gray"></outline-swatch-set>
+
+## Blue
+
+<outline-swatch-set set="blue"></outline-swatch-set>
+
+## Red
+
+<outline-swatch-set set="red"></outline-swatch-set>
+
+## Yellow
+
+<outline-swatch-set set="yellow"></outline-swatch-set>
+
+## Green
+
+<outline-swatch-set set="green"></outline-swatch-set>
+
+## Indigo
+
+<outline-swatch-set set="indigo"></outline-swatch-set>
+
+## Purple
+
+<outline-swatch-set set="purple"></outline-swatch-set>
+
+## Pink
+
+<outline-swatch-set set="pink"></outline-swatch-set>
