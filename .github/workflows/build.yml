@@ -103,7 +103,7 @@ jobs:
         run: yarn lint.prettier
 
       - name: Run tests
-        run: yarn test
+        run: npx playwright install && yarn test
 
   # Job to build and cache the distribution package.
   build-dist:
