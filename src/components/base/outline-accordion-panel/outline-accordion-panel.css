@@ -19,7 +19,7 @@
 }
 
 .accordion-button.clean.active {
-  @apply bg-neutral-white text-demo-lightBlue !important;
+  @apply bg-neutral-white text-demo-darkBlue !important;
 }
 
 .accordion-button.clean.inactive {
@@ -53,7 +53,7 @@
 }
 
 .accordion-icon.clean {
-  @apply text-blue-500 bg-neutral-white !important;
+  @apply text-demo-darkBlue bg-neutral-white !important;
 }
 
 .accordion-icon.active {

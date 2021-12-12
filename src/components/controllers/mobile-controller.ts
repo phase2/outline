@@ -19,10 +19,10 @@ export class MobileController implements ReactiveController {
   }
 
   handleResize = () => {
-    const tailwindSmScreen = this.formatScreenSize(
-      tailwindThemeConfig.screens.sm
+    const tailwindMdScreen = this.formatScreenSize(
+      tailwindThemeConfig.screens.md
     );
-    if (window.innerWidth <= tailwindSmScreen) {
+    if (window.innerWidth <= tailwindMdScreen) {
       this.isMobile = true;
     } else {
       this.isMobile = false;
