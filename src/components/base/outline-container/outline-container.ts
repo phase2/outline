@@ -18,10 +18,9 @@ export class OutlineContainer extends OutlineElement {
    */
   @property({
     type: Boolean,
-    reflect: true,
     attribute: 'is-nested',
   })
-  isNested = true;
+  isNested = false;
 
   /**
    * Whether or not this is a full bleed container.
