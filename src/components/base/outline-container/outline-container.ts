@@ -18,6 +18,7 @@ export class OutlineContainer extends OutlineElement {
    */
   @property({
     type: Boolean,
+    reflect: true,
     attribute: 'is-nested',
   })
   isNested = false;

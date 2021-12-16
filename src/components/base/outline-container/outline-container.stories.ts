@@ -46,8 +46,8 @@ export const Container = ({
   html`
     <outline-container
       class="text-left rounded-xl border-2 border-dashed bg-demo-lightBlue border-demo-darkBlue py-10 md:py-20 my-10 md:my-20"
-      is-nested="${ifDefined(isNested)}"
-      full-bleed="${ifDefined(fullBleed)}"
+      ?is-nested="${isNested}"
+      ?full-bleed="${fullBleed}"
       container-align="${ifDefined(containerAlign)}"
     >
       <!-- <outline-heading level="h2" level-size="2xl" class="mb-4"
