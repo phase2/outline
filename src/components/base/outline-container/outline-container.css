@@ -64,7 +64,7 @@
 }
 
 @screen xl {
-  :host([full-bleed]), {
+  :host([full-bleed]) {
     @apply max-w-full;
   }
 }
