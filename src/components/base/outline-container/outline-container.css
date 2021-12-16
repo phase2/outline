@@ -37,54 +37,46 @@
     @apply max-w-screen-xxxl;
   }
 }
-:host([is-nested]),
-:host([is-nested='true']) {
+:host(:not([is-nested])) {
   @apply px-0;
 }
 
-:host([full-bleed='']),
-:host([full-bleed='true']) {
+:host([full-bleed]) {
   @apply max-w-full;
 }
 
 @screen sm {
-  :host([full-bleed='']),
-  :host([full-bleed='true']) {
+  :host([full-bleed]) {
     @apply max-w-full;
   }
 }
 
 @screen md {
-  :host([full-bleed='']),
-  :host([full-bleed='true']) {
+  :host([full-bleed]) {
     @apply max-w-full;
   }
 }
 
 @screen lg {
-  :host([full-bleed='']),
-  :host([full-bleed='true']) {
+  :host([full-bleed]) {
     @apply max-w-full;
   }
 }
 
 @screen xl {
-  :host([full-bleed='']),
-  :host([full-bleed='true']) {
+  :host([full-bleed]), {
     @apply max-w-full;
   }
 }
 
 @screen xxl {
-  :host([full-bleed='']),
-  :host([full-bleed='true']) {
+  :host([full-bleed]) {
     @apply max-w-full;
   }
 }
 
 @screen xxxl {
-  :host([full-bleed='']),
-  :host([full-bleed='true']) {
+  :host([full-bleed]) {
     @apply max-w-full;
   }
 }
@@ -92,7 +84,7 @@
 :host([container-align='left']) {
   @apply ml-0 mr-auto;
 }
-:host([container-align='']),
+:host([container-align]),
 :host([container-align='center']) {
   @apply mx-auto;
 }
