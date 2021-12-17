@@ -38,23 +38,23 @@ export default {
     variant: {
       description:
         '**ButtonVariant (none, primary, secondary, teritary)**: The button style variant to use.',
+      options: buttonOptions,
       control: {
         type: 'select',
-        options: buttonOptions,
       },
     },
     size: {
       description:
         '**ButtonSize (small, medium, large)** The button size to use',
+      options: sizeOptions,
       control: {
         type: 'select',
-        options: sizeOptions,
       },
     },
     // icon: {
+    //   options: AllIcons,
     //   control: {
     //     type: 'select',
-    //     options: AllIcons,
     //   },
     // },
   },
@@ -122,14 +122,14 @@ Link.args = {
   size: 'medium',
 };
 
-export const IconLink = Template.bind({});
-IconLink.args = {
-  defaultSlot: 'Link button w/icon',
-  size: 'medium',
-  url: '#',
-  variant: 'primary',
-  icon: 'arrowNarrowRightOutline',
-};
+// export const IconLink = Template.bind({});
+// IconLink.args = {
+//   defaultSlot: 'Link button w/icon',
+//   size: 'medium',
+//   url: '#',
+//   variant: 'primary',
+//   icon: 'arrowNarrowRightOutline',
+// };
 
 export const PrimaryButton = Template.bind({});
 PrimaryButton.args = {
