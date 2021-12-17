@@ -62,16 +62,17 @@ export default {
     listType: {
       description:
         '**`<ListType>`("ol" | "ul" | "div"):** <br> Determines which type of list is rendered.',
+      options: listTypes,
       control: {
         type: 'select',
-        options: listTypes,
       },
       name: 'list-type',
     },
     orientation: {
       description:
         '**`<ListOrientation>`("row" | "column"):** <br> Sets orientation of list',
-      control: { type: 'select', options: listOrientations },
+      options: listOrientations,
+      control: { type: 'select' },
     },
     navLabel: {
       description:
@@ -82,17 +83,17 @@ export default {
     columns: {
       description:
         '**`<ColumnCount>`("2", "3", "4"):** <br> If set, overrides orientation setting and renders list above mobile in selected number of columns',
+      options: [...columnsCount, undefined],
       control: {
         type: 'select',
-        options: [...columnsCount, undefined],
       },
     },
     divider: {
       description:
         '**`<ListDividerColors>` ("orange","green","blue","teal","purple","white"):** <br>If set adds a pseudo element divider of chose color between all list items. Currently only setup for `<ul/>`. Best only for row.',
+      options: [...dividerColors, undefined],
       control: {
         type: 'select',
-        options: [...dividerColors, undefined],
       },
     },
     headingSlotContent: {
