@@ -5,7 +5,7 @@
 }
 
 .btn[aria-disabled='true'] {
-  @apply pointer-events-none cursor-not-allowed text-gray-500 bg-gray-300 !important;
+  @apply pointer-events-none cursor-not-allowed text-demo-darkGray bg-demo-lightGray !important;
 }
 
 .btn {
@@ -17,7 +17,7 @@
 }
 
 .btn.primary {
-  @apply bg-blue-700 text-neutral-white;
+  @apply bg-demo-darkBlue text-neutral-white;
 
   &:hover,
   &:focus {
@@ -26,7 +26,7 @@
 }
 
 .btn.secondary {
-  @apply bg-gray-300 text-gray-800;
+  @apply bg-demo-lightGray text-demo-darkGray;
 
   &:hover,
   &:focus {
@@ -35,7 +35,7 @@
 }
 
 .btn.tertiary {
-  @apply bg-blue-300 text-gray-800;
+  @apply bg-demo-lightBlue text-demo-darkGray;
 
   &:hover,
   &:focus {

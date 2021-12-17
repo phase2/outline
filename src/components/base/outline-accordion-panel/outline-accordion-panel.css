@@ -1,73 +1,51 @@
-.accordion-button {
-  @apply flex justify-between text-2xl font-body font-medium border-0 items-center w-full pl-8 pr-0 py-0;
+:host {
+  @apply block overflow-hidden;
+
+  & section {
+    @apply flex flex-col text-left overflow-hidden;
+  }
+
+  & p {
+    @apply mb-10;
+  }
 }
 
-.accordion-button.mobile {
-  @apply pl-4 pr-0 py-0 text-base leading-5 !important;
+.outline-shadow {
+  @apply shadow;
 }
 
-.accordion-button.active {
-  @apply bg-blue-700 text-neutral-white;
+.outline-rounded-2xl {
+  @apply rounded-2xl;
 }
 
-.accordion-button.inactive {
-  @apply bg-neutral-white text-demo-darkBlue;
+.outline-bg-primary {
+  @apply bg-demo-darkBlue;
 }
 
-.accordion-button.clean {
-  @apply border-b border-solid border-demo-lightGray;
+.outline-bg-secondary {
+  @apply bg-demo-mediumBlue;
 }
 
-.accordion-button.clean.active {
-  @apply bg-neutral-white text-demo-darkBlue !important;
+.outline-bg-tertiary {
+  @apply bg-demo-lightBlue;
 }
 
-.accordion-button.clean.inactive {
-  @apply text-demo-darkBlue;
+.outline-bg-black {
+  @apply bg-neutral-black;
 }
 
-.accordion-content {
-  @apply px-8 pt-4 text-demo-darkGray;
+.outline-bg-white {
+  @apply bg-neutral-white;
 }
 
-.accordion-content.mobile {
-  @apply px-4;
+.outline-bg-gray {
+  @apply bg-neutral-grayMedium;
 }
 
-.accordion-label {
-  @apply text-left py-4;
-  max-width: 75%;
+.outline-bg-gray {
+  @apply bg-neutral-grayMedium;
 }
 
-.accordion-label.mobile {
-  @apply py-2;
-}
-
-.accordion-heading {
-  @apply m-0 flex;
-  min-height: 4rem;
-}
-
-.accordion-icon {
-  @apply flex w-20 h-full items-center justify-center;
-}
-
-.accordion-icon.clean {
-  @apply text-demo-darkBlue bg-neutral-white !important;
-}
-
-.accordion-icon.active {
-  @apply text-neutral-white bg-demo-mediumBlue;
-}
-
-.accordion-icon.inactive {
-  @apply text-demo-darkBlue bg-demo-lightBlue;
-}
-
-.accordion-panel {
-  @apply flex mb-6 rounded-md flex-col overflow-hidden border border-solid border-demo-lightGray;
-}
-
-.accordion-panel.clean {
-  @apply border-0;
+.outline-bg-lightgray {
+  @apply bg-neutral-grayLight;
 }
