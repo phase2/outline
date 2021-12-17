@@ -15,7 +15,7 @@ export default {
     containerAlign: {
       ...argTypeHorizontalAlign,
       name: 'Alignment of the Container',
-      defaultValue: 'center',
+      table: { defaultValue: { summary: 'center' } },
     },
     isNested: {
       name: 'Padding',
@@ -29,6 +29,9 @@ export default {
         type: 'boolean',
       },
     },
+  },
+  args: {
+    containerAlign: 'center',
   },
 };
 

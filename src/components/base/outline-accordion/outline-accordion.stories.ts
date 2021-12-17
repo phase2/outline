@@ -66,7 +66,7 @@ export default {
         type: 'boolean',
       },
       name: 'all open',
-      defaultValue: false,
+      table: { defaultValue: { summary: 'false' } },
     },
     singlePanel: {
       description:
@@ -125,6 +125,7 @@ export default {
 </outline-accordion-panel>`,
     clean: false,
     singlePanel: false,
+    allOpen: true,
   },
 };
 
