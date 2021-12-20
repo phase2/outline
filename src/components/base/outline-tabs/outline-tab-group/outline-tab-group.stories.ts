@@ -60,9 +60,9 @@ export default {
   argTypes: {
     placement: {
       name: 'Control Placement',
+      options: tabControlPosition,
       control: {
         type: 'select',
-        options: tabControlPosition,
       },
       description: 'The placement of the tab controls.',
     },
