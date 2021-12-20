@@ -12,7 +12,7 @@
   @apply text-2xl font-display font-semibold border-none mb-4 !important;
 }
 .sbdocs .sbdocs-content {
-  max-width: 1440px;
+  max-width: 2240px;
 }
 .sbdocs-p {
   @apply mt-0 !important;

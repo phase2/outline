@@ -54,11 +54,7 @@ export class OutlineContainer extends OutlineElement {
   containerAlign: HorizontalAlignment = 'center';
 
   /**
-   * This methodology allows us to create a component that can use properties
-   * passed into it to generate a link element (<a>). This requires the linkHref
-   * attribute is passed, otherwise, anything passed in will override the default
-   * content in the slot allowing you to pass a pre-generated link into the
-   * outline-link component wrapper.
+   * Return the container element.
    */
   render(): TemplateResult {
     return html`<slot></slot>`;

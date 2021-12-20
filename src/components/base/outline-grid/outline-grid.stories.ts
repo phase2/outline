@@ -1,7 +1,8 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { Size } from '../outline-element/utils/types';
 
-import { argTypeGapSize } from '../outline-element/utils/utils';
+import { argTypeGapSize, argTypeHidden } from '../outline-element/utils/utils';
 import './outline-grid';
 
 export default {
@@ -11,53 +12,79 @@ export default {
     layout: 'fullscreen',
   },
   argTypes: {
+    defaultSlot: argTypeHidden,
     gapSize: {
       ...argTypeGapSize,
       name: 'Default Gap Size',
+      table: { defaultValue: { summary: 'small' } },
     },
     gapSizeSm: {
       ...argTypeGapSize,
       name: 'Gap Size on Small+',
+      table: { defaultValue: { summary: 'inherited' } },
     },
     gapSizeMd: {
       ...argTypeGapSize,
       name: 'Gap Size on Medium+',
+      table: { defaultValue: { summary: 'inherited' } },
     },
     gapSizeLg: {
       ...argTypeGapSize,
       name: 'Gap Size on Large+',
+      table: { defaultValue: { summary: 'inherited' } },
     },
     gapSizeXl: {
       ...argTypeGapSize,
       name: 'Gap Size on Extra Large+',
+      table: { defaultValue: { summary: 'inherited' } },
     },
     gapSizeXxl: {
       ...argTypeGapSize,
       name: 'Gap Size on Extra Extra Large+',
+      table: { defaultValue: { summary: 'inherited' } },
     },
     xPadding: {
-      name: 'Nested Grid',
+      name: 'Padding: x-axis',
+      description: '',
+      table: { defaultValue: { summary: 'false' } },
+      control: {
+        type: 'boolean',
+      },
+    },
+    yPadding: {
+      name: 'Padding: y-axis',
+      description: '',
+      table: { defaultValue: { summary: 'false' } },
       control: {
         type: 'boolean',
       },
     },
     fullBleed: {
-      name: 'Full Bleed Grid',
+      name: 'Full Bleed',
+      description:
+        'If the container should be full bleed and extend its left and right edges to edge of parent.',
+      table: { defaultValue: { summary: 'false' } },
       control: {
         type: 'boolean',
       },
     },
   },
+  args: {
+    xPadding: false,
+    yPadding: false,
+    fullBleed: false,
+  },
 };
 
 interface Options {
-  gapSize?: string;
-  gapSizeSm?: number;
-  gapSizeMd?: number;
-  gapSizeLg?: number;
-  gapSizeXl?: number;
-  gapSizeXxl?: number;
+  gapSize?: Size;
+  gapSizeSm?: Size;
+  gapSizeMd?: Size;
+  gapSizeLg?: Size;
+  gapSizeXl?: Size;
+  gapSizeXxl?: Size;
   xPadding?: boolean;
+  yPadding?: boolean;
   fullBleed?: boolean;
   defaultSlot?: boolean;
 }
@@ -70,6 +97,7 @@ const Template = ({
   gapSizeXl,
   gapSizeXxl,
   xPadding,
+  yPadding,
   fullBleed,
   defaultSlot,
 }: Options): TemplateResult => html`
@@ -80,14 +108,20 @@ const Template = ({
     gap-size-lg="${ifDefined(gapSizeLg)}"
     gap-size-xl="${ifDefined(gapSizeXl)}"
     gap-size-xxl="${ifDefined(gapSizeXxl)}"
-    x-padding="${ifDefined(xPadding)}"
-    full-bleed="${ifDefined(fullBleed)}"
+    ?x-padding="${xPadding}"
+    ?y-padding="${yPadding}"
+    ?full-bleed="${fullBleed}"
   >
     ${defaultSlot}
   </outline-grid>
 `;
 
+const DefaultGridDecorators = [
+  (Story): TemplateResult => html` <div class="block py-12">${Story()}</div> `,
+];
+
 export const RowsAndColumns = Template.bind({});
+RowsAndColumns.decorators = DefaultGridDecorators;
 RowsAndColumns.args = {
   gapSize: 'small',
   defaultSlot: html`
@@ -134,6 +168,7 @@ RowsAndColumns.args = {
 };
 
 export const EqualColumns = Template.bind({});
+EqualColumns.decorators = DefaultGridDecorators;
 EqualColumns.args = {
   gapSize: 'small',
   defaultSlot: html`
@@ -164,13 +199,14 @@ EqualColumns.args = {
 };
 
 export const FullBleed = Template.bind({});
+FullBleed.decorators = DefaultGridDecorators;
 FullBleed.args = {
   gapSize: 'small',
   fullBleed: true,
   defaultSlot: html`
     <outline-column col-span-default="12">
       <outline-heading level="h2" level-style="semibold">
-        Equal Column Grid</outline-heading
+        Full Bleed Grid</outline-heading
       >
     </outline-column>
     <outline-column
@@ -195,12 +231,13 @@ FullBleed.args = {
 };
 
 export const AsymmetricLeft = Template.bind({});
+AsymmetricLeft.decorators = DefaultGridDecorators;
 AsymmetricLeft.args = {
   gapSize: 'small',
   defaultSlot: html`
     <outline-column col-span-default="12">
       <outline-heading level="h2" level-style="semibold">
-        >Asymmetrical Grid</outline-heading
+        Asymmetrical Grid</outline-heading
       >
     </outline-column>
     <outline-column
@@ -225,12 +262,13 @@ AsymmetricLeft.args = {
 };
 
 export const AsymmetricRight = Template.bind({});
+AsymmetricRight.decorators = DefaultGridDecorators;
 AsymmetricRight.args = {
   gapSize: 'small',
   defaultSlot: html`
     <outline-column col-span-default="12">
       <outline-heading level="h2" level-style="semibold">
-        >Asymmetrical Grid</outline-heading
+        Asymmetrical Grid</outline-heading
       >
     </outline-column>
     <outline-column
@@ -255,19 +293,16 @@ AsymmetricRight.args = {
 };
 
 export const AsymmetricLeftWithBorder = Template.bind({});
+AsymmetricLeftWithBorder.decorators = DefaultGridDecorators;
 AsymmetricLeftWithBorder.args = {
   gapSize: '',
   defaultSlot: html`
     <outline-column col-span-default="12">
       <outline-heading level="h2" level-style="semibold">
-        >Asymmetrical Grid With Divider</outline-heading
+        Asymmetrical Grid With Divider</outline-heading
       >
     </outline-column>
-
     <outline-column col-span-default="12" class="pb-2">
-      <!-- <outline-heading level="h3" level-style="3">
-        Border gap size: small</outline-heading
-      > -->
       <h3>Border gap size: small</h3>
     </outline-column>
 
@@ -303,9 +338,12 @@ AsymmetricLeftWithBorder.args = {
     </outline-column>
 
     <outline-column col-span-default="12" class="pb-2 border-t-2 mt-6 pt-4">
-      <outline-heading level="h3" level-style="semibold">
-        Border gap size: medium</outline-heading
+      <outline-heading level="h2" level-style="semibold">
+        Asymmetrical Grid With Divider</outline-heading
       >
+    </outline-column>
+    <outline-column col-span-default="12" class="pb-2">
+      <h3>Border gap size: medium</h3>
     </outline-column>
 
     <outline-column
@@ -340,10 +378,12 @@ AsymmetricLeftWithBorder.args = {
     </outline-column>
 
     <outline-column col-span-default="12" class="pb-2 border-t-2 mt-6 pt-4">
-      <outline-heading level="h3" level-style="semibold">
-        Border gap size: large</outline-heading
+      <outline-heading level="h2" level-style="semibold">
+        Asymmetrical Grid With Divider</outline-heading
       >
-      -
+    </outline-column>
+    <outline-column col-span-default="12" class="pb-2">
+      <h3>Border gap size: large</h3>
     </outline-column>
 
     <outline-column
@@ -380,11 +420,12 @@ AsymmetricLeftWithBorder.args = {
 };
 
 export const OffsetLeft = Template.bind({});
+OffsetLeft.decorators = DefaultGridDecorators;
 OffsetLeft.args = {
   defaultSlot: html`
     <outline-column col-span-default="12">
       <outline-heading level="h2" level-style="semibold">
-        >Offset Left</outline-heading
+        Offset Left</outline-heading
       >
     </outline-column>
     <outline-column
@@ -400,11 +441,12 @@ OffsetLeft.args = {
 };
 
 export const OffsetRight = Template.bind({});
+OffsetRight.decorators = DefaultGridDecorators;
 OffsetRight.args = {
   defaultSlot: html`
     <outline-column col-span-default="12">
       <outline-heading level="h2" level-style="semibold">
-        >Offset Right</outline-heading
+        Offset Right</outline-heading
       >
     </outline-column>
     <outline-column

@@ -8,6 +8,7 @@ import '../outline-container/outline-container';
 /**
  * The Outline Grid component
  * @attr x-padding - passed to outline-container wrapper.
+ * @attr y-padding - passed to outline-container wrapper.
  * @attr full-bleed - passed to outline-container wrapper.
  * @attr container-align - passed to outline-container wrapper.
  * @slot - The default, and only slot for this element.
@@ -101,8 +102,9 @@ export class OutlineGrid extends OutlineElement {
   render(): TemplateResult {
     return html`
       <outline-container
-        x-padding="${ifDefined(this.xPadding)}"
-        full-bleed="${ifDefined(this.fullBleed)}"
+        ?x-padding="${this.xPadding}"
+        ?y-padding="${this.yPadding}"
+        ?full-bleed="${this.fullBleed}"
         container-align="${ifDefined(this.containerAlign)}"
       >
         <slot></slot>
