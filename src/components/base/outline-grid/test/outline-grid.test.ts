@@ -1,5 +1,6 @@
 import { OutlineGrid } from '../outline-grid';
-import { assert, fixture, html } from '@open-wc/testing';
+import { assert, fixture } from '@open-wc/testing';
+import { html } from 'lit/static-html.js';
 
 describe('outline-grid', () => {
   it('is defined', () => {
@@ -12,11 +13,7 @@ describe('outline-grid', () => {
     assert.shadowDom.equal(
       el,
       `
-      <outline-container
-        container-align="center"
-        full-bleed=""
-        x-padding=""
-      >
+      <outline-container container-align="center">
         <slot>
         </slot>
       </outline-container>
