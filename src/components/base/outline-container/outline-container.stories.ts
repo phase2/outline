@@ -11,7 +11,6 @@ export default {
     layout: 'fullscreen',
   },
   argTypes: {
-    //...argTypeSlotContent,
     containerAlign: {
       ...argTypeHorizontalAlign,
       name: 'Alignment',
