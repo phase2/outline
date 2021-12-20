@@ -18,9 +18,9 @@ const allowedColors: string[] = [
 
 const argTypeColors = {
   name: 'Color',
+  options: allowedColors,
   control: {
     type: 'select',
-    options: allowedColors,
   },
 };
 
