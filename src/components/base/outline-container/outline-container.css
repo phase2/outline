@@ -1,42 +1,8 @@
 :host {
-  @apply block px-6 max-w-full-screen-w font-body;
+  @apply block p-6 max-w-full-screen-w font-body;
+  @apply sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl xxl:max-w-screen-xxl xxxl:max-w-screen-xxxl;
 }
 
-@screen sm {
-  :host {
-    @apply max-w-screen-sm;
-  }
-}
-
-@screen md {
-  :host {
-    @apply max-w-screen-md;
-  }
-}
-
-@screen lg {
-  :host {
-    @apply max-w-screen-lg;
-  }
-}
-
-@screen xl {
-  :host {
-    @apply max-w-screen-xl;
-  }
-}
-
-@screen xxl {
-  :host {
-    @apply max-w-screen-xxl;
-  }
-}
-
-@screen xxl {
-  :host {
-    @apply max-w-screen-xxxl;
-  }
-}
 :host(:not([is-nested])) {
   @apply px-0;
 }
