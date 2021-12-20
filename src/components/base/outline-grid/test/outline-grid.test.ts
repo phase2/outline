@@ -15,7 +15,7 @@ describe('outline-grid', () => {
       <outline-container
         container-align="center"
         full-bleed=""
-        is-nested=""
+        x-padding=""
       >
         <slot>
         </slot>

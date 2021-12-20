@@ -35,7 +35,7 @@ export default {
       ...argTypeGapSize,
       name: 'Gap Size on Extra Extra Large+',
     },
-    isNested: {
+    xPadding: {
       name: 'Nested Grid',
       control: {
         type: 'boolean',
@@ -57,7 +57,7 @@ interface Options {
   gapSizeLg?: number;
   gapSizeXl?: number;
   gapSizeXxl?: number;
-  isNested?: boolean;
+  xPadding?: boolean;
   fullBleed?: boolean;
   defaultSlot?: boolean;
 }
@@ -69,7 +69,7 @@ const Template = ({
   gapSizeLg,
   gapSizeXl,
   gapSizeXxl,
-  isNested,
+  xPadding,
   fullBleed,
   defaultSlot,
 }: Options): TemplateResult => html`
@@ -80,7 +80,7 @@ const Template = ({
     gap-size-lg="${ifDefined(gapSizeLg)}"
     gap-size-xl="${ifDefined(gapSizeXl)}"
     gap-size-xxl="${ifDefined(gapSizeXxl)}"
-    is-nested="${ifDefined(isNested)}"
+    x-padding="${ifDefined(xPadding)}"
     full-bleed="${ifDefined(fullBleed)}"
   >
     ${defaultSlot}

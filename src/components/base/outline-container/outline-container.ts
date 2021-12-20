@@ -19,9 +19,19 @@ export class OutlineContainer extends OutlineElement {
   @property({
     type: Boolean,
     reflect: true,
-    attribute: 'is-nested',
+    attribute: 'x-padding',
   })
-  isNested = false;
+  xPadding = false;
+
+  /**
+   * Whether or not this container has padding.
+   */
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'y-padding',
+  })
+  yPadding = false;
 
   /**
    * Whether or not this is a full bleed container.

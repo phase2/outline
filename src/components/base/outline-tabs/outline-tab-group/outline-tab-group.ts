@@ -389,7 +389,7 @@ export default class OutlineTabGroup extends OutlineElement {
     return html`${
       this.mobileController.isMobile
         ? html`<slot name="accordion-wrapper"></slot> `
-        : html`<outline-container is-nested
+        : html`<outline-container x-padding
             ><div
               part="base"
               class=${classMap({
