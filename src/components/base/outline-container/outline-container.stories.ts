@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import type { HorizontalAlignment } from './config';
+import type { HorizontalAlignment } from '../outline-element/utils/types';
 import { argTypeHorizontalAlign } from '../outline-element/utils/utils';
 import './outline-container';
 
@@ -11,20 +11,33 @@ export default {
     layout: 'fullscreen',
   },
   argTypes: {
-    //...argTypeSlotContent,
     containerAlign: {
       ...argTypeHorizontalAlign,
-      name: 'Alignment of the Container',
+      name: 'Alignment',
+      description: 'How the container should align to the parent.',
       table: { defaultValue: { summary: 'center' } },
     },
-    isNested: {
-      name: 'Padding',
+    xPadding: {
+      name: 'Padding: x-axis',
+      description: '',
+      table: { defaultValue: { summary: 'false' } },
+      control: {
+        type: 'boolean',
+      },
+    },
+    yPadding: {
+      name: 'Padding: y-axis',
+      description: '',
+      table: { defaultValue: { summary: 'false' } },
       control: {
         type: 'boolean',
       },
     },
     fullBleed: {
-      name: 'Full Bleed Container',
+      name: 'Full Bleed',
+      description:
+        'If the container should be full bleed and extend its left and right edges to edge of parent.',
+      table: { defaultValue: { summary: 'false' } },
       control: {
         type: 'boolean',
       },
@@ -32,30 +45,33 @@ export default {
   },
   args: {
     containerAlign: 'center',
+    xPadding: true,
+    yPadding: true,
+    fullBleed: false,
   },
 };
 
 interface Options {
-  isNested?: boolean;
+  xPadding?: boolean;
+  yPadding?: boolean;
   fullBleed?: boolean;
   containerAlign?: HorizontalAlignment;
 }
 
 export const Container = ({
-  isNested,
+  xPadding,
+  yPadding,
   fullBleed,
   containerAlign,
 }: Options): TemplateResult =>
   html`
     <outline-container
-      class="text-left rounded-xl border-2 border-dashed bg-demo-lightBlue border-demo-darkBlue py-10 md:py-20 my-10 md:my-20"
-      is-nested="${ifDefined(isNested)}"
-      full-bleed="${ifDefined(fullBleed)}"
+      class="text-left rounded-xl border-2 border-dashed bg-demo-lightBlue border-demo-darkBlue my-10 md:my-20"
+      ?x-padding="${xPadding}"
+      ?y-padding="${yPadding}"
+      ?full-bleed="${fullBleed}"
       container-align="${ifDefined(containerAlign)}"
     >
-      <!-- <outline-heading level="h2" level-size="2xl" class="mb-4"
-        >Container</outline-heading
-      > -->
       <p>
         This is text inside of a container. The various stylings of the element
         in demo mode are just here to show where the container starts and ends
