@@ -82,6 +82,8 @@ export class OutlineAccordion extends OutlineElement {
     const element = e?.target as HTMLElement;
     const contentId = element.id;
 
+    if (!contentId) return;
+
     // if single-panel = true
 
     if (this.singlePanel) {
