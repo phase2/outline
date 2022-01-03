@@ -46,17 +46,6 @@ The default slot can be text or other elements such as images.
 _@todo specify why this would be used instead of an \`a\` element._
         `,
       },
-      source: {
-        code: `
-<outline-link
-  linkHref="{{ linkHref }}"
-  linkRel="{{ linkRel }}"
-  linkTarget="{{ linkTarget }}"
->
-  {{ defaultSlot }}
-</outline-link>
-        `,
-      },
     },
   },
 };
@@ -68,7 +57,7 @@ interface Options {
   linkTarget?: LinkTargetType;
 }
 
-export const Link = ({
+const LinkTemplate = ({
   linkHref,
   linkRel,
   linkText,
@@ -76,17 +65,36 @@ export const Link = ({
 }: Options): TemplateResult =>
   html`
     <outline-link
-      linkHref="${ifDefined(linkHref)}"
-      linkRel="${ifDefined(linkRel)}"
-      linkTarget="${ifDefined(linkTarget)}"
+      link-href="${ifDefined(linkHref)}"
+      link-rel="${ifDefined(linkRel)}"
+      link-target="${ifDefined(linkTarget)}"
     >
       ${ifDefined(linkText)}
     </outline-link>
   `;
 
+export const Link = LinkTemplate.bind({});
+Link.args = {
+  linkText: 'Sample Link',
+};
+Link.parameters = {
+  docs: {
+    source: {
+      code: `
+<outline-link
+  link-href="{{ linkHref }}"
+  link-rel="{{ linkRel }}"
+  link-target="{{ linkTarget }}"
+>
+  {{ defaultSlot }}
+</outline-link>
+      `,
+    },
+  },
+};
 export const PropsAndSlottedText = (): TemplateResult =>
   html`
-    <outline-link linkHref="https://outline.phase2tech.com">
+    <outline-link link-href="https://outline.phase2tech.com">
       Link using properties, with slotted link text
     </outline-link>
   `;
@@ -94,8 +102,8 @@ export const PropsAndSlottedText = (): TemplateResult =>
 export const PropertiesOnly = (): TemplateResult =>
   html`
     <outline-link
-      linkHref="https://outline.phase2tech.com"
-      linkText="Link using properties, including the link text"
+      link-href="https://outline.phase2tech.com"
+      link-text="Link using properties, including the link text"
     ></outline-link>
   `;
 
