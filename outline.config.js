@@ -18,4 +18,9 @@ module.exports = {
   color: {
     sets: ['primary', 'secondary', 'tertiary', 'neutral', 'demo'],
   },
+  youtube: {
+    // Replace with the YouTube id of any video to replace the
+    // default video in any storybook component.
+    defaultVideo: 'xiqgG8HUZXE',
+  },
 };
