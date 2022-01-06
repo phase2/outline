@@ -25,6 +25,10 @@ on:
       - /^feature/
       - /^bug/
 
+env:
+  # https://playwright.dev/docs/installation/#skip-browser-downloads
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1 # Skip downloading during yarn install
+
 # The jobs for the build workflow.
 jobs:
   # Basic setup job to prepare codebase.
@@ -140,11 +144,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-dist-
 
+      - name: Install dependencies
+        run: |
+            npx playwright install-deps
+
       - name: Install from cache
         run: yarn install --prefer-offline
 
       - name: Build
         run: yarn build
+
+      # @see https://github.com/marketplace/actions/run-playwright-tests
+      - uses: microsoft/playwright-github-action@v1  
+
+      - name: Setup playwright browsers
+        run: npx playwright install
 
       - name: Run tests
         run: yarn wtr
