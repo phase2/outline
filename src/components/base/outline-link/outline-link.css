@@ -1,11 +1,20 @@
 :host,
 a,
 ::slotted(a) {
-  @apply underline font-body text-demo-darkBlue transition-colors duration-300;
+  @apply no-underline font-body transition-colors duration-300;
+  color: var(--outline-link-color-default);
 }
 
 :host(:hover),
 a:hover,
 ::slotted(a:hover) {
-  @apply text-demo-mediumBlue no-underline;
+  @apply underline;
+  color: var(--outline-link-color-hover) !important;
+}
+
+:host(:focus),
+a:focus,
+::slotted(a:focus) {
+  @apply underline outline-none;
+  color: var(--outline-link-color-focus) !important;
 }

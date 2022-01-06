@@ -26,8 +26,8 @@ export default {
             items.map(item => html\`
              <li style={padding: 1rem; list-style: none}>
               <outline-link
-                linkHref="{item.linkHref}"
-                linkText="{item.text}"
+                link-href="{item.linkHref}"
+                link-text="{item.text}"
               ></outline-link>
             </li>\`
           )}
@@ -41,13 +41,13 @@ export default {
             >
               <outline-heading slot="heading" level="h3" levelSize="3xl">Links List</outline-heading>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link linkHref='#' linkText="link 1"></outline-link>
+                  <outline-link link-href='#' link-text="link 1"></outline-link>
               </li>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link linkHref='#' linkText="link 2"></outline-link>
+                  <outline-link link-href='#' link-text="link 2"></outline-link>
               </li>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link linkHref='#' linkText="link 3"></outline-link>
+                  <outline-link link-href='#' link-text="link 3"></outline-link>
               </li>
             )}
             <outline-button slot="footer" @click={this.orderBy}>Order by criteria</outline-button>
@@ -154,8 +154,8 @@ const Template = ({
         item => html`
           <li style=${`padding: 0.5rem; list-style: none`}>
             <outline-link
-              linkHref=${item.linkHref}
-              linkText=${item.text}
+              link-href=${item.linkHref}
+              link-text=${item.text}
             ></outline-link>
           </li>
         `
