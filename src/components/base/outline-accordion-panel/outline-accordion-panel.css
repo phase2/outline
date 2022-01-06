@@ -7,7 +7,7 @@
 }
 
 .accordion-button.active {
-  @apply bg-blue-700 text-neutral-white;
+  @apply bg-demo-darkBlue text-neutral-white;
 }
 
 .accordion-button.inactive {

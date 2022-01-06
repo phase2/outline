@@ -1,6 +1,7 @@
 import { html, TemplateResult } from 'lit';
 import './outline-video-youtube';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import outline from '../../../../outline.config';
 
 const configuration = {
   title: 'Media/Youtube Video',
@@ -13,13 +14,15 @@ const configuration = {
     },
   },
   args: {
-    videoID: `xiqgG8HUZXE`,
+    videoID: outline.youtube.defaultVideo
+      ? outline.youtube.defaultVideo
+      : 'xiqgG8HUZXE',
   },
   parameters: {
     docs: {
       description: {
         component: `
-Youtube video. Allows the embedded video to fit the space.
+Responsive Youtube video.
 `,
       },
       source: {
