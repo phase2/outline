@@ -39,12 +39,14 @@ export default {
         component: `
 This component renders a link as an \`a\` element.
 
-The default slot can be text or other elements such as images.
+## Difference from a standard \`a\` element.
 
-## Difference from an \`a\` element.
+The \`outline-link\` component allows the ultimate flexibility in how you want to utilize the component.
 
-_@todo specify why this would be used instead of an \`a\` element._
-        `,
+- Providing a \`link-text\` attribute negates the need or usage of any slotted content.
+- Providing a \`link-href\` without the \`link-text\` attribute will then use the slotted content as the content of the link.
+- Providing neither the \`link-href\` nor the \`link-text\` attributes will make the link assume the entire link, including \`<a></a>\` portions of the link be passed into the slot. 
+`,
       },
     },
   },
