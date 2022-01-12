@@ -83,18 +83,12 @@ This will create a major release. (1.0.0 --> 2.0.0)
 
 Code is not automatically formatted upon commit. As a matter of best practices, you should run `yarn fmt` and `yarn lint` prior to committing code to prevent pipelines from failing in the `Test and Build` task.
 
-### Run all Prettier and SVG formatting
+### Run all formatting
+
+Includes SVG formatting.
 
 ```bash
 yarn fmt
-```
-
----
-
-### Run Prettier formatting
-
-```bash
-yarn fmt.code
 ```
 
 ---

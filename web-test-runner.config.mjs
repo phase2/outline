@@ -5,7 +5,6 @@ import { browserstackLauncher as createBrowserstackLauncher } from '@web/test-ru
 import dotenv from 'dotenv';
 dotenv.config();
 
-// prettier-ignore
 const browserstackEnabled = () => {
   return (
     (process.env.BROWSER_STACK_USERNAME &&
