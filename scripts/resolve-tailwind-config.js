@@ -26,4 +26,4 @@ export const ALL_COLORS: Color[] = ${JSON.stringify(tailwindColors)}
 export default ${JSON.stringify(tailwindThemeConfig)}
 `;
 
-fs.writeFileSync(path.join(__dirname, '../src/resolved-tailwind-config.ts'),formatted);
+fs.writeFileSync(path.join(__dirname, '../src/resolved-tailwind-config.ts'), formatted);
