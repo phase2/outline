@@ -9,10 +9,10 @@ import webComponentsLogo from '../assets/logos/web-components.png';
 import tailwindLogo from '../assets/logos/tailwind.png';
 import typescriptLogo from '../assets/logos/typescript.png';
 import litLogo from '../assets/logos/lit.png';
-import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
 
 <Meta
-  title="Documentation/Outline/Tooling"
+  title="Documentation/About Outline"
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -25,7 +25,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
 
 # Outline Component Design
 
-<outline-grid gap-size="none" is-nested full-bleed>
+<outline-grid gap-size="none" full-bleed>
   <outline-column col-span-default="12">
     <div class="w-full">
       <img src={outlineBanner} />
@@ -34,7 +34,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
 </outline-grid>
 <div class="text-xl pt-12 md:pt-24">
   <div class="w-full pb-10 md:pb-24">
-    <outline-grid gap-size="small" isNested full-bleed="true">
+    <outline-grid gap-size="small" full-bleed="true">
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -43,8 +43,8 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
         class="text-center pb-10 md:pb-0"
       >
         <outline-link
-          linkhref="https://www.webcomponents.org/"
-          linktarget="_blank"
+          link-href="https://www.webcomponents.org/"
+          link-target="_blank"
         >
           <img src={webComponentsLogo} class="w-40 mx-auto my-0" />
         </outline-link>
@@ -82,7 +82,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
     </outline-grid>
   </div>
   <div class="pb-10 md:pb-24">
-    <outline-grid gap-size="small" isNested>
+    <outline-grid gap-size="small" >
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -91,8 +91,8 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
         class="text-center pb-10 md:pb-0"
       >
         <outline-link
-          linkhref="https://www.typescriptlang.org/"
-          linktarget="_blank"
+          link-href="https://www.typescriptlang.org/"
+          link-target="_blank"
         >
           <img src={typescriptLogo} class="w-32 mx-auto my-0" />
         </outline-link>
@@ -157,7 +157,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
     </outline-grid>
   </div>
   <div class="pb-10 md:pb-24">
-    <outline-grid gap-size="small" isNested>
+    <outline-grid gap-size="small" >
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -165,7 +165,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
         row-span="3"
         class="text-center pb-10 md:pb-0"
       >
-        <outline-link linkhref="https://lit.dev/" linktarget="_blank">
+        <outline-link link-href="https://lit.dev/" link-target="_blank">
           <img src={litLogo} class="w-32 mx-auto my-0" />
         </outline-link>
       </outline-column>
@@ -216,7 +216,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
     </outline-grid>
   </div>
   <div class="pb-10 md:pb-24">
-    <outline-grid gap-size="small" isNested>
+    <outline-grid gap-size="small" >
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -224,7 +224,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
         row-span="3"
         class="text-center pb-10 md:pb-0"
       >
-        <outline-link linkhref="https://storybook.js.org/" linktarget="_blank">
+        <outline-link link-href="https://storybook.js.org/" link-target="_blank">
           <img src={storybookLogo} class="w-40 mx-auto my-0" />
         </outline-link>
       </outline-column>
@@ -306,7 +306,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
     </outline-grid>
   </div>
   <div class="w-full pb-10 md:pb-24">
-    <outline-grid gap-size="small" isNested>
+    <outline-grid gap-size="small" >
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -314,7 +314,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
         row-span="3"
         class="text-center pb-10 md:pb-0"
       >
-        <outline-link linkhref="https://tailwindcss.com/" linktarget="_blank">
+        <outline-link link-href="https://tailwindcss.com/" link-target="_blank">
           <img src={tailwindLogo} class="w-40 mx-auto my-0" />
         </outline-link>
       </outline-column>
@@ -362,7 +362,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
     </outline-grid>
   </div>
   <div class="w-full pb-10 md:pb-24">
-    <outline-grid gap-size="small" isNested>
+    <outline-grid gap-size="small" >
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -370,7 +370,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs/blocks';
         row-span="3"
         class="text-center pb-10 md:pb-0"
       >
-        <outline-link linkhref="https://tailwindcss.com/" linktarget="_blank">
+        <outline-link link-href="https://tailwindcss.com/" link-target="_blank">
           <img src={tailwindLogo} class="w-40 mx-auto my-0" />
         </outline-link>
       </outline-column>

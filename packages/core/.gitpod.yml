@@ -16,7 +16,7 @@ vscode:
 
 ports:
   # Used by Storybook
-  - port: 6006
+  - port: 6042
     onOpen: open-preview
 
 github:

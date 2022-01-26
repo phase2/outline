@@ -1,12 +1,12 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import sampleImage from '../../../.storybook/static/media/color/Creative_Process_color.jpg';
 import { argTypeHidden } from '../outline-element/utils/utils';
 import './outline-image';
 // import '../outline-heading/outline-heading'
 
 export default {
-  title: 'Atoms/Image',
+  title: 'Media/Image',
   component: 'outline-image',
   parameters: {
     layout: 'fullscreen',

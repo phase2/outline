@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '../outline-element/utils/utils';
 
 import { AllowedHeadingLevels, HeadingSizes, HeadingStyles } from './config';
@@ -17,29 +17,29 @@ const levelOptions: AllowedHeadingLevels[] = [
 ];
 
 export default {
-  title: 'Atoms/Heading',
+  title: 'Content/Heading',
   component: 'outline-heading',
   argTypes: {
     ...argTypeSlotContent,
     level: {
       description: 'HTML level. Used by screen readers.',
+      options: levelOptions,
       control: {
         type: 'select',
-        options: levelOptions,
       },
     },
     levelSize: {
       description: 'Presentation level. Used for styling.',
+      options: HeadingSizes,
       control: {
         type: 'select',
-        options: HeadingSizes,
       },
     },
     levelStyle: {
       description: 'Presentation style. Font weight variation.',
+      options: HeadingStyles,
       control: {
         type: 'select',
-        options: HeadingStyles,
       },
     },
   },

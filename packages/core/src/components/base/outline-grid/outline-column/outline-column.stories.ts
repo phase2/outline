@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
-import { repeat } from 'lit/directives/repeat';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { repeat } from 'lit/directives/repeat.js';
 
 import {
   argTypeSlotContent,
@@ -22,7 +22,7 @@ export default {
     colSpanDefault: {
       ...argTypeColSpan,
       name: 'Default Number of Columns to Span',
-      defaultValue: 12,
+      table: { defaultValue: { summary: '12' } },
     },
     colSpanSm: {
       ...argTypeColSpan,
@@ -47,18 +47,23 @@ export default {
     rowSpan: {
       ...argTypeRowSpan,
       name: 'Number of Rows to Span',
-      defaultValue: 1,
+      table: { defaultValue: { summary: '1' } },
     },
     numContentCols: {
       ...argTypeColSpan,
       name: 'Number of Content Blocks',
       description: 'The number of blocks to place for this demo.',
-      defaultValue: 12,
+      table: { defaultValue: { summary: '12' } },
     },
     contentAlign: {
       ...argTypeVerticalAlign,
       name: 'Column Content Vertical Alignment',
     },
+  },
+  args: {
+    colSpanDefault: 12,
+    rowSpan: 1,
+    numContentCols: 12,
   },
   decorators: [
     Story => html`

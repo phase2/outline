@@ -6,6 +6,7 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
+  staticDirs: ['./static'],
   stories: [
     // Explicitly order the main documentation.
     './stories/documentation/welcome.stories.mdx',

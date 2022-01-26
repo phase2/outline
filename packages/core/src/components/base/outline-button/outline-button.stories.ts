@@ -1,8 +1,8 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
+import { ifDefined } from 'lit/directives/if-defined.js';
 // import { AllIcons } from '../outline-icon/config';
 import { argTypeTarget } from '../outline-link/config';
-import { argTypeSlotContent } from '../outline-element/utils/utils';
+import { argTypeSlotContent } from '../../base/outline-element/utils/utils';
 import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
 
@@ -16,7 +16,7 @@ const buttonOptions: ButtonVariant[] = [
 const sizeOptions: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default {
-  title: 'Atoms/Button',
+  title: 'Navigation/Button',
   component: 'outline-button',
   argTypes: {
     ...argTypeSlotContent,
@@ -38,23 +38,23 @@ export default {
     variant: {
       description:
         '**ButtonVariant (none, primary, secondary, teritary)**: The button style variant to use.',
+      options: buttonOptions,
       control: {
         type: 'select',
-        options: buttonOptions,
       },
     },
     size: {
       description:
         '**ButtonSize (small, medium, large)** The button size to use',
+      options: sizeOptions,
       control: {
         type: 'select',
-        options: sizeOptions,
       },
     },
     // icon: {
+    //   options: AllIcons,
     //   control: {
     //     type: 'select',
-    //     options: AllIcons,
     //   },
     // },
   },
@@ -122,14 +122,14 @@ Link.args = {
   size: 'medium',
 };
 
-export const IconLink = Template.bind({});
-IconLink.args = {
-  defaultSlot: 'Link button w/icon',
-  size: 'medium',
-  url: '#',
-  variant: 'primary',
-  icon: 'arrowNarrowRightOutline',
-};
+// export const IconLink = Template.bind({});
+// IconLink.args = {
+//   defaultSlot: 'Link button w/icon',
+//   size: 'medium',
+//   url: '#',
+//   variant: 'primary',
+//   icon: 'arrowNarrowRightOutline',
+// };
 
 export const PrimaryButton = Template.bind({});
 PrimaryButton.args = {

@@ -11,3 +11,10 @@ docs/
 .gitlab-ci.yml
 .gitlab-ci/*
 *.lit.ts
+*.stories.mdx
+*.stories.ts
+*.stories.js
+.github/
+.octane-ci/
+.bin/
+.docksal/
