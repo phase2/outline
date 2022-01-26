@@ -1,14 +1,20 @@
 import {Command, Flags} from '@oclif/core'
 import * as inquirer from 'inquirer'
 import * as fs from 'node:fs/promises'
-import * as path from 'node:path'
 import validateProjectName from 'validate-npm-package-name'
-import {pipeline} from 'node:stream/promises'
-import * as tar from 'tar'
 import axios from 'axios'
+import tar from 'tar'
 
 export default class New extends Command {
   static description = 'Create Outline';
+
+  static flags = {
+    branch: Flags.string(
+      {
+        default: 'next',
+      },
+    ),
+  }
 
   static examples = ['<%= config.bin %> <%= command.id %>'];
 
@@ -24,16 +30,23 @@ export default class New extends Command {
 
   downloadAndExtract = (
     directory: string,
-    branch: string | (() => string) = 'next',
+    branch: string,
   ): Promise<void> => {
-    axios({
+    const dirMod =  `outline-${branch.replace('/', '-')}`
+    return axios({
       method: 'get',
       url: `https://codeload.github.com/phase2/outline/tar.gz/${branch}`,
       responseType: 'stream',
-    })
+    }).then(response => {
+      response.data.pipe(tar.extract({cwd: directory, strip: 3}, [`${dirMod}/packages/core`]))
+    }).catch(error => {
+      throw error
+    },
+    )
   };
 
   public async run(): Promise<void> {
+    const {flags} = await this.parse(New)
     const responses = await inquirer
     .prompt([
       {
@@ -50,11 +63,11 @@ export default class New extends Command {
     this.log(`${__dirname}/${responses.designSystemName}`)
     // need to handle existing file errors better...or at all
     fs.mkdir(`${__dirname}/../../${responses.designSystemName}`)
-    // await this.downloadAndExtract(
-    //   "next",
-    //   `${__dirname}/../../${responses.designSystemName}`
-    // );
-    this.log(responses.designSystemName)
+    await this.downloadAndExtract(
+      `${__dirname}/../../${responses.designSystemName}`,
+      flags.branch,
+    )
+    this.log(`created Outline design system called ${responses.designSystemName}`)
   }
 
   async catch(error: any) {
