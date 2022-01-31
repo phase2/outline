@@ -27,7 +27,7 @@
     "prep": "yarn generate.safelist && yarn generate.resolved-tailwind && yarn generate.custom-elements && yarn generate.css",
     "generate.resolved-tailwind": "node scripts/resolve-tailwind-config.js",
     "generate.safelist": "node scripts/generate-tw-safelist.js",
-    "generate.custom-elements": "wca analyze 'src/components/**/*.ts' --format json --outFile ./src/custom-elements.json",
+    "generate.custom-elements": "wca analyze 'src/components/**/!(*.stories|*.lit|*.test).ts' --format json --outFile ./src/custom-elements.json",
     "generate.css": "node scripts/styles.js",
     "generate.icons": "yarn run fmt.svg && node ./scripts/generate-icons.js ",
     "prebuild": "yarn prep",
