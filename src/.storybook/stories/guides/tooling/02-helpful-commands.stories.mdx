@@ -1,0 +1,51 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Tooling & Commands/Helpful Commands"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Helpful Commands
+
+<outline-alert statusType="info" size="large" class="mb-6">
+  <span slot="outline-alert--header">Documentation Status</span>
+  The documentation on this page is in need of additional updates, corrections or information. <span class="font-semibold italic">Expect frequent updates and/or changes.</span>
+</outline-alert>
+
+## Commonly Used Commands
+
+Through standard [NPM scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts), coupled with custom logic in the `./scripts` directory, Outline provides a host of capabilities to provide an incredible developer experience.
+- `yarn start` - Runs the local Storybook development server
+- `yarn build` - Compiles the system for production to the dist directory
+- `yarn test` - Run automated [Web Test Runner](https://modern-web.dev/docs/test-runner/overview/) tests 
+- `yarn lint` - Runs both [eslint](https://eslint.org/) and [Prettier](https://prettier.io/) to evaluate select files for coding standards violations
+- `yarn fmt` - Runs both [svgo](https://github.com/svg/svgo) and [Prettier](https://prettier.io/) to format select files to meet coding standards 
+- `yarn wds` - Runs a basic HTML consumer application with [Web Dev Server](https://modern-web.dev/docs/dev-server/overview/) powered by the files in the ./dev directory. Allows for testing components outside of the Storybook interface. Usefully in many testing cases.
+
+## Resetting local environment
+
+The following commands help clean a local environment.
+
+- Cleanup generated assets: `yarn clean`
+- Cleanup node packages: `yarn reset`
+- Full cleanup & restart: `yarn reboot`
+
+## Coding standards
+
+Code is not automatically formatted upon commit, but automated tests will fail if you don't format code according to the tooling (Prettier).
+
+You can run `yarn fmt` or configure your IDE to run these commands for you.
+
+_Caution: Prettier will sometimes format code in a weird way, so you may want to review its changes._
+
+### Linting
+
+You can run `yarn lint` to view any coding style warnings.
