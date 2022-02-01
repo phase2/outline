@@ -21,7 +21,7 @@ export default {
   output: [
     {
       // Modern bundle.
-      file: `{$outline.destBasePath}/outline.js`,
+      file: `${outline.destBasePath}/outline.js`,
       format: 'esm',
     },
     // {
