@@ -108,8 +108,8 @@ ${result.css}\`;`,
 };
 
 // Ensure dist directory exists.
-if (!fs.existsSync('dist')) {
-  fs.mkdirSync('dist');
+if (!fs.existsSync(outline.destBasePath)) {
+  fs.mkdirSync(outline.destBasePath);
 }
 
 // Run the global style generation.
