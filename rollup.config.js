@@ -5,7 +5,7 @@ import replace from '@rollup/plugin-replace';
 import multi from '@rollup/plugin-multi-entry';
 import typescript from 'rollup-plugin-typescript2';
 import svg from 'rollup-plugin-svg';
-import * as outline from './outline.config';
+const outline = require('./outline.config');
 
 export default {
   // Output all components to a single exported file.
