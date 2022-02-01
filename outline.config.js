@@ -1,18 +1,24 @@
+/* Set a different path for compiled assets
+ * if you change this value you must also change
+ * "outDir" in your tsconfig.json
+ */
+const destBasePath = 'dist';
 module.exports = {
+  destBasePath,
   css: {
     global: [
       {
         src: 'src/shared.css',
-        dest: 'dist/shared.css',
+        dest: `${destBasePath}/shared.css`,
       },
       {
         src: 'src/.storybook/storybook.css',
-        dest: 'dist/storybook.css',
+        dest: `${destBasePath}/storybook.css`,
       },
     ],
     fouc: {
       enabled: true,
-      dest: 'dist/fouc.css',
+      dest: `${destBasePath}/fouc.css`,
     },
   },
   color: {

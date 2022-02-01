@@ -5,6 +5,7 @@ import replace from '@rollup/plugin-replace';
 import multi from '@rollup/plugin-multi-entry';
 import typescript from 'rollup-plugin-typescript2';
 import svg from 'rollup-plugin-svg';
+const outline = require('./outline.config');
 
 export default {
   // Output all components to a single exported file.
@@ -20,12 +21,12 @@ export default {
   output: [
     {
       // Modern bundle.
-      file: 'dist/outline.js',
+      file: `${outline.destBasePath}/outline.js`,
       format: 'esm',
     },
     // {
     //   // Legacy bundle.
-    //   file: 'dist/outline-legacy.js',
+    //   file: `{$outline.destBasePath}/outline-legacy.js`,
     //   format: 'cjs',
     // },
   ],
