@@ -4,6 +4,7 @@
  */
 const destBasePath = 'dist';
 module.exports = {
+  destBasePath,
   css: {
     global: [
       {
