@@ -1,8 +1,11 @@
 const path = require('path');
 const outlineConfig = require('../../outline.config');
 
-const excludedStories = outlineConfig?.excludedStories ?? null;
+const excludedStories = outlineConfig.excludedStories;
 function getExcluded() {
+  if ((excludedStories.length = 1)) {
+    return excludedStories[0];
+  }
   return excludedStories.join('|');
 }
 
@@ -22,8 +25,8 @@ module.exports = {
     // Other stories in the .storybook directory.
     './stories/**/*.stories.@(js|ts|mdx)',
     // All other components in src directory except those excluded on outlineConfig.
-    ...(excludedStories
-      ? [`../components/**/!(${getExcluded})*.stories.@(js|ts|mdx)`]
+    ...(excludedStories.length
+      ? [`../components/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
       : [`../components/**/*.stories.@(js|ts|mdx)`]),
   ],
   addons: [
