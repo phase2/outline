@@ -3,9 +3,6 @@ const outlineConfig = require('../../outline.config');
 
 const excludedStories = outlineConfig.excludedStories;
 function getExcluded() {
-  if ((excludedStories.length = 1)) {
-    return excludedStories[0];
-  }
   return excludedStories.join('|');
 }
 
