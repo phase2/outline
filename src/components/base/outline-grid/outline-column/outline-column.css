@@ -1,5 +1,5 @@
 :host {
-  @apply flex flex-col col-span-12;
+  @apply col-span-12 flex flex-col;
   &([row-span='1']) {
     @apply row-span-1;
   }

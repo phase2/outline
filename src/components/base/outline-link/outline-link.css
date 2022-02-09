@@ -1,7 +1,7 @@
 :host,
 a,
 ::slotted(a) {
-  @apply no-underline font-body transition-colors duration-300;
+  @apply font-body no-underline transition-colors duration-300;
   color: var(--outline-link-color-default);
 }
 

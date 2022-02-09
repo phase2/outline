@@ -5,15 +5,15 @@
 }
 
 .btn[aria-disabled='true'] {
-  @apply pointer-events-none cursor-not-allowed text-demo-darkGray bg-demo-lightGray !important;
+  @apply pointer-events-none cursor-not-allowed bg-demo-lightGray text-demo-darkGray !important;
 }
 
 .btn {
-  @apply leading-tight rounded-xl cursor-pointer transition-colors duration-300 font-body no-underline inline-flex content-center;
+  @apply inline-flex cursor-pointer content-center rounded-xl font-body leading-tight no-underline transition-colors duration-300;
 }
 
 .btn outline-icon {
-  @apply relative w-6 ml-2 -mb-2;
+  @apply relative ml-2 -mb-2 w-6;
 }
 
 .btn.primary {
@@ -44,7 +44,7 @@
 }
 
 .btn.none {
-  @apply flex items-center text-base px-4;
+  @apply flex items-center px-4 text-base;
 }
 
 .small {
