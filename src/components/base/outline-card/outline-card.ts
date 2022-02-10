@@ -80,9 +80,6 @@ export class OutlineCard extends OutlineElement {
   }
 
   render(): TemplateResult {
-    console.warn('warn');
-    console.error('warn');
-    console.log('warn');
     const cardClasses = {
       'card': true,
       'outline-shadow': this.hasShadow,
