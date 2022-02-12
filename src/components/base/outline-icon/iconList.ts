@@ -10,7 +10,12 @@ import {
   youtube,
 } from './generated-svgs/brandIcons';
 import {
+  addBox,
+  addPhotoAlternate,
+  addReaction,
+  addShoppingCart,
   ballotDrop,
+  bedtime,
   closeCircle,
   googleLogo,
   officeLogo,
@@ -83,7 +88,12 @@ export const brand: IconList = {
 };
 
 export const custom: IconList = {
+  'add_box': addBox,
+  'add_photo_alternate': addPhotoAlternate,
+  'add_reaction': addReaction,
+  'add_shopping_cart': addShoppingCart,
   'ballot-drop': ballotDrop,
+  bedtime,
   'close-circle': closeCircle,
   'google-logo': googleLogo,
   'office-logo': officeLogo,

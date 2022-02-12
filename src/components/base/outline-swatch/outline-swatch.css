@@ -1,0 +1,12 @@
+#color {
+  @apply mb-2 h-16 w-full rounded-lg shadow;
+  /* Pass a variable from the component. */
+  background-color: var(--swatch-color);
+}
+.information {
+  @apply flex flex-row justify-between;
+}
+
+.information--label {
+  @apply font-semibold;
+}

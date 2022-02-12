@@ -1,6 +1,6 @@
 .list {
   border: unset;
-  @apply flex flex-wrap p-0 m-0;
+  @apply m-0 flex flex-wrap p-0;
 }
 
 ul.list,
@@ -14,7 +14,7 @@ ul.list > ::slotted(li),
 ol.list > ::slotted(li),
 ul.grid > ::slotted(li),
 ol.grid > ::slotted(li) {
-  @apply p-2 flex items-center whitespace-nowrap;
+  @apply flex items-center whitespace-nowrap p-2;
 }
 
 .columns--2,

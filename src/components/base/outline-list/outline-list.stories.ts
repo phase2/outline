@@ -10,7 +10,7 @@ import {
 import './outline-list';
 import '../outline-heading/outline-heading';
 export default {
-  title: 'Atoms/List',
+  title: 'Content/List',
   component: 'outline-list',
   parameters: {
     docs: {
@@ -26,8 +26,8 @@ export default {
             items.map(item => html\`
              <li style={padding: 1rem; list-style: none}>
               <outline-link
-                linkHref="{item.linkHref}"
-                linkText="{item.text}"
+                link-href="{item.linkHref}"
+                link-text="{item.text}"
               ></outline-link>
             </li>\`
           )}
@@ -41,13 +41,13 @@ export default {
             >
               <outline-heading slot="heading" level="h3" levelSize="3xl">Links List</outline-heading>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link linkHref='#' linkText="link 1"></outline-link>
+                  <outline-link link-href='#' link-text="link 1"></outline-link>
               </li>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link linkHref='#' linkText="link 2"></outline-link>
+                  <outline-link link-href='#' link-text="link 2"></outline-link>
               </li>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link linkHref='#' linkText="link 3"></outline-link>
+                  <outline-link link-href='#' link-text="link 3"></outline-link>
               </li>
             )}
             <outline-button slot="footer" @click={this.orderBy}>Order by criteria</outline-button>
@@ -62,16 +62,17 @@ export default {
     listType: {
       description:
         '**`<ListType>`("ol" | "ul" | "div"):** <br> Determines which type of list is rendered.',
+      options: listTypes,
       control: {
         type: 'select',
-        options: listTypes,
       },
       name: 'list-type',
     },
     orientation: {
       description:
         '**`<ListOrientation>`("row" | "column"):** <br> Sets orientation of list',
-      control: { type: 'select', options: listOrientations },
+      options: listOrientations,
+      control: { type: 'select' },
     },
     navLabel: {
       description:
@@ -82,17 +83,17 @@ export default {
     columns: {
       description:
         '**`<ColumnCount>`("2", "3", "4"):** <br> If set, overrides orientation setting and renders list above mobile in selected number of columns',
+      options: [...columnsCount, undefined],
       control: {
         type: 'select',
-        options: [...columnsCount, undefined],
       },
     },
     divider: {
       description:
         '**`<ListDividerColors>` ("orange","green","blue","teal","purple","white"):** <br>If set adds a pseudo element divider of chose color between all list items. Currently only setup for `<ul/>`. Best only for row.',
+      options: [...dividerColors, undefined],
       control: {
         type: 'select',
-        options: [...dividerColors, undefined],
       },
     },
     headingSlotContent: {
@@ -153,8 +154,8 @@ const Template = ({
         item => html`
           <li style=${`padding: 0.5rem; list-style: none`}>
             <outline-link
-              linkHref=${item.linkHref}
-              linkText=${item.text}
+              link-href=${item.linkHref}
+              link-text=${item.text}
             ></outline-link>
           </li>
         `

@@ -17,25 +17,25 @@ export class OutlineLink extends OutlineElement {
   /**
    * Link url
    */
-  @property({ type: String })
+  @property({ type: String, attribute: 'link-href' })
   linkHref: string | boolean = false;
 
   /**
    * Link text
    */
-  @property({ type: String })
+  @property({ type: String, attribute: 'link-text' })
   linkText: string | boolean = false;
 
   /**
    * Link target
    */
-  @property({ type: String })
+  @property({ type: String, attribute: 'link-target' })
   linkTarget: LinkTargetType;
 
   /**
    * Link rel
    */
-  @property({ type: String })
+  @property({ type: String, attribute: 'link-rel' })
   linkRel: LinkRelType;
 
   /**

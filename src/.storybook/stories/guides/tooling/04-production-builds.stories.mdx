@@ -1,0 +1,48 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Tooling & Commands/Production Builds"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Production builds
+
+<outline-alert statusType="info" size="large" class="mb-6">
+  <span slot="outline-alert--header">Documentation Status</span>
+  The documentation on this page is in need of additional updates, corrections or information. <span class="font-semibold italic">Expect frequent updates and/or changes.</span>
+</outline-alert>
+
+## Introduction
+
+_This is handled by the GitHub Actions_
+
+Runs both `yarn tsc` and `yarn rollup` to handle the following:
+
+- Packaging individual components to `dist` directory.
+- Packaging modern and legacy builds of all components to `dist` directory.
+
+```bash
+yarn build
+```
+
+> To only run the rollup build, which handles the component bundling into modern and legacy builds:
+
+## One time build
+
+```bash
+yarn rollup
+```
+
+## Enable in watch mode
+
+```bash
+yarn rollup.watch
+```

@@ -17,29 +17,29 @@ const levelOptions: AllowedHeadingLevels[] = [
 ];
 
 export default {
-  title: 'Atoms/Heading',
+  title: 'Content/Heading',
   component: 'outline-heading',
   argTypes: {
     ...argTypeSlotContent,
     level: {
       description: 'HTML level. Used by screen readers.',
+      options: levelOptions,
       control: {
         type: 'select',
-        options: levelOptions,
       },
     },
     levelSize: {
       description: 'Presentation level. Used for styling.',
+      options: HeadingSizes,
       control: {
         type: 'select',
-        options: HeadingSizes,
       },
     },
     levelStyle: {
       description: 'Presentation style. Font weight variation.',
+      options: HeadingStyles,
       control: {
         type: 'select',
-        options: HeadingStyles,
       },
     },
   },
