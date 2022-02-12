@@ -1,6 +1,6 @@
 {
   "*.{ts,tsx,js}": [
-    "eslint --fix",
+    "eslint --rule 'no-console: error' --fix",
     "prettier --write"
   ],
   "*.{json,md}": [
