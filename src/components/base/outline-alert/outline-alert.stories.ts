@@ -152,7 +152,7 @@ export const InteractiveAlert = Template.bind({});
 InteractiveAlert.args = {
   defaultSlot: html`
     Here is an alert with an interaction.
-    <outline-link linkhref="#">Click here</outline-link>
+    <outline-link link-href="#">Click here</outline-link>
   `,
   isInteractive: true,
 };

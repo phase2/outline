@@ -200,8 +200,15 @@
   --fw-black: 900;
 
   /*
-  * Configuration values for `outline-container`.
-  */
+   * Configuration values for `outline-container`.
+   */
   --outline-container-padding-x: 1.5rem;
   --outline-container-padding-y: 1.5rem;
+
+  /*
+   * Configuration values for `outline-link`.
+   */
+  --outline-link-color-default: var(--demo-darkBlue);
+  --outline-link-color-hover: var(--demo-darkGray);
+  --outline-link-color-focus: var(--demo-darkGray);
 }

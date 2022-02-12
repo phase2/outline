@@ -2,7 +2,7 @@
   @apply block overflow-hidden;
 
   & section {
-    @apply flex flex-col text-left overflow-hidden;
+    @apply flex flex-col overflow-hidden text-left;
   }
 
   & p {
@@ -19,15 +19,15 @@
 }
 
 .outline-bg-primary {
-  @apply bg-brand-primary;
+  @apply bg-demo-darkBlue;
 }
 
 .outline-bg-secondary {
-  @apply bg-brand-secondary;
+  @apply bg-demo-mediumBlue;
 }
 
 .outline-bg-tertiary {
-  @apply bg-brand-tertiary;
+  @apply bg-demo-lightBlue;
 }
 
 .outline-bg-black {

@@ -27,6 +27,7 @@ export const argTypeHref = {
   control: {
     type: 'text',
   },
+  table: { defaultValue: { summary: 'false' } },
 };
 
 export const argTypeTarget = {
@@ -37,6 +38,7 @@ export const argTypeTarget = {
   control: {
     type: 'select',
   },
+  table: { defaultValue: { summary: 'null' } },
 };
 
 export const argTypeRel = {
@@ -60,4 +62,5 @@ export const argTypeRel = {
   control: {
     type: 'select',
   },
+  table: { defaultValue: { summary: 'null' } },
 };

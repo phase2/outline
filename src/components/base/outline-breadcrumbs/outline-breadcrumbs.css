@@ -1,6 +1,6 @@
 a,
 ::slotted(a) {
-  @apply font-body text-demo-darkBlue transition-colors duration-300 no-underline;
+  @apply font-body text-demo-darkBlue no-underline transition-colors duration-300;
 }
 
 a:hover,

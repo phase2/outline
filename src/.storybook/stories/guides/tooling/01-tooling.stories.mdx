@@ -1,18 +1,18 @@
 import { html } from 'lit';
-import outlineBanner from '../assets/outline/Outline_Banner.png';
-import storybookSearch from '../assets/storybook-screens/search.png';
-import storybookReuse from '../assets/storybook-screens/reuse.png';
-import storybookDocument from '../assets/storybook-screens/document.png';
-import storybookCollaborate from '../assets/storybook-screens/collaborate.png';
-import storybookLogo from '../assets/logos/storybook.png';
-import webComponentsLogo from '../assets/logos/web-components.png';
-import tailwindLogo from '../assets/logos/tailwind.png';
-import typescriptLogo from '../assets/logos/typescript.png';
-import litLogo from '../assets/logos/lit.png';
+import outlineBanner from '../../assets/outline/Outline_Banner.png';
+import storybookSearch from '../../assets/storybook-screens/search.png';
+import storybookReuse from '../../assets/storybook-screens/reuse.png';
+import storybookDocument from '../../assets/storybook-screens/document.png';
+import storybookCollaborate from '../../assets/storybook-screens/collaborate.png';
+import storybookLogo from '../../assets/logos/storybook.png';
+import webComponentsLogo from '../../assets/logos/web-components.png';
+import tailwindLogo from '../../assets/logos/tailwind.png';
+import typescriptLogo from '../../assets/logos/typescript.png';
+import litLogo from '../../assets/logos/lit.png';
 import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
 
 <Meta
-  title="Documentation/About Outline"
+  title="Documentation/Guides/Tooling & Commands/About Outline"
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -25,7 +25,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
 
 # Outline Component Design
 
-<outline-grid gap-size="none" full-bleed>
+<outline-grid gap-size="none" x-padding y-padding full-bleed>
   <outline-column col-span-default="12">
     <div class="w-full">
       <img src={outlineBanner} />
@@ -33,8 +33,8 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
   </outline-column>
 </outline-grid>
 <div class="text-xl pt-12 md:pt-24">
-  <div class="w-full pb-10 md:pb-24">
-    <outline-grid gap-size="small" full-bleed="true">
+  <div class="pb-10 md:pb-24">
+    <outline-grid gap-size="small">
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -43,7 +43,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
         class="text-center pb-10 md:pb-0"
       >
         <outline-link
-          linkhref="https://www.webcomponents.org/"
+          link-href="https://www.webcomponents.org/"
           linktarget="_blank"
         >
           <img src={webComponentsLogo} class="w-40 mx-auto my-0" />
@@ -68,7 +68,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
         <p>
           Web components are a set of web platform APIs that allow you to create
           new custom, reusable, encapsulated HTML tags to use in web pages and
-          web apps. Custom components and widgets build on the Web Component
+          web apps. Custom components and widgets built on the Web Component
           standards, will work across modern browsers, and can be used with any
           JavaScript library or framework that works with HTML.
         </p>
@@ -82,7 +82,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
     </outline-grid>
   </div>
   <div class="pb-10 md:pb-24">
-    <outline-grid gap-size="small" >
+    <outline-grid gap-size="small">
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -91,7 +91,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
         class="text-center pb-10 md:pb-0"
       >
         <outline-link
-          linkhref="https://www.typescriptlang.org/"
+          link-href="https://www.typescriptlang.org/"
           linktarget="_blank"
         >
           <img src={typescriptLogo} class="w-32 mx-auto my-0" />
@@ -157,7 +157,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
     </outline-grid>
   </div>
   <div class="pb-10 md:pb-24">
-    <outline-grid gap-size="small" >
+    <outline-grid gap-size="small">
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -165,7 +165,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
         row-span="3"
         class="text-center pb-10 md:pb-0"
       >
-        <outline-link linkhref="https://lit.dev/" linktarget="_blank">
+        <outline-link link-href="https://lit.dev/" linktarget="_blank">
           <img src={litLogo} class="w-32 mx-auto my-0" />
         </outline-link>
       </outline-column>
@@ -216,7 +216,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
     </outline-grid>
   </div>
   <div class="pb-10 md:pb-24">
-    <outline-grid gap-size="small" >
+    <outline-grid gap-size="small">
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -224,7 +224,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
         row-span="3"
         class="text-center pb-10 md:pb-0"
       >
-        <outline-link linkhref="https://storybook.js.org/" linktarget="_blank">
+        <outline-link link-href="https://storybook.js.org/" linktarget="_blank">
           <img src={storybookLogo} class="w-40 mx-auto my-0" />
         </outline-link>
       </outline-column>
@@ -306,7 +306,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
     </outline-grid>
   </div>
   <div class="w-full pb-10 md:pb-24">
-    <outline-grid gap-size="small" >
+    <outline-grid gap-size="small">
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -314,7 +314,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
         row-span="3"
         class="text-center pb-10 md:pb-0"
       >
-        <outline-link linkhref="https://tailwindcss.com/" linktarget="_blank">
+        <outline-link link-href="https://tailwindcss.com/" linktarget="_blank">
           <img src={tailwindLogo} class="w-40 mx-auto my-0" />
         </outline-link>
       </outline-column>
@@ -362,7 +362,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
     </outline-grid>
   </div>
   <div class="w-full pb-10 md:pb-24">
-    <outline-grid gap-size="small" >
+    <outline-grid gap-size="small">
       <outline-column
         col-span-default="12"
         col-span-md="2"
@@ -370,7 +370,7 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
         row-span="3"
         class="text-center pb-10 md:pb-0"
       >
-        <outline-link linkhref="https://tailwindcss.com/" linktarget="_blank">
+        <outline-link link-href="https://tailwindcss.com/" linktarget="_blank">
           <img src={tailwindLogo} class="w-40 mx-auto my-0" />
         </outline-link>
       </outline-column>

@@ -8,15 +8,15 @@
 }
 
 .icon-container {
-  @apply flex flex-wrap justify-start w-full border-2 border-neutral-grayLight box-border p-8;
+  @apply box-border flex w-full flex-wrap justify-start border-2 border-neutral-grayLight p-8;
 }
 
 .icon {
-  @apply flex flex-col w-20 items-center;
+  @apply flex w-20 flex-col items-center;
 }
 
 label {
-  @apply font-body text-demo-darkGray ml-7;
+  @apply ml-7 font-body text-demo-darkGray;
 
   &.alt {
     @apply text-neutral-white;
