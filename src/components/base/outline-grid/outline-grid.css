@@ -3,7 +3,7 @@
 }
 
 outline-container {
-  @apply grid grid-cols-12 h-full;
+  @apply grid h-full grid-cols-12;
 }
 
 :host([gap-size='large']) outline-container,

@@ -7,7 +7,7 @@
 }
 
 .tab-group .tab-group__tabs {
-  @apply flex relative;
+  @apply relative flex;
 }
 
 .tab-group .tab-group__indicator {
@@ -37,7 +37,7 @@
 }
 
 .tab-group--start .tab-group__body {
-  @apply py-4 px-6 order-2;
+  @apply order-2 py-4 px-6;
   flex: 1 1 auto;
 }
 
@@ -62,11 +62,11 @@
 
 /* Hide scrollbar in Chrome/Safari */
 .tab-group--top .tab-group__nav::-webkit-scrollbar {
-  @apply w-0 h-0;
+  @apply h-0 w-0;
 }
 
 .tab-group--top .tab-group__tabs {
-  @apply flex flex-row relative border border-b-demo-darkGray mb-8;
+  @apply relative mb-8 flex flex-row border border-b-demo-darkGray;
 }
 
 .tab-group--top .tab-group__tabs .tab {
