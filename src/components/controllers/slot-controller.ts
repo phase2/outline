@@ -1,4 +1,4 @@
-import { ReactiveController, ReactiveControllerHost } from 'lit';
+import type { ReactiveController, ReactiveControllerHost } from 'lit';
 
 export class HasSlotController implements ReactiveController {
   host: ReactiveControllerHost & Element;
@@ -53,22 +53,22 @@ export class HasSlotController implements ReactiveController {
 
     if (
       (this.slotNames.includes('[default]') && !slot.name) ||
-      (slot.name && this.slotNames?.includes(slot.name))
+      (slot.name && this.slotNames.includes(slot.name))
     ) {
       this.host.requestUpdate();
     }
   }
 }
 
-//
-// Given a slot, this function iterates over all of its assigned element and text nodes and returns the concatenated
-// HTML as a string. This is useful because we can't use slot.innerHTML as an alternative.
-//
+/**
+ * Given a slot, this function iterates over all of its assigned element and text nodes and returns the concatenated
+ * HTML as a string. This is useful because we can't use slot.innerHTML as an alternative.
+ */
 export function getInnerHTML(slot: HTMLSlotElement): string {
   const nodes = slot.assignedNodes({ flatten: true });
   let html = '';
 
-  [...nodes].map(node => {
+  [...nodes].forEach(node => {
     if (node.nodeType === Node.ELEMENT_NODE) {
       html += (node as HTMLElement).outerHTML;
     }
@@ -81,15 +81,20 @@ export function getInnerHTML(slot: HTMLSlotElement): string {
   return html;
 }
 
-//
-// Given a slot, this function iterates over all of its assigned text nodes and returns the concatenated text as a
-// string. This is useful because we can't use slot.textContent as an alternative.
-//
-export function getTextContent(slot: HTMLSlotElement): string {
-  const nodes = slot ? slot.assignedNodes({ flatten: true }) : [];
+/**
+ * Given a slot, this function iterates over all of its assigned text nodes and returns the concatenated text as a
+ * string. This is useful because we can't use slot.textContent as an alternative.
+ */
+export function getTextContent(
+  slot: HTMLSlotElement | undefined | null
+): string {
+  if (!slot) {
+    return '';
+  }
+  const nodes = slot.assignedNodes({ flatten: true });
   let text = '';
 
-  [...nodes].map(node => {
+  [...nodes].forEach(node => {
     if (node.nodeType === Node.TEXT_NODE) {
       text += node.textContent;
     }
