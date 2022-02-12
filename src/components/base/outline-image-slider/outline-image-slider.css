@@ -9,12 +9,12 @@
 }
 
 .splide__arrows {
-  @apply bg-brand-primary absolute flex justify-center bottom-0 left-0 z-40 w-full;
+  @apply absolute bottom-0 left-0 z-40 flex w-full justify-center bg-brand-primary;
   border-radius: 0;
 }
 
 .splide__arrow {
-  @apply flex-grow flex items-center;
+  @apply flex flex-grow items-center;
   background: none;
   border: none;
 
@@ -35,7 +35,7 @@
 .splide__arrow--prev {
   @apply justify-end;
   &:after {
-    @apply h-1/2 absolute;
+    @apply absolute h-1/2;
     content: '';
     border-right: 1px solid var(--gray-200);
     right: 50%;
@@ -49,7 +49,7 @@
 }
 
 ::slotted(img) {
-  @apply object-cover bg-gray-100 !important;
+  @apply bg-gray-100 object-cover !important;
   border-radius: 0;
   height: 12rem !important;
   width: 100% !important;
@@ -71,7 +71,7 @@
 }
 
 .slide-count {
-  @apply hidden font-body text-lg text-neutral-white rounded py-1 px-2;
+  @apply hidden rounded py-1 px-2 font-body text-lg text-neutral-white;
   background-color: #00000080;
 }
 
