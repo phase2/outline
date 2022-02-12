@@ -1,4 +1,10 @@
 const path = require('path');
+const outlineConfig = require('../../outline.config');
+
+const excludedStories = outlineConfig.excludedStories;
+function getExcluded() {
+  return excludedStories.join('|');
+}
 
 module.exports = {
   // Issues still with incorporating latest Webpack.
@@ -15,8 +21,10 @@ module.exports = {
     './stories/guides/development/component-development/stories.@(js|ts|mdx)',
     // Other stories in the .storybook directory.
     './stories/**/*.stories.@(js|ts|mdx)',
-    // All other components in src directory.
-    '../components/**/*.stories.@(js|ts|mdx)',
+    // All other components in src directory except those excluded on outlineConfig.
+    ...(excludedStories.length
+      ? [`../components/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
+      : [`../components/**/*.stories.@(js|ts|mdx)`]),
   ],
   addons: [
     {

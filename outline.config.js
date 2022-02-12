@@ -29,4 +29,7 @@ module.exports = {
     // default video in any storybook component.
     defaultVideo: 'xiqgG8HUZXE',
   },
+  // Exclude stories by adding the directory they can be found in
+  // ex ['outline-button'] this excludes any story in this directory
+  excludedStories: [],
 };
