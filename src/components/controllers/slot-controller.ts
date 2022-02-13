@@ -1,44 +1,65 @@
 import type { ReactiveController, ReactiveControllerHost } from 'lit';
 
-export class HasSlotController implements ReactiveController {
+/**
+ * @todo MAKE THIS combine with SlottedController
+ * @see SlottedController
+ *
+ * We can pass slot names via something like this:
+ * slots = new SlotController(this, '[default]', 'another-slot', 'extra-slot');
+ * What if we don't pass any slot names, or have to run a new function to
+ * physically move only selected slots to the ShadowDOM.
+ */
+export class SlotController implements ReactiveController {
   host: ReactiveControllerHost & Element;
+  shadowShift = false;
   slotNames: string[] = [];
+  defaultSlot: boolean;
+  namedSlots: boolean;
 
-  constructor(host: ReactiveControllerHost & Element, ...slotNames: string[]) {
+  constructor(
+    host: ReactiveControllerHost & Element,
+    shadowShift: boolean
+    //slotNames: string[]
+  ) {
     (this.host = host).addController(this);
-    this.slotNames = slotNames;
+    this.shadowShift = shadowShift;
     this.handleSlotChange = this.handleSlotChange.bind(this);
   }
 
   private hasDefaultSlot() {
     return [...this.host.childNodes].some(node => {
       if (node.nodeType === node.TEXT_NODE && node.textContent!.trim() !== '') {
-        return true;
+        return (this.defaultSlot = true);
       }
 
       if (node.nodeType === node.ELEMENT_NODE) {
         const el = node as HTMLElement;
         if (!el.hasAttribute('slot')) {
-          return true;
+          return (this.defaultSlot = true);
         }
       }
 
-      return false;
+      return (this.defaultSlot = false);
     });
   }
 
   private hasNamedSlot(name: string) {
-    return this.host.querySelector(`:scope > [slot="${name}"]`) !== null;
+    return (this.namedSlots =
+      this.host.querySelector(`:scope > [slot="${name}"]`) !== null);
   }
 
-  test(slotName: string) {
-    return slotName === '[default]'
-      ? this.hasDefaultSlot()
-      : this.hasNamedSlot(slotName);
+  test(slotName?: string | undefined) {
+    const slot = slotName ? slotName : '';
+    return slot === '' ? this.hasDefaultSlot() : this.hasNamedSlot(slot);
   }
 
   hostConnected() {
+    this.slotNames = this.getSlots();
     this.host.shadowRoot!.addEventListener('slotchange', this.handleSlotChange);
+  }
+
+  firstUpdated(): void {
+    // this.handleSlotChange()
   }
 
   hostDisconnected() {
@@ -58,47 +79,32 @@ export class HasSlotController implements ReactiveController {
       this.host.requestUpdate();
     }
   }
-}
 
-/**
- * Given a slot, this function iterates over all of its assigned element and text nodes and returns the concatenated
- * HTML as a string. This is useful because we can't use slot.innerHTML as an alternative.
- */
-export function getInnerHTML(slot: HTMLSlotElement): string {
-  const nodes = slot.assignedNodes({ flatten: true });
-  let html = '';
-
-  [...nodes].forEach(node => {
-    if (node.nodeType === Node.ELEMENT_NODE) {
-      html += (node as HTMLElement).outerHTML;
+  /**
+   * Function to return an array of slots on an element.
+   *
+   * @returns string[]
+   */
+  getSlots() {
+    const slots: string[] = [];
+    if (this.hasDefaultSlot()) {
+      slots.push('[default]');
     }
+    const namedSlots: NodeListOf<HTMLElement> =
+      this.host.querySelectorAll('[slot]');
+    namedSlots.length ? (this.namedSlots = true) : (this.namedSlots = false);
 
-    if (node.nodeType === Node.TEXT_NODE) {
-      html += node.textContent;
-    }
-  });
+    namedSlots.forEach((slot: HTMLElement) => {
+      const name: string = slot.getAttribute('slot') as string;
+      this.test(name) ? slots.push(name) : false;
+    });
 
-  return html;
-}
-
-/**
- * Given a slot, this function iterates over all of its assigned text nodes and returns the concatenated text as a
- * string. This is useful because we can't use slot.textContent as an alternative.
- */
-export function getTextContent(
-  slot: HTMLSlotElement | undefined | null
-): string {
-  if (!slot) {
-    return '';
+    // General debugging.
+    /* eslint-disable */
+    console.log(slots);
+    console.log(`Default Slot: ${this.defaultSlot}`);
+    console.log(`Named Slot(s): ${this.namedSlots}`);
+    /* eslint-enable */
+    return slots;
   }
-  const nodes = slot.assignedNodes({ flatten: true });
-  let text = '';
-
-  [...nodes].forEach(node => {
-    if (node.nodeType === Node.TEXT_NODE) {
-      text += node.textContent;
-    }
-  });
-
-  return text;
 }
