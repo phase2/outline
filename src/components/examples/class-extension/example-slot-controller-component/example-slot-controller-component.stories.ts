@@ -22,30 +22,15 @@ export default configuration;
 const Template = (): TemplateResult => {
   return html`
 <example-slot-controller-component>
-  <div>
-    <p>This is slotted content in a paragraph tag inside the default slot.</p>
-  </div>
-  <div>
-    <p>This is slotted content in a paragraph tag inside the default slot.</p>
-  </div>
-  <div>
-    <p>This is slotted content in a paragraph tag inside the default slot.</p>
-  </div>
-  <div slot="named-slot--one">
-    <p>This is some slotted content in named-slot--one.</p>
-  </div>
-  <div slot="named-slot--two">
-    <p>This is some slotted content in named-slot--two.</p>
-  </div>
-  <div slot="named-slot--three">
-    <p>This is some slotted content in named-slot--three.</p>
-  </div>
-  <div slot="named-slot--four">
-    <p>This is some slotted content in named-slot--four.</p>
-  </div>
-  <div slot="named-slot--five">
-    <p>This is some slotted content in named-slot--five.</p>
-  </div>
+  <p>This is slotted content in a paragraph tag inside the default slot.</p>
+  <p>This is slotted content in a paragraph tag inside the default slot.</p>
+  <p>This is slotted content in a paragraph tag inside the default slot.</p>
+  <p slot="named-slot--one">This is some slotted content in <code>named-slot--one</code>.</p>
+  <p slot="named-slot--two">This is some slotted content in <code>named-slot--two</code>.</p>
+  <p slot="named-slot--two">This is some slotted content in a second instance of <code>named-slot--two</code>.</p>
+  <p slot="named-slot--three">This is some slotted content in <code>named-slot--three</code>.</p>
+  <p slot="named-slot--four">This is some slotted content in <code>named-slot--four</code>.</p>
+  <p slot="named-slot--five">This is some slotted content in <code>named-slot--five</code>.</p>
 </example-slot-controller-component>
 `;
 };

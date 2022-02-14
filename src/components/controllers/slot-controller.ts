@@ -4,7 +4,7 @@ import type {
   ReactiveElement,
 } from 'lit';
 
-// @todo remove this disabling of no-console.
+// @TODO: remove this disabling of no-console.
 /* eslint-disable no-console */
 
 /**
@@ -153,7 +153,7 @@ export class SlotController implements ReactiveController {
       if (slotLightDom) {
         console.log('TRYING TO MOVE THE CONTENT!!!');
         // @todo Not moving it properly yet.
-        shadowSlotLocation.before(slotLightDom);
+        shadowSlotLocation.append(slotLightDom);
       }
     }
     console.groupEnd();
@@ -169,6 +169,10 @@ export class SlotController implements ReactiveController {
         this.moveNamedSlot(name);
       });
       // @todo move default slot items.
+    } else {
+      console.log(
+        'shadowShift is set to false, so no content was moved to ShadowDOM.'
+      );
     }
   }
 }
