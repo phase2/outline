@@ -1,0 +1,11 @@
+.example-slot-controller-components {
+  @apply bg-demo-lightBlue p-6 text-lg;
+}
+
+::slotted(p) {
+  @apply text-xs font-semibold;
+}
+
+p {
+  @apply text-xl font-semibold !important;
+}
