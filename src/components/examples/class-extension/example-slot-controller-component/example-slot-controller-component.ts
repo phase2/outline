@@ -1,11 +1,11 @@
 // Our base component, which all others extend.
-import { OutlineElement } from '../../../components/base/outline-element/outline-element';
+import { OutlineElement } from '../../../../components/base/outline-element/outline-element';
 import { CSSResultGroup, html, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './example-slot-controller-component.css.lit';
-import { SlotController } from '../../controllers/slot-controller';
+import { SlotController } from '../../../controllers/slot-controller';
 //import { SlottedController } from '../../controllers/slotted-controller';
-import '../../base/outline-container/outline-container';
+import '../../../base/outline-container/outline-container';
 
 /**
  * The Outline  Breadcrumbs component
