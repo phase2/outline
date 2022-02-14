@@ -1,5 +1,5 @@
 .example-slot-controller-component {
-  @apply my-8 rounded-xl border border-demo-darkBlue bg-demo-lightBlue p-12 text-lg shadow-xl;
+  @apply my-8 rounded-xl border-2 border-dashed border-demo-darkBlue bg-demo-lightBlue p-12 text-lg shadow-xl;
 }
 
 ::slotted(p) {
