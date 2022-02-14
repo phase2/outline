@@ -1,7 +1,7 @@
 // Our base component, which all others extend.
 import { OutlineElement } from '../../../../components/base/outline-element/outline-element';
 import { CSSResultGroup, html, TemplateResult } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './example-slot-controller-component.css.lit';
 import { SlotController } from '../../../controllers/slot-controller';
 //import { SlottedController } from '../../../controllers/slotted-controller';
@@ -17,10 +17,18 @@ import '../../../base/outline-container/outline-container';
 @customElement('example-slot-controller-component')
 export class ExampleSlotControllerComponent extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
+
+  /**
+   * This is a description of shadowShift.
+   */
+  @property({ type: Boolean, attribute: 'shadow-shift' })
+  shadowShift = false;
+
   /* The new SlotController */
   slots = new SlotController(
     this, // This, the host element.
     true // Wether or not to shift LightDom nodes to ShadowDOM
+    //this.shadowShift // Wether or not to shift LightDom nodes to ShadowDOM
   );
   /* The old SlottedController */
   // slottedController = new SlottedController(this);
@@ -36,6 +44,7 @@ export class ExampleSlotControllerComponent extends OutlineElement {
     return html`
       <section class="example-slot-controller-component">
         <outline-container>
+          <!-- A simple ShadowDOM element. -->
           <div>
             <p class="original">
               This is a paragraph originally in the ShadowDOM. It has the class
@@ -43,7 +52,9 @@ export class ExampleSlotControllerComponent extends OutlineElement {
               demonstration purposes.
             </p>
           </div>
+          <!-- The default slot. -->
           <slot></slot>
+          <!-- The named slot(s) -->
           <slot name="named-slot--one"></slot>
           <slot name="named-slot--two"></slot>
           <slot name="named-slot--three"></slot>

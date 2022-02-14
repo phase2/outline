@@ -122,8 +122,6 @@ export class SlotController implements ReactiveController {
    * @param slotName string The name of the named slot.
    */
   private moveNamedSlot(slotName: string) {
-    console.group(`Running moveNamedSlot method on the ${slotName} slot.`);
-
     // Reassign host for better typing.
     const host = this.host as unknown as ReactiveElement;
 
@@ -131,31 +129,39 @@ export class SlotController implements ReactiveController {
       ? host.renderRoot.querySelector(`slot[name="${slotName}"]`)
       : false;
 
-    console.groupCollapsed('Logging the host element.');
-    console.log(host);
-    console.groupEnd();
-
-    console.groupCollapsed('Logging the host.renderRoot.');
-    console.log(host.renderRoot);
-    console.groupEnd();
-
-    console.group('Logging the other things.');
-    console.log(shadowSlotLocation);
-    console.groupEnd();
-
     if (shadowSlotLocation) {
-      console.log('EUREKA!!!!');
-      // The contents OF the slot.
       const slotLightDom = host.querySelector('[slot=' + slotName + ']');
 
-      console.log(slotLightDom);
-      // Only if named slot found in light dom - move it into shadow DOM
+      // Only if named slot found in light dom - move it into ShadowDOM.
       if (slotLightDom) {
-        console.log('TRYING TO MOVE THE CONTENT!!!');
-        // @todo Not moving it properly yet.
         shadowSlotLocation.append(slotLightDom);
       }
     }
+  }
+
+  /**
+   * Method to move all content in the default slot into ShadowDOM.
+   */
+  private moveDefaultSlot() {
+    console.group('Running moveDefaultSlot method...');
+    const host = this.host as unknown as ReactiveElement;
+    // Get all content that doesn't have slot as attribute
+    const slotLightDomArray = Array.from(host.children).filter(node => {
+      return !node.getAttributeNode('slot');
+    });
+    console.log(slotLightDomArray);
+
+    const shadowSlotLocation = host.renderRoot
+      ? host.renderRoot.querySelector(`slot`)
+      : false;
+
+    if (shadowSlotLocation) {
+      // Move all unnamed slot content to the corresponding position in shadow DOM
+      slotLightDomArray.forEach(slotLightDom => {
+        shadowSlotLocation.before(slotLightDom);
+      });
+    }
+
     console.groupEnd();
   }
 
@@ -169,6 +175,7 @@ export class SlotController implements ReactiveController {
         this.moveNamedSlot(name);
       });
       // @todo move default slot items.
+      this.moveDefaultSlot();
     } else {
       console.log(
         'shadowShift is set to false, so no content was moved to ShadowDOM.'

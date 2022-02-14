@@ -7,7 +7,7 @@
 }
 
 p {
-  @apply text-xl font-semibold;
+  @apply text-lg font-semibold;
 }
 
 p.original {
