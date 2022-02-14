@@ -1,8 +1,0 @@
-:host {
-  @apply my-0 mx-auto block border border-solid border-gray-400	p-8;
-  max-width: 800px;
-
-  ::slotted(p) {
-    @apply border border-solid border-blue-800 p-4;
-  }
-}
