@@ -100,6 +100,7 @@ export class SlotController implements ReactiveController {
     ) {
       this.host.requestUpdate();
     }
+    this.moveSlots();
   }
 
   /**
