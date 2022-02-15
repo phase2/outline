@@ -4,12 +4,9 @@ import type {
   ReactiveElement,
 } from 'lit';
 
-// @TODO: remove this disabling of no-console.
-/* eslint-disable no-console */
-
 /**
- * @todo MAKE THIS combine with SlottedController
- * @see SlottedController
+ * The SlotController ReactiveController.
+ *
  * @see https://github.com/shoelace-style/shoelace/blob/next/src/internal/slot.ts
  */
 export class SlotController implements ReactiveController {
@@ -105,11 +102,6 @@ export class SlotController implements ReactiveController {
       this.test(name) ? slots.push(name) : false;
     });
 
-    // General debugging.
-    //console.log(slots);
-    // console.log(`Default Slot: ${this.defaultSlot}`);
-    // console.log(`Named Slot(s): ${this.namedSlots}`);
-
     return slots;
   }
 
@@ -143,13 +135,11 @@ export class SlotController implements ReactiveController {
    * Method to move all content in the default slot into ShadowDOM.
    */
   private moveDefaultSlot() {
-    console.group('Running moveDefaultSlot method...');
     const host = this.host as unknown as ReactiveElement;
     // Get all content that doesn't have slot as attribute
     const slotLightDomArray = Array.from(host.children).filter(node => {
       return !node.getAttributeNode('slot');
     });
-    console.log(slotLightDomArray);
 
     const shadowSlotLocation = host.renderRoot
       ? host.renderRoot.querySelector(`slot`)
@@ -161,8 +151,6 @@ export class SlotController implements ReactiveController {
         shadowSlotLocation.before(slotLightDom);
       });
     }
-
-    console.groupEnd();
   }
 
   /**
@@ -174,12 +162,8 @@ export class SlotController implements ReactiveController {
       this.slotNames.map(name => {
         this.moveNamedSlot(name);
       });
-      // @todo move default slot items.
+      // Move default slot items.
       this.moveDefaultSlot();
-    } else {
-      console.log(
-        'shadowShift is set to false, so no content was moved to ShadowDOM.'
-      );
     }
   }
 }
