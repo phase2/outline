@@ -18,6 +18,7 @@ ports:
   # Used by Storybook
   - port: 6042
     onOpen: open-preview
+    visibility: public
 
 github:
   prebuilds:
