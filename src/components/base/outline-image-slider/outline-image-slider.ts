@@ -27,7 +27,10 @@ export class OutlineImageSlider extends OutlineElement {
   observer: MutationObserver;
 
   firstUpdated() {
-    this.splide = new Splide(this.splideEl, { keyboard: false }).mount();
+    this.splide = new Splide(this.splideEl, {
+      keyboard: false,
+      arrows: true,
+    }).mount();
 
     // adds spans to buttons for screen readers
     this.prevBtn.innerHTML += '<span class="sr-only">Previous Slide</span>';
