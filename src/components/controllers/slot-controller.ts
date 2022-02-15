@@ -31,11 +31,7 @@ export class SlotController implements ReactiveController {
   defaultSlot: boolean;
   namedSlots: boolean;
 
-  constructor(
-    host: ReactiveControllerHost & Element,
-    shadowShift?: boolean
-    //slotNames: string[]
-  ) {
+  constructor(host: ReactiveControllerHost & Element, shadowShift?: boolean) {
     (this.host = host).addController(this);
     this.hostEl = this.host as unknown as ReactiveElement;
     this.shadowShift =
