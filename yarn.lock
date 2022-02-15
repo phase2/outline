@@ -2262,6 +2262,11 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@splidejs/splide@^3.2.1":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@splidejs/splide/-/splide-3.2.1.tgz#f270ee96fb954f2addb38b16de12ae948e80a90c"
+  integrity sha512-P6gBp+JtsG67ZnHWxzA8jGc7rZQ1nls7CDJQkQeexxXdFu+4myouRIzXhooU/uWdQDNEQ4ttgC3F1+T1tgstuw==
+
 "@storybook/addon-a11y@^6.4.19":
   version "6.4.19"
   resolved "https://registry.yarnpkg.com/@storybook/addon-a11y/-/addon-a11y-6.4.19.tgz#fb92840b5559b429afe2f28211440a5b5d1b6fcb"

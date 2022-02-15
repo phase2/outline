@@ -32,4 +32,10 @@ module.exports = {
   // Exclude stories by adding the directory they can be found in
   // ex ['outline-button'] this excludes any story in this directory
   excludedStories: [],
+  // @see https://splidejs.com/guides/options
+  // @todo: Ensure this config is utilized.
+  splide: {
+    keyboard: false,
+    arrows: true,
+  },
 };
