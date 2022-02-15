@@ -7,6 +7,20 @@ import type {
 /**
  * The SlotController ReactiveController.
  *
+ * This controller is a mix of the Shoelace controller linked below,
+ * as well as much custom code from our original SlottedController.
+ *
+ * This updated controller handles:
+ * - Default
+ *   - Ability to test if a named slot is present/populated
+ *   - Ability to test if the default slot is present/populated
+ *   - Get a list of all available slots
+ * - Optional
+ *   - ShadowShift
+ *     - Moving all named slots to ShadowDOM
+ *     - Moving all default slots to ShadowDOM
+ *
+ * @todo: Make the ShadowShift functionality able to target specific slots only.
  * @see https://github.com/shoelace-style/shoelace/blob/next/src/internal/slot.ts
  */
 export class SlotController implements ReactiveController {
@@ -61,8 +75,6 @@ export class SlotController implements ReactiveController {
     this.slotNames = this.getSlots();
     setTimeout(() => this.moveSlots(), 0);
   }
-
-  firstUpdated(): void {}
 
   hostDisconnected() {
     this.host.shadowRoot!.removeEventListener(
