@@ -47,9 +47,6 @@ const Template = (): TemplateResult =>
   `;
 
 export const AdministrativeLinks = Template.bind({});
-AdministrativeLinks.args = {
-  linkText: 'Sample Link',
-};
 AdministrativeLinks.parameters = {
   docs: {
     source: {
