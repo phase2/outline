@@ -34,9 +34,11 @@ a {
 
   &:focus {
     outline: 0;
+    background: var(--outline-admin-links-bg-focus);
+    color: var(--outline-admin-links-color-focus);
   }
 
-  &:hover::before, &:focus::before {
+  &:not(.is-active):hover::before, &:not(.is-active):focus::before {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -53,6 +55,10 @@ a {
     background: var(--outline-admin-links-bg-active);
     color: var(--outline-admin-links-color-active);
     z-index: 1;
+
+    &:hover, &:focus {
+      outline-offset: 2px;
+    }
   }
 }
 
