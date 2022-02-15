@@ -29,6 +29,11 @@ module.exports = {
     // default video in any storybook component.
     defaultVideo: 'xiqgG8HUZXE',
   },
+  vimeo: {
+    // Replace with the YouTube id of any video to replace the
+    // default video in any storybook component.
+    defaultVideo: '432639001',
+  },
   // Exclude stories by adding the directory they can be found in
   // ex ['outline-button'] this excludes any story in this directory
   excludedStories: [],
