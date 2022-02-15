@@ -36,14 +36,15 @@ a {
     outline: 0;
   }
 
-  &:hover::before, &:focus::before {
+  &:hover::before,
+  &:focus::before {
     position: absolute;
     top: 50%;
     left: 50%;
     width: calc(100%);
     height: 100%;
-    content: "";
-    transform: translate(-50%,-50%);
+    content: '';
+    transform: translate(-50%, -50%);
     border: solid 2px var(--outline-admin-links-color-hover);
     border-radius: 0.25rem;
   }
