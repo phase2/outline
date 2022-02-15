@@ -22,6 +22,18 @@ import type {
  *
  * @todo: Make the ShadowShift functionality able to target specific slots only.
  * @see https://github.com/shoelace-style/shoelace/blob/next/src/internal/slot.ts
+ * @example
+ * // Do NOT move LightDOM elements.
+ * slots = new SlotController(
+ *   this, // The host element.
+ *   false // To shift or not to shift LightDom nodes to ShadowDOM.
+ * );
+ * @example
+ * // Move LightDOM elements to the ShadowDOM.
+ * slots = new SlotController(
+ *   this, // The host element.
+ *   true // To shift or not to shift LightDom nodes to ShadowDOM.
+ * );
  */
 export class SlotController implements ReactiveController {
   host: ReactiveControllerHost & Element;
