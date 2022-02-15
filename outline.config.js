@@ -30,7 +30,7 @@ module.exports = {
     defaultVideo: 'xiqgG8HUZXE',
   },
   vimeo: {
-    // Replace with the YouTube id of any video to replace the
+    // Replace with the Vimeo id of any video to replace the
     // default video in any storybook component.
     defaultVideo: '432639001',
   },
