@@ -216,6 +216,20 @@
   --outline-link-color-focus: var(--demo-darkGray);
 
   /*
+   * Configuration values for `outline-breadcrumb`.
+   */
+  --outline-breadcrumb-text-color-default: var(--demo-lightGray);
+  --outline-breadcrumb-link-color-default: var(--demo-white);
+  --outline-breadcrumb-link-color-hover: var(--demo-mediumGray);
+  --outline-breadcrumb-link-color-focus: var(--demo-mediumGray);
+  --outline-breadcrumb-link-decoration-default: none;
+  --outline-breadcrumb-link-decoration-hover: underline;
+  --outline-breadcrumb-link-decoration-focus: underline;
+  --outline-breadcrumb-bg-color: var(--demo-darkGray);
+  --outline-breadcrumb-bg-padding: var(--spacing-4) var(--spacing-4);
+  --outline-breadcrumb-separator-spacing: var(--spacing-2);
+
+  /*
   * Configuration values for `outline-admin-links`.
   * This component's styles represent a standard set of administrative
   * links like one found in Drupal or other systems.
