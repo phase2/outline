@@ -1,6 +1,7 @@
 import { html, TemplateResult } from 'lit';
 import './outline-video-vimeo';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import outline from '../../../../outline.config';
 
 const configuration = {
   title: 'Media/Vimeo Video',
@@ -13,7 +14,9 @@ const configuration = {
     },
   },
   args: {
-    videoID: `253989945`,
+    videoID: outline.vimeo.defaultVideo
+      ? outline.vimeo.defaultVideo
+      : '432639001',
   },
   parameters: {
     docs: {
