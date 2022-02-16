@@ -11,7 +11,7 @@ describe('outline-breadcrumbs', () => {
     const el = await fixture(html`<outline-breadcrumbs></outline-breadcrumbs>`);
     assert.shadowDom.equal(
       el,
-      `<div class="outline-breadcrumbs"><slot></slot></div>`
+      `<section class="outline-breadcrumbs"><outline-container container-align="center"><slot></slot></outline-container></section>`
     );
   });
 });
