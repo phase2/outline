@@ -75,10 +75,13 @@ module.exports = {
       // Demo styles specific to Storybook implementation.
       // Do not remove.
       demo: {
+        white: 'var(--demo-white)',
+        black: 'var(--demo-black)',
         darkBlue: 'var(--demo-darkBlue)',
         mediumBlue: 'var(--demo-mediumBlue)',
         lightBlue: 'var(--demo-lightBlue)',
         darkGray: 'var(--demo-darkGray)',
+        mediumGray: 'var(--demo-mediumGray)',
         lightGray: 'var(--demo-lightGray)',
       },
       // The defaults are completely overwritten, so manually including
