@@ -3,7 +3,7 @@ import { OutlineElement } from '../outline-element/outline-element';
 import { CSSResultGroup, html, css, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-breadcrumbs.css.lit';
-import { SlottedController } from '../../controllers/slotted-controller';
+import { SlotController } from '../../controllers/slot-controller';
 
 /**
  * The Outline  Breadcrumbs component
@@ -25,7 +25,11 @@ export class OutlineBreadcrumbs extends OutlineElement {
       }
     `,
   ];
-  private = new SlottedController(this);
+  /* The new SlotController */
+  slots = new SlotController(
+    this, // This, the host element.
+    true // To shift or not to shift LightDom nodes to ShadowDOM.
+  );
 
   render(): TemplateResult {
     return html` <div class="outline-breadcrumbs">
