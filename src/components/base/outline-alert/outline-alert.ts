@@ -18,8 +18,8 @@ export type AlertStatusType = typeof alertStatusTypes[number];
 export interface OutlineAlertInterface extends HTMLElement {
   statusType: AlertStatusType;
   size: AlertSize;
-  isInteractive: Boolean;
-  shouldShowIcon: Boolean;
+  isInteractive: boolean;
+  shouldShowIcon: boolean;
 }
 
 /**

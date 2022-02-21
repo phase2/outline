@@ -11,7 +11,7 @@ const tabControlPosition: string[] = ['top', 'start'];
 interface TabData {
   title: string;
   content: string;
-  disabled?: Boolean;
+  disabled?: boolean;
 }
 
 const formatTitle = title => {
