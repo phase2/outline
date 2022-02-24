@@ -1,14 +1,30 @@
+.outline-breadcrumbs {
+  color: var(--outline-breadcrumb-text-color-default);
+  background: var(--outline-breadcrumb-bg-color);
+  padding: var(--outline-breadcrumb-bg-padding);
+}
+
 a,
 ::slotted(a) {
-  @apply font-body text-demo-darkBlue transition-colors duration-300 no-underline;
+  @apply font-body transition-colors duration-300;
+  text-decoration: var(--outline-breadcrumb-link-decoration-default);
+  color: var(--outline-breadcrumb-link-color-default);
 }
 
 a:hover,
 ::slotted(a:hover) {
-  @apply text-demo-mediumBlue underline;
+  text-decoration: var(--outline-breadcrumb-link-decoration-hover);
+  color: var(--outline-breadcrumb-link-color-hover);
 }
 
-a.active,
-::slotted(a.active) {
-  @apply underline;
+a:focus,
+::slotted(a:focus) {
+  text-decoration: var(--outline-breadcrumb-link-decoration-focus);
+  outline: none;
+  color: var(--outline-breadcrumb-link-color-focus);
+}
+
+.separator {
+  margin-left: var(--outline-breadcrumb-separator-spacing);
+  margin-right: var(--outline-breadcrumb-separator-spacing);
 }

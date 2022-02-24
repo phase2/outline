@@ -7,7 +7,7 @@ import sampleImage from '../../../.storybook/static/media/color/Creative_Process
 import './outline-link';
 
 export default {
-  title: 'Atoms/Link',
+  title: 'Navigation/Link',
   component: 'outline-link',
   argTypes: {
     linkHref: {
@@ -21,10 +21,11 @@ export default {
     },
     linkText: {
       name: 'Link Text',
-      description: 'The text to display for the link component.',
+      description: 'The text to display for the link component. This text is part of the ShadowDOM vs omitting this property and utilizing the default slot will render the text in LightDOM.',
       control: {
         type: 'text',
       },
+      table: { defaultValue: { summary: 'false' } },
     },
   },
   args: {
@@ -39,23 +40,24 @@ export default {
         component: `
 This component renders a link as an \`a\` element.
 
-The default slot can be text or other elements such as images.
+## Difference from a standard \`a\` element.
 
-## Difference from an \`a\` element.
+The \`outline-link\` component allows the ultimate flexibility in how you want to utilize the component.
 
-_@todo specify why this would be used instead of an \`a\` element._
-        `,
-      },
-      source: {
-        code: `
-<outline-link
-  linkHref="{{ linkHref }}"
-  linkRel="{{ linkRel }}"
-  linkTarget="{{ linkTarget }}"
->
-  {{ defaultSlot }}
-</outline-link>
-        `,
+- Providing a \`link-text\` attribute negates the need or usage of any slotted content.
+- Providing a \`link-href\` without the \`link-text\` attribute will then use the slotted content as the content of the link.
+- Providing neither the \`link-href\` nor the \`link-text\` attributes will make the link assume the entire link, including \`<a></a>\` portions of the link be passed into the slot. 
+
+## CSS Variables
+
+The primary coloring of the \`outline-link\` component is handled by the following CSS Variables. 
+
+> Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent include to affect change on the element styling.
+
+- \`--outline-link-color-default\` The default link color
+- \`--outline-link-color-hover\` The link color when hovering on the link
+- \`--outline-link-color-focus\` The link color when focusing on the link
+`,
       },
     },
   },
@@ -68,7 +70,7 @@ interface Options {
   linkTarget?: LinkTargetType;
 }
 
-export const Link = ({
+const LinkTemplate = ({
   linkHref,
   linkRel,
   linkText,
@@ -76,43 +78,62 @@ export const Link = ({
 }: Options): TemplateResult =>
   html`
     <outline-link
-      linkHref="${ifDefined(linkHref)}"
-      linkRel="${ifDefined(linkRel)}"
-      linkTarget="${ifDefined(linkTarget)}"
+      link-href="${ifDefined(linkHref)}"
+      link-rel="${ifDefined(linkRel)}"
+      link-target="${ifDefined(linkTarget)}"
     >
       ${ifDefined(linkText)}
     </outline-link>
   `;
 
+export const Link = LinkTemplate.bind({});
+Link.args = {
+  linkText: 'Sample Link',
+};
+Link.parameters = {
+  docs: {
+    source: {
+      code: `
+<outline-link
+  link-href="{{ linkHref }}"
+  link-rel="{{ linkRel }}"
+  link-target="{{ linkTarget }}"
+>
+  {{ defaultSlot }}
+</outline-link>
+      `,
+    },
+  },
+};
 export const PropsAndSlottedText = (): TemplateResult =>
   html`
-    <outline-link linkHref="https://outline.phase2tech.com">
-      Link using properties, with slotted link text
-    </outline-link>
+<outline-link link-href="https://outline.phase2tech.com">
+  Link using properties, with slotted link text
+</outline-link>
   `;
 
 export const PropertiesOnly = (): TemplateResult =>
   html`
-    <outline-link
-      linkHref="https://outline.phase2tech.com"
-      linkText="Link using properties, including the link text"
-    ></outline-link>
+<outline-link
+  link-href="https://outline.phase2tech.com"
+  link-text="Link using properties, including the link text"
+></outline-link>
   `;
 
 export const FullySlotted = (): TemplateResult =>
   html`
-    <outline-link>
-      <a href="https://outline.phase2tech.com" target="_blank">
-        Link using fully slotted link element
-      </a>
-    </outline-link>
+<outline-link>
+  <a href="https://outline.phase2tech.com" target="_blank">
+    Link using fully slotted link element
+  </a>
+</outline-link>
   `;
 
 export const SlottedImageLink = (): TemplateResult =>
   html`
-    <outline-link>
-      <a href="https://outline.phase2tech.com" target="_blank">
-        <img src="${sampleImage}" alt="Creative" />
-      </a>
-    </outline-link>
+<outline-link>
+  <a href="https://outline.phase2tech.com" target="_blank">
+    <img src="${sampleImage}" alt="Creative" />
+  </a>
+</outline-link>
   `;

@@ -1,0 +1,83 @@
+:host {
+  @apply block;
+}
+
+.tab-group {
+  @apply flex border border-neutral-transparent;
+}
+
+.tab-group .tab-group__tabs {
+  @apply relative flex;
+}
+
+.tab-group .tab-group__indicator {
+  @apply absolute left-0 transition-all;
+}
+
+/*
+ * Start
+ */
+
+.tab-group--start {
+  @apply flex-row;
+}
+
+.tab-group--start .tab-group__nav-container {
+  @apply order-1 border border-b-demo-lightGray;
+}
+
+.tab-group--start .tab-group__tabs {
+  flex: 0 0 auto;
+  flex-direction: column;
+}
+
+.tab-group--start .tab-group__indicator {
+  right: calc(-1 * 2px);
+  border-bottom: 0;
+}
+
+.tab-group--start .tab-group__body {
+  @apply order-2 py-4 px-6;
+  flex: 1 1 auto;
+}
+
+/*
+ * Top
+ */
+
+.tab-group--top {
+  @apply flex-col;
+}
+
+.tab-group--top .tab-group__nav-container {
+  @apply order-1;
+}
+
+.tab-group--top .tab-group__nav {
+  @apply flex overflow-x-auto;
+
+  /* Hide scrollbar in Firefox */
+  scrollbar-width: none;
+}
+
+/* Hide scrollbar in Chrome/Safari */
+.tab-group--top .tab-group__nav::-webkit-scrollbar {
+  @apply h-0 w-0;
+}
+
+.tab-group--top .tab-group__tabs {
+  @apply relative mb-8 flex flex-row border border-b-demo-darkGray;
+}
+
+.tab-group--top .tab-group__tabs .tab {
+  @apply pr-6;
+  background-image: none;
+}
+
+.tab-group--top .tab-group__indicator {
+  bottom: -2px;
+}
+
+.tab-group--top .tab-group__body {
+  @apply order-2;
+}

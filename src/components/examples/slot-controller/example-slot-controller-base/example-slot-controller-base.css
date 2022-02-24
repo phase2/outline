@@ -1,0 +1,15 @@
+.example-slot-controller {
+  @apply my-8 rounded-xl border-2 border-dashed border-demo-darkBlue bg-demo-lightBlue p-12 text-lg shadow-xl;
+}
+
+::slotted(p) {
+  @apply text-xs font-semibold;
+}
+
+p {
+  @apply text-lg font-semibold;
+}
+
+p.original {
+  @apply text-lg font-normal;
+}

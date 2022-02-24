@@ -18,14 +18,14 @@ const allowedColors: string[] = [
 
 const argTypeColors = {
   name: 'Color',
+  options: allowedColors,
   control: {
     type: 'select',
-    options: allowedColors,
   },
 };
 
 export default {
-  title: 'Molecules/Card',
+  title: 'Content/Card',
   component: 'outline-card',
   argTypes: {
     bgColorHeader: {

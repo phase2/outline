@@ -1,35 +1,48 @@
 // Our base component, which all others extend.
 import { OutlineElement } from '../outline-element/outline-element';
-import { CSSResultGroup, html, css, TemplateResult } from 'lit';
-import { customElement } from 'lit/decorators.js';
+import { CSSResultGroup, html, TemplateResult } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-breadcrumbs.css.lit';
-import { SlottedController } from '../../controllers/slotted-controller';
-
+import '../outline-container/outline-container';
+import { SlotController } from '../../controllers/slot-controller';
 /**
  * The Outline  Breadcrumbs component
  * @element Outline-Breadcrumbs
  * @slot - The default only slot for this element.
+ * @todo CONTRIB
  */
 
 @customElement('outline-breadcrumbs')
 export class OutlineBreadcrumbs extends OutlineElement {
-  static styles: CSSResultGroup = [
-    componentStyles,
-    css`
-      span.last::after {
-        display: none;
-      }
-      span::after {
-        content: '/';
-        margin: 0 15px 10px;
-      }
-    `,
-  ];
-  private = new SlottedController(this);
+  slots = new SlotController(
+    this, // This, the host element.
+    true // To shift or not to shift LightDom nodes to ShadowDOM.
+  );
+  static styles: CSSResultGroup = [componentStyles];
+
+  firstUpdated(): void {
+    const breadcrumbItems = this.querySelectorAll('span:not(.last)');
+    breadcrumbItems.forEach(item => {
+      const sep: HTMLSpanElement = document.createElement('span');
+      sep.classList.add('separator');
+      sep.innerHTML = this.stringSeparator;
+      item.append(sep);
+    });
+  }
+
+  /**
+   * Property to define the value of the separator.
+   */
+  @property({ type: String, attribute: 'string-separator' })
+  stringSeparator = '/';
 
   render(): TemplateResult {
-    return html` <div class="outline-breadcrumbs">
-      <slot></slot>
-    </div>`;
+    return html`
+      <section class="outline-breadcrumbs">
+        <outline-container>
+          <slot></slot>
+        </outline-container>
+      </section>
+    `;
   }
 }

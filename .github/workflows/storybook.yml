@@ -50,4 +50,4 @@ jobs:
         with:
           name: storybook-latest
           path: storybook-static/
-          retention-days: 30
+          retention-days: 1

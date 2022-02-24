@@ -1,0 +1,46 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Tooling & Commands/Conventional Commits"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Conventional Commits
+
+<outline-alert statusType="info" size="large" class="mb-6">
+  <span slot="outline-alert--header">Documentation Status</span>
+  The documentation on this page is in need of additional updates, corrections or information. <span class="font-semibold italic">Expect frequent updates and/or changes.</span>
+</outline-alert>
+
+## Introduction 
+
+Outline uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), A specification for adding human and machine readable meaning to commit messages.
+
+Commit messages are in the form: `type(tag): message`.
+
+_Commit messages cannot start with a capital letter or end in punctuation._
+
+Types include:
+
+- `feat`: Feature
+- `fix`: Fix
+- `fix!` or `feat!`: Breaking change
+- `chore` or something else: Ignored
+
+When code is merged, tooling will create a new package version with the `major`.`feature`.`fix` semantic versioning.
+
+For example, if you add a few commit messages:
+
+- `feat: i added a thing`
+- `feat: i added a second thing`
+- `fix: i fixed the first thing`
+
+If you had a version `1.2.3`, this would create a new version `1.3.0` since there is a new feature. It only increments once even though there are multiple commits.

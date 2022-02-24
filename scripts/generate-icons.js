@@ -12,6 +12,8 @@ const generatedIconsFilePath =
 const generatedIconListPath = 'src/components/base/outline-icon/';
 
 const nameList = [];
+const nameDelimiter = ['-', '_'];
+
 const parseFiles = (fileNames, filepath, folder) => {
   const fileArr = {};
   fileNames.forEach(file => {
@@ -46,7 +48,7 @@ createSvgObjects = dir => {
   return parseFolders(folders, dir);
 };
 
-const camelize = s => s.replace(/-./g, x => x.toUpperCase()[1]);
+const camelize = s => s.replace(/[-_]./g, x => x.toUpperCase()[1]);
 
 /**
  * Generates lit friendly svg format at outline-icon/generated-svgs/<folderName>.ts
@@ -73,7 +75,7 @@ const generateSvgImports = svg => {
 
 const generateIconList = svg => {
   return Object.keys(svg).map(key => {
-    if (key.includes('-')) {
+    if (nameDelimiter.some(i => key.includes(i))) {
       return `'${key}': ${camelize(key)},\n`;
     } else {
       return `${key},\n`;

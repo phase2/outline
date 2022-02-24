@@ -1,12 +1,12 @@
 /* The default is information. */
 #body {
-  @apply block border-solid border-0 border-l-8 p-4 bg-ui-info text-ui-infoText;
+  @apply block border-0 border-l-8 border-solid bg-ui-info p-4 text-ui-infoText;
 
   border-color: var(--ui-infoText);
 }
 
 #header {
-  @apply font-bold text-lg capitalize;
+  @apply text-lg font-bold capitalize;
 }
 
 :host([statusType='warning']) #body {

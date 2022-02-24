@@ -34,7 +34,10 @@
   --demo-mediumBlue: #3b82f6;
   --demo-lightBlue: #eff6ff;
   --demo-darkGray: #3f3f46;
+  --demo-mediumGray: #e0e0e0;
   --demo-lightGray: #f4f4f5;
+  --demo-white: #fff;
+  --demo-black: #000;
 
   /* Default Tailwind CSS Colors converted to CSS Variables. */
   --gray-50: #fafafa;
@@ -198,4 +201,48 @@
   --fw-bold: 700;
   --fw-extrabold: 800;
   --fw-black: 900;
+
+  /*
+   * Configuration values for `outline-container`.
+   */
+  --outline-container-padding-x: 1.5rem;
+  --outline-container-padding-y: 1.5rem;
+
+  /*
+   * Configuration values for `outline-link`.
+   */
+  --outline-link-color-default: var(--demo-darkBlue);
+  --outline-link-color-hover: var(--demo-darkGray);
+  --outline-link-color-focus: var(--demo-darkGray);
+
+  /*
+   * Configuration values for `outline-breadcrumb`.
+   */
+  --outline-breadcrumb-text-color-default: var(--demo-lightGray);
+  --outline-breadcrumb-link-color-default: var(--demo-white);
+  --outline-breadcrumb-link-color-hover: var(--demo-mediumGray);
+  --outline-breadcrumb-link-color-focus: var(--demo-mediumGray);
+  --outline-breadcrumb-link-decoration-default: none;
+  --outline-breadcrumb-link-decoration-hover: underline;
+  --outline-breadcrumb-link-decoration-focus: underline;
+  --outline-breadcrumb-bg-color: var(--demo-darkGray);
+  --outline-breadcrumb-bg-padding: var(--spacing-4) var(--spacing-4);
+  --outline-breadcrumb-separator-spacing: var(--spacing-2);
+
+  /*
+  * Configuration values for `outline-admin-links`.
+  * This component's styles represent a standard set of administrative
+  * links like one found in Drupal or other systems.
+  */
+  --outline-admin-links-color-default: var(--demo-darkGray);
+  --outline-admin-links-color-hover: var(--demo-black);
+  --outline-admin-links-color-focus: var(--demo-black);
+  --outline-admin-links-color-active: var(--demo-white);
+  --outline-admin-links-bg-default: var(--demo-lightGray);
+  --outline-admin-links-bg-hover: var(--demo-mediumGray);
+  --outline-admin-links-bg-focus: var(--demo-mediumGray);
+  --outline-admin-links-bg-active: var(--demo-darkGray);
+  --outline-admin-links-y-spacing: var(--spacing-4);
+  --outline-admin-links-link-y-spacing: var(--spacing-4);
+  --outline-admin-links-link-x-spacing: var(--spacing-6);
 }

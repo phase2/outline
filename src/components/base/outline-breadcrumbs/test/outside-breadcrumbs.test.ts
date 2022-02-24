@@ -9,6 +9,9 @@ describe('outline-breadcrumbs', () => {
 
   it('renders with default values', async () => {
     const el = await fixture(html`<outline-breadcrumbs></outline-breadcrumbs>`);
-    assert.shadowDom.equal(el, `<slot></slot>`);
+    assert.shadowDom.equal(
+      el,
+      `<section class="outline-breadcrumbs"><outline-container container-align="center"><slot></slot></outline-container></section>`
+    );
   });
 });

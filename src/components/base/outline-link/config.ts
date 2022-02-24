@@ -27,37 +27,40 @@ export const argTypeHref = {
   control: {
     type: 'text',
   },
+  table: { defaultValue: { summary: 'false' } },
 };
 
 export const argTypeTarget = {
   name: 'Link Target',
   description:
     '**LinkTargetType(_blank, _self, _parent, _top):** https://www.w3schools.com/tags/att_a_target.asp',
+  options: ['_blank', '_self', '_parent', '_top'],
   control: {
     type: 'select',
-    options: ['_blank', '_self', '_parent', '_top'],
   },
+  table: { defaultValue: { summary: 'null' } },
 };
 
 export const argTypeRel = {
   name: 'Link Relationship',
   description: 'https://www.w3schools.com/tags/att_a_rel.asp',
+  options: [
+    'alternate',
+    'author',
+    'bookmark',
+    'external',
+    'help',
+    'license',
+    'next',
+    'nofollow',
+    'noopener',
+    'noreferrer',
+    'prev',
+    'search',
+    'tag',
+  ],
   control: {
     type: 'select',
-    options: [
-      'alternate',
-      'author',
-      'bookmark',
-      'external',
-      'help',
-      'license',
-      'next',
-      'nofollow',
-      'noopener',
-      'noreferrer',
-      'prev',
-      'search',
-      'tag',
-    ],
   },
+  table: { defaultValue: { summary: 'null' } },
 };
