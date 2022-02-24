@@ -53,7 +53,8 @@
     "rollup.bundle": "rollup -c -m",
     "rollup.watch": "yarn rollup -w",
     "rollup": "yarn rollup.bundle",
-    "test": "yarn build && wtr"
+    "test": "yarn build && wtr",
+    "generate.tokens": "token-transformer ./tokens/tokens.json ./tokens/tokens_parsed.json && style-dictionary build --config ./style-dictionary.config.js"
   },
   "keywords": [
     "web-components",
