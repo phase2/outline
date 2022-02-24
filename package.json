@@ -124,6 +124,7 @@
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript2": "^0.30.0",
     "storybook": "^6.4.19",
+    "style-dictionary": "^3.7.0",
     "svgo": "^2.7",
     "tailwindcss": "^3.0.0",
     "ts-lit-plugin": "^1.2.1",
