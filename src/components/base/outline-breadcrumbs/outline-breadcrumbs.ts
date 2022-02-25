@@ -33,7 +33,7 @@ export class OutlineBreadcrumbs extends OutlineElement {
   /**
    * Property to define the value of the separator.
    */
-  @property({ type: String, attribute: 'string-separator' })
+  @property({ type: Number, attribute: 'string-separator' })
   stringSeparator = '/';
 
   render(): TemplateResult {
