@@ -35,7 +35,7 @@
     "wds": "wds --app-index dev/index.html --watch --node-resolve",
     "preserve": "yarn prep",
     "serve": "concurrently -c \"cyan,blue\" \"yarn:rollup.watch\" \"yarn:wds\" --kill-others",
-    "storybook:axe": "yarn storybook.prod && yarn axe-storybook --build-dir=storybook-static/",
+    "storybook.axe": "yarn storybook.prod && yarn axe-storybook --build-dir=storybook-static/",
     "storybook.wait": "wait-on ./dist/storybook.css ./src/custom-elements.json ./src/resolved-tailwind-config.ts",
     "storybook.dev": "start-storybook -c src/.storybook -p 6042",
     "storybook.dev.watch": "concurrently -n \"css,storybook\" -c \"green,blue\" \"yarn:generate.css --watch\" \"yarn:storybook.dev\" --kill-others",
