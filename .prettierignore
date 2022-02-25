@@ -18,3 +18,4 @@ docs/
 .octane-ci/
 .bin/
 .docksal/
+.vscode/ 

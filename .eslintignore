@@ -12,3 +12,4 @@ storybook-static/
 .octane-ci/
 .bin/
 .docksal/
+.vscode/
