@@ -21,6 +21,7 @@
   "publishConfig": {
     "registry": "https://us-central1-npm.pkg.dev/phase2-devcloud/phase2-npm/"
   },
+  "sbport": 6042,
   "scripts": {
     "prestart": "yarn prep",
     "start": "yarn storybook.dev.watch",
@@ -35,9 +36,10 @@
     "wds": "wds --app-index dev/index.html --watch --node-resolve",
     "preserve": "yarn prep",
     "serve": "concurrently -c \"cyan,blue\" \"yarn:rollup.watch\" \"yarn:wds\" --kill-others",
-    "storybook.axe": "yarn storybook.prod && yarn axe-storybook --build-dir=storybook-static/",
+    "storybook.axe.prod": "yarn storybook.prod && yarn axe-storybook --build-dir=storybook-static/",
+    "storybook.axe.dev": "yarn axe-storybook --storybook-address=\"http://localhost:${npm_package_sbport}\"",
     "storybook.wait": "wait-on ./dist/storybook.css ./src/custom-elements.json ./src/resolved-tailwind-config.ts",
-    "storybook.dev": "start-storybook -c src/.storybook -p 6042",
+    "storybook.dev": "start-storybook -c src/.storybook -p ${npm_package_sbport}",
     "storybook.dev.watch": "concurrently -n \"css,storybook\" -c \"green,blue\" \"yarn:generate.css --watch\" \"yarn:storybook.dev\" --kill-others",
     "storybook.prod": "yarn prep && yarn storybook.wait && NODE_ENV=production build-storybook -c src/.storybook -o storybook-static",
     "lint": "yarn lint.eslint && yarn lint.prettier",
