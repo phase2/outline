@@ -12,57 +12,128 @@ h6 {
 }
 
 /* Moved to top to allow easier override */
-.outline-text,
+/* .outline-text,
 .outline-text--base {
   @apply text-base;
+} */
+
+/* Default sizes based on comps.
+  Override with level-size prop */
+
+h1 {
+  @apply text-h1-small md:text-h1;
+}
+
+h2 {
+  @apply text-h2-small md:text-h2;
+}
+
+h3 {
+  @apply text-h3-small md:text-h3;
+}
+
+h4 {
+  @apply text-h4-small md:text-h4;
+}
+
+h5 {
+  @apply text-h5;
+}
+
+h6 {
+  @apply text-h6;
+}
+
+.outline-text--base {
+  @apply text-base !important;
 }
 
 .outline-text--xs {
-  @apply text-xs;
+  @apply text-xs !important;
 }
 
 .outline-text--sm {
-  @apply text-sm;
+  @apply text-sm !important;
 }
 
 .outline-text--lg {
-  @apply text-lg;
+  @apply text-lg !important;
+}
+
+.outline-text--lg.mobile {
+  @apply text-base !important;
 }
 
 .outline-text--xl {
-  @apply text-xl;
+  @apply text-xl !important;
+}
+
+.outline-text--xl.mobile {
+  @apply text-base !important;
 }
 
 .outline-text--2xl {
-  @apply text-2xl;
+  @apply text-2xl !important;
+}
+
+.outline-text--2xl.mobile {
+  @apply text-lg !important;
 }
 
 .outline-text--3xl {
-  @apply text-3xl;
+  @apply text-3xl !important;
+}
+
+.outline-text--3xl.mobile {
+  @apply text-lg !important;
 }
 
 .outline-text--4xl {
-  @apply text-4xl;
+  @apply text-4xl !important;
+}
+
+.outline-text--4xl.mobile {
+  @apply text-xl !important;
 }
 
 .outline-text--5xl {
-  @apply text-5xl;
+  @apply text-5xl !important;
+}
+
+.outline-text--5xl.mobile {
+  @apply text-2xl !important;
 }
 
 .outline-text--6xl {
-  @apply text-6xl;
+  @apply text-6xl !important;
+}
+
+.outline-text--6xl.mobile {
+  @apply text-3xl !important;
 }
 
 .outline-text--7xl {
-  @apply text-7xl;
+  @apply text-7xl !important;
+}
+
+.outline-text--7xl.mobile {
+  @apply text-4xl !important;
 }
 
 .outline-text--8xl {
-  @apply text-8xl;
+  @apply text-8xl !important;
+}
+
+.outline-text--8xl.mobile {
+  @apply text-5xl !important;
 }
 
 .outline-text--9xl {
-  @apply text-9xl;
+  @apply text-9xl !important;
+}
+
+.outline-text--9xl.mobile {
+  @apply text-6xl !important;
 }
 
 .outline-font--thin {

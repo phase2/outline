@@ -10,6 +10,7 @@ import {
 } from './config';
 
 import componentStyles from './outline-heading.css.lit';
+import { MobileController } from '../../controllers/mobile-controller';
 
 /**
  * The Heading component.
@@ -18,6 +19,8 @@ import componentStyles from './outline-heading.css.lit';
  */
 @customElement('outline-heading')
 export class OutlineHeading extends OutlineElement {
+  private mobileController = new MobileController(this);
+
   static styles = [componentStyles];
 
   /**
@@ -43,6 +46,7 @@ export class OutlineHeading extends OutlineElement {
       'outline-text': true,
       [`outline-text--${this.levelSize}`]: true,
       [`outline-font--${this.levelStyle}`]: true,
+      'mobile': this.mobileController.isMobile,
     };
     return html`
       <${unsafeStatic(this.level as string)} class=${classMap(classes)}>
