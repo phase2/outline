@@ -42,10 +42,6 @@
   @apply bg-neutral-grayMedium;
 }
 
-.outline-bg-gray {
-  @apply bg-neutral-grayMedium;
-}
-
 .outline-bg-lightgray {
   @apply bg-neutral-grayLight;
 }
