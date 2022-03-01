@@ -42,7 +42,7 @@ and converts to `outline-widget.css.lit.ts` which is then imported into the main
 <Story name="Importing Styles">
   {() => {
     return html`
-<outline-code-block lang="typescript" class="mb-6">
+<outline-code-block language="typescript" class="mb-6">
 import componentStyles from './outline-widget.css.lit';
 ...
 @customElement('outline-widget')
@@ -66,7 +66,7 @@ need to [inherit styles from the superclass](https://lit.dev/docs/components/sty
 <Story name="Inheriting Styles">
   {() => {
     return html`
-<outline-code-block lang="typescript" class="mb-6">
+<outline-code-block language="typescript" class="mb-6">
 import componentStyles from './outline-widget.css.lit';
 ...
 @customElement('outline-widget')
@@ -91,7 +91,7 @@ file as well as including inline css wrapped in the `css` string literal provide
 <Story name="Inline Styles">
   {() => {
     return html`
-<outline-code-block lang="typescript" class="mb-6">
+<outline-code-block language="typescript" class="mb-6">
 import { css } from 'lit';
 import componentStyles from './outline-widget.css.lit';
 ...
@@ -141,7 +141,7 @@ Also note the [`:host`](https://developer.mozilla.org/en-US/docs/Web/CSS/:host) 
 <Story name="Using Tailwind CSS">
   {() => {
     return html`
-<outline-code-block lang="css" class="mb-6">
+<outline-code-block language="css" class="mb-6">
 :host,
 a,
 ::slotted(a) {
@@ -178,7 +178,7 @@ The next section will discuss how and where those are declared or overwritten.
 <Story name="Using CSS Variables">
   {() => {
     return html`
-<outline-code-block lang="css" class="mb-6">
+<outline-code-block language="css" class="mb-6">
 :host,
 a,
 ::slotted(a) {
@@ -217,7 +217,7 @@ However, this separation is only a suggestion, and in theory the `outline.theme.
 <Story name="Defining CSS Variables">
   {() => {
     return html`
-<outline-code-block lang="css" class="mb-6">
+<outline-code-block language="css" class="mb-6">
 :root {  
   ...
   /* Brand specific primary colors. */
@@ -266,7 +266,7 @@ In this example, we see the combination of the samples we used above, including 
 <Story name="-- outline-link.css">
   {() => {
     return html`
-<outline-code-block lang="css" class="mb-6">
+<outline-code-block language="css" class="mb-6">
 :host,
 a,
 ::slotted(a) {
@@ -297,7 +297,7 @@ a:focus,
 <Story name="-- outline-link.css.lit.ts">
   {() => {
     return html`
-<outline-code-block lang="jsx" class="mb-6">
+<outline-code-block language="jsx" class="mb-6">
 import { css } from 'lit';
 export default css\`
 /* Apply standardized box sizing to the component. */

@@ -18,8 +18,8 @@ export type AlertStatusType = typeof alertStatusTypes[number];
 export interface OutlineAlertInterface extends HTMLElement {
   statusType: AlertStatusType;
   size: AlertSize;
-  isInteractive: Boolean;
-  shouldShowIcon: Boolean;
+  isInteractive: boolean;
+  shouldShowIcon: boolean;
 }
 
 /**
@@ -54,7 +54,11 @@ export class OutlineAlert
   render(): TemplateResult {
     // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
     return html`
-      <div id="body" role="${this.isInteractive ? 'alertdialog' : 'alert'}">
+      <div
+        id="body"
+        role="${this.isInteractive ? 'alertdialog' : 'alert'}"
+        aria-labelledby="${this.isInteractive ? 'message' : null}"
+      >
         ${this.shouldShowIcon === true
           ? html`
               <div id="icon">
