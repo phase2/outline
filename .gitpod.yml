@@ -1,4 +1,5 @@
-# https://www.gitpod.io/docs/config-start-tasks
+image:
+  file: .gitpod.Dockerfile
 
 tasks:
   - init: |

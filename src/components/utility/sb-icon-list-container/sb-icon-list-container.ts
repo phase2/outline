@@ -71,7 +71,7 @@ export class SbIconListContainer extends OutlineElement {
       >
       ${this.dropdownTemplate()}
       <label class=${ifDefined(alt)} for="alt">Alt</label>
-      <input type="checkbox" class="alt-checkbox" name="alt" @change=${
+      <input type="checkbox" class="alt-checkbox" name="alt" id="alt" @change=${
         this.handleCheckbox
       }>
       <span class='sr-only'>Search for Icons</span></input>
@@ -99,7 +99,11 @@ export class SbIconListContainer extends OutlineElement {
     );
 
     return html`
-      <select class="dropdown" @change=${this.handleDropdown}>
+      <select
+        aria-label="icon-selector"
+        class="dropdown"
+        @change=${this.handleDropdown}
+      >
         <option value="All Icons">All Icons</option>
         ${options}
       </select>

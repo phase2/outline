@@ -37,7 +37,7 @@ with `OutlineElement` in its chain.
 <Story name="Extending Components">
   {() => {
     return html`
-<outline-code-block lang="typescript" class="mb-6">
+<outline-code-block language="typescript" class="mb-6">
 ...
 /**
 * The Outline Widget component
@@ -58,7 +58,7 @@ export class OutlineWidget extends OutlineElement {
 <Story name="Overriding Styles">
   {() => {
     return html`
-<outline-code-block lang="typescript" class="mb-6">
+<outline-code-block language="typescript" class="mb-6">
 import componentStyles from './outline-widget.css.lit';
 ...
 /**
@@ -100,7 +100,7 @@ Then we create an `ExtendingOutlineWidget` component, and override the property 
 <Story name="-- OutlineWidget">
   {() => {
     return html`
-<outline-code-block lang="typescript" class="mb-6">
+<outline-code-block language="typescript" class="mb-6">
 import { OutlineElement } from '../../base/outline-element/outline-element';
 ...
 /**
@@ -126,7 +126,7 @@ export class OutlineWidget extends OutlineElement {
 <Story name="-- ExtendingOutlineWidget">
   {() => {
     return html`
-<outline-code-block lang="typescript" class="mb-6">
+<outline-code-block language="typescript" class="mb-6">
 import { OutlineWidget } from '../../base/outline-widget/outline-widget';
 ...
 /**

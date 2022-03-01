@@ -147,9 +147,11 @@ const Template = ({
       .divider=${divider}
       .columns=${columns}
     >
+      ${headingSlotContent ? html`
       <outline-heading slot="heading" level="h3" levelSize="3xl"
         >${headingSlotContent}</outline-heading
       >
+      `: ``}
       ${items(itemCount).map(
         item => html`
           <li style=${`padding: 0.5rem; list-style: none`}>

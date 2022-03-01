@@ -63,17 +63,16 @@ export default {
   args: {
     cardContent: html`
       <div slot="content" class="p-4">
-        <!-- <outline-heading level="h2" level-size="xxl" level-size="light"
+        <outline-heading level="h2" level-size="2xl" level-style="light"
           >This is a sample card. It has content in the content
           slot.</outline-heading
-        > -->
+        >
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          <a href="#" target="_self">Quis istum dolorem timet?</a> Sin
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sin
           laboramus, quis est, qui alienae modum statuat industriae? Quae qui
           non vident, nihil umquam magnum ac cognitione dignum amaverunt. Res
           enim concurrent contrariae.
-          <a href="#" target="_self">Duo Reges: constructio interrete.</a> Res
+          Duo Reges: constructio interrete. Res
           enim concurrent contrariae. Quaesita enim virtus est, non quae
           relinqueret naturam, sed quae tueretur. Omnia contraria, quos etiam
           insanos esse vultis.
@@ -96,11 +95,11 @@ const Template = ({
   html`
     <outline-container>
       <outline-card
-        ?hasshadow=${ifDefined(hasShadow)}
-        isrounded="${ifDefined(isRounded)}"
         bgcolorheader="${ifDefined(bgColorHeader)}"
         bgcolorcontent="${ifDefined(bgColorContent)}"
         bgcolorfooter="${ifDefined(bgColorFooter)}"
+        has-shadow=${ifDefined(hasShadow)}
+        is-rounded="${ifDefined(isRounded)}"
       >
           ${cardHeader}
           ${cardContent}
@@ -115,9 +114,9 @@ CardWithImageHeader.args = {
   cardHeader: html`
     <div slot="header">
       <div class="max-h-80 overflow-hidden object-cover">
-        <!-- <outline-image>
+        <outline-image>
           <img slot="multimedia" src=${sampleImage1} alt="Random Image" />
-        </outline-image> -->
+        </outline-image>
       </div>
     </div>
   `,
@@ -125,27 +124,27 @@ CardWithImageHeader.args = {
     <div slot="footer" class="p-4 flex justify-between">
       <p class="font-semibold">02/2020</p>
       <p class="font-semibold text-blue-500 hover:text-blue-900">
-        <a href="#">Read More</a>
+        <outline-link link-href="#">Read More</outline-link>
       </p>
     </div>
   `,
   cardContent: html`
     <div slot="content" class="p-4">
-      <!-- <outline-heading
+      <outline-heading
         level="h2"
         level-size="5xl"
         level-style="semibold"
         class="mb-6"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </outline-heading> -->
+      </outline-heading>
       <p class="mb-4">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        <a href="#" target="_self">Quis istum dolorem timet?</a> Sin laboramus,
+        Quis istum dolorem timet? Sin laboramus,
         quis est, qui alienae modum statuat industriae? Quae qui non vident,
         nihil umquam magnum ac cognitione dignum amaverunt. Res enim concurrent
         contrariae.
-        <a href="#" target="_self">Duo Reges: constructio interrete.</a> Res
+        Duo Reges: constructio interrete. Res
         enim concurrent contrariae. Quaesita enim virtus est, non quae
         relinqueret naturam, sed quae tueretur. Omnia contraria, quos etiam
         insanos esse vultis.
@@ -164,8 +163,8 @@ CardWithImageHeader.args = {
       </p>
     </div>
   `,
-  bgColorFooter: 'gray',
-  bgColorContent: 'lightgray',
+  bgColorFooter: 'white',
+  bgColorContent: 'white',
   isRounded: true,
   hasShadow: true,
 };
@@ -174,21 +173,21 @@ const cleanTemplate = (): TemplateResult =>
   html`
     <outline-container>
       <outline-card
-        hasshadow="true"
-        isrounded="true"
-        bgcolorheader="lightgray"
-        bgcolorcontent="gray"
-        bgcolorfooter="lightgray"
+        bgcolorheader="white"
+        bgcolorcontent="white"
+        bgcolorfooter="white"
+        has-shadow
+        is-rounded
       >
         <div slot="header">
-          <!-- <outline-heading
+          <outline-heading
             level="h2"
             level-size="2xl"
             level-style="normal"
-            class="p-4 text-neutral-white"
+            class="p-4"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          </outline-heading> -->
+          </outline-heading>
         </div>
         <div slot="content" class="p-4 md:p-8 md:flex">
           <p class="text-lg">
@@ -206,7 +205,7 @@ const cleanTemplate = (): TemplateResult =>
         <div slot="footer" class="p-4 flex justify-between text-xs">
           <p class="font-semibold">02/2020</p>
           <p class="font-semibold text-blue-500 hover:text-blue-900">
-            <a href="#">Read More</a>
+          <outline-link link-href="#">Read More</outline-link>
           </p>
         </div>
       </outline-card>
