@@ -26,6 +26,7 @@ export function format(
  */
 export const argTypeSlotContent = {
   defaultSlot: {
+    table: { category: 'Slots', defaultValue: { summary: 'NULL' } },
     name: 'Default Slot',
     description:
       'Renders anything that is passed into the inner HTML of the given element.',

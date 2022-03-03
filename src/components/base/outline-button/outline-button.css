@@ -1,60 +1,81 @@
 :host {
   /* flex and border-radius constrain the actual boundaries of the element,
-   preventing literal edge cases where a user can click on the edge or corner of the button and defeate states like disabled */
-  @apply flex rounded-xl;
-}
-
-.btn[aria-disabled='true'] {
-  @apply pointer-events-none cursor-not-allowed bg-demo-lightGray text-demo-darkGray !important;
+   preventing literal edge cases where a user can click on the edge or corner of the button and defeat states like disabled */
+  @apply inline-flex rounded-lg align-middle;
 }
 
 .btn {
-  @apply inline-flex cursor-pointer content-center rounded-xl font-body leading-tight no-underline transition-colors duration-300;
+  @apply flex flex-nowrap items-center;
+  @apply cursor-pointer rounded-lg;
+  @apply transition-colors duration-300;
+  @apply font-semibold no-underline outline-none;
+  @apply leading-normal !important;
+  padding: 0.5em 1em;
 }
 
-.btn outline-icon {
-  @apply relative ml-2 -mb-2 w-6;
+.btn[aria-disabled='true'] {
+  @apply pointer-events-none cursor-not-allowed select-none !important;
 }
 
 .btn.primary {
-  @apply bg-demo-darkBlue text-neutral-white;
+  @apply border-none bg-demo-darkBlue text-demo-white;
 
   &:hover,
   &:focus {
-    @apply bg-neutral-black text-neutral-white;
+    @apply bg-demo-mediumBlue text-demo-white ring-2 ring-demo-darkBlue;
+  }
+}
+
+.primary[aria-disabled='true'] {
+  @apply bg-demo-lightGray text-demo-darkGray !important;
+
+  &:hover,
+  &:focus {
+    @apply ring-2 ring-demo-mediumGray;
   }
 }
 
 .btn.secondary {
-  @apply bg-demo-lightGray text-demo-darkGray;
+  @apply bg-demo-white text-demo-darkBlue;
+  border: 1px solid var(--demo-darkBlue);
 
   &:hover,
   &:focus {
-    @apply bg-neutral-black text-neutral-white;
+    @apply bg-demo-lightBlue text-demo-darkBlue ring-2 ring-demo-mediumBlue;
   }
 }
 
-.btn.tertiary {
-  @apply bg-demo-lightBlue text-demo-darkGray;
+.secondary[aria-disabled='true'] {
+  @apply bg-demo-lightGray text-demo-darkGray !important;
+  border-color: var(--demo-darkGray);
 
   &:hover,
   &:focus {
-    @apply bg-neutral-black text-neutral-white;
+    @apply ring-2 ring-demo-mediumGray;
   }
+}
+
+.btn.small {
+  @apply text-sm;
+}
+
+.btn.medium {
+  @apply text-base;
+}
+
+.btn.large {
+  @apply text-lg;
 }
 
 .btn.none {
-  @apply flex items-center px-4 text-base;
-}
+  @apply py-0 pr-4 pl-0 text-base font-semibold text-demo-darkBlue !important;
 
-.small {
-  @apply px-1 text-sm;
-}
+  &:hover,
+  &:focus {
+    @apply text-demo-mediumBlue underline !important;
+  }
 
-.medium {
-  @apply px-4 text-lg;
-}
-
-.large {
-  @apply px-12 py-4 text-lg;
+  &[aria-disabled='true'] {
+    @apply text-demo-darkGray !important;
+  }
 }

@@ -9,8 +9,8 @@ export type ModalSize = typeof modalSizes[number];
 
 // This is helpful in testing.
 export interface OutlineModalInterface extends HTMLElement {
-  isOpen: Boolean;
-  shouldForceAction: Boolean;
+  isOpen: boolean;
+  shouldForceAction: boolean;
   size?: ModalSize;
   open: () => void;
   close: () => void;

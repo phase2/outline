@@ -20,14 +20,26 @@
   --neutral-black: #000;
 
   /* Colors for UI notification messages. */
-  --ui-errorBackground: #fee2e2;
-  --ui-warningBackground: #fef9c3;
-  --ui-infoBackground: #dbeafe;
-  --ui-successBackground: #dcfce7;
-  --ui-errorText: #b91c1c;
-  --ui-warningText: #d97706;
-  --ui-infoText: #1d4ed8;
-  --ui-successText: #047857;
+  --status-success: #2f855a;
+  --status-warning: #b64301;
+  --status-error: #c53030;
+  --status-info: #1e3a8a;
+
+  --ui-infoBackground: var(--demo-white);
+  --ui-infoText: var(--status-info);
+  --ui-infoBorder: var(--status-info);
+
+  --ui-successBackground: var(--demo-white);
+  --ui-successText: var(--status-success);
+  --ui-successBorder: var(--status-success);
+
+  --ui-warningBackground: var(--demo-white);
+  --ui-warningText: var(--status-warning);
+  --ui-warningBorder: var(--status-warning);
+
+  --ui-errorBackground: var(--demo-white);
+  --ui-errorText: var(--status-error);
+  --ui-errorBorder: var(--status-error);
 
   /* Demo colors used for default component demonstrations */
   --demo-darkBlue: #2563eb;

@@ -40,7 +40,7 @@ export class OutlineCodeBlock extends OutlineElement {
    * @param lang
    */
   @property()
-  lang = 'typescript';
+  language = 'typescript';
 
   connectedCallback() {
     super.connectedCallback();
@@ -48,7 +48,7 @@ export class OutlineCodeBlock extends OutlineElement {
 
   render(): TemplateResult {
     const lineNumbers = this.lineNumbers ? 'line-numbers' : '';
-    const language = `language-${this.lang.toLowerCase()}`;
+    const language = `language-${this.language.toLowerCase()}`;
     this.code = this.formatCode();
 
     return html`
@@ -62,8 +62,8 @@ export class OutlineCodeBlock extends OutlineElement {
 
   formatCode = () => {
     if (
-      this.lang.toLowerCase() === 'jsx' ||
-      this.lang.toLowerCase() === 'html'
+      this.language.toLowerCase() === 'jsx' ||
+      this.language.toLowerCase() === 'html'
     ) {
       return this.innerHTML;
     } else {
@@ -74,7 +74,7 @@ export class OutlineCodeBlock extends OutlineElement {
   prismCodeLookup = () => {
     let prismCode = '';
 
-    switch (this.lang) {
+    switch (this.language) {
       case 'css':
         prismCode = Prism.highlight(this.code, Prism.languages.css, 'css');
         break;
