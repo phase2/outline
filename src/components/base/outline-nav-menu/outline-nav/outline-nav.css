@@ -1,5 +1,5 @@
 .nav--main-list {
-  @apply flex bg-blue-500 relative;
+  @apply relative flex bg-blue-500;
 }
 
 .nav--main-list-slot::slotted(outline-nav-item),

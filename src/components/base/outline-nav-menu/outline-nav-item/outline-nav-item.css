@@ -11,7 +11,7 @@ a {
 }
 
 .list-item {
-  @apply flex w-52 flex-col relative text-blue-500 w-full py-2;
+  @apply relative flex w-52 w-full flex-col py-2 text-blue-500;
   border-bottom: 1px solid var(--blue-500);
 
   & a {
@@ -20,12 +20,12 @@ a {
 }
 
 .list-item--main {
-  @apply px-3 pb-2 pt-8 mt-2 rounded-t-md relative text-xl text-neutral-white;
+  @apply relative mt-2 rounded-t-md px-3 pb-2 pt-8 text-xl text-neutral-white;
 }
 
 .list-item--main[active],
 .list-item[active] {
-  @apply bg-neutral-white 
+  @apply bg-neutral-white;
 }
 
 .list-item--main[active] > span,
@@ -58,7 +58,7 @@ a {
 }
 
 .list-item--sub-menu {
-  @apply hidden absolute flex-col list-none p-0 top-full w-full min-w-max;
+  @apply absolute top-full hidden w-full min-w-max list-none flex-col p-0;
 }
 
 .list-item[active] > .list-item--sub-menu {
@@ -66,13 +66,13 @@ a {
 }
 
 /* Mobile */
-.list-item.mobile, 
+.list-item.mobile,
 .list-item--main.mobile {
   @apply flex flex-row justify-between;
 }
 
 .list-item--main.mobile {
-  @apply rounded-none
+  @apply rounded-none;
 }
 
 .list-item--main.mobile[active] > .list-item--sub-menu,
@@ -81,7 +81,7 @@ a {
 }
 
 .list-item--main.mobile[active] > .list-item--sub-menu {
-  @apply px-3 ;
+  @apply px-3;
 }
 
 /* Utility */
