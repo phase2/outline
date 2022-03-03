@@ -69,6 +69,7 @@ a {
 .list-item.mobile,
 .list-item--main.mobile {
   @apply flex flex-row justify-between;
+  transition: 0.5s
 }
 
 .list-item--main.mobile {
@@ -81,19 +82,19 @@ a {
 }
 
 .list-item--main.mobile[active] > .list-item--sub-menu {
-  @apply px-3;
+  @apply pl-3;
+  width: calc(100vw - 43px);
 }
+
+
 
 /* Utility */
 
 .flyaway {
-  display: none !important;
-  position: absolute;
-  left: 10000px;
-  height: 0;
-  padding: 0;
-  margin: 0;
-  top: 0;
+  transform: translateX(-150%);
+  visibility: hidden;
+  opacity: 0;
+  @apply h-0 p-0 m-0 border-0 !important;
 }
 
 /* makes sure pointer events register on the button not the icon. */
