@@ -5,10 +5,11 @@ import {
   argTypeHidden,
   argTypeSlotContent,
 } from '../outline-element/utils/utils';
-import { ButtonVariant } from './outline-button';
+import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
 
 const buttonOptions: ButtonVariant[] = ['none', 'primary', 'secondary'];
+const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];
 // @TODO: Organize and refine story controls.
 
 export default {
@@ -16,8 +17,17 @@ export default {
   component: 'outline-button',
   argTypes: {
     ...argTypeSlotContent,
-    target: argTypeTarget,
+    target: {
+      name: 'button-target',
+      description: 'https://www.w3schools.com/tags/att_a_target.asp',
+      options: ['_blank', '_self', '_parent', '_top'],
+      control: {
+        type: 'select',
+      },
+      table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
+    },
     isDisabled: {
+      name: 'is-disabled',
       table: { category: 'Properties', defaultValue: { summary: 'false' } },
       description:
         'Set whether the button is disabled. Only applies to implementations not using the url property',
@@ -26,6 +36,7 @@ export default {
       },
     },
     url: {
+      name: 'button-url',
       table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
       description:
         'The url to use for a link. This will render an anchor element. Do not set this prop if you want to render a button element.',
@@ -34,6 +45,7 @@ export default {
       },
     },
     label: {
+      name: 'button-label',
       table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
       description:
         'Label to be passed to `aria-label` on the link or button element.',
@@ -42,6 +54,7 @@ export default {
       },
     },
     variant: {
+      name: 'button-variant',
       table: { category: 'Properties', defaultValue: { summary: 'primary' } },
       description: 'The button style variant to use.',
       options: buttonOptions,
@@ -49,7 +62,15 @@ export default {
         type: 'select',
       },
     },
-    size: argTypeHidden,
+    size: {
+      name: 'button-size',
+      table: { category: 'Properties', defaultValue: { summary: 'medium' } },
+      description: 'The button size variant.',
+      options: buttonSizes,
+      control: {
+        type: 'select',
+      },
+    },
   },
   args: {
     variant: 'primary',
@@ -87,7 +108,7 @@ const Template = ({
   button-size="${size}"
   .onClick="${onClick}"
   .onKeyUp="${onKeyUp}"
-  ${isDisabled ? 'is-disabled' : ''}
+  ?is-disabled=${isDisabled}
 >
   ${defaultSlot}
 </outline-button>
@@ -113,18 +134,18 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
   <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
   <p>This section of primary buttons demonstrates various configurations, and can be navigated to test hover/focus states.</p>
   <div class="my-6">
-    <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
-    <outline-button class="mr-2" button-url="#" button-label="Button">Button</outline-button>
     <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+    <outline-button class="mr-2" button-url="#" button-label="Button">Button</outline-button>
+    <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
   </div>
   
   <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>  
   <p>This section of primary buttons demonstrates the disabled version of the same buttons as the previous example.</p>
   
   <div class="my-6">
-    <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
-    <outline-button class="mr-2" button-url="#" button-label="Button" is-disabled>Button</outline-button>
     <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
+    <outline-button class="mr-2" button-url="#" button-label="Button" is-disabled>Button</outline-button>
+    <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
   </div>
 `;
 
@@ -135,13 +156,13 @@ PrimaryButtons.parameters = {
     source: {
       code: `
 <!-- Primary Buttons -->
-<outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
-<outline-button class="mr-2" button-url="#" button-label="Button">Button</outline-button>
 <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+<outline-button class="mr-2" button-url="#" button-label="Button">Button</outline-button>
+<outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
 <!-- Primary Buttons (Disabled) -->
-<outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
-<outline-button class="mr-2" button-url="#" button-label="Button" is-disabled>Button</outline-button>
 <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
+<outline-button class="mr-2" button-url="#" button-label="Button" is-disabled>Button</outline-button>
+<outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
       `,
     },
   },
@@ -152,16 +173,16 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
 <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
 <p>This section of primary buttons demonstrates various configurations, and can be navigated to test hover/focus states.</p>
 <div class="my-6">
-    <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
-    <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button">Button</outline-button>
-    <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
-  </div>
+  <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+  <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button">Button</outline-button>
+  <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
+</div>
 <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>  
 <p>This section of primary buttons demonstrates the disabled version of the same buttons as the previous example.</p>
 <div class="my-6">
-  <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
-  <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
   <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
+  <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
+  <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
 </div>
 `;
 
@@ -173,13 +194,13 @@ SecondaryButtonsTemplate.parameters = {
     source: {
       code: `
       <!-- Primary Buttons -->
-      <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
-      <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button">Button</outline-button>
       <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+      <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button">Button</outline-button>
+      <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
       <!-- Primary Buttons (Disabled) -->
-      <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
-      <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
       <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
+      <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
+      <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
     `,
     },
   },

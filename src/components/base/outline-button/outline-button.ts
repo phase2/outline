@@ -4,6 +4,7 @@ import componentStyles from './outline-button.css.lit';
 import { LinkTargetType } from '../outline-link/config';
 import { OutlineElement } from '../outline-element/outline-element';
 import { SlotController } from '../../controllers/slot-controller';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 export type ButtonVariant = 'none' | 'primary' | 'secondary';
 
@@ -85,14 +86,14 @@ export class OutlineButton extends OutlineElement {
           class="btn ${this.buttonVariant} ${this.buttonSize}"
           href=${this.buttonUrl}
           target=${this.buttonTarget}
-          aria-label="${this.buttonLabel}"
-          aria-disabled=${this.isDisabled}
+          aria-label="${ifDefined(this.buttonLabel)}"
+          aria-disabled="${ifDefined(this.isDisabled)}"
           ><slot></slot
         ></a>`
       : html`<button
           class="btn ${this.buttonVariant} ${this.buttonSize}"
-          aria-disabled="${this.isDisabled}"
-          aria-label="${this.buttonLabel}"
+          aria-label="${ifDefined(this.buttonLabel)}"
+          aria-disabled="${ifDefined(this.isDisabled)}"
           .onclick="${this.onClick}"
           .onkeyup="${this.onKeyUp}"
         >

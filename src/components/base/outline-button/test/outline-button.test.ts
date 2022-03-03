@@ -19,11 +19,25 @@ describe('outline-button', () => {
     );
   });
 
+  it('renders with an aria-label', async () => {
+    const el = await fixture(
+      html`<outline-button button-label="Button label"></outline-button>`
+    );
+    assert.shadowDom.equal(
+      el,
+      `
+      <button aria-disabled="false" aria-label="Button label" class="btn medium primary">
+        <slot></slot>
+      </button>
+    `
+    );
+  });
+
   it('renders as a link', async () => {
     const el = await fixture(
       html`<outline-button
-        url="https://outline.phase2tech.com"
-        target="_blank"
+        button-url="https://outline.phase2tech.com"
+        button-target="_blank"
       ></outline-button>`
     );
     assert.shadowDom.equal(
@@ -38,7 +52,7 @@ describe('outline-button', () => {
 
   it('renders as a disabled button', async () => {
     const el = await fixture(
-      html`<outline-button isDisabled></outline-button>`
+      html`<outline-button is-disabled></outline-button>`
     );
     assert.shadowDom.equal(
       el,
@@ -50,9 +64,9 @@ describe('outline-button', () => {
     );
   });
 
-  it('renders a primary button variant', async () => {
+  it('renders a standard primary button variant', async () => {
     const el = await fixture(
-      html`<outline-button variant="primary"></outline-button>`
+      html`<outline-button button-variant="primary"></outline-button>`
     );
     assert.shadowDom.equal(
       el,
@@ -64,9 +78,43 @@ describe('outline-button', () => {
     );
   });
 
+  it('renders a small primary button variant', async () => {
+    const el = await fixture(
+      html`<outline-button
+        button-variant="primary"
+        button-size="small"
+      ></outline-button>`
+    );
+    assert.shadowDom.equal(
+      el,
+      `
+      <button aria-disabled="false" class="btn small primary">
+        <slot></slot>
+      </button>
+    `
+    );
+  });
+
+  it('renders a large primary button variant', async () => {
+    const el = await fixture(
+      html`<outline-button
+        button-variant="primary"
+        button-size="large"
+      ></outline-button>`
+    );
+    assert.shadowDom.equal(
+      el,
+      `
+      <button aria-disabled="false" class="btn large primary">
+        <slot></slot>
+      </button>
+    `
+    );
+  });
+
   it('renders a secondary button variant', async () => {
     const el = await fixture(
-      html`<outline-button variant="secondary"></outline-button>`
+      html`<outline-button button-variant="secondary"></outline-button>`
     );
     assert.shadowDom.equal(
       el,
@@ -78,14 +126,14 @@ describe('outline-button', () => {
     );
   });
 
-  it('renders a tertiary variant', async () => {
+  it('renders a "none" variant', async () => {
     const el = await fixture(
-      html`<outline-button variant="tertiary"></outline-button>`
+      html`<outline-button button-variant="none"></outline-button>`
     );
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" class="btn medium tertiary">
+      <button aria-disabled="false" class="btn medium none">
         <slot></slot>
       </button>
     `
