@@ -1,8 +1,6 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { argTypeTarget } from '../outline-link/config';
 import {
-  argTypeHidden,
   argTypeSlotContent,
 } from '../outline-element/utils/utils';
 import { ButtonVariant, ButtonSize } from './outline-button';
@@ -10,7 +8,6 @@ import './outline-button';
 
 const buttonOptions: ButtonVariant[] = ['none', 'primary', 'secondary'];
 const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];
-// @TODO: Organize and refine story controls.
 
 export default {
   title: 'Navigation/Button',
