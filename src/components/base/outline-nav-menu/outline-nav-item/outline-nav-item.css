@@ -1,0 +1,102 @@
+ul {
+  @apply m-0 p-0;
+}
+
+li {
+  @apply list-none;
+}
+
+a {
+  color: unset;
+}
+
+.list-item {
+  @apply flex w-52 flex-col relative text-blue-500 w-full py-2;
+  border-bottom: 1px solid var(--blue-500);
+
+  & a {
+    @apply no-underline !important;
+  }
+}
+
+.list-item--main {
+  @apply px-3 pb-2 pt-8 mt-2 rounded-t-md relative text-xl text-neutral-white;
+}
+
+.list-item--main[active],
+.list-item[active] {
+  @apply bg-neutral-white 
+}
+
+.list-item--main[active] > span,
+.list-item--main[active] > a,
+.list-item[active] > span,
+.list-item[active] > a {
+  @apply text-blue-500 !important;
+}
+
+.list-item--main[active] > .list-item--sub-menu,
+.list-item[active] > .list-item--sub-menu {
+  @apply flex;
+}
+
+.list-item--button {
+  display: flex;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  align-items: center;
+  max-width: fit-content;
+}
+
+/* .list-item--button-icon {
+  @apply
+} */
+
+.list-item--label {
+  @apply m-0;
+}
+
+.list-item--sub-menu {
+  @apply hidden absolute flex-col list-none p-0 top-full w-full min-w-max;
+}
+
+.list-item[active] > .list-item--sub-menu {
+  @apply left-full top-0;
+}
+
+/* Mobile */
+.list-item.mobile, 
+.list-item--main.mobile {
+  @apply flex flex-row justify-between;
+}
+
+.list-item--main.mobile {
+  @apply rounded-none
+}
+
+.list-item--main.mobile[active] > .list-item--sub-menu,
+.list-item.mobile[active] > .list-item--sub-menu {
+  @apply left-0 top-full;
+}
+
+.list-item--main.mobile[active] > .list-item--sub-menu {
+  @apply px-3 ;
+}
+
+/* Utility */
+
+.flyaway {
+  display: none !important;
+  position: absolute;
+  left: 10000px;
+  height: 0;
+  padding: 0;
+  margin: 0;
+  top: 0;
+}
+
+/* makes sure pointer events register on the button not the icon. */
+.list-item--button-icon {
+  pointer-events: none;
+}
