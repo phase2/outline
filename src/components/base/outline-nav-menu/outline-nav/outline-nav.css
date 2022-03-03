@@ -1,0 +1,14 @@
+.nav--main-list {
+  @apply flex bg-blue-500 relative;
+}
+
+.nav--main-list-slot::slotted(outline-nav-item),
+.nav--main-list-slot::slotted(outline-nav-link) {
+  @apply flex w-full justify-evenly;
+}
+
+/* Mobile */
+
+.nav--main-list.mobile {
+  @apply flex-col px-2;
+}
