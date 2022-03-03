@@ -1,5 +1,4 @@
 import { html, TemplateResult } from 'lit';
-import { ifDefined } from 'lit/directives/if-defined';
 import './outline-nav';
 import '../outline-nav-item/outline-nav-item';
 import '../outline-nav-link/outline-nav-link';
