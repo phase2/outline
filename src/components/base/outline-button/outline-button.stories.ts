@@ -17,7 +17,7 @@ export default {
     target: {
       name: 'button-target',
       description: 'https://www.w3schools.com/tags/att_a_target.asp',
-      options: ['_blank', '_self', '_parent', '_top'],
+      options: [undefined, '_blank', '_self', '_parent', '_top'],
       control: {
         type: 'select',
       },
@@ -114,8 +114,9 @@ const Template = ({
 export const Link = Template.bind({});
 Link.args = {
   defaultSlot: 'Link Button',
-  url: '#',
-  size: 'medium',
+  url: 'https://outline.phase2tech.com',
+  target: '_blank',
+  variant: 'primary',
   isDisabled: false,
 };
 

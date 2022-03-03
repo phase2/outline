@@ -44,7 +44,7 @@ export class OutlineButton extends OutlineElement {
    * The target to use for a link, used in conjunction with the url attribute.
    */
   @property({ type: String, attribute: 'button-target' })
-  buttonTarget: LinkTargetType = '_self';
+  buttonTarget: LinkTargetType;
 
   /**
    * The button style variant to use.
@@ -85,7 +85,7 @@ export class OutlineButton extends OutlineElement {
       ? html` <a
           class="btn ${this.buttonVariant} ${this.buttonSize}"
           href=${this.buttonUrl}
-          target=${this.buttonTarget}
+          target=${ifDefined(this.buttonTarget)}
           aria-label="${ifDefined(this.buttonLabel)}"
           aria-disabled="${ifDefined(this.isDisabled)}"
           ><slot></slot
