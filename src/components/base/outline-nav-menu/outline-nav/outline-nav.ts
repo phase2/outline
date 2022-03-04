@@ -76,7 +76,6 @@ export class OutlineNav extends OutlineElement {
       [...this.slottedListItems].map(el => {
         const isNavItem = Object?.keys(el)?.includes('sub') ? true : false;
         isNavItem ? el.setAttribute('toplevel', 'toplevel') : null;
-        // el.setAttribute('parentID', this.id)
       });
     }
   }

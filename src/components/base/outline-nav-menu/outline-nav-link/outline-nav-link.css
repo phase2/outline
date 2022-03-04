@@ -1,3 +1,17 @@
 .menu-link > a {
-  @apply text-blue-500;
+  @apply text-blue-500 no-underline;
+  &:hover,
+  &:focus {
+    @apply font-semibold text-blue-900;
+  }
+}
+
+.menu-link {
+  @apply py-2;
+  border-bottom: solid 1px var(--blue-500);
+
+  &:hover,
+  &:focus {
+    border-bottom: solid 1px var(--blue-900);
+  }
 }

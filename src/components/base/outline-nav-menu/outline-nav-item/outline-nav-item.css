@@ -28,11 +28,18 @@ a {
   @apply bg-neutral-white;
 }
 
+.list-item[active] {
+  border-bottom: 1px solid var(--blue-900);
+}
+
 .list-item--main[active] > span,
-.list-item--main[active] > a,
+.list-item--main[active] > a {
+  @apply text-blue-500;
+}
+
 .list-item[active] > span,
 .list-item[active] > a {
-  @apply text-blue-500 !important;
+  @apply font-medium text-blue-900;
 }
 
 .list-item--main[active] > .list-item--sub-menu,
@@ -69,7 +76,14 @@ a {
 .list-item.mobile,
 .list-item--main.mobile {
   @apply flex flex-row justify-between;
-  transition: 0.5s
+  transition: 0.5s;
+}
+
+.list-item--main.mobile[active] > span,
+.list-item--main.mobile[active] > a,
+.list-item.mobile[active] > a,
+.list-item.mobile[active] > span {
+  @apply text-blue-900;
 }
 
 .list-item--main.mobile {
@@ -78,7 +92,7 @@ a {
 
 .list-item--main.mobile[active] > .list-item--sub-menu,
 .list-item.mobile[active] > .list-item--sub-menu {
-  @apply left-0 top-full;
+  @apply left-0 top-full min-w-min;
 }
 
 .list-item--main.mobile[active] > .list-item--sub-menu {
@@ -86,7 +100,9 @@ a {
   width: calc(100vw - 43px);
 }
 
-
+.list-item.mobile[active] > .list-item--sub-menu {
+  width: calc(100vw - 56px);
+}
 
 /* Utility */
 
@@ -94,7 +110,7 @@ a {
   transform: translateX(-150%);
   visibility: hidden;
   opacity: 0;
-  @apply h-0 p-0 m-0 border-0 !important;
+  @apply m-0 h-0 border-0 p-0 !important;
 }
 
 /* makes sure pointer events register on the button not the icon. */
