@@ -8,6 +8,13 @@ import { customElement } from 'lit/decorators.js';
 export class OutlineElement extends LitElement {
   //static styles: CSSResultGroup = [componentStyles];
 
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+  }
   /**
    * Create a conditional slot.
    *

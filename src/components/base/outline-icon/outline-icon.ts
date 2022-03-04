@@ -26,20 +26,24 @@ export default class OutlineIcon extends OutlineElement {
   @state() private svg = '';
 
   /** The name of the icon to draw. */
-  @property() name?: string;
+  @property({ type: String, reflect: true, attribute: 'name' })
+  name?: string;
 
   /**
    * An external URL of an SVG file.
    *
    * WARNING: Be sure you trust the content you are including as it will be executed as code and can result in XSS attacks.
    */
-  @property() src?: string;
+  @property({ type: String, attribute: 'src' })
+  src?: string;
 
   /** An alternate description to use for accessibility. If omitted, the icon will be ignored by assistive devices. */
-  @property() label = '';
+  @property({ type: String, attribute: 'label' })
+  label = '';
 
   /** The name of a registered custom icon library. */
-  @property() library = 'default';
+  @property({ type: String, attribute: 'library' })
+  library = 'default';
 
   connectedCallback() {
     super.connectedCallback();
@@ -112,7 +116,6 @@ export default class OutlineIcon extends OutlineElement {
 
   render() {
     const hasLabel = typeof this.label === 'string' && this.label.length > 0;
-
     return html` <div
       part="base"
       class="icon"
