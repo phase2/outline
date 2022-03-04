@@ -52,7 +52,6 @@ export class OutlineNavItem extends OutlineElement {
         @mouseover=${this.desktopMouseOverOpen}
         @mouseout=${this.desktopMouseOutClose}
         ?active=${this.open}
-        @click=${this.handleToggleMenu}
       >
         ${this.configureTemplate(this.item)}
         ${this.isMobile ? this.buttonTemplate(this.item) : null}
@@ -69,16 +68,17 @@ export class OutlineNavItem extends OutlineElement {
   }
 
   firstUpdated() {
+    this.handleMobileEventListener();
     window.addEventListener(
       'resize',
-      debounce(() => this.updateIsMobile(), 100)
+      debounce(() => this.handleResize(), 100)
     );
   }
 
   disconnectedCallback() {
     window.removeEventListener(
       'resize',
-      debounce(() => this.updateIsMobile(), 100)
+      debounce(() => this.handleResize(), 100)
     );
   }
 
@@ -165,14 +165,14 @@ export class OutlineNavItem extends OutlineElement {
 
   desktopMouseOverOpen() {
     if (!this.isMobile) {
-      this.shadowRoot!.children[0].setAttribute('active', 'active');
+      this.applyActiveAttribute();
       this.open = true;
     }
   }
 
   desktopMouseOutClose() {
     if (!this.isMobile) {
-      this.shadowRoot!.children[0].removeAttribute('active');
+      this.removeActiveAttribute();
       this.open = false;
     }
   }
@@ -218,6 +218,26 @@ export class OutlineNavItem extends OutlineElement {
     }
   }
 
+  passMobileClickToButton() {
+    const childButton = [...this.children].filter(
+      el => el.localName === 'button'
+    )[0] as HTMLButtonElement;
+    childButton?.click();
+  }
+
+  handleMobileEventListener() {
+    if (this.mobileController.isMobile) {
+      const thisLiElement = this.shadowRoot!.getElementById(
+        this.id
+      ) as HTMLElement;
+      thisLiElement?.addEventListener('click', this.passMobileClickToButton);
+    }
+    if (!this.mobileController.isMobile) {
+      const thisLiElement = document.getElementById(this.id) as HTMLElement;
+      thisLiElement?.removeEventListener('click', this.passMobileClickToButton);
+    }
+  }
+
   handleToggleMenu(e: KeyboardEvent) {
     const keyed = e?.type === 'keydown';
     if (keyed) {
@@ -234,7 +254,14 @@ export class OutlineNavItem extends OutlineElement {
     }
   }
 
-  updateIsMobile() {
-    this.isMobile = this.mobileController.isMobile;
+  handleResize() {
+    const hasSwitched = this.isMobile !== this.mobileController.isMobile;
+    if (hasSwitched) {
+      this.isMobile = this.mobileController.isMobile;
+      this.open = false;
+      this.removeMobileFlyout();
+      this.removeActiveAttribute();
+      this.handleMobileEventListener();
+    }
   }
 }
