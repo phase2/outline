@@ -10,5 +10,5 @@
 /* Mobile */
 
 .nav--main-list.mobile {
-  @apply flex-col px-2;
+  @apply flex-col px-0;
 }
