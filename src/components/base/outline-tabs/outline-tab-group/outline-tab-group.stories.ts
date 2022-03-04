@@ -51,11 +51,6 @@ export default {
   component: 'outline-tab-group',
   parameters: {
     viewMode: 'docs',
-    previewTabs: {
-      canvas: {
-        hidden: true,
-      },
-    },
   },
   argTypes: {
     placement: {
