@@ -1,72 +1,132 @@
-import { CSSResultGroup, html, TemplateResult } from 'lit';
+import { html } from 'lit';
+import { customElement, property, state } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
+import { emit } from '../../../internal/event';
+import { watch } from '../../../internal/watch';
 import { OutlineElement } from '../outline-element/outline-element';
-import { customElement, property, query } from 'lit/decorators.js';
-import { iconList, IconList } from './iconList';
-import { styleMap } from 'lit/directives/style-map.js';
-import componentStyles from './outline-icon.css.lit';
-import { MobileController } from '../../controllers/mobile-controller';
+import { getIconLibrary, unwatchIcon, watchIcon } from './library';
+import { requestIcon } from './request';
+
+const parser = new DOMParser();
+
 /**
- * The OutlineIcon component
- * @element outline-icon
+ * @since 1.0
+ * @status stable
+ *
+ * @event outline-load - Emitted when the icon has loaded.
+ * @event {{ status: number }} outline-error - Emitted when the icon fails to load due to an error.
+ *
+ * @csspart base - The component's base wrapper.
  */
 @customElement('outline-icon')
-export class OutlineIcon extends OutlineElement {
-  private mobileController = new MobileController(this);
+export default class OutlineIcon extends OutlineElement {
+  //static styles = styles;
 
-  static styles: CSSResultGroup = [componentStyles];
+  @state() private svg = '';
 
-  @query('svg')
-  icon: SVGElement;
-
-  /**
-   * Color of icon, by default it inherits current text color from wrapper
-   * @param color
-   * @default currentColor
-   */
-  @property()
-  color = 'currentColor';
+  /** The name of the icon to draw. */
+  @property() name?: string;
 
   /**
-   * Determines if svg is hidden from screen readers or not
-   * @param decorative
-   * @default false;
+   * An external URL of an SVG file.
+   *
+   * WARNING: Be sure you trust the content you are including as it will be executed as code and can result in XSS attacks.
    */
-  @property({ type: Boolean })
-  decorative = false;
+  @property() src?: string;
 
-  /**
-   * Name of icon to display
-   * @param name
-   */
-  @property()
-  name: keyof IconList | string;
+  /** An alternate description to use for accessibility. If omitted, the icon will be ignored by assistive devices. */
+  @property() label = '';
 
-  /**
-   * The width and height of the icon on mobile screens
-   * @param mobileSize in pixels
-   * @default 16px
-   */
-  @property({ attribute: 'mobile-size' })
-  mobileSize = '16px';
+  /** The name of a registered custom icon library. */
+  @property() library = 'default';
 
-  /**
-   * The width and height of the icon on screens larger than mobile
-   * @param size in pixels
-   * @default 32px
-   */
-  @property()
-  size = '32px';
-
-  firstUpdated() {
-    this.icon.setAttribute('aria-hidden', `${this.decorative}`);
+  connectedCallback() {
+    super.connectedCallback();
+    watchIcon(this);
   }
 
-  render(): TemplateResult {
-    const styles = {
-      width: this.mobileController.isMobile ? this.mobileSize : this.size,
-      height: this.mobileController.isMobile ? this.mobileSize : this.size,
-      fill: this.color,
-    };
-    return html` <div style=${styleMap(styles)}>${iconList[this.name]}</div> `;
+  firstUpdated() {
+    this.setIcon();
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    unwatchIcon(this);
+  }
+
+  private getUrl() {
+    const library = getIconLibrary(this.library);
+    if (this.name && library) {
+      return library.resolver(this.name);
+    }
+    return this.src;
+  }
+
+  /** @internal Fetches the icon and redraws it. Used to handle library registrations. */
+  redraw() {
+    this.setIcon();
+  }
+
+  @watch('name')
+  @watch('src')
+  @watch('library')
+  async setIcon() {
+    const library = getIconLibrary(this.library);
+    const url = this.getUrl();
+    if (url) {
+      try {
+        const file = await requestIcon(url);
+        if (url !== this.getUrl()) {
+          // If the url has changed while fetching the icon, ignore this request
+          return;
+        } else if (file.ok) {
+          const doc = parser.parseFromString(file.svg, 'text/html');
+          const svgEl = doc.body.querySelector('svg');
+
+          if (svgEl !== null) {
+            library?.mutator?.(svgEl);
+
+            this.svg = svgEl.outerHTML;
+            emit(this, 'outline-load');
+          } else {
+            this.svg = '';
+            emit(this, 'outline-error', { detail: { status: file.status } });
+          }
+        } else {
+          this.svg = '';
+          emit(this, 'outline-error', { detail: { status: file.status } });
+        }
+      } catch {
+        emit(this, 'outline-error', { detail: { status: -1 } });
+      }
+    } else if (this.svg.length > 0) {
+      // If we can't resolve a URL and an icon was previously set, remove it
+      this.svg = '';
+    }
+  }
+
+  handleChange() {
+    this.setIcon();
+  }
+
+  render() {
+    const hasLabel = typeof this.label === 'string' && this.label.length > 0;
+
+    return html` <div
+      part="base"
+      class="icon"
+      role=${ifDefined(hasLabel ? 'img' : undefined)}
+      aria-label=${ifDefined(hasLabel ? this.label : undefined)}
+      aria-hidden=${ifDefined(hasLabel ? undefined : 'true')}
+    >
+      ${unsafeSVG(this.svg)}
+    </div>`;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-icon': OutlineIcon;
   }
 }
