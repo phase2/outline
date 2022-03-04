@@ -3,7 +3,7 @@ import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-accordion-panel.css.lit';
 import { MobileController } from '../../controllers/mobile-controller';
-import '../outline-icon/outline-icon';
+import '../outline-svg/outline-svg';
 
 /**
  * The OutlineAccordionPanel component
@@ -65,11 +65,11 @@ export class OutlineAccordionPanel extends OutlineElement {
           ${isClean}
           "
           >
-            <outline-icon
+            <outline-svg
               size="22px"
               ?decorative="${true}"
               name="${this.active ? 'chevron-up' : 'chevron-down'}"
-            ></outline-icon>
+            ></outline-svg>
           </span>
         </button>
       </h4>

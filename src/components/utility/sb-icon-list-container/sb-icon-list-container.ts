@@ -2,7 +2,7 @@ import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../../base/outline-element/outline-element';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import '../sb-icon-wrapper/sb-icon-wrapper';
-import '../../base/outline-icon/outline-icon';
+import '../../base/outline-svg/outline-svg';
 import componentStyles from './sb-icon-list-container.css.lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
@@ -85,7 +85,7 @@ export class SbIconListContainer extends OutlineElement {
       i => html`
         <div class="icon">
           <sb-icon-wrapper icon-name=${i}>
-            <outline-icon class=${ifDefined(alt)} name=${i}></outline-icon>
+            <outline-svg class=${ifDefined(alt)} name=${i}></outline-svg>
           </sb-icon-wrapper>
         </div>
       `
