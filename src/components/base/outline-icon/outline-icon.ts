@@ -38,6 +38,7 @@ export default class OutlineIcon extends OutlineElement {
   src?: string;
 
   /** An alternate description to use for accessibility. If omitted, the icon will be ignored by assistive devices. */
+  /** @todo: Make this default to "true" and be turned off when an icon is decorative. */
   @property({ type: String, attribute: 'label' })
   label = '';
 
