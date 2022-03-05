@@ -17,6 +17,14 @@ const configuration = {
         type: 'text',
       },
     },
+    size: {
+      name: 'size',
+      table: { category: 'Properties', defaultValue: { summary: '32px' } },
+      description: 'The size of icon. Required when `library === \'system\'`. Omit for other libraries to allow parent text size to control icon sizing.',
+      control: {
+        type: 'text',
+      },
+    },
     library: {
       name: 'library',
       table: { category: 'Properties', defaultValue: { summary: 'default' } },
@@ -37,7 +45,7 @@ export default configuration;
 
 const inlineIconDecorator = [
   (Story): TemplateResult => html`
-<div class="flex flex-row text-4xl">
+<div class="flex flex-row text-2xl">
 ${Story()}
 </div> `,
 ];
@@ -66,6 +74,6 @@ Template(customArguments);
 SystemIcon.args = {
   library: 'system', 
   icon: 'chevron-down',
-  size: '256px',
+  size: '128px',
 };
 SystemIcon.decorators = inlineIconDecorator;

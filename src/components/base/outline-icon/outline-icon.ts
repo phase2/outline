@@ -53,8 +53,8 @@ export default class OutlineIcon extends OutlineElement {
    * @param size in pixels
    * @default 32px
    */
-  @property({ type: String, attribute: 'size' })
-  size = '32px';
+  @property({ attribute: 'size' })
+  size: string | boolean = false;
 
   connectedCallback() {
     super.connectedCallback();
@@ -63,8 +63,7 @@ export default class OutlineIcon extends OutlineElement {
 
   firstUpdated() {
     this.setIcon();
-    const system = this.library === 'system';
-    if (system) {
+    if (this.size && typeof this.size === 'string') {
       const icon: HTMLElement | null | undefined =
         this.shadowRoot?.querySelector('.icon');
       icon?.style.setProperty('width', this.size);
