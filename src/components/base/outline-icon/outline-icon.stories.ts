@@ -47,7 +47,7 @@ const configuration = {
   args: {
     icon: 'chevron-right',
     library: 'default',
-    size: false,
+    size: '64px',
     sizeEnabled: false,
   },
 };
@@ -65,6 +65,9 @@ const Template = (customArguments = {}): TemplateResult => {
     ...configuration.args,
     ...customArguments,
   };
+
+  // Use our custom "Is size enabled" flag.
+  args.size = args.size && args.sizeEnabled ? args.size : null;
 
   return html`
 <outline-icon 
@@ -84,6 +87,6 @@ Template(customArguments);
 SystemIcon.args = {
   library: 'system', 
   icon: 'chevron-down',
-  size: '128px',
+  sizeEnabled: true,
 };
 SystemIcon.decorators = inlineIconDecorator;
