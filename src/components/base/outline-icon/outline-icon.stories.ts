@@ -36,19 +36,19 @@ const configuration = {
     },
     sizeEnabled: {
       description:
-        'If `true`, the size of the icon will be controlled by the parent text size. If `false`, the size will be controlled by the `size` property.',
+        'If `false`, the size of the icon will be controlled by the parent text size. If `true`, the size will be controlled by the `size` property.',
       control: {
         type: 'boolean',
       },
       name: 'Enable Size Property',
-      table: { category: 'Custom Controls', defaultValue: { summary: 'false' } },
+      table: { category: 'Custom Controls', defaultValue: { summary: 'true' } },
     }
   },
   args: {
     icon: 'chevron-right',
     library: 'default',
     size: '64px',
-    sizeEnabled: false,
+    sizeEnabled: true,
   },
 };
 export default configuration;
