@@ -1,7 +1,8 @@
-import { html } from 'lit';
+import { CSSResultGroup, html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-//import { styleMap } from 'lit/directives/style-map.js';
+import componentStyles from './outline-icon.css.lit';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { emit } from '../../../internal/event';
 import { watch } from '../../../internal/watch';
@@ -22,6 +23,8 @@ const parser = new DOMParser();
  */
 @customElement('outline-icon')
 export default class OutlineIcon extends OutlineElement {
+  static styles: CSSResultGroup = [componentStyles];
+
   @state() private svg = '';
 
   /** The name of the icon to draw. */
@@ -60,6 +63,13 @@ export default class OutlineIcon extends OutlineElement {
 
   firstUpdated() {
     this.setIcon();
+    const system = this.library === 'system';
+    if (system) {
+      const icon: HTMLElement | null | undefined =
+        this.shadowRoot?.querySelector('.icon');
+      icon?.style.setProperty('width', this.size);
+      icon?.style.setProperty('height', this.size);
+    }
   }
 
   disconnectedCallback() {
@@ -124,13 +134,14 @@ export default class OutlineIcon extends OutlineElement {
 
   render() {
     const hasLabel = typeof this.label === 'string' && this.label.length > 0;
-    // const styles = {
-    //   width: this.library === 'system' && this.size ? this.size : '24px',
-    //   height: this.library === 'system' && this.size ? this.size : '24px',
-    // };
+
+    const wrapperClasses = {
+      icon: true,
+      [`icon-library--${this.library}`]: this.library,
+    };
     return html` <div
       part="base"
-      class="icon"
+      class="${classMap(wrapperClasses)}"
       role=${ifDefined(hasLabel ? 'img' : undefined)}
       aria-label=${ifDefined(hasLabel ? this.label : undefined)}
       aria-hidden=${ifDefined(hasLabel ? undefined : 'true')}

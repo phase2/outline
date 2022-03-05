@@ -30,6 +30,7 @@ const configuration = {
   args: {
     icon: 'chevron-right',
     library: 'default',
+    size: false,
   },
 };
 export default configuration;
@@ -51,6 +52,7 @@ const Template = (customArguments = {}): TemplateResult => {
 <outline-icon 
   name="${ifDefined(args.icon)}"
   library="${ifDefined(args.library)}"
+  size="${ifDefined(args.size)}"
 ></outline-icon>
 `;
 };
@@ -64,6 +66,6 @@ Template(customArguments);
 SystemIcon.args = {
   library: 'system', 
   icon: 'chevron-down',
-  size: '24px',
+  size: '256px',
 };
 SystemIcon.decorators = inlineIconDecorator;
