@@ -34,11 +34,21 @@ const configuration = {
       },
       options: ['default', 'system'],
     },
+    sizeEnabled: {
+      description:
+        'If `true`, the size of the icon will be controlled by the parent text size. If `false`, the size will be controlled by the `size` property.',
+      control: {
+        type: 'boolean',
+      },
+      name: 'Enable Size Property',
+      table: { category: 'Custom Controls', defaultValue: { summary: 'false' } },
+    }
   },
   args: {
     icon: 'chevron-right',
     library: 'default',
     size: false,
+    sizeEnabled: false,
   },
 };
 export default configuration;
