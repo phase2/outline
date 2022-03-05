@@ -7,10 +7,8 @@ import lucideLibrary from './libraries/library.lucide';
 import heroiconsLibrary from './libraries/library.heroicons';
 import iconoirLibrary from './libraries/library.iconoir';
 import ioniconsLibrary from './libraries/library.ionicons';
-// import materialLibrary from './libraries/library.material';
-// import jamLibrary from './libraries/library.jam';
-// import remixLibrary from './libraries/library.remix';
-// import uniconsLibrary from './libraries/library.unicons';
+import jamLibrary from './libraries/library.jam';
+import fontawesomeLibrary from './libraries/library.fontawesome';
 
 export type IconLibraryResolver = (name: string) => string;
 export type IconLibraryMutator = (svg: SVGElement) => void;
@@ -28,6 +26,8 @@ let registry: IconLibrary[] = [
   heroiconsLibrary,
   iconoirLibrary,
   ioniconsLibrary,
+  jamLibrary,
+  fontawesomeLibrary,
 ];
 let watchedIcons: OutlineIcon[] = [];
 

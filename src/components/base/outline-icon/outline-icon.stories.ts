@@ -56,7 +56,7 @@ export default configuration;
 
 const inlineIconDecorator = [
   (Story): TemplateResult => html`
-<div class="flex flex-row">
+<div class="flex flex-row flex-wrap">
 ${Story()}
 </div> `,
 ];
@@ -110,3 +110,93 @@ SystemTemplate.args = {
   sizeEnabled: true,
 };
 SystemIcons.decorators = inlineIconDecorator;
+
+
+const BoxiconsTemplate = (customArguments = {}): TemplateResult => {
+  const args = {
+    ...configuration.args,
+    ...customArguments,
+  };
+
+  return html`
+
+<outline-heading level="h2" level-size="2xl" level-style="thin">Outline</outline-heading>
+<div class="flex flex-row flex-wrap mb-10">
+  <outline-icon library="boxicons" name="bx-bot" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bx-cookie" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bx-joystick" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bx-save" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bx-server" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bx-wine" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+<outline-heading level="h2" level-size="2xl" level-style="thin">Solid</outline-heading>
+<div class="flex flex-row flex-wrap mb-10">
+  <outline-icon library="boxicons" name="bxs-bot" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxs-cookie" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxs-joystick" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxs-save" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxs-server" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxs-wine" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+<outline-heading level="h2" level-size="2xl" level-style="thin">Brands</outline-heading>
+<div class="flex flex-row flex-wrap mb-10">
+  <outline-icon library="boxicons" name="bxl-apple" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxl-chrome" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxl-edge" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxl-firefox" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxl-opera" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="boxicons" name="bxl-microsoft" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+`;
+};
+
+export const Boxicons = (customArguments = {}) =>
+BoxiconsTemplate(customArguments);
+Boxicons.args = {
+  size: '32px',
+  sizeEnabled: true,
+};
+
+const FaTemplate = (customArguments = {}): TemplateResult => {
+  const args = {
+    ...configuration.args,
+    ...customArguments,
+  };
+
+  return html`
+<outline-heading level="h2" level-size="2xl" level-style="thin">Regular</outline-heading>
+<div class="flex flex-row flex-wrap mb-10">
+  <outline-icon library="fa" name="far-bell" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="far-comment" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="far-hand-point-right" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="far-hdd" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="far-heart" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="far-star" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+<outline-heading level="h2" level-size="2xl" level-style="thin">Solid</outline-heading>
+<div class="flex flex-row flex-wrap mb-10">
+  <outline-icon library="fa" name="fas-archive" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fas-book" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fas-chess-knight" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fas-dice" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fas-pizza-slice" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fas-scroll" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+<outline-heading level="h2" level-size="2xl" level-style="thin">Brands</outline-heading>
+<div class="flex flex-row flex-wrap mb-10">
+  <outline-icon library="fa" name="fab-apple" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fab-chrome" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fab-edge" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fab-firefox" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fab-opera" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="fa" name="fab-microsoft" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>   
+</div>
+`;
+};
+
+export const FontAwesomeFree = (customArguments = {}) =>
+FaTemplate(customArguments);
+FontAwesomeFree.args = {
+  size: '32px',
+  sizeEnabled: true,
+};

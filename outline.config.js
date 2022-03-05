@@ -35,8 +35,6 @@ module.exports = {
       ionicons: true,
       material: true,
       jam: true,
-      remix: true,
-      unicons: true,
     },
     defaults: {
       library: 'bootstrap',

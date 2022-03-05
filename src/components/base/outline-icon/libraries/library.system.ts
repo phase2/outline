@@ -47,6 +47,7 @@ const icons = {
 
 const systemLibrary: IconLibrary = {
   name: 'system',
+  // @ts-expect-error - we're using the system icons as a subset of the bootstrap icons
   resolver: (name: keyof typeof icons) => {
     if (name in icons) {
       return `data:image/svg+xml,${encodeURIComponent(icons[name])}`;
