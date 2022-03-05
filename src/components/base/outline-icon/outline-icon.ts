@@ -1,9 +1,11 @@
 import { html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { styleMap } from 'lit/directives/style-map.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { emit } from '../../../internal/event';
 import { watch } from '../../../internal/watch';
+import { MobileController } from '../../controllers/mobile-controller';
 import { OutlineElement } from '../outline-element/outline-element';
 import { getIconLibrary, unwatchIcon, watchIcon } from './library';
 import { requestIcon } from './request';
@@ -21,8 +23,6 @@ const parser = new DOMParser();
  */
 @customElement('outline-icon')
 export default class OutlineIcon extends OutlineElement {
-  //static styles = styles;
-
   @state() private svg = '';
 
   /** The name of the icon to draw. */
@@ -45,6 +45,14 @@ export default class OutlineIcon extends OutlineElement {
   /** The name of a registered custom icon library. */
   @property({ type: String, attribute: 'library' })
   library = 'default';
+
+  /**
+   * The width and height of the icon.
+   * @param size in pixels
+   * @default 32px
+   */
+  @property({ type: String, attribute: 'size' })
+  size = '32px';
 
   connectedCallback() {
     super.connectedCallback();
@@ -117,9 +125,14 @@ export default class OutlineIcon extends OutlineElement {
 
   render() {
     const hasLabel = typeof this.label === 'string' && this.label.length > 0;
+    const styles = {
+      width: this.library === 'system' && this.size ? this.size : '24px',
+      height: this.library === 'system' && this.size ? this.size : '24px',
+    };
     return html` <div
       part="base"
       class="icon"
+      style="${styleMap(styles)}"
       role=${ifDefined(hasLabel ? 'img' : undefined)}
       aria-label=${ifDefined(hasLabel ? this.label : undefined)}
       aria-hidden=${ifDefined(hasLabel ? undefined : 'true')}

@@ -63,6 +63,7 @@ export const SystemIcon = (customArguments = {}) =>
 Template(customArguments);
 SystemIcon.args = {
   library: 'system', 
-  icon: 'chevron-down'
+  icon: 'chevron-down',
+  size: '24px',
 };
 SystemIcon.decorators = inlineIconDecorator;
