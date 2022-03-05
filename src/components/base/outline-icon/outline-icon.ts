@@ -1,11 +1,10 @@
 import { html } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { styleMap } from 'lit/directives/style-map.js';
+//import { styleMap } from 'lit/directives/style-map.js';
 import { unsafeSVG } from 'lit/directives/unsafe-svg.js';
 import { emit } from '../../../internal/event';
 import { watch } from '../../../internal/watch';
-import { MobileController } from '../../controllers/mobile-controller';
 import { OutlineElement } from '../outline-element/outline-element';
 import { getIconLibrary, unwatchIcon, watchIcon } from './library';
 import { requestIcon } from './request';
@@ -17,7 +16,7 @@ const parser = new DOMParser();
  * @status stable
  *
  * @event outline-load - Emitted when the icon has loaded.
- * @event {{ status: number }} outline-error - Emitted when the icon fails to load due to an error.
+ * @event outline-error - Emitted when the icon fails to load due to an error.
  *
  * @csspart base - The component's base wrapper.
  */
@@ -125,14 +124,13 @@ export default class OutlineIcon extends OutlineElement {
 
   render() {
     const hasLabel = typeof this.label === 'string' && this.label.length > 0;
-    const styles = {
-      width: this.library === 'system' && this.size ? this.size : '24px',
-      height: this.library === 'system' && this.size ? this.size : '24px',
-    };
+    // const styles = {
+    //   width: this.library === 'system' && this.size ? this.size : '24px',
+    //   height: this.library === 'system' && this.size ? this.size : '24px',
+    // };
     return html` <div
       part="base"
       class="icon"
-      style="${styleMap(styles)}"
       role=${ifDefined(hasLabel ? 'img' : undefined)}
       aria-label=${ifDefined(hasLabel ? this.label : undefined)}
       aria-hidden=${ifDefined(hasLabel ? undefined : 'true')}
