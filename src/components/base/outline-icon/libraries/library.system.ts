@@ -1,4 +1,4 @@
-import type { IconLibrary } from './library';
+import type { IconLibrary } from '../library';
 
 //
 // System icons are a separate library to ensure they're always available, regardless of how the default icon library is
@@ -47,7 +47,6 @@ const icons = {
 
 const systemLibrary: IconLibrary = {
   name: 'system',
-  // @ts-expect-error ts-migrate(2339) FIXME: Property 'resolver' does not exist on type '{ name: string; resolver: IconLibraryResolver; mutator: IconLibraryMutator; }'.
   resolver: (name: keyof typeof icons) => {
     if (name in icons) {
       return `data:image/svg+xml,${encodeURIComponent(icons[name])}`;

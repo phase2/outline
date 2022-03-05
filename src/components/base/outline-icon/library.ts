@@ -1,6 +1,16 @@
 import type OutlineIcon from '../outline-icon/outline-icon';
-import defaultLibrary from './library.default';
-import systemLibrary from './library.system';
+
+import systemLibrary from './libraries/library.system';
+import bootstrapLibrary from './libraries/library.bootstrap';
+import boxiconLibrary from './libraries/library.boxicons';
+import lucideLibrary from './libraries/library.lucide';
+import heroiconsLibrary from './libraries/library.heroicons';
+import iconoirLibrary from './libraries/library.iconoir';
+import ioniconsLibrary from './libraries/library.ionicons';
+// import materialLibrary from './libraries/library.material';
+// import jamLibrary from './libraries/library.jam';
+// import remixLibrary from './libraries/library.remix';
+// import uniconsLibrary from './libraries/library.unicons';
 
 export type IconLibraryResolver = (name: string) => string;
 export type IconLibraryMutator = (svg: SVGElement) => void;
@@ -10,7 +20,15 @@ export interface IconLibrary {
   mutator?: IconLibraryMutator;
 }
 
-let registry: IconLibrary[] = [defaultLibrary, systemLibrary];
+let registry: IconLibrary[] = [
+  systemLibrary,
+  bootstrapLibrary,
+  boxiconLibrary,
+  lucideLibrary,
+  heroiconsLibrary,
+  iconoirLibrary,
+  ioniconsLibrary,
+];
 let watchedIcons: OutlineIcon[] = [];
 
 export function watchIcon(icon: OutlineIcon) {

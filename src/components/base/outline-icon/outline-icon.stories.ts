@@ -1,6 +1,7 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import './outline-icon';
+import outline from '../../../resolved-outline-config';
 
 const configuration = {
   title: 'Media/Outline Icon',
@@ -11,28 +12,28 @@ const configuration = {
   argTypes: {
     icon: {
       name: 'name',
-      table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
-      description: 'The name of the icon to draw. https://icons.getbootstrap.com/',
+      table: { category: 'Properties', defaultValue: { summary: outline.icons.defaults.icon } },
+      description: 'The name of the icon to draw. Refer to the proper naming of icons from the library you are using.',
       control: {
         type: 'text',
       },
     },
     size: {
       name: 'size',
-      table: { category: 'Properties', defaultValue: { summary: '32px' } },
-      description: 'The size of icon. Required when `library === \'system\'`. Omit for other libraries to allow parent text size to control icon sizing.',
+      table: { category: 'Properties', defaultValue: { summary: outline.icons.defaults.size } },
+      description: 'The size of icon. Required when `library === \'system\'`. Omit for other libraries to allow parent text size to control icon sizing. Valid values include `px`, `rem`, `em`, `%`, and `vw`.',
       control: {
         type: 'text',
       },
     },
     library: {
       name: 'library',
-      table: { category: 'Properties', defaultValue: { summary: 'default' } },
-      description: 'The icon library to use.',
+      table: { category: 'Properties', defaultValue: { summary: 'system' } },
+      description: 'The icon library to use. Custom libraries can be registered with `outline.registerIconLibrary()`.',
       control: {
         type: 'select',
       },
-      options: ['default', 'system'],
+      options: ['system', 'bootstrap'],
     },
     sizeEnabled: {
       description:
@@ -45,9 +46,9 @@ const configuration = {
     }
   },
   args: {
-    icon: 'chevron-right',
-    library: 'default',
-    size: '64px',
+    icon: outline.icons.defaults.icon,
+    library: outline.icons.defaults.library,
+    size: outline.icons.defaults.size,
     sizeEnabled: true,
   },
 };
@@ -55,12 +56,12 @@ export default configuration;
 
 const inlineIconDecorator = [
   (Story): TemplateResult => html`
-<div class="flex flex-row text-2xl">
+<div class="flex flex-row">
 ${Story()}
 </div> `,
 ];
 
-const Template = (customArguments = {}): TemplateResult => {
+const DefaultTemplate = (customArguments = {}): TemplateResult => {
   const args = {
     ...configuration.args,
     ...customArguments,
@@ -78,15 +79,34 @@ const Template = (customArguments = {}): TemplateResult => {
 `;
 };
 
-export const CDNBootstrapIcon = (customArguments = {}) =>
-  Template(customArguments);
-CDNBootstrapIcon.decorators = inlineIconDecorator;
+export const DefaultIcon = (customArguments = {}) =>
+  DefaultTemplate(customArguments);
+  DefaultIcon.args = {
+    size: '64px',
+  };
+  DefaultIcon.decorators = inlineIconDecorator;
 
-export const SystemIcon = (customArguments = {}) =>
-Template(customArguments);
-SystemIcon.args = {
-  library: 'system', 
-  icon: 'chevron-down',
+const SystemTemplate = (customArguments = {}): TemplateResult => {
+  const args = {
+    ...configuration.args,
+    ...customArguments,
+  };
+
+  return html`
+<outline-icon name="chevron-up" library="system" size="${ifDefined(args.size)}"></outline-icon>
+<outline-icon name="chevron-down" library="system" size="${ifDefined(args.size)}"></outline-icon>
+<outline-icon name="chevron-left" library="system" size="${ifDefined(args.size)}"></outline-icon>
+<outline-icon name="chevron-right" library="system" size="${ifDefined(args.size)}"></outline-icon>
+<outline-icon name="check-lg" library="system" size="${ifDefined(args.size)}"></outline-icon>
+<outline-icon name="x" library="system" size="${ifDefined(args.size)}"></outline-icon>
+<outline-icon name="x-circle-fill" library="system" size="${ifDefined(args.size)}"></outline-icon>
+`;
+};
+
+export const SystemIcons = (customArguments = {}) =>
+SystemTemplate(customArguments);
+SystemTemplate.args = {
+  size: '64px',
   sizeEnabled: true,
 };
-SystemIcon.decorators = inlineIconDecorator;
+SystemIcons.decorators = inlineIconDecorator;

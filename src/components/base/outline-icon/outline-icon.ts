@@ -9,6 +9,7 @@ import { watch } from '../../../internal/watch';
 import { OutlineElement } from '../outline-element/outline-element';
 import { getIconLibrary, unwatchIcon, watchIcon } from './library';
 import { requestIcon } from './request';
+import outline from '../../../resolved-outline-config';
 
 const parser = new DOMParser();
 
@@ -46,7 +47,7 @@ export default class OutlineIcon extends OutlineElement {
 
   /** The name of a registered custom icon library. */
   @property({ type: String, attribute: 'library' })
-  library = 'default';
+  library = outline.icons.defaults.library;
 
   /**
    * The width and height of the icon.
@@ -54,7 +55,7 @@ export default class OutlineIcon extends OutlineElement {
    * @default 32px
    */
   @property({ attribute: 'size' })
-  size: string | boolean = false;
+  size: string | boolean = outline.icons.defaults.size;
 
   connectedCallback() {
     super.connectedCallback();
@@ -63,17 +64,25 @@ export default class OutlineIcon extends OutlineElement {
 
   firstUpdated() {
     this.setIcon();
-    if (this.size && typeof this.size === 'string') {
-      const icon: HTMLElement | null | undefined =
-        this.shadowRoot?.querySelector('.icon');
-      icon?.style.setProperty('width', this.size);
-      icon?.style.setProperty('height', this.size);
-    }
+    this.sizeIcon();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
     unwatchIcon(this);
+  }
+
+  private sizeIcon() {
+    if (
+      this.size &&
+      typeof this.size === 'string' &&
+      this.size !== outline.icons.defaults.size
+    ) {
+      const icon: HTMLElement | null | undefined =
+        this.shadowRoot?.querySelector('.icon');
+      icon?.style.setProperty('width', this.size);
+      icon?.style.setProperty('height', this.size);
+    }
   }
 
   private getUrl() {
