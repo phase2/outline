@@ -10,6 +10,7 @@ const configuration = {
   },
   argTypes: {
     icon: {
+      name: 'name',
       table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
       description: 'The name of the icon to draw. https://icons.getbootstrap.com/',
       control: {
@@ -17,6 +18,7 @@ const configuration = {
       },
     },
     library: {
+      name: 'library',
       table: { category: 'Properties', defaultValue: { summary: 'default' } },
       description: 'The icon library to use.',
       control: {
@@ -32,6 +34,13 @@ const configuration = {
 };
 export default configuration;
 
+const inlineIconDecorator = [
+  (Story): TemplateResult => html`
+<div class="flex flex-row text-4xl">
+${Story()}
+</div> `,
+];
+
 const Template = (customArguments = {}): TemplateResult => {
   const args = {
     ...configuration.args,
@@ -42,13 +51,13 @@ const Template = (customArguments = {}): TemplateResult => {
 <outline-icon 
   name="${ifDefined(args.icon)}"
   library="${ifDefined(args.library)}"
-  class="text-4xl"
 ></outline-icon>
 `;
 };
 
 export const CDNBootstrapIcon = (customArguments = {}) =>
   Template(customArguments);
+CDNBootstrapIcon.decorators = inlineIconDecorator;
 
 export const SystemIcon = (customArguments = {}) =>
 Template(customArguments);
@@ -56,3 +65,4 @@ SystemIcon.args = {
   library: 'system', 
   icon: 'chevron-down'
 };
+SystemIcon.decorators = inlineIconDecorator;
