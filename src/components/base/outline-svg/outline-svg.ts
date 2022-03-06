@@ -70,3 +70,9 @@ export class OutlineSvg extends OutlineElement {
     return html` <div style=${styleMap(styles)}>${iconList[this.name]}</div> `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-svg': OutlineSvg;
+  }
+}

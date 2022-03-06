@@ -46,3 +46,9 @@ export class OutlineBreadcrumbs extends OutlineElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-breadcrumbs': OutlineBreadcrumbs;
+  }
+}

@@ -34,3 +34,8 @@ export class OutlineVideoYoutube
     `;
   }
 }
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-video-youtube': OutlineVideoYoutube;
+  }
+}

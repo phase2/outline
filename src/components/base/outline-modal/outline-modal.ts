@@ -280,3 +280,9 @@ export class OutlineModal
     return Array.from(focusableSlottedElements).slice(-1)[0] ?? null;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-modal': OutlineModal;
+  }
+}

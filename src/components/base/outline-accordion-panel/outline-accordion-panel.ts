@@ -84,3 +84,9 @@ export class OutlineAccordionPanel extends OutlineElement {
     </div>`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-accordion-panel': OutlineAccordionPanel;
+  }
+}
