@@ -30,7 +30,7 @@ const configuration = {
       control: {
         type: 'select',
       },
-      options: ['system', 'bootstrap', 'boxicon', 'heroicons', 'iconoir', 'ionicons', 'jam', 'lucide', 'material', 'remix', 'unicons'],
+      options: ['system', 'custom', 'bootstrap', 'boxicon', 'heroicons', 'iconoir', 'ionicons', 'jam', 'lucide', 'material', 'remix', 'unicons'],
     },
     sizeEnabled: {
       description:
@@ -546,7 +546,9 @@ const CustomTemplate = (customArguments = {}): TemplateResult => {
 
 export const CustomIcons = (customArguments = {}) =>
 CustomTemplate(customArguments);
+CustomIcons.argTypes = specificLibraryArgTypes;
 CustomIcons.args = {
   size: '32px',
+  library: 'custom',
   sizeEnabled: true,
 };
