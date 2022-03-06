@@ -26,3 +26,9 @@ export class OutlineAdminLinks extends OutlineElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-admin-links': OutlineAdminLinks;
+  }
+}

@@ -93,3 +93,9 @@ export class OutlineImageSlider extends OutlineElement {
     this.requestUpdate();
   };
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-image-slider': OutlineImageSlider;
+  }
+}

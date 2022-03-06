@@ -24,6 +24,24 @@ module.exports = {
   color: {
     sets: ['primary', 'secondary', 'tertiary', 'neutral', 'demo'],
   },
+  icons: {
+    libraries: {
+      bootstrap: true,
+      fontawesome: true,
+      boxicons: true,
+      lucide: true,
+      heroicons: true,
+      iconoir: true,
+      ionicons: true,
+      material: true,
+      jam: true,
+    },
+    defaults: {
+      library: 'bootstrap',
+      size: '16px',
+      icon: 'chevron-right',
+    },
+  },
   youtube: {
     // Replace with the YouTube id of any video to replace the
     // default video in any storybook component.

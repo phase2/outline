@@ -66,8 +66,6 @@ export class OutlineAccordionPanel extends OutlineElement {
           "
           >
             <outline-icon
-              size="22px"
-              ?decorative="${true}"
               name="${this.active ? 'chevron-up' : 'chevron-down'}"
             ></outline-icon>
           </span>
@@ -84,5 +82,11 @@ export class OutlineAccordionPanel extends OutlineElement {
         <slot></slot>
       </div>
     </div>`;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-accordion-panel': OutlineAccordionPanel;
   }
 }

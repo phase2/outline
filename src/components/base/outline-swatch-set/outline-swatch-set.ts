@@ -51,3 +51,9 @@ export class OutlineSwatchSet
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-swatch-set': OutlineSwatchSet;
+  }
+}

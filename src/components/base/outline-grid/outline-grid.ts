@@ -112,3 +112,9 @@ export class OutlineGrid extends OutlineElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-grid': OutlineGrid;
+  }
+}
