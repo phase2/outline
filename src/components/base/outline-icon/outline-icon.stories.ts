@@ -130,10 +130,51 @@ SystemIcons.args = {
 };
 SystemIcons.parameters = {
   docs: {
-    storyDescription: 'This is custom documentation for the icons of the `system` library.',
+    storyDescription: `
+#### The \`system\` icon library.
+
+The system library contains only the icons used by Outline components.
+The icons are hard-coded as data URIs into the icon resolver to ensure their availability.
+
+This method is ideal for a small library of icons where you prefer to ensure "hard coded" availability of the icons.
+`,
   },
 }
 SystemIcons.decorators = inlineIconDecorator;
+
+const CustomTemplate = (customArguments = {}): TemplateResult => {
+  const args = {
+    ...configuration.args,
+    ...customArguments,
+  };
+
+  return html`
+<div class="flex flex-row flex-wrap">
+  <outline-icon library="custom" name="calendar" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="custom" name="clock" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+`;
+};
+
+export const CustomIcons = (customArguments = {}) =>
+CustomTemplate(customArguments);
+CustomIcons.argTypes = specificLibraryArgTypes;
+CustomIcons.args = {
+  size: '32px',
+  library: 'custom',
+  sizeEnabled: true,
+};
+CustomIcons.parameters = {
+  docs: {
+    storyDescription: `
+#### The \`custom\` icon library.
+
+The \`custom\` library is a dynamic icon library that can be used to create custom icons.
+It uses the \`src/assets/svg\` directory to store the icons. 
+    `,
+  },
+}
+
 
 const BoostrapIconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -540,29 +581,5 @@ UniconsTemplate(customArguments);
 Unicons.argTypes = specificLibraryArgTypes;
 Unicons.args = {
   size: '32px',
-  sizeEnabled: true,
-};
-
-const CustomTemplate = (customArguments = {}): TemplateResult => {
-  const args = {
-    ...configuration.args,
-    ...customArguments,
-  };
-
-  return html`
-<outline-heading level="h2" level-size="2xl" level-style="thin">Standard</outline-heading>
-<div class="flex flex-row flex-wrap">
-  <outline-icon library="custom" name="calendar" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-  <outline-icon library="custom" name="clock" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-</div>
-`;
-};
-
-export const CustomIcons = (customArguments = {}) =>
-CustomTemplate(customArguments);
-CustomIcons.argTypes = specificLibraryArgTypes;
-CustomIcons.args = {
-  size: '32px',
-  library: 'custom',
   sizeEnabled: true,
 };
