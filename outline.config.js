@@ -45,14 +45,16 @@ module.exports = {
   icons: {
     libraries: {
       bootstrap: true,
-      fontawesome: true,
       boxicons: true,
-      lucide: true,
+      fontawesome: true,
       heroicons: true,
       iconoir: true,
       ionicons: true,
-      material: true,
       jam: true,
+      lucide: true,
+      material: true,
+      remix: true,
+      unicons: true,
     },
     defaults: {
       library: 'bootstrap',
