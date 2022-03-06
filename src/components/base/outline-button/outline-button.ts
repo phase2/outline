@@ -110,3 +110,9 @@ export class OutlineButton extends OutlineElement {
     }
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-button': OutlineButton;
+  }
+}

@@ -108,3 +108,9 @@ export class OutlineCard extends OutlineElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-card': OutlineCard;
+  }
+}

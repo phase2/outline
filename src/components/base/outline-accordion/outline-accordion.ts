@@ -168,3 +168,9 @@ export class OutlineAccordion extends OutlineElement {
     }
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-accordion': OutlineAccordion;
+  }
+}
