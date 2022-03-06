@@ -5,6 +5,12 @@
 const destBasePath = 'dist';
 module.exports = {
   destBasePath,
+  components: {
+    // This should include an array of directories under
+    // src/components/ that contain component files.
+    // Currently used only in `js.output.lazy` mode.
+    bundle: ['outline'],
+  },
   css: {
     global: [
       {
@@ -19,6 +25,18 @@ module.exports = {
     fouc: {
       enabled: true,
       dest: `${destBasePath}/fouc.css`,
+    },
+  },
+  js: {
+    output: {
+      // @see src/outline-lazy.ts
+      lazy: false,
+      // @see src/outline-dynamic.ts
+      dynamic: false,
+      // Export full library to `outline.js`.
+      full: true,
+      // @see src/data.ts
+      data: false,
     },
   },
   color: {
