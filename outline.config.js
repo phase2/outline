@@ -11,6 +11,9 @@ module.exports = {
     // Currently used only in `js.output.lazy` mode.
     bundle: ['outline'],
   },
+  assets: {
+    dir: ['src/assets'],
+  },
   css: {
     global: [
       {
