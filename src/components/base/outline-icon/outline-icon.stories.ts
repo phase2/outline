@@ -88,12 +88,12 @@ const DefaultTemplate = (customArguments = {}): TemplateResult => {
 `;
 };
 
-export const DefaultIcon = (customArguments = {}) =>
+export const AnIcon = (customArguments = {}) =>
   DefaultTemplate(customArguments);
-  DefaultIcon.args = {
+  AnIcon.args = {
     size: '64px',
   };
-  DefaultIcon.decorators = inlineIconDecorator;
+  AnIcon.decorators = inlineIconDecorator;
 
 const SystemTemplate = (customArguments = {}): TemplateResult => {
   const args = {
