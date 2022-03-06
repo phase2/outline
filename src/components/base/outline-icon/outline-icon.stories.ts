@@ -6,9 +6,6 @@ import outline from '../../../resolved-outline-config';
 const configuration = {
   title: 'Media/Outline Icon',
   component: 'outline-icon',
-  parameters: {
-    viewMode: 'docs',
-  },
   argTypes: {
     icon: {
       name: 'name',
@@ -33,7 +30,7 @@ const configuration = {
       control: {
         type: 'select',
       },
-      options: ['system', 'bootstrap'],
+      options: ['system', 'bootstrap', 'boxicon', 'heroicons', 'iconoir', 'ionicons', 'jam', 'lucide', 'material', 'remix', 'unicons'],
     },
     sizeEnabled: {
       description:
@@ -47,13 +44,25 @@ const configuration = {
   },
   args: {
     icon: outline.icons.defaults.icon,
-    library: outline.icons.defaults.library,
+    library: outline.icons.defaults.library ? outline.icons.defaults.library : 'system',
     size: outline.icons.defaults.size,
     sizeEnabled: true,
   },
 };
 export default configuration;
 
+const specificLibraryArgTypes = {
+  library: {
+    table: {
+      disable: true
+    }
+  },
+  icon: {
+    table: {
+      disable: true
+    }
+  }
+}
 const inlineIconDecorator = [
   (Story): TemplateResult => html`
 <div class="flex flex-row flex-wrap">
@@ -105,6 +114,7 @@ const SystemTemplate = (customArguments = {}): TemplateResult => {
 
 export const SystemIcons = (customArguments = {}) =>
 SystemTemplate(customArguments);
+SystemIcons.argTypes = specificLibraryArgTypes;
 SystemIcons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -118,20 +128,32 @@ const BoostrapIconsTemplate = (customArguments = {}): TemplateResult => {
   };
 
   return html`
-<outline-heading level="h2" level-size="2xl" level-style="thin">Standard</outline-heading>
-<div class="flex flex-row flex-wrap">
+<outline-heading level="h2" level-size="2xl" level-style="thin">Outline</outline-heading>
+<div class="flex flex-row flex-wrap mb-10">
   <outline-icon library="bootstrap" name="badge-4k" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="badge-8k" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
   <outline-icon library="bootstrap" name="arrow-right-square" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-  <outline-icon library="bootstrap" name="arrow-down-circle-fill" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="arrow-down-circle" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
   <outline-icon library="bootstrap" name="bar-chart" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-  <outline-icon library="bootstrap" name="images" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="image" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
   <outline-icon library="bootstrap" name="x-square" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+<outline-heading level="h2" level-size="2xl" level-style="thin">Fill</outline-heading>
+<div class="flex flex-row flex-wrap">
+  <outline-icon library="bootstrap" name="badge-4k-fill" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="badge-8k-fill" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="arrow-right-square-fill" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="arrow-down-circle-fill" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="bar-chart-fill" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="image-fill" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="bootstrap" name="x-square-fill" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
 </div>
 `;
 };
 
 export const BootstrapIcons = (customArguments = {}) =>
 BoostrapIconsTemplate(customArguments);
+BootstrapIcons.argTypes = specificLibraryArgTypes;
 BootstrapIcons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -177,6 +199,7 @@ const BoxiconsTemplate = (customArguments = {}): TemplateResult => {
 
 export const Boxicons = (customArguments = {}) =>
 BoxiconsTemplate(customArguments);
+BootstrapIcons.argTypes = specificLibraryArgTypes;
 Boxicons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -221,6 +244,7 @@ const FaTemplate = (customArguments = {}): TemplateResult => {
 
 export const FontAwesomeFree = (customArguments = {}) =>
 FaTemplate(customArguments);
+FontAwesomeFree.argTypes = specificLibraryArgTypes;
 FontAwesomeFree.args = {
   size: '32px',
   sizeEnabled: true,
@@ -247,6 +271,7 @@ const LucideTemplate = (customArguments = {}): TemplateResult => {
 
 export const LucideIcons = (customArguments = {}) =>
 LucideTemplate(customArguments);
+LucideIcons.argTypes = specificLibraryArgTypes;
 LucideIcons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -273,6 +298,7 @@ const HeroiconsTemplate = (customArguments = {}): TemplateResult => {
 
 export const Heroicons = (customArguments = {}) =>
 HeroiconsTemplate(customArguments);
+Heroicons.argTypes = specificLibraryArgTypes;
 Heroicons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -299,6 +325,7 @@ const IconoirTemplate = (customArguments = {}): TemplateResult => {
 
 export const IconoirIcons = (customArguments = {}) =>
 IconoirTemplate(customArguments);
+IconoirIcons.argTypes = specificLibraryArgTypes;
 IconoirIcons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -343,6 +370,7 @@ const IonIconsTemplate = (customArguments = {}): TemplateResult => {
 
 export const IonIcons = (customArguments = {}) =>
 IonIconsTemplate(customArguments);
+IonIcons.argTypes = specificLibraryArgTypes;
 IonIcons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -378,6 +406,7 @@ const JamIconsTemplate = (customArguments = {}): TemplateResult => {
 
 export const JamIcons = (customArguments = {}) =>
 JamIconsTemplate(customArguments);
+JamIcons.argTypes = specificLibraryArgTypes;
 JamIcons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -422,6 +451,7 @@ const MaterialIconsTemplate = (customArguments = {}): TemplateResult => {
 
 export const MaterialIcons = (customArguments = {}) =>
 MaterialIconsTemplate(customArguments);
+MaterialIcons.argTypes = specificLibraryArgTypes;
 MaterialIcons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -457,6 +487,7 @@ const RemixIconsTemplate = (customArguments = {}): TemplateResult => {
 
 export const RemixIcons = (customArguments = {}) =>
 RemixIconsTemplate(customArguments);
+RemixIcons.argTypes = specificLibraryArgTypes;
 RemixIcons.args = {
   size: '32px',
   sizeEnabled: true,
@@ -492,7 +523,30 @@ const UniconsTemplate = (customArguments = {}): TemplateResult => {
 
 export const Unicons = (customArguments = {}) =>
 UniconsTemplate(customArguments);
+Unicons.argTypes = specificLibraryArgTypes;
 Unicons.args = {
+  size: '32px',
+  sizeEnabled: true,
+};
+
+const CustomTemplate = (customArguments = {}): TemplateResult => {
+  const args = {
+    ...configuration.args,
+    ...customArguments,
+  };
+
+  return html`
+<outline-heading level="h2" level-size="2xl" level-style="thin">Standard</outline-heading>
+<div class="flex flex-row flex-wrap">
+  <outline-icon library="custom" name="calendar" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="custom" name="clock" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+`;
+};
+
+export const CustomIcons = (customArguments = {}) =>
+CustomTemplate(customArguments);
+CustomIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };

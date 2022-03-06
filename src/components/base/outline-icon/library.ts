@@ -11,7 +11,8 @@ import jamLibrary from './libraries/library.jam';
 import fontawesomeLibrary from './libraries/library.fontawesome';
 import materialLibrary from './libraries/library.material';
 import remixLibrary from './libraries/library.remix';
-import unicons from './libraries/library.unicons';
+import uniconsLibrary from './libraries/library.unicons';
+import customLibrary from './libraries/library.custom';
 
 export type IconLibraryResolver = (name: string) => string;
 export type IconLibraryMutator = (svg: SVGElement) => void;
@@ -33,7 +34,8 @@ let registry: IconLibrary[] = [
   fontawesomeLibrary,
   materialLibrary,
   remixLibrary,
-  unicons,
+  uniconsLibrary,
+  customLibrary,
 ];
 let watchedIcons: OutlineIcon[] = [];
 
