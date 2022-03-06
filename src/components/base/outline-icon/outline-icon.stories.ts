@@ -6,6 +6,15 @@ import outline from '../../../resolved-outline-config';
 const configuration = {
   title: 'Media/Outline Icon',
   component: 'outline-icon',
+  parameters: {
+    docs: {
+      description: {
+        component: `
+The \`outline-icon\` component will render all manner of icons.
+        `,
+      },
+    },
+  },
   argTypes: {
     icon: {
       name: 'name',
@@ -119,6 +128,11 @@ SystemIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+SystemIcons.parameters = {
+  docs: {
+    storyDescription: 'This is custom documentation for the icons of the `system` library.',
+  },
+}
 SystemIcons.decorators = inlineIconDecorator;
 
 const BoostrapIconsTemplate = (customArguments = {}): TemplateResult => {
