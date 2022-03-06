@@ -3,6 +3,7 @@ www/
 loader/
 storybook-static/
 custom-elements.json
+component-list.json
 src/components.d.ts
 *.md
 .history/

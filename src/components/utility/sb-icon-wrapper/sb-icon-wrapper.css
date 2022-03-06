@@ -1,12 +1,12 @@
 /* TODO: Convert to tailwind */
 
-::slotted(outline-icon) {
+::slotted(outline-svg) {
   border-radius: 50%;
   padding: 8px;
   transition: background-color 0.3s ease;
 }
 
-::slotted(outline-icon:hover) {
+::slotted(outline-svg:hover) {
   background-color: #cfcfcf;
   transition: background-color 0.3s ease;
 }
@@ -21,19 +21,19 @@
 /* Tooltip text */
 .tooltip .tooltip-text {
   visibility: hidden;
-  width: 120px;
   background-color: #646464;
   color: #fff;
   text-align: center;
-  padding: 2px;
+  padding: 10px;
   border-radius: 6px;
 
   /* Position the tooltip text */
   position: absolute;
   z-index: 1;
-  bottom: 125%;
+  top: -120%;
   left: 50%;
-  margin-left: -60px;
+  transform: translateX(-50%);
+  white-space: nowrap;
 
   /* Fade in tooltip */
   opacity: 0;

@@ -8,8 +8,6 @@ import {
 import { OutlineElement } from '../../base/outline-element/outline-element';
 import componentStyles from './outline-accordion.css.lit';
 import { MobileController } from '../../controllers/mobile-controller';
-import '../outline-icon/outline-icon';
-import '../outline-heading/outline-heading';
 
 /**
  * Accordion Component
