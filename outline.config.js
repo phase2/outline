@@ -18,6 +18,10 @@ module.exports = {
         dest: `${destBasePath}/shared.css`,
       },
       {
+        src: 'src/tailwind.css',
+        dest: `${destBasePath}/tailwind.css`,
+      },
+      {
         src: 'src/.storybook/storybook.css',
         dest: `${destBasePath}/storybook.css`,
       },

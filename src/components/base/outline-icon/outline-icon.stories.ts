@@ -12,22 +12,17 @@ const configuration = {
         component: `
 ## Introduction
 
-The \`outline-icon\` component will render all manner of icons for your components and application. 
+The \`outline-icon\` component will render all manner of icons for your component(s) and application. 
 
-\`outline-icon\` is a custom element built to suit the many needs for application icons. Features include:
+## Internal Icon Libraries
+- \`system\`: The default icon library for the Outline core system.
+- \`custom\`: A custom icon library of SVGs provided to the \`src/assets/svg\` directory.
 
 ## Custom CDN Library Integrations
 
-[Bootstrap](#bootstrap), 
-[Boxicons](#boxicons), 
-[Font Awesome (Free)](#font-awesome-free),
-[Heroicons](#heroicons),
-[Iconoir](#iconoir),
-[Ionicons](#ionicons),
-[Jam](#jam),
-[Lucide](#lucide),
-[Material](#material),
-[Remix](#remix),
+[Bootstrap](#bootstrap), [Boxicons](#boxicons), [Font Awesome (Free)](#font-awesome-free),
+[Heroicons](#heroicons), [Iconoir](#iconoir), [Ionicons](#ionicons),
+[Jam](#jam), [Lucide](#lucide), [Material](#material), [Remix](#remix),
 [Unicons](#unicons) and even more possible via custom CDN integration and icon resolver.
         `,
       },
@@ -143,13 +138,13 @@ export const SystemIcons = (customArguments = {}) =>
 SystemTemplate(customArguments);
 SystemIcons.argTypes = specificLibraryArgTypes;
 SystemIcons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 SystemIcons.parameters = {
   docs: {
     storyDescription: `
-### The \`system\` icon library.
+## The \`system\` icon library.
 
 The system library contains only the icons used by Outline components.
 The icons are hard-coded as data URIs into the icon resolver to ensure their availability.
@@ -178,7 +173,7 @@ export const CustomIcons = (customArguments = {}) =>
 CustomTemplate(customArguments);
 CustomIcons.argTypes = specificLibraryArgTypes;
 CustomIcons.args = {
-  size: '32px',
+  size: '48px',
   library: 'custom',
   sizeEnabled: true,
 };
@@ -228,7 +223,7 @@ export const Bootstrap = (customArguments = {}) =>
 BootstrapIconsTemplate(customArguments);
 Bootstrap.argTypes = specificLibraryArgTypes;
 Bootstrap.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Bootstrap.parameters = {
@@ -284,7 +279,7 @@ export const Boxicons = (customArguments = {}) =>
 BoxiconsTemplate(customArguments);
 Boxicons.argTypes = specificLibraryArgTypes;
 Boxicons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Boxicons.parameters = {
@@ -339,7 +334,7 @@ export const FontAwesomeFree = (customArguments = {}) =>
 FaTemplate(customArguments);
 FontAwesomeFree.argTypes = specificLibraryArgTypes;
 FontAwesomeFree.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 FontAwesomeFree.parameters = {
@@ -376,7 +371,7 @@ export const Heroicons = (customArguments = {}) =>
 HeroiconsTemplate(customArguments);
 Heroicons.argTypes = specificLibraryArgTypes;
 Heroicons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Heroicons.parameters = {
@@ -413,7 +408,7 @@ export const Iconoir = (customArguments = {}) =>
 IconoirTemplate(customArguments);
 Iconoir.argTypes = specificLibraryArgTypes;
 Iconoir.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Iconoir.parameters = {
@@ -468,7 +463,7 @@ export const Ionicons = (customArguments = {}) =>
 IonIconsTemplate(customArguments);
 Ionicons.argTypes = specificLibraryArgTypes;
 Ionicons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Ionicons.parameters = {
@@ -514,7 +509,7 @@ export const Jam = (customArguments = {}) =>
 JamIconsTemplate(customArguments);
 Jam.argTypes = specificLibraryArgTypes;
 Jam.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Jam.parameters = {
@@ -551,7 +546,7 @@ export const Lucide = (customArguments = {}) =>
 LucideTemplate(customArguments);
 Lucide.argTypes = specificLibraryArgTypes;
 Lucide.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Lucide.parameters = {
@@ -606,7 +601,7 @@ export const Material = (customArguments = {}) =>
 MaterialIconsTemplate(customArguments);
 Material.argTypes = specificLibraryArgTypes;
 Material.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Material.parameters = {
@@ -652,7 +647,7 @@ export const Remix = (customArguments = {}) =>
 RemixIconsTemplate(customArguments);
 Remix.argTypes = specificLibraryArgTypes;
 Remix.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Remix.parameters = {
@@ -698,7 +693,7 @@ export const Unicons = (customArguments = {}) =>
 UniconsTemplate(customArguments);
 Unicons.argTypes = specificLibraryArgTypes;
 Unicons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Unicons.parameters = {
