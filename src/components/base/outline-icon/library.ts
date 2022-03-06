@@ -9,6 +9,9 @@ import iconoirLibrary from './libraries/library.iconoir';
 import ioniconsLibrary from './libraries/library.ionicons';
 import jamLibrary from './libraries/library.jam';
 import fontawesomeLibrary from './libraries/library.fontawesome';
+import materialLibrary from './libraries/library.material';
+import remixLibrary from './libraries/library.remix';
+import unicons from './libraries/library.unicons';
 
 export type IconLibraryResolver = (name: string) => string;
 export type IconLibraryMutator = (svg: SVGElement) => void;
@@ -28,6 +31,9 @@ let registry: IconLibrary[] = [
   ioniconsLibrary,
   jamLibrary,
   fontawesomeLibrary,
+  materialLibrary,
+  remixLibrary,
+  unicons,
 ];
 let watchedIcons: OutlineIcon[] = [];
 
