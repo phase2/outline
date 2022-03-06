@@ -124,8 +124,8 @@ export default {
   </div>
 </outline-accordion-panel>`,
     clean: false,
-    singlePanel: false,
-    allOpen: true,
+    singlePanel: true,
+    allOpen: false,
   },
 };
 
@@ -149,7 +149,7 @@ const Template = ({
 
 export const Accordion = Template.bind({});
 Accordion.args = {
-  singlePanel: false,
+  singlePanel: true,
   clean: false,
-  allOpen: true,
+  allOpen: false,
 };

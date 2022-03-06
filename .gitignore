@@ -29,3 +29,5 @@ $RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+src/component-list.json
+src/resolved-outline-config.ts

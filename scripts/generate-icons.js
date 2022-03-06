@@ -6,10 +6,10 @@
 const fs = require('fs');
 const path = require('path');
 
-const svgPath = 'src/components/base/outline-icon/svgs';
+const svgPath = 'src/components/base/outline-svg/svgs';
 const generatedIconsFilePath =
-  'src/components/base/outline-icon/generated-svgs/';
-const generatedIconListPath = 'src/components/base/outline-icon/';
+  'src/components/base/outline-svg/generated-svgs/';
+const generatedIconListPath = 'src/components/base/outline-svg/';
 
 const nameList = [];
 const nameDelimiter = ['-', '_'];
@@ -51,7 +51,7 @@ createSvgObjects = dir => {
 const camelize = s => s.replace(/[-_]./g, x => x.toUpperCase()[1]);
 
 /**
- * Generates lit friendly svg format at outline-icon/generated-svgs/<folderName>.ts
+ * Generates lit friendly svg format at outline-svg/generated-svgs/<folderName>.ts
  * @param svg
  * @param folder
  */

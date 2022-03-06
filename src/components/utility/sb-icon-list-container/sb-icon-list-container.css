@@ -31,7 +31,7 @@ label {
   }
 }
 
-outline-icon.alt {
+outline-svg.alt {
   @apply text-neutral-white;
 }
 
