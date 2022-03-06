@@ -131,7 +131,7 @@ SystemIcons.args = {
 SystemIcons.parameters = {
   docs: {
     storyDescription: `
-#### The \`system\` icon library.
+### The \`system\` icon library.
 
 The system library contains only the icons used by Outline components.
 The icons are hard-coded as data URIs into the icon resolver to ensure their availability.
@@ -167,7 +167,7 @@ CustomIcons.args = {
 CustomIcons.parameters = {
   docs: {
     storyDescription: `
-#### The \`custom\` icon library.
+## The \`custom\` icon library.
 
 The \`custom\` library is a dynamic icon library that can be used to create custom icons.
 It uses the \`src/assets/svg\` directory to store the icons. 
@@ -213,6 +213,16 @@ BootstrapIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+BootstrapIcons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`bootstrap\` icon library.
+
+The \`bootstrap\` library uses the jsDelivr CDN to implement the [Bootstrap Icons library](https://icons.getbootstrap.com/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const BoxiconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -259,6 +269,16 @@ Boxicons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+Boxicons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`boxicons\` icon library.
+
+The \`boxicons\` library uses the jsDelivr CDN to implement [Boxicons](https://boxicons.com/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const FaTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -304,6 +324,16 @@ FontAwesomeFree.args = {
   size: '32px',
   sizeEnabled: true,
 };
+FontAwesomeFree.parameters = {
+  docs: {
+    storyDescription: `
+## The \`fa\` icon library.
+
+The \`fa\` library uses the jsDelivr CDN to implement [Font Awesome (free)](https://fontawesome.com).
+Please see the [icon list](https://fontawesome.com/icons) on their site for the list of available icons.
+    `,
+  },
+}
 
 const LucideTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -331,6 +361,16 @@ LucideIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+LucideIcons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`lucide\` icon library.
+
+The \`lucide\` library uses the jsDelivr CDN to implement [Lucide Icons](https://lucide.dev/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const HeroiconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -358,6 +398,16 @@ Heroicons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+Heroicons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`heroicons\` icon library.
+
+The \`heroicons\` library uses the jsDelivr CDN to implement [Heroicons](https://heroicons.com/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const IconoirTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -385,6 +435,16 @@ IconoirIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+IconoirIcons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`iconoir\` icon library.
+
+The \`iconoir\` library uses the jsDelivr CDN to implement [Iconoir](https://iconoir.com/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const IonIconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -430,6 +490,16 @@ IonIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+IonIcons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`ionicons\` icon library.
+
+The \`ionicons\` library uses the jsDelivr CDN to implement [Ionicons](https://ionic.io/ionicons).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const JamIconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -466,6 +536,16 @@ JamIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+JamIcons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`jam\` icon library.
+
+The \`jam\` library uses the jsDelivr CDN to implement [Jam Icons](https://jam-icons.com/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const MaterialIconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -511,6 +591,16 @@ MaterialIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+MaterialIcons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`material\` icon library.
+
+The \`material\` library uses the jsDelivr CDN to implement [Material Icons](https://mui.com/components/material-icons/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const RemixIconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -547,6 +637,16 @@ RemixIcons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+RemixIcons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`remix\` icon library.
+
+The \`remix\` library uses the jsDelivr CDN to implement [Remix Icons](http://remixicon.com/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
 
 const UniconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
@@ -583,3 +683,13 @@ Unicons.args = {
   size: '32px',
   sizeEnabled: true,
 };
+Unicons.parameters = {
+  docs: {
+    storyDescription: `
+## The \`unicons\` icon library.
+
+The \`unicons\` library uses the jsDelivr CDN to implement [Unicons](https://iconscout.com/unicons).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
