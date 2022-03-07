@@ -1,5 +1,5 @@
 import { CSSResultGroup, html, TemplateResult } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import componentStyles from './outline-button.css.lit';
 import { LinkTargetType } from '../outline-link/config';
 import { OutlineElement } from '../outline-element/outline-element';
@@ -15,6 +15,8 @@ export type ButtonSize = 'small' | 'medium' | 'large';
  * @element outline-button
  * @since 1.0.0
  * @slot - default slot, used for button text.
+ * @slot left - slot used for left side icon.
+ * @slot right - slot used for right side icon.
  * @todo Convert styles to utilize CSS Variables.
  */
 @customElement('outline-button')
@@ -75,6 +77,14 @@ export class OutlineButton extends OutlineElement {
    */
   @property() onKeyUp: () => void;
 
+  @state() hasLeftIcon: boolean;
+  @state() hasRightIcon: boolean;
+
+  firstUpdated(): void {
+    this.hasLeftIcon = this.slots.test('left');
+    this.hasRightIcon = this.slots.test('right');
+  }
+
   /**
    * Component render function
    * @returns TemplateResult
@@ -88,8 +98,11 @@ export class OutlineButton extends OutlineElement {
           target=${ifDefined(this.buttonTarget)}
           aria-label="${ifDefined(this.buttonLabel)}"
           aria-disabled="${ifDefined(this.isDisabled)}"
-          ><slot></slot
-        ></a>`
+        >
+          ${this.iconTemplate(this.hasLeftIcon, 'left')}
+          <slot></slot>
+          ${this.iconTemplate(this.hasRightIcon, 'right')}
+        </a>`
       : html`<button
           class="btn ${this.buttonVariant} ${this.buttonSize}"
           aria-label="${ifDefined(this.buttonLabel)}"
@@ -97,8 +110,22 @@ export class OutlineButton extends OutlineElement {
           .onclick="${this.onClick}"
           .onkeyup="${this.onKeyUp}"
         >
+          ${this.iconTemplate(this.hasLeftIcon, 'left')}
           <slot></slot>
+          ${this.iconTemplate(this.hasRightIcon, 'right')}
         </button> `;
+  }
+
+  /**
+   * Icon template
+   *
+   * @param exists - Whether the icon slot exists.
+   * @param slot - The slot name to use.
+   * @returns - The icon template.
+   */
+  iconTemplate(exists: boolean, slot: string): TemplateResult | null {
+    if (!exists) return null;
+    return html`<slot name="${slot}"></slot>`;
   }
 
   updated() {
