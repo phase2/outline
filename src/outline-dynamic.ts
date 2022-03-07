@@ -1,9 +1,7 @@
-//import outline from './resolved-outline-config';
 import customElements from './component-list.json';
 import {
   outlineComponentSelector,
-  // outlineComponents,
-  // @ts-expect-error - whatever
+  // @ts-expect-error - because
 } from '../dist/outline-components.js';
 // import { ReactiveElement } from 'lit';
 

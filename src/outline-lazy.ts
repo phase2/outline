@@ -1,3 +1,7 @@
+/**
+ * @file Bundles a lazy loading Outline loader for consumer applciations.
+ * @todo Ensure this utilizes the customizable `dist` directory.
+ */
 import outline from './resolved-outline-config';
 import customElements from './component-list.json';
 
@@ -7,6 +11,7 @@ const imported = {};
 const observer = new IntersectionObserver((entries, observerRef) => {
   // The callback is run when the visibility of one or more of the elements
   // being observed has changed. It's also called on page load.
+  // console.log(entries);
 
   entries.forEach(async entry => {
     //`isIntersecting` will be `true` if any part of the element is currently visible
@@ -19,12 +24,17 @@ const observer = new IntersectionObserver((entries, observerRef) => {
         .replace('.ts', '.js')
         .replace('./', '');
 
+      //console.log(`Component: ${name} loaded from ${componentPath}.`);
+      //console.log(componentPath);
+
       // Once we've observed this element come into view, we can safely remove
       // the observer since we won't need to import the WC code again
       observerRef.unobserve(entry.target);
+      // @ts-expect-error - because
       if (!imported[name]) {
         // Keep a note of which WCs have been loaded so if we have multiple
         // instances we don't import twice
+        // @ts-expect-error - because
         imported[name] = true;
         // Dynamic import.
         const importPath = `../dist/${componentPath}`;
@@ -42,6 +52,10 @@ customElements.tags.forEach((tag, index) => {
   }`;
 });
 const elements = document.querySelectorAll(selector);
+// console.log(elements)
+// console.log(selector);
+// console.log(customElements)
+// @ts-expect-error - because
 const components = [];
 
 elements.forEach((el, i) => {
@@ -62,6 +76,7 @@ elements.forEach((el, i) => {
     }
   });
 });
+// @ts-expect-error - because
 components.forEach(el => {
   observer.observe(el);
 });
