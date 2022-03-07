@@ -38,13 +38,17 @@ module.exports = {
   js: {
     output: {
       // @see src/outline-lazy.ts
-      lazy: false,
+      // @status experimental
+      lazy: true,
       // @see src/outline-dynamic.ts
-      dynamic: false,
+      // @status experimental
+      dynamic: true,
       // Export full library to `outline.js`.
+      // @status stable
       full: true,
       // @see src/data.ts
-      data: false,
+      // @status optional
+      data: true,
     },
   },
   color: {
