@@ -11,11 +11,19 @@ module.exports = {
     // Currently used only in `js.output.lazy` mode.
     bundle: ['outline'],
   },
+  assets: {
+    dir: ['src/assets'],
+    sync: ['dist', 'src/.storybook/static/dist'],
+  },
   css: {
     global: [
       {
         src: 'src/shared.css',
         dest: `${destBasePath}/shared.css`,
+      },
+      {
+        src: 'src/tailwind.css',
+        dest: `${destBasePath}/tailwind.css`,
       },
       {
         src: 'src/.storybook/storybook.css',
@@ -45,14 +53,16 @@ module.exports = {
   icons: {
     libraries: {
       bootstrap: true,
-      fontawesome: true,
       boxicons: true,
-      lucide: true,
+      fontawesome: true,
       heroicons: true,
       iconoir: true,
       ionicons: true,
-      material: true,
       jam: true,
+      lucide: true,
+      material: true,
+      remix: true,
+      unicons: true,
     },
     defaults: {
       library: 'bootstrap',

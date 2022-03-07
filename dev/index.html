@@ -9,75 +9,612 @@
     <link
       type="text/css"
       rel="stylesheet"
+      href="../dist/fouc.css"
+      media="all"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
       href="../outline.theme.css"
+      media="all"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../dist/tailwind.css"
       media="all"
     />
 
     <script src="../dist/outline.js" type="module"></script>
-    <!-- <script src="../dist/outline-legacy.js" nomodule></script> -->
-    <style>
-      hr {
-        margin: 1rem auto;
-      }
-      body {
-        max-width: 800px;
-        margin: 2rem auto;
-        font-family: sans-serif;
-      }
-    </style>
+    <!-- <script src="../dist/outline-dynamic.js" type="module"></script> -->
+    <!-- <script src="../dist/outline-lazy.js" type="module"></script> -->
   </head>
   <body>
-    <h1>Outline example</h1>
-    <p>A few simple examples of including an outline component.</p>
+    <header>
+      <outline-container y-padding>
+        <outline-heading level="h1" level-size="4xl" level-style="semibold"
+          >Outline Consumer Test Environment</outline-heading
+        >
+      </outline-container>
+    </header>
+    <main>
+      <outline-container>
+        <outline-alert statusType="information" size="large">
+          <span slot="outline-alert--header">How this environment is used</span>
+          <p>
+            This environment is powered by
+            <outline-link
+              link-target="_blank"
+              link-href="https://modern-web.dev/docs/dev-server/overview/"
+              >Web Dev Server (wds)</outline-link
+            >
+            and the final production output located in the
+            <code>dist</code> directory. This allows use the ability to preview
+            component content in a production consumer environment without ever
+            leaving the frontend development system. Storybook provides our
+            development presentation, but can sometimes present content or
+            renderings slightly differently. This helps us test early, often,
+            and thoroughly.
+          </p>
+        </outline-alert>
+      </outline-container>
 
-    <h2>Files needed</h2>
-    <p>Include the <em>outline.js</em> and <em>outline-legacy.js</em> files.</p>
-    <p>Include a copy of <em>outline.theme.css</em>.</p>
-    <p>
-      The CSS file includes many CSS variables that you can customize for your
-      project.
-    </p>
-    <p>
-      Outline components will use these CSS variables in their rules. This
-      stylesheet applies all the variables to the <em>:root</em> selector which
-      in most cases is the <em>document</em>.
-    </p>
+      <outline-container y-padding>
+        <outline-heading level="h2" level-size="2xl" level-style="semibold"
+          >Files needed</outline-heading
+        >
+<outline-code-block language="html">
+<!-- Optional stylesheet to prevent FOUCE -->
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="../dist/fouc.css"
+  media="all"
+/>
+<!-- Primary CSS Variables for design system -->
+<link
+  type="text/css"
+  rel="stylesheet"
+  href="../outline.theme.css"
+  media="all"
+/>
+<!-- Default script that load the full component library via outline.js. -->
+<!-- <script type="module" src="outline.js"></script> -->
+<!-- Optional Lazy Loading script that would replace using outline.js. -->
+<!-- <script src="../dist/outline-dynamic.js" type="module"></script> -->
+<!-- Optional Dynamic Loading script that would replace using outline.js. -->
+<!-- <script src="../dist/outline-lazy.js" type="module"></script> --></outline-code-block
+>
+      </outline-container>
 
-    <pre>
-      &lt;link rel="stylesheet" href="outline.theme.css"&gt;
-      &lt;script type="module" src="outline.js"&gt;&lt;/script&gt;
-      &lt;script nomodule src="outline-legacy.js"&gt;&lt;/script&gt;
-    </pre>
+      <a name="icons"></a>
+      <outline-container y-padding>
+        <outline-heading level="h2" level-size="2xl" level-style="semibold"
+          >Outline Icon - System Library</outline-heading
+        >
+        <div class="flex flex-row flex-wrap">
+          <outline-icon
+            name="chevron-up"
+            library="system"
+            size="48px"
+          ></outline-icon>
+          <outline-icon
+            name="chevron-down"
+            library="system"
+            size="48px"
+          ></outline-icon>
+          <outline-icon
+            name="chevron-left"
+            library="system"
+            size="48px"
+          ></outline-icon>
+          <outline-icon
+            name="chevron-right"
+            library="system"
+            size="48px"
+          ></outline-icon>
+          <outline-icon
+            name="check-lg"
+            library="system"
+            size="48px"
+          ></outline-icon>
+          <outline-icon name="x" library="system" size="48px"></outline-icon>
+          <outline-icon
+            name="x-circle-fill"
+            library="system"
+            size="48px"
+          ></outline-icon>
+        </div>
+      </outline-container>
 
-    <h2>Button example</h2>
-    <outline-button>This is a button!</outline-button>
+      <outline-container y-padding>
+        <outline-heading level="h2" level-size="2xl" level-style="semibold"
+          >Outline Icon - Custom Library</outline-heading
+        >
+        <div class="flex flex-row flex-wrap">
+          <outline-icon
+            library="custom"
+            name="calendar"
+            class="mr-2"
+            size="48px"
+          ></outline-icon>
+          <outline-icon
+            library="custom"
+            name="clock"
+            class="mr-2"
+            size="48px"
+          ></outline-icon>
+        </div>
+      </outline-container>
 
-    <pre>
-      &lt;outline-button&gt;This is a button!&lt;/outline-button&gt;
-    </pre>
+      <outline-container y-padding>
+        <outline-heading level="h2" level-size="2xl" level-style="semibold"
+          >Button Sample(s)</outline-heading
+        >
+        <outline-button>This is a button!</outline-button>
+        <outline-button
+          >This is a button!<outline-icon
+            name="chevron-right"
+            library="system"
+            label="More information"
+            size="1.1rem"
+            class="ml-2"
+          ></outline-icon
+        ></outline-button>
+        <outline-heading
+          level="h3"
+          level-size="xl"
+          level-style="semibold"
+          class="mt-6"
+          >Code Sample</outline-heading
+        >
+<outline-code-block language="jsx">
+<outline-button>This is a button!</outline-button>
+<outline-button
+  >This is a button!<outline-icon
+    name="chevron-right"
+    library="jam"
+    label="More information"
+    size="1.1rem"
+    class="ml-2"
+  ></outline-icon></outline-button
+></outline-code-block>
+      </outline-container>
 
-    <h2>Link example with slotted A element</h2>
-    <outline-link>
-      <a href="http://google.com">Fully Slotted Link Tag</a>
-    </outline-link>
+      <outline-container y-padding>
+        <outline-heading level="h2" level-size="2xl" level-style="semibold"
+          >Styled Content</outline-heading
+        >
+        <outline-styled-text>
+          <h1>Sed tamen intellego quid velit.</h1>
 
-    <pre>
-      &lt;outline-link&gt;
-        &lt;a href="http://google.com"&gt;Fully Slotted Link Tag&lt;/a&gt;
-      &lt;/outline-link&gt;
-    </pre>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Si verbum
+            sequimur, primum longius verbum praepositum quam bonum. Quid enim
+            est a Chrysippo praetermissum in Stoicis? Quam si explicavisset, non
+            tam haesitaret. Inquit, respondet: Quia, nisi quod honestum est,
+            nullum est aliud bonum! Non quaero iam verumne sit; Duo Reges:
+            constructio interrete.
+            <a href="http://loripsum.net/" target="_blank"
+              >Inquit, dasne adolescenti veniam?</a
+            >
+            Hoc est non modo cor non habere, sed ne palatum quidem.
+            <mark>Comprehensum, quod cognitum non habet?</mark> Cum salvum esse
+            flentes sui respondissent, rogavit essentne fusi hostes. Et quidem,
+            inquit, vehementer errat;
+            <a href="http://loripsum.net/" target="_blank"
+              >Non dolere, inquam, istud quam vim habeat postea videro;</a
+            >
+            Est igitur officium eius generis, quod nec in bonis ponatur nec in
+            contrariis.
+          </p>
 
-    <h2>Link example with attributes</h2>
-    <outline-link
-      link-href="http://google.com"
-      link-text="A link element using properties"
-    ></outline-link>
+          <ul>
+            <li>
+              Utinam quidem dicerent alium alio beatiorem! Iam ruinas videres.
+            </li>
+            <li>
+              Idem etiam dolorem saepe perpetiuntur, ne, si id non faciant,
+              incidant in maiorem.
+            </li>
+            <li>
+              Nec tamen ullo modo summum pecudis bonum et hominis idem mihi
+              videri potest.
+            </li>
+          </ul>
 
-    <pre>
-      &lt;outline-link
-        link-href="http://google.com"
-        link-text="A link element using properties"
-      &gt;&lt;/outline-link&gt;
-    </pre>
+          <dl>
+            <dt><dfn>Magna laus.</dfn></dt>
+            <dd>
+              Atqui, inquam, Cato, si istud optinueris, traducas me ad te totum
+              licebit.
+            </dd>
+            <dt><dfn>Quis hoc dicit?</dfn></dt>
+            <dd>Aliud igitur esse censet gaudere, aliud non dolere.</dd>
+          </dl>
+
+          <h4>
+            Nonne videmus quanta perturbatio rerum omnium consequatur, quanta
+            confusio?
+          </h4>
+
+          <p>
+            Quid, de quo nulla dissensio est?
+            <b>Quam ob rem tandem, inquit, non satisfacit?</b>
+            <i
+              >Rhetorice igitur, inquam, nos mavis quam dialectice disputare?</i
+            >
+            Quod non faceret, si in voluptate summum bonum poneret. Qui autem
+            esse poteris, nisi te amor ipse ceperit? Atque haec coniunctio
+            confusioque virtutum tamen a philosophis ratione quadam
+            distinguitur. Roges enim Aristonem, bonane ei videantur haec:
+            vacuitas doloris, divitiae, valitudo; Aut unde est hoc contritum
+            vetustate proverbium: quicum in tenebris? Dic in quovis conventu te
+            omnia facere, ne doleas.
+            <i>Idem iste, inquam, de voluptate quid sentit?</i>
+          </p>
+
+          <ol>
+            <li>
+              Nec vero sum nescius esse utilitatem in historia, non modo
+              voluptatem.
+            </li>
+            <li>
+              Itaque nostrum est-quod nostrum dico, artis est-ad ea principia,
+              quae accepimus.
+            </li>
+            <li>Ita nemo beato beatior.</li>
+            <li>Tubulo putas dicere?</li>
+          </ol>
+
+          <h5>
+            An vero, inquit, quisquam potest probare, quod perceptfum, quod.
+          </h5>
+
+          <p>
+            Haec dicuntur inconstantissime. Ergo et avarus erit, sed finite, et
+            adulter, verum habebit modum, et luxuriosus eodem modo.
+          </p>
+
+          <p>
+            <mark>Si longus, levis dictata sunt.</mark> Cur, nisi quod turpis
+            oratio est?
+          </p>
+
+          <h3>Ad eas enim res ab Epicuro praecepta dantur.</h3>
+
+          <p>
+            <i>Hoc est non dividere, sed frangere.</i>
+            <i>Sed ad bona praeterita redeamus.</i>
+            <b>Dat enim intervalla et relaxat.</b> His similes sunt omnes, qui
+            virtuti student levantur vitiis, levantur erroribus, nisi forte
+            censes Ti. Ad quorum et cognitionem et usum iam corroborati natura
+            ipsa praeeunte deducimur. Quod autem satis est, eo quicquid
+            accessit, nimium est; Ita fit cum gravior, tum etiam splendidior
+            oratio. <i>In schola desinis.</i>
+          </p>
+
+          <h6>Omnes enim iucundum motum, quo sensus hilaretur.</h6>
+
+          <p>
+            Haec quo modo conveniant, non sane intellego. Haec et tu ita
+            posuisti, et verba vestra sunt. Quo modo autem optimum, si bonum
+            praeterea nullum est? Teneo, inquit, finem illi videri nihil dolere.
+            Et homini, qui ceteris animantibus plurimum praestat, praecipue a
+            natura nihil datum esse dicemus? In schola desinis. Innumerabilia
+            dici possunt in hanc sententiam, sed non necesse est. Nunc haec
+            primum fortasse audientis servire debemus. Videsne, ut haec
+            concinant? Dempta enim aeternitate nihilo beatior Iuppiter quam
+            Epicurus; Non quam nostram quidem, inquit Pomponius iocans;
+          </p>
+
+          <h1>At iste non dolendi status non vocatur voluptas.</h1>
+
+          <p>
+            <b>Sed plane dicit quod intellegit.</b> Post enim Chrysippum eum non
+            sane est disputatum. Quo studio Aristophanem putamus aetatem in
+            litteris duxisse? Expectoque quid ad id, quod quaerebam, respondeas.
+            Omnes enim iucundum motum, quo sensus hilaretur. Quorum sine causa
+            fieri nihil putandum est.
+          </p>
+
+          <p>
+            <a href="http://loripsum.net/" target="_blank"
+              >Videsne quam sit magna dissensio?</a
+            >
+            Sed ut iis bonis erigimur, quae expectamus, sic laetamur iis, quae
+            recordamur. <b>Egone quaeris, inquit, quid sentiam?</b>
+            <b>Equidem etiam Epicurum, in physicis quidem, Democriteum puto.</b>
+            <a href="http://loripsum.net/" target="_blank"
+              >Quid censes in Latino fore?</a
+            >
+            Quae cum praeponunt, ut sit aliqua rerum selectio, naturam videntur
+            sequi;
+          </p>
+
+          <ul>
+            <li>Longum est enim ad omnia respondere, quae a te dicta sunt.</li>
+            <li>Sed mehercule pergrata mihi oratio tua.</li>
+          </ul>
+
+          <ol>
+            <li>
+              Vos autem cum perspicuis dubia debeatis illustrare, dubiis
+              perspicua conamini tollere.
+            </li>
+            <li>
+              Quod mihi quidem visus est, cum sciret, velle tamen confitentem
+              audire Torquatum.
+            </li>
+            <li>
+              Mihi vero, inquit, placet agi subtilius et, ut ipse dixisti,
+              pressius.
+            </li>
+            <li>Ostendit pedes et pectus.</li>
+          </ol>
+
+          <p>
+            Cur igitur, inquam, res tam dissimiles eodem nomine appellas?
+            <a href="http://loripsum.net/" target="_blank"
+              >Quae quidem sapientes sequuntur duce natura tamquam videntes;</a
+            >
+            Atqui reperies, inquit, in hoc quidem pertinacem; Mene ergo et
+            Triarium dignos existimas, apud quos turpiter loquare?
+          </p>
+
+          <blockquote cite="http://loripsum.net">
+            Atque omnia quidem scire, cuiuscumque modi sint, cupere curiosorum,
+            duci vero maiorum rerum contemplatione ad cupiditatem scientiae
+            summorum virorum est putandum.
+          </blockquote>
+
+          <h3>Ut optime, secundum naturam affectum esse possit.</h3>
+
+          <p>
+            An haec ab eo non dicuntur?
+            <i>Itaque ad tempus ad Pisonem omnes.</i> Sed quid minus probandum
+            quam esse aliquem beatum nec satis beatum?
+            <a href="http://loripsum.net/" target="_blank"
+              >Utilitatis causa amicitia est quaesita.</a
+            >
+          </p>
+
+          <p>
+            Praeteritis, inquit, gaudeo.
+            <b>Respondeat totidem verbis.</b> Itaque hic ipse iam pridem est
+            reiectus; Et hunc idem dico, inquieta sed ad virtutes et ad vitia
+            nihil interesse. Nobis aliter videtur, recte secusne, postea; Et
+            ille ridens: Video, inquit, quid agas; Duarum enim vitarum nobis
+            erunt instituta capienda. Quarum ambarum rerum cum medicinam
+            pollicetur, luxuriae licentiam pollicetur.
+          </p>
+
+          <dl>
+            <dt><dfn>Sullae consulatum?</dfn></dt>
+            <dd>Mihi enim satis est, ipsis non satis.</dd>
+            <dt><dfn>Quae sequuntur igitur?</dfn></dt>
+            <dd>Utilitatis causa amicitia est quaesita.</dd>
+            <dt><dfn>Quid nunc honeste dicit?</dfn></dt>
+            <dd>
+              Quicquid enim a sapientia proficiscitur, id continuo debet
+              expletum esse omnibus suis partibus;
+            </dd>
+            <dt><dfn>Hic ambiguo ludimur.</dfn></dt>
+            <dd>
+              Illud quaero, quid ei, qui in voluptate summum bonum ponat,
+              consentaneum sit dicere.
+            </dd>
+            <dt><dfn>Cur iustitia laudatur?</dfn></dt>
+            <dd>Quid censes in Latino fore?</dd>
+          </dl>
+
+          <h2>
+            Scripta sane et multa et polita, sed nescio quo pacto auctoritatem
+            oratio non habet.
+          </h2>
+
+          <p>
+            Cum autem in quo sapienter dicimus, id a primo rectissime dicitur.
+            Si verbum sequimur, primum longius verbum praepositum quam bonum. An
+            hoc usque quaque, aliter in vita? Nec vero sum nescius esse
+            utilitatem in historia, non modo voluptatem. Sin laboramus, quis
+            est, qui alienae modum statuat industriae? Nobis aliter videtur,
+            recte secusne, postea;
+            <i>Bonum integritas corporis: misera debilitas.</i>
+          </p>
+
+          <blockquote cite="http://loripsum.net">
+            Quem ad modum quis ambulet, sedeat, qui ductus oris, qui vultus in
+            quoque sit?
+          </blockquote>
+
+          <p>
+            Haec mihi videtur delicatior, ut ita dicam, molliorque ratio, quam
+            virtutis vis gravitasque postulat. Sed plane dicit quod intellegit.
+            <a href="http://loripsum.net/" target="_blank"
+              >Dici enim nihil potest verius.</a
+            >
+            <i
+              >Rhetorice igitur, inquam, nos mavis quam dialectice disputare?</i
+            >
+            Eademne, quae restincta siti?
+            <a href="http://loripsum.net/" target="_blank"
+              >Quid autem habent admirationis, cum prope accesseris?</a
+            >
+            <i>Et nemo nimium beatus est;</i> Universa enim illorum ratione cum
+            tota vestra confligendum puto. Non dolere, inquam, istud quam vim
+            habeat postea videro; <mark>Quis negat?</mark>
+          </p>
+
+          <h5>Sed plane dicit quod intellegit.</h5>
+
+          <p>
+            Ex rebus enim timiditas, non ex vocabulis nascitur. Gerendus est
+            mos, modo recte sentiat.
+            <a href="http://loripsum.net/" target="_blank"
+              >Sedulo, inquam, faciam.</a
+            >
+            Tum ille timide vel potius verecunde: Facio, inquit.
+            <a href="http://loripsum.net/" target="_blank"
+              >Idemne, quod iucunde?</a
+            >
+            At quanta conantur! Mundum hunc omnem oppidum esse nostrum! Incendi
+            igitur eos, qui audiunt, vides. Quorum altera prosunt, nocent
+            altera.
+          </p>
+
+          <dl>
+            <dt><dfn>Stoici scilicet.</dfn></dt>
+            <dd>
+              Tum ille: Tu autem cum ipse tantum librorum habeas, quos hic
+              tandem requiris?
+            </dd>
+            <dt><dfn>Quae sequuntur igitur?</dfn></dt>
+            <dd>
+              Si stante, hoc natura videlicet vult, salvam esse se, quod
+              concedimus;
+            </dd>
+            <dt><dfn>Quare attende, quaeso.</dfn></dt>
+            <dd>
+              Sed quoniam et advesperascit et mihi ad villam revertendum est,
+              nunc quidem hactenus;
+            </dd>
+            <dt><dfn>Beatum, inquit.</dfn></dt>
+            <dd>Certe nihil nisi quod possit ipsum propter se iure laudari.</dd>
+          </dl>
+
+          <h4>
+            Nec vero alia sunt quaerenda contra Carneadeam illam sententiam.
+          </h4>
+
+          <p>
+            Nam et complectitur verbis, quod vult, et dicit plane, quod
+            intellegam;
+            <a href="http://loripsum.net/" target="_blank"
+              >Quorum sine causa fieri nihil putandum est.</a
+            >
+            Non igitur potestis voluptate omnia dirigentes aut tueri aut
+            retinere virtutem. Itaque e contrario moderati aequabilesque
+            habitus, affectiones ususque corporis apti esse ad naturam videntur.
+            Qua tu etiam inprudens utebare non numquam. Non modo carum sibi
+            quemque, verum etiam vehementer carum esse?
+            <mark
+              >Nummus in Croesi divitiis obscuratur, pars est tamen
+              divitiarum.</mark
+            >
+          </p>
+
+          <p>
+            Nos vero, inquit ille; Primum cur ista res digna odio est, nisi quod
+            est turpis? <mark>Reguli reiciendam;</mark> Atque haec ita iustitiae
+            propria sunt, ut sint virtutum reliquarum communia. Nam quibus rebus
+            efficiuntur voluptates, eae non sunt in potestate sapientis. Miserum
+            hominem! Si dolor summum malum est, dici aliter non potest.
+          </p>
+
+          <h1>
+            Atque hoc loco similitudines eas, quibus illi uti solent,
+            dissimillimas proferebas.
+          </h1>
+
+          <p>
+            <mark>Dici enim nihil potest verius.</mark> Est tamen ea secundum
+            naturam multoque nos ad se expetendam magis hortatur quam superiora
+            omnia. Isto modo ne improbos quidem, si essent boni viri. Nec enim,
+            dum metuit, iustus est, et certe, si metuere destiterit, non erit;
+            Quamquam te quidem video minime esse deterritum.
+            <i>Igitur ne dolorem quidem.</i> Nemo nostrum istius generis asotos
+            iucunde putat vivere. Illud dico, ea, quae dicat, praeclare inter se
+            cohaerere.
+          </p>
+
+          <blockquote cite="http://loripsum.net">
+            Sed tempus est, si videtur, et recta quidem ad me.
+          </blockquote>
+
+          <ol>
+            <li>
+              Quid enim necesse est, tamquam meretricem in matronarum coetum,
+              sic voluptatem in virtutum concilium adducere?
+            </li>
+            <li>
+              Ac ne plura complectar-sunt enim innumerabilia-, bene laudata
+              virtus voluptatis aditus intercludat necesse est.
+            </li>
+            <li>Estne, quaeso, inquam, sitienti in bibendo voluptas?</li>
+            <li>
+              Consequatur summas voluptates non modo parvo, sed per me nihilo,
+              si potest;
+            </li>
+            <li>Quid ergo attinet gloriose loqui, nisi constanter loquare?</li>
+          </ol>
+
+          <h2>
+            Ergo instituto veterum, quo etiam Stoici utuntur, hinc capiamus
+            exordium.
+          </h2>
+
+          <p>
+            Non quaeritur autem quid naturae tuae consentaneum sit, sed quid
+            disciplinae. Sit ista in Graecorum levitate perversitas, qui
+            maledictis insectantur eos, a quibus de veritate dissentiunt. Quid
+            autem habent admirationis, cum prope accesseris? An vero displicuit
+            ea, quae tributa est animi virtutibus tanta praestantia? Quamquam ex
+            omnibus philosophis Stoici plurima novaverunt, Zenoque, eorum
+            princeps, non tam rerum inventor fuit quam verborum novorum.
+            Intrandum est igitur in rerum naturam et penitus quid ea postulet
+            pervidendum;
+            <a href="http://loripsum.net/" target="_blank"
+              >At multis malis affectus.</a
+            >
+            Age, inquies, ista parva sunt. Et nemo nimium beatus est; Illa
+            argumenta propria videamus, cur omnia sint paria peccata.
+          </p>
+
+          <ul>
+            <li>
+              Cur ipse Pythagoras et Aegyptum lustravit et Persarum magos adiit?
+            </li>
+            <li>
+              Si ista mala sunt, in quae potest incidere sapiens, sapientem esse
+              non esse ad beate vivendum satis.
+            </li>
+            <li>Illa videamus, quae a te de amicitia dicta sunt.</li>
+            <li>
+              Itaque in rebus minime obscuris non multus est apud eos disserendi
+              labor.
+            </li>
+          </ul>
+
+          <h6>Ita prorsus, inquam;</h6>
+
+          <p>
+            Si stante, hoc natura videlicet vult, salvam esse se, quod
+            concedimus; Multoque hoc melius nos veriusque quam Stoici. Nam
+            memini etiam quae nolo, oblivisci non possum quae volo. Qua ex
+            cognitione facilior facta est investigatio rerum occultissimarum.
+            Eam si varietatem diceres, intellegerem, ut etiam non dicente te
+            intellego; Quod non faceret, si in voluptate summum bonum poneret.
+            <a href="http://loripsum.net/" target="_blank"
+              >Quare ad ea primum, si videtur;</a
+            >
+            Dolor ergo, id est summum malum, metuetur semper, etiamsi non
+            aderit; Sed quod proximum fuit non vidit. Sed residamus, inquit, si
+            placet.
+          </p>
+
+          <p>
+            Haec quo modo conveniant, non sane intellego. Nemo igitur esse
+            beatus potest. Itaque primos congressus copulationesque et
+            consuetudinum instituendarum voluntates fieri propter voluptatem;
+            Quasi ego id curem, quid ille aiat aut neget. Falli igitur possumus.
+            Quid ergo attinet dicere: Nihil haberem, quod reprehenderem, si
+            finitas cupiditates haberent? Itaque a sapientia praecipitur se
+            ipsam, si usus sit, sapiens ut relinquat. Sed quid sentiat, non
+            videtis.
+          </p>
+        </outline-styled-text>
+      </outline-container>
+    </main>
   </body>
 </html>

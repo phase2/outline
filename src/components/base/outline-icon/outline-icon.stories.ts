@@ -10,7 +10,20 @@ const configuration = {
     docs: {
       description: {
         component: `
-The \`outline-icon\` component will render all manner of icons.
+## Introduction
+
+The \`outline-icon\` component will render all manner of icons for your component(s) and application. 
+
+## Internal Icon Libraries
+- \`system\`: The default icon library for the Outline core system.
+- \`custom\`: A custom icon library of SVGs provided to the \`src/assets/svg\` directory.
+
+## Custom CDN Library Integrations
+
+[Bootstrap](#bootstrap), [Boxicons](#boxicons), [Font Awesome (Free)](#font-awesome-free),
+[Heroicons](#heroicons), [Iconoir](#iconoir), [Ionicons](#ionicons),
+[Jam](#jam), [Lucide](#lucide), [Material](#material), [Remix](#remix),
+[Unicons](#unicons) and even more possible via custom CDN integration and icon resolver.
         `,
       },
     },
@@ -125,13 +138,13 @@ export const SystemIcons = (customArguments = {}) =>
 SystemTemplate(customArguments);
 SystemIcons.argTypes = specificLibraryArgTypes;
 SystemIcons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 SystemIcons.parameters = {
   docs: {
     storyDescription: `
-### The \`system\` icon library.
+## The \`system\` icon library.
 
 The system library contains only the icons used by Outline components.
 The icons are hard-coded as data URIs into the icon resolver to ensure their availability.
@@ -160,7 +173,7 @@ export const CustomIcons = (customArguments = {}) =>
 CustomTemplate(customArguments);
 CustomIcons.argTypes = specificLibraryArgTypes;
 CustomIcons.args = {
-  size: '32px',
+  size: '48px',
   library: 'custom',
   sizeEnabled: true,
 };
@@ -176,7 +189,7 @@ It uses the \`src/assets/svg\` directory to store the icons.
 }
 
 
-const BoostrapIconsTemplate = (customArguments = {}): TemplateResult => {
+const BootstrapIconsTemplate = (customArguments = {}): TemplateResult => {
   const args = {
     ...configuration.args,
     ...customArguments,
@@ -206,14 +219,14 @@ const BoostrapIconsTemplate = (customArguments = {}): TemplateResult => {
 `;
 };
 
-export const BootstrapIcons = (customArguments = {}) =>
-BoostrapIconsTemplate(customArguments);
-BootstrapIcons.argTypes = specificLibraryArgTypes;
-BootstrapIcons.args = {
-  size: '32px',
+export const Bootstrap = (customArguments = {}) =>
+BootstrapIconsTemplate(customArguments);
+Bootstrap.argTypes = specificLibraryArgTypes;
+Bootstrap.args = {
+  size: '48px',
   sizeEnabled: true,
 };
-BootstrapIcons.parameters = {
+Bootstrap.parameters = {
   docs: {
     storyDescription: `
 ## The \`bootstrap\` icon library.
@@ -264,9 +277,9 @@ const BoxiconsTemplate = (customArguments = {}): TemplateResult => {
 
 export const Boxicons = (customArguments = {}) =>
 BoxiconsTemplate(customArguments);
-BootstrapIcons.argTypes = specificLibraryArgTypes;
+Boxicons.argTypes = specificLibraryArgTypes;
 Boxicons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Boxicons.parameters = {
@@ -321,7 +334,7 @@ export const FontAwesomeFree = (customArguments = {}) =>
 FaTemplate(customArguments);
 FontAwesomeFree.argTypes = specificLibraryArgTypes;
 FontAwesomeFree.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 FontAwesomeFree.parameters = {
@@ -331,43 +344,6 @@ FontAwesomeFree.parameters = {
 
 The \`fa\` library uses the jsDelivr CDN to implement [Font Awesome (free)](https://fontawesome.com).
 Please see the [icon list](https://fontawesome.com/icons) on their site for the list of available icons.
-    `,
-  },
-}
-
-const LucideTemplate = (customArguments = {}): TemplateResult => {
-  const args = {
-    ...configuration.args,
-    ...customArguments,
-  };
-
-  return html`
-<outline-heading level="h2" level-size="2xl" level-style="thin">Standard</outline-heading>
-<div class="flex flex-row flex-wrap">
-  <outline-icon library="lucide" name="feather" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-  <outline-icon library="lucide" name="pie-chart" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-  <outline-icon library="lucide" name="settings" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-  <outline-icon library="lucide" name="map-pin" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-  <outline-icon library="lucide" name="printer" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-  <outline-icon library="lucide" name="shopping-cart" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
-</div>
-`;
-};
-
-export const LucideIcons = (customArguments = {}) =>
-LucideTemplate(customArguments);
-LucideIcons.argTypes = specificLibraryArgTypes;
-LucideIcons.args = {
-  size: '32px',
-  sizeEnabled: true,
-};
-LucideIcons.parameters = {
-  docs: {
-    storyDescription: `
-## The \`lucide\` icon library.
-
-The \`lucide\` library uses the jsDelivr CDN to implement [Lucide Icons](https://lucide.dev/).
-Please see the icon list on their site for the list of available icons.
     `,
   },
 }
@@ -395,7 +371,7 @@ export const Heroicons = (customArguments = {}) =>
 HeroiconsTemplate(customArguments);
 Heroicons.argTypes = specificLibraryArgTypes;
 Heroicons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Heroicons.parameters = {
@@ -428,14 +404,14 @@ const IconoirTemplate = (customArguments = {}): TemplateResult => {
 `;
 };
 
-export const IconoirIcons = (customArguments = {}) =>
+export const Iconoir = (customArguments = {}) =>
 IconoirTemplate(customArguments);
-IconoirIcons.argTypes = specificLibraryArgTypes;
-IconoirIcons.args = {
-  size: '32px',
+Iconoir.argTypes = specificLibraryArgTypes;
+Iconoir.args = {
+  size: '48px',
   sizeEnabled: true,
 };
-IconoirIcons.parameters = {
+Iconoir.parameters = {
   docs: {
     storyDescription: `
 ## The \`iconoir\` icon library.
@@ -483,14 +459,14 @@ const IonIconsTemplate = (customArguments = {}): TemplateResult => {
 `;
 };
 
-export const IonIcons = (customArguments = {}) =>
+export const Ionicons = (customArguments = {}) =>
 IonIconsTemplate(customArguments);
-IonIcons.argTypes = specificLibraryArgTypes;
-IonIcons.args = {
-  size: '32px',
+Ionicons.argTypes = specificLibraryArgTypes;
+Ionicons.args = {
+  size: '48px',
   sizeEnabled: true,
 };
-IonIcons.parameters = {
+Ionicons.parameters = {
   docs: {
     storyDescription: `
 ## The \`ionicons\` icon library.
@@ -529,19 +505,56 @@ const JamIconsTemplate = (customArguments = {}): TemplateResult => {
 `;
 };
 
-export const JamIcons = (customArguments = {}) =>
+export const Jam = (customArguments = {}) =>
 JamIconsTemplate(customArguments);
-JamIcons.argTypes = specificLibraryArgTypes;
-JamIcons.args = {
-  size: '32px',
+Jam.argTypes = specificLibraryArgTypes;
+Jam.args = {
+  size: '48px',
   sizeEnabled: true,
 };
-JamIcons.parameters = {
+Jam.parameters = {
   docs: {
     storyDescription: `
 ## The \`jam\` icon library.
 
 The \`jam\` library uses the jsDelivr CDN to implement [Jam Icons](https://jam-icons.com/).
+Please see the icon list on their site for the list of available icons.
+    `,
+  },
+}
+
+const LucideTemplate = (customArguments = {}): TemplateResult => {
+  const args = {
+    ...configuration.args,
+    ...customArguments,
+  };
+
+  return html`
+<outline-heading level="h2" level-size="2xl" level-style="thin">Standard</outline-heading>
+<div class="flex flex-row flex-wrap">
+  <outline-icon library="lucide" name="feather" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="lucide" name="pie-chart" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="lucide" name="settings" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="lucide" name="map-pin" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="lucide" name="printer" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+  <outline-icon library="lucide" name="shopping-cart" size="${ifDefined(args.size)}" class="mr-2"></outline-icon>
+</div>
+`;
+};
+
+export const Lucide = (customArguments = {}) =>
+LucideTemplate(customArguments);
+Lucide.argTypes = specificLibraryArgTypes;
+Lucide.args = {
+  size: '48px',
+  sizeEnabled: true,
+};
+Lucide.parameters = {
+  docs: {
+    storyDescription: `
+## The \`lucide\` icon library.
+
+The \`lucide\` library uses the jsDelivr CDN to implement [Lucide Icons](https://lucide.dev/).
 Please see the icon list on their site for the list of available icons.
     `,
   },
@@ -584,14 +597,14 @@ const MaterialIconsTemplate = (customArguments = {}): TemplateResult => {
 `;
 };
 
-export const MaterialIcons = (customArguments = {}) =>
+export const Material = (customArguments = {}) =>
 MaterialIconsTemplate(customArguments);
-MaterialIcons.argTypes = specificLibraryArgTypes;
-MaterialIcons.args = {
-  size: '32px',
+Material.argTypes = specificLibraryArgTypes;
+Material.args = {
+  size: '48px',
   sizeEnabled: true,
 };
-MaterialIcons.parameters = {
+Material.parameters = {
   docs: {
     storyDescription: `
 ## The \`material\` icon library.
@@ -630,14 +643,14 @@ const RemixIconsTemplate = (customArguments = {}): TemplateResult => {
 `;
 };
 
-export const RemixIcons = (customArguments = {}) =>
+export const Remix = (customArguments = {}) =>
 RemixIconsTemplate(customArguments);
-RemixIcons.argTypes = specificLibraryArgTypes;
-RemixIcons.args = {
-  size: '32px',
+Remix.argTypes = specificLibraryArgTypes;
+Remix.args = {
+  size: '48px',
   sizeEnabled: true,
 };
-RemixIcons.parameters = {
+Remix.parameters = {
   docs: {
     storyDescription: `
 ## The \`remix\` icon library.
@@ -680,7 +693,7 @@ export const Unicons = (customArguments = {}) =>
 UniconsTemplate(customArguments);
 Unicons.argTypes = specificLibraryArgTypes;
 Unicons.args = {
-  size: '32px',
+  size: '48px',
   sizeEnabled: true,
 };
 Unicons.parameters = {
