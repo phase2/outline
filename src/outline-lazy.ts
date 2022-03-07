@@ -24,9 +24,6 @@ const observer = new IntersectionObserver((entries, observerRef) => {
         .replace('.ts', '.js')
         .replace('./', '');
 
-      //console.log(`Component: ${name} loaded from ${componentPath}.`);
-      //console.log(componentPath);
-
       // Once we've observed this element come into view, we can safely remove
       // the observer since we won't need to import the WC code again
       observerRef.unobserve(entry.target);
