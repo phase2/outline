@@ -1,5 +1,6 @@
 dist/
 www/
+dev/
 loader/
 storybook-static/
 custom-elements.json
