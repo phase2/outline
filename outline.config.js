@@ -13,6 +13,7 @@ module.exports = {
   },
   assets: {
     dir: ['src/assets'],
+    sync: ['dist', 'src/.storybook/static/dist'],
   },
   css: {
     global: [

@@ -1,4 +1,4 @@
-/dist/
+*dist*
 storybook-static/
 custom-elements.json
 .env-local

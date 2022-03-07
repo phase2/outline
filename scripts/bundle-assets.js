@@ -1,41 +1,39 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable global-require */
-/* eslint-disable no-console */
-const yargs = require('yargs');
-const gaze = require('gaze');
-const postcss = require('postcss');
-const fs = require('fs');
-const glob = require('glob');
-const config = require('../postcss.config');
-const outline = require('../outline.config');
-const components = require('../src/custom-elements.json');
-const options = yargs.option('watch', {
-  type: 'boolean',
-  describe: 'Watch the file system for changes and render automatically',
-}).argv;
-
 /**
- * Function to sync an asset to the `dist` directory.
- *
- * @param {string} filepath
+ * @file bundle-assets.js - Move assets around as needed for various environment needs.
+ * @see https://medium.com/swlh/how-to-backup-files-using-node-js-and-rsync-bbea20701696
  */
-const assetSync = filepath => {};
 
-// Ensure dist directory exists.
-if (!fs.existsSync(outline.destBasePath)) {
-  fs.mkdirSync(outline.destBasePath);
-}
+const Rsync = require('rsync');
+const outline = require('../outline.config');
 
-// Run the component style generation.
-glob('src/assets/**/*', (err, files) => {
-  files.forEach(assetSync);
-});
-
-// Watch mode with --watch in cli.
-if (options.watch) {
-  // Watch components.
-  gaze('src/assets/**/*', (err, watcher) => {
-    watcher.on('added', createCssLiterals);
-    watcher.on('changed', createCssLiterals);
+function runRsync(dest) {
+  const rsync = new Rsync();
+  rsync.flags('avzP');
+  rsync.set('delete');
+  rsync.source(outline.assets.dir);
+  rsync.destination(dest);
+  return new Promise((resolve, reject) => {
+    try {
+      let logData = '';
+      rsync.execute(
+        (error, code, cmd) => {
+          resolve({ error, code, cmd, data: logData });
+        },
+        data => {
+          logData += data;
+        },
+        err => {
+          logData += err;
+        }
+      );
+    } catch (error) {
+      reject(error);
+    }
   });
 }
+
+(async () => {
+  outline.assets.sync.map(async dest => {
+    await runRsync(dest);
+  });
+})();
