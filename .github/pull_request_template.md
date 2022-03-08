@@ -1,12 +1,3 @@
----
-name: Pull Request
-about: Submit new code to the project
-title: '[Feature]: '
-labels: ["For Review", "Requires Triage"]
-assignees: ''
-
----
-
 ## Description
 
 Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.
