@@ -80,3 +80,9 @@ export class OutlineAlert
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-alert': OutlineAlert;
+  }
+}

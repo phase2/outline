@@ -27,6 +27,7 @@ module.exports = {
       : [`../components/**/*.stories.@(js|ts|mdx)`]),
   ],
   addons: [
+    '@storybook/addon-essentials',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -35,9 +36,7 @@ module.exports = {
         },
       },
     },
-    '@storybook/addon-docs',
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
   ],
   webpackFinal: async config => {

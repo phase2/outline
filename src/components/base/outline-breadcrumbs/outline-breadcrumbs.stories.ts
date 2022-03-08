@@ -6,11 +6,6 @@ const configuration = {
   component: 'outline-breadcrumb',
   parameters: {
     viewMode: 'docs',
-    previewTabs: {
-      canvas: {
-        hidden: true,
-      },
-    },
   },
   argTypes: {},
   args: {},

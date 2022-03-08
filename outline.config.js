@@ -5,11 +5,25 @@
 const destBasePath = 'dist';
 module.exports = {
   destBasePath,
+  components: {
+    // This should include an array of directories under
+    // src/components/ that contain component files.
+    // Currently used only in `js.output.lazy` mode.
+    bundle: ['outline', 'utility'],
+  },
+  assets: {
+    dir: ['src/assets'],
+    sync: ['dist', 'src/.storybook/static/dist'],
+  },
   css: {
     global: [
       {
         src: 'src/shared.css',
         dest: `${destBasePath}/shared.css`,
+      },
+      {
+        src: 'src/tailwind.css',
+        dest: `${destBasePath}/tailwind.css`,
       },
       {
         src: 'src/.storybook/storybook.css',
@@ -21,8 +35,41 @@ module.exports = {
       dest: `${destBasePath}/fouc.css`,
     },
   },
+  js: {
+    output: {
+      // @see src/outline-lazy.ts
+      // @status experimental
+      lazy: true,
+      // Export full library to `outline.js`.
+      // @status stable
+      full: true,
+      // @see src/data.ts
+      // @status optional
+      data: false,
+    },
+  },
   color: {
     sets: ['primary', 'secondary', 'tertiary', 'neutral', 'demo'],
+  },
+  icons: {
+    libraries: {
+      bootstrap: true,
+      boxicons: true,
+      fontawesome: true,
+      heroicons: true,
+      iconoir: true,
+      ionicons: true,
+      jam: true,
+      lucide: true,
+      material: true,
+      remix: true,
+      unicons: true,
+    },
+    defaults: {
+      library: 'bootstrap',
+      size: '16px',
+      icon: 'chevron-right',
+    },
   },
   youtube: {
     // Replace with the YouTube id of any video to replace the

@@ -1,13 +1,20 @@
-import { LitElement, TemplateResult } from 'lit';
+import { CSSResultGroup, LitElement, TemplateResult } from 'lit';
 import { html, unsafeStatic } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { customElement } from 'lit/decorators.js';
-//import componentStyles from './outline-element.base.css.lit';
+import componentStyles from './outline-element.base.css.lit';
 
 @customElement('outline-element')
 export class OutlineElement extends LitElement {
-  //static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
 
+  connectedCallback() {
+    super.connectedCallback();
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+  }
   /**
    * Create a conditional slot.
    *
@@ -41,5 +48,11 @@ export class OutlineElement extends LitElement {
           ></slot>
         </${unsafeStatic(wrapperElementType)}>`
       : null;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-element': OutlineElement;
   }
 }

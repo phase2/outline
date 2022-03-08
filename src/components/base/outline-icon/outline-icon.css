@@ -1,7 +1,3 @@
-:host {
-  display: flex;
-}
-
 :host svg {
   height: inherit;
   width: inherit;

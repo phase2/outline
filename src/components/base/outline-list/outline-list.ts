@@ -121,3 +121,9 @@ export class OutlineList extends OutlineElement {
     }
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-list': OutlineList;
+  }
+}
