@@ -64,7 +64,7 @@
     "format:svg": "svgo -f ./src -r --config=svgo.config.js",
     "fix": "yarn fmt && yarn lint",
     "ci": "rm -rf node_modules && yarn install --frozen-lockfile",
-    "clean": "npm-run-all -p -r clean:*",
+    "clean": "npm-run-all -s clean:*",
     "clean:dist": "rimraf dist",
     "clean:generated": "rimraf src/custom-elements.json && rimraf src/component-list.json",
     "clean:outline": "rimraf src/resolved-outline-config.ts",
