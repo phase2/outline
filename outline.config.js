@@ -9,7 +9,7 @@ module.exports = {
     // This should include an array of directories under
     // src/components/ that contain component files.
     // Currently used only in `js.output.lazy` mode.
-    bundle: ['outline'],
+    bundle: ['outline', 'utility'],
   },
   assets: {
     dir: ['src/assets'],
@@ -40,15 +40,12 @@ module.exports = {
       // @see src/outline-lazy.ts
       // @status experimental
       lazy: true,
-      // @see src/outline-dynamic.ts
-      // @status experimental
-      dynamic: true,
       // Export full library to `outline.js`.
       // @status stable
       full: true,
       // @see src/data.ts
       // @status optional
-      data: true,
+      data: false,
     },
   },
   color: {
