@@ -52,7 +52,7 @@
     "storybook:axe:dev:chromium": "yarn axe-storybook --storybook-address=\"http://localhost:${npm_package_sbport}\" --browser chromium",
     "storybook:axe:dev:firefox": "yarn axe-storybook --storybook-address=\"http://localhost:${npm_package_sbport}\" --browser firefox",
     "storybook:axe:dev:webkit": "yarn axe-storybook --storybook-address=\"http://localhost:${npm_package_sbport}\" --browser webkit",
-    "storybook:wait": "wait-on ./dist/storybook:css ./src/custom-elements.json ./src/resolved-tailwind-config.ts",
+    "storybook:wait": "wait-on ./dist/storybook.css ./src/custom-elements.json ./src/component-list.json ./src/resolved-tailwind-config.ts ./src/resolved-outline-config.ts",
     "storybook:dev": "start-storybook -c src/.storybook -p ${npm_package_sbport}",
     "storybook:dev:watch": "npm-run-all -pr watch:css storybook:dev",
     "storybook:prod": "yarn prep && yarn storybook:wait && NODE_ENV=production build-storybook -c src/.storybook -o storybook-static",
