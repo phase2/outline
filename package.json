@@ -33,7 +33,6 @@
     "prep:tailwind": "node scripts/resolve-tailwind-config.js",
     "prep:safelist": "node scripts/generate-tw-safelist.js",
     "prep:css": "node scripts/styles.js",
-    "generate:icons": "yarn run fmt.svg && node ./scripts/generate-icons.js ",
     "prebuild": "yarn prep",
     "build": "npm-run-all -s build:tsc build:rollup",
     "build:tsc": "yarn tsc",
