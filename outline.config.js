@@ -91,5 +91,6 @@ module.exports = {
     arrows: true,
   },
   // Pass some events from shadow DOM to parent so that things like GTM can see those events.
+  // These events are copies of the original event and you will not be able to modify the original event such as preventing the default action.
   bubbledEvents: ['submit'],
 };

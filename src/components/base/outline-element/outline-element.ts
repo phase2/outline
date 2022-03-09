@@ -19,12 +19,19 @@ export class OutlineElement extends LitElement {
     super.disconnectedCallback();
   }
 
+  /**
+   * Some events like `submit` do not reach outside of the shadow DOM. We want to redispatch these events so they can travel up the tree and be used by things like Google Tag Manager.
+   * Please note: Since we are redispatching these events listeners up the tree cannot do things like prevent the default action of the event, they can only watch the copies.
+   */
   addBubbledEventHandlers() {
     bubbledEvents.forEach(eventName => {
       this.shadowRoot?.addEventListener(eventName, event => {
         // eslint-disable-next-line
         // @ts-ignore
-        const eventForLightDOM: Event = new event.constructor(event.type, event);
+        const eventForLightDOM: Event = new event.constructor(
+          event.type,
+          event
+        );
         this.dispatchEvent(eventForLightDOM);
       });
     });
