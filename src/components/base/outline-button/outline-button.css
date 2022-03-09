@@ -68,7 +68,7 @@
 }
 
 .btn.none {
-  @apply py-0 pr-4 pl-0 text-base font-semibold text-demo-darkBlue !important;
+  @apply border-0 bg-neutral-transparent py-0 pr-4 pl-0 text-base font-medium text-demo-darkBlue !important;
 
   &:hover,
   &:focus {

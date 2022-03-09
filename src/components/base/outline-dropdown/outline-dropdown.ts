@@ -239,7 +239,7 @@ export default class OutlineDropdown extends OutlineElement {
             button-label="${ifDefined(this.triggerLabel)}"
             @click="${this.show}"
           >
-            ${this.triggerText} ${this.iconTemplate()}
+            <span>${this.triggerText}</span> ${this.iconTemplate()}
           </outline-button>
           <div
             class="dropdown__panel"

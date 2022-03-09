@@ -18,6 +18,12 @@
   pointer-events: all;
 }
 
-outline-icon {
-  @apply pl-2 !important;
+outline-button[button-url] {
+  span {
+    @apply mr-2;
+  }
 }
+
+/* outline-icon {
+  @apply pl-2 !important;
+} */
