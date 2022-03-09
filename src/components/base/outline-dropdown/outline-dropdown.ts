@@ -217,6 +217,10 @@ export default class OutlineDropdown extends OutlineElement {
     }, 0);
   }
 
+  /**
+   * @todo: Ensure there IS a dropdown before triggering the functionality.
+   * @returns {TemplateResult}
+   */
   render(): TemplateResult {
     return html`
       <div
