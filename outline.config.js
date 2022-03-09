@@ -90,4 +90,6 @@ module.exports = {
     keyboard: false,
     arrows: true,
   },
+  // Pass some events from shadow DOM to parent so that things like GTM can see those events.
+  bubbledEvents: ['submit'],
 };
