@@ -10,21 +10,14 @@
   display: block;
 }
 
-button {
-  @apply cursor-pointer rounded-xl border-none bg-demo-darkBlue px-7 py-3 text-left text-sm capitalize leading-tight text-demo-white no-underline transition-colors duration-300;
-}
-
-button:hover,
-button:focus,
-.dropdown--open button {
-  @apply bg-demo-black ease-in-out;
-  pointer-events: all;
-}
-
 .dropdown--open .dropdown__panel {
   @apply m-0 border-2 border-solid border-demo-mediumGray p-4;
   @apply bg-demo-lightGray text-demo-black;
   @apply absolute z-50;
   @apply min-w-[350px];
   pointer-events: all;
+}
+
+outline-icon {
+  @apply ml-2 !important;
 }
