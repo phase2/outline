@@ -3,6 +3,7 @@ import { html, unsafeStatic } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-element.base.css.lit';
+import { bubbledEvents } from '../../../../outline.config.js';
 
 @customElement('outline-element')
 export class OutlineElement extends LitElement {
@@ -10,11 +11,25 @@ export class OutlineElement extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
+
+    this.addBubbledEventHandlers();
   }
 
   disconnectedCallback() {
     super.disconnectedCallback();
   }
+
+  addBubbledEventHandlers() {
+    bubbledEvents.forEach(eventName => {
+      this.shadowRoot?.addEventListener(eventName, event => {
+        // eslint-disable-next-line
+        // @ts-ignore
+        const eventForLightDOM: Event = new event.constructor(event.type, event);
+        this.dispatchEvent(eventForLightDOM);
+      });
+    });
+  }
+
   /**
    * Create a conditional slot.
    *
