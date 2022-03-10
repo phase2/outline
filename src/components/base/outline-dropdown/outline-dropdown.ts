@@ -116,7 +116,7 @@ export default class OutlineDropdown extends OutlineElement {
    * Shows the dropdown panel.
    */
   async show() {
-    if (this.isOpen) {
+    if (this.isOpen || this.isDisabled) {
       return undefined;
     }
     this.panel.hidden = false;
@@ -181,13 +181,20 @@ export default class OutlineDropdown extends OutlineElement {
     }
   }
 
-  handleEscKey(event: KeyboardEvent) {
+  handlePanelLeave(event: KeyboardEvent) {
     // Close when escape is pressed.
     if (event.key === 'Escape') {
       this.hide();
       this.focusOnTrigger();
       return;
     }
+
+    // Wait for the next element to be selected.
+    setTimeout(() => {
+      if (document.activeElement !== this) {
+        this.hide();
+      }
+    }, 0);
   }
   handleDocumentKeyDown(event: KeyboardEvent) {
     if (event.key === 'Enter') {
@@ -196,7 +203,7 @@ export default class OutlineDropdown extends OutlineElement {
       return;
     }
 
-    this.handleEscKey(event);
+    this.handlePanelLeave(event);
 
     // Handle tabbing
     if (event.key === 'Tab') {
@@ -262,6 +269,7 @@ export default class OutlineDropdown extends OutlineElement {
             button-target="${ifDefined(this.triggerTarget)}"
             button-url="${ifDefined(this.triggerUrl)}"
             button-label="${ifDefined(this.triggerLabel)}"
+            ?is-disabled=${this.isDisabled}
           >
             <span>${this.triggerText}</span> ${this.iconTemplate()}
           </outline-button>
@@ -269,7 +277,7 @@ export default class OutlineDropdown extends OutlineElement {
             class="dropdown__panel"
             tabindex="${this.isOpen ? '0' : '-1'}"
             aria-hidden=${this.isOpen ? 'false' : 'true'}
-            @keydown="${this.handlePanelClose}"
+            @keydown="${this.handlePanelLeave}"
             aria-labelledby="dropdown"
           >
             <slot name="dropdown"></slot>
@@ -285,7 +293,8 @@ export default class OutlineDropdown extends OutlineElement {
    * @returns TemplateResult | null
    */
   iconTemplate(): TemplateResult | null {
-    if (!this.triggerUrl) return null;
+    // @todo
+    //if (!this.triggerUrl) return null;
 
     return html`
       <outline-icon

@@ -146,7 +146,13 @@ const MultipleDropdownsTemplate = (): TemplateResult => {
       <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
     </div>
   </outline-dropdown>
-  <outline-dropdown class="my-4" trigger-text="Dropdown" trigger-variant="none" trigger-size="medium">  
+  <outline-dropdown class="my-4 pr-2" trigger-text="Dropdown" trigger-variant="none" trigger-size="medium">  
+    <div slot="dropdown">
+      <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+      <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
+    </div>
+  </outline-dropdown>
+  <outline-dropdown class="my-4" trigger-text="Disabled Dropdown" trigger-variant="none" trigger-size="medium" is-disabled>
     <div slot="dropdown">
       <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
       <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>

@@ -22,7 +22,7 @@
   * assuming there is a button-url, meaning there should be an 
   * icon for opening a dropdown. 
   */
-outline-button[button-url] {
+outline-button {
   span {
     @apply mr-2;
   }
