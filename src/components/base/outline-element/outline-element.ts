@@ -40,7 +40,7 @@ export class OutlineElement extends LitElement {
    *
    * The aggregated composed path is available with `event.aggregatedComposedPath()`. This is a replacement for `event.composedPath()`.
    */
-   addBubbledEventHandlers() {
+  addBubbledEventHandlers() {
     outlineConfig.bubbledEvents.forEach(eventName => {
       this.shadowRoot?.addEventListener(eventName, event => {
         // eslint-disable-next-line
