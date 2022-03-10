@@ -154,11 +154,11 @@ export default class OutlineDropdown extends OutlineElement {
   }
 
   /**
-   * Returns the focus to the trigger element.
-   *
-   * @todo May need to adjust this to handle focusing on the button OR the icon as the actual trigger..
+   * Shifts the focus to the panel element.
    */
   focusOnPanel() {
+    // If the panel is focusable, focus on it.
+    // This can be accomplished with a tabindex attribute.
     if (typeof this.panel.focus === 'function') {
       this.panel.focus();
     }
@@ -179,21 +179,22 @@ export default class OutlineDropdown extends OutlineElement {
     }
   }
 
-  handleDocumentKeyDown(event: KeyboardEvent) {
-    //console.log(event.key);
-
-    if (event.key === 'Enter') {
-      this.show();
-      this.focusOnPanel();
-      return;
-    }
-
+  handleEscKey(event: KeyboardEvent) {
     // Close when escape is pressed.
     if (event.key === 'Escape') {
       this.hide();
       this.focusOnTrigger();
       return;
     }
+  }
+  handleDocumentKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.isOpen ? this.hide() : this.show();
+      this.isOpen ? this.focusOnPanel() : null;
+      return;
+    }
+
+    this.handleEscKey(event);
 
     // Handle tabbing
     if (event.key === 'Tab') {
@@ -266,7 +267,7 @@ export default class OutlineDropdown extends OutlineElement {
             class="dropdown__panel"
             tabindex="${this.isOpen ? '0' : '-1'}"
             aria-hidden=${this.isOpen ? 'false' : 'true'}
-            @keyup="${this.handleTriggerKeyUp}"
+            @keydown="${this.handlePanelClose}"
             aria-labelledby="dropdown"
           >
             <slot name="dropdown"></slot>
