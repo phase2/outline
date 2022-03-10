@@ -90,7 +90,7 @@ module.exports = {
     keyboard: false,
     arrows: true,
   },
-  // Pass some events from shadow DOM to parent so that things like GTM can see those events.
-  // These events are copies of the original event and you will not be able to modify the original event such as preventing the default action.
+  // Bubble non-composed events up the DOM tree.
+  // See `outline-element.ts` for documentation around these events.
   bubbledEvents: ['submit'],
 };

@@ -4,6 +4,13 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-element.base.css.lit';
 import outlineConfig from '../../../resolved-outline-config';
+
+interface BubbledEvent extends Event {
+  sourceEvent: Event;
+  aggregatedPath: HTMLElement[];
+  aggregatedComposedPath: () => HTMLElement[];
+  path?: HTMLElement[];
+}
 @customElement('outline-element')
 export class OutlineElement extends LitElement {
   static styles: CSSResultGroup = [componentStyles];
@@ -19,18 +26,50 @@ export class OutlineElement extends LitElement {
   }
 
   /**
-   * Some events like `submit` do not reach outside of the shadow DOM. We want to redispatch these events so they can travel up the tree and be used by things like Google Tag Manager.
-   * Please note: Since we are redispatching these events listeners up the tree cannot do things like prevent the default action of the event, they can only watch the copies.
+   * Bubble events that are not `composed`, but that we want to view in parent DOM(s).
+   *
+   * Some events like `submit` do not reach outside of the shadow DOM. These have their `composed` property set to `false`.
+   *
+   * We want to redispatch these events so they can travel up the tree and be used by things like Google Tag Manager.
+   *
+   * Limitations:
+   * - Some properties are different such as `event.composedPath()`. An attempt was made to make the original event and these properties / methods available as replacements.
+   *
+   * The original source event is available at `event.sourceEvent`. You can interact with this event and do things like `preventDefault()` as needed.
+   * See See https://stackoverflow.com/a/67882470 for some discussion.
+   *
+   * The aggregated composed path is available with `event.aggregatedComposedPath()`. This is a replacement for `event.composedPath()`.
    */
-  addBubbledEventHandlers() {
+   addBubbledEventHandlers() {
     outlineConfig.bubbledEvents.forEach(eventName => {
       this.shadowRoot?.addEventListener(eventName, event => {
         // eslint-disable-next-line
         // @ts-ignore
-        const eventForLightDOM: Event = new event.constructor(
+        const eventForLightDOM: BubbledEvent = new event.constructor(
           event.type,
           event
         );
+
+        eventForLightDOM.sourceEvent ??= event;
+
+        eventForLightDOM.aggregatedPath ??= [];
+        // eslint-disable-next-line
+        // @ts-ignore
+        if (event.path !== undefined) {
+          eventForLightDOM.aggregatedPath = [
+            ...eventForLightDOM.aggregatedPath,
+            // eslint-disable-next-line
+            // @ts-ignore
+            ...event.path,
+          ];
+        }
+
+        eventForLightDOM.aggregatedComposedPath = function () {
+          return this.path !== undefined
+            ? [...this.aggregatedPath, ...this.path]
+            : [];
+        };
+
         this.dispatchEvent(eventForLightDOM);
       });
     });

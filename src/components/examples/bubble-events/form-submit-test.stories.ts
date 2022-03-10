@@ -12,7 +12,10 @@ export const Submit = (): TemplateResult => {
   return html`
     <script>
       document.querySelector('body').addEventListener('submit', (event) => {
-        console.log(event);
+        event.sourceEvent.preventDefault();
+        console.log('light dom event', event);
+        console.log('source event', event.sourceEvent);
+        console.log('light dom aggregated composed path', event.aggregatedComposedPath());
       });
     </script>
     <form-submit-test></form-submit-test>
