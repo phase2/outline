@@ -3,7 +3,7 @@ import { html, unsafeStatic } from 'lit/static-html.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-element.base.css.lit';
-import { bubbledEvents } from '../../../../outline.config.js';
+import * as outlineConfig from '../../../../outline.config.js';
 
 @customElement('outline-element')
 export class OutlineElement extends LitElement {
@@ -24,7 +24,7 @@ export class OutlineElement extends LitElement {
    * Please note: Since we are redispatching these events listeners up the tree cannot do things like prevent the default action of the event, they can only watch the copies.
    */
   addBubbledEventHandlers() {
-    bubbledEvents.forEach(eventName => {
+    outlineConfig.bubbledEvents.forEach(eventName => {
       this.shadowRoot?.addEventListener(eventName, event => {
         // eslint-disable-next-line
         // @ts-ignore
