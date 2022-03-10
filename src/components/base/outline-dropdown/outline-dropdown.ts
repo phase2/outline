@@ -168,6 +168,8 @@ export default class OutlineDropdown extends OutlineElement {
    * Returns the focus to the trigger element.
    *
    * @todo May need to adjust this to handle focusing on the button OR the icon as the actual trigger..
+   * @todo Figure out if the item is a link or button
+   * @todo Handle focusing on the appropriate element based on the trigger type.
    */
   focusOnTrigger() {
     const slot = this.trigger.querySelector('slot')!;
