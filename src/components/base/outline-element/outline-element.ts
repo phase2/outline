@@ -11,6 +11,7 @@ interface BubbledEvent extends Event {
   aggregatedComposedPath: () => HTMLElement[];
   path?: HTMLElement[];
 }
+
 @customElement('outline-element')
 export class OutlineElement extends LitElement {
   static styles: CSSResultGroup = [componentStyles];
