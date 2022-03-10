@@ -158,6 +158,17 @@ export default class OutlineDropdown extends OutlineElement {
    *
    * @todo May need to adjust this to handle focusing on the button OR the icon as the actual trigger..
    */
+  focusOnPanel() {
+    if (typeof this.panel.focus === 'function') {
+      this.panel.focus();
+    }
+  }
+
+  /**
+   * Returns the focus to the trigger element.
+   *
+   * @todo May need to adjust this to handle focusing on the button OR the icon as the actual trigger..
+   */
   focusOnTrigger() {
     const slot = this.trigger.querySelector('slot')!;
     const trigger = slot.assignedElements({ flatten: true })[0] as
@@ -169,6 +180,14 @@ export default class OutlineDropdown extends OutlineElement {
   }
 
   handleDocumentKeyDown(event: KeyboardEvent) {
+    //console.log(event.key);
+
+    if (event.key === 'Enter') {
+      this.show();
+      this.focusOnPanel();
+      return;
+    }
+
     // Close when escape is pressed.
     if (event.key === 'Escape') {
       this.hide();
@@ -234,20 +253,20 @@ export default class OutlineDropdown extends OutlineElement {
           class="dropdown__trigger"
           @mouseenter="${this.show}"
           @mouseleave="${this.hide}"
-          @keyup="${this.handleTriggerKeyUp}"
         >
           <outline-button
             button-variant="${ifDefined(this.triggerVariant)}"
             button-target="${ifDefined(this.triggerTarget)}"
             button-url="${ifDefined(this.triggerUrl)}"
             button-label="${ifDefined(this.triggerLabel)}"
-            @click="${this.show}"
           >
             <span>${this.triggerText}</span> ${this.iconTemplate()}
           </outline-button>
           <div
             class="dropdown__panel"
+            tabindex="${this.isOpen ? '0' : '-1'}"
             aria-hidden=${this.isOpen ? 'false' : 'true'}
+            @keyup="${this.handleTriggerKeyUp}"
             aria-labelledby="dropdown"
           >
             <slot name="dropdown"></slot>
@@ -272,7 +291,7 @@ export default class OutlineDropdown extends OutlineElement {
         library="system"
         size="1em"
         label="${ifDefined(this.triggerUrl)}"
-        @keydown="${this.show}"
+        @keydown="${this.handleDocumentKeyDown}"
         tabindex="${this.triggerUrl ? '0' : '-1'}"
       ></outline-icon>
     `;
