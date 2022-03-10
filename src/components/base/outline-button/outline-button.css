@@ -76,6 +76,6 @@
   }
 
   &[aria-disabled='true'] {
-    @apply text-demo-darkGray !important;
+    @apply text-demo-mediumGray !important;
   }
 }
