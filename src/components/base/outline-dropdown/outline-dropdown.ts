@@ -1,5 +1,5 @@
 import { html, CSSResultGroup, TemplateResult } from 'lit';
-import { customElement, property, query } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { emit, waitForEvent } from '../../../internal/event';
 import { watch } from '../../../internal/watch';
@@ -93,10 +93,19 @@ export default class OutlineDropdown extends OutlineElement {
   @property({ type: String, attribute: 'trigger-variant' })
   triggerVariant: ButtonVariant = 'none';
 
+  @state() hasDropdown: boolean;
+
   connectedCallback() {
     super.connectedCallback();
 
-    this.handleDocumentKeyDown = this.handleDocumentKeyDown.bind(this);
+    // @todo: Is any of this needed?
+    this.focusOnPanel = this.focusOnPanel.bind(this);
+    this.focusOnTrigger = this.focusOnTrigger.bind(this);
+    this.handleButtonTrigger = this.handleButtonTrigger.bind(this);
+    this.handleIconTrigger = this.handleIconTrigger.bind(this);
+    this.handleEnterKeyDown = this.handleEnterKeyDown.bind(this);
+    this.handleEscKeyDown = this.handleEscKeyDown.bind(this);
+    this.handleTabKeyDown = this.handleTabKeyDown.bind(this);
 
     if (!this.containingElement) {
       this.containingElement = this;
@@ -105,6 +114,7 @@ export default class OutlineDropdown extends OutlineElement {
 
   firstUpdated() {
     this.panel.hidden = !this.isOpen;
+    this.hasDropdown = this.slots.test();
   }
 
   disconnectedCallback() {
@@ -116,9 +126,13 @@ export default class OutlineDropdown extends OutlineElement {
    * Shows the dropdown panel.
    */
   async show() {
+    //console.log('show');
+    // If the dropdown is already open, do nothing.
+    // If the dropdown is disabled, do nothing.
     if (this.isOpen || this.isDisabled) {
       return undefined;
     }
+    //console.log('show part2');
     this.panel.hidden = false;
     this.isOpen = true;
     return waitForEvent(this, 'outline-after-show');
@@ -155,6 +169,7 @@ export default class OutlineDropdown extends OutlineElement {
 
   /**
    * Shifts the focus to the panel element.
+   * @todo: This should likely be set to the first actual focusable item in the list?
    */
   focusOnPanel() {
     // If the panel is focusable, focus on it.
@@ -181,30 +196,16 @@ export default class OutlineDropdown extends OutlineElement {
     }
   }
 
-  handlePanelLeave(event: KeyboardEvent) {
+  handleEscKeyDown(event: KeyboardEvent) {
     // Close when escape is pressed.
     if (event.key === 'Escape') {
       this.hide();
       this.focusOnTrigger();
       return;
     }
-
-    // Wait for the next element to be selected.
-    setTimeout(() => {
-      if (document.activeElement !== this) {
-        this.hide();
-      }
-    }, 0);
   }
-  handleDocumentKeyDown(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      this.isOpen ? this.hide() : this.show();
-      this.isOpen ? this.focusOnPanel() : null;
-      return;
-    }
 
-    this.handlePanelLeave(event);
-
+  handleTabKeyDown(event: KeyboardEvent) {
     // Handle tabbing
     if (event.key === 'Tab') {
       // Tabbing within an open menu should close the dropdown and refocus the trigger
@@ -235,6 +236,55 @@ export default class OutlineDropdown extends OutlineElement {
         }
       });
     }
+  }
+
+  handleEnterKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      // This button is disabled.
+      // Prevent the panel from being opened via keyboard.
+      if (this.isDisabled) {
+        event.preventDefault();
+        return;
+      }
+
+      // This button is a link.
+      // Prevent the panel from being opened via keyboard.
+      // Instead, the Enter key will navigate to the trigger url.
+      // if (this.triggerUrl) {
+      //   return;
+      // }
+
+      this.isOpen ? this.hide() : this.show();
+      this.isOpen ? this.focusOnPanel() : null;
+      return;
+    }
+  }
+
+  handleIconTrigger(event: KeyboardEvent) {
+    this.handleEscKeyDown(event);
+    this.handleEnterKeyDown(event);
+
+    // Wait for the next element to be selected.
+    setTimeout(() => {
+      if (document.activeElement !== this) {
+        this.hide();
+      }
+    }, 0);
+  }
+
+  handleTriggerToggle(event: KeyboardEvent) {
+    //console.log('handleTriggerToggle');
+    //console.log(event.key);
+    if (event.key === 'Enter') {
+      this.isOpen ? this.hide() : this.show();
+      this.isOpen ? this.focusOnPanel() : null;
+    }
+  }
+
+  handleButtonTrigger(event: KeyboardEvent) {
+    this.handleEnterKeyDown(event);
+    this.handleEscKeyDown(event);
+    this.handleTabKeyDown(event);
   }
 
   handleTriggerKeyUp() {
@@ -269,32 +319,44 @@ export default class OutlineDropdown extends OutlineElement {
             button-target="${ifDefined(this.triggerTarget)}"
             button-url="${ifDefined(this.triggerUrl)}"
             button-label="${ifDefined(this.triggerLabel)}"
+            @keydown="${this.handleButtonTrigger}"
+            @keyup="${this.handleTriggerKeyUp}"
             ?is-disabled=${this.isDisabled}
           >
             <span>${this.triggerText}</span> ${this.iconTemplate()}
           </outline-button>
-          <div
-            class="dropdown__panel"
-            tabindex="${this.isOpen ? '0' : '-1'}"
-            aria-hidden=${this.isOpen ? 'false' : 'true'}
-            @keydown="${this.handlePanelLeave}"
-            aria-labelledby="dropdown"
-          >
-            <slot name="dropdown"></slot>
-          </div>
+          ${this.dropdownTemplate()}
         </span>
       </div>
     `;
   }
 
   /**
-   * Template partial for the CTA slot.
-   * @param classes
+   * Template partial for the dropdown rendering.
+   * @returns TemplateResult | null
+   */
+  dropdownTemplate(): TemplateResult | null {
+    //console.log(this.hasDropdown);
+    //if (!this.panel) return null;
+
+    return html`
+      <div
+        class="dropdown__panel"
+        tabindex="${this.isOpen ? '0' : '-1'}"
+        aria-hidden=${this.isOpen ? 'false' : 'true'}
+        aria-labelledby="dropdown"
+      >
+        <slot></slot>
+      </div>
+    `;
+  }
+  /**
+   * Template partial for the icon rendering.
+   * @todo: something fishy with that label attribute.
    * @returns TemplateResult | null
    */
   iconTemplate(): TemplateResult | null {
-    // @todo
-    //if (!this.triggerUrl) return null;
+    //if (!this.panel) return null;
 
     return html`
       <outline-icon
@@ -303,7 +365,7 @@ export default class OutlineDropdown extends OutlineElement {
         library="system"
         size="1em"
         label="${ifDefined(this.triggerUrl)}"
-        @keydown="${this.handleDocumentKeyDown}"
+        @keydown="${this.handleTriggerToggle}"
         tabindex="${this.triggerUrl ? '0' : '-1'}"
       ></outline-icon>
     `;
