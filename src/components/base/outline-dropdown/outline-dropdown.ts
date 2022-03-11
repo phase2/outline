@@ -250,9 +250,9 @@ export default class OutlineDropdown extends OutlineElement {
       // This button is a link.
       // Prevent the panel from being opened via keyboard.
       // Instead, the Enter key will navigate to the trigger url.
-      // if (this.triggerUrl) {
-      //   return;
-      // }
+      if (this.triggerUrl) {
+        return;
+      }
 
       this.isOpen ? this.hide() : this.show();
       this.isOpen ? this.focusOnPanel() : null;
@@ -320,7 +320,6 @@ export default class OutlineDropdown extends OutlineElement {
             button-url="${ifDefined(this.triggerUrl)}"
             button-label="${ifDefined(this.triggerLabel)}"
             @keydown="${this.handleButtonTrigger}"
-            @keyup="${this.handleTriggerKeyUp}"
             ?is-disabled=${this.isDisabled}
           >
             <span>${this.triggerText}</span> ${this.iconTemplate()}
