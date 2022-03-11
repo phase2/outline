@@ -285,6 +285,13 @@ export default class OutlineDropdown extends OutlineElement {
     this.handleEnterKeyDown(event);
     this.handleEscKeyDown(event);
     this.handleTabKeyDown(event);
+
+    // Wait for the next element to be selected.
+    setTimeout(() => {
+      if (document.activeElement !== this) {
+        this.hide();
+      }
+    }, 0);
   }
 
   handleTriggerKeyUp() {
@@ -364,7 +371,7 @@ export default class OutlineDropdown extends OutlineElement {
         library="system"
         size="1em"
         label="${ifDefined(this.triggerUrl)}"
-        @keydown="${this.handleTriggerToggle}"
+        @keydown="${this.handleIconTrigger}"
         tabindex="${this.triggerUrl ? '0' : '-1'}"
       ></outline-icon>
     `;
