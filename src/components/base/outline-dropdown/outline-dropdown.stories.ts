@@ -130,6 +130,14 @@ DropdownTrigger.args = {
   isOpen: false,
 };
 
+
+const paddedMenuWrapper = [
+  (Story): TemplateResult => html`
+<div class="relative m-12">
+${Story()}
+</div> `,
+];
+
 const MultipleDropdownsTemplate = (): TemplateResult => {
 
   return html`
@@ -165,3 +173,4 @@ const MultipleDropdownsTemplate = (): TemplateResult => {
 
 export const MultipleDropdowns = () =>
 MultipleDropdownsTemplate();
+MultipleDropdowns.decorators = paddedMenuWrapper;

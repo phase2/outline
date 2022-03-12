@@ -76,6 +76,10 @@
   }
 
   &[aria-disabled='true'] {
-    @apply text-demo-mediumGray !important;
+    @apply text-demo-mediumGray no-underline !important;
+
+    &:focus {
+      @apply text-demo-darkGray !important;
+    }
   }
 }
