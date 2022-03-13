@@ -13,7 +13,14 @@ import { ButtonVariant } from '../outline-button/outline-button';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
- * @slot - The dropdown's content.
+ * @element outline-dropdown
+ * @since 1.0.0
+ * @status experimental
+ *
+ * @slot header - Content to be rendered in the header of the dropdown.
+ * @slot dropdown - Content to be rendered in the dropdown.
+ * @slot footer - Content to be rendered in the footer of the dropdown.
+ *
  * @event outline-show - Emitted when the dropdown opens.
  * @event outline-after-show - Emitted after the dropdown opens and all animations are complete.
  * @event outline-hide - Emitted when the dropdown closes.
@@ -31,9 +38,11 @@ export default class OutlineDropdown extends OutlineElement {
     true // To shift or not to shift LightDom nodes to ShadowDOM.
   );
 
-  @query('.dropdown__trigger') trigger: HTMLElement;
-  @query('.dropdown__panel') panel: HTMLElement;
-  @query('.dropdown__positioner') positioner: HTMLElement;
+  @query('.dropdown__trigger')
+  trigger: HTMLElement;
+
+  @query('.dropdown__panel')
+  panel: HTMLElement;
 
   /**
    * Indicates whether or not the dropdown is open.
@@ -93,14 +102,14 @@ export default class OutlineDropdown extends OutlineElement {
   @property({ type: String, attribute: 'trigger-variant' })
   triggerVariant: ButtonVariant = 'none';
 
+  @state() hasHeader: boolean;
   @state() hasDropdown: boolean;
+  @state() hasFooter: boolean;
 
   connectedCallback() {
     super.connectedCallback();
 
     // @todo: Is any of this needed?
-    this.focusOnPanel = this.focusOnPanel.bind(this);
-    this.focusOnTrigger = this.focusOnTrigger.bind(this);
     this.handleButtonTrigger = this.handleButtonTrigger.bind(this);
     this.handleIconTrigger = this.handleIconTrigger.bind(this);
     this.handleEnterKeyDown = this.handleEnterKeyDown.bind(this);
@@ -112,9 +121,19 @@ export default class OutlineDropdown extends OutlineElement {
     }
   }
 
-  firstUpdated() {
+  debugSlots() {
+    // console.log(this.slots);
+    // console.log(`Dropdown Slot: ${this.hasDropdown}`);
+    // console.log(`Header Slot: ${this.hasHeader}`);
+    // console.log(`Footer Slot: ${this.hasFooter}`);
+  }
+
+  async firstUpdated() {
     this.panel.hidden = !this.isOpen;
-    this.hasDropdown = this.slots.test();
+    this.hasDropdown = this.slots.test('dropdown');
+    this.hasHeader = this.slots.test('header');
+    this.hasFooter = this.slots.test('footer');
+    this.debugSlots();
   }
 
   disconnectedCallback() {
@@ -126,7 +145,6 @@ export default class OutlineDropdown extends OutlineElement {
    * Shows the dropdown panel.
    */
   async show() {
-    //console.log('show');
     // If the dropdown is already open, do nothing.
     // If the dropdown is disabled, do nothing.
     if (this.isOpen || this.isDisabled) {
@@ -167,22 +185,11 @@ export default class OutlineDropdown extends OutlineElement {
     }
   }
 
-  /**
-   * Returns the focus to the trigger element.
-   *
-   * @todo May need to adjust this to handle focusing on the button OR the icon as the actual trigger..
-   * @todo Figure out if the item is a link or button
-   * @todo Handle focusing on the appropriate element based on the trigger type.
-   */
-  focusOnTrigger() {
-    const dropdownTrigger: HTMLElement | SVGSVGElement | null | undefined = this
-      .triggerUrl
-      ? this.trigger.querySelector('outline-icon')
-      : this.querySelector('outline-button')?.shadowRoot?.querySelector('span');
-
-    //console.log(dropdownTrigger);
-    if (typeof dropdownTrigger?.focus === 'function') {
-      this.trigger.focus();
+  handleDocumentMouseDown(event: MouseEvent) {
+    // Close when clicking outside of the containing element
+    const path = event.composedPath();
+    if (this.containingElement && !path.includes(this.containingElement)) {
+      this.hide();
     }
   }
 
@@ -190,7 +197,6 @@ export default class OutlineDropdown extends OutlineElement {
     // Close when escape is pressed.
     if (event.key === 'Escape') {
       this.hide();
-      this.focusOnTrigger();
       return;
     }
   }
@@ -310,7 +316,7 @@ export default class OutlineDropdown extends OutlineElement {
    */
   dropdownTemplate(): TemplateResult | null {
     //console.log(this.hasDropdown);
-    //if (!this.panel) return null;
+    if (!this.hasDropdown) return null;
     //tabindex="${this.isOpen ? '0' : '-1'}"
     return html`
       <div
@@ -319,29 +325,48 @@ export default class OutlineDropdown extends OutlineElement {
         aria-labelledby="dropdown"
         @keydown="${this.handlePanelKeystrokes}"
       >
-        <slot></slot>
+        ${this.headerTemplate()}
+        <slot name="dropdown"></slot>
+        ${this.footerTemplate()}
       </div>
     `;
   }
+
   /**
    * Template partial for the icon rendering.
    * @todo: something fishy with that label attribute.
    * @returns TemplateResult | null
    */
   iconTemplate(): TemplateResult | null {
-    //if (!this.panel) return null;
-
     return html`
       <outline-icon
         slot="right"
         name="chevron-down"
         library="system"
         size="1em"
-        label="${ifDefined(this.triggerUrl)}"
+        label="${ifDefined(this.triggerUrl) ? this.triggerLabel : false}"
         @keydown="${this.handleIconTrigger}"
         tabindex="${this.triggerUrl ? '0' : '-1'}"
       ></outline-icon>
     `;
+  }
+
+  /**
+   * Template partial for the header rendering.
+   * @returns TemplateResult | null
+   */
+  headerTemplate(): TemplateResult | null {
+    if (!this.hasHeader) return null;
+    return html`<slot name="header"></slot>`;
+  }
+
+  /**
+   * Template partial for the footer rendering.
+   * @returns TemplateResult | null
+   */
+  footerTemplate(): TemplateResult | null {
+    if (!this.hasFooter) return null;
+    return html`<slot name="footer"></slot>`;
   }
 }
 
