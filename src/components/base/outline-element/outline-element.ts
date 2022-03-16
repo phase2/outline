@@ -44,34 +44,37 @@ export class OutlineElement extends LitElement {
   addBubbledEventHandlers() {
     outlineConfig.bubbledEvents.forEach(eventName => {
       this.shadowRoot?.addEventListener(eventName, event => {
-        // eslint-disable-next-line
-        // @ts-ignore
-        const eventForLightDOM: BubbledEvent = new event.constructor(
-          event.type,
-          event
-        );
+        // Our cloned events have a `sourceEvent` property and are composed events, so they will bubble naturally. We don't want to create more than one clone.
+        if ('sourceEvent' in event === false) {
+          // eslint-disable-next-line
+          // @ts-ignore
+          const eventForLightDOM: BubbledEvent = new event.constructor(
+            event.type,
+            event
+          );
 
-        eventForLightDOM.sourceEvent ??= event;
+          eventForLightDOM.sourceEvent ??= event;
 
-        eventForLightDOM.aggregatedPath ??= [];
-        // eslint-disable-next-line
-        // @ts-ignore
-        if (event.path !== undefined) {
-          eventForLightDOM.aggregatedPath = [
-            ...eventForLightDOM.aggregatedPath,
-            // eslint-disable-next-line
-            // @ts-ignore
-            ...event.path,
-          ];
+          eventForLightDOM.aggregatedPath ??= [];
+          // eslint-disable-next-line
+          // @ts-ignore
+          if (event.path !== undefined) {
+            eventForLightDOM.aggregatedPath = [
+              ...eventForLightDOM.aggregatedPath,
+              // eslint-disable-next-line
+              // @ts-ignore
+              ...event.path,
+            ];
+          }
+
+          eventForLightDOM.aggregatedComposedPath = function () {
+            return this.path !== undefined
+              ? [...this.aggregatedPath, ...this.path]
+              : [];
+          };
+
+          this.dispatchEvent(eventForLightDOM);
         }
-
-        eventForLightDOM.aggregatedComposedPath = function () {
-          return this.path !== undefined
-            ? [...this.aggregatedPath, ...this.path]
-            : [];
-        };
-
-        this.dispatchEvent(eventForLightDOM);
       });
     });
   }

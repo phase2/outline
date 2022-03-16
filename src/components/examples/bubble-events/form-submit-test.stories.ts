@@ -18,6 +18,10 @@ export const Submit = (): TemplateResult => {
         console.log('light dom aggregated composed path', event.aggregatedComposedPath());
       });
     </script>
-    <form-submit-test></form-submit-test>
+    <outline-grid>
+      <outline-column>
+        <form-submit-test></form-submit-test>
+      </outline-column>
+    </outline-grid>
   `;
 };
