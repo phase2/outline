@@ -35,11 +35,11 @@ export class OutlineElement extends LitElement {
    *
    * Limitations:
    * - The event type is `CustomEvent` instead of something like `SubmitEvent`.
-   * - Any extra properties like `submitter` on the event are not present.
-   * - Some properties produce different results such as `event.composedPath()`. An attempt was made to make the original event and these properties / methods available as replacements.
+   * - Some properties and methods produce different results such as `event.composedPath()`. An attempt was made to make the original event and these properties / methods available as replacements.
+   * - An attempt is made to make all properties on the original source event readable on the custom event. This has had limited testing.
    *
    * The original source event is available at `event.sourceEvent`. You can interact with this event and do things like `preventDefault()` as needed.
-   * See See https://stackoverflow.com/a/67882470 for some discussion.
+   * See https://stackoverflow.com/a/67882470 for some discussion.
    *
    * The aggregated composed path is available with `event.aggregatedComposedPath()`. This is a replacement for `event.composedPath()`.
    */
@@ -64,6 +64,17 @@ export class OutlineElement extends LitElement {
                 [...this.sourceEvent.path, ...this.path]
               : [];
           };
+
+          // Attempt to make all the extra properties readable on the new event.
+          for (const property in event) {
+            if (property in eventForLightDOM === false) {
+              Object.defineProperty(eventForLightDOM, property, {
+                get: function () {
+                  return this.sourceEvent[property];
+                },
+              });
+            }
+          }
 
           this.dispatchEvent(eventForLightDOM);
         }
