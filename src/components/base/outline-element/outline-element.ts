@@ -31,10 +31,12 @@ export class OutlineElement extends LitElement {
    *
    * Some events like `submit` do not reach outside of the shadow DOM. These have their `composed` property set to `false`.
    *
-   * We want to redispatch these events so they can travel up the tree and be used by things like Google Tag Manager.
+   * We want to create a stand-in for these events that are composed and will bubble. This will allow tools like Google Tag Manger to view them.
    *
    * Limitations:
-   * - Some properties are different such as `event.composedPath()`. An attempt was made to make the original event and these properties / methods available as replacements.
+   * - The event type is `CustomEvent` instead of something like `SubmitEvent`.
+   * - Any extra properties like `submitter` on the event are not present.
+   * - Some properties produce different results such as `event.composedPath()`. An attempt was made to make the original event and these properties / methods available as replacements.
    *
    * The original source event is available at `event.sourceEvent`. You can interact with this event and do things like `preventDefault()` as needed.
    * See See https://stackoverflow.com/a/67882470 for some discussion.
@@ -44,32 +46,22 @@ export class OutlineElement extends LitElement {
   addBubbledEventHandlers() {
     outlineConfig.bubbledEvents.forEach(eventName => {
       this.shadowRoot?.addEventListener(eventName, event => {
-        // Our cloned events have a `sourceEvent` property and are composed events, so they will bubble naturally. We don't want to create more than one clone.
+        // Our custom events have a `sourceEvent` property and are composed events, so they will bubble naturally. We don't want to create more than one clone.
         if ('sourceEvent' in event === false) {
           // eslint-disable-next-line
           // @ts-ignore
-          const eventForLightDOM: BubbledEvent = new event.constructor(
-            event.type,
-            event
-          );
+          const eventForLightDOM: BubbledEvent = new CustomEvent(event.type, {
+            bubbles: true,
+            composed: true,
+          });
 
-          eventForLightDOM.sourceEvent ??= event;
-
-          eventForLightDOM.aggregatedPath ??= [];
-          // eslint-disable-next-line
-          // @ts-ignore
-          if (event.path !== undefined) {
-            eventForLightDOM.aggregatedPath = [
-              ...eventForLightDOM.aggregatedPath,
-              // eslint-disable-next-line
-              // @ts-ignore
-              ...event.path,
-            ];
-          }
+          eventForLightDOM.sourceEvent = event;
 
           eventForLightDOM.aggregatedComposedPath = function () {
             return this.path !== undefined
-              ? [...this.aggregatedPath, ...this.path]
+              ? // eslint-disable-next-line
+                // @ts-ignore
+                [...this.sourceEvent.path, ...this.path]
               : [];
           };
 
