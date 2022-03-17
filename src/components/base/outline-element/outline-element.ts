@@ -19,7 +19,7 @@ export class OutlineElement extends LitElement {
   connectedCallback() {
     super.connectedCallback();
 
-    this.addBubbledEventHandlers();
+    this._addBubbledEventHandlers();
   }
 
   disconnectedCallback() {
@@ -43,7 +43,7 @@ export class OutlineElement extends LitElement {
    *
    * The aggregated composed path is available with `event.aggregatedComposedPath()`. This is a replacement for `event.composedPath()`.
    */
-  addBubbledEventHandlers() {
+  private _addBubbledEventHandlers() {
     outlineConfig.bubbledEvents.forEach(eventName => {
       this.shadowRoot?.addEventListener(eventName, event => {
         // Our custom events have a `sourceEvent` property and are composed events, so they will bubble naturally. We don't want to create more than one clone.
