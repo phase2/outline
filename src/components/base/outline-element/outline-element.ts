@@ -6,10 +6,9 @@ import componentStyles from './outline-element.base.css.lit';
 import outlineConfig from '../../../resolved-outline-config';
 
 interface BubbledEvent extends Event {
-  sourceEvent: Event;
-  aggregatedPath: HTMLElement[];
-  aggregatedComposedPath: () => HTMLElement[];
-  path?: HTMLElement[];
+  sourceEvent?: Event;
+  aggregatedPath?: EventTarget[];
+  aggregatedComposedPath?: () => EventTarget[];
 }
 
 @customElement('outline-element')
@@ -48,8 +47,6 @@ export class OutlineElement extends LitElement {
       this.shadowRoot?.addEventListener(eventName, event => {
         // Our custom events have a `sourceEvent` property and are composed events, so they will bubble naturally. We don't want to create more than one clone.
         if ('sourceEvent' in event === false) {
-          // eslint-disable-next-line
-          // @ts-ignore
           const eventForLightDOM: BubbledEvent = new CustomEvent(event.type, {
             bubbles: true,
             composed: true,
@@ -58,11 +55,10 @@ export class OutlineElement extends LitElement {
           eventForLightDOM.sourceEvent = event;
 
           eventForLightDOM.aggregatedComposedPath = function () {
-            return this.path !== undefined
-              ? // eslint-disable-next-line
-                // @ts-ignore
-                [...this.sourceEvent.path, ...this.path]
-              : [];
+            return [
+              ...(this.sourceEvent?.composedPath() ?? []),
+              ...this.composedPath(),
+            ];
           };
 
           // Attempt to make all the extra properties readable on the new event.
