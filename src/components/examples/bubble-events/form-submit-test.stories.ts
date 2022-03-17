@@ -1,5 +1,5 @@
 import { html, TemplateResult } from 'lit';
-import './form-submit-test';
+import './form-submit-test-wrapper';
 
 const configuration = {
   title: 'Tests/Bubble Events/Submit',
@@ -12,15 +12,22 @@ export const Submit = (): TemplateResult => {
   return html`
     <script>
       document.querySelector('body').addEventListener('submit', (event) => {
-        event.sourceEvent.preventDefault();
         console.log('light dom event', event);
-        console.log('source event', event.sourceEvent);
-        console.log('light dom aggregated composed path', event.aggregatedComposedPath());
+        if ('sourceEvent' in event) {
+          event.sourceEvent.preventDefault();
+          console.log('source event', event.sourceEvent);
+          console.log('light dom aggregated composed path', event.aggregatedComposedPath());
+        }
+      });
+      document.querySelector('body').addEventListener('custom-submit', (event) => {
+        console.log('event', event);
       });
     </script>
+    <strong>Form submission bubbling test</strong>
+    <p>Review the developer console log to see messages when submitting the form below.</p>
     <outline-grid>
       <outline-column>
-        <form-submit-test></form-submit-test>
+        <form-submit-test-wrapper></form-submit-test-wrapper>
       </outline-column>
     </outline-grid>
   `;
