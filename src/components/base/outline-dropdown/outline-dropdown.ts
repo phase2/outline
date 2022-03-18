@@ -108,7 +108,9 @@ export default class OutlineDropdown extends OutlineElement {
 
   connectedCallback() {
     super.connectedCallback();
-
+    this.hasDropdown = this.slots.test('dropdown');
+    this.hasHeader = this.slots.test('header');
+    this.hasFooter = this.slots.test('footer');
     // @todo: Is any of this needed?
     this.handleButtonTrigger = this.handleButtonTrigger.bind(this);
     this.handleIconTrigger = this.handleIconTrigger.bind(this);
@@ -128,13 +130,16 @@ export default class OutlineDropdown extends OutlineElement {
     // console.log(`Footer Slot: ${this.hasFooter}`);
   }
 
-  async firstUpdated() {
-    this.panel.hidden = !this.isOpen;
-    this.hasDropdown = this.slots.test('dropdown');
-    this.hasHeader = this.slots.test('header');
-    this.hasFooter = this.slots.test('footer');
+  updated() {
+    // This check is required for "dropdown" without
+    // a panel slot.
+    if (this.panel) {
+      this.panel.hidden = !this.isOpen;
+    }
     this.debugSlots();
   }
+
+  firstUpdated() {}
 
   disconnectedCallback() {
     super.disconnectedCallback();
@@ -318,6 +323,7 @@ export default class OutlineDropdown extends OutlineElement {
     //console.log(this.hasDropdown);
     if (!this.hasDropdown) return null;
     //tabindex="${this.isOpen ? '0' : '-1'}"
+    // console.log(this.panel);
     return html`
       <div
         class="dropdown__panel"
@@ -338,6 +344,8 @@ export default class OutlineDropdown extends OutlineElement {
    * @returns TemplateResult | null
    */
   iconTemplate(): TemplateResult | null {
+    if (!this.hasDropdown) return null;
+
     return html`
       <outline-icon
         slot="right"
