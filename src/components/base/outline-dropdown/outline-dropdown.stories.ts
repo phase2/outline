@@ -103,6 +103,14 @@ const configuration = {
 
 export default configuration;
 
+const paddedMenuWrapper = [
+  (Story): TemplateResult => html`
+<div class="relative m-12">
+${Story()}
+</div> `,
+];
+
+
 const DropdownTemplate = (customArguments = {}): TemplateResult => {
   const args = {
     ...configuration.args,
@@ -129,14 +137,7 @@ DropdownTemplate(customArguments);
 DropdownTrigger.args = {
   isOpen: false,
 };
-
-
-const paddedMenuWrapper = [
-  (Story): TemplateResult => html`
-<div class="relative m-12">
-${Story()}
-</div> `,
-];
+DropdownTrigger.decorators = paddedMenuWrapper;
 
 const MultipleDropdownsTemplate = (): TemplateResult => {
 
@@ -154,6 +155,14 @@ const MultipleDropdownsTemplate = (): TemplateResult => {
       <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
     </div>
   </outline-dropdown>
+  <!-- <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Link" 
+    trigger-variant="none" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+  >
+  </outline-dropdown> -->
   <outline-dropdown 
     class="my-4 pr-2" 
     trigger-text="Dropdown" 

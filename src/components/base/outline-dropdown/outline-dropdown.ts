@@ -6,6 +6,7 @@ import { watch } from '../../../internal/watch';
 import componentStyles from './outline-dropdown.css.lit';
 import { OutlineElement } from '../../base/outline-element/outline-element';
 import '../outline-button/outline-button';
+import '../outline-dropdown-button/outline-dropdown-button';
 import '../outline-icon/outline-icon';
 import { SlotController } from '../../controllers/slot-controller';
 import { LinkTargetType } from '../outline-link/config';
@@ -199,6 +200,7 @@ export default class OutlineDropdown extends OutlineElement {
   }
 
   handleEscKeyDown(event: KeyboardEvent) {
+    // @todo: This isn't working right now.
     // Close when escape is pressed.
     if (event.key === 'Escape') {
       this.hide();
@@ -299,7 +301,7 @@ export default class OutlineDropdown extends OutlineElement {
           @mouseenter="${this.show}"
           @mouseleave="${this.hide}"
         >
-          <outline-button
+          <outline-dropdown-button
             button-variant="${ifDefined(this.triggerVariant)}"
             button-target="${ifDefined(this.triggerTarget)}"
             button-url="${ifDefined(this.triggerUrl)}"
@@ -307,8 +309,9 @@ export default class OutlineDropdown extends OutlineElement {
             @keydown="${this.handleButtonTrigger}"
             ?is-disabled=${this.isDisabled}
           >
-            <span>${this.triggerText}</span> ${this.iconTemplate()}
-          </outline-button>
+            <span class="button__trigger">${this.triggerText}</span>
+            ${this.iconTemplate()}
+          </outline-dropdown-button>
           ${this.dropdownTemplate()}
         </span>
       </div>
@@ -341,21 +344,24 @@ export default class OutlineDropdown extends OutlineElement {
   /**
    * Template partial for the icon rendering.
    * @todo: something fishy with that label attribute.
+   * @todo: Wrap the outline-icon with a button or a tag instead of tabindex.
    * @returns TemplateResult | null
    */
   iconTemplate(): TemplateResult | null {
     if (!this.hasDropdown) return null;
 
     return html`
-      <outline-icon
-        slot="right"
-        name="chevron-down"
-        library="system"
-        size="1em"
-        label="${ifDefined(this.triggerUrl) ? this.triggerLabel : false}"
-        @keydown="${this.handleIconTrigger}"
-        tabindex="${this.triggerUrl ? '0' : '-1'}"
-      ></outline-icon>
+      <span class="icon__trigger">
+        <outline-icon
+          slot="right"
+          name="chevron-down"
+          library="system"
+          size="1em"
+          label="${ifDefined(this.triggerUrl) ? this.triggerLabel : false}"
+          @keydown="${this.handleIconTrigger}"
+          tabindex="${this.triggerUrl ? '0' : '-1'}"
+        ></outline-icon>
+      </span>
     `;
   }
 
