@@ -24,12 +24,7 @@
   */
 outline-button,
 outline-split-button {
-  span.button__trigger {
-  }
-
-  span.icon__trigger {
-    @apply ml-4 flex;
-
+  .icon__trigger {
     button {
       margin: 0;
       border: 0;
@@ -41,12 +36,31 @@ outline-split-button {
       background-color: transparent;
 
       &:focus {
-        @apply ring-2 ring-demo-black;
+        --tw-ring-color: currentColor;
+        @apply ring-2;
       }
     }
   }
 }
 
-/* outline-icon {
-  @apply pl-2 !important;
-} */
+outline-button {
+  .btn {
+    padding: 0.5em 1em !important;
+  }
+  .icon__trigger {
+    @apply ml-4 flex;
+  }
+}
+
+outline-split-button {
+  /* Reassign button padding to the actual link */
+  .button__trigger {
+    display: flex;
+    padding: 0.5em 1em;
+  }
+
+  .icon__trigger {
+    @apply flex h-full;
+    border-left: 1px solid currentColor;
+  }
+}

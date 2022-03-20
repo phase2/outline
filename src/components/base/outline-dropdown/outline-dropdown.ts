@@ -273,7 +273,7 @@ export default class OutlineDropdown extends OutlineElement {
 
   handlePanelKeystrokes(event: KeyboardEvent) {
     this.handleEscKeyDown(event);
-    this.handleFocusChange(event);
+    this.handleFocusChange();
   }
 
   handleIconTrigger(event: KeyboardEvent) {
@@ -284,7 +284,7 @@ export default class OutlineDropdown extends OutlineElement {
   handleButtonTrigger(event: KeyboardEvent) {
     this.handleEnterKeyDown(event);
     this.handleEscKeyDown(event);
-    this.handleFocusChange(event);
+    this.handleFocusChange();
   }
 
   /**
@@ -377,12 +377,19 @@ export default class OutlineDropdown extends OutlineElement {
     return html`
       <span class="icon__trigger">
         ${this.triggerUrl
-          ? html` <button @keydown="${this.handleIconTrigger}">
+          ? html` <outline-button
+              class="icon__button"
+              button-variant="${ifDefined(this.triggerVariant)}"
+              button-target="${ifDefined(this.triggerTarget)}"
+              button-label="${ifDefined(this.triggerLabel)}"
+              @keydown="${this.handleIconTrigger}"
+              ?is-disabled=${this.isDisabled}
+            >
               ${this.iconTemplate()}
               <span class="sr-only"
                 >Sub-navigation for ${this.triggerText}</span
               >
-            </button>`
+            </outline-button>`
           : html` ${this.iconTemplate()} `}
       </span>
     `;

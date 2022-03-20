@@ -1,9 +1,13 @@
 :host {
+  @apply inline-flex align-middle;
+}
+/* Remove button padding */
+.btn {
+  padding: 0 !important;
 }
 
-button {
-  &:hover,
-  &:focus {
-    @apply ring-2 ring-demo-mediumGray;
-  }
+.btn__content {
+}
+
+.btn__action {
 }
