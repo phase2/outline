@@ -241,14 +241,17 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
 <div class="flex flex-row flex-wrap">
   <outline-dropdown 
     class="my-4 pr-2" 
-    trigger-text="Dropdown & Link" 
+    trigger-text="Dropdown Menu & Link" 
     trigger-variant="none" 
     trigger-size="medium" 
     trigger-url="https://outline.phase2tech.com/"
   >  
     <div slot="dropdown">
-      <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-      <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
+      <ul>
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+      </ul>
     </div>
   </outline-dropdown>
   <outline-dropdown 

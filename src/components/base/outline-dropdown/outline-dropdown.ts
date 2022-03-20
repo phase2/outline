@@ -118,7 +118,7 @@ export default class OutlineDropdown extends OutlineElement {
     this.handleIconTrigger = this.handleIconTrigger.bind(this);
     this.handleEnterKeyDown = this.handleEnterKeyDown.bind(this);
     this.handleEscKeyDown = this.handleEscKeyDown.bind(this);
-    this.handleTabKeyDown = this.handleTabKeyDown.bind(this);
+    this.handleFocusChange = this.handleFocusChange.bind(this);
 
     if (!this.containingElement) {
       this.containingElement = this;
@@ -205,41 +205,26 @@ export default class OutlineDropdown extends OutlineElement {
     // Close when escape is pressed.
     if (event.key === 'Escape') {
       this.hide();
+      this.focusOnTrigger();
       return;
     }
   }
 
-  handleTabKeyDown(event: KeyboardEvent) {
-    // Handle tabbing
-    if (event.key === 'Tab') {
-      // Tabbing within an open menu should close the dropdown and refocus the trigger
-      if (this.isOpen) {
-        event.preventDefault();
+  handleFocusChange() {
+    setTimeout(() => {
+      const activeElement =
+        this.containingElement?.getRootNode() instanceof ShadowRoot
+          ? document.activeElement?.shadowRoot?.activeElement
+          : document.activeElement;
+
+      if (
+        !this.containingElement ||
+        activeElement?.closest(this.containingElement.tagName.toLowerCase()) !==
+          this.containingElement
+      ) {
         this.hide();
-        this.focusOnTrigger();
-        return;
       }
-
-      // Tabbing outside of the containing element closes the panel
-      //
-      // If the dropdown is used within a shadow DOM, we need to obtain the activeElement within that shadowRoot,
-      // otherwise `document.activeElement` will only return the name of the parent shadow DOM element.
-      setTimeout(() => {
-        const activeElement =
-          this.containingElement?.getRootNode() instanceof ShadowRoot
-            ? document.activeElement?.shadowRoot?.activeElement
-            : document.activeElement;
-
-        if (
-          !this.containingElement ||
-          activeElement?.closest(
-            this.containingElement.tagName.toLowerCase()
-          ) !== this.containingElement
-        ) {
-          this.hide();
-        }
-      });
-    }
+    });
   }
 
   handleEnterKeyDown(event: KeyboardEvent, isIcon = false) {
@@ -288,25 +273,18 @@ export default class OutlineDropdown extends OutlineElement {
 
   handlePanelKeystrokes(event: KeyboardEvent) {
     this.handleEscKeyDown(event);
-    this.handleTabKeyDown(event);
-    // Wait for the next element to be selected.
-    setTimeout(() => {
-      if (document.activeElement !== this) {
-        this.hide();
-      }
-    }, 0);
+    this.handleFocusChange(event);
   }
 
   handleIconTrigger(event: KeyboardEvent) {
     this.handleEnterKeyDown(event, true);
     this.handleEscKeyDown(event);
-    //event.preventDefault();
   }
 
   handleButtonTrigger(event: KeyboardEvent) {
     this.handleEnterKeyDown(event);
     this.handleEscKeyDown(event);
-    //this.handleTabKeyDown(event);
+    this.handleFocusChange(event);
   }
 
   /**

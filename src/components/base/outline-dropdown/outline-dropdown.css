@@ -34,14 +34,14 @@ outline-split-button {
       margin: 0;
       border: 0;
       padding: 0;
+      outline: 0;
       color: inherit;
       cursor: pointer;
       font-size: inherit;
       background-color: transparent;
 
-      &:hover,
       &:focus {
-        @apply ring-2 ring-demo-mediumGray;
+        @apply ring-2 ring-demo-black;
       }
     }
   }
