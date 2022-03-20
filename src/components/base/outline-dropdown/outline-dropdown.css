@@ -7,7 +7,7 @@
 }
 
 .dropdown__trigger {
-  display: block;
+  @apply block;
 }
 
 .dropdown--open .dropdown__panel {
@@ -23,11 +23,27 @@
   * icon for opening a dropdown. 
   */
 outline-button,
-outline-dropdown-button {
+outline-split-button {
   span.button__trigger {
   }
+
   span.icon__trigger {
-    @apply ml-4 border-2 border-r-demo-white;
+    @apply ml-4 flex;
+
+    button {
+      margin: 0;
+      border: 0;
+      padding: 0;
+      color: inherit;
+      cursor: pointer;
+      font-size: inherit;
+      background-color: transparent;
+
+      &:hover,
+      &:focus {
+        @apply ring-2 ring-demo-mediumGray;
+      }
+    }
   }
 }
 

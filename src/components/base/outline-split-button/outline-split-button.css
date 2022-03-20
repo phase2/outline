@@ -1,0 +1,9 @@
+:host {
+}
+
+button {
+  &:hover,
+  &:focus {
+    @apply ring-2 ring-demo-mediumGray;
+  }
+}

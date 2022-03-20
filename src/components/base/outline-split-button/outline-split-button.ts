@@ -1,19 +1,19 @@
 import { CSSResultGroup } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import componentStyles from './outline-dropdown-button.css.lit';
+import componentStyles from './outline-split-button.css.lit';
 import { OutlineButton } from '../outline-button/outline-button';
 
 /**
  * The Outline Dropdown Button component
- * @element outline-dropdown-button
+ * @element outline-split-button
  */
-@customElement('outline-dropdown-button')
-export class OutlineDropdownButton extends OutlineButton {
+@customElement('outline-split-button')
+export class OutlineSplitButton extends OutlineButton {
   static styles: CSSResultGroup = [OutlineButton.styles, componentStyles];
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'outline-dropdown-button': OutlineDropdownButton;
+    'outline-split-button': OutlineSplitButton;
   }
 }

@@ -3,10 +3,11 @@ import { customElement, property, query, state } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 import { emit, waitForEvent } from '../../../internal/event';
 import { watch } from '../../../internal/watch';
+import a11yStyles from '../outline-element/outline-element.a11y.css.lit';
 import componentStyles from './outline-dropdown.css.lit';
-import { OutlineElement } from '../../base/outline-element/outline-element';
+import { OutlineElement } from '../outline-element/outline-element';
 import '../outline-button/outline-button';
-import '../outline-dropdown-button/outline-dropdown-button';
+import '../outline-split-button/outline-split-button';
 import '../outline-icon/outline-icon';
 import { SlotController } from '../../controllers/slot-controller';
 import { LinkTargetType } from '../outline-link/config';
@@ -33,7 +34,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
  */
 @customElement('outline-dropdown')
 export default class OutlineDropdown extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [a11yStyles, componentStyles];
   slots = new SlotController(
     this, // This, the host element.
     true // To shift or not to shift LightDom nodes to ShadowDOM.
@@ -215,6 +216,7 @@ export default class OutlineDropdown extends OutlineElement {
       if (this.isOpen) {
         event.preventDefault();
         this.hide();
+        this.focusOnTrigger();
         return;
       }
 
@@ -242,23 +244,45 @@ export default class OutlineDropdown extends OutlineElement {
 
   handleEnterKeyDown(event: KeyboardEvent, isIcon = false) {
     if (event.key === 'Enter') {
-      // This button is disabled.
-      // Prevent the panel from being opened via keyboard.
       if (this.isDisabled) {
+        // Prevent a link from being followed.
+        // Prevent the dropdown from opening.
         event.preventDefault();
         return;
       }
 
-      // This button is a link.
-      // Prevent the panel from being opened via keyboard.
-      // Instead, the Enter key will navigate to the trigger url.
-      if (this.triggerUrl && !isIcon) {
+      if ((this.triggerUrl && isIcon) || !this.triggerUrl) {
+        // This dropdown element is a link and
+        // a dropdown. We should open the dropdown when
+        // the icon is clicked.
+        this.isOpen ? this.hide() : this.show();
+        event.preventDefault();
         return;
       }
 
-      this.isOpen ? this.hide() : this.show();
-      //this.isOpen ? this.focusOnPanel() : null;
-      return;
+      if (this.triggerUrl) {
+        // This button is a link.
+        // Prevent the panel from being opened via keyboard.
+        // Instead, the Enter key will navigate to the trigger url.
+        return;
+      }
+    }
+  }
+
+  focusOnTrigger() {
+    const splitButton: HTMLElement | null = this.trigger.querySelector(
+      'outline-split-button'
+    );
+
+    const regularButton: HTMLElement | null =
+      this.trigger.querySelector('outline-button');
+
+    if (splitButton && typeof splitButton?.focus === 'function') {
+      splitButton?.querySelector('button')?.focus();
+    }
+
+    if (regularButton && typeof regularButton?.focus === 'function') {
+      regularButton?.shadowRoot?.querySelector('button')?.focus();
     }
   }
 
@@ -274,13 +298,15 @@ export default class OutlineDropdown extends OutlineElement {
   }
 
   handleIconTrigger(event: KeyboardEvent) {
-    if (event.key === 'Enter') {
-      this.isOpen ? this.hide() : this.show();
-    }
+    this.handleEnterKeyDown(event, true);
+    this.handleEscKeyDown(event);
+    //event.preventDefault();
   }
 
   handleButtonTrigger(event: KeyboardEvent) {
     this.handleEnterKeyDown(event);
+    this.handleEscKeyDown(event);
+    //this.handleTabKeyDown(event);
   }
 
   /**
@@ -301,7 +327,20 @@ export default class OutlineDropdown extends OutlineElement {
           @mouseenter="${this.show}"
           @mouseleave="${this.hide}"
         >
-          <outline-dropdown-button
+          ${this.buttonTemplate()} ${this.dropdownTemplate()}
+        </span>
+      </div>
+    `;
+  }
+
+  /**
+   * Template partial for the "button" rendering.
+   * @returns TemplateResult | null
+   */
+  buttonTemplate(): TemplateResult | null {
+    return this.triggerUrl
+      ? html`
+          <outline-split-button
             button-variant="${ifDefined(this.triggerVariant)}"
             button-target="${ifDefined(this.triggerTarget)}"
             button-url="${ifDefined(this.triggerUrl)}"
@@ -310,12 +349,22 @@ export default class OutlineDropdown extends OutlineElement {
             ?is-disabled=${this.isDisabled}
           >
             <span class="button__trigger">${this.triggerText}</span>
-            ${this.iconTemplate()}
-          </outline-dropdown-button>
-          ${this.dropdownTemplate()}
-        </span>
-      </div>
-    `;
+            ${this.iconWrapperTemplate()}
+          </outline-split-button>
+        `
+      : html`
+          <outline-button
+            button-variant="${ifDefined(this.triggerVariant)}"
+            button-target="${ifDefined(this.triggerTarget)}"
+            button-url="${ifDefined(this.triggerUrl)}"
+            button-label="${ifDefined(this.triggerLabel)}"
+            @keydown="${this.handleButtonTrigger}"
+            ?is-disabled=${this.isDisabled}
+          >
+            <span class="button__trigger">${this.triggerText}</span>
+            ${this.iconWrapperTemplate()}
+          </outline-button>
+        `;
   }
 
   /**
@@ -323,10 +372,8 @@ export default class OutlineDropdown extends OutlineElement {
    * @returns TemplateResult | null
    */
   dropdownTemplate(): TemplateResult | null {
-    //console.log(this.hasDropdown);
     if (!this.hasDropdown) return null;
-    //tabindex="${this.isOpen ? '0' : '-1'}"
-    // console.log(this.panel);
+
     return html`
       <div
         class="dropdown__panel"
@@ -343,25 +390,41 @@ export default class OutlineDropdown extends OutlineElement {
 
   /**
    * Template partial for the icon rendering.
+   * @todo: Add SR text for button.
+   * @returns TemplateResult | null
+   */
+  iconWrapperTemplate(): TemplateResult | null {
+    if (!this.hasDropdown) return null;
+
+    return html`
+      <span class="icon__trigger">
+        ${this.triggerUrl
+          ? html` <button @keydown="${this.handleIconTrigger}">
+              ${this.iconTemplate()}
+              <span class="sr-only"
+                >Sub-navigation for ${this.triggerText}</span
+              >
+            </button>`
+          : html` ${this.iconTemplate()} `}
+      </span>
+    `;
+  }
+
+  /**
+   * Template partial for the icon rendering.
    * @todo: something fishy with that label attribute.
    * @todo: Wrap the outline-icon with a button or a tag instead of tabindex.
    * @returns TemplateResult | null
    */
   iconTemplate(): TemplateResult | null {
-    if (!this.hasDropdown) return null;
-
     return html`
-      <span class="icon__trigger">
-        <outline-icon
-          slot="right"
-          name="chevron-down"
-          library="system"
-          size="1em"
-          label="${ifDefined(this.triggerUrl) ? this.triggerLabel : false}"
-          @keydown="${this.handleIconTrigger}"
-          tabindex="${this.triggerUrl ? '0' : '-1'}"
-        ></outline-icon>
-      </span>
+      <outline-icon
+        slot="right"
+        name="chevron-down"
+        library="system"
+        size="1em"
+        label="${ifDefined(this.triggerUrl) ? this.triggerLabel : false}"
+      ></outline-icon>
     `;
   }
 

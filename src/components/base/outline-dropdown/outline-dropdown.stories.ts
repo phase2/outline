@@ -132,20 +132,116 @@ const DropdownTemplate = (customArguments = {}): TemplateResult => {
 </outline-dropdown>`;
 };
 
-export const DropdownTrigger = (customArguments = {}) =>
+export const DropdownButtonWithLink = (customArguments = {}) =>
 DropdownTemplate(customArguments);
-DropdownTrigger.args = {
+DropdownButtonWithLink.args = {
   isOpen: false,
 };
-DropdownTrigger.decorators = paddedMenuWrapper;
+DropdownButtonWithLink.decorators = paddedMenuWrapper;
 
-const MultipleDropdownsTemplate = (): TemplateResult => {
+export const DropdownButtonWithoutLink = (customArguments = {}) =>
+DropdownTemplate(customArguments);
+DropdownButtonWithoutLink.args = {
+  isOpen: false,
+  url: null,
+};
+DropdownButtonWithoutLink.decorators = paddedMenuWrapper;
+
+const MenuDropdownsTemplate = (): TemplateResult => {
+  return html`
+<outline-dropdown 
+  class="my-4 pr-2" 
+  trigger-text="Dropdown Menu & Link" 
+  trigger-variant="primary" 
+  trigger-size="medium" 
+  trigger-url="https://outline.phase2tech.com/"
+>  
+  <div slot="dropdown">
+    <ul>
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a></li>
+      <li><a href="#">Link 3</a></li>
+    </ul>
+  </div>
+</outline-dropdown>
+<outline-dropdown 
+  class="my-4 pr-2" 
+  trigger-text="Dropdown Menu" 
+  trigger-variant="primary" 
+  trigger-size="medium" 
+>  
+  <div slot="dropdown">
+    <ul>
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a></li>
+      <li><a href="#">Link 3</a></li>
+    </ul>
+  </div>
+</outline-dropdown>
+  `;
+}
+export const MenuDropdown = () =>
+MenuDropdownsTemplate();
+MenuDropdown.decorators = paddedMenuWrapper;
+
+const MultipleButtonDropdownsTemplate = (): TemplateResult => {
+  return html`
+<outline-dropdown 
+  class="my-4 pr-2" 
+  trigger-text="Dropdown Only" 
+  trigger-variant="primary" 
+  trigger-size="medium" 
+>  
+  <div slot="dropdown">
+    <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+    <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
+  </div>
+</outline-dropdown>
+<outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Link Only" 
+    trigger-variant="primary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+  >
+</outline-dropdown>
+<outline-dropdown 
+  class="my-4 pr-2" 
+  trigger-text="Dropdown & Link" 
+  trigger-variant="primary" 
+  trigger-size="medium" 
+  trigger-url="https://outline.phase2tech.com/"
+>  
+  <div slot="dropdown">
+    <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+    <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
+  </div>
+</outline-dropdown>
+<outline-dropdown 
+  class="my-4 pr-2" 
+  trigger-text="Dropdown Only" 
+  trigger-variant="primary" 
+  trigger-size="medium" 
+>  
+  <div slot="dropdown">
+    <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+    <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
+  </div>
+</outline-dropdown>
+  `;
+}
+export const MultipleButtonDropdowns = () =>
+MultipleButtonDropdownsTemplate();
+MultipleButtonDropdowns.decorators = paddedMenuWrapper;
+
+
+const MultipleLinkDropdownsTemplate = (): TemplateResult => {
 
   return html`
 <div class="flex flex-row flex-wrap">
   <outline-dropdown 
     class="my-4 pr-2" 
-    trigger-text="Dropdown" 
+    trigger-text="Dropdown & Link" 
     trigger-variant="none" 
     trigger-size="medium" 
     trigger-url="https://outline.phase2tech.com/"
@@ -155,25 +251,22 @@ const MultipleDropdownsTemplate = (): TemplateResult => {
       <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
     </div>
   </outline-dropdown>
-  <!-- <outline-dropdown 
-    class="my-4 pr-2" 
-    trigger-text="Link" 
-    trigger-variant="none" 
-    trigger-size="medium" 
-    trigger-url="https://outline.phase2tech.com/"
-  >
-  </outline-dropdown> -->
   <outline-dropdown 
-    class="my-4 pr-2" 
-    trigger-text="Dropdown" 
+    class="my-4" 
+    trigger-text="Disabled Link" 
     trigger-variant="none" 
     trigger-size="medium" 
-    trigger-url="https://outline.phase2tech.com/"
-  >  
-    <div slot="dropdown">
-      <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-      <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
-    </div>
+    trigger-url="https://outline.phase2tech.com/" 
+    is-disabled
+  >
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4" 
+    trigger-text="Link Only" 
+    trigger-variant="none" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+  >
   </outline-dropdown>
   <outline-dropdown 
     class="my-4 pr-2" 
@@ -181,6 +274,18 @@ const MultipleDropdownsTemplate = (): TemplateResult => {
     trigger-variant="none" 
     trigger-size="medium"
   >
+    <div slot="dropdown">
+      <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+      <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
+    </div>
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown & Link" 
+    trigger-variant="none" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+  >  
     <div slot="dropdown">
       <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
       <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
@@ -198,19 +303,10 @@ const MultipleDropdownsTemplate = (): TemplateResult => {
       <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
     </div>
   </outline-dropdown>
-  <outline-dropdown 
-    class="my-4" 
-    trigger-text="Disabled Link" 
-    trigger-variant="none" 
-    trigger-size="medium" 
-    trigger-url="https://outline.phase2tech.com/" 
-    is-disabled
-  >
-  </outline-dropdown>
 </div>
 `;
 };
 
-export const MultipleDropdowns = () =>
-MultipleDropdownsTemplate();
-MultipleDropdowns.decorators = paddedMenuWrapper;
+export const MultipleLinkDropdowns = () =>
+MultipleLinkDropdownsTemplate();
+MultipleLinkDropdowns.decorators = paddedMenuWrapper;
