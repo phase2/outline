@@ -14,7 +14,8 @@
 }
 
 :host(.icon__button) {
-  .btn {
+  .btn.primary,
+  .btn-secondary {
     @apply rounded-l-none ring-0 !important;
   }
   .btn.secondary {
@@ -81,7 +82,7 @@
 }
 
 .btn.none {
-  @apply border-0 bg-neutral-transparent py-0 pr-4 pl-0 text-base font-medium text-demo-darkBlue !important;
+  @apply border-0 bg-neutral-transparent text-base font-medium text-demo-darkBlue !important;
 
   &:hover,
   &:focus {
@@ -93,7 +94,7 @@
   }
 
   &:focus {
-    @apply ring-2 ring-demo-mediumGray;
+    @apply ring-2 ring-demo-mediumGray !important;
   }
 
   &[aria-disabled='true'] {
