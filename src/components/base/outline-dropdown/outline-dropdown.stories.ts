@@ -184,6 +184,43 @@ export const MenuDropdown = () =>
 MenuDropdownsTemplate();
 MenuDropdown.decorators = paddedMenuWrapper;
 
+const SecondaryMenuDropdownsTemplate = (): TemplateResult => {
+  return html`
+<outline-dropdown 
+  class="my-4 pr-2" 
+  trigger-text="Dropdown Menu & Link" 
+  trigger-variant="secondary" 
+  trigger-size="medium" 
+  trigger-url="https://outline.phase2tech.com/"
+>  
+  <div slot="dropdown">
+    <ul>
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a></li>
+      <li><a href="#">Link 3</a></li>
+    </ul>
+  </div>
+</outline-dropdown>
+<outline-dropdown 
+  class="my-4 pr-2" 
+  trigger-text="Dropdown Menu" 
+  trigger-variant="secondary" 
+  trigger-size="medium" 
+>  
+  <div slot="dropdown">
+    <ul>
+      <li><a href="#">Link 1</a></li>
+      <li><a href="#">Link 2</a></li>
+      <li><a href="#">Link 3</a></li>
+    </ul>
+  </div>
+</outline-dropdown>
+  `;
+}
+export const SecondaryMenuDropdown = () =>
+SecondaryMenuDropdownsTemplate();
+SecondaryMenuDropdown.decorators = paddedMenuWrapper;
+
 const MultipleButtonDropdownsTemplate = (): TemplateResult => {
   return html`
 <outline-dropdown 
@@ -211,6 +248,19 @@ const MultipleButtonDropdownsTemplate = (): TemplateResult => {
   trigger-variant="primary" 
   trigger-size="medium" 
   trigger-url="https://outline.phase2tech.com/"
+>  
+  <div slot="dropdown">
+    <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+    <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
+  </div>
+</outline-dropdown>
+<outline-dropdown 
+  class="my-4 pr-2" 
+  trigger-text="Disabled Dropdown & Link" 
+  trigger-variant="primary" 
+  trigger-size="medium" 
+  trigger-url="https://outline.phase2tech.com/"
+  is-disabled
 >  
   <div slot="dropdown">
     <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>

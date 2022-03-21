@@ -6,8 +6,13 @@
   padding: 0 !important;
 }
 
-.btn__content {
+/* Reassign button padding to the actual link */
+::slotted(.button__trigger) {
+  display: flex;
+  padding: 0.5em 1em;
 }
 
-.btn__action {
+::slotted(.icon__trigger) {
+  @apply flex h-full;
+  border-left: 1px solid currentColor;
 }

@@ -22,25 +22,7 @@
   * assuming there is a button-url, meaning there should be an 
   * icon for opening a dropdown. 
   */
-outline-button,
 outline-split-button {
-  .icon__trigger {
-    button {
-      margin: 0;
-      border: 0;
-      padding: 0;
-      outline: 0;
-      color: inherit;
-      cursor: pointer;
-      font-size: inherit;
-      background-color: transparent;
-
-      &:focus {
-        --tw-ring-color: currentColor;
-        @apply ring-2;
-      }
-    }
-  }
 }
 
 outline-button {
@@ -49,18 +31,5 @@ outline-button {
   }
   .icon__trigger {
     @apply ml-4 flex;
-  }
-}
-
-outline-split-button {
-  /* Reassign button padding to the actual link */
-  .button__trigger {
-    display: flex;
-    padding: 0.5em 1em;
-  }
-
-  .icon__trigger {
-    @apply flex h-full;
-    border-left: 1px solid currentColor;
   }
 }

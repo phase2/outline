@@ -15,7 +15,7 @@
 
 :host(.icon__button) {
   .btn {
-    @apply rounded-l-none ring-0 ring-inset !important;
+    @apply rounded-l-none ring-0 !important;
   }
 }
 
