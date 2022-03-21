@@ -17,6 +17,9 @@
   .btn {
     @apply rounded-l-none ring-0 !important;
   }
+  .btn.secondary {
+    border: 0;
+  }
 }
 
 .btn[aria-disabled='true'] {

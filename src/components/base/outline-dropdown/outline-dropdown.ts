@@ -119,17 +119,11 @@ export default class OutlineDropdown extends OutlineElement {
     this.handleEnterKeyDown = this.handleEnterKeyDown.bind(this);
     this.handleEscKeyDown = this.handleEscKeyDown.bind(this);
     this.handleFocusChange = this.handleFocusChange.bind(this);
+    this.handleIconClick = this.handleIconClick.bind(this);
 
     if (!this.containingElement) {
       this.containingElement = this;
     }
-  }
-
-  debugSlots() {
-    // console.log(this.slots);
-    // console.log(`Dropdown Slot: ${this.hasDropdown}`);
-    // console.log(`Header Slot: ${this.hasHeader}`);
-    // console.log(`Footer Slot: ${this.hasFooter}`);
   }
 
   updated() {
@@ -138,7 +132,6 @@ export default class OutlineDropdown extends OutlineElement {
     if (this.panel) {
       this.panel.hidden = !this.isOpen;
     }
-    this.debugSlots();
   }
 
   firstUpdated() {}
@@ -225,6 +218,11 @@ export default class OutlineDropdown extends OutlineElement {
         this.hide();
       }
     });
+  }
+
+  handleIconClick(event: MouseEvent) {
+    event.preventDefault();
+    this.isOpen ? this.hide() : this.show();
   }
 
   handleEnterKeyDown(event: KeyboardEvent, isIcon = false) {
@@ -337,6 +335,7 @@ export default class OutlineDropdown extends OutlineElement {
             button-url="${ifDefined(this.triggerUrl)}"
             button-label="${ifDefined(this.triggerLabel)}"
             @keydown="${this.handleButtonTrigger}"
+            @click="${this.handleIconClick}"
             ?is-disabled=${this.isDisabled}
           >
             <span class="button__trigger">${this.triggerText}</span>
@@ -383,6 +382,7 @@ export default class OutlineDropdown extends OutlineElement {
               button-target="${ifDefined(this.triggerTarget)}"
               button-label="${ifDefined(this.triggerLabel)}"
               @keydown="${this.handleIconTrigger}"
+              @click="${this.handleIconClick}"
               ?is-disabled=${this.isDisabled}
             >
               ${this.iconTemplate()}
