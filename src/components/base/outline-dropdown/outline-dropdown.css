@@ -1,13 +1,13 @@
 :host {
-  display: inline-block;
+  display: inline-flex;
 }
 
 .dropdown {
+  display: flex;
   position: relative;
 }
 
 .dropdown__trigger {
-  @apply block;
 }
 
 .dropdown--open .dropdown__panel {

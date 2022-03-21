@@ -203,6 +203,15 @@ const SecondaryMenuDropdownsTemplate = (): TemplateResult => {
 </outline-dropdown>
 <outline-dropdown 
   class="my-4 pr-2" 
+  trigger-text="Link Only" 
+  trigger-variant="secondary" 
+  trigger-size="medium" 
+  trigger-url="https://outline.phase2tech.com/" 
+  is-disabled
+>
+</outline-dropdown>
+<outline-dropdown 
+  class="my-4 pr-2" 
   trigger-text="Dropdown Menu" 
   trigger-variant="secondary" 
   trigger-size="medium" 
@@ -290,7 +299,6 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
   return html`
 <div class="flex flex-row flex-wrap">
   <outline-dropdown 
-    class="my-4 pr-2" 
     trigger-text="Dropdown Menu & Link" 
     trigger-variant="none" 
     trigger-size="medium" 
@@ -305,7 +313,6 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
     </div>
   </outline-dropdown>
   <outline-dropdown 
-    class="my-4" 
     trigger-text="Disabled Link" 
     trigger-variant="none" 
     trigger-size="medium" 
@@ -314,7 +321,6 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
   >
   </outline-dropdown>
   <outline-dropdown 
-    class="my-4" 
     trigger-text="Link Only" 
     trigger-variant="none" 
     trigger-size="medium" 
@@ -322,7 +328,6 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
   >
   </outline-dropdown>
   <outline-dropdown 
-    class="my-4 pr-2" 
     trigger-text="Dropdown" 
     trigger-variant="none" 
     trigger-size="medium"
@@ -333,7 +338,6 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
     </div>
   </outline-dropdown>
   <outline-dropdown 
-    class="my-4 pr-2" 
     trigger-text="Dropdown & Link" 
     trigger-variant="none" 
     trigger-size="medium" 
@@ -345,7 +349,6 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
     </div>
   </outline-dropdown>
   <outline-dropdown 
-    class="my-4" 
     trigger-text="Disabled Dropdown" 
     trigger-variant="none" 
     trigger-size="medium" 

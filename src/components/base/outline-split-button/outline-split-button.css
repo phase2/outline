@@ -14,5 +14,8 @@
 
 ::slotted(.icon__trigger) {
   @apply flex h-full;
+}
+
+::slotted(.icon__bordered) {
   border-left: 1px solid currentColor;
 }

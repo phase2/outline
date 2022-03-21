@@ -20,6 +20,10 @@
   .btn.secondary {
     border: 0;
   }
+  .btn.none {
+    border: 0 !important;
+    margin-right: 0 !important;
+  }
 }
 
 .btn[aria-disabled='true'] {
@@ -81,7 +85,15 @@
 
   &:hover,
   &:focus {
-    @apply text-demo-mediumBlue underline !important;
+    @apply text-demo-mediumBlue !important;
+  }
+
+  &:hover {
+    @apply underline;
+  }
+
+  &:focus {
+    @apply ring-2 ring-demo-mediumGray;
   }
 
   &[aria-disabled='true'] {

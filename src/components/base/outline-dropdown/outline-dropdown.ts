@@ -151,7 +151,10 @@ export default class OutlineDropdown extends OutlineElement {
       return undefined;
     }
 
-    this.panel.hidden = false;
+    if (this.panel) {
+      this.panel.hidden = false;
+    }
+
     this.isOpen = true;
     return waitForEvent(this, 'outline-after-show');
   }
@@ -163,7 +166,9 @@ export default class OutlineDropdown extends OutlineElement {
     if (!this.isOpen) {
       return undefined;
     }
-    this.panel.hidden = true;
+    if (this.panel) {
+      this.panel.hidden = true;
+    }
     this.isOpen = false;
     return waitForEvent(this, 'outline-after-hide');
   }
@@ -374,7 +379,12 @@ export default class OutlineDropdown extends OutlineElement {
     if (!this.hasDropdown) return null;
 
     return html`
-      <span class="icon__trigger">
+      <span
+        class=${classMap({
+          icon__trigger: true,
+          icon__bordered: this.triggerUrl && this.triggerVariant !== 'none',
+        })}
+      >
         ${this.triggerUrl
           ? html` <outline-button
               class="icon__button"

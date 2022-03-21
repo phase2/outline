@@ -6,6 +6,7 @@ import { OutlineButton } from '../outline-button/outline-button';
 /**
  * The Outline Dropdown Button component
  * @element outline-split-button
+ * @todo: It is likely this split button and the outline-button can be combined.
  */
 @customElement('outline-split-button')
 export class OutlineSplitButton extends OutlineButton {
