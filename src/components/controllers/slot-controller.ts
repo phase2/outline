@@ -145,9 +145,10 @@ export class SlotController implements ReactiveController {
     if (shadowSlotLocation) {
       const slotLightDom = host.querySelector('[slot=' + slotName + ']');
 
-      // Only if named slot found in light dom - move it into ShadowDOM.
+      // Only if named slot found in light dom - clone it into ShadowDOM.
       if (slotLightDom) {
-        shadowSlotLocation.append(slotLightDom);
+        shadowSlotLocation.before(slotLightDom.cloneNode(true));
+        shadowSlotLocation.remove();
       }
     }
   }
@@ -167,9 +168,10 @@ export class SlotController implements ReactiveController {
       : false;
 
     if (shadowSlotLocation) {
-      // Move all unnamed slot content to the corresponding position in shadow DOM
+      // Clone all unnamed slot content to the corresponding position in shadow DOM
       slotLightDomArray.forEach(slotLightDom => {
-        shadowSlotLocation.before(slotLightDom);
+        shadowSlotLocation.before(slotLightDom.cloneNode(true));
+        shadowSlotLocation.remove();
       });
     }
   }
