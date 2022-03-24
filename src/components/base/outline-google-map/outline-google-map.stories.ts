@@ -154,7 +154,7 @@ const Template = ({
 
 export const OutlineGoogleMap = Template.bind({});
 OutlineGoogleMap.args = {
-  apiKey: 'AIzaSyAMck5Ao7VUFGrxPmgVl9WIZlrMxM14_P0',
+  apiKey: '',
   zoom: 5,
   mapType: 'roadmap',
   centerLatitude: 43.150696434249717,
