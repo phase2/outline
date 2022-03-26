@@ -50,6 +50,7 @@
   --demo-lightGray: #f4f4f5;
   --demo-white: #fff;
   --demo-black: #000;
+  --demo-transparent: transparent;
 
   /* Default Tailwind CSS Colors converted to CSS Variables. */
   --gray-50: #fafafa;
@@ -223,9 +224,111 @@
   /*
    * Configuration values for `outline-link`.
    */
-  --outline-link-color-default: var(--demo-darkBlue);
-  --outline-link-color-hover: var(--demo-darkGray);
-  --outline-link-color-focus: var(--demo-darkGray);
+  --outline-link-color-default: var(--demo-mediumBlue);
+  --outline-link-color-hover: var(--demo-darkBlue);
+  --outline-link-color-focus: var(--demo-darkBlue);
+  --outline-link-color-disabled: var(--demo-darkGray);
+
+  /*
+   * Configuration values for `outline-button`.
+   */
+
+  /* Primary Button(s) */
+  --outline-btn--primary-padding: 0.5em 1em;
+  --outline-btn--primary-rounded: var(--spacing-2);
+
+  --outline-btn--primary-bg-color-default: var(--demo-mediumBlue);
+  --outline-btn--primary-text-color-default: var(--neutral-white);
+  --outline-btn--primary-border-default: 1px solid var(--demo-mediumBlue);
+  --outline-btn--primary-outline-default: none;
+
+  --outline-btn--primary-bg-color-hover: var(--demo-darkBlue);
+  --outline-btn--primary-text-color-hover: var(--neutral-white);
+  --outline-btn--primary-border-hover: 1px solid var(--demo-darkBlue);
+  --outline-btn--primary-outline-hover: 2px solid
+    var(--blue-responsible-darken-2);
+
+  --outline-btn--primary-bg-color-focus: var(--demo-darkBlue);
+  --outline-btn--primary-text-color-focus: var(--neutral-white);
+  --outline-btn--primary-border-focus: 1px solid var(--neutral-white);
+  --outline-btn--primary-outline-focus: 2px solid var(--demo-darkBlue);
+
+  --outline-btn--primary--disabled-bg-color: var(--demo-lightGray);
+  --outline-btn--primary--disabled-text-color: var(--demo-black);
+  --outline-btn--primary--disabled-border: 1px solid var(--demo-lightGray);
+  --outline-btn--primary--disabled-outline: none;
+
+  --outline-btn--primary--disabled-bg-color-focus: var(--demo-lightGray);
+  --outline-btn--primary--disabled-text-color-focus: var(--demo-black);
+  --outline-btn--primary--disabled-border-focus: 1px solid var(--demo-white);
+  --outline-btn--primary--disabled-outline-focus: 2px solid var(--demo-darkGray);
+
+  /* Secondary Button(s) */
+  --outline-btn--secondary-padding: 0.5em 1em;
+  --outline-btn--secondary-rounded: var(--spacing-2);
+
+  --outline-btn--secondary-bg-color-default: var(--demo-white);
+  --outline-btn--secondary-text-color-default: var(--demo-darkBlue);
+  --outline-btn--secondary-border-default: 1px solid var(--demo-darkBlue);
+  --outline-btn--secondary-outline-default: none;
+
+  --outline-btn--secondary-bg-color-hover: var(--demo-lightBlue);
+  --outline-btn--secondary-text-color-hover: var(--demo-darkBlue);
+  --outline-btn--secondary-border-hover: 1px solid var(--demo-lightBlue);
+  --outline-btn--secondary-outline-hover: 2px solid var(--demo-darkBlue);
+
+  --outline-btn--secondary-bg-color-focus: var(--demo-lightBlue);
+  --outline-btn--secondary-text-color-focus: var(--demo-darkBlue);
+  --outline-btn--secondary-border-focus: 1px solid var(--demo-white);
+  --outline-btn--secondary-outline-focus: 2px solid var(--demo-darkBlue);
+
+  --outline-btn--secondary--disabled-bg-color: var(--demo-lightGray);
+  --outline-btn--secondary--disabled-text-color: var(--demo-darkGray);
+  --outline-btn--secondary--disabled-border: 1px solid var(--demo-lightGray);
+  --outline-btn--secondary--disabled-outline: none;
+
+  --outline-btn--secondary--disabled-bg-color-focus: var(--demo-lightGray);
+  --outline-btn--secondary--disabled-text-color-focus: var(--demo-darkGray);
+  --outline-btn--secondary--disabled-border-focus: 1px solid
+    var(--neutral-white);
+  --outline-btn--secondary--disabled-outline-focus: 2px solid
+    var(--demo-darkGray);
+
+  /* Link Button(s) */
+  --outline-btn--link-padding: 0.5em 1em;
+  --outline-btn--link-rounded: var(--spacing-2);
+
+  --outline-btn--link-bg-color-default: var(--demo-transparent);
+  --outline-btn--link-text-color-default: var(--outline-link-color-default);
+  --outline-btn--link-decoration-default: none;
+  --outline-btn--link-border-default: none;
+  --outline-btn--link-outline-default: none;
+
+  --outline-btn--link-bg-color-hover: var(--demo-transparent);
+  --outline-btn--link-text-color-hover: var(--outline-link-color-hover);
+  --outline-btn--link-decoration-hover: underline;
+  --outline-btn--link-border-hover: none;
+  --outline-btn--link-outline-hover: none;
+
+  --outline-btn--link-bg-color-focus: var(--demo-transparent);
+  --outline-btn--link-text-color-focus: var(--outline-link-color-focus);
+  --outline-btn--link-decoration-focus: none;
+  --outline-btn--link-border-focus: none;
+  --outline-btn--link-outline-focus: 2px solid var(--outline-link-color-focus);
+
+  --outline-btn--link--disabled-bg-color: var(--demo-transparent);
+  --outline-btn--link--disabled-text-color: var(--outline-link-color-disabled);
+  --outline-btn--link--disabled-decoration: none;
+  --outline-btn--link--disabled-border: none;
+  --outline-btn--link--disabled-outline: none;
+
+  --outline-btn--link--disabled-bg-color-focus: none;
+  --outline-btn--link--disabled-text-color-focus: var(
+    --outline-link-color-disabled
+  );
+  --outline-btn--link--disabled-decoration-focus: none;
+  --outline-btn--link--disabled-border-focus: none;
+  --outline-btn--link--disabled-outline-focus: 2px solid var(--demo-mediumGray);
 
   /*
    * Configuration values for `outline-breadcrumb`.

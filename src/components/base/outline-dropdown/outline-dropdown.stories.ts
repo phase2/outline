@@ -8,7 +8,7 @@ const triggerVariants: ButtonVariant[] = ['none', 'primary', 'secondary'];
 const triggerSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 const configuration = {
-  title: 'Navigation/Outline Dropdown',
+  title: 'Navigation/Dropdown',
   component: 'outline-dropdown',
   argTypes: {
     isDisabled: {

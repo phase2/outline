@@ -1,107 +1,184 @@
 :host {
   /* flex and border-radius constrain the actual boundaries of the element,
    preventing literal edge cases where a user can click on the edge or corner of the button and defeat states like disabled */
-  @apply inline-flex rounded-lg align-middle;
+  display: inline-flex;
+  border-radius: var(--spacing-2);
+  vertical-align: middle;
 }
 
 .btn {
-  @apply flex flex-nowrap items-center;
-  @apply cursor-pointer rounded-lg;
-  @apply transition-colors duration-300;
-  @apply font-semibold no-underline outline-none;
-  @apply leading-normal !important;
-  padding: 0.5em 1em;
-}
-
-:host(.icon__button) {
-  .btn.primary,
-  .btn-secondary {
-    @apply rounded-l-none ring-0 !important;
-  }
-  .btn.secondary {
-    border: 0;
-  }
-  .btn.none {
-    border: 0 !important;
-    margin-right: 0 !important;
-  }
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  cursor: pointer;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, outline, outline-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  text-decoration-line: none;
+  outline: none;
+  line-height: 1.5;
+  font-weight: var(--fw-semibold);
 }
 
 .btn[aria-disabled='true'] {
-  @apply pointer-events-none cursor-not-allowed select-none !important;
+  pointer-events: none;
+  cursor: not-allowed;
+  user-select: none;
 }
 
 .btn.primary {
-  @apply border-none bg-demo-darkBlue text-demo-white;
+  /* Do not change per button state */
+  padding: var(--outline-btn--primary-padding);
+  border-radius: var(--outline-btn--primary-rounded);
+  /* Can change per button state */
+  background-color: var(--outline-btn--primary-bg-color-default);
+  color: var(--outline-btn--primary-text-color-default);
+  border: var(--outline-btn--primary-border-default);
+  outline: var(--outline-btn--primary-outline-default);
 
-  &:hover,
+  &:hover {
+    background-color: var(--outline-btn--primary-bg-color-hover);
+    color: var(--outline-btn--primary-text-color-hover);
+    border: var(--outline-btn--primary-border-hover);
+    outline: var(--outline-btn--primary-outline-hover);
+  }
+
   &:focus {
-    @apply bg-demo-mediumBlue text-demo-white ring-2 ring-demo-darkBlue;
+    background-color: var(--outline-btn--primary-bg-color-focus);
+    color: var(--outline-btn--primary-text-color-focus);
+    border: var(--outline-btn--primary-border-focus);
+    outline: var(--outline-btn--primary-outline-focus);
   }
 }
 
 .primary[aria-disabled='true'] {
-  @apply bg-demo-lightGray text-demo-darkGray !important;
+  background-color: var(--outline-btn--primary--disabled-bg-color);
+  color: var(--outline-btn--primary--disabled-text-color);
+  border: var(--outline-btn--primary--disabled-border);
+  outline: var(--outline-btn--primary--disabled-outline);
 
-  &:hover,
   &:focus {
-    @apply ring-2 ring-demo-mediumGray;
+    background-color: var(--outline-btn--primary--disabled-bg-color-focus);
+    color: var(--outline-btn--primary--disabled-text-color-focus);
+    border: var(--outline-btn--primary--disabled-border-focus);
+    outline: var(--outline-btn--primary--disabled-outline-focus);
   }
 }
 
 .btn.secondary {
-  @apply bg-demo-white text-demo-darkBlue;
-  border: 1px solid var(--demo-darkBlue);
+  /* Do not change per button state */
+  padding: var(--outline-btn--secondary-padding);
+  border-radius: var(--outline-btn--secondary-rounded);
+  /* Can change per button state */
+  background-color: var(--outline-btn--secondary-bg-color-default);
+  color: var(--outline-btn--secondary-text-color-default);
+  border: var(--outline-btn--secondary-border-default);
+  outline: var(--outline-btn--secondary-outline-default);
 
-  &:hover,
+  &:hover {
+    background-color: var(--outline-btn--secondary-bg-color-hover);
+    color: var(--outline-btn--secondary-text-color-hover);
+    border: var(--outline-btn--secondary-border-hover);
+    outline: var(--outline-btn--secondary-outline-hover);
+  }
+
   &:focus {
-    @apply bg-demo-lightBlue text-demo-darkBlue ring-2 ring-demo-mediumBlue;
+    background-color: var(--outline-btn--secondary-bg-color-focus);
+    color: var(--outline-btn--secondary-text-color-focus);
+    border: var(--outline-btn--secondary-border-focus);
+    outline: var(--outline-btn--secondary-outline-focus);
   }
 }
 
 .secondary[aria-disabled='true'] {
-  @apply bg-demo-lightGray text-demo-darkGray !important;
-  border-color: var(--demo-darkGray);
+  background-color: var(--outline-btn--secondary--disabled-bg-color);
+  color: var(--outline-btn--secondary--disabled-text-color);
+  border: var(--outline-btn--secondary--disabled-border);
+  outline: var(--outline-btn--secondary--disabled-outline);
 
-  &:hover,
   &:focus {
-    @apply ring-2 ring-demo-mediumGray;
+    background-color: var(--outline-btn--secondary--disabled-bg-color-focus);
+    color: var(--outline-btn--secondary--disabled-text-color-focus);
+    border: var(--outline-btn--secondary--disabled-border-focus);
+    outline: var(--outline-btn--secondary--disabled-outline-focus);
   }
 }
 
+/* Button Sizing */
 .btn.small {
-  @apply text-sm;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-sm);
 }
 
 .btn.medium {
-  @apply text-base;
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
 }
 
 .btn.large {
-  @apply text-lg;
+  font-size: var(--fs-lg);
+  line-height: var(--lh-lg);
 }
 
 .btn.none {
-  @apply border-0 bg-neutral-transparent text-base font-medium text-demo-darkBlue !important;
-
-  &:hover,
-  &:focus {
-    @apply text-demo-mediumBlue !important;
-  }
+  /* Do not change per button state */
+  padding: var(--outline-btn--link-padding);
+  border-radius: var(--outline-btn--link-rounded);
+  font-weight: var(--fw-medium);
+  /* Can change per button state */
+  background-color: var(--outline-btn--link-bg-color-default);
+  color: var(--outline-btn--link-text-color-default);
+  border: var(--outline-btn--link-border-default);
+  outline: var(--outline-btn--link-outline-default);
 
   &:hover {
-    @apply underline;
+    background-color: var(--outline-btn--link-bg-color-hover);
+    color: var(--outline-btn--link-text-color-hover);
+    text-decoration: var(--outline-btn--link-text-decoration-hover);
+    border: var(--outline-btn--link-border-hover);
+    outline: var(--outline-btn--link-outline-hover);
   }
 
   &:focus {
-    @apply ring-2 ring-demo-mediumGray !important;
+    background-color: var(--outline-btn--link-bg-color-focus);
+    color: var(--outline-btn--link-text-color-focus);
+    text-decoration: var(--outline-btn--link-text-decoration-focus);
+    border: var(--outline-btn--link-border-focus);
+    outline: var(--outline-btn--link-outline-focus);
   }
 
   &[aria-disabled='true'] {
-    @apply text-demo-mediumGray no-underline !important;
+    background-color: var(--outline-btn--link--disabled-bg-color);
+    color: var(--outline-btn--link--disabled-text-color);
+    text-decoration: var(--outline-btn--link--disabled-decoration);
+    border: var(--outline-btn--link--disabled-border);
+    outline: var(--outline-btn--link--disabled-outline);
 
     &:focus {
-      @apply text-demo-darkGray !important;
+      background-color: var(--outline-btn--link--disabled-bg-color-focus);
+      color: var(--outline-btn--link--disabled-text-color-focus);
+      text-decoration: var(--outline-btn--link--disabled-decoration-focus);
+      border: var(--outline-btn--link--disabled-border-focus);
+      outline: var(--outline-btn--link--disabled-outline-focus);
     }
+  }
+}
+
+:host(.icon__button) {
+  .btn.primary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .btn.secondary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border: 0 !important;
+  }
+
+  .btn.none {
+    border: 0 !important;
+    margin-right: 0 !important;
   }
 }
