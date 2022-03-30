@@ -1,17 +1,34 @@
 import { CSSResultGroup, TemplateResult, html } from 'lit';
+// import { OutlineList } from '../outline-list/outline-list';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, property } from 'lit/decorators.js';
 import { SlotController } from '../../controllers/slot-controller';
 import componentStyles from './outline-button-group.css.lit';
-import { classMap } from 'lit/directives/class-map.js';
 
-export const orientations = ['horizontal', 'vertical'] as const;
+export const listOrientations = [
+  'column',
+  'row',
+  'mobile-row',
+  'mobile-col',
+  'col-center',
+  'mobile-col-center',
+] as const;
 
-export type Orientation = typeof orientations[number];
+export type ListOrientation = typeof listOrientations[number];
+
+export const columnsCount = ['2', '3', '4'] as const;
+
+export type ColumnCount = typeof columnsCount[number];
+
+export type ClassInfo = { [name: string]: string | boolean | number };
 
 /**
  * The OutlineButtonGroup component
  * @element outline-button-group
+ *
+ * @slot default slot.
+ * @slot heading: for content above the default slot.
+ * @slot footer: for content below the default slot.
  */
 @customElement('outline-button-group')
 export class OutlineButtonGroup extends OutlineElement {
@@ -22,21 +39,36 @@ export class OutlineButtonGroup extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   /**
-   * Determines which direction the button group is oriented
-   * horizontal | vertical
+   * Sets orientation of list.
+   * column | row
    */
   @property({ type: String })
-  orientation: Orientation;
+  orientation: ListOrientation = 'column';
+
+  /**
+   * If set will wrap list in a nav tag
+   * with the passed string set as the aria-label.
+   */
+  @property({ type: String, attribute: 'nav-label' })
+  navLabel: string | undefined;
+
+  /**
+   *  If set, overrides orientation setting and
+   *  renders list above mobile in selected number of columns.
+   */
+  @property({ type: String })
+  columns: ColumnCount;
 
   render(): TemplateResult {
-    const classes = {
-      [`${this.orientation}`]: this.orientation,
-    };
-
     return html`
-      <ul class=${classMap(classes)}>
+      <outline-list
+        listType="ul"
+        nav-label="${this.navLabel}"
+        orientation="${this.orientation}"
+        .columns=${this.columns}
+      >
         <slot></slot>
-      </ul>
+      </outline-list>
     `;
   }
 }
