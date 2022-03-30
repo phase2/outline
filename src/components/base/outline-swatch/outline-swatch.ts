@@ -20,7 +20,6 @@ export class OutlineSwatch
   extends OutlineElement
   implements OutlineSwatchInterface
 {
-  //slottedController = new SlottedController(this);
   static styles: CSSResultGroup = [componentStyles];
 
   @property({ type: String })
