@@ -20,7 +20,6 @@ export class OutlineSwatch
   extends OutlineElement
   implements OutlineSwatchInterface
 {
-  //slottedController = new SlottedController(this);
   static styles: CSSResultGroup = [componentStyles];
 
   @property({ type: String })
@@ -51,5 +50,11 @@ export class OutlineSwatch
         <span class="information--label">Hex Code:</span><code>${hex}</code>
       </div>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-swatch': OutlineSwatch;
   }
 }

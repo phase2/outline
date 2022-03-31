@@ -57,3 +57,9 @@ export class OutlineLink extends OutlineElement {
       : html`<slot></slot>`}`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-link': OutlineLink;
+  }
+}

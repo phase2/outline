@@ -35,3 +35,9 @@ export class OutlineVideoVimeo
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-video-vimeo': OutlineVideoVimeo;
+  }
+}

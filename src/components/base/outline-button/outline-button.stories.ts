@@ -145,6 +145,24 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
     <outline-button class="mr-2" button-url="#" button-label="Button" is-disabled>Button</outline-button>
     <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
   </div>
+
+  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>  
+  <p>This section highlights using icons in the primary button.</p>
+  
+  <div class="my-6">
+    <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button">
+      Large Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>
+    <outline-button class="mr-2" button-url="#" button-label="Button">
+      Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>
+    <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button">
+      Small Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>  
+  </div>
 `;
 
 export const PrimaryButtons = PrimaryButtonsTemplate.bind({});
@@ -182,6 +200,23 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
   <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
   <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
 </div>
+<outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>  
+  <p>This section highlights using icons in the primary button.</p>
+  
+  <div class="my-6">
+    <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button">
+      Large Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>
+    <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button">
+      Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>
+    <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button">
+      Small Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>  
+  </div>
 `;
 
 export const SecondaryButtons = SecondaryButtonsTemplate.bind({});
