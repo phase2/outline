@@ -87,8 +87,7 @@
   ],
   "dependencies": {
     "@splidejs/splide": "^3.2.1",
-    "lit": "^2.0.0",
-    "postcss-nested": "^5.0.6"
+    "lit": "^2.0.0"
   },
   "engines": {
     "node": ">=14"
@@ -143,6 +142,7 @@
     "postcss-discard-comments": "^5.1.0",
     "postcss-import": "^14.0.2",
     "postcss-loader": "^5.2.0",
+    "postcss-nested": "^5.0.6",
     "postcss-preset-env": "^7.0.0",
     "prettier": "^2.0.4",
     "prettier-plugin-tailwindcss": "^0.1.7",
