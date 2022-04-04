@@ -6,5 +6,17 @@ module.exports = {
     require('postcss-custom-properties'),
     require('autoprefixer'),
     require('postcss-discard-comments'),
+    // see https://github.com/hudochenkov/postcss-sorting
+    // for config documentation.
+    require('postcss-sorting', {
+      'order': [
+        'custom-properties',
+        'dollar-variables',
+        'declarations',
+        'at-rules',
+        'rules',
+      ],
+      'properties-order': 'alphabetical',
+    }),
   ],
 };
