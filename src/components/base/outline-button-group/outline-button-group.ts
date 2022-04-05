@@ -3,7 +3,6 @@ import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, property } from 'lit/decorators.js';
 import { SlotController } from '../../controllers/slot-controller';
-import componentStyles from './outline-button-group.css.lit';
 
 export const listOrientations = [
   'column',
@@ -36,7 +35,6 @@ export class OutlineButtonGroup extends OutlineElement {
     this, // This, the host element.
     true // To shift or not to shift LightDom nodes to ShadowDOM.
   );
-  static styles: CSSResultGroup = [componentStyles];
 
   /**
    * Sets orientation of list.
