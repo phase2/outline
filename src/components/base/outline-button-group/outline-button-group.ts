@@ -1,5 +1,4 @@
-import { CSSResultGroup, TemplateResult, html } from 'lit';
-// import { OutlineList } from '../outline-list/outline-list';
+import { TemplateResult, html } from 'lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, property } from 'lit/decorators.js';
 import { SlotController } from '../../controllers/slot-controller';
