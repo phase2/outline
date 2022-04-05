@@ -23,17 +23,17 @@ import tailwindThemeConfig from '../../../resolved-tailwind-config';
     const spacings = Object.entries(tailwindThemeConfig.spacing).map(
       ([name, value]) => html`
         <tr>
-          <td class="py-2 text-center border-b border-demo-dark-gray">
+          <td class="py-2 text-center border-b border-demo-darkGray">
             ${name}
           </td>
-          <td class="py-2 text-center border-b border-demo-dark-gray">
+          <td class="py-2 text-center border-b border-demo-darkGray">
             ${value}
           </td>
-          <td class="py-2 text-center border-b border-demo-dark-gray">
+          <td class="py-2 text-center border-b border-demo-darkGray">
             ${extractPx(value)}
           </td>
-          <td class="py-2 text-center border-b border-demo-dark-gray">
-            <div class="rounded h-6 bg-demo-dark-blue w-${name}"></div>
+          <td class="py-2 text-center border-b border-demo-darkGray">
+            <div class="rounded h-6 bg-demo-darkBlue w-${name}"></div>
           </td>
         </tr>
       `
@@ -49,7 +49,7 @@ import tailwindThemeConfig from '../../../resolved-tailwind-config';
         <div class="mt-10"></div>
       </div>
       <table
-        class="w-full rounded-2xl table-auto shadow-lg border bg-demo-light-gray overflow-hidden"
+        class="w-full rounded-2xl table-auto shadow-lg border bg-demo-lightGray overflow-hidden"
       >
         <thead class="text-xl font-display">
           <tr class="border border-neutral-gray-700 bg-demo-dark-gray">

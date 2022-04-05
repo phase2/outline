@@ -18,40 +18,40 @@
 }
 
 .btn.primary {
-  @apply border-none bg-demo-dark-blue text-demo-white;
+  @apply bg-demo-darkBlue border-none text-demo-white;
 
   &:hover,
   &:focus {
-    @apply bg-demo-medium-blue text-demo-white ring-2 ring-demo-dark-blue;
+    @apply bg-demo-mediumBlue ring-demo-darkBlue text-demo-white ring-2;
   }
 }
 
 .primary[aria-disabled='true'] {
-  @apply bg-demo-light-gray text-demo-dark-gray !important;
+  @apply bg-demo-lightGray text-demo-darkGray !important;
 
   &:hover,
   &:focus {
-    @apply ring-2 ring-demo-medium-gray;
+    @apply ring-demo-mediumGray ring-2;
   }
 }
 
 .btn.secondary {
-  @apply bg-demo-white text-demo-dark-blue;
+  @apply text-demo-darkBlue bg-demo-white;
   border: 1px solid var(--demo-dark-blue);
 
   &:hover,
   &:focus {
-    @apply bg-demo-light-blue text-demo-dark-blue ring-2 ring-demo-medium-blue;
+    @apply bg-demo-lightBlue text-demo-darkBlue ring-demo-mediumBlue ring-2;
   }
 }
 
 .secondary[aria-disabled='true'] {
-  @apply bg-demo-light-gray text-demo-dark-gray !important;
+  @apply bg-demo-lightGray text-demo-darkGray !important;
   border-color: var(--demo-dark-gray);
 
   &:hover,
   &:focus {
-    @apply ring-2 ring-demo-medium-gray;
+    @apply ring-demo-mediumGray ring-2;
   }
 }
 
@@ -68,14 +68,14 @@
 }
 
 .btn.none {
-  @apply py-0 pr-4 pl-0 text-base font-semibold text-demo-dark-blue !important;
+  @apply text-demo-darkBlue py-0 pr-4 pl-0 text-base font-semibold !important;
 
   &:hover,
   &:focus {
-    @apply text-demo-medium-blue underline !important;
+    @apply text-demo-mediumBlue underline !important;
   }
 
   &[aria-disabled='true'] {
-    @apply text-demo-dark-gray !important;
+    @apply text-demo-darkGray !important;
   }
 }
