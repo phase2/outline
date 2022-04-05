@@ -40,7 +40,7 @@ describe(componentElementName, () => {
 
     const headingSlotElement = document.createElement('span');
     headingSlotElement.setAttribute('slot', 'heading');
-    headingSlotElement.innerText = 'Test header text';
+    headingSlotElement.innerText = 'Heading Text';
     componentElement.append(headingSlotElement);
 
     document.body.append(componentElement);
