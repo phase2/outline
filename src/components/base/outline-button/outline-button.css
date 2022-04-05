@@ -18,11 +18,11 @@
 }
 
 .btn.primary {
-  @apply bg-demo-darkBlue border-none text-demo-white;
+  @apply border-none bg-demo-darkBlue text-demo-white;
 
   &:hover,
   &:focus {
-    @apply bg-demo-mediumBlue ring-demo-darkBlue text-demo-white ring-2;
+    @apply bg-demo-mediumBlue text-demo-white ring-2 ring-demo-darkBlue;
   }
 }
 
@@ -31,17 +31,17 @@
 
   &:hover,
   &:focus {
-    @apply ring-demo-mediumGray ring-2;
+    @apply ring-2 ring-demo-mediumGray;
   }
 }
 
 .btn.secondary {
-  @apply text-demo-darkBlue bg-demo-white;
+  @apply bg-demo-white text-demo-darkBlue;
   border: 1px solid var(--demo-dark-blue);
 
   &:hover,
   &:focus {
-    @apply bg-demo-lightBlue text-demo-darkBlue ring-demo-mediumBlue ring-2;
+    @apply bg-demo-lightBlue text-demo-darkBlue ring-2 ring-demo-mediumBlue;
   }
 }
 
@@ -51,7 +51,7 @@
 
   &:hover,
   &:focus {
-    @apply ring-demo-mediumGray ring-2;
+    @apply ring-2 ring-demo-mediumGray;
   }
 }
 
@@ -68,7 +68,7 @@
 }
 
 .btn.none {
-  @apply text-demo-darkBlue py-0 pr-4 pl-0 text-base font-semibold !important;
+  @apply py-0 pr-4 pl-0 text-base font-semibold text-demo-darkBlue !important;
 
   &:hover,
   &:focus {
