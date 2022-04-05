@@ -77,12 +77,13 @@ module.exports = {
       demo: {
         white: 'var(--demo-white)',
         black: 'var(--demo-black)',
-        darkBlue: 'var(--demo-darkBlue)',
-        mediumBlue: 'var(--demo-mediumBlue)',
-        lightBlue: 'var(--demo-lightBlue)',
-        darkGray: 'var(--demo-darkGray)',
-        mediumGray: 'var(--demo-mediumGray)',
-        lightGray: 'var(--demo-lightGray)',
+        softBlack: 'var(--demo-soft-black)',
+        darkBlue: 'var(--demo-dark-blue)',
+        mediumBlue: 'var(--demo-medium-blue)',
+        lightBlue: 'var(--demo-light-blue)',
+        darkGray: 'var(--demo-dark-gray)',
+        mediumGray: 'var(--demo-medium-gray)',
+        lightGray: 'var(--demo-light-gray)',
       },
       // The defaults are completely overwritten, so manually including
       // sets from Tailwind CSS we want to use.
