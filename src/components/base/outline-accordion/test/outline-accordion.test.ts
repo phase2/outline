@@ -37,7 +37,7 @@ describe(AccordionElementName, () => {
       'Aliquam eu nunc. Aenean vulputate eleifend tellus. Nam ipsum risus, rutrum vitae, vestibulum eu, molestie vel, lacus. Suspendisse enim turpis, dictum sed, iaculis a, condimentum nec, nisi. Praesent nec nisl a purus blandit viverra.';
     panelInstance.append(panelHeading);
     panelInstance.append(panelContent);
-
+    panelInstance.setAttribute('slot', 'panels');
     accordionInstance.append(panelInstance);
 
     document.body.append(accordionInstance);
