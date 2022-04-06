@@ -11,15 +11,15 @@
 }
 
 .accordion-button.inactive {
-  @apply bg-neutral-white text-demo-darkBlue;
+  @apply text-demo-darkBlue bg-neutral-white;
 }
 
 .accordion-button.clean {
-  @apply border-b border-solid border-demo-lightGray;
+  @apply border-demo-lightGray border-b border-solid;
 }
 
 .accordion-button.clean.active {
-  @apply bg-neutral-white text-demo-darkBlue !important;
+  @apply text-demo-darkBlue bg-neutral-white !important;
 }
 
 .accordion-button.clean.inactive {
@@ -27,7 +27,7 @@
 }
 
 .accordion-content {
-  @apply px-8 pt-4 text-demo-darkGray;
+  @apply text-demo-darkGray px-8 pt-4;
 }
 
 .accordion-content.mobile {
@@ -53,7 +53,7 @@
 }
 
 .accordion-icon.clean {
-  @apply bg-neutral-white text-demo-darkBlue !important;
+  @apply text-demo-darkBlue bg-neutral-white !important;
 }
 
 .accordion-icon.active {
@@ -65,7 +65,7 @@
 }
 
 .accordion-panel {
-  @apply mb-6 flex flex-col overflow-hidden rounded-md border border-solid border-demo-lightGray;
+  @apply border-demo-lightGray mb-6 flex flex-col overflow-hidden rounded-md border border-solid;
 }
 
 .accordion-panel.clean {
