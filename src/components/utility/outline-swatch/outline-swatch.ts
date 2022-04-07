@@ -1,7 +1,7 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-swatch.css.lit';
-import { OutlineElement } from '../outline-element/outline-element';
+import { OutlineElement } from '../../base/outline-element/outline-element';
 import { SwatchSet } from '../outline-swatch-set/outline-swatch-set';
 import tailwindThemeConfig from '../../../resolved-tailwind-config';
 

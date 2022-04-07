@@ -1,14 +1,13 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-swatch-set.css.lit';
-import { OutlineElement } from '../outline-element/outline-element';
+import { OutlineElement } from '../../base/outline-element/outline-element';
 import tailwindThemeConfig from '../../../resolved-tailwind-config';
-// const outline = require('../outline.config');
-import '../outline-grid/outline-grid';
-import '../outline-grid/outline-column/outline-column';
+import '../../base/outline-grid/outline-grid';
+import '../../base/outline-grid/outline-column/outline-column';
 import '../outline-swatch/outline-swatch';
 
-export const swatchSets = ['brand', 'neutral', 'ui', 'demo'] as const;
+export const swatchSets = ['brand', 'neutral', 'ui', 'outline'] as const;
 export type SwatchSet = typeof swatchSets[number];
 
 export interface OutlineSwatchSetInterface extends HTMLElement {

@@ -49,7 +49,7 @@ module.exports = {
     },
   },
   color: {
-    sets: ['primary', 'secondary', 'tertiary', 'neutral', 'demo'],
+    sets: ['outline', 'primary', 'secondary', 'tertiary', 'neutral'],
   },
   icons: {
     libraries: {

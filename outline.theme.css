@@ -25,38 +25,39 @@
   --status-error: #c53030;
   --status-info: #1e3a8a;
 
-  --ui-infoBackground: var(--demo-white);
+  --ui-infoBackground: var(--outline-white);
   --ui-infoText: var(--status-info);
   --ui-infoBorder: var(--status-info);
 
-  --ui-successBackground: var(--demo-white);
+  --ui-successBackground: var(--outline-white);
   --ui-successText: var(--status-success);
   --ui-successBorder: var(--status-success);
 
-  --ui-warningBackground: var(--demo-white);
+  --ui-warningBackground: var(--outline-white);
   --ui-warningText: var(--status-warning);
   --ui-warningBorder: var(--status-warning);
 
-  --ui-errorBackground: var(--demo-white);
+  --ui-errorBackground: var(--outline-white);
   --ui-errorText: var(--status-error);
   --ui-errorBorder: var(--status-error);
 
   /* Demo colors used for default component demonstrations */
-  --demo-dark-blue: #2563eb;
-  --demo-medium-blue: #3b82f6;
-  --demo-light-blue: #eff6ff;
-  --demo-dark-gray: #353535;
-  --demo-medium-gray: #e0e0e0;
-  --demo-light-gray: #f4f4f5;
-  --demo-white: #fff;
-  --demo-black: #000;
-  --demo-soft-black: #171717;
-  --demo-karma-coral: #fa5c5c;
-  --demo-not-gray: #cfc7d4;
-  --demo-misty-teal: #73f2e5;
-  --demo-electric-violet: #9484ff;
-  --demo--dusty-blue: #7fc7ee;
-  --demo-phase2-blue: #0080ff;
+  --outline-transparent: transparent;
+  --outline-white: #fff;
+  --outline-black: #000;
+  --outline-soft-black: #171717;
+  --outline-dark-blue: #2563eb;
+  --outline-medium-blue: #3b82f6;
+  --outline-light-blue: #eff6ff;
+  --outline-dark-gray: #353535;
+  --outline-medium-gray: #e0e0e0;
+  --outline-light-gray: #f4f4f5;
+  --outline-karma-coral: #fa5c5c;
+  --outline-not-gray: #cfc7d4;
+  --outline-misty-teal: #73f2e5;
+  --outline-electric-violet: #9484ff;
+  --outline-dusty-blue: #7fc7ee;
+  --outline-phase2-blue: #0080ff;
 
   /* Default Tailwind CSS Colors converted to CSS Variables. */
   --gray-50: #fafafa;
@@ -230,21 +231,21 @@
   /*
    * Configuration values for `outline-link`.
    */
-  --outline-link-color-default: var(--demo-dark-blue);
-  --outline-link-color-hover: var(--demo-dark-gray);
-  --outline-link-color-focus: var(--demo-dark-gray);
+  --outline-link-color-default: var(--outline-dark-blue);
+  --outline-link-color-hover: var(--outline-dark-gray);
+  --outline-link-color-focus: var(--outline-dark-gray);
 
   /*
    * Configuration values for `outline-breadcrumb`.
    */
-  --outline-breadcrumb-text-color-default: var(--demo-light-gray);
-  --outline-breadcrumb-link-color-default: var(--demo-white);
-  --outline-breadcrumb-link-color-hover: var(--demo-medium-gray);
-  --outline-breadcrumb-link-color-focus: var(--demo-medium-gray);
+  --outline-breadcrumb-text-color-default: var(--outline-light-gray);
+  --outline-breadcrumb-link-color-default: var(--outline-white);
+  --outline-breadcrumb-link-color-hover: var(--outline-medium-gray);
+  --outline-breadcrumb-link-color-focus: var(--outline-medium-gray);
   --outline-breadcrumb-link-decoration-default: none;
   --outline-breadcrumb-link-decoration-hover: underline;
   --outline-breadcrumb-link-decoration-focus: underline;
-  --outline-breadcrumb-bg-color: var(--demo-dark-gray);
+  --outline-breadcrumb-bg-color: var(--outline-dark-gray);
   --outline-breadcrumb-bg-padding: var(--spacing-4) var(--spacing-4);
   --outline-breadcrumb-separator-spacing: var(--spacing-2);
 
@@ -253,14 +254,14 @@
   * This component's styles represent a standard set of administrative
   * links like one found in Drupal or other systems.
   */
-  --outline-admin-links-color-default: var(--demo-dark-gray);
-  --outline-admin-links-color-hover: var(--demo-soft-black);
-  --outline-admin-links-color-focus: var(--demo-soft-black);
-  --outline-admin-links-color-active: var(--demo-white);
-  --outline-admin-links-bg-default: var(--demo-light-gray);
-  --outline-admin-links-bg-hover: var(--demo-medium-gray);
-  --outline-admin-links-bg-focus: var(--demo-medium-gray);
-  --outline-admin-links-bg-active: var(--demo-dark-gray);
+  --outline-admin-links-color-default: var(--outline-dark-gray);
+  --outline-admin-links-color-hover: var(--outline-soft-black);
+  --outline-admin-links-color-focus: var(--outline-soft-black);
+  --outline-admin-links-color-active: var(--outline-white);
+  --outline-admin-links-bg-default: var(--outline-light-gray);
+  --outline-admin-links-bg-hover: var(--outline-medium-gray);
+  --outline-admin-links-bg-focus: var(--outline-medium-gray);
+  --outline-admin-links-bg-active: var(--outline-dark-gray);
   --outline-admin-links-y-spacing: var(--spacing-4);
   --outline-admin-links-link-y-spacing: var(--spacing-4);
   --outline-admin-links-link-x-spacing: var(--spacing-6);

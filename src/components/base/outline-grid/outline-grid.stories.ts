@@ -133,34 +133,34 @@ RowsAndColumns.args = {
 
     <outline-column
       col-span-default="12"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>This box spans 1 row and 12 columns.</p>
     </outline-column>
     <outline-column
       col-span-md="6"
       row-span="4"
-      class="py-64 border-2 bg-demo-light-blue border-demo-dark-blue p-8 border-dashed rounded-xl shadow-md"
+      class="py-64 border-2 bg-outline-light-blue border-outline-dark-blue p-8 border-dashed rounded-xl shadow-md"
     >
       <p>This box spans 4 rows and 6 columns.</p>
     </outline-column>
     <outline-column
       col-span-md="6"
       row-span="1"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 border-dashed rounded-xl shadow-md"
     >
       <p>This box spans 6 columns and 1 row.</p>
     </outline-column>
     <outline-column
       col-span-md="6"
       row-span="3"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 border-dashed rounded-xl shadow-md"
     >
       <p>This box spans 6 columns and 3 rows.</p>
     </outline-column>
     <outline-column
       col-span-default="12"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>This box spans 1 row and 12 columns.</p>
     </outline-column>
@@ -179,19 +179,19 @@ EqualColumns.args = {
     </outline-column>
     <outline-column
       col-span-md="4"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>This is some text inside of a grid column.</p>
     </outline-column>
     <outline-column
       col-span-md="4"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>This is some text inside of a grid column.</p>
     </outline-column>
     <outline-column
       col-span-md="4"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>This is some text inside of a grid column.</p>
     </outline-column>
@@ -211,19 +211,19 @@ FullBleed.args = {
     </outline-column>
     <outline-column
       col-span-md="4"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>This is some text inside of a grid column.</p>
     </outline-column>
     <outline-column
       col-span-md="4"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>This is some text inside of a grid column.</p>
     </outline-column>
     <outline-column
       col-span-md="4"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>This is some text inside of a grid column.</p>
     </outline-column>
@@ -242,7 +242,7 @@ AsymmetricLeft.args = {
     </outline-column>
     <outline-column
       col-span-md="8"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>
         This is some text inside of a grid column. Because it's asymmetrical,
@@ -251,7 +251,7 @@ AsymmetricLeft.args = {
     </outline-column>
     <outline-column
       col-span-md="4"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>
         This is some text inside of a grid column. Because it's asymmetrical,
@@ -273,7 +273,7 @@ AsymmetricRight.args = {
     </outline-column>
     <outline-column
       col-span-md="4"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>
         This is some text inside of a grid column. Because it's asymmetrical,
@@ -282,7 +282,7 @@ AsymmetricRight.args = {
     </outline-column>
     <outline-column
       col-span-md="8"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>
         This is some text inside of a grid column. Because it's asymmetrical,
@@ -312,7 +312,7 @@ AsymmetricLeftWithBorder.args = {
       border-gap-size="small"
     >
       <div
-        class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+        class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
       >
         <p>
           This is some text inside of a grid column. Because it's asymmetrical,
@@ -327,7 +327,7 @@ AsymmetricLeftWithBorder.args = {
       border-gap-size="small"
     >
       <div
-        class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+        class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
       >
         <p>
           This is some text inside of a grid column. Because it's asymmetrical,
@@ -352,7 +352,7 @@ AsymmetricLeftWithBorder.args = {
       border-gap-size="medium"
     >
       <div
-        class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+        class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
       >
         <p>
           This is some text inside of a grid column. Because it's asymmetrical,
@@ -367,7 +367,7 @@ AsymmetricLeftWithBorder.args = {
       border-gap-size="medium"
     >
       <div
-        class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+        class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
       >
         <p>
           This is some text inside of a grid column. Because it's asymmetrical,
@@ -392,7 +392,7 @@ AsymmetricLeftWithBorder.args = {
       border-gap-size="large"
     >
       <div
-        class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+        class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
       >
         <p>
           This is some text inside of a grid column. Because it's asymmetrical,
@@ -407,7 +407,7 @@ AsymmetricLeftWithBorder.args = {
       border-gap-size="large"
     >
       <div
-        class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+        class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
       >
         <p>
           This is some text inside of a grid column. Because it's asymmetrical,
@@ -430,7 +430,7 @@ OffsetLeft.args = {
     </outline-column>
     <outline-column
       col-span-default="10"
-      class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>
         This is an example of a grid column layout in which the content doesn't
@@ -451,7 +451,7 @@ OffsetRight.args = {
     </outline-column>
     <outline-column
       col-span-default="10"
-      class="col-start-3 justify-self-end border-2 bg-demo-light-blue border-demo-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
+      class="col-start-3 justify-self-end border-2 bg-outline-light-blue border-outline-dark-blue p-8 py-16 border-dashed rounded-xl shadow-md"
     >
       <p>
         This is an example of a grid column layout in which the content doesn't

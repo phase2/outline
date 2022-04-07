@@ -114,7 +114,7 @@ const Template = ({
         col-span-xl="${ifDefined(colSpanXl)}"
         col-span-xxl="${ifDefined(colSpanXxl)}"
         row-span="${ifDefined(rowSpan)}"
-        class="border-2 bg-demo-light-blue border-demo-dark-blue p-8 border-dashed rounded-xl shadow-md"
+        class="border-2 bg-outline-light-blue border-outline-dark-blue p-8 border-dashed rounded-xl shadow-md"
         style="min-height: 300px;"
       >
         <p>

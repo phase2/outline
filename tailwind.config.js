@@ -74,16 +74,23 @@ module.exports = {
       },
       // Demo styles specific to Storybook implementation.
       // Do not remove.
-      demo: {
-        'white': 'var(--demo-white)',
-        'black': 'var(--demo-black)',
-        'soft-black': 'var(--demo-soft-black)',
-        'dark-blue': 'var(--demo-dark-blue)',
-        'medium-blue': 'var(--demo-medium-blue)',
-        'light-blue': 'var(--demo-light-blue)',
-        'dark-gray': 'var(--demo-dark-gray)',
-        'medium-gray': 'var(--demo-medium-gray)',
-        'light-gray': 'var(--demo-light-gray)',
+      outline: {
+        'transparent': 'var(--outline-transparent)',
+        'white': 'var(--outline-white)',
+        'black': 'var(--outline-black)',
+        'soft-black': 'var(--outline-soft-black)',
+        'dark-blue': 'var(--outline-dark-blue)',
+        'medium-blue': 'var(--outline-medium-blue)',
+        'light-blue': 'var(--outline-light-blue)',
+        'dark-gray': 'var(--outline-dark-gray)',
+        'medium-gray': 'var(--outline-medium-gray)',
+        'light-gray': 'var(--outline-light-gray)',
+        'karma-coral': 'var(--outline-karma-coral)',
+        'not-gray': 'var(--outline-not-gray)',
+        'misty-teal': 'var(--outline-misty-teal)',
+        'electric-violet': 'var(--outline-electric-violet)',
+        'dusty-blue': 'var(--outline-dusty-blue)',
+        'phase2-blue': 'var(--outline-phase2-blue)',
       },
       // The defaults are completely overwritten, so manually including
       // sets from Tailwind CSS we want to use.
