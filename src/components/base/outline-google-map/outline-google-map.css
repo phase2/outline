@@ -1,0 +1,11 @@
+:host {
+  @apply flex h-96 w-full;
+}
+
+/** 
+ * Setting the map width and height is required. 
+ * Essential to include with new styles when overwriting in an extended map component.
+ **/
+#map {
+  @apply h-full w-full;
+}

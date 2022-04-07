@@ -33,6 +33,10 @@ const icons = {
     <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
   </svg>
   `,
+  'map-pin': `
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" viewBox="0 0 31 40">
+      <path d="M10.5 14a5 5 0 1 0 10 0 5 5 0 1 0-10 0zm5 23C4.6 21.3 3 20 3 15c0-3.3 1.3-6.5 3.7-8.8s5.5-3.7 8.8-3.7c3.3 0 6.5 1.3 8.8 3.7S28 11.7 28 15c0 5-1.6 6.3-12.5 22z"/>
+    </svg>`,
   'x': `
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
       <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>

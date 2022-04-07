@@ -129,6 +129,7 @@ const SystemTemplate = (customArguments = {}): TemplateResult => {
 <outline-icon name="chevron-left" library="system" size="${ifDefined(args.size)}"></outline-icon>
 <outline-icon name="chevron-right" library="system" size="${ifDefined(args.size)}"></outline-icon>
 <outline-icon name="check-lg" library="system" size="${ifDefined(args.size)}"></outline-icon>
+<outline-icon name="map-pin" library="system" size="${ifDefined(args.size)}"></outline-icon>
 <outline-icon name="x" library="system" size="${ifDefined(args.size)}"></outline-icon>
 <outline-icon name="x-circle-fill" library="system" size="${ifDefined(args.size)}"></outline-icon>
 `;
