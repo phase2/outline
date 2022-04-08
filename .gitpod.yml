@@ -4,8 +4,6 @@ image:
 tasks:
   - init: |
       yarn
-      nvm install $(cat .nvmrc)
-      nvm use
     command: |
       yarn start
 
