@@ -48,6 +48,7 @@ module.exports = {
       data: false,
     },
   },
+  // @todo: Importing this into swatch-sets causes issues.
   color: {
     sets: ['outline', 'primary', 'secondary', 'tertiary', 'neutral'],
   },

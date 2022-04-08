@@ -42,22 +42,22 @@
   --ui-errorBorder: var(--status-error);
 
   /* Demo colors used for default component demonstrations */
+  --outline-phase2-blue: #0080ff;
+  --outline-karma-coral: #fa5c5c;
+  --outline-soft-black: #171717;
+  --outline-not-gray: #cfc7d4;
   --outline-transparent: transparent;
   --outline-white: #fff;
   --outline-black: #000;
-  --outline-soft-black: #171717;
   --outline-dark-blue: #2563eb;
   --outline-medium-blue: #3b82f6;
   --outline-light-blue: #eff6ff;
   --outline-dark-gray: #353535;
   --outline-medium-gray: #e0e0e0;
   --outline-light-gray: #f4f4f5;
-  --outline-karma-coral: #fa5c5c;
-  --outline-not-gray: #cfc7d4;
   --outline-misty-teal: #73f2e5;
   --outline-electric-violet: #9484ff;
   --outline-dusty-blue: #7fc7ee;
-  --outline-phase2-blue: #0080ff;
 
   /* Default Tailwind CSS Colors converted to CSS Variables. */
   --gray-50: #fafafa;
