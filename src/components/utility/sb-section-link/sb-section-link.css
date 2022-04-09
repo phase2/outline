@@ -1,0 +1,69 @@
+:host {
+  @apply h-full;
+}
+
+.sb-link {
+  @apply relative block h-full rounded-2xl shadow-xl;
+}
+
+::slotted(a) {
+  @apply h-full min-h-[150px] w-full p-8;
+  @apply text-2xl font-semibold !important;
+  @apply flex items-center justify-center text-center;
+  @apply cursor-pointer rounded-2xl no-underline;
+  @apply text-neutral-white !important;
+  @apply outline-none;
+}
+
+::slotted(a:hover) {
+  @apply ring-4 !important;
+}
+
+::slotted(a:focus) {
+  @apply ring-4 !important;
+}
+
+::slotted(a.blue) {
+  @apply bg-outline-medium-blue;
+  @apply ring-outline-light-blue !important;
+}
+
+::slotted(a.blue:hover) {
+  @apply bg-outline-dark-blue !important;
+}
+
+::slotted(a.gray) {
+  @apply bg-outline-light-gray;
+}
+
+::slotted(a.gray:hover) {
+  @apply bg-outline-medium-gray !important;
+  @apply ring-outline-not-gray !important;
+}
+
+::slotted(a.gray:focus) {
+  @apply bg-outline-white !important;
+  @apply ring-outline-not-gray !important;
+}
+
+::slotted(a.dark-gray) {
+  @apply bg-outline-dark-gray;
+}
+
+::slotted(a.dark-gray:hover),
+::slotted(a.dark-gray:focus) {
+  @apply bg-outline-soft-black !important;
+  @apply ring-outline-light-gray !important;
+}
+
+::slotted(span) {
+  @apply absolute top-2 left-2 inline-block;
+  @apply rounded-xl opacity-70;
+  @apply py-2 px-4;
+  @apply bg-outline-soft-black text-outline-white !important;
+  @apply text-xs font-semibold uppercase !important;
+}
+
+::slotted(a.large) {
+  @apply md:text-2xl lg:text-3xl xl:text-4xl !important;
+}
