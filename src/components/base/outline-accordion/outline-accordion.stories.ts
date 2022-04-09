@@ -13,29 +13,37 @@ export default {
         code: `
   <outline-accordion label=label clean=clean single-panel=singlePanel>
     <outline-accordion-panel slot="panels">
-      <span slot="heading">Accordion Panel 1</span>
+      <span slot="heading">Accordion Item 1</span>
       <outline-styled-text>
+        <span>Etiam ut purus mattis mauris</span>
         <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
         </p>
       </outline-styled-text>
     </outline-accordion-panel>
-    <outline-accordion-panel slot="panels">
-      <span slot="heading">Accordion Panel 2</span>
+      <span slot="heading">Accordion Item 2</span>
       <outline-styled-text>
+        <span>Etiam ut purus mattis mauris</span>
         <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
         </p>
       </outline-styled-text>
     </outline-accordion-panel>
-    <outline-accordion-panel slot="panels">
-      <span slot="heading"> Accordion Panel 3</span>
+      <span slot="heading">Accordion Item 3</span>
       <outline-styled-text>
-        <p>Suspendisse eu ligula. Proin pretium, <a style="color: var(--demo-dark-blue)" href="www.google.com"> Click Here to go to Google.com</a> leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
+        <span>Etiam ut purus mattis mauris</span>
+        <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
         </p>
       </outline-styled-text>
     </outline-accordion-panel>
-    <outline-accordion-panel slot="panels">
-      <a slot="heading" href="www.google.com">Accordion Panel 4</a>
+      <span slot="heading">Accordion Item 4</span>
       <outline-styled-text>
+        <span>Etiam ut purus mattis mauris</span>
+        <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
+        </p>
+      </outline-styled-text>
+    </outline-accordion-panel>
+      <span slot="heading">Accordion Item 5</span>
+      <outline-styled-text>
+        <span>Etiam ut purus mattis mauris</span>
         <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
         </p>
       </outline-styled-text>
@@ -86,33 +94,36 @@ export default {
     label: 'Frequently Asked Questions',
     PanelsSlotContent: `
     <outline-accordion-panel slot="panels">
-      <span slot="heading">Accordion Panel 1</span>
-      <outline-styled-text>
-        <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
-        </p>
-      </outline-styled-text>
+    <span slot="heading">Accordion Item 1</span>
+    <div class='wysiwyg'>
+      <span>Etiam ut purus mattis mauris</span>
+      <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.</p>
+    </div>
     </outline-accordion-panel>
-    <outline-accordion-panel slot="panels">
-      <span slot="heading">Accordion Panel 2</span>
-      <outline-styled-text>
-        <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
-        </p>
-      </outline-styled-text>
-    </outline-accordion-panel>
-    <outline-accordion-panel slot="panels">
-      <span slot="heading"> Accordion Panel 3</span>
-      <outline-styled-text>
-        <p>Suspendisse eu ligula. Proin pretium, <a style="color: var(--demo-dark-blue)" href="www.google.com"> Click Here to go to Google.com</a> leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
-        </p>
-      </outline-styled-text>
-    </outline-accordion-panel>
-    <outline-accordion-panel slot="panels">
-      <a slot="heading" href="www.google.com">Accordion Panel 4 With Link Heading</a>
-      <outline-styled-text>
-        <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.
-        </p>
-      </outline-styled-text>
-    </outline-accordion-panel>`,
+
+<outline-accordion-panel slot="panels">
+    <span slot="heading">Accordion Item 2</span>
+    <div>
+      <span>Etiam ut purus mattis mauris</span>
+      <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.</p>
+  </div>
+</outline-accordion-panel>
+
+<outline-accordion-panel slot="panels">
+    <span slot="heading">Accordion Item 3</span>
+    <div>
+      <span>Etiam ut purus mattis mauris</span>
+      <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.</p>
+  </div>
+</outline-accordion-panel>
+
+<outline-accordion-panel slot="panels">
+    <span slot="heading">Accordion Item 4</span>
+    <div>
+      <span>Etiam ut purus mattis mauris</span>
+      <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.</p>
+  </div>
+</outline-accordion-panel>`,
     clean: false,
     singlePanel: true,
     allOpen: false,
