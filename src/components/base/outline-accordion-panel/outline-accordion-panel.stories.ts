@@ -9,20 +9,15 @@ export default {
     docs: {
       source: {
         code: `<outline-accordion-panel clean=clean active=active>
-                <h3 slot="heading">Panel the First</h3>
+                <p slot="heading">Panel the First</p>
                 <outline-styled-text>
-                  <h3>Etiam ut purus mattis mauris</h3>
+                  <p>Etiam ut purus mattis mauris</p>
                   <p>Suspendisse eu ligula.Proin pretium,
                    leo ac pellentesque mollis, felis nunc ultrices eros,
                    sed gravida augue augue mollis justo.Maecenas ullamcorper,
                    dui et placerat feugiat, eros pede varius nisi,
                    condimentum viverra felis nunc et lorem.
                    Nam at tortor in tellus interdum sagittis.
-                   Morbi ac felis.Etiam ultricies nisi vel augue.
-                   Praesent venenatis metus at tortor pulvinar varius.
-                   Sed cursus turpis vitae tortor.Donec elit libero,
-                   sodales nec, volutpat a, suscipit non, turpis.
-                   Fusce vulputate eleifend sapien.
                    </p>
                 </outline-styled-text>
               </outline-accordion-panel>`,
@@ -60,7 +55,7 @@ export default {
     active: false,
     headingSlotContent: '<span slot="heading">Panel the First</span>',
     defaultSlotContent:
-      '<outline-styled-text><p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.</p></outline-styled-text>',
+      '<outline-styled-text><p>Etiam ut purus mattis mauris</p><p>Suspendisse eu ligula.Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p></outline-styled-text>',
   },
 };
 
