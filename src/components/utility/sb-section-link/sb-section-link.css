@@ -23,27 +23,57 @@
   @apply ring-4 !important;
 }
 
-::slotted(a.blue) {
-  @apply bg-outline-medium-blue;
-  @apply ring-outline-light-blue !important;
+::slotted(a.phase2-blue) {
+  @apply bg-outline-phase2-blue;
 }
 
-::slotted(a.blue:hover) {
+::slotted(a.phase2-blue:hover),
+::slotted(a.phase2-blue:focus) {
   @apply bg-outline-dark-blue !important;
+  @apply ring-outline-dark-gray !important;
 }
 
-::slotted(a.gray) {
-  @apply bg-outline-light-gray;
+::slotted(a.medium-blue) {
+  @apply bg-outline-medium-blue;
+  @apply text-outline-soft-black;
 }
 
-::slotted(a.gray:hover) {
+::slotted(a.medium-blue:hover),
+::slotted(a.medium-blue:focus) {
+  @apply bg-outline-phase2-blue !important;
+  @apply ring-outline-soft-black !important;
+}
+
+::slotted(a.medium-gray) {
   @apply bg-outline-medium-gray !important;
-  @apply ring-outline-not-gray !important;
+  @apply text-outline-soft-black !important;
 }
 
-::slotted(a.gray:focus) {
-  @apply bg-outline-white !important;
+::slotted(a.medium-gray:hover),
+::slotted(a.medium-gray:focus) {
+  @apply bg-outline-dark-gray !important;
   @apply ring-outline-not-gray !important;
+  @apply text-outline-white !important;
+}
+
+::slotted(a.karma-coral) {
+  @apply bg-outline-karma-coral;
+}
+
+::slotted(a.karma-coral:hover),
+::slotted(a.karma-coral:focus) {
+  @apply ring-outline-soft-black !important;
+  @apply text-outline-soft-black !important;
+}
+
+::slotted(a.dusty-blue) {
+  @apply bg-outline-dusty-blue;
+}
+
+::slotted(a.dusty-blue:hover),
+::slotted(a.dusty-blue:focus) {
+  @apply ring-outline-dark-gray !important;
+  @apply text-outline-dark-gray !important;
 }
 
 ::slotted(a.dark-gray) {
@@ -53,7 +83,8 @@
 ::slotted(a.dark-gray:hover),
 ::slotted(a.dark-gray:focus) {
   @apply bg-outline-soft-black !important;
-  @apply ring-outline-light-gray !important;
+  @apply text-outline-karma-coral !important;
+  @apply ring-outline-karma-coral !important;
 }
 
 ::slotted(span) {
