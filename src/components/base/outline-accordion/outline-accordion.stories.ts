@@ -48,7 +48,7 @@ export default {
         </p>
       </outline-styled-text>
     </outline-accordion-panel>
-</outline-accordion>`,
+  </outline-accordion>`,
       },
     },
   },

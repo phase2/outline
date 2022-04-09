@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import './outline-accordion-panel';
-
+import '../outline-styled-text/outline-styled-text';
 export default {
   title: 'Content/Accordion/Accordion Panel',
   component: 'outline-accordion-panel',
@@ -9,22 +9,17 @@ export default {
     docs: {
       source: {
         code: `<outline-accordion-panel clean=clean active=active>
-                <h3 slot="heading">Panel the First</h3>
-                <div class="wysiwyg">
-                  <h3>Etiam ut purus mattis mauris</h3>
+                <p slot="heading">Panel the First</p>
+                <outline-styled-text>
+                  <p>Etiam ut purus mattis mauris</p>
                   <p>Suspendisse eu ligula.Proin pretium,
                    leo ac pellentesque mollis, felis nunc ultrices eros,
                    sed gravida augue augue mollis justo.Maecenas ullamcorper,
                    dui et placerat feugiat, eros pede varius nisi,
                    condimentum viverra felis nunc et lorem.
                    Nam at tortor in tellus interdum sagittis.
-                   Morbi ac felis.Etiam ultricies nisi vel augue.
-                   Praesent venenatis metus at tortor pulvinar varius.
-                   Sed cursus turpis vitae tortor.Donec elit libero,
-                   sodales nec, volutpat a, suscipit non, turpis.
-                   Fusce vulputate eleifend sapien.
                    </p>
-                </div >
+                </outline-styled-text>
               </outline-accordion-panel>`,
       },
     },
@@ -58,9 +53,9 @@ export default {
   args: {
     clean: false,
     active: false,
-    headingSlotContent: '<h5 slot="heading">Panel the First</h5>',
+    headingSlotContent: '<span slot="heading">Panel the First</span>',
     defaultSlotContent:
-      '<div class="wysiwyg"><h6>Etiam ut purus mattis mauris</h6><p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis. Morbi ac felis. Etiam ultricies nisi vel augue. Praesent venenatis metus at tortor pulvinar varius. Sed cursus turpis vitae tortor. Donec elit libero, sodales nec, volutpat a, suscipit non, turpis. Fusce vulputate eleifend sapien.</p></div>',
+      '<outline-styled-text><p>Etiam ut purus mattis mauris</p><p>Suspendisse eu ligula.Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p></outline-styled-text>',
   },
 };
 
