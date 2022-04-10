@@ -20,13 +20,13 @@ export default {
   title: 'Content/Heading',
   component: 'outline-heading',
   argTypes: {
-    ...argTypeSlotContent,
     level: {
       description: 'HTML level. Used by screen readers.',
       options: levelOptions,
       control: {
         type: 'select',
       },
+      table: { category: 'Properties', defaultValue: { summary: 'h2' } },
     },
     levelSize: {
       description: 'Presentation level. Used for styling.',
@@ -34,6 +34,7 @@ export default {
       control: {
         type: 'select',
       },
+      table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
     },
     levelStyle: {
       description: 'Presentation style. Font weight variation.',
@@ -41,7 +42,9 @@ export default {
       control: {
         type: 'select',
       },
+      table: { category: 'Properties', defaultValue: { summary: 'bold' } },
     },
+    ...argTypeSlotContent,
   },
   args: {
     defaultSlot:
@@ -155,11 +158,4 @@ DefaultHeading.parameters = {
 `
     }
   }
-};
-
-export const ThinHeading = Template.bind({});
-ThinHeading.args = {
-  level: 'h2',
-  levelSize: '3xl',
-  levelStyle: 'thin',
 };
