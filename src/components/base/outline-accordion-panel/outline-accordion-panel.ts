@@ -9,8 +9,10 @@ import '../outline-icon/outline-icon';
 /**
  * The OutlineAccordionPanel component
  * @element outline-accordion-panel
+ * @extends OutlineElement
  * @slot heading: The title text for the panel component.
  * @slot default slot: The main panel content, visible when the panel is open.
+ * @todo: Consider the icon as a slot.
  */
 @customElement('outline-accordion-panel')
 export class OutlineAccordionPanel extends OutlineElement {
@@ -45,13 +47,9 @@ export class OutlineAccordionPanel extends OutlineElement {
     const isActive = this.active ? 'active' : 'inactive';
 
     return html` <div class="accordion-panel ${isClean}">
-      <h4 class="accordion-heading">
+      <div class="accordion-heading">
         <button
-          class="accordion-button
-        ${isMobile}
-        ${isActive}
-        ${isClean}
-        "
+          class="accordion-button ${isMobile} ${isActive} ${isClean}"
           id="${this.id}-button"
           aria-expanded=${this.active}
           aria-controls="${this.id}-info"
@@ -60,19 +58,14 @@ export class OutlineAccordionPanel extends OutlineElement {
           <span class="accordion-label ${isMobile}">
             <slot name="heading"> </slot>
           </span>
-          <span
-            class="accordion-icon
-          ${isMobile}
-          ${isActive}
-          ${isClean}
-          "
-          >
+          <span class="accordion-icon ${isMobile} ${isActive} ${isClean}">
             <outline-icon
               name="${this.active ? 'chevron-up' : 'chevron-down'}"
+              size="24px"
             ></outline-icon>
           </span>
         </button>
-      </h4>
+      </div>
       <div
         class="accordion-content ${isMobile}"
         role="region"

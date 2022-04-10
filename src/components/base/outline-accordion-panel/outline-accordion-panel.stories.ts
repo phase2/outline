@@ -3,59 +3,47 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import './outline-accordion-panel';
 import '../outline-styled-text/outline-styled-text';
 export default {
-  title: 'Content/Accordion/Accordion Panel',
+  title: 'Content/Accordion/Single Panel',
   component: 'outline-accordion-panel',
-  parameters: {
-    docs: {
-      source: {
-        code: `<outline-accordion-panel clean=clean active=active>
-                <p slot="heading">Panel the First</p>
-                <outline-styled-text>
-                  <p>Etiam ut purus mattis mauris</p>
-                  <p>Suspendisse eu ligula.Proin pretium,
-                   leo ac pellentesque mollis, felis nunc ultrices eros,
-                   sed gravida augue augue mollis justo.Maecenas ullamcorper,
-                   dui et placerat feugiat, eros pede varius nisi,
-                   condimentum viverra felis nunc et lorem.
-                   Nam at tortor in tellus interdum sagittis.
-                   </p>
-                </outline-styled-text>
-              </outline-accordion-panel>`,
-      },
-    },
-  },
   argTypes: {
     clean: {
       control: {
         type: 'boolean',
       },
       description:
-        '**`<Boolean>`**: Sets the panel to the "clean" variant. <br> Controlled by the parent `<outline-accordion>` component.',
+        'Sets the panel to the "clean" variant.',
+      table: { category: 'Properties', defaultValue: { summary: 'false' } },
     },
     active: {
       control: {
         type: 'boolean',
       },
       description:
-        '**`<Boolean>`**: Sets the panel to active/open. <br> Controlled by the parent `<outline-accordion>` component.',
+        'Sets the panel to active/open.',
+      table: { category: 'Properties', defaultValue: { summary: 'false' } },
     },
     headingSlotContent: {
       name: 'Heading slot content',
       control: { type: 'text' },
-      description: '**NOT A PROP**: Text for the heading.',
+      description: 'Markup for the heading.',
+      table: { category: 'Slots', defaultValue: { summary: 'NULL' } },
     },
     defaultSlotContent: {
       name: 'Default slot content',
       control: { type: 'text' },
-      description: '**NOT A PROP**: Markup for the main panel content.',
+      description: 'Markup for the panel content.',
+      table: { category: 'Slots', defaultValue: { summary: 'NULL' } },
     },
   },
   args: {
     clean: false,
     active: false,
-    headingSlotContent: '<span slot="heading">Panel the First</span>',
+    headingSlotContent: '<outline-heading level="p" level-style="semibold" slot="heading">Accordion Panel</outline-heading>',
     defaultSlotContent:
-      '<outline-styled-text><p>Etiam ut purus mattis mauris</p><p>Suspendisse eu ligula.Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p></outline-styled-text>',
+      `<outline-styled-text>
+        <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
+        <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p>
+      </outline-styled-text>`,
   },
 };
 
@@ -66,14 +54,14 @@ const Template = ({
   defaultSlotContent,
 }): TemplateResult =>
   html`
-    <outline-accordion-panel ?clean=${clean} ?active=${active}>
-      ${unsafeHTML(`${headingSlotContent}`)}
-      ${unsafeHTML(`${defaultSlotContent}`)}
-    </outline-accordion-panel>
+<outline-accordion-panel ?clean=${clean} ?active=${active}>
+  ${unsafeHTML(`${headingSlotContent}`)}
+  ${unsafeHTML(`${defaultSlotContent}`)}
+</outline-accordion-panel>
   `;
 
-export const AccordionPanel = Template.bind({});
-AccordionPanel.args = {
+export const SinglePanel = Template.bind({});
+SinglePanel.args = {
   clean: false,
   active: false,
 };

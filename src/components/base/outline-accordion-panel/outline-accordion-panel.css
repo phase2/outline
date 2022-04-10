@@ -1,5 +1,5 @@
 .accordion-button {
-  @apply flex w-full items-center justify-between border-0 py-0 pl-8 pr-0 font-body text-2xl font-medium;
+  @apply flex w-full items-center justify-between border-0 py-0 pl-8 pr-0;
 }
 
 .accordion-button.mobile {
@@ -7,45 +7,48 @@
 }
 
 .accordion-button.active {
-  @apply bg-outline-dark-blue text-neutral-white;
+  @apply bg-outline-soft-black text-neutral-white;
 }
 
 .accordion-button.inactive {
-  @apply bg-neutral-white text-outline-dark-blue;
+  @apply bg-neutral-white text-outline-soft-black;
 }
 
 .accordion-button.clean {
-  @apply border-b border-solid border-outline-light-gray;
+  @apply border-b border-solid border-outline-medium-gray pl-0;
 }
 
 .accordion-button.clean.active {
-  @apply bg-neutral-white text-outline-dark-blue !important;
+  @apply bg-neutral-white text-outline-soft-black !important;
 }
 
 .accordion-button.clean.inactive {
-  @apply text-outline-dark-blue;
+  @apply text-outline-soft-black;
 }
 
 .accordion-content {
-  @apply px-8 pt-4 text-outline-dark-gray;
+  @apply px-8 py-4;
 }
 
 .accordion-content.mobile {
   @apply px-4;
 }
 
+.clean .accordion-content {
+  @apply px-0;
+}
+
 .accordion-label {
-  @apply py-4 text-left;
+  @apply text-left;
   max-width: 75%;
 }
 
-.accordion-label.mobile {
-  @apply py-2;
+::slotted(outline-heading) {
+  margin: 1rem 0;
 }
 
 .accordion-heading {
   @apply m-0 flex;
-  min-height: 4rem;
 }
 
 .accordion-icon {
@@ -53,19 +56,19 @@
 }
 
 .accordion-icon.clean {
-  @apply bg-neutral-white text-outline-dark-blue !important;
+  @apply bg-neutral-white text-outline-soft-black !important;
 }
 
 .accordion-icon.active {
-  @apply bg-outline-medium-blue text-neutral-white;
+  @apply bg-outline-soft-black text-neutral-white;
 }
 
 .accordion-icon.inactive {
-  @apply bg-outline-light-blue text-outline-dark-blue;
+  @apply bg-outline-dark-gray text-outline-white;
 }
 
 .accordion-panel {
-  @apply mb-6 flex flex-col overflow-hidden rounded-md border border-solid border-outline-light-gray;
+  @apply mb-6 flex flex-col overflow-hidden rounded-md border border-solid border-outline-soft-black;
 }
 
 .accordion-panel.clean {
