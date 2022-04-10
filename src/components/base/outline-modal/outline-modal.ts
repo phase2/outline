@@ -9,8 +9,8 @@ export type ModalSize = typeof modalSizes[number];
 
 // This is helpful in testing.
 export interface OutlineModalInterface extends HTMLElement {
-  isOpen: Boolean;
-  shouldForceAction: Boolean;
+  isOpen: boolean;
+  shouldForceAction: boolean;
   size?: ModalSize;
   open: () => void;
   close: () => void;
@@ -278,5 +278,11 @@ export class OutlineModal
       this.querySelectorAll(focusableElementSelector);
 
     return Array.from(focusableSlottedElements).slice(-1)[0] ?? null;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-modal': OutlineModal;
   }
 }

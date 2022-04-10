@@ -39,6 +39,27 @@ module.exports = {
       xxxl: '2180px',
     },
     colors: {
+      // Demo styles specific to Storybook implementation.
+      // Do not remove.
+      outline: {
+        'phase2-blue': 'var(--outline-phase2-blue)',
+        'karma-coral': 'var(--outline-karma-coral)',
+        'soft-black': 'var(--outline-soft-black)',
+        'not-gray': 'var(--outline-not-gray)',
+        'transparent': 'var(--outline-transparent)',
+        'white': 'var(--outline-white)',
+        'black': 'var(--outline-black)',
+        'dark-blue': 'var(--outline-dark-blue)',
+        'medium-blue': 'var(--outline-medium-blue)',
+        'light-blue': 'var(--outline-light-blue)',
+        'dark-gray': 'var(--outline-dark-gray)',
+        'medium-gray': 'var(--outline-medium-gray)',
+        'light-gray': 'var(--outline-light-gray)',
+        'misty-teal': 'var(--outline-misty-teal)',
+        'electric-violet': 'var(--outline-electric-violet)',
+        'dusty-blue': 'var(--outline-dusty-blue)',
+      },
+
       // Custom Brand colors can be added/edited here.
       brand: {
         primary: 'var(--brand-primary)',
@@ -52,6 +73,7 @@ module.exports = {
         nonary: 'var(--brand-nonary)',
         denary: 'var(--brand-denary)',
       },
+
       // Custom Neutral colors can be added/edited here.
       neutral: {
         transparent: 'var(--neutral-transparent)',
@@ -61,6 +83,7 @@ module.exports = {
         grayDark: 'var(--neutral-grayDark)',
         black: 'var(--neutral-black)',
       },
+
       // These are used for system alerts and should not be removed.
       ui: {
         error: 'var(--ui-errorBackground)',
@@ -72,18 +95,7 @@ module.exports = {
         infoText: 'var(--ui-infoText)',
         successText: 'var(--ui-successText)',
       },
-      // Demo styles specific to Storybook implementation.
-      // Do not remove.
-      demo: {
-        white: 'var(--demo-white)',
-        black: 'var(--demo-black)',
-        darkBlue: 'var(--demo-darkBlue)',
-        mediumBlue: 'var(--demo-mediumBlue)',
-        lightBlue: 'var(--demo-lightBlue)',
-        darkGray: 'var(--demo-darkGray)',
-        mediumGray: 'var(--demo-mediumGray)',
-        lightGray: 'var(--demo-lightGray)',
-      },
+
       // The defaults are completely overwritten, so manually including
       // sets from Tailwind CSS we want to use.
       // You may remove any/all of these items assuming you have removed

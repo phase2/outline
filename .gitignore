@@ -1,31 +1,48 @@
-/dist/
-storybook-static/
-custom-elements.json
-.env-local
+# Security related
 .aws
-.hidden
-*.lit.ts
-*.generated.css
-resolved-tailwind-config.ts
-src/safelist.txt
+.npmrc
 
+# General 
+.env-local
+.hidden
 *~
 *.sw[mnpcod]
 *.log
 *.tmp
 *.tmp.*
 log.txt
-*.sublime-project
-*.sublime-workspace
 
+# Generated files
+dist/
+
+# Editor related
 .history/
 .idea/
 .vscode/
 .sass-cache/
 .versions/
-node_modules/
-$RECYCLE.BIN/
+*.sublime-project
+*.sublime-workspace
 
+# OS Files
+$RECYCLE.BIN/
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+# Tooling specific
+storybook-static/
+node_modules/
+
+# Other
+mutagen.yml.lock
+www/
+
+# Outline specific 
+custom-elements.json
+component-list.json
+resolved-outline-config.ts
+resolved-tailwind-config.ts
+safelist.txt
+*.lit.ts
+*.generated.css

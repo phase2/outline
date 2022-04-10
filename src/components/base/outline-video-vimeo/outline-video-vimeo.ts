@@ -26,11 +26,18 @@ export class OutlineVideoVimeo
     return html`
       <iframe
         src="https://player.vimeo.com/video/${this.videoID}"
+        title="Vimeo video ${this.videoID}"
         frameborder="0"
         allow="autoplay; fullscreen; picture-in-picture"
         allowfullscreen
       ></iframe>
       <script src="https://player.vimeo.com/api/player.js"></script>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-video-vimeo': OutlineVideoVimeo;
   }
 }

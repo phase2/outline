@@ -25,6 +25,7 @@
     "jsxFactory": "h",
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
+    "resolveJsonModule": true,
     "plugins": [
       {
         "name": "ts-lit-plugin",

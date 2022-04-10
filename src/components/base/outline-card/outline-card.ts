@@ -39,17 +39,18 @@ export class OutlineCard extends OutlineElement {
   /**
    * Whether or not this is a nested container. If it's nested, remove padding.
    */
-  @property() isRounded = false;
+  @property({ type: Boolean, attribute: 'is-rounded' }) isRounded = false;
   /**
    * Whether or not this card has a shadow.
    */
-  @property() hasShadow = false;
+  @property({ type: Boolean, attribute: 'has-shadow' }) hasShadow = false;
 
   @state() hasHeaderSlot: boolean;
   @state() hasContentSlot: boolean;
   @state() hasFooterSlot: boolean;
 
-  firstUpdated(): void {
+  connectedCallback(): void {
+    super.connectedCallback();
     this.hasHeaderSlot = this.querySelector('[slot="header"]') !== null;
     this.hasContentSlot = this.querySelector('[slot="content"]') !== null;
     this.hasFooterSlot = this.querySelector('[slot="footer"]') !== null;
@@ -105,5 +106,11 @@ export class OutlineCard extends OutlineElement {
         ${this.footerTemplate(footerBackgroundClasses)}
       </section>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-card': OutlineCard;
   }
 }

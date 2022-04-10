@@ -95,10 +95,10 @@ jobs:
         run: yarn install --prefer-offline
 
       - name: Run eslint
-        run: yarn lint.eslint
+        run: yarn lint:eslint
 
       - name: Run prettier
-        run: yarn lint.prettier
+        run: yarn lint:prettier
 
   # Job to build and cache the distribution package.
   build-dist:
@@ -153,7 +153,7 @@ jobs:
         run: npx playwright install
 
       - name: Run tests
-        run: yarn wtr
+        run: yarn reset && yarn test
 
   build-storybook:
     name: Build Storybook
@@ -198,4 +198,4 @@ jobs:
         run: yarn install --prefer-offline
 
       - name: Build Storybook
-        run: yarn storybook.prod
+        run: yarn storybook:prod

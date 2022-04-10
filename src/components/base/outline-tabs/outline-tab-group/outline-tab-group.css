@@ -23,7 +23,7 @@
 }
 
 .tab-group--start .tab-group__nav-container {
-  @apply order-1 border border-b-demo-lightGray;
+  @apply order-1 border border-b-outline-light-gray;
 }
 
 .tab-group--start .tab-group__tabs {
@@ -66,7 +66,7 @@
 }
 
 .tab-group--top .tab-group__tabs {
-  @apply relative mb-8 flex flex-row border border-b-demo-darkGray;
+  @apply relative mb-8 flex flex-row border border-b-outline-dark-gray;
 }
 
 .tab-group--top .tab-group__tabs .tab {

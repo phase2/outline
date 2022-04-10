@@ -1,16 +1,9 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import {
-  customElement,
-  property,
-  state,
-  queryAssignedNodes,
-} from 'lit/decorators.js';
+import { customElement, property, queryAssignedNodes } from 'lit/decorators.js';
 import { OutlineElement } from '../../base/outline-element/outline-element';
 import componentStyles from './outline-accordion.css.lit';
 import { MobileController } from '../../controllers/mobile-controller';
-import '../outline-icon/outline-icon';
-import '../outline-heading/outline-heading';
-
+import { OutlineAccordionPanel } from '../outline-accordion-panel/outline-accordion-panel';
 /**
  * Accordion Component
  * @element outline-accordion
@@ -47,15 +40,10 @@ export class OutlineAccordion extends OutlineElement {
   allOpen = false;
 
   /**
-   * Array of active/open panels.
-   */
-  @state() active: string[] = [];
-
-  /**
    * ref to <outline-accordion-panels> in panels slot.
    */
   @queryAssignedNodes('panels', true)
-  panels: HTMLSlotElement[];
+  panels: OutlineAccordionPanel[];
 
   render(): TemplateResult {
     return html`
@@ -64,11 +52,7 @@ export class OutlineAccordion extends OutlineElement {
             ${this.label}
           </h4>`
         : null}
-      <div
-        class="accordion"
-        @click=${this.setActive}
-        @keydown=${this.handleKeyboardNav}
-      >
+      <div class="accordion" @keydown=${this.handleKeyboardNav}>
         <slot name="panels"></slot>
       </div>
     `;
@@ -78,26 +62,6 @@ export class OutlineAccordion extends OutlineElement {
    * Takes the element id of content <div>
    * to maintain state list of active/open panels.
    */
-  setActive(e: PointerEvent) {
-    const element = e?.target as HTMLElement;
-    const contentId = element.id;
-
-    // if single-panel = true
-
-    if (this.singlePanel) {
-      if (this.active.includes(contentId)) {
-        return (this.active = []);
-      }
-      return (this.active = [contentId]);
-    }
-
-    // if single-panel = false
-
-    if (this.active.includes(contentId)) {
-      return (this.active = this.active.filter(item => item !== contentId));
-    }
-    return (this.active = [contentId, ...this.active]);
-  }
 
   /**
    * @returns string | null
@@ -145,7 +109,6 @@ export class OutlineAccordion extends OutlineElement {
   firstUpdated() {
     if (this.allOpen) {
       this.panels.map(panel => {
-        this.active.push(panel.id);
         panel.setAttribute('active', 'active');
       });
     }
@@ -156,17 +119,11 @@ export class OutlineAccordion extends OutlineElement {
     } else {
       this.panels.map(panel => panel.removeAttribute('clean'));
     }
-    if (this.allOpen) {
-      this.panels.map(panel => {
-        this.active.push(panel.id);
-        panel.setAttribute('active', 'active');
-      });
-    } else {
-      this.panels.map(panel =>
-        this.active.includes(panel.id)
-          ? panel.setAttribute('active', 'active')
-          : panel.removeAttribute('active')
-      );
-    }
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-accordion': OutlineAccordion;
   }
 }

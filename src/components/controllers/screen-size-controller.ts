@@ -3,6 +3,11 @@ import tailwindThemeConfig from '../../resolved-tailwind-config';
 
 /**
  * Screen size lookup, ordered small to large.
+ *
+ * Notice: If you get a linting issue, `Parsing error: Cannot read properties of undefined (reading 'map')`, you need to update your packages.
+ * At least:
+ * "@typescript-eslint/eslint-plugin": "^4.0.0",
+ * "@typescript-eslint/parser": "^4.0.0",
  */
 export const screenSizeMap = new Map(
   (

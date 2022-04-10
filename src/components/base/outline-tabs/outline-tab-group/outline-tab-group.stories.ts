@@ -11,7 +11,7 @@ const tabControlPosition: string[] = ['top', 'start'];
 interface TabData {
   title: string;
   content: string;
-  disabled?: Boolean;
+  disabled?: boolean;
 }
 
 const formatTitle = title => {
@@ -51,11 +51,6 @@ export default {
   component: 'outline-tab-group',
   parameters: {
     viewMode: 'docs',
-    previewTabs: {
-      canvas: {
-        hidden: true,
-      },
-    },
   },
   argTypes: {
     placement: {

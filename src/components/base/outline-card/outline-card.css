@@ -19,15 +19,15 @@
 }
 
 .outline-bg-primary {
-  @apply bg-demo-darkBlue;
+  @apply bg-outline-dark-blue;
 }
 
 .outline-bg-secondary {
-  @apply bg-demo-mediumBlue;
+  @apply bg-outline-medium-blue;
 }
 
 .outline-bg-tertiary {
-  @apply bg-demo-lightBlue;
+  @apply bg-outline-light-blue;
 }
 
 .outline-bg-black {
@@ -42,10 +42,6 @@
   @apply bg-neutral-grayMedium;
 }
 
-.outline-bg-gray {
-  @apply bg-neutral-grayMedium;
-}
-
-.outline-bg-lightgray {
+.outline-bg-light-gray {
   @apply bg-neutral-grayLight;
 }

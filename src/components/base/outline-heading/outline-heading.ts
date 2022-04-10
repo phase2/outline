@@ -54,3 +54,9 @@ export class OutlineHeading extends OutlineElement {
       </${unsafeStatic(this.level as string)}>`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-heading': OutlineHeading;
+  }
+}

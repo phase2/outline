@@ -3,6 +3,7 @@ import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-accordion-panel.css.lit';
 import { MobileController } from '../../controllers/mobile-controller';
+import { OutlineAccordion } from '../outline-accordion/outline-accordion';
 import '../outline-icon/outline-icon';
 
 /**
@@ -28,7 +29,7 @@ export class OutlineAccordionPanel extends OutlineElement {
    * Wether the panel is active/open.
    * Controlled by parent accordion component.
    */
-  @property({ type: Boolean })
+  @property({ type: Boolean, reflect: true, attribute: true })
   active = false;
 
   /**
@@ -54,6 +55,7 @@ export class OutlineAccordionPanel extends OutlineElement {
           id="${this.id}-button"
           aria-expanded=${this.active}
           aria-controls="${this.id}-info"
+          @click=${this.setActive}
         >
           <span class="accordion-label ${isMobile}">
             <slot name="heading"> </slot>
@@ -66,8 +68,6 @@ export class OutlineAccordionPanel extends OutlineElement {
           "
           >
             <outline-icon
-              size="22px"
-              ?decorative="${true}"
               name="${this.active ? 'chevron-up' : 'chevron-down'}"
             ></outline-icon>
           </span>
@@ -78,11 +78,44 @@ export class OutlineAccordionPanel extends OutlineElement {
         role="region"
         aria-labelledby="${this.id}-button"
         id="${this.id}-info"
-        .hidden=${!this.active}
         aria-hidden="${!this.active}"
       >
         <slot></slot>
       </div>
     </div>`;
+  }
+
+  setActive() {
+    const parentWrapper = this.parentElement as OutlineAccordion;
+    const singlePanel = parentWrapper.singlePanel;
+
+    if (singlePanel) {
+      const activePanels = [...parentWrapper.panels].filter(
+        panel => panel.active == true
+      );
+
+      if (activePanels.length < 1) {
+        this.active = true;
+      }
+
+      if (activePanels.length > 0) {
+        activePanels.map(panel => {
+          if (panel.id === this.id) {
+            this.active = false;
+          } else {
+            panel.active = false;
+            this.active = true;
+          }
+        });
+      }
+    } else {
+      this.active = !this.active;
+    }
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-accordion-panel': OutlineAccordionPanel;
   }
 }

@@ -34,3 +34,9 @@ export class OutlineImage extends OutlineElement {
     `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-image': OutlineImage;
+  }
+}

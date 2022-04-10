@@ -26,11 +26,16 @@ export class OutlineVideoYoutube
     return html`
       <iframe
         src="https://www.youtube.com/embed/${this.videoID}"
-        title="YouTube video player"
+        title="YouTube video ${this.videoID}"
         frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
     `;
+  }
+}
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-video-youtube': OutlineVideoYoutube;
   }
 }
