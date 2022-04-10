@@ -14,3 +14,7 @@
 .accordion-title.mobile:after {
   @apply mt-2 mb-4 w-4 border;
 }
+
+[aria-hidden="true"] {
+  display: none !important;
+}
