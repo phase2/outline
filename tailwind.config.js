@@ -211,6 +211,42 @@ module.exports = {
       '7xl': ['var(--fs-7xl)', { lineHeight: 'var(--lh-7xl)' }],
       '8xl': ['var(--fs-8xl)', { lineHeight: 'var(--lh-8xl)' }],
       '9xl': ['var(--fs-9xl)', { lineHeight: 'var(--lh-9lx)' }],
+      'h1': ['var(--fs-h1)', { lineHeight: 'var(--lh-h1)' }],
+      'h1-small': ['var(--fs-h1-small)', { lineHeight: 'var(--lh-h1-small)' }],
+      'h1-medium': [
+        'var(--fs-h1-medium)',
+        { lineHeight: 'var(--lh-h1-medium)' },
+      ],
+      'h2': ['var(--fs-h2)', { lineHeight: 'var(--lh-h2)' }],
+      'h2-small': ['var(--fs-h2-small)', { lineHeight: 'var(--lh-h2-small)' }],
+      'h2-medium': [
+        'var(--fs-h2-medium)',
+        { lineHeight: 'var(--lh-h2-medium)' },
+      ],
+      'h3': ['var(--fs-h3)', { lineHeight: 'var(--lh-h3)' }],
+      'h3-small': ['var(--fs-h3-small)', { lineHeight: 'var(--lh-h3-small)' }],
+      'h3-medium': [
+        'var(--fs-h3-medium)',
+        { lineHeight: 'var(--lh-h3-medium)' },
+      ],
+      'h4': ['var(--fs-h4)', { lineHeight: 'var(--lh-h4)' }],
+      'h4-small': ['var(--fs-h4-small)', { lineHeight: 'var(--lh-h4-small)' }],
+      'h4-medium': [
+        'var(--fs-h4-medium)',
+        { lineHeight: 'var(--lh-h4-medium)' },
+      ],
+      'h5': ['var(--fs-h5)', { lineHeight: 'var(--lh-h5)' }],
+      'h5-small': ['var(--fs-h5-small)', { lineHeight: 'var(--lh-h5-small)' }],
+      'h5-medium': [
+        'var(--fs-h5-medium)',
+        { lineHeight: 'var(--lh-h5-medium)' },
+      ],
+      'h6': ['var(--fs-h6)', { lineHeight: 'var(--lh-h6)' }],
+      'h6-small': ['var(--fs-h6-small)', { lineHeight: 'var(--lh-h6-small)' }],
+      'h6-medium': [
+        'var(--fs-h6-medium)',
+        { lineHeight: 'var(--lh-h6-medium)' },
+      ],
     },
     fontWeight: {
       thin: 'var(--fw-extralight)',
