@@ -1,18 +1,12 @@
 .accordion-title {
-  @apply font-display text-4xl text-outline-dark-blue;
+  @apply font-display text-4xl text-outline-soft-black;
 }
 
 .accordion-title.mobile {
-  @apply text-lg text-outline-dark-blue;
+  @apply text-lg text-outline-soft-black;
 }
-
-.accordion-title:after {
-  @apply my-6 flex w-8 border border-solid border-outline-dark-blue;
-  content: '';
-}
-
-.accordion-title.mobile:after {
-  @apply mt-2 mb-4 w-4 border;
+::slotted(outline-heading) {
+  margin-bottom: 2.5rem;
 }
 
 [aria-hidden='true'] {
