@@ -33,7 +33,7 @@ export class OutlineHeading extends OutlineElement {
    * The heading level size to apply. Optional override to default styles for a given level
    */
   @property({ type: String, reflect: true, attribute: 'level-size' })
-  levelSize: AllowedHeadingSizes = '2xl';
+  levelSize: AllowedHeadingSizes;
 
   /**
    * The heading level style to apply. Optional override to default styles for a given level
@@ -44,7 +44,7 @@ export class OutlineHeading extends OutlineElement {
   render(): TemplateResult {
     const classes = {
       'outline-text': true,
-      [`outline-text--${this.levelSize}`]: true,
+      [`outline-text--${this.levelSize}`]: this.levelSize ? true : '',
       [`outline-font--${this.levelStyle}`]: true,
       'mobile': this.mobileController.isMobile,
     };

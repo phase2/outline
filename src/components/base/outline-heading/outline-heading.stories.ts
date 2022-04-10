@@ -103,8 +103,59 @@ Heading.args = {
   levelStyle: 'semibold',
 };
 
-export const DefaultHeading = Template.bind({});
+const StandardHeadingsTemplate = (): TemplateResult => {
+  return html`
+<outline-heading level="h1">This is a standard Heading 1.</outline-heading>
+<outline-heading level="h2">This is a standard Heading 2.</outline-heading>
+<outline-heading level="h3">This is a standard Heading 3.</outline-heading>
+<outline-heading level="h4">This is a standard Heading 4.</outline-heading>
+<outline-heading level="h5">This is a standard Heading 5.</outline-heading>
+<outline-heading level="h6">This is a standard Heading 6.</outline-heading>
+`;
+};
+
+export const StandardHeadings = () => StandardHeadingsTemplate();
+StandardHeadings.parameters = {
+  docs: {
+    description: {
+      story: `This example shows the standard heading elements. 
+      This uses only the \`level\` attribute to declare the semantic level of the heading element.
+      This also allows us to show the default shift of sizes between smaller and larger breakpoints.
+      `,
+    },
+    source: {
+      code: `
+<outline-heading level="h1">This is a standard Heading 1 element.</outline-heading>
+<outline-heading level="h2">This is a standard Heading 2 element.</outline-heading>
+<outline-heading level="h3">This is a standard Heading 3 element.</outline-heading>
+<outline-heading level="h4">This is a standard Heading 4 element.</outline-heading>
+<outline-heading level="h5">This is a standard Heading 5 element.</outline-heading>
+<outline-heading level="h6">This is a standard Heading 6 element.</outline-heading>
+`
+    }
+  }
+};
+
+const DefaultHeadingTemplate = (): TemplateResult => {
+  return html`
+<outline-heading>Sample heading text that should take up multiple lines so we can test for proper size and leading.</outline-heading>
+`;
+};
+export const DefaultHeading = DefaultHeadingTemplate.bind({});
 DefaultHeading.args = {};
+DefaultHeading.parameters = {
+  docs: {
+    description: {
+      story: `This example shows an <code>outline-heading</code> element with no attributes being rendered.
+      `,
+    },
+    source: {
+      code: `
+<outline-heading>Sample heading text that should take up multiple lines so we can test for proper size and leading.</outline-heading>
+`
+    }
+  }
+};
 
 export const ThinHeading = Template.bind({});
 ThinHeading.args = {

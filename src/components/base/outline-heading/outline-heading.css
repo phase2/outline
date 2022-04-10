@@ -11,37 +11,29 @@ h6 {
   @apply m-0 mb-4;
 }
 
-/* Moved to top to allow easier override */
-/* .outline-text,
-.outline-text--base {
-  @apply text-base;
-} */
-
-/* Default sizes based on comps.
-  Override with level-size prop */
-
+/* Default sizes, can be changed with level-size prop */
 h1 {
-  @apply text-h1-small md:text-h1;
+  @apply text-h1-small md:text-h1-medium lg:text-h1;
 }
 
 h2 {
-  @apply text-h2-small md:text-h2;
+  @apply text-h2-small md:text-h2-medium lg:text-h2;
 }
 
 h3 {
-  @apply text-h3-small md:text-h3;
+  @apply text-h3-small md:text-h3-medium lg:text-h3;
 }
 
 h4 {
-  @apply text-h4-small md:text-h4;
+  @apply text-h4-small md:text-h4-medium lg:text-h4;
 }
 
 h5 {
-  @apply text-h5;
+  @apply text-h5-small md:text-h5-medium lg:text-h5;
 }
 
 h6 {
-  @apply text-h6;
+  @apply text-h6-small md:text-h6-medium lg:text-h6;
 }
 
 .outline-text--base {
@@ -136,6 +128,7 @@ h6 {
   @apply text-6xl !important;
 }
 
+/* Font weights */
 .outline-font--thin {
   @apply font-thin;
 }
