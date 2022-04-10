@@ -71,3 +71,7 @@
 .accordion-panel.clean {
   @apply border-0;
 }
+
+[aria-hidden='true'] {
+  display: none !important;
+}

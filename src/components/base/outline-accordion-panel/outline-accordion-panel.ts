@@ -78,7 +78,6 @@ export class OutlineAccordionPanel extends OutlineElement {
         role="region"
         aria-labelledby="${this.id}-button"
         id="${this.id}-info"
-        .hidden=${!this.active}
         aria-hidden="${!this.active}"
       >
         <slot></slot>
