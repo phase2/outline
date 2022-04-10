@@ -65,7 +65,7 @@
     "format": "npm-run-all -s format:code format:svg",
     "format:code": "eslint --fix . && prettier --write .",
     "format:svg": "svgo -f ./src -r --config=svgo.config.js",
-    "fix": "yarn fmt && yarn lint",
+    "fix": "yarn format && yarn lint",
     "ci": "rm -rf node_modules && yarn install --frozen-lockfile",
     "clean": "npm-run-all -s clean:*",
     "clean:dist": "rimraf dist",
