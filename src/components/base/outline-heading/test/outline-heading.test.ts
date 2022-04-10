@@ -12,7 +12,7 @@ describe('outline-heading', () => {
     assert.shadowDom.equal(
       el,
       `
-      <h2 class="outline-font--bold outline-text outline-text--2xl">
+      <h2 class="outline-font--bold outline-text">
         <slot></slot>
       </h2>
     `
