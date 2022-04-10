@@ -5,6 +5,7 @@
 .accordion-title.mobile {
   @apply text-lg text-outline-soft-black;
 }
+
 ::slotted(outline-heading) {
   margin-bottom: 2.5rem;
 }

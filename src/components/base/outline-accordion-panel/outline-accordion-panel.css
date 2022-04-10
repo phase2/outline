@@ -43,6 +43,10 @@
   max-width: 75%;
 }
 
+::slotted(outline-heading) {
+  margin: 1rem 0;
+}
+
 .accordion-heading {
   @apply m-0 flex;
 }

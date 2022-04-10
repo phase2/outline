@@ -24,7 +24,7 @@ export class OutlineHeading extends OutlineElement {
   static styles = [componentStyles];
 
   /**
-   * The heading tag to apply: h1 | h2 | h3 | h4 | h5 | h6
+   * The tag to apply: h1 | h2 | h3 | h4 | h5 | h6
    */
   @property({ type: String, reflect: true, attribute: 'level' })
   level: AllowedHeadingLevels = 'h2';

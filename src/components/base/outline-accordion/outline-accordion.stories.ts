@@ -49,7 +49,7 @@ export default {
     singlePanel: true,
     clean: false,
     allOpen: false,
-    label: `<outline-heading level="h2" level-size="4xl" level-style="semibold" slot="label">Accordion Items</outline-heading>`
+    label: `<outline-heading level="h2" level-style="semibold" slot="label">Accordion Items</outline-heading>`
   },
 };
 
@@ -67,42 +67,42 @@ const Template = ({
 >
   ${label ? html`${unsafeHTML(label)}` : null}
   <outline-accordion-panel slot="panels">
-    <outline-heading level="p" level-style="semibold" slot="heading">Accordion Item 1</outline-heading>
+    <outline-heading level="h3" level-style="semibold" slot="heading">Accordion Item 1</outline-heading>
     <outline-styled-text>
-      <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
+      <outline-heading level="h4" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
       <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p>
     </outline-styled-text>
   </outline-accordion-panel>
 
   <outline-accordion-panel slot="panels">
-    <outline-heading level="p" level-style="semibold" slot="heading">Accordion Item 2</outline-heading>
+    <outline-heading level="h3" level-style="semibold" slot="heading">Accordion Item 2</outline-heading>
     <outline-styled-text>
-      <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
+      <outline-heading level="h4" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
       <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p>
     </outline-styled-text>
   </outline-accordion-panel>
   
   <outline-accordion-panel slot="panels">
-    <outline-heading level="p" level-style="semibold" slot="heading">Accordion Item 3</outline-heading>
+    <outline-heading level="h3" level-style="semibold" slot="heading">Accordion Item 3</outline-heading>
     <outline-styled-text>
-      <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
+      <outline-heading level="h4" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
       <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p>
     </outline-styled-text>
     </outline-styled-text>
   </outline-accordion-panel>
 
   <outline-accordion-panel slot="panels">
-    <outline-heading level="p" level-style="semibold" slot="heading">Accordion Item 4</outline-heading>
+    <outline-heading level="h3" level-style="semibold" slot="heading">Accordion Item 4</outline-heading>
     <outline-styled-text>
-      <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
+      <outline-heading level="h4" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
       <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p>
     </outline-styled-text>
   </outline-accordion-panel>
 
   <outline-accordion-panel slot="panels">
-    <outline-heading level="p" level-style="semibold" slot="heading">Accordion Item 5</outline-heading>
+    <outline-heading level="h3" level-style="semibold" slot="heading">Accordion Item 5</outline-heading>
     <outline-styled-text>
-      <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
+      <outline-heading level="h4" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
       <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p>
     </outline-styled-text>
   </outline-accordion-panel>
