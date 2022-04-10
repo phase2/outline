@@ -72,6 +72,6 @@
   @apply border-0;
 }
 
-[aria-hidden="true"] {
+[aria-hidden='true'] {
   display: none !important;
 }
