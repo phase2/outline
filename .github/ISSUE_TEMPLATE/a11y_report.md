@@ -1,13 +1,13 @@
 ---
-name: Bug Report
-about: Create a bug report to help us improve an individual component, or the platform in general.
-title: "[Bug]: "
-labels: ["Type: Bug", "Requires Triage"]
+name: Accessibility Issue
+about: Create a report to help us improve accessibility.
+title: "[A11Y]: "
+labels: ["Type: Accessibility", "Requires Triage"]
 assignees: ''
 
 ---
 
-**Describe the bug**
+**Describe the accessiblity issue**
 A clear and concise description of what the bug is.
 
 **To Reproduce**

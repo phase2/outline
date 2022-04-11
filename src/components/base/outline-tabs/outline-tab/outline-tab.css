@@ -7,13 +7,13 @@
 }
 
 .tab {
-  @apply pointer-events-none mb-0.5 block select-none whitespace-nowrap rounded border-b-2 border-demo-darkGray bg-no-repeat py-8 pl-6 pr-36 font-body text-xl font-medium text-demo-darkGray lg:text-2xl;
+  @apply pointer-events-none mb-0.5 block select-none whitespace-nowrap rounded border-b-2 border-outline-dark-gray bg-no-repeat py-8 pl-6 pr-36 font-body text-xl font-medium text-outline-dark-gray lg:text-2xl;
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='22' viewBox='0 0 12 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.6036 10.3964L1.4449 0.237629C1.10859 -0.0871735 0.572681 -0.0778466 0.247879 0.258463C-0.0689857 0.586538 -0.0689856 1.10663 0.247879 1.43465L9.8081 10.9949L0.247879 20.5551C-0.0826265 20.8857 -0.0826265 21.4216 0.247879 21.7521C0.578485 22.0826 1.11435 22.0826 1.4449 21.7521L11.6036 11.5934C11.9341 11.2628 11.9341 10.7269 11.6036 10.3964Z' fill='%23363739'/%3E%3C/svg%3E%0A");
   background-position: calc(100% - 24px) 50%;
 }
 
 .tab:hover:not(.tab--disabled) {
-  @apply text-demo-lightGray;
+  @apply text-outline-light-gray;
 }
 
 .tab:focus {
@@ -22,11 +22,11 @@
 
 .tab:focus:not(.tab--disabled),
 .tab:focus-visible:not(.tab--disabled) {
-  @apply bg-demo-lightBlue text-demo-darkBlue shadow-inner;
+  @apply bg-outline-light-blue text-outline-dark-blue shadow-inner;
 }
 
 .tab.tab--active:not(.tab--disabled) {
-  @apply bg-demo-lightGray text-demo-darkBlue;
+  @apply bg-outline-light-gray text-outline-dark-blue;
   background-image: url("data:image/svg+xml,%3Csvg width='12' height='22' viewBox='0 0 12 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.6036 10.3964L1.4449 0.237629C1.10859 -0.0871735 0.572681 -0.0778466 0.247879 0.258463C-0.0689857 0.586538 -0.0689856 1.10663 0.247879 1.43465L9.8081 10.9949L0.247879 20.5551C-0.0826265 20.8857 -0.0826265 21.4216 0.247879 21.7521C0.578485 22.0826 1.11435 22.0826 1.4449 21.7521L11.6036 11.5934C11.9341 11.2628 11.9341 10.7269 11.6036 10.3964Z' fill='%23056CB6'/%3E%3C/svg%3E%0A");
 }
 

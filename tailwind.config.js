@@ -39,6 +39,27 @@ module.exports = {
       xxxl: '2180px',
     },
     colors: {
+      // Demo styles specific to Storybook implementation.
+      // Do not remove.
+      outline: {
+        'phase2-blue': 'var(--outline-phase2-blue)',
+        'karma-coral': 'var(--outline-karma-coral)',
+        'soft-black': 'var(--outline-soft-black)',
+        'not-gray': 'var(--outline-not-gray)',
+        'transparent': 'var(--outline-transparent)',
+        'white': 'var(--outline-white)',
+        'black': 'var(--outline-black)',
+        'dark-blue': 'var(--outline-dark-blue)',
+        'medium-blue': 'var(--outline-medium-blue)',
+        'light-blue': 'var(--outline-light-blue)',
+        'dark-gray': 'var(--outline-dark-gray)',
+        'medium-gray': 'var(--outline-medium-gray)',
+        'light-gray': 'var(--outline-light-gray)',
+        'misty-teal': 'var(--outline-misty-teal)',
+        'electric-violet': 'var(--outline-electric-violet)',
+        'dusty-blue': 'var(--outline-dusty-blue)',
+      },
+
       // Custom Brand colors can be added/edited here.
       brand: {
         primary: 'var(--brand-primary)',
@@ -52,6 +73,7 @@ module.exports = {
         nonary: 'var(--brand-nonary)',
         denary: 'var(--brand-denary)',
       },
+
       // Custom Neutral colors can be added/edited here.
       neutral: {
         transparent: 'var(--neutral-transparent)',
@@ -61,6 +83,7 @@ module.exports = {
         grayDark: 'var(--neutral-grayDark)',
         black: 'var(--neutral-black)',
       },
+
       // These are used for system alerts and should not be removed.
       ui: {
         error: 'var(--ui-errorBackground)',
@@ -72,18 +95,7 @@ module.exports = {
         infoText: 'var(--ui-infoText)',
         successText: 'var(--ui-successText)',
       },
-      // Demo styles specific to Storybook implementation.
-      // Do not remove.
-      demo: {
-        white: 'var(--demo-white)',
-        black: 'var(--demo-black)',
-        darkBlue: 'var(--demo-darkBlue)',
-        mediumBlue: 'var(--demo-mediumBlue)',
-        lightBlue: 'var(--demo-lightBlue)',
-        darkGray: 'var(--demo-darkGray)',
-        mediumGray: 'var(--demo-mediumGray)',
-        lightGray: 'var(--demo-lightGray)',
-      },
+
       // The defaults are completely overwritten, so manually including
       // sets from Tailwind CSS we want to use.
       // You may remove any/all of these items assuming you have removed
@@ -199,6 +211,42 @@ module.exports = {
       '7xl': ['var(--fs-7xl)', { lineHeight: 'var(--lh-7xl)' }],
       '8xl': ['var(--fs-8xl)', { lineHeight: 'var(--lh-8xl)' }],
       '9xl': ['var(--fs-9xl)', { lineHeight: 'var(--lh-9lx)' }],
+      'h1': ['var(--fs-h1)', { lineHeight: 'var(--lh-h1)' }],
+      'h1-small': ['var(--fs-h1-small)', { lineHeight: 'var(--lh-h1-small)' }],
+      'h1-medium': [
+        'var(--fs-h1-medium)',
+        { lineHeight: 'var(--lh-h1-medium)' },
+      ],
+      'h2': ['var(--fs-h2)', { lineHeight: 'var(--lh-h2)' }],
+      'h2-small': ['var(--fs-h2-small)', { lineHeight: 'var(--lh-h2-small)' }],
+      'h2-medium': [
+        'var(--fs-h2-medium)',
+        { lineHeight: 'var(--lh-h2-medium)' },
+      ],
+      'h3': ['var(--fs-h3)', { lineHeight: 'var(--lh-h3)' }],
+      'h3-small': ['var(--fs-h3-small)', { lineHeight: 'var(--lh-h3-small)' }],
+      'h3-medium': [
+        'var(--fs-h3-medium)',
+        { lineHeight: 'var(--lh-h3-medium)' },
+      ],
+      'h4': ['var(--fs-h4)', { lineHeight: 'var(--lh-h4)' }],
+      'h4-small': ['var(--fs-h4-small)', { lineHeight: 'var(--lh-h4-small)' }],
+      'h4-medium': [
+        'var(--fs-h4-medium)',
+        { lineHeight: 'var(--lh-h4-medium)' },
+      ],
+      'h5': ['var(--fs-h5)', { lineHeight: 'var(--lh-h5)' }],
+      'h5-small': ['var(--fs-h5-small)', { lineHeight: 'var(--lh-h5-small)' }],
+      'h5-medium': [
+        'var(--fs-h5-medium)',
+        { lineHeight: 'var(--lh-h5-medium)' },
+      ],
+      'h6': ['var(--fs-h6)', { lineHeight: 'var(--lh-h6)' }],
+      'h6-small': ['var(--fs-h6-small)', { lineHeight: 'var(--lh-h6-small)' }],
+      'h6-medium': [
+        'var(--fs-h6-medium)',
+        { lineHeight: 'var(--lh-h6-medium)' },
+      ],
     },
     fontWeight: {
       thin: 'var(--fw-extralight)',

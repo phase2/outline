@@ -1,8 +1,8 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
+name: Feature Request
+about: Suggest an idea, improvement or new feature for this project. Not to be used for new component suggestions.
 title: '[Feature]: '
-labels: ["Feature Request", "Requires Triage"]
+labels: ["Type: Feature Request", "Requires Triage"]
 assignees: ''
 
 ---
