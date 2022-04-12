@@ -57,7 +57,7 @@ const Template = (args = configuration.args): TemplateResult => {
         <slot-query>
           <div slot="nested">
             ${unsafeHTML(args.nestedSlotContent ?? '')}
-          <div/>
+          </div>
         </slot-query>
       </div>
     </slot-query>
