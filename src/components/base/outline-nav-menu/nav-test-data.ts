@@ -1,6 +1,7 @@
 export default [
   {
     text: 'Residents',
+    url: '#',
     sub: [
       {
         text: 'Find',
