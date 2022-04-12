@@ -1,6 +1,10 @@
 import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../../outline-element/outline-element';
-import { customElement, property, queryAssignedNodes } from 'lit/decorators.js';
+import {
+  customElement,
+  property,
+  queryAssignedElements,
+} from 'lit/decorators.js';
 import componentStyles from './outline-nav.css.lit';
 import { MobileController } from '../../../controllers/mobile-controller';
 
@@ -14,7 +18,7 @@ export type MenuLink = {
 
 export type MenuNavItem = {
   text: string;
-  sub: MenuLink[] | MenuNavItem[];
+  sub?: MenuLink[] | MenuNavItem[] | undefined;
   url?: string;
 };
 
@@ -35,11 +39,11 @@ export class OutlineNav extends OutlineElement {
   @property({ type: String })
   title: string;
 
-  @queryAssignedNodes('list', true, '[slot="list"]')
-  slottedListItems: Array<HTMLElement>;
+  @queryAssignedElements({ slot: 'list', flatten: true })
+  slottedListItems: Array<MenuLink> | Array<MenuNavItem>;
 
   @property({ type: Array })
-  listItems: MenuNavItem[];
+  listItems: Array<MenuNavItem | MenuLink>;
 
   @property({ type: String, reflect: true })
   id = `menu-${this._seed}`;
@@ -53,7 +57,7 @@ export class OutlineNav extends OutlineElement {
 
     return html`<div class="outline-nav">
       ${this.title
-        ? () => html`<header class="header">
+        ? () => html` <header class="header">
             <slot name="header"></slot>
           </header>`
         : null}
@@ -63,9 +67,9 @@ export class OutlineNav extends OutlineElement {
           role="menu"
           id="ping"
         >
-          <slot class="nav--main-list-slot" name="list">
-            ${this.generateListItemsFromData()}
-          </slot>
+          ${!this.listItems?.length
+            ? html`<slot class="nav--main-list-slot" name="list"></slot>`
+            : this.generateListItemsFromData()}
         </ul>
       </nav>
     </div>`;
@@ -73,10 +77,10 @@ export class OutlineNav extends OutlineElement {
 
   setTopLevelAttribute() {
     if (!this.listItems) {
-      [...this.slottedListItems].map(el => {
-        const isNavItem = Object?.keys(el)?.includes('sub') ? true : false;
-        isNavItem ? el.setAttribute('toplevel', 'toplevel') : null;
-      });
+      [...this.slottedListItems].map(el =>
+        // @ts-expect-error because ts
+        el.setAttribute('toplevel', 'toplevel')
+      );
     }
   }
 

@@ -1,11 +1,11 @@
 .nav--main-list {
-  @apply relative flex bg-blue-500;
+  @apply relative flex w-full justify-around bg-blue-500;
 }
 
-.nav--main-list-slot::slotted(outline-nav-item),
+/* .nav--main-list-slot::slotted(outline-nav-item),
 .nav--main-list-slot::slotted(outline-nav-link) {
   @apply flex w-full justify-evenly;
-}
+} */
 
 /* Mobile */
 

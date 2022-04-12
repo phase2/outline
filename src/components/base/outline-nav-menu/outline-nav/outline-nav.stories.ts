@@ -20,11 +20,29 @@ const Template = ({items}): TemplateResult =>
 const SlotsTemplate = (): TemplateResult =>
   html`
     <outline-nav> 
-      <outline-nav-item .item=${{text:"Item 1", url:"#", sub:[]}} slot="list"></outline-nav-item>
-      <outline-nav-item .item=${{text:"Item 2", url:"#", sub:[]}} slot="list"></outline-nav-item>
-      <outline-nav-item .item=${{ text: "Item 3", url: "#", sub:[] }} slot="list"></outline-nav-item>
-      <outline-nav-link .item=${{ text: "nav link 1", url: "#" }} slot="list"> </outline-nav-link>
-      <outline-nav-link slot="list"><a href="#">Slotted</a></outline-nav-link>
+      <outline-nav-item text='Main Item 1' url="#" slot="list">
+        <outline-nav-item text='sub Item 1/1' url="#" slot="sub">
+          <outline-nav-link slot="sub"><a href="#">Sub Link</a></outline-nav-link>
+        </outline-nav-item>
+        <outline-nav-item text='Sub Item 1/2' url="#" slot="sub">
+          <outline-nav-link slot="sub"><a href="#">Sub Link</a></outline-nav-link>
+        </outline-nav-item>
+      </outline-nav-item>
+      <outline-nav-item text='Main Item' url="#" slot="list">
+        <outline-nav-item text='Main Item' url="#" slot="sub">
+          <outline-nav-link slot="sub"><a href="#">Sub Link</a></outline-nav-link>
+        </outline-nav-item>
+        <outline-nav-item text='Main Item' url="#" slot="sub">
+          <outline-nav-item text='Sub Item' url="#" slot="sub">
+            <outline-nav-link slot="sub"><a href="#">Sub Link</a></outline-nav-link>
+          </outline-nav-item>
+          <outline-nav-item text='Sub Item' url="#" slot="sub">
+            <outline-nav-link slot="sub"><a href="#">Sub Link</a></outline-nav-link>
+          </outline-nav-item>
+        </outline-nav-item>
+        <outline-nav-link slot="sub"><a href="#">Sub Link</a></outline-nav-link>
+      </outline-nav-item>
+      <outline-nav-link slot="list"><a href="#">Main Link</a></outline-nav-link>
     </outline-nav>
   `;
 

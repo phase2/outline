@@ -1,8 +1,14 @@
 import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../../outline-element/outline-element';
-import { customElement, property } from 'lit/decorators.js';
-import componentStyles from './outline-nav-item.css.lit';
+import {
+  customElement,
+  property,
+  queryAssignedElements,
+} from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 import { MobileController } from '../../../controllers/mobile-controller';
+import { classMap } from 'lit/directives/class-map.js';
+import componentStyles from './outline-nav-item.css.lit';
 import debounce from 'lodash-es/debounce';
 
 import '../../outline-icon/outline-icon';
@@ -15,6 +21,7 @@ import { MenuNavItem } from '../outline-nav/outline-nav';
 /**
  * The OutlineNavItem component
  * @element outline-nav-item
+ * @slot sub - for outline-nav-item/outline-nav-link
  */
 @customElement('outline-nav-item')
 export class OutlineNavItem extends OutlineElement {
@@ -34,34 +41,47 @@ export class OutlineNavItem extends OutlineElement {
   @property({ type: String })
   id = `list-item-${this._seed}`;
 
+  @property({ type: String })
+  text: string;
+
+  @property({ type: String })
+  url: string;
+
   @property({ type: Boolean })
   open = false;
 
   @property({ type: Boolean })
   isMobile: boolean = this.mobileController.isMobile;
 
+  @queryAssignedElements({ slot: 'sub', flatten: true })
+  subs: Array<MenuLink> | Array<MenuNavItem>;
+
   render(): TemplateResult {
+    const wrapperClasses = {
+      'list-item': !this.toplevel,
+      'list-item--main': this.toplevel,
+      'mobile': this.isMobile,
+    };
     return html`
       <li
-        class="${this.toplevel ? 'list-item--main' : 'list-item'} ${this
-          .isMobile
-          ? 'mobile'
-          : ''}"
+        class="${classMap(wrapperClasses)}"
         role="none"
         id="${this.id}"
         @mouseover=${this.desktopMouseOverOpen}
         @mouseout=${this.desktopMouseOutClose}
         ?active=${this.open}
       >
-        ${this.configureTemplate(this.item)}
-        ${this.isMobile ? this.buttonTemplate(this.item) : null}
+        ${this.configureTemplate()}
+        ${this.isMobile ? this.buttonTemplate() : null}
         <ul
           class="list-item--sub-menu"
           role="menu"
-          aria-label="${this.item.text} sub menu"
+          aria-label="${this.item ? this.item.text : this.text} sub menu"
           id="${this._seed}-sub-menu"
         >
-          ${this.generateListItemsFromData(this.item.sub)}
+          ${!this.item
+            ? html`<slot name="sub"></slot>`
+            : this.generateListItems()}
         </ul>
       </li>
     `;
@@ -82,49 +102,56 @@ export class OutlineNavItem extends OutlineElement {
     );
   }
 
-  generateListItemsFromData(subs: MenuLink[] | MenuNavItem[]) {
-    return subs?.map((listItem: MenuLink | MenuNavItem) => {
-      const hasSubList = Object?.keys(listItem)?.includes('sub') ? true : false;
-      if (hasSubList) {
-        const item = listItem as MenuNavItem;
-        return html`<outline-nav-item
-          .parentID=${this.parentID}
-          .item=${item}
-        ></outline-nav-item>`;
-      } else {
-        const item = listItem as MenuLink;
-        return html`<outline-nav-link .item=${item}></outline-nav-link>`;
-      }
-    });
-  }
-
-  configureTemplate(item: MenuNavItem) {
-    if (this.item.url) {
-      return this.linkTemplate(item);
-    } else {
-      return this.spanTemplate(item);
+  generateListItems() {
+    if (this.item && this.item.sub) {
+      return this.item.sub.map((listItem: MenuLink | MenuNavItem) => {
+        const hasSubList = Object?.keys(listItem)?.includes('sub')
+          ? true
+          : false;
+        if (hasSubList) {
+          const item = listItem as MenuNavItem;
+          return html`<outline-nav-item
+            .parentID=${this.parentID}
+            .item=${item}
+          ></outline-nav-item>`;
+        } else {
+          const item = listItem as MenuLink;
+          return html`<outline-nav-link .item=${item}></outline-nav-link>`;
+        }
+      });
     }
+    return;
   }
 
-  linkTemplate(item: MenuNavItem) {
+  configureTemplate() {
+    if (this.url || this?.item?.url) {
+      return this.linkTemplate();
+    }
+    if (!this.url && !this?.item?.url) {
+      return this.spanTemplate();
+    }
+    return;
+  }
+
+  linkTemplate() {
     return html`
       <a
         class="list-item--link"
         id="${this._seed}-link"
-        href=${item.url!}
-        aria-label=${item.text}
+        href=${ifDefined(this.item ? this.item.url : this.url)}
+        aria-label=${this.item ? this.item.text : this.text}
         aria-haspopup="true"
         aria-expanded=${this.open}
         role="menuitem"
         aria-controls="${this._seed}-sub-menu"
         @keydown=${this.handleToggleMenu}
       >
-        ${item.text}
+        ${this.item ? this.item.text : this.text}
       </a>
     `;
   }
 
-  spanTemplate(item: MenuNavItem) {
+  spanTemplate() {
     return html`
       <span
         class="list-item--label"
@@ -136,21 +163,23 @@ export class OutlineNavItem extends OutlineElement {
         tabindex=${this.isMobile ? '-1' : '0'}
         @keydown=${this.handleToggleMenu}
       >
-        ${item.text}
+        ${this.item ? this.item.text : this.text}
       </span>
     `;
   }
 
-  buttonTemplate(item: MenuNavItem) {
+  buttonTemplate() {
     return html`
       <button
         class="list-item--button"
         id="${this._seed}-button"
         aria-controls="${this._seed}-sub-menu"
-        aria-label="expand ${item.text}"
+        aria-label="expand ${this.item ? this.item.text : this.text}"
         aria-expanded="${this.open}"
         aria-haspopup="true"
-        aria-labelledby=${item.url ? '${this.seed}-link' : '${this.seed}-label'}
+        aria-labelledby=${this?.item?.url || this.url
+          ? '${this.seed}-link'
+          : '${this.seed}-label'}
         @click=${this.handleToggleMenu}
         @keydown=${this.handleToggleMenu}
       >
@@ -239,14 +268,15 @@ export class OutlineNavItem extends OutlineElement {
   }
 
   handleToggleMenu(e: KeyboardEvent) {
-    const keyed = e?.type === 'keydown';
+    const keyed = e.type === 'keydown';
     if (keyed) {
       // make sure menu toggles only on Space and Enter keys
-      if (e?.key === 'Enter' || e?.key === ' ') {
+      if (e.key === 'Enter' || e.key === ' ') {
         // prevent scrolling on space
         if (e.key === ' ') {
           e.preventDefault();
         }
+
         this.toggleMenu();
       }
     } else {
