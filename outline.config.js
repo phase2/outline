@@ -15,6 +15,15 @@ module.exports = {
     dir: ['src/assets'],
     sync: ['dist', 'src/.storybook/static/dist'],
   },
+  screens: {
+    xs: '480px',
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    xxl: '1440px',
+    xxxl: '1440px',
+  },
   css: {
     global: [
       {
