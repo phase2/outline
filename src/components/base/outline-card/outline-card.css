@@ -31,17 +31,17 @@
 }
 
 .outline-bg-black {
-  @apply bg-neutral-black;
+  @apply bg-outline-black;
 }
 
 .outline-bg-white {
-  @apply bg-neutral-white;
+  @apply bg-outline-white;
 }
 
 .outline-bg-gray {
-  @apply bg-neutral-grayMedium;
+  @apply bg-outline-medium-gray;
 }
 
 .outline-bg-light-gray {
-  @apply bg-neutral-grayLight;
+  @apply bg-outline-light-gray;
 }

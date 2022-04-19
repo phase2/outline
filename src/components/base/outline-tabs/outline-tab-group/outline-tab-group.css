@@ -3,7 +3,7 @@
 }
 
 .tab-group {
-  @apply flex border border-neutral-transparent;
+  @apply flex border border-outline-transparent;
 }
 
 .tab-group .tab-group__tabs {

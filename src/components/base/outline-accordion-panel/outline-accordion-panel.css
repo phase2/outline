@@ -7,11 +7,11 @@
 }
 
 .accordion-button.active {
-  @apply bg-outline-soft-black text-neutral-white;
+  @apply bg-outline-soft-black text-outline-white;
 }
 
 .accordion-button.inactive {
-  @apply bg-neutral-white text-outline-soft-black;
+  @apply bg-outline-white text-outline-soft-black;
 }
 
 .accordion-button.clean {
@@ -19,7 +19,7 @@
 }
 
 .accordion-button.clean.active {
-  @apply bg-neutral-white text-outline-soft-black !important;
+  @apply bg-outline-white text-outline-soft-black !important;
 }
 
 .accordion-button.clean.inactive {
@@ -56,11 +56,11 @@
 }
 
 .accordion-icon.clean {
-  @apply bg-neutral-white text-outline-soft-black !important;
+  @apply bg-outline-white text-outline-soft-black !important;
 }
 
 .accordion-icon.active {
-  @apply bg-outline-soft-black text-neutral-white;
+  @apply bg-outline-soft-black text-outline-white;
 }
 
 .accordion-icon.inactive {

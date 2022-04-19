@@ -2,39 +2,32 @@
 --outline-btn--link-padding: var(--outline-btn-padding);
 --outline-btn--link-rounded: var(--spacing-2);
 
---outline-btn--link-bg-color-default: var(--neutral-transparent);
+--outline-btn--link-bg-color-default: var(--outline-transparent);
 --outline-btn--link-text-color-default: var(--outline-link-color-default);
 --outline-btn--link-decoration-default: none;
---outline-btn--link-border-default: none;
---outline-btn--link-outline-default: none;
 --outline-btn--link-weight-default: var(--outline-btn-weight);
+--outline-btn--link-ring-default: none;
 
---outline-btn--link-bg-color-hover: var(--neutral-transparent);
+--outline-btn--link-bg-color-hover: var(--outline-transparent);
 --outline-btn--link-text-color-hover: var(--outline-link-color-hover);
---outline-btn--link-decoration-hover: none;
---outline-btn--link-border-hover: none;
---outline-btn--link-outline-hover: none;
+--outline-btn--link-decoration-hover: underline;
 --outline-btn--link-weight-hover: var(--outline-btn-weight);
+--outline-btn--link-ring-hover: none;
 
---outline-btn--link-bg-color-focus: var(--neutral-transparent);
+--outline-btn--link-bg-color-focus: var(--outline-transparent);
 --outline-btn--link-text-color-focus: var(--outline-link-color-focus);
 --outline-btn--link-decoration-focus: none;
---outline-btn--link-border-focus: none;
---outline-btn--link-outline-focus: var(--outline-btn-outline-width) solid
-  var(--outline-link-color-focus);
 --outline-btn--link-weight-focus: var(--outline-btn-weight);
+--outline-btn--link-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-link-color-focus);
 
---outline-btn--link--disabled-bg-color: var(--neutral-transparent);
---outline-btn--link--disabled-text-color: var(--outline-link-color-default);
+--outline-btn--link--disabled-bg-color: var(--outline-transparent);
+--outline-btn--link--disabled-text-color: var(--outline-gray-500);
 --outline-btn--link--disabled-decoration: none;
---outline-btn--link--disabled-border: none;
---outline-btn--link--disabled-outline: none;
+--outline-btn--link--disabled-weight: var(--outline-btn-weight);
+--outline-btn--link--disabled-ring: none;
 
 --outline-btn--link--disabled-bg-color-focus: none;
---outline-btn--link--disabled-text-color-focus: var(
-  --gray-cosmopolitan-darken-2
-);
+--outline-btn--link--disabled-text-color-focus: var(--outline-gray-500);
 --outline-btn--link--disabled-decoration-focus: none;
---outline-btn--link--disabled-border-focus: none;
---outline-btn--link--disabled-outline-focus: var(--outline-btn-outline-width)
-  solid var(--gray-cosmopolitan-darken-2);
+--outline-btn--link--disabled-weight-focus: var(--outline-btn-weight);
+--outline-btn--link--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500);

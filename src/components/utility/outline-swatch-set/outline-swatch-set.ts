@@ -11,10 +11,9 @@ import '../outline-swatch/outline-swatch';
 export const swatchSets = [
   'outline',
   'brand',
-  'neutral',
   'ui',
-  'gray',
-  'blue',
+  'outline-gray',
+  'outline-blue',
   'red',
   'yellow',
   'green',
@@ -25,10 +24,9 @@ export const swatchSets = [
 export type SwatchSet =
   | 'outline'
   | 'brand'
-  | 'neutral'
   | 'ui'
-  | 'gray'
-  | 'blue'
+  | 'outline-gray'
+  | 'outline-blue'
   | 'red'
   | 'yellow'
   | 'green'
@@ -60,6 +58,7 @@ export class OutlineSwatchSet
   set: SwatchSet = 'outline';
 
   render(): TemplateResult {
+    // @ts-expect-error it just is.
     const colors = Object.entries(tailwindThemeConfig.colors[this.set]).map(
       ([name]) => name
     );

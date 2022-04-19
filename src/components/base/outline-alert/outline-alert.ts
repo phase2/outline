@@ -7,7 +7,7 @@ export const alertSizes = ['small', 'large'] as const;
 export type AlertSize = typeof alertSizes[number];
 
 export const alertStatusTypes = [
-  'information',
+  'info',
   'warning',
   'error',
   'success',
@@ -26,8 +26,9 @@ export interface OutlineAlertInterface extends HTMLElement {
  * The Outline Alert component
  *
  * @element outline-alert
+ * @extends OutlineElement
  * @slot default - The alert contents
- * @slot outline-alert--header - The header in the alert
+ * @slot header - The header in the alert
  */
 @customElement('outline-alert')
 export class OutlineAlert
@@ -37,7 +38,7 @@ export class OutlineAlert
   static styles: CSSResultGroup = [componentStyles];
 
   @property({ type: String })
-  statusType: AlertStatusType = 'information';
+  statusType: AlertStatusType = 'info';
 
   /**
    * This is important context for screen readers.
@@ -55,25 +56,25 @@ export class OutlineAlert
     // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
     return html`
       <div
-        id="body"
+        class="alert-body"
         role="${this.isInteractive ? 'alertdialog' : 'alert'}"
         aria-labelledby="${this.isInteractive ? 'message' : null}"
       >
         ${this.shouldShowIcon === true
           ? html`
-              <div id="icon">
+              <div class="icon">
                 <!--@todo include icon when we have that ready.-->
               </div>
             `
           : null}
         ${this.size === 'large'
           ? html`
-              <div id="header">
-                <slot name="outline-alert--header">${this.statusType}</slot>
+              <div class="alert-header">
+                <slot name="header">${this.statusType}</slot>
               </div>
             `
           : null}
-        <div id="message">
+        <div class="message" id="message">
           <slot></slot>
         </div>
       </div>

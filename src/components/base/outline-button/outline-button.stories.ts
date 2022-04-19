@@ -6,7 +6,7 @@ import {
 import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
 
-const buttonOptions: ButtonVariant[] = ['none', 'primary', 'secondary', 'tertiary'];
+const buttonOptions: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];
 const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default {
@@ -298,9 +298,9 @@ PrimaryButtons.parameters = {
 
 const LinkButtonsTemplate = (): TemplateResult =>
   html`  
-  <outline-button class="mr-2" button-variant="none" button-url="#">Link Button</outline-button>
-  <outline-button class="mr-2" button-variant="none" button-url="#" icon-right="chevron-down">Link Button</outline-button>
-  <outline-button class="mr-2" button-variant="none" button-url="#" is-disabled>Disabled Link Button</outline-button>
+  <outline-button class="mr-2" button-variant="link" button-url="#">Link Button</outline-button>
+  <outline-button class="mr-2" button-variant="link" button-url="#" icon-right="chevron-down">Link Button</outline-button>
+  <outline-button class="mr-2" button-variant="link" button-url="#" is-disabled>Disabled Link Button</outline-button>
 `;
 
 export const LinkButtons = LinkButtonsTemplate.bind({});

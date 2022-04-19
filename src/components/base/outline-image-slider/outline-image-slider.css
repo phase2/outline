@@ -69,7 +69,7 @@
 }
 
 .slide-count {
-  @apply hidden rounded py-1 px-2 font-body text-lg text-neutral-white;
+  @apply hidden rounded py-1 px-2 font-body text-lg text-outline-white;
   background-color: #00000080;
 }
 

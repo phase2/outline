@@ -3,31 +3,31 @@
 --outline-btn--secondary-rounded: var(--spacing-2);
 
 /* Secondary Button(s) - Default */
---outline-btn--secondary-bg-color-default: var(--outline-soft-black);
---outline-btn--secondary-text-color-default: var(--neutral-white);
+--outline-btn--secondary-bg-color-default: var(--outline-white);
+--outline-btn--secondary-text-color-default: var(--outline-blue-600);
 --outline-btn--secondary-weight-default: var(--outline-btn-weight);
---outline-btn--secondary-ring-default: none;
+--outline-btn--secondary-ring-default: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600);
 
 /* Secondary Button(s) - Hover */
---outline-btn--secondary-bg-color-hover: var(--outline-white);
---outline-btn--secondary-text-color-hover: var(--outline-soft-black);
+--outline-btn--secondary-bg-color-hover: var(--outline-blue-600);
+--outline-btn--secondary-text-color-hover: var(--outline-white);
 --outline-btn--secondary-weight-hover: var(--outline-btn-weight);
---outline-btn--secondary-ring-hover: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-soft-black);
+--outline-btn--secondary-ring-hover: none;
 
 /* Secondary Button(s) - Focus */
---outline-btn--secondary-bg-color-focus: var(--outline-white);
---outline-btn--secondary-text-color-focus: var(--outline-soft-black);
+--outline-btn--secondary-bg-color-focus: var(--outline-blue-600);
+--outline-btn--secondary-text-color-focus: var(--outline-white);
 --outline-btn--secondary-weight-focus: var(--outline-btn-weight);
---outline-btn--secondary-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-soft-black);
+--outline-btn--secondary-ring-focus: none;
 
 /* Secondary Button(s) - Disabled */
 --outline-btn--secondary--disabled-bg-color: var(--outline-white);
---outline-btn--secondary--disabled-text-color: var(--outline-dark-gray);
+--outline-btn--secondary--disabled-text-color: var(--outline-gray-600);
 --outline-btn--secondary--disabled-weight: var(--outline-btn-weight);
---outline-btn--secondary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-medium-gray);
+--outline-btn--secondary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300);
 
 /* Secondary Button(s) - Disabled:Focus */
 --outline-btn--secondary--disabled-bg-color-focus: var(--outline-white);
---outline-btn--secondary--disabled-text-color-focus: var(--outline-dark-gray);
+--outline-btn--secondary--disabled-text-color-focus: var(--outline-gray-600);
 --outline-btn--secondary--disabled-weight-focus: var(--outline-btn-weight);
---outline-btn--secondary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-dark-gray);
+--outline-btn--secondary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500);

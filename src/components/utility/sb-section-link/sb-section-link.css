@@ -11,7 +11,7 @@
   @apply text-2xl font-semibold !important;
   @apply flex items-center justify-center text-center;
   @apply cursor-pointer rounded-2xl no-underline;
-  @apply text-neutral-white !important;
+  @apply text-outline-white !important;
   @apply outline-none;
 }
 

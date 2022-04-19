@@ -3,13 +3,14 @@ import { customElement, property, state } from 'lit/decorators.js';
 import primaryButtonVars from './css-variables/vars-primary.css.lit';
 import secondaryButtonVars from './css-variables/vars-secondary.css.lit';
 import tertiaryButtonVars from './css-variables/vars-tertiary.css.lit';
+import linkButtonVars from './css-variables/vars-link.css.lit';
 import componentStyles from './outline-button.css.lit';
 import { LinkTargetType } from '../outline-link/config';
 import { OutlineElement } from '../outline-element/outline-element';
 import { SlotController } from '../../controllers/slot-controller';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-export type ButtonVariant = 'none' | 'primary' | 'secondary' | 'tertiary';
+export type ButtonVariant = 'link' | 'primary' | 'secondary' | 'tertiary';
 
 export type ButtonSize = 'small' | 'medium' | 'large';
 
@@ -28,6 +29,7 @@ export class OutlineButton extends OutlineElement {
     primaryButtonVars,
     secondaryButtonVars,
     tertiaryButtonVars,
+    linkButtonVars,
     componentStyles,
   ];
 
