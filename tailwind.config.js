@@ -41,27 +41,21 @@ module.exports = {
     colors: {
       // Demo styles specific to Storybook implementation.
       // Do not remove.
-      outline: {
+      'outline': {
         'phase2-blue': 'var(--outline-phase2-blue)',
         'karma-coral': 'var(--outline-karma-coral)',
         'soft-black': 'var(--outline-soft-black)',
         'not-gray': 'var(--outline-not-gray)',
-        'transparent': 'var(--outline-transparent)',
-        'white': 'var(--outline-white)',
-        'black': 'var(--outline-black)',
-        'dark-blue': 'var(--outline-dark-blue)',
-        'medium-blue': 'var(--outline-medium-blue)',
-        'light-blue': 'var(--outline-light-blue)',
-        'dark-gray': 'var(--outline-dark-gray)',
-        'medium-gray': 'var(--outline-medium-gray)',
-        'light-gray': 'var(--outline-light-gray)',
         'misty-teal': 'var(--outline-misty-teal)',
         'electric-violet': 'var(--outline-electric-violet)',
         'dusty-blue': 'var(--outline-dusty-blue)',
+        'transparent': 'var(--outline-transparent)',
+        'white': 'var(--outline-white)',
+        'black': 'var(--outline-black)',
       },
 
       // Custom Brand colors can be added/edited here.
-      brand: {
+      'brand': {
         primary: 'var(--brand-primary)',
         secondary: 'var(--brand-secondary)',
         tertiary: 'var(--brand-tertiary)',
@@ -75,18 +69,18 @@ module.exports = {
       },
 
       // These are used for system alerts and should not be removed.
-      ui: {
-        error: 'var(--ui-error)',
-        warning: 'var(--ui-warning)',
-        info: 'var(--ui-info)',
-        success: 'var(--ui-success)',
+      'ui': {
+        error: 'var(--status-error)',
+        warning: 'var(--status-warning)',
+        info: 'var(--status-info)',
+        success: 'var(--status-success)',
       },
 
       // The defaults are completely overwritten, so manually including
       // sets from Tailwind CSS we want to use.
       // You may remove any/all of these items assuming you have removed
       // or changed any references above that depend on these.
-      gray: {
+      'outline-gray': {
         50: 'var(--outline-gray-50)',
         100: 'var(--outline-gray-100)',
         200: 'var(--outline-gray-200)',
@@ -98,7 +92,7 @@ module.exports = {
         800: 'var(--outline-gray-800)',
         900: 'var(--outline-gray-900)',
       },
-      blue: {
+      'outline-blue': {
         50: 'var(--outline-blue-50)',
         100: 'var(--outline-blue-100)',
         200: 'var(--outline-blue-200)',
@@ -110,7 +104,7 @@ module.exports = {
         800: 'var(--outline-blue-800)',
         900: 'var(--outline-blue-900)',
       },
-      red: {
+      'red': {
         50: 'var(--red-50)',
         100: 'var(--red-100)',
         200: 'var(--red-200)',
@@ -122,7 +116,7 @@ module.exports = {
         800: 'var(--red-800)',
         900: 'var(--red-900)',
       },
-      yellow: {
+      'yellow': {
         50: 'var(--yellow-50)',
         100: 'var(--yellow-100)',
         200: 'var(--yellow-200)',
@@ -134,7 +128,7 @@ module.exports = {
         800: 'var(--yellow-800)',
         900: 'var(--yellow-900)',
       },
-      green: {
+      'green': {
         50: 'var(--green-50)',
         100: 'var(--green-100)',
         200: 'var(--green-200)',
@@ -146,7 +140,7 @@ module.exports = {
         800: 'var(--green-800)',
         900: 'var(--green-900)',
       },
-      indigo: {
+      'indigo': {
         50: 'var(--red-50)',
         100: 'var(--red-100)',
         200: 'var(--red-200)',
@@ -158,7 +152,7 @@ module.exports = {
         800: 'var(--red-800)',
         900: 'var(--red-900)',
       },
-      purple: {
+      'purple': {
         50: 'var(--purple-50)',
         100: 'var(--purple-100)',
         200: 'var(--purple-200)',
@@ -170,7 +164,7 @@ module.exports = {
         800: 'var(--purple-800)',
         900: 'var(--purple-900)',
       },
-      pink: {
+      'pink': {
         50: 'var(--pink-50)',
         100: 'var(--pink-100)',
         200: 'var(--pink-200)',

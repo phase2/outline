@@ -17,39 +17,33 @@
   --status-error: #c53030;
   --status-info: #1e3a8a;
 
-  --ui-info-background: var(--outline-white);
-  --ui-info-text: var(--status-info);
-  --ui-info-border: var(--status-info);
+  --alert-info-background: var(--outline-white);
+  --alert-info-text: var(--status-info);
+  --alert-info-border: var(--status-info);
 
-  --ui-success-background: var(--outline-white);
-  --ui-success-text: var(--status-success);
-  --ui-success-border: var(--status-success);
+  --alert-success-background: var(--outline-white);
+  --alert-success-text: var(--status-success);
+  --alert-success-border: var(--status-success);
 
-  --ui-warning-background: var(--outline-white);
-  --ui-warning-text: var(--status-warning);
-  --ui-warning-border: var(--status-warning);
+  --alert-warning-background: var(--outline-white);
+  --alert-warning-text: var(--status-warning);
+  --alert-warning-border: var(--status-warning);
 
-  --ui-error-background: var(--outline-white);
-  --ui-error-text: var(--status-error);
-  --ui-error-border: var(--status-error);
+  --alert-error-background: var(--outline-white);
+  --alert-error-text: var(--status-error);
+  --alert-error-border: var(--status-error);
 
   /* Demo colors used for default component demonstrations */
   --outline-phase2-blue: #0080ff;
   --outline-karma-coral: #fa5c5c;
   --outline-soft-black: #171717;
   --outline-not-gray: #cfc7d4;
-  --outline-transparent: transparent;
-  --outline-white: #fff;
-  --outline-black: #000;
-  --outline-dark-blue: #2563eb;
-  --outline-medium-blue: #3b82f6;
-  --outline-light-blue: #eff6ff;
-  --outline-dark-gray: #353535;
-  --outline-medium-gray: #e0e0e0;
-  --outline-light-gray: #f4f4f5;
   --outline-misty-teal: #73f2e5;
   --outline-electric-violet: #9484ff;
   --outline-dusty-blue: #7fc7ee;
+  --outline-transparent: transparent;
+  --outline-white: #fff;
+  --outline-black: #000;
   
   --outline-gray-50: #fafafa;
   --outline-gray-100: #f5f5f5;
@@ -269,7 +263,7 @@
   --outline-ring-width: 2px;
   --outline-ring-inset: ;
   --outline-ring-offset-width: 2px;
-  --outline-ring-offset-color: var(--outline-light-gray);
+  --outline-ring-offset-color: var(--outline-gray-100);
   --outline-ring-color: var(--outline-soft-black);
   --outline-ring-offset-shadow: 0 0 rgba(0, 0, 0, 0);
   --outline-ring-shadow: 0 0 rgba(0, 0, 0, 0);
@@ -294,14 +288,14 @@
   /*
    * Configuration values for `outline-breadcrumb`.
    */
-  --outline-breadcrumb-text-color-default: var(--outline-light-gray);
+  --outline-breadcrumb-text-color-default: var(--outline-gray-100);
   --outline-breadcrumb-link-color-default: var(--outline-white);
-  --outline-breadcrumb-link-color-hover: var(--outline-medium-gray);
-  --outline-breadcrumb-link-color-focus: var(--outline-medium-gray);
+  --outline-breadcrumb-link-color-hover: var(--outline-gray-300);
+  --outline-breadcrumb-link-color-focus: var(--outline-gray-300);
   --outline-breadcrumb-link-decoration-default: none;
   --outline-breadcrumb-link-decoration-hover: underline;
   --outline-breadcrumb-link-decoration-focus: underline;
-  --outline-breadcrumb-bg-color: var(--outline-dark-gray);
+  --outline-breadcrumb-bg-color: var(--outline-gray-600);
   --outline-breadcrumb-bg-padding: var(--spacing-4) var(--spacing-4);
   --outline-breadcrumb-separator-spacing: var(--spacing-2);
 
@@ -310,14 +304,14 @@
   * This component's styles represent a standard set of administrative
   * links like one found in Drupal or other systems.
   */
-  --outline-admin-links-color-default: var(--outline-dark-gray);
+  --outline-admin-links-color-default: var(--outline-gray-600);
   --outline-admin-links-color-hover: var(--outline-soft-black);
   --outline-admin-links-color-focus: var(--outline-soft-black);
   --outline-admin-links-color-active: var(--outline-white);
-  --outline-admin-links-bg-default: var(--outline-light-gray);
-  --outline-admin-links-bg-hover: var(--outline-medium-gray);
-  --outline-admin-links-bg-focus: var(--outline-medium-gray);
-  --outline-admin-links-bg-active: var(--outline-dark-gray);
+  --outline-admin-links-bg-default: var(--outline-gray-100);
+  --outline-admin-links-bg-hover: var(--outline-gray-300);
+  --outline-admin-links-bg-focus: var(--outline-gray-300);
+  --outline-admin-links-bg-active: var(--outline-gray-600);
   --outline-admin-links-y-spacing: var(--spacing-4);
   --outline-admin-links-link-y-spacing: var(--spacing-4);
   --outline-admin-links-link-x-spacing: var(--spacing-6);

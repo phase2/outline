@@ -11,7 +11,7 @@ import '../outline-swatch/outline-swatch';
 export const swatchSets = [
   'outline',
   'brand',
-  'ui',
+  'alert',
   'outline-gray',
   'outline-blue',
   'red',
@@ -24,7 +24,7 @@ export const swatchSets = [
 export type SwatchSet =
   | 'outline'
   | 'brand'
-  | 'ui'
+  | 'alert'
   | 'outline-gray'
   | 'outline-blue'
   | 'red'

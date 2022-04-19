@@ -49,7 +49,7 @@
 }
 
 ::slotted(img) {
-  @apply bg-gray-100 object-cover !important;
+  @apply bg-outline-gray-100 object-cover !important;
   border-radius: 0;
   height: 12rem !important;
   width: 100% !important;

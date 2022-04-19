@@ -15,7 +15,7 @@
 }
 
 .accordion-button.clean {
-  @apply border-b border-solid border-outline-medium-gray pl-0;
+  @apply border-b border-solid border-outline-gray-300 pl-0;
 }
 
 .accordion-button.clean.active {
@@ -64,7 +64,7 @@
 }
 
 .accordion-icon.inactive {
-  @apply bg-outline-dark-gray text-outline-white;
+  @apply bg-outline-gray-600 text-outline-white;
 }
 
 .accordion-panel {

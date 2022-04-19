@@ -19,15 +19,15 @@
 }
 
 .outline-bg-primary {
-  @apply bg-outline-dark-blue;
+  @apply bg-outline-blue-600;
 }
 
 .outline-bg-secondary {
-  @apply bg-outline-medium-blue;
+  @apply bg-outline-blue-300;
 }
 
 .outline-bg-tertiary {
-  @apply bg-outline-light-blue;
+  @apply bg-outline-blue-100;
 }
 
 .outline-bg-black {
@@ -39,9 +39,9 @@
 }
 
 .outline-bg-gray {
-  @apply bg-outline-medium-gray;
+  @apply bg-outline-gray-300;
 }
 
-.outline-bg-light-gray {
-  @apply bg-outline-light-gray;
+.outline-bg-outline-gray-100 {
+  @apply bg-outline-gray-100;
 }

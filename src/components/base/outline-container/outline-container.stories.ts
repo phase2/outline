@@ -66,7 +66,7 @@ export const Container = ({
 }: Options): TemplateResult =>
   html`
     <outline-container
-      class="text-left rounded-xl border-2 border-dashed bg-outline-light-blue border-outline-dark-blue my-10 md:my-20"
+      class="text-left rounded-xl border-2 border-dashed bg-outline-blue-100 border-outline-blue-600 my-10 md:my-20"
       ?x-padding="${xPadding}"
       ?y-padding="${yPadding}"
       ?full-bleed="${fullBleed}"
