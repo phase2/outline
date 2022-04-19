@@ -2,6 +2,7 @@ import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement } from 'lit/decorators.js';
 import { SlotController } from '../../controllers/slot-controller';
+import componentVars from './css-variables/vars-admin-links.css.lit';
 import componentStyles from './outline-admin-links.css.lit';
 
 /**
@@ -16,7 +17,7 @@ export class OutlineAdminLinks extends OutlineElement {
     this, // This, the host element.
     true // To shift or not to shift LightDom nodes to ShadowDOM.
   );
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentVars, componentStyles];
 
   render(): TemplateResult {
     return html`

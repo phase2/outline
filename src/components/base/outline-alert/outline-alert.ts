@@ -1,5 +1,6 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import componentVars from './css-variables/vars-alert.css.lit';
 import componentStyles from './outline-alert.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
 
@@ -35,7 +36,7 @@ export class OutlineAlert
   extends OutlineElement
   implements OutlineAlertInterface
 {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentVars, componentStyles];
 
   @property({ type: String })
   statusType: AlertStatusType = 'info';

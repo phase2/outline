@@ -1,0 +1,15 @@
+--alert-info-background: var(--outline-white);
+--alert-info-text: var(--status-info);
+--alert-info-border: var(--status-info);
+
+--alert-success-background: var(--outline-white);
+--alert-success-text: var(--status-success);
+--alert-success-border: var(--status-success);
+
+--alert-warning-background: var(--outline-white);
+--alert-warning-text: var(--status-warning);
+--alert-warning-border: var(--status-warning);
+
+--alert-error-background: var(--outline-white);
+--alert-error-text: var(--status-error);
+--alert-error-border: var(--status-error);

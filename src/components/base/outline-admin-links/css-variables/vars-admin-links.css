@@ -1,0 +1,16 @@
+/*
+* Configuration values for `outline-admin-links`.
+* This component's styles represent a standard set of administrative
+* links like one found in Drupal or other systems.
+*/
+--outline-admin-links-color-default: var(--outline-gray-600);
+--outline-admin-links-color-hover: var(--outline-soft-black);
+--outline-admin-links-color-focus: var(--outline-soft-black);
+--outline-admin-links-color-active: var(--outline-white);
+--outline-admin-links-bg-default: var(--outline-gray-100);
+--outline-admin-links-bg-hover: var(--outline-gray-300);
+--outline-admin-links-bg-focus: var(--outline-gray-300);
+--outline-admin-links-bg-active: var(--outline-gray-600);
+--outline-admin-links-y-spacing: var(--spacing-4);
+--outline-admin-links-link-y-spacing: var(--spacing-4);
+--outline-admin-links-link-x-spacing: var(--spacing-6);

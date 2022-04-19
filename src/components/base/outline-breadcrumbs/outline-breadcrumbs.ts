@@ -2,6 +2,7 @@
 import { OutlineElement } from '../outline-element/outline-element';
 import { CSSResultGroup, html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import componentVars from './css-variables/vars-breadcrumbs.css.lit';
 import componentStyles from './outline-breadcrumbs.css.lit';
 import '../outline-container/outline-container';
 import { SlotController } from '../../controllers/slot-controller';
@@ -18,7 +19,7 @@ export class OutlineBreadcrumbs extends OutlineElement {
     this, // This, the host element.
     true // To shift or not to shift LightDom nodes to ShadowDOM.
   );
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentVars, componentStyles];
 
   firstUpdated(): void {
     const breadcrumbItems = this.querySelectorAll('span:not(.last)');
