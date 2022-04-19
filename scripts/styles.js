@@ -82,9 +82,21 @@ const createCssLiterals = filepath => {
     postcss([...config.plugins])
       .process(css, { from: filepath, to: nFilePath })
       .then(result => {
-        fs.writeFile(
-          nFilePath,
-          `
+        if (filepath.includes('css-variables')) {
+          fs.writeFile(
+            nFilePath,
+            `
+  import { css } from 'lit';
+  export default css\`
+  /* Apply CSS Variables to the host element. */
+  :host {
+    ${result.css}\`;`,
+            () => true
+          );
+        } else {
+          fs.writeFile(
+            nFilePath,
+            `
 import { css } from 'lit';
 export default css\`
 /* Apply standardized box sizing to the component. */
@@ -101,8 +113,9 @@ export default css\`
 }
 /* Apply component specific CSS */
 ${result.css}\`;`,
-          () => true
-        );
+            () => true
+          );
+        }
       });
   });
 };

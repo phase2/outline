@@ -6,7 +6,7 @@ import {
 import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
 
-const buttonOptions: ButtonVariant[] = ['none', 'primary', 'secondary'];
+const buttonOptions: ButtonVariant[] = ['none', 'primary', 'secondary', 'tertiary'];
 const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default {
@@ -235,6 +235,63 @@ SecondaryButtonsTemplate.parameters = {
       <outline-button class="mr-2" button-variant="secondary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
       <outline-button class="mr-2" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
     `,
+    },
+  },
+};
+
+const TertiaryButtonsTemplate = (): TemplateResult =>
+  html`
+  <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
+  <p>This section of primary buttons demonstrates various configurations, and can be navigated to test hover/focus states.</p>
+  <div class="my-6">
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button">Button</outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
+  </div>
+  
+  <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>  
+  <p>This section of primary buttons demonstrates the disabled version of the same buttons as the previous example.</p>
+  
+  <div class="my-6">
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
+  </div>
+
+  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>  
+  <p>This section highlights using icons in the primary button.</p>
+  
+  <div class="my-6">
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button">
+      Large Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button">
+      Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button">
+      Small Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>  
+  </div>
+`;
+
+export const TertiaryButtons = TertiaryButtonsTemplate.bind({});
+PrimaryButtons.parameters = {
+  name: 'Tertiary Button',
+  docs: {
+    source: {
+      code: `
+<!-- Primary Buttons -->
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button">Button</outline-button>
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
+<!-- Primary Buttons (Disabled) -->
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
+      `,
     },
   },
 };
