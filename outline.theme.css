@@ -184,6 +184,10 @@
   --lh-8xl: 6.75rem;
   --lh-9xl: 7.75rem;
 
+  --ff-display: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+  --ff-body: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+  --ff-demo: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+
   --fw-thin: 100;
   --fw-extralight: 200;
   --fw-light: 300;

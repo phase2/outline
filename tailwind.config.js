@@ -251,8 +251,9 @@ module.exports = {
         '2-1': '8fr 4fr',
       },
       fontFamily: {
-        display: ['Inter var', 'Helvetica', 'Arial', 'sans-serif'],
-        body: ['Inter var', 'Helvetica', 'Arial', 'sans-serif'],
+        display: [`var(--ff-display)`],
+        body: [`var(--ff-body)`],
+        demo: [`var(--ff-demo)`],
       },
       height: {
         ...screenSizes,

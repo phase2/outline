@@ -1,20 +1,26 @@
 :host,
 a,
 ::slotted(a) {
-  @apply font-body no-underline transition-colors duration-300;
+  font-family: var(--ff-body);
+  text-decoration: none;
   color: var(--outline-link-color-default);
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
 :host(:hover),
 a:hover,
 ::slotted(a:hover) {
-  @apply underline;
+  text-decoration: underline !important;
   color: var(--outline-link-color-hover) !important;
 }
 
 :host(:focus),
 a:focus,
 ::slotted(a:focus) {
-  @apply underline outline-none;
+  text-decoration: underline !important;
   color: var(--outline-link-color-focus) !important;
+  outline: none;
 }
