@@ -10,7 +10,7 @@ import { SlotController } from '../../controllers/slot-controller';
  * The Outline  Breadcrumbs component
  * @element Outline-Breadcrumbs
  * @slot - The default only slot for this element.
- * @todo CONTRIB
+ * @todo - Add support for separator icons in slots. This would need optionally a home icon, and a separator icon.
  */
 
 @customElement('outline-breadcrumbs')
@@ -22,7 +22,7 @@ export class OutlineBreadcrumbs extends OutlineElement {
   static styles: CSSResultGroup = [componentVars, componentStyles];
 
   firstUpdated(): void {
-    const breadcrumbItems: HTMLElement[] =
+    const breadcrumbItems: NodeListOf<HTMLSpanElement> =
       this.querySelectorAll('span:not(.last)');
     breadcrumbItems.forEach(item => {
       const sep: HTMLSpanElement = document.createElement('span');

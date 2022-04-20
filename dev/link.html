@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Outline: Development Mode</title>
+
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../dist/fouc.css"
+      media="all"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../outline.theme.css"
+      media="all"
+    />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="../dist/tailwind.css"
+      media="all"
+    />
+
+    <script src="../dist/outline.js" type="module"></script>
+    <!-- <script src="../dist/outline-dynamic.js" type="module"></script> -->
+    <!-- <script src="../dist/outline-lazy.js" type="module"></script> -->
+  </head>
+  <body>
+    <main>
+      <p>
+        <outline-link link-href="https://outline.phase2tech.com">
+          Link using properties, with slotted link text
+        </outline-link>
+    </p>
+      <p>
+        <outline-link link-href="https://outline.phase2tech.com" link-text="Link using properties, including the link text"></outline-link>
+      </p>
+      <p>
+        <outline-link>
+          <a href="https://outline.phase2tech.com" target="_blank">
+            Link using fully slotted link element
+          </a>
+        </outline-link>
+      </p>
+    </main>
+  </body>
+</html>

@@ -2,6 +2,6 @@
  * Configuration values for `outline-link`.
  */
  
-/* --outline-link-color-default: ; */
-/* --outline-link-color-hover: ; */
-/* --outline-link-color-focus: ; */
+--outline-link-color-default: var(--outline-blue-600);
+--outline-link-color-hover: var(--outline--gray-600);
+--outline-link-color-focus: var(--outline--gray-600);
