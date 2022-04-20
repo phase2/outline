@@ -57,13 +57,32 @@ export class LinkedBlockController implements ReactiveController {
     });
 
     this.host.addEventListener('mouseup', (event: Event) => {
-      if (event.target !== this._getLink() && this._isClickNotDrag()) {
+      // First element in the event's composedPath is the element returned by this._getLink(),
+      // but the event.target is the shadow host element, even when the click event is triggered
+      // programmatically on this._getLink().
+      if (
+        event.composedPath()[0] !== this._getLink() &&
+        this._isClickNotDrag()
+      ) {
+        event.stopPropagation();
+
+        this._getLink()?.dispatchEvent(new Event('mousedown'));
+        this._getLink()?.dispatchEvent(new Event('mouseup'));
+      }
+    });
+
+    this.host.addEventListener('click', (event: Event) => {
+      // First element in the event's composedPath is the element returned by this._getLink(),
+      // but the event.target is the shadow host element, even when the click event is triggered
+      // programmatically on this._getLink().
+      if (
+        event.composedPath()[0] !== this._getLink() &&
+        this._isClickNotDrag()
+      ) {
         event.stopPropagation();
 
         // Could only get `click` to trigger `a` elements, but it doesn't trigger the `mousedown` and `mouseup` events for nested elements.
         this._getLink()?.click();
-        this._getLink()?.dispatchEvent(new Event('mousedown'));
-        this._getLink()?.dispatchEvent(new Event('mouseup'));
       }
     });
   }
