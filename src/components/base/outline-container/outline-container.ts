@@ -2,6 +2,7 @@
 import { OutlineElement } from '../outline-element/outline-element';
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import componentVars from './css-variables/vars-container.css.lit';
 import componentStyles from './outline-container.css.lit';
 import type { HorizontalAlignment } from '../outline-element/utils/types';
 
@@ -11,7 +12,7 @@ import type { HorizontalAlignment } from '../outline-element/utils/types';
  */
 @customElement('outline-container')
 export class OutlineContainer extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentVars, componentStyles];
 
   /**
    * Whether or not this container has padding.

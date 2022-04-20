@@ -1,5 +1,6 @@
 import { CSSResultGroup, html, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
+import linkVars from '../outline-link/css-variables/vars-link.css.lit';
 import primaryButtonVars from './css-variables/vars-primary.css.lit';
 import secondaryButtonVars from './css-variables/vars-secondary.css.lit';
 import tertiaryButtonVars from './css-variables/vars-tertiary.css.lit';
@@ -26,6 +27,7 @@ export type ButtonSize = 'small' | 'medium' | 'large';
 @customElement('outline-button')
 export class OutlineButton extends OutlineElement {
   static styles: CSSResultGroup = [
+    linkVars,
     primaryButtonVars,
     secondaryButtonVars,
     tertiaryButtonVars,

@@ -22,7 +22,8 @@ export class OutlineBreadcrumbs extends OutlineElement {
   static styles: CSSResultGroup = [componentVars, componentStyles];
 
   firstUpdated(): void {
-    const breadcrumbItems = this.querySelectorAll('span:not(.last)');
+    const breadcrumbItems: HTMLElement[] =
+      this.querySelectorAll('span:not(.last)');
     breadcrumbItems.forEach(item => {
       const sep: HTMLSpanElement = document.createElement('span');
       sep.classList.add('separator');

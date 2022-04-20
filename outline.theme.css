@@ -260,28 +260,16 @@
 
   --outline-shadow: 0 0 rgba(0, 0, 0, 0);
   --outline-shadow-colored: 0 0 rgba(0, 0, 0, 0);
-  /*
-   * Configuration values for `outline-container`.
-   */
-  --outline-container-padding-x: 1.5rem;
-  --outline-container-padding-y: 1.5rem;
-
-  /*
-   * Configuration values for `outline-link`.
-   */
-  --outline-link-color-default: var(--outline-blue-600);
-  --outline-link-color-hover: var(--outline--gray-600);
-  --outline-link-color-focus: var(--outline-gray-700);
-
-  
-  
-
 
   /*
   * Custom variables overriding default variables.
   */
 
   /* --outline-btn--tertiary-bg-color-default: var(--outline-karma-coral); */
+
+  --outline-link-color-default: var(--red-800);
+  --outline-link-color-hover: var(--red-600);
+  --outline-link-color-focus: var(--outline-gray-700);
 }
 
 

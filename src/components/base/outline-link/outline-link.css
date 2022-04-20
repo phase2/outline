@@ -1,9 +1,12 @@
+:host {
+}
+
 :host,
 a,
 ::slotted(a) {
   font-family: var(--ff-body);
   text-decoration: none;
-  color: var(--outline-link-color-default);
+  color: var(--outline-link-color-default, var(--outline-blue-600));
   transition-property: color, background-color, border-color,
     text-decoration-color, fill, stroke;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -14,13 +17,13 @@ a,
 a:hover,
 ::slotted(a:hover) {
   text-decoration: underline !important;
-  color: var(--outline-link-color-hover) !important;
+  color: var(--outline-link-color-hover, var(--outline--gray-600));
 }
 
 :host(:focus),
 a:focus,
 ::slotted(a:focus) {
   text-decoration: underline !important;
-  color: var(--outline-link-color-focus) !important;
+  color: var(--outline-link-color-focus, var(--outline--gray-600));
   outline: none;
 }

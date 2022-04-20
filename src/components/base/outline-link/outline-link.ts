@@ -4,6 +4,7 @@ import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import type { LinkTargetType, LinkRelType } from './config';
+import componentVars from './css-variables/vars-link.css.lit';
 import componentStyles from './outline-link.css.lit';
 
 /**
@@ -12,7 +13,7 @@ import componentStyles from './outline-link.css.lit';
  */
 @customElement('outline-link')
 export class OutlineLink extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentVars, componentStyles];
 
   /**
    * Link url

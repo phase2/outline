@@ -2,30 +2,35 @@
 --outline-btn--link-padding: var(--outline-btn-padding);
 --outline-btn--link-rounded: var(--spacing-2);
 
+/* Link Button(s) - Default */
 --outline-btn--link-bg-color-default: var(--outline-transparent);
 --outline-btn--link-text-color-default: var(--outline-link-color-default);
 --outline-btn--link-decoration-default: none;
 --outline-btn--link-weight-default: var(--outline-btn-weight);
 --outline-btn--link-ring-default: none;
 
+/* Link Button(s) - Hover */
 --outline-btn--link-bg-color-hover: var(--outline-transparent);
 --outline-btn--link-text-color-hover: var(--outline-link-color-hover);
 --outline-btn--link-decoration-hover: underline;
 --outline-btn--link-weight-hover: var(--outline-btn-weight);
 --outline-btn--link-ring-hover: none;
 
+/* Link Button(s) - Focus */
 --outline-btn--link-bg-color-focus: var(--outline-transparent);
 --outline-btn--link-text-color-focus: var(--outline-link-color-focus);
 --outline-btn--link-decoration-focus: none;
 --outline-btn--link-weight-focus: var(--outline-btn-weight);
 --outline-btn--link-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-link-color-focus);
 
+/* Link Button(s) - Disabled */
 --outline-btn--link--disabled-bg-color: var(--outline-transparent);
 --outline-btn--link--disabled-text-color: var(--outline-gray-500);
 --outline-btn--link--disabled-decoration: none;
 --outline-btn--link--disabled-weight: var(--outline-btn-weight);
 --outline-btn--link--disabled-ring: none;
 
+/* Link Button(s) - Disabled:Focus */
 --outline-btn--link--disabled-bg-color-focus: none;
 --outline-btn--link--disabled-text-color-focus: var(--outline-gray-500);
 --outline-btn--link--disabled-decoration-focus: none;
