@@ -1,6 +1,6 @@
 /* Link Button(s) */
 --outline-btn--link-padding: var(--outline-btn-padding);
---outline-btn--link-rounded: var(--spacing-2);
+--outline-btn--link-radius: var(--spacing-2);
 
 /* Link Button(s) - Default */
 --outline-btn--link-bg-color-default: var(--outline-transparent);

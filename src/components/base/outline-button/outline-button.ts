@@ -1,6 +1,7 @@
 import { CSSResultGroup, html, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import linkVars from '../outline-link/css-variables/vars-link.css.lit';
+import defaultVars from './css-variables/vars-default.css.lit';
 import primaryButtonVars from './css-variables/vars-primary.css.lit';
 import secondaryButtonVars from './css-variables/vars-secondary.css.lit';
 import tertiaryButtonVars from './css-variables/vars-tertiary.css.lit';
@@ -27,6 +28,7 @@ export type ButtonSize = 'small' | 'medium' | 'large';
 @customElement('outline-button')
 export class OutlineButton extends OutlineElement {
   static styles: CSSResultGroup = [
+    defaultVars,
     linkVars,
     primaryButtonVars,
     secondaryButtonVars,
@@ -39,6 +41,7 @@ export class OutlineButton extends OutlineElement {
     this, // This, the host element.
     false // To shift or not to shift LightDom nodes to ShadowDOM.
   );
+
   /**
    * The url to use for a link. This will render an anchor element.
    * Do not set this prop if you want to render a button element.

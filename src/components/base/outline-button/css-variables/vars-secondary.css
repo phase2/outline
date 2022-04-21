@@ -1,6 +1,6 @@
 /* Secondary Button(s) */
 --outline-btn--secondary-padding: var(--outline-btn-padding);
---outline-btn--secondary-rounded: var(--spacing-2);
+--outline-btn--secondary-radius: var(--spacing-2);
 
 /* Secondary Button(s) - Default */
 --outline-btn--secondary-bg-color-default: var(--outline-white);

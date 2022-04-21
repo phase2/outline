@@ -5,11 +5,8 @@
 
   /* Shared, but variables that can be overridden per button */
 
-  --outline-btn-weight: var(--fw-semibold);
-  --outline-btn-padding: 0.5em 1em;
-
   display: inline-flex;
-  border-radius: var(--spacing-2);
+
   vertical-align: middle;
 }
 
@@ -25,8 +22,11 @@
   text-decoration-line: none;
   outline: none;
   line-height: 1.5;
-  font-family: var(--ff-body);
-  font-weight: var(--outline-btn-weight);
+
+  border-radius: var(--outline-btn-radius, var(--outline--default-btn-radius));
+  font-family: var(--outline-btn-family, var(--outline--default-btn-family));
+  font-weight: var(--outline-btn-weight, var(--outline--default-btn-weight));
+  padding: var(--outline-btn-padding, var(--outline--default-btn-padding));
 }
 
 .btn[aria-disabled='true'] {
@@ -36,48 +36,113 @@
 }
 
 .btn.primary {
-  /* Do not change per button state */
-  padding: var(--outline-btn--primary-padding);
-  border-radius: var(--outline-btn--primary-rounded);
+  padding: var(
+    --outline-btn--primary-padding,
+    var(--outline-btn-padding, var(--outline--default-btn--primary-padding))
+  );
+  border-radius: var(
+    --outline-btn--primary-radius,
+    var(--outline-btn-radius, var(--outline--default-btn-radius))
+  );
   /* Can change per button state */
-  background-color: var(--outline-btn--primary-bg-color-default);
-  color: var(--outline-btn--primary-text-color-default);
-  font-weight: var(--outline-btn--primary-weight-default);
-  box-shadow: var(--outline-btn--primary-ring-default);
+  background-color: var(
+    --outline-btn--primary-bg-color-default,
+    var(--outline--default-btn--primary-bg-color-default)
+  );
+  color: var(
+    --outline-btn--primary-text-color-default,
+    var(--outline--default-btn--primary-text-color-default)
+  );
+  font-weight: var(
+    --outline-btn--primary-weight-default,
+    var(--outline--default-btn--primary-weight-default)
+  );
+  box-shadow: var(
+    --outline-btn--primary-ring-default,
+    var(--outline--default-btn--primary-ring-default)
+  );
 
   &:hover {
-    background-color: var(--outline-btn--primary-bg-color-hover);
-    color: var(--outline-btn--primary-text-color-hover);
-    font-weight: var(--outline-btn--primary-weight-hover);
-    box-shadow: var(--outline-btn--primary-ring-hover);
+    background-color: var(
+      --outline-btn--primary-bg-color-hover,
+      var(--outline--default-btn--primary-bg-color-hover)
+    );
+    color: var(
+      --outline-btn--primary-text-color-hover,
+      var(--outline--default-btn--primary-text-color-hover)
+    );
+    font-weight: var(
+      --outline-btn--primary-weight-hover,
+      var(--outline--default-btn--primary-weight-hover)
+    );
+    box-shadow: var(
+      --outline-btn--primary-ring-hover,
+      var(--outline--default-btn--primary-ring-hover)
+    );
   }
 
   &:focus {
-    background-color: var(--outline-btn--primary-bg-color-focus);
-    color: var(--outline-btn--primary-text-color-focus);
-    font-weight: var(--outline-btn--primary-weight-focus);
-    box-shadow: var(--outline-btn--primary-ring-focus);
+    background-color: var(
+      --outline-btn--primary-bg-color-focus,
+      var(--outline--default-btn--primary-bg-color-focus)
+    );
+    color: var(
+      --outline-btn--primary-text-color-focus,
+      var(--outline--default-btn--primary-text-color-focus)
+    );
+    font-weight: var(
+      --outline-btn--primary-weight-focus,
+      var(--outline--default-btn--primary-weight-focus)
+    );
+    box-shadow: var(
+      --outline-btn--primary-ring-focus,
+      var(--outline--default-btn--primary-ring-focus)
+    );
   }
 }
 
 .primary[aria-disabled='true'] {
-  background-color: var(--outline-btn--primary--disabled-bg-color);
-  color: var(--outline-btn--primary--disabled-text-color);
-  font-weight: var(--outline-btn--primary--disabled-weight);
-  box-shadow: var(--outline-btn--primary--disabled-ring);
+  background-color: var(
+    --outline-btn--primary--disabled-bg-color,
+    var(--outline--default-btn--primary--disabled-bg-color)
+  );
+  color: var(
+    --outline-btn--primary--disabled-text-color,
+    var(--outline--default-btn--primary--disabled-text-color)
+  );
+  font-weight: var(
+    --outline-btn--primary--disabled-weight,
+    var(--outline--default-btn--primary--disabled-weight)
+  );
+  box-shadow: var(
+    --outline-btn--primary--disabled-ring,
+    var(--outline--default-btn--primary--disabled-ring)
+  );
 
   &:focus {
-    background-color: var(--outline-btn--primary--disabled-bg-color-focus);
-    color: var(--outline-btn--primary--disabled-text-color-focus);
-    font-weight: var(--outline-btn--primary--disabled-weight-focus);
-    box-shadow: var(--outline-btn--primary--disabled-ring-focus);
+    background-color: var(
+      --outline-btn--primary--disabled-bg-color-focus,
+      var(--outline--default-btn--primary--disabled-bg-color-focus)
+    );
+    color: var(
+      --outline-btn--primary--disabled-text-color-focus,
+      var(--outline--default-btn--primary--disabled-text-color-focus)
+    );
+    font-weight: var(
+      --outline-btn--primary--disabled-weight-focus,
+      var(--outline--default-btn--primary--disabled-weight-focus)
+    );
+    box-shadow: var(
+      --outline-btn--primary--disabled-ring-focus,
+      var(--outline--default-btn--primary--disabled-ring-focus)
+    );
   }
 }
 
 .btn.secondary {
   /* Do not change per button state */
   padding: var(--outline-btn--secondary-padding);
-  border-radius: var(--outline-btn--secondary-rounded);
+  border-radius: var(--outline-btn--secondary-radius);
   /* Can change per button state */
   background-color: var(--outline-btn--secondary-bg-color-default);
   color: var(--outline-btn--secondary-text-color-default);
@@ -116,7 +181,7 @@
 .btn.tertiary {
   /* Do not change per button state */
   padding: var(--outline-btn--tertiary-padding);
-  border-radius: var(--outline-btn--tertiary-rounded);
+  border-radius: var(--outline-btn--tertiary-radius);
   /* Can change per button state */
   background-color: var(--outline-btn--tertiary-bg-color-default);
   color: var(--outline-btn--tertiary-text-color-default);
@@ -155,7 +220,7 @@
 .btn.link {
   /* Do not change per button state */
   padding: var(--outline-btn--link-padding);
-  border-radius: var(--outline-btn--link-rounded);
+  border-radius: var(--outline-btn--link-radius);
 
   /* Can change per button state */
   background-color: var(--outline-btn--link-bg-color-default);

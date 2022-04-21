@@ -106,9 +106,6 @@ export default css\`
 :host *::after {
   box-sizing: inherit;
 }
-[hidden] {
-  display: none !important;
-}
 /* Apply component specific CSS */
 ${result.css}\`;`,
     () => true

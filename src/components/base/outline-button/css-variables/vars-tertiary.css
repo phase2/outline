@@ -1,6 +1,6 @@
 /* Tertiary Button(s) */
 --outline-btn--tertiary-padding: var(--outline-btn-padding);
---outline-btn--tertiary-rounded: var(--spacing-2);
+--outline-btn--tertiary-radius: var(--spacing-2);
 
 /* Tertiary Button(s) - Default */
 --outline-btn--tertiary-bg-color-default: var(--outline-soft-black);
