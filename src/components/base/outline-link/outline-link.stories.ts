@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeRel, argTypeTarget, argTypeHref } from './config';
 import type { LinkTargetType, LinkRelType } from './config';
-import sampleImage from '../../../.storybook/static/media/color/Creative_Process_color.jpg';
+import sampleImage from '../../../.storybook/static/media/tech/1440/code-1.jpg';
 // Import the component itself.
 import './outline-link';
 
@@ -51,6 +51,8 @@ The \`outline-link\` component allows complete flexibility in how you choose to 
 The primary coloring of the \`outline-link\` component is handled by the following CSS Variables. 
 
 > Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.
+
+Additional documentation and references for these CSS Variables can be found in \`vars-link.css\`.
 
 - \`--outline-link-transition-property\`: The CSS transition property to use for the link.
 - \`--outline-link-transition-duration\`: The CSS transition duration to use for the link.
@@ -152,7 +154,8 @@ FullySlotted.parameters = {
   docs: {
     description: {
       story: `
-The following ...
+The following sample assumes the consumer application will be sending the entire link element and anything it contains as markup.
+This allows for the consumer application to fully control the link element with any special features that may be included, while still adhering to the basic styling of the \`outline-link\` component.
     `},
   },
 };
@@ -169,7 +172,9 @@ SlottedImageLink.parameters = {
   docs: {
     description: {
       story: `
-The following ...
+The following sample goes a step beyond the previous example and provides more than just a simple text link from the consumer application. 
+An example of when this would be used could be a CMS providing pre-built responsive images using the \`picture\` element. 
     `},
   },
+  layout: 'fullscreen',
 };

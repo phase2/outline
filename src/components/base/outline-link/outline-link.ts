@@ -17,7 +17,6 @@ import componentStyles from './outline-link.css.lit';
 @customElement('outline-link')
 export class OutlineLink extends OutlineElement {
   static styles: CSSResultGroup = [componentVars, componentStyles];
-
   /**
    * Link url
    */
