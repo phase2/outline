@@ -3,8 +3,8 @@
  * You can override these using `outline.theme.css`, 
  * or any css file in your consumer application with
  * a later loading order than `outline.theme.css`.
- * The variables used to override the default Outline
- * variables are as follows:
+ * The variables used to override the default 
+ * `outline-link` variables are as follows:
  * 
  *  --outline--default-link-transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
  *  --outline--default-link-transition-duration: 150ms;

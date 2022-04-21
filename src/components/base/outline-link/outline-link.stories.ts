@@ -38,15 +38,13 @@ export default {
     docs: {
       description: {
         component: `
-This component renders a link as an \`a\` element.
+The \`outline-link\` component allows complete flexibility in how you choose to render a link element.
 
-## Difference from a standard \`a\` element.
-
-The \`outline-link\` component allows the ultimate flexibility in how you want to utilize the component.
+## Description & Usage
 
 - Providing both a \`link-href\` and \`link-text\` attribute negates the need or usage of any slotted content.
 - Providing a \`link-href\` without the \`link-text\` attribute will use the slotted content as the content/text of the link.
-- Providing neither the \`link-href\` nor the \`link-text\` attributes will make the link assume the entire link, including \`<a></a>\` portions of the link be passed into the slot. 
+- Providing neither the \`link-href\` nor the \`link-text\` attributes will assumes the entire link, including \`<a></a>\` be passed into the slot from the consumer application. 
 
 ## CSS Variables
 
@@ -117,6 +115,14 @@ export const PropsAndSlottedText = (): TemplateResult =>
   Link using properties, with slotted link text
 </outline-link>
   `;
+PropsAndSlottedText.parameters = {
+  docs: {
+    description: {
+      story: `
+The following sample utilizes the \`link-href\` to pass the URL reference, and passes in the link content, simple text in this case, via the default slot.
+    `},
+  },
+};
 
 export const PropertiesOnly = (): TemplateResult =>
   html`
@@ -125,6 +131,14 @@ export const PropertiesOnly = (): TemplateResult =>
   link-text="Link using properties, including the link text"
 ></outline-link>
   `;
+PropertiesOnly.parameters = {
+  docs: {
+    description: {
+      story: `
+The following sample utilizes the \`link-href\` and \`link-text\` properties to render a link completely via the Shadow DOM.
+    `},
+  },
+};
 
 export const FullySlotted = (): TemplateResult =>
   html`
@@ -134,6 +148,14 @@ export const FullySlotted = (): TemplateResult =>
   </a>
 </outline-link>
   `;
+FullySlotted.parameters = {
+  docs: {
+    description: {
+      story: `
+The following ...
+    `},
+  },
+};
 
 export const SlottedImageLink = (): TemplateResult =>
   html`
@@ -143,3 +165,11 @@ export const SlottedImageLink = (): TemplateResult =>
   </a>
 </outline-link>
   `;
+SlottedImageLink.parameters = {
+  docs: {
+    description: {
+      story: `
+The following ...
+    `},
+  },
+};
