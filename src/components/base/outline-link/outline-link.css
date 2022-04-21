@@ -1,29 +1,52 @@
-:host {
-}
-
 :host,
 a,
 ::slotted(a) {
   font-family: var(--ff-body);
-  text-decoration: none;
-  color: var(--outline-link-color-default, var(--outline-blue-600));
-  transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  text-decoration: var(
+    --outline-link-color-default-decoration,
+    var(--outline--default-link-color-default-decoration)
+  );
+  color: var(
+    --outline-link-color-default,
+    var(--outline--default-link-color-default)
+  );
+  transition-property: var(
+    --outline-link-transition-property,
+    var(--outline--default-link-transition-property)
+  );
+  transition-timing-function: var(
+    --outline-link-transition-timing-function,
+    var(--outline--default-link-transition-timing-function)
+  );
+  transition-duration: var(
+    --outline-link-transition-duration,
+    var(--outline--default-link-transition-duration)
+  );
 }
 
 :host(:hover),
 a:hover,
 ::slotted(a:hover) {
-  text-decoration: underline !important;
-  color: var(--outline-link-color-hover, var(--outline--gray-600));
+  text-decoration: var(
+    --outline-link-color-hover-decoration,
+    var(--outline--default-link-color-hover-decoration)
+  );
+  color: var(
+    --outline-link-color-hover,
+    var(--outline--default-link-color-hover)
+  );
 }
 
 :host(:focus),
 a:focus,
 ::slotted(a:focus) {
-  text-decoration: underline !important;
-  color: var(--outline-link-color-focus, var(--outline--gray-600));
+  text-decoration: var(
+    --outline-link-color-focus-decoration,
+    var(--outline--default-link-color-focus-decoration)
+  );
+  color: var(
+    --outline-link-color-focus,
+    var(--outline--default-link-color-focus)
+  );
   outline: none;
 }

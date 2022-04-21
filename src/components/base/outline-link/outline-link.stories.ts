@@ -20,12 +20,12 @@ export default {
       ...argTypeTarget,
     },
     linkText: {
-      name: 'Link Text',
+      name: 'link-text',
       description: 'The text to display for the link component. This text is part of the ShadowDOM vs omitting this property and utilizing the default slot will render the text in LightDOM.',
       control: {
         type: 'text',
       },
-      table: { defaultValue: { summary: 'false' } },
+      table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
     },
   },
   args: {
@@ -44,19 +44,25 @@ This component renders a link as an \`a\` element.
 
 The \`outline-link\` component allows the ultimate flexibility in how you want to utilize the component.
 
-- Providing a \`link-text\` attribute negates the need or usage of any slotted content.
-- Providing a \`link-href\` without the \`link-text\` attribute will then use the slotted content as the content of the link.
+- Providing both a \`link-href\` and \`link-text\` attribute negates the need or usage of any slotted content.
+- Providing a \`link-href\` without the \`link-text\` attribute will use the slotted content as the content/text of the link.
 - Providing neither the \`link-href\` nor the \`link-text\` attributes will make the link assume the entire link, including \`<a></a>\` portions of the link be passed into the slot. 
 
 ## CSS Variables
 
 The primary coloring of the \`outline-link\` component is handled by the following CSS Variables. 
 
-> Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent include to affect change on the element styling.
+> Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.
 
-- \`--outline-link-color-default\` The default link color
-- \`--outline-link-color-hover\` The link color when hovering on the link
-- \`--outline-link-color-focus\` The link color when focusing on the link
+- \`--outline-link-transition-property\`: The CSS transition property to use for the link.
+- \`--outline-link-transition-duration\`: The CSS transition duration to use for the link.
+- \`--outline-link-transition-timing-function\`: The CSS transition timing function to use for the link.
+- \`--outline-link-color-default\`: The default link color.
+- \`--outline-link-color-default-decoration\`: Text decoration for the default link.
+- \`--outline-link-color-hover\`: The link color when hovering on the link.
+- \`--outline-link-color-hover-decoration\`: Text decoration for the link when hovering.
+- \`--outline-link-color-focus\`: The link color when focusing on the link.
+- \`--outline-link-color-focus-decoration\`: Text decoration for the link when focusing.
 `,
       },
     },
