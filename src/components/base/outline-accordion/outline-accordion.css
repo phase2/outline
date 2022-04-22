@@ -9,7 +9,3 @@
 ::slotted(outline-heading) {
   margin-bottom: 2.5rem;
 }
-
-[aria-hidden='true'] {
-  display: none !important;
-}
