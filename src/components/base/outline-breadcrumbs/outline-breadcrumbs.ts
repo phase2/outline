@@ -8,8 +8,20 @@ import '../outline-container/outline-container';
 import { SlotController } from '../../controllers/slot-controller';
 /**
  * The Outline  Breadcrumbs component
- * @element Outline-Breadcrumbs
- * @slot - The default only slot for this element.
+ * @element outline-breadcrumbs
+ * @extends OutlineElement
+ * @slot - The default slot for this element.
+ * @cssprop --outline-breadcrumb-text-color-default: The default text color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb-link-color-default: The default link color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb-link-color-hover: The hover link color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb-link-color-focus: The focus link color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb-link-decoration-default: The default text decoration for the breadcrumb links.
+ * @cssprop --outline-breadcrumb-link-decoration-hover: The hover text decoration for the breadcrumb links.
+ * @cssprop --outline-breadcrumb-link-decoration-focus: The focus text decoration for the breadcrumb links.
+ * @cssprop --outline-breadcrumb-bg-color: The background color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb-bg-padding: The padding for the breadcrumbs.
+ * @cssprop --outline-breadcrumb-separator-spacing: The spacing between the breadcrumbs.
+ *
  * @todo - Add support for separator icons in slots. This would need optionally a home icon, and a separator icon.
  */
 

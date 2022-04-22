@@ -3,6 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import componentVars from './css-variables/vars-alert.css.lit';
 import componentStyles from './outline-alert.css.lit';
 import { OutlineElement } from '../outline-element/outline-element';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 export const alertSizes = ['small', 'large'] as const;
 export type AlertSize = typeof alertSizes[number];
@@ -28,8 +29,8 @@ export interface OutlineAlertInterface extends HTMLElement {
  *
  * @element outline-alert
  * @extends OutlineElement
- * @slot default - The alert contents
- * @slot header - The header in the alert
+ * @slot default - The alert contents.
+ * @slot header - The header in the alert.
  * @cssprop --outline-alert-info-background: The background color for the info alert.
  * @cssprop --outline-alert-info-text: The text color for the info alert.
  * @cssprop --outline-alert-info-border: The border color for the info alert.
@@ -72,7 +73,7 @@ export class OutlineAlert
       <div
         class="alert-body"
         role="${this.isInteractive ? 'alertdialog' : 'alert'}"
-        aria-labelledby="${this.isInteractive ? 'message' : null}"
+        aria-labelledby=${ifDefined(this.isInteractive ? 'message' : undefined)}
       >
         ${this.shouldShowIcon === true
           ? html`

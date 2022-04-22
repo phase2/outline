@@ -12,7 +12,7 @@ import componentStyles from './outline-link.css.lit';
  *
  * @element outline-link
  * @extends OutlineElement
- * @slot - The default, and only slot for this element.
+ * @slot - The default slot for this element.
  * @cssprop --outline-link-transition-property: The CSS transition property to use for the link.
  * @cssprop --outline-link-transition-duration: The CSS transition duration to use for the link.
  * @cssprop --outline-link-transition-timing-function: The CSS transition timing function to use for the link.

@@ -8,7 +8,19 @@ import componentStyles from './outline-admin-links.css.lit';
 /**
  * The Outline Admin Links component
  * @element outline-admin-links
- * @slot - The default, and only slot for this element.
+ * @extends OutlineElement
+ * @slot - The default slot for this element.
+ * @cssprop --outline-admin-links-color-default: The default text color for the admin links.
+ * @cssprop --outline-admin-links-color-hover: The hover text color for the admin links.
+ * @cssprop --outline-admin-links-color-focus: The focus text color for the admin links.
+ * @cssprop --outline-admin-links-color-active: The active text color for the admin links.
+ * @cssprop --outline-admin-links-bg-default: The default background color for the admin links.
+ * @cssprop --outline-admin-links-bg-hover: The hover background color for the admin links.
+ * @cssprop --outline-admin-links-bg-focus: The focus background color for the admin links.
+ * @cssprop --outline-admin-links-bg-active: The active background color for the admin links.
+ * @cssprop --outline-admin-links-y-spacing: The vertical spacing for the admin links group.
+ * @cssprop --outline-admin-links-link-y-spacing: The vertical padding for the individual admin links.
+ * @cssprop --outline-admin-links-link-x-spacing: The horizontal padding for the individual admin links.
  * @todo: Ensure this component is more mobile friendly.
  */
 @customElement('outline-admin-links')
