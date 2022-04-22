@@ -33,35 +33,35 @@ The variables used to override the default
 */
 
 /* Secondary Button(s) */
---outline--default-button--secondary-padding: var(--outline--default-button-padding);
---outline--default-button--secondary-radius: var(--outline--default-button-radius);
+--outline-button--default--secondary-padding: var(--outline-button--default-padding);
+--outline-button--default--secondary-radius: var(--outline-button--default-radius);
 
 /* Secondary Button(s) - Default */
---outline--default-button--secondary-bg-color-default: var(--outline-white);
---outline--default-button--secondary-text-color-default: var(--outline-blue-600);
---outline--default-button--secondary-weight-default: var(--outline--default-button-weight);
---outline--default-button--secondary-ring-default: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600);
+--outline-button--default--secondary-bg-color-default: var(--outline-white);
+--outline-button--default--secondary-text-color-default: var(--outline-blue-600);
+--outline-button--default--secondary-weight-default: var(--outline-button--default-weight);
+--outline-button--default--secondary-ring-default: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600);
 
 /* Secondary Button(s) - Hover */
---outline--default-button--secondary-bg-color-hover: var(--outline-blue-600);
---outline--default-button--secondary-text-color-hover: var(--outline-white);
---outline--default-button--secondary-weight-hover: var(--outline--default-button-weight);
---outline--default-button--secondary-ring-hover: none;
+--outline-button--default--secondary-bg-color-hover: var(--outline-blue-600);
+--outline-button--default--secondary-text-color-hover: var(--outline-white);
+--outline-button--default--secondary-weight-hover: var(--outline-button--default-weight);
+--outline-button--default--secondary-ring-hover: none;
 
 /* Secondary Button(s) - Focus */
---outline--default-button--secondary-bg-color-focus: var(--outline-blue-600);
---outline--default-button--secondary-text-color-focus: var(--outline-white);
---outline--default-button--secondary-weight-focus: var(--outline--default-button-weight);
---outline--default-button--secondary-ring-focus: none;
+--outline-button--default--secondary-bg-color-focus: var(--outline-blue-600);
+--outline-button--default--secondary-text-color-focus: var(--outline-white);
+--outline-button--default--secondary-weight-focus: var(--outline-button--default-weight);
+--outline-button--default--secondary-ring-focus: none;
 
 /* Secondary Button(s) - Disabled */
---outline--default-button--secondary--disabled-bg-color: var(--outline-white);
---outline--default-button--secondary--disabled-text-color: var(--outline-gray-400);
---outline--default-button--secondary--disabled-weight: var(--outline--default-button-weight);
---outline--default-button--secondary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300);
+--outline-button--default--secondary--disabled-bg-color: var(--outline-white);
+--outline-button--default--secondary--disabled-text-color: var(--outline-gray-400);
+--outline-button--default--secondary--disabled-weight: var(--outline-button--default-weight);
+--outline-button--default--secondary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300);
 
 /* Secondary Button(s) - Disabled:Focus */
---outline--default-button--secondary--disabled-bg-color-focus: var(--outline-white);
---outline--default-button--secondary--disabled-text-color-focus: var(--outline-gray-400);
---outline--default-button--secondary--disabled-weight-focus: var(--outline--default-button-weight);
---outline--default-button--secondary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400);
+--outline-button--default--secondary--disabled-bg-color-focus: var(--outline-white);
+--outline-button--default--secondary--disabled-text-color-focus: var(--outline-gray-400);
+--outline-button--default--secondary--disabled-weight-focus: var(--outline-button--default-weight);
+--outline-button--default--secondary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400);

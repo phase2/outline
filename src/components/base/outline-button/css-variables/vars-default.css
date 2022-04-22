@@ -14,8 +14,8 @@ The variables used to override the default
 --outline-btn-border-radius
 */
 
---outline--default-button-family: var(--ff-body);
---outline--default-button-weight: var(--fw-semibold);
---outline--default-button-padding: var(--spacing-2) var(--spacing-4);
---outline--default-button-radius: var(--spacing-2);
+--outline-button--default-family: var(--ff-body);
+--outline-button--default-weight: var(--fw-semibold);
+--outline-button--default-padding: var(--spacing-2) var(--spacing-4);
+--outline-button--default-radius: var(--spacing-2);
 
