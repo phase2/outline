@@ -1,10 +1,11 @@
 /*
-Default CSS Variables for `outline-button`.
+Default CSS Variables for the `outline-button` tertiary variant.
 You can override these using `outline.theme.css`, 
 or any css file in your consumer application with
 a later loading order than `outline.theme.css`.
 The variables used to override the default 
-`outline-button` variables are as follows:
+`outline-button` styling can be found in 
+`outline-button.ts` delcared with the `@cssprop` annotations.
 */
 
 /* 

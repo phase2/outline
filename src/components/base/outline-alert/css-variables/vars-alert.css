@@ -1,12 +1,12 @@
 /*
- * Default CSS Variables for `outline-alert`.
- * You can override these using `outline.theme.css`, 
- * or any css file in your consumer application with
- * a later loading order than `outline.theme.css`.
- * The variables used to override the default 
- * `outline-alert` can be found in the `outline-alert.ts` file 
- * delcared with the `@cssprop` annotations.
- */
+Default CSS Variables for `outline-alert`.
+You can override these using `outline.theme.css`, 
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default 
+`outline-alert` styling can be found in 
+`outline-alert.ts` delcared with the `@cssprop` annotations.
+*/
 
 --outline-alert--default-info-background: var(--outline-white);
 --outline-alert--default-info-text: var(--status-info);

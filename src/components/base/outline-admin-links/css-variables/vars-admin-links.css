@@ -1,8 +1,13 @@
 /*
-* Configuration values for `outline-admin-links`.
-* This component's styles represent a standard set of administrative
-* links like one found in Drupal or other systems.
+Default CSS Variables for `outline-admin-links`.
+You can override these using `outline.theme.css`, 
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default 
+`outline-admin-links` styling can be found in 
+`outline-admin-links.ts` delcared with the `@cssprop` annotations.
 */
+
 --outline-admin-links-color-default: var(--outline-gray-600);
 --outline-admin-links-color-hover: var(--outline-soft-black);
 --outline-admin-links-color-focus: var(--outline-soft-black);

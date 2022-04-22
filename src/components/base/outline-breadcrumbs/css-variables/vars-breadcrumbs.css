@@ -1,6 +1,13 @@
 /*
- * Configuration values for `outline-breadcrumb`.
- */
+Default CSS Variables for `outline-breadcrumb`.
+You can override these using `outline.theme.css`, 
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default 
+`outline-breadcrumb` styling can be found in 
+`outline-breadcrumb.ts` delcared with the `@cssprop` annotations.
+*/
+
 --outline-breadcrumb-text-color-default: var(--outline-gray-100);
 --outline-breadcrumb-link-color-default: var(--outline-white);
 --outline-breadcrumb-link-color-hover: var(--outline-gray-300);
