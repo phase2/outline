@@ -265,7 +265,8 @@
   * Custom variables overriding default variables.
   */
   
-  /* --outline-link-color-default: var(--red-800);
-  --outline-link-color-hover: var(--red-600);
-  --outline-link-color-focus: var(--outline-gray-700); */
+  /* Test for outline-link variables. */
+  /* --outline-link-color-default: var(--red-800); */
+  /* Test for outline-button variables. */
+  /* --outline-btn--primary-bg-color-default: var(--outline-karma-coral) */
 }

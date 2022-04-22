@@ -14,25 +14,61 @@
 }
 
 :host([statusType='info']) .alert-body {
-  background-color: var(--alert-info-background);
-  border-color: var(--alert-info-border);
-  color: var(--alert-info-text);
+  background-color: var(
+    --outline-alert-info-background,
+    var(--outline-alert--default-info-background)
+  );
+  border-color: var(
+    --outline-alert-info-border,
+    var(--outline-alert--default-info-border)
+  );
+  color: var(
+    --outline-alert-info-text,
+    var(--outline-alert--default-info-text)
+  );
 }
 
 :host([statusType='warning']) .alert-body {
-  background-color: var(--alert-warning-background);
-  border-color: var(--alert-warning-border);
-  color: var(--alert-warning-text);
+  background-color: var(
+    --outline-alert-warning-background,
+    var(--outline-alert--default-warning-background)
+  );
+  border-color: var(
+    --outline-alert-warning-border,
+    var(--outline-alert--default-warning-border)
+  );
+  color: var(
+    --outline-alert-warning-text,
+    var(--outline-alert--default-warning-text)
+  );
 }
 
 :host([statusType='error']) .alert-body {
-  background-color: var(--alert-error-background);
-  border-color: var(--alert-error-border);
-  color: var(--alert-error-text);
+  background-color: var(
+    --outline-alert-error-background,
+    var(--outline-alert--default-error-background)
+  );
+  border-color: var(
+    --outline-alert-error-border,
+    var(--outline-alert--default-error-border)
+  );
+  color: var(
+    --outline-alert-error-text,
+    var(--outline-alert--default-error-text)
+  );
 }
 
 :host([statusType='success']) .alert-body {
-  background-color: var(--alert-success-background);
-  border-color: var(--alert-success-border);
-  color: var(--alert-success-text);
+  background-color: var(
+    --outline-alert-success-background,
+    var(--outline-alert--default-success-background)
+  );
+  border-color: var(
+    --outline-alert-success-border,
+    var(--outline-alert--default-success-border)
+  );
+  color: var(
+    --outline-alert-success-text,
+    var(--outline-alert--default-success-text)
+  );
 }

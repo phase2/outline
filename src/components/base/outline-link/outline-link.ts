@@ -9,6 +9,7 @@ import componentStyles from './outline-link.css.lit';
 
 /**
  * The Outline  Link component
+ *
  * @element outline-link
  * @extends OutlineElement
  * @slot - The default, and only slot for this element.

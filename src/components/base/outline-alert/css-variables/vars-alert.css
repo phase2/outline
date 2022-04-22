@@ -1,15 +1,40 @@
---alert-info-background: var(--outline-white);
---alert-info-text: var(--status-info);
---alert-info-border: var(--status-info);
+/*
+ * Default CSS Variables for `outline-link`.
+ * You can override these using `outline.theme.css`, 
+ * or any css file in your consumer application with
+ * a later loading order than `outline.theme.css`.
+ * The variables used to override the default 
+ * `outline-link` variables are as follows:
+ */
 
---alert-success-background: var(--outline-white);
---alert-success-text: var(--status-success);
---alert-success-border: var(--status-success);
+ /* 
+--outline-alert-info-background
+--outline-alert-info-text
+--outline-alert-info-border
+--outline-alert-success-background
+--outline-alert-success-text
+--outline-alert-success-border
+--outline-alert-warning-background
+--outline-alert-warning-text
+--outline-alert-warning-border
+--outline-alert-error-background
+--outline-alert-error-text
+--outline-alert-error-border
+  */
 
---alert-warning-background: var(--outline-white);
---alert-warning-text: var(--status-warning);
---alert-warning-border: var(--status-warning);
 
---alert-error-background: var(--outline-white);
---alert-error-text: var(--status-error);
---alert-error-border: var(--status-error);
+--outline-alert--default-info-background: var(--outline-white);
+--outline-alert--default-info-text: var(--status-info);
+--outline-alert--default-info-border: var(--status-info);
+
+--outline-alert--default-success-background: var(--outline-white);
+--outline-alert--default-success-text: var(--status-success);
+--outline-alert--default-success-border: var(--status-success);
+
+--outline-alert--default-warning-background: var(--outline-white);
+--outline-alert--default-warning-text: var(--status-warning);
+--outline-alert--default-warning-border: var(--status-warning);
+
+--outline-alert--default-error-background: var(--outline-white);
+--outline-alert--default-error-text: var(--status-error);
+--outline-alert--default-error-border: var(--status-error);
