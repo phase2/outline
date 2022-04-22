@@ -4,15 +4,16 @@
  * or any css file in your consumer application with
  * a later loading order than `outline.theme.css`.
  * The variables used to override the default 
- * `outline-link` variables are as follows:
+ * `outline-link` can be found in the `outline-link.ts` file 
+ * delcared with the `@cssprop` annotations.
  */
 
---outline--default-link-transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
---outline--default-link-transition-duration: 150ms;
---outline--default-link-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
---outline--default-link-color-default: var(--outline-blue-600);
---outline--default-link-color-default-decoration: none;
---outline--default-link-color-hover: var(--outline--gray-600);
---outline--default-link-color-hover-decoration: underline;
---outline--default-link-color-focus: var(--outline--gray-600);
---outline--default-link-color-focus-decoration: underline;
+--outline--link-default-transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+--outline--link-default-transition-duration: 150ms;
+--outline--link-default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+--outline--link-default-color-default: var(--outline-blue-600);
+--outline--link-default-color-default-decoration: none;
+--outline--link-default-color-hover: var(--outline--gray-600);
+--outline--link-default-color-hover-decoration: underline;
+--outline--link-default-color-focus: var(--outline--gray-600);
+--outline--link-default-color-focus-decoration: underline;

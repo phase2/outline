@@ -4,23 +4,23 @@ a,
   font-family: var(--ff-body);
   text-decoration: var(
     --outline-link-color-default-decoration,
-    var(--outline--default-link-color-default-decoration)
+    var(--outline--link-default-color-default-decoration)
   );
   color: var(
     --outline-link-color-default,
-    var(--outline--default-link-color-default)
+    var(--outline--link-default-color-default)
   );
   transition-property: var(
     --outline-link-transition-property,
-    var(--outline--default-link-transition-property)
+    var(--outline--link-default-transition-property)
   );
   transition-timing-function: var(
     --outline-link-transition-timing-function,
-    var(--outline--default-link-transition-timing-function)
+    var(--outline--link-default-transition-timing-function)
   );
   transition-duration: var(
     --outline-link-transition-duration,
-    var(--outline--default-link-transition-duration)
+    var(--outline--link-default-transition-duration)
   );
 }
 
@@ -29,11 +29,11 @@ a:hover,
 ::slotted(a:hover) {
   text-decoration: var(
     --outline-link-color-hover-decoration,
-    var(--outline--default-link-color-hover-decoration)
+    var(--outline--link-default-color-hover-decoration)
   );
   color: var(
     --outline-link-color-hover,
-    var(--outline--default-link-color-hover)
+    var(--outline--link-default-color-hover)
   );
 }
 
@@ -42,11 +42,11 @@ a:focus,
 ::slotted(a:focus) {
   text-decoration: var(
     --outline-link-color-focus-decoration,
-    var(--outline--default-link-color-focus-decoration)
+    var(--outline--link-default-color-focus-decoration)
   );
   color: var(
     --outline-link-color-focus,
-    var(--outline--default-link-color-focus)
+    var(--outline--link-default-color-focus)
   );
   outline: none;
 }

@@ -8,70 +8,70 @@ The variables used to override the default
 */
 
 /* 
---outline-btn--link-padding
---outline-btn--link-radius
---outline-btn--link-bg-color-default
---outline-btn--link-text-color-default
---outline-btn--link-decoration-default
---outline-btn--link-weight-default
---outline-btn--link-ring-default
---outline-btn--link-bg-color-hover
---outline-btn--link-text-color-hover
---outline-btn--link-decoration-hover
---outline-btn--link-weight-hover
---outline-btn--link-ring-hover
---outline-btn--link-bg-color-focus
---outline-btn--link-text-color-focus
---outline-btn--link-decoration-focus
---outline-btn--link-weight-focus
---outline-btn--link-ring-focus
---outline-btn--link--disabled-bg-color
---outline-btn--link--disabled-text-color
---outline-btn--link--disabled-decoration
---outline-btn--link--disabled-weight
---outline-btn--link--disabled-ring
---outline-btn--link--disabled-bg-color-focus
---outline-btn--link--disabled-text-color-focus
---outline-btn--link--disabled-decoration-focus
---outline-btn--link--disabled-weight-focus
---outline-btn--link--disabled-ring-focus
+--outline--button--link-padding
+--outline--button--link-radius
+--outline--button--link-bg-color-default
+--outline--button--link-text-color-default
+--outline--button--link-decoration-default
+--outline--button--link-weight-default
+--outline--button--link-ring-default
+--outline--button--link-bg-color-hover
+--outline--button--link-text-color-hover
+--outline--button--link-decoration-hover
+--outline--button--link-weight-hover
+--outline--button--link-ring-hover
+--outline--button--link-bg-color-focus
+--outline--button--link-text-color-focus
+--outline--button--link-decoration-focus
+--outline--button--link-weight-focus
+--outline--button--link-ring-focus
+--outline--button--link--disabled-bg-color
+--outline--button--link--disabled-text-color
+--outline--button--link--disabled-decoration
+--outline--button--link--disabled-weight
+--outline--button--link--disabled-ring
+--outline--button--link--disabled-bg-color-focus
+--outline--button--link--disabled-text-color-focus
+--outline--button--link--disabled-decoration-focus
+--outline--button--link--disabled-weight-focus
+--outline--button--link--disabled-ring-focus
 */
 
 /* Link Button(s) */
---outline--default-btn--link-padding: var(--outline--default-btn-padding);
---outline--default-btn--link-radius: var(--outline--default-btn-radius);
+--outline--default-button--link-padding: var(--outline--default-button-padding);
+--outline--default-button--link-radius: var(--outline--default-button-radius);
 
 /* Link Button(s) - Default */
---outline--default-btn--link-bg-color-default: var(--outline-transparent);
---outline--default-btn--link-text-color-default: var(--outline--default-link-color-default);
---outline--default-btn--link-decoration-default: none;
---outline--default-btn--link-weight-default: var(--outline--default-btn-weight);
---outline--default-btn--link-ring-default: none;
+--outline--default-button--link-bg-color-default: var(--outline-transparent);
+--outline--default-button--link-text-color-default: var(--outline--link-default-color-default);
+--outline--default-button--link-decoration-default: none;
+--outline--default-button--link-weight-default: var(--outline--default-button-weight);
+--outline--default-button--link-ring-default: none;
 
 /* Link Button(s) - Hover */
---outline--default-btn--link-bg-color-hover: var(--outline-transparent);
---outline--default-btn--link-text-color-hover: var(--outline--default-link-color-hover);
---outline--default-btn--link-decoration-hover: underline;
---outline--default-btn--link-weight-hover: var(--outline--default-btn-weight);
---outline--default-btn--link-ring-hover: none;
+--outline--default-button--link-bg-color-hover: var(--outline-transparent);
+--outline--default-button--link-text-color-hover: var(--outline--link-default-color-hover);
+--outline--default-button--link-decoration-hover: underline;
+--outline--default-button--link-weight-hover: var(--outline--default-button-weight);
+--outline--default-button--link-ring-hover: none;
 
 /* Link Button(s) - Focus */
---outline--default-btn--link-bg-color-focus: var(--outline-transparent);
---outline--default-btn--link-text-color-focus: var(--outline--default-link-color-focus);
---outline--default-btn--link-decoration-focus: none;
---outline--default-btn--link-weight-focus: var(--outline--default-btn-weight);
---outline--default-btn--link-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500);
+--outline--default-button--link-bg-color-focus: var(--outline-transparent);
+--outline--default-button--link-text-color-focus: var(--outline--link-default-color-focus);
+--outline--default-button--link-decoration-focus: none;
+--outline--default-button--link-weight-focus: var(--outline--default-button-weight);
+--outline--default-button--link-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500);
 
 /* Link Button(s) - Disabled */
---outline--default-btn--link--disabled-bg-color: var(--outline-transparent);
---outline--default-btn--link--disabled-text-color: var(--outline-gray-500);
---outline--default-btn--link--disabled-decoration: none;
---outline--default-btn--link--disabled-weight: var(--outline--default-btn-weight);
---outline--default-btn--link--disabled-ring: none;
+--outline--default-button--link--disabled-bg-color: var(--outline-transparent);
+--outline--default-button--link--disabled-text-color: var(--outline-gray-500);
+--outline--default-button--link--disabled-decoration: none;
+--outline--default-button--link--disabled-weight: var(--outline--default-button-weight);
+--outline--default-button--link--disabled-ring: none;
 
 /* Link Button(s) - Disabled:Focus */
---outline--default-btn--link--disabled-bg-color-focus: var(--outline-transparent);;
---outline--default-btn--link--disabled-text-color-focus: var(--outline-gray-500);
---outline--default-btn--link--disabled-decoration-focus: none;
---outline--default-btn--link--disabled-weight-focus: var(--outline--default-btn-weight);
---outline--default-btn--link--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500);
+--outline--default-button--link--disabled-bg-color-focus: var(--outline-transparent);;
+--outline--default-button--link--disabled-text-color-focus: var(--outline-gray-500);
+--outline--default-button--link--disabled-decoration-focus: none;
+--outline--default-button--link--disabled-weight-focus: var(--outline--default-button-weight);
+--outline--default-button--link--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500);

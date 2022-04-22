@@ -23,10 +23,13 @@
   outline: none;
   line-height: 1.5;
 
-  border-radius: var(--outline-btn-radius, var(--outline--default-btn-radius));
-  font-family: var(--outline-btn-family, var(--outline--default-btn-family));
-  font-weight: var(--outline-btn-weight, var(--outline--default-btn-weight));
-  padding: var(--outline-btn-padding, var(--outline--default-btn-padding));
+  border-radius: var(
+    --outline-btn-radius,
+    var(--outline--default-button-radius)
+  );
+  font-family: var(--outline-btn-family, var(--outline--default-button-family));
+  font-weight: var(--outline-btn-weight, var(--outline--default-button-weight));
+  padding: var(--outline-btn-padding, var(--outline--default-button-padding));
 }
 
 .btn[aria-disabled='true'] {
@@ -37,436 +40,439 @@
 
 .btn.primary {
   padding: var(
-    --outline-btn--primary-padding,
-    var(--outline-btn-padding, var(--outline--default-btn--primary-padding))
+    --outline--button--primary-padding,
+    var(--outline-btn-padding, var(--outline--default-button--primary-padding))
   );
   border-radius: var(
-    --outline-btn--primary-radius,
-    var(--outline-btn-radius, var(--outline--default-btn-radius))
+    --outline--button--primary-radius,
+    var(--outline-btn-radius, var(--outline--default-button-radius))
   );
   /* Can change per button state */
   background-color: var(
-    --outline-btn--primary-bg-color-default,
-    var(--outline--default-btn--primary-bg-color-default)
+    --outline--button--primary-bg-color-default,
+    var(--outline--default-button--primary-bg-color-default)
   );
   color: var(
-    --outline-btn--primary-text-color-default,
-    var(--outline--default-btn--primary-text-color-default)
+    --outline--button--primary-text-color-default,
+    var(--outline--default-button--primary-text-color-default)
   );
   font-weight: var(
-    --outline-btn--primary-weight-default,
-    var(--outline--default-btn--primary-weight-default)
+    --outline--button--primary-weight-default,
+    var(--outline--default-button--primary-weight-default)
   );
   box-shadow: var(
-    --outline-btn--primary-ring-default,
-    var(--outline--default-btn--primary-ring-default)
+    --outline--button--primary-ring-default,
+    var(--outline--default-button--primary-ring-default)
   );
 
   &:hover {
     background-color: var(
-      --outline-btn--primary-bg-color-hover,
-      var(--outline--default-btn--primary-bg-color-hover)
+      --outline--button--primary-bg-color-hover,
+      var(--outline--default-button--primary-bg-color-hover)
     );
     color: var(
-      --outline-btn--primary-text-color-hover,
-      var(--outline--default-btn--primary-text-color-hover)
+      --outline--button--primary-text-color-hover,
+      var(--outline--default-button--primary-text-color-hover)
     );
     font-weight: var(
-      --outline-btn--primary-weight-hover,
-      var(--outline--default-btn--primary-weight-hover)
+      --outline--button--primary-weight-hover,
+      var(--outline--default-button--primary-weight-hover)
     );
     box-shadow: var(
-      --outline-btn--primary-ring-hover,
-      var(--outline--default-btn--primary-ring-hover)
+      --outline--button--primary-ring-hover,
+      var(--outline--default-button--primary-ring-hover)
     );
   }
 
   &:focus {
     background-color: var(
-      --outline-btn--primary-bg-color-focus,
-      var(--outline--default-btn--primary-bg-color-focus)
+      --outline--button--primary-bg-color-focus,
+      var(--outline--default-button--primary-bg-color-focus)
     );
     color: var(
-      --outline-btn--primary-text-color-focus,
-      var(--outline--default-btn--primary-text-color-focus)
+      --outline--button--primary-text-color-focus,
+      var(--outline--default-button--primary-text-color-focus)
     );
     font-weight: var(
-      --outline-btn--primary-weight-focus,
-      var(--outline--default-btn--primary-weight-focus)
+      --outline--button--primary-weight-focus,
+      var(--outline--default-button--primary-weight-focus)
     );
     box-shadow: var(
-      --outline-btn--primary-ring-focus,
-      var(--outline--default-btn--primary-ring-focus)
+      --outline--button--primary-ring-focus,
+      var(--outline--default-button--primary-ring-focus)
     );
   }
 }
 
 .btn.primary[aria-disabled='true'] {
   background-color: var(
-    --outline-btn--primary--disabled-bg-color,
-    var(--outline--default-btn--primary--disabled-bg-color)
+    --outline--button--primary--disabled-bg-color,
+    var(--outline--default-button--primary--disabled-bg-color)
   );
   color: var(
-    --outline-btn--primary--disabled-text-color,
-    var(--outline--default-btn--primary--disabled-text-color)
+    --outline--button--primary--disabled-text-color,
+    var(--outline--default-button--primary--disabled-text-color)
   );
   font-weight: var(
-    --outline-btn--primary--disabled-weight,
-    var(--outline--default-btn--primary--disabled-weight)
+    --outline--button--primary--disabled-weight,
+    var(--outline--default-button--primary--disabled-weight)
   );
   box-shadow: var(
-    --outline-btn--primary--disabled-ring,
-    var(--outline--default-btn--primary--disabled-ring)
+    --outline--button--primary--disabled-ring,
+    var(--outline--default-button--primary--disabled-ring)
   );
 
   &:focus {
     background-color: var(
-      --outline-btn--primary--disabled-bg-color-focus,
-      var(--outline--default-btn--primary--disabled-bg-color-focus)
+      --outline--button--primary--disabled-bg-color-focus,
+      var(--outline--default-button--primary--disabled-bg-color-focus)
     );
     color: var(
-      --outline-btn--primary--disabled-text-color-focus,
-      var(--outline--default-btn--primary--disabled-text-color-focus)
+      --outline--button--primary--disabled-text-color-focus,
+      var(--outline--default-button--primary--disabled-text-color-focus)
     );
     font-weight: var(
-      --outline-btn--primary--disabled-weight-focus,
-      var(--outline--default-btn--primary--disabled-weight-focus)
+      --outline--button--primary--disabled-weight-focus,
+      var(--outline--default-button--primary--disabled-weight-focus)
     );
     box-shadow: var(
-      --outline-btn--primary--disabled-ring-focus,
-      var(--outline--default-btn--primary--disabled-ring-focus)
+      --outline--button--primary--disabled-ring-focus,
+      var(--outline--default-button--primary--disabled-ring-focus)
     );
   }
 }
 
 .btn.secondary {
   padding: var(
-    --outline-btn--secondary-padding,
-    var(--outline-btn-padding, var(--outline--default-btn--secondary-padding))
+    --outline--button--secondary-padding,
+    var(
+      --outline-btn-padding,
+      var(--outline--default-button--secondary-padding)
+    )
   );
   border-radius: var(
-    --outline-btn--secondary-radius,
-    var(--outline-btn-radius, var(--outline--default-btn-radius))
+    --outline--button--secondary-radius,
+    var(--outline-btn-radius, var(--outline--default-button-radius))
   );
 
   background-color: var(
-    --outline-btn--secondary-bg-color-default,
-    var(--outline--default-btn--secondary-bg-color-default)
+    --outline--button--secondary-bg-color-default,
+    var(--outline--default-button--secondary-bg-color-default)
   );
   color: var(
-    --outline-btn--secondary-text-color-default,
-    var(--outline--default-btn--secondary-text-color-default)
+    --outline--button--secondary-text-color-default,
+    var(--outline--default-button--secondary-text-color-default)
   );
   font-weight: var(
-    --outline-btn--secondary-weight-default,
-    var(--outline--default-btn--secondary-weight-default)
+    --outline--button--secondary-weight-default,
+    var(--outline--default-button--secondary-weight-default)
   );
   box-shadow: var(
-    --outline-btn--secondary-ring-default,
-    var(--outline--default-btn--secondary-ring-default)
+    --outline--button--secondary-ring-default,
+    var(--outline--default-button--secondary-ring-default)
   );
 
   &:hover {
     background-color: var(
-      --outline-btn--secondary-bg-color-hover,
-      var(--outline--default-btn--secondary-bg-color-hover)
+      --outline--button--secondary-bg-color-hover,
+      var(--outline--default-button--secondary-bg-color-hover)
     );
     color: var(
-      --outline-btn--secondary-text-color-hover,
-      var(--outline--default-btn--secondary-text-color-hover)
+      --outline--button--secondary-text-color-hover,
+      var(--outline--default-button--secondary-text-color-hover)
     );
     font-weight: var(
-      --outline-btn--secondary-weight-hover,
-      var(--outline--default-btn--secondary-weight-hover)
+      --outline--button--secondary-weight-hover,
+      var(--outline--default-button--secondary-weight-hover)
     );
     box-shadow: var(
-      --outline-btn--secondary-ring-hover,
-      var(--outline--default-btn--secondary-ring-hover)
+      --outline--button--secondary-ring-hover,
+      var(--outline--default-button--secondary-ring-hover)
     );
   }
 
   &:focus {
     background-color: var(
-      --outline-btn--secondary-bg-color-focus,
-      var(--outline--default-btn--secondary-bg-color-focus)
+      --outline--button--secondary-bg-color-focus,
+      var(--outline--default-button--secondary-bg-color-focus)
     );
     color: var(
-      --outline-btn--secondary-text-color-focus,
-      var(--outline--default-btn--secondary-text-color-focus)
+      --outline--button--secondary-text-color-focus,
+      var(--outline--default-button--secondary-text-color-focus)
     );
     font-weight: var(
-      --outline-btn--secondary-weight-focus,
-      var(--outline--default-btn--secondary-weight-focus)
+      --outline--button--secondary-weight-focus,
+      var(--outline--default-button--secondary-weight-focus)
     );
     box-shadow: var(
-      --outline-btn--secondary-ring-focus,
-      var(--outline--default-btn--secondary-ring-focus)
+      --outline--button--secondary-ring-focus,
+      var(--outline--default-button--secondary-ring-focus)
     );
   }
 }
 
 .btn.secondary[aria-disabled='true'] {
   background-color: var(
-    --outline-btn--secondary--disabled-bg-color,
-    var(--outline--default-btn--secondary--disabled-bg-color)
+    --outline--button--secondary--disabled-bg-color,
+    var(--outline--default-button--secondary--disabled-bg-color)
   );
   color: var(
-    --outline-btn--secondary--disabled-text-color,
-    var(--outline--default-btn--secondary--disabled-text-color)
+    --outline--button--secondary--disabled-text-color,
+    var(--outline--default-button--secondary--disabled-text-color)
   );
   font-weight: var(
-    --outline-btn--secondary--disabled-weight,
-    var(--outline--default-btn--secondary--disabled-weight)
+    --outline--button--secondary--disabled-weight,
+    var(--outline--default-button--secondary--disabled-weight)
   );
   box-shadow: var(
-    --outline-btn--secondary--disabled-ring,
-    var(--outline--default-btn--secondary--disabled-ring)
+    --outline--button--secondary--disabled-ring,
+    var(--outline--default-button--secondary--disabled-ring)
   );
 
   &:focus {
     background-color: var(
-      --outline-btn--secondary--disabled-bg-color-focus,
-      var(--outline--default-btn--secondary--disabled-bg-color-focus)
+      --outline--button--secondary--disabled-bg-color-focus,
+      var(--outline--default-button--secondary--disabled-bg-color-focus)
     );
     color: var(
-      --outline-btn--secondary--disabled-text-color-focus,
-      var(--outline--default-btn--secondary--disabled-text-color-focus)
+      --outline--button--secondary--disabled-text-color-focus,
+      var(--outline--default-button--secondary--disabled-text-color-focus)
     );
     font-weight: var(
-      --outline-btn--secondary--disabled-weight-focus,
-      var(--outline--default-btn--secondary--disabled-weight-focus)
+      --outline--button--secondary--disabled-weight-focus,
+      var(--outline--default-button--secondary--disabled-weight-focus)
     );
     box-shadow: var(
-      --outline-btn--secondary--disabled-ring-focus,
-      var(--outline--default-btn--secondary--disabled-ring-focus)
+      --outline--button--secondary--disabled-ring-focus,
+      var(--outline--default-button--secondary--disabled-ring-focus)
     );
   }
 }
 
 .btn.tertiary {
   padding: var(
-    --outline-btn--tertiary-padding,
-    var(--outline-btn-padding, var(--outline--default-btn--tertiary-padding))
+    --outline--button--tertiary-padding,
+    var(--outline-btn-padding, var(--outline--default-button--tertiary-padding))
   );
   border-radius: var(
-    --outline-btn--tertiary-radius,
-    var(--outline-btn-radius, var(--outline--default-btn-radius))
+    --outline--button--tertiary-radius,
+    var(--outline-btn-radius, var(--outline--default-button-radius))
   );
 
   background-color: var(
-    --outline-btn--tertiary-bg-color-default,
-    var(--outline--default-btn--tertiary-bg-color-default)
+    --outline--button--tertiary-bg-color-default,
+    var(--outline--default-button--tertiary-bg-color-default)
   );
   color: var(
-    --outline-btn--tertiary-text-color-default,
-    var(--outline--default-btn--tertiary-text-color-default)
+    --outline--button--tertiary-text-color-default,
+    var(--outline--default-button--tertiary-text-color-default)
   );
   font-weight: var(
-    --outline-btn--tertiary-weight-default,
-    var(--outline--default-btn--tertiary-weight-default)
+    --outline--button--tertiary-weight-default,
+    var(--outline--default-button--tertiary-weight-default)
   );
   box-shadow: var(
-    --outline-btn--tertiary-ring-default,
-    var(--outline--default-btn--tertiary-ring-default)
+    --outline--button--tertiary-ring-default,
+    var(--outline--default-button--tertiary-ring-default)
   );
 
   &:hover {
     background-color: var(
-      --outline-btn--tertiary-bg-color-hover,
-      var(--outline--default-btn--tertiary-bg-color-hover)
+      --outline--button--tertiary-bg-color-hover,
+      var(--outline--default-button--tertiary-bg-color-hover)
     );
     color: var(
-      --outline-btn--tertiary-text-color-hover,
-      var(--outline--default-btn--tertiary-text-color-hover)
+      --outline--button--tertiary-text-color-hover,
+      var(--outline--default-button--tertiary-text-color-hover)
     );
     font-weight: var(
-      --outline-btn--tertiary-weight-hover,
-      var(--outline--default-btn--tertiary-weight-hover)
+      --outline--button--tertiary-weight-hover,
+      var(--outline--default-button--tertiary-weight-hover)
     );
     box-shadow: var(
-      --outline-btn--tertiary-ring-hover,
-      var(--outline--default-btn--tertiary-ring-hover)
+      --outline--button--tertiary-ring-hover,
+      var(--outline--default-button--tertiary-ring-hover)
     );
   }
 
   &:focus {
     background-color: var(
-      --outline-btn--tertiary-bg-color-focus,
-      var(--outline--default-btn--tertiary-bg-color-focus)
+      --outline--button--tertiary-bg-color-focus,
+      var(--outline--default-button--tertiary-bg-color-focus)
     );
     color: var(
-      --outline-btn--tertiary-text-color-focus,
-      var(--outline--default-btn--tertiary-text-color-focus)
+      --outline--button--tertiary-text-color-focus,
+      var(--outline--default-button--tertiary-text-color-focus)
     );
     font-weight: var(
-      --outline-btn--tertiary-weight-focus,
-      var(--outline--default-btn--tertiary-weight-focus)
+      --outline--button--tertiary-weight-focus,
+      var(--outline--default-button--tertiary-weight-focus)
     );
     box-shadow: var(
-      --outline-btn--tertiary-ring-focus,
-      var(--outline--default-btn--tertiary-ring-focus)
+      --outline--button--tertiary-ring-focus,
+      var(--outline--default-button--tertiary-ring-focus)
     );
   }
 }
 
 .btn.tertiary[aria-disabled='true'] {
   background-color: var(
-    --outline-btn--tertiary--disabled-bg-color,
-    var(--outline--default-btn--tertiary--disabled-bg-color)
+    --outline--button--tertiary--disabled-bg-color,
+    var(--outline--default-button--tertiary--disabled-bg-color)
   );
   color: var(
-    --outline-btn--tertiary--disabled-text-color,
-    var(--outline--default-btn--tertiary--disabled-text-color)
+    --outline--button--tertiary--disabled-text-color,
+    var(--outline--default-button--tertiary--disabled-text-color)
   );
   font-weight: var(
-    --outline-btn--tertiary--disabled-weight,
-    var(--outline--default-btn--tertiary--disabled-weight)
+    --outline--button--tertiary--disabled-weight,
+    var(--outline--default-button--tertiary--disabled-weight)
   );
   box-shadow: var(
-    --outline-btn--tertiary--disabled-ring,
-    var(--outline--default-btn--tertiary--disabled-ring)
+    --outline--button--tertiary--disabled-ring,
+    var(--outline--default-button--tertiary--disabled-ring)
   );
 
   &:focus {
     background-color: var(
-      --outline-btn--tertiary--disabled-bg-color-focus,
-      var(--outline--default-btn--tertiary--disabled-bg-color-focus)
+      --outline--button--tertiary--disabled-bg-color-focus,
+      var(--outline--default-button--tertiary--disabled-bg-color-focus)
     );
     color: var(
-      --outline-btn--tertiary--disabled-text-color-focus,
-      var(--outline--default-btn--tertiary--disabled-text-color-focus)
+      --outline--button--tertiary--disabled-text-color-focus,
+      var(--outline--default-button--tertiary--disabled-text-color-focus)
     );
     font-weight: var(
-      --outline-btn--tertiary--disabled-weight-focus,
-      var(--outline--default-btn--tertiary--disabled-weight-focus)
+      --outline--button--tertiary--disabled-weight-focus,
+      var(--outline--default-button--tertiary--disabled-weight-focus)
     );
     box-shadow: var(
-      --outline-btn--tertiary--disabled-ring-focus,
-      var(--outline--default-btn--tertiary--disabled-ring-focus)
+      --outline--button--tertiary--disabled-ring-focus,
+      var(--outline--default-button--tertiary--disabled-ring-focus)
     );
   }
 }
 
 .btn.link {
   padding: var(
-    --outline-btn--link-padding,
-    var(--outline-btn-padding, var(--outline--default-btn--link-padding))
+    --outline--button--link-padding,
+    var(--outline-btn-padding, var(--outline--default-button--link-padding))
   );
   border-radius: var(
-    --outline-btn--link-radius,
-    var(--outline-btn-radius, var(--outline--default-btn-radius))
+    --outline--button--link-radius,
+    var(--outline-btn-radius, var(--outline--default-button-radius))
   );
 
   background-color: var(
-    --outline-btn--link-bg-color-default,
-    var(--outline--default-btn--link-bg-color-default)
+    --outline--button--link-bg-color-default,
+    var(--outline--default-button--link-bg-color-default)
   );
   color: var(
-    --outline-btn--link-text-color-default,
-    var(--outline--default-btn--link-text-color-default)
+    --outline--button--link-text-color-default,
+    var(--outline--default-button--link-text-color-default)
   );
   font-weight: var(
-    --outline-btn--link-weight-default,
-    var(--outline--default-btn--link-weight-default)
+    --outline--button--link-weight-default,
+    var(--outline--default-button--link-weight-default)
   );
   text-decoration: var(
-    --outline-btn--link-decoration-default,
-    var(--outline--default-btn--link-decoration-default)
+    --outline--button--link-decoration-default,
+    var(--outline--default-button--link-decoration-default)
   );
   box-shadow: var(
-    --outline-btn--link-ring-default,
-    var(--outline--default-btn--link-ring-default)
+    --outline--button--link-ring-default,
+    var(--outline--default-button--link-ring-default)
   );
 
   &:hover {
     background-color: var(
-      --outline-btn--link-bg-color-hover,
-      var(--outline--default-btn--link-bg-color-hover)
+      --outline--button--link-bg-color-hover,
+      var(--outline--default-button--link-bg-color-hover)
     );
     color: var(
-      --outline-btn--link-text-color-hover,
-      var(--outline--default-btn--link-text-color-hover)
+      --outline--button--link-text-color-hover,
+      var(--outline--default-button--link-text-color-hover)
     );
     font-weight: var(
-      --outline-btn--link-weight-hover,
-      var(--outline--default-btn--link-weight-hover)
+      --outline--button--link-weight-hover,
+      var(--outline--default-button--link-weight-hover)
     );
     text-decoration: var(
-      --outline-btn--link-decoration-hover,
-      var(--outline--default-btn--link-decoration-hover)
+      --outline--button--link-decoration-hover,
+      var(--outline--default-button--link-decoration-hover)
     );
     box-shadow: var(
-      --outline-btn--link-ring-hover,
-      var(--outline--default-btn--link-ring-hover)
+      --outline--button--link-ring-hover,
+      var(--outline--default-button--link-ring-hover)
     );
   }
 
   &:focus {
     background-color: var(
-      --outline-btn--link-bg-color-focus,
-      var(--outline--default-btn--link-bg-color-focus)
+      --outline--button--link-bg-color-focus,
+      var(--outline--default-button--link-bg-color-focus)
     );
     color: var(
-      --outline-btn--link-text-color-focus,
-      var(--outline--default-btn--link-text-color-focus)
+      --outline--button--link-text-color-focus,
+      var(--outline--default-button--link-text-color-focus)
     );
     font-weight: var(
-      --outline-btn--link-weight-focus,
-      var(--outline--default-btn--link-weight-focus)
+      --outline--button--link-weight-focus,
+      var(--outline--default-button--link-weight-focus)
     );
     text-decoration: var(
-      --outline-btn--link-decoration-focus,
-      var(--outline--default-btn--link-decoration-focus)
+      --outline--button--link-decoration-focus,
+      var(--outline--default-button--link-decoration-focus)
     );
     box-shadow: var(
-      --outline-btn--link-ring-focus,
-      var(--outline--default-btn--link-ring-focus)
+      --outline--button--link-ring-focus,
+      var(--outline--default-button--link-ring-focus)
     );
   }
 }
 
 .btn.link[aria-disabled='true'] {
   background-color: var(
-    --outline-btn--link--disabled-bg-color,
-    var(--outline--default-btn--link--disabled-bg-color)
+    --outline--button--link--disabled-bg-color,
+    var(--outline--default-button--link--disabled-bg-color)
   );
   color: var(
-    --outline-btn--link--disabled-text-color,
-    var(--outline--default-btn--link--disabled-text-color)
+    --outline--button--link--disabled-text-color,
+    var(--outline--default-button--link--disabled-text-color)
   );
   font-weight: var(
-    --outline-btn--link--disabled-weight,
-    var(--outline--default-btn--link--disabled-weight)
+    --outline--button--link--disabled-weight,
+    var(--outline--default-button--link--disabled-weight)
   );
   text-decoration: var(
-    --outline-btn--link--disabled-decoration,
-    var(--outline--default-btn--link--disabled-decoration)
+    --outline--button--link--disabled-decoration,
+    var(--outline--default-button--link--disabled-decoration)
   );
   box-shadow: var(
-    --outline-btn--link--disabled-ring,
-    var(--outline--default-btn--link--disabled-ring)
+    --outline--button--link--disabled-ring,
+    var(--outline--default-button--link--disabled-ring)
   );
 
   &:focus {
     background-color: var(
-      --outline-btn--link--disabled-bg-color-focus,
-      var(--outline--default-btn--link--disabled-bg-color-focus)
+      --outline--button--link--disabled-bg-color-focus,
+      var(--outline--default-button--link--disabled-bg-color-focus)
     );
     color: var(
-      --outline-btn--link--disabled-text-color-focus,
-      var(--outline--default-btn--link--disabled-text-color-focus)
+      --outline--button--link--disabled-text-color-focus,
+      var(--outline--default-button--link--disabled-text-color-focus)
     );
     font-weight: var(
-      --outline-btn--link--disabled-weight-focus,
-      var(--outline--default-btn--link--disabled-weight-focus)
+      --outline--button--link--disabled-weight-focus,
+      var(--outline--default-button--link--disabled-weight-focus)
     );
     text-decoration: var(
-      --outline-btn--link--disabled-decoration-focus,
-      var(--outline--default-btn--link--disabled-decoration-focus)
+      --outline--button--link--disabled-decoration-focus,
+      var(--outline--default-button--link--disabled-decoration-focus)
     );
     box-shadow: var(
-      --outline-btn--link--disabled-ring-focus,
-      var(--outline--default-btn--link--disabled-ring-focus)
+      --outline--button--link--disabled-ring-focus,
+      var(--outline--default-button--link--disabled-ring-focus)
     );
   }
 }

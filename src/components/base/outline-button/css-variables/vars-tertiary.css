@@ -8,61 +8,61 @@ The variables used to override the default
 */
 
 /* 
---outline-btn--tertiary-padding
---outline-btn--tertiary-radius
---outline-btn--tertiary-padding
---outline-btn--tertiary-radius
---outline-btn--tertiary-bg-color-default
---outline-btn--tertiary-text-color-default
---outline-btn--tertiary-weight-default
---outline-btn--tertiary-ring-default
---outline-btn--tertiary-bg-color-hover
---outline-btn--tertiary-text-color-hover
---outline-btn--tertiary-weight-hover
---outline-btn--tertiary-ring-hover
---outline-btn--tertiary-bg-color-focus
---outline-btn--tertiary-text-color-focus
---outline-btn--tertiary-weight-focus
---outline-btn--tertiary-ring-focus
---outline-btn--tertiary--disabled-bg-color
---outline-btn--tertiary--disabled-text-color
---outline-btn--tertiary--disabled-weight
---outline-btn--tertiary--disabled-ring
---outline-btn--tertiary--disabled-bg-color-focus
---outline-btn--tertiary--disabled-text-color-focus
---outline-btn--tertiary--disabled-weight-focus
---outline-btn--tertiary--disabled-ring-focus
+--outline--button--tertiary-padding
+--outline--button--tertiary-radius
+--outline--button--tertiary-padding
+--outline--button--tertiary-radius
+--outline--button--tertiary-bg-color-default
+--outline--button--tertiary-text-color-default
+--outline--button--tertiary-weight-default
+--outline--button--tertiary-ring-default
+--outline--button--tertiary-bg-color-hover
+--outline--button--tertiary-text-color-hover
+--outline--button--tertiary-weight-hover
+--outline--button--tertiary-ring-hover
+--outline--button--tertiary-bg-color-focus
+--outline--button--tertiary-text-color-focus
+--outline--button--tertiary-weight-focus
+--outline--button--tertiary-ring-focus
+--outline--button--tertiary--disabled-bg-color
+--outline--button--tertiary--disabled-text-color
+--outline--button--tertiary--disabled-weight
+--outline--button--tertiary--disabled-ring
+--outline--button--tertiary--disabled-bg-color-focus
+--outline--button--tertiary--disabled-text-color-focus
+--outline--button--tertiary--disabled-weight-focus
+--outline--button--tertiary--disabled-ring-focus
 */
 
---outline--default-btn--tertiary-padding: var(--outline--default-btn-padding);
---outline--default-btn--tertiary-radius: var(--outline--default-btn-radius); 
+--outline--default-button--tertiary-padding: var(--outline--default-button-padding);
+--outline--default-button--tertiary-radius: var(--outline--default-button-radius); 
 
 /* Tertiary Button(s) - Default */
---outline--default-btn--tertiary-bg-color-default: var(--outline-soft-black);
---outline--default-btn--tertiary-text-color-default: var(--outline-white);
---outline--default-btn--tertiary-weight-default: var(--outline--default-btn-weight);
---outline--default-btn--tertiary-ring-default: none;
+--outline--default-button--tertiary-bg-color-default: var(--outline-soft-black);
+--outline--default-button--tertiary-text-color-default: var(--outline-white);
+--outline--default-button--tertiary-weight-default: var(--outline--default-button-weight);
+--outline--default-button--tertiary-ring-default: none;
 
 /* Tertiary Button(s) - Hover */
---outline--default-btn--tertiary-bg-color-hover: var(--outline-white);
---outline--default-btn--tertiary-text-color-hover: var(--outline-soft-black);
---outline--default-btn--tertiary-weight-hover: var(--outline--default-btn-weight);
---outline--default-btn--tertiary-ring-hover: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-soft-black);
+--outline--default-button--tertiary-bg-color-hover: var(--outline-white);
+--outline--default-button--tertiary-text-color-hover: var(--outline-soft-black);
+--outline--default-button--tertiary-weight-hover: var(--outline--default-button-weight);
+--outline--default-button--tertiary-ring-hover: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-soft-black);
 
 /* Tertiary Button(s) - Focus */
---outline--default-btn--tertiary-bg-color-focus: var(--outline-white);
---outline--default-btn--tertiary-text-color-focus: var(--outline-soft-black);
---outline--default-btn--tertiary-weight-focus: var(--outline--default-btn-weight);
---outline--default-btn--tertiary-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-soft-black);
+--outline--default-button--tertiary-bg-color-focus: var(--outline-white);
+--outline--default-button--tertiary-text-color-focus: var(--outline-soft-black);
+--outline--default-button--tertiary-weight-focus: var(--outline--default-button-weight);
+--outline--default-button--tertiary-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-soft-black);
 
 /* Tertiary Button(s) - Disabled */
---outline--default-btn--tertiary--disabled-bg-color: var(--outline-white);
---outline--default-btn--tertiary--disabled-text-color: var(--outline-gray-400);
---outline--default-btn--tertiary--disabled-weight: var(--outline--default-btn-weight);
---outline--default-btn--tertiary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300);
+--outline--default-button--tertiary--disabled-bg-color: var(--outline-white);
+--outline--default-button--tertiary--disabled-text-color: var(--outline-gray-400);
+--outline--default-button--tertiary--disabled-weight: var(--outline--default-button-weight);
+--outline--default-button--tertiary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300);
 
 /* Tertiary Button(s) - Disabled:Focus */
---outline--default-btn--tertiary--disabled-bg-color-focus: var(--outline-white);
---outline--default-btn--tertiary--disabled-text-color-focus: var(--outline-gray-400);
---outline--default-btn--tertiary--disabled-weight-focus: var(--outline--default-btn-weight);
---outline--default-btn--tertiary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400);
+--outline--default-button--tertiary--disabled-bg-color-focus: var(--outline-white);
+--outline--default-button--tertiary--disabled-text-color-focus: var(--outline-gray-400);
+--outline--default-button--tertiary--disabled-weight-focus: var(--outline--default-button-weight);
+--outline--default-button--tertiary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400);

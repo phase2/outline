@@ -8,60 +8,60 @@ The variables used to override the default
 */
 
 /* 
---outline-btn--secondary-padding
---outline-btn--secondary-radius
---outline-btn--secondary-bg-color-default
---outline-btn--secondary-text-color-default
---outline-btn--secondary-weight-default
---outline-btn--secondary-ring-default
---outline-btn--secondary-bg-color-hover
---outline-btn--secondary-text-color-hover
---outline-btn--secondary-weight-hover
---outline-btn--secondary-ring-hover
---outline-btn--secondary-bg-color-focus
---outline-btn--secondary-text-color-focus
---outline-btn--secondary-weight-focus
---outline-btn--secondary-ring-focus
---outline-btn--secondary--disabled-bg-color
---outline-btn--secondary--disabled-text-color
---outline-btn--secondary--disabled-weight
---outline-btn--secondary--disabled-ring
---outline-btn--secondary--disabled-bg-color-focus
---outline-btn--secondary--disabled-text-color-focus
---outline-btn--secondary--disabled-weight-focus
---outline-btn--secondary--disabled-ring-focus
+--outline--button--secondary-padding
+--outline--button--secondary-radius
+--outline--button--secondary-bg-color-default
+--outline--button--secondary-text-color-default
+--outline--button--secondary-weight-default
+--outline--button--secondary-ring-default
+--outline--button--secondary-bg-color-hover
+--outline--button--secondary-text-color-hover
+--outline--button--secondary-weight-hover
+--outline--button--secondary-ring-hover
+--outline--button--secondary-bg-color-focus
+--outline--button--secondary-text-color-focus
+--outline--button--secondary-weight-focus
+--outline--button--secondary-ring-focus
+--outline--button--secondary--disabled-bg-color
+--outline--button--secondary--disabled-text-color
+--outline--button--secondary--disabled-weight
+--outline--button--secondary--disabled-ring
+--outline--button--secondary--disabled-bg-color-focus
+--outline--button--secondary--disabled-text-color-focus
+--outline--button--secondary--disabled-weight-focus
+--outline--button--secondary--disabled-ring-focus
 */
 
 /* Secondary Button(s) */
---outline--default-btn--secondary-padding: var(--outline--default-btn-padding);
---outline--default-btn--secondary-radius: var(--outline--default-btn-radius);
+--outline--default-button--secondary-padding: var(--outline--default-button-padding);
+--outline--default-button--secondary-radius: var(--outline--default-button-radius);
 
 /* Secondary Button(s) - Default */
---outline--default-btn--secondary-bg-color-default: var(--outline-white);
---outline--default-btn--secondary-text-color-default: var(--outline-blue-600);
---outline--default-btn--secondary-weight-default: var(--outline--default-btn-weight);
---outline--default-btn--secondary-ring-default: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600);
+--outline--default-button--secondary-bg-color-default: var(--outline-white);
+--outline--default-button--secondary-text-color-default: var(--outline-blue-600);
+--outline--default-button--secondary-weight-default: var(--outline--default-button-weight);
+--outline--default-button--secondary-ring-default: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600);
 
 /* Secondary Button(s) - Hover */
---outline--default-btn--secondary-bg-color-hover: var(--outline-blue-600);
---outline--default-btn--secondary-text-color-hover: var(--outline-white);
---outline--default-btn--secondary-weight-hover: var(--outline--default-btn-weight);
---outline--default-btn--secondary-ring-hover: none;
+--outline--default-button--secondary-bg-color-hover: var(--outline-blue-600);
+--outline--default-button--secondary-text-color-hover: var(--outline-white);
+--outline--default-button--secondary-weight-hover: var(--outline--default-button-weight);
+--outline--default-button--secondary-ring-hover: none;
 
 /* Secondary Button(s) - Focus */
---outline--default-btn--secondary-bg-color-focus: var(--outline-blue-600);
---outline--default-btn--secondary-text-color-focus: var(--outline-white);
---outline--default-btn--secondary-weight-focus: var(--outline--default-btn-weight);
---outline--default-btn--secondary-ring-focus: none;
+--outline--default-button--secondary-bg-color-focus: var(--outline-blue-600);
+--outline--default-button--secondary-text-color-focus: var(--outline-white);
+--outline--default-button--secondary-weight-focus: var(--outline--default-button-weight);
+--outline--default-button--secondary-ring-focus: none;
 
 /* Secondary Button(s) - Disabled */
---outline--default-btn--secondary--disabled-bg-color: var(--outline-white);
---outline--default-btn--secondary--disabled-text-color: var(--outline-gray-400);
---outline--default-btn--secondary--disabled-weight: var(--outline--default-btn-weight);
---outline--default-btn--secondary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300);
+--outline--default-button--secondary--disabled-bg-color: var(--outline-white);
+--outline--default-button--secondary--disabled-text-color: var(--outline-gray-400);
+--outline--default-button--secondary--disabled-weight: var(--outline--default-button-weight);
+--outline--default-button--secondary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300);
 
 /* Secondary Button(s) - Disabled:Focus */
---outline--default-btn--secondary--disabled-bg-color-focus: var(--outline-white);
---outline--default-btn--secondary--disabled-text-color-focus: var(--outline-gray-400);
---outline--default-btn--secondary--disabled-weight-focus: var(--outline--default-btn-weight);
---outline--default-btn--secondary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400);
+--outline--default-button--secondary--disabled-bg-color-focus: var(--outline-white);
+--outline--default-button--secondary--disabled-text-color-focus: var(--outline-gray-400);
+--outline--default-button--secondary--disabled-weight-focus: var(--outline--default-button-weight);
+--outline--default-button--secondary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400);
