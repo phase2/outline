@@ -1,17 +1,17 @@
 /*
- * Default CSS Variables for `outline-button`.
- * You can override these using `outline.theme.css`, 
- * or any css file in your consumer application with
- * a later loading order than `outline.theme.css`.
- * The variables used to override the default 
- * `outline-button` variables are as follows:
- */
+Default CSS Variables for `outline-button`.
+You can override these using `outline.theme.css`, 
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default 
+`outline-button` variables are as follows:
+*/
 
 /* 
---outline-btn-weight: var(--fw-semibold);
---outline-btn-family: var(--ff-body);
---outline-btn-padding: 0.5em 1em; 
---outline-btn-border-radius: var(--spacing-2);
+--outline-btn-weight
+--outline-btn-family
+--outline-btn-padding
+--outline-btn-border-radius
 */
 
 --outline--default-btn-family: var(--ff-body);

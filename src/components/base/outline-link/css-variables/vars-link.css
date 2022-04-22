@@ -6,18 +6,6 @@
  * The variables used to override the default 
  * `outline-link` variables are as follows:
  */
- 
-/*
---outline-link-transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
---outline-link-transition-duration: 150ms;
---outline-link-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
---outline-link-color-default: blue;
---outline-link-color-default-decoration: none;
---outline-link-color-hover: tomato;
---outline-link-color-hover-decoration: underline;
---outline-link-color-focus: yellow;
---outline-link-color-focus-decoration: underline;
-*/
 
 --outline--default-link-transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
 --outline--default-link-transition-duration: 150ms;

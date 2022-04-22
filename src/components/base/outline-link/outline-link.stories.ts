@@ -52,7 +52,7 @@ The primary coloring of the \`outline-link\` component is handled by the followi
 
 > Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.
 
-Additional documentation and references for these CSS Variables can be found in \`vars-link.css\`.
+Additional documentation and references for these CSS Variables can be found in \`outline-link/css-variables/vars-link.css\`.
 
 - \`--outline-link-transition-property\`: The CSS transition property to use for the link.
 - \`--outline-link-transition-duration\`: The CSS transition duration to use for the link.

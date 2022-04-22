@@ -28,8 +28,8 @@ export type ButtonSize = 'small' | 'medium' | 'large';
 @customElement('outline-button')
 export class OutlineButton extends OutlineElement {
   static styles: CSSResultGroup = [
-    defaultVars,
     linkVars,
+    defaultVars,
     primaryButtonVars,
     secondaryButtonVars,
     tertiaryButtonVars,
