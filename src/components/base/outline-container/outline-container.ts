@@ -8,7 +8,12 @@ import type { HorizontalAlignment } from '../outline-element/utils/types';
 
 /**
  * The Outline  Link component
+ * @element outline-link
+ * @extends OutlineElement
  * @slot - The default, and only slot for this element.
+ * @cssprop --outline-container-padding-x: The horizontal padding for the container.;
+ * @cssprop --outline-container-padding-y: The vertical padding for the container.;
+ * @todo: Cleanup default responsive CSS styling and Tailwind CSS usage.
  */
 @customElement('outline-container')
 export class OutlineContainer extends OutlineElement {
