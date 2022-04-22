@@ -15,7 +15,7 @@ The variables used to override the default
 --outline-admin-links--default-bg-default: var(--outline-gray-100);
 --outline-admin-links--default-bg-hover: var(--outline-gray-300);
 --outline-admin-links--default-bg-focus: var(--outline-gray-300);
---outline-admin-links--default-bg-active: var(--outline-gray-600);
+--outline-admin-links--default-bg-active: var(--outline-blue-600);
 --outline-admin-links--default-y-spacing: var(--spacing-4);
 --outline-admin-links--default-link-y-spacing: var(--spacing-4);
 --outline-admin-links--default-link-x-spacing: var(--spacing-6);

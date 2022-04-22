@@ -15,6 +15,6 @@ The variables used to override the default
 --outline-breadcrumb--default-link-decoration-default: none;
 --outline-breadcrumb--default-link-decoration-hover: underline;
 --outline-breadcrumb--default-link-decoration-focus: underline;
---outline-breadcrumb--default-bg-color: var(--outline-gray-600);
+--outline-breadcrumb--default-bg-color: var(--outline-blue-600);
 --outline-breadcrumb--default-bg-padding: var(--spacing-4) var(--spacing-4);
 --outline-breadcrumb--default-separator-spacing: var(--spacing-2);

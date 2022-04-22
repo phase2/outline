@@ -63,7 +63,7 @@ a {
   }
 
   &:focus {
-    outline: 0;
+    outline: none;
     background: var(
       --outline-admin-links-bg-focus,
       var(--outline-admin-links--default-bg-focus)
@@ -114,11 +114,11 @@ a {
   }
 }
 
-.visually-hidden {
+/* .visually-hidden {
   position: absolute !important;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
   width: 1px;
   height: 1px;
   word-wrap: normal;
-}
+} */
