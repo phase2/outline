@@ -57,6 +57,12 @@ export default class OutlineIcon extends OutlineElement {
   @property({ attribute: 'size' })
   size: string | boolean = outline.icons.defaults.size;
 
+  /**
+   * A prop to override the the default inherited icon color.
+   */
+  @property({ type: String })
+  color: string;
+
   connectedCallback() {
     super.connectedCallback();
     watchIcon(this);
@@ -65,6 +71,7 @@ export default class OutlineIcon extends OutlineElement {
   firstUpdated() {
     this.setIcon();
     this.sizeIcon();
+    this.colorIcon();
   }
 
   disconnectedCallback() {
@@ -82,6 +89,14 @@ export default class OutlineIcon extends OutlineElement {
         this.shadowRoot?.querySelector('.icon');
       icon?.style.setProperty('width', this.size);
       icon?.style.setProperty('height', this.size);
+    }
+  }
+
+  private colorIcon() {
+    if (this.color && this.color !== '') {
+      const icon: HTMLElement | null | undefined =
+        this.shadowRoot?.querySelector('.icon');
+      icon?.style.setProperty('color', `var(--${this.color})`);
     }
   }
 
