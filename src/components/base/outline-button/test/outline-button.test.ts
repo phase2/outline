@@ -12,7 +12,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" class="btn medium primary">
+      <button aria-disabled="false" class="btn medium primary" type="button">
         <slot></slot>
       </button>
     `
@@ -25,7 +25,7 @@ describe('outline-button', () => {
       {
         args: ['none'],
         expected: `
-        <button aria-disabled="false" class="btn medium none">
+        <button aria-disabled="false" class="btn medium none" type="button">
           <slot></slot>
         </button>
       `,
@@ -33,7 +33,7 @@ describe('outline-button', () => {
       {
         args: ['primary'],
         expected: `
-        <button aria-disabled="false" class="btn medium primary">
+        <button aria-disabled="false" class="btn medium primary" type="button">
           <slot></slot>
         </button>
       `,
@@ -41,7 +41,7 @@ describe('outline-button', () => {
       {
         args: ['secon'],
         expected: `
-        <button aria-disabled="false" class="btn medium secondary">
+        <button aria-disabled="false" class="btn medium secondary" type="button">
           <slot></slot>
         </button>
       `,
@@ -63,7 +63,7 @@ describe('outline-button', () => {
       {
         args: 'small',
         expected: `
-      <button aria-disabled="false" class="btn small primary">
+      <button aria-disabled="false" class="btn small primary" type="button">
         <slot></slot>
       </button>
     `,
@@ -71,7 +71,7 @@ describe('outline-button', () => {
       {
         args: 'medium',
         expected: `
-      <button aria-disabled="false" class="btn medium primary">
+      <button aria-disabled="false" class="btn medium primary" type="button">
         <slot></slot>
       </button>
     `,
@@ -79,7 +79,7 @@ describe('outline-button', () => {
       {
         args: 'large',
         expected: `
-      <button aria-disabled="false" class="btn large primary">
+      <button aria-disabled="false" class="btn large primary" type="button">
         <slot></slot>
       </button>
     `,
@@ -121,7 +121,9 @@ describe('outline-button', () => {
   // Test button type 'submit', 'reset' or 'button' (button by default)
 
   it('renders button type as attribute', async () => {
-    const el = await fixture(html`<outline-button></outline-button>`);
+    const el = await fixture(
+      html`<outline-button button-type="button"></outline-button>`
+    );
     assert.shadowDom.equal(
       el,
       `
@@ -169,7 +171,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" aria-label="Button label" class="btn medium primary">
+      <button aria-disabled="false" aria-label="Button label" class="btn medium primary" type="button">
         <slot></slot>
       </button>
     `
@@ -200,7 +202,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="true" class="btn medium primary">
+      <button aria-disabled="true" class="btn medium primary" type="button">
         <slot></slot>
       </button>
     `
@@ -214,7 +216,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" class="btn medium primary">
+      <button aria-disabled="false" class="btn medium primary" type="button">
         <slot></slot>
       </button>
     `
@@ -231,7 +233,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" class="btn small primary">
+      <button aria-disabled="false" class="btn small primary" type="button">
         <slot></slot>
       </button>
     `
@@ -248,7 +250,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" class="btn large primary">
+      <button aria-disabled="false" class="btn large primary" type="button">
         <slot></slot>
       </button>
     `
@@ -262,7 +264,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" class="btn medium secondary">
+      <button aria-disabled="false" class="btn medium secondary" type="button">
         <slot></slot>
       </button>
     `
@@ -276,7 +278,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" class="btn medium none">
+      <button aria-disabled="false" class="btn medium none" type="button">
         <slot></slot>
       </button>
     `
