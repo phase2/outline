@@ -19,6 +19,149 @@ describe('outline-button', () => {
     );
   });
 
+  // Test the ButtonVariant and assert the values are rendered as classes - Dan
+  it('renders ButtonVariant as classes, for valid variant types', async () => {
+    const tests = [
+      {
+        args: ['none'],
+        expected: `
+        <button aria-disabled="false" class="btn medium none">
+          <slot></slot>
+        </button>
+      `,
+      },
+      {
+        args: ['primary'],
+        expected: `
+        <button aria-disabled="false" class="btn medium primary">
+          <slot></slot>
+        </button>
+      `,
+      },
+      {
+        args: ['secon'],
+        expected: `
+        <button aria-disabled="false" class="btn medium secondary">
+          <slot></slot>
+        </button>
+      `,
+      },
+    ];
+
+    tests.forEach(async ({ args, expected }) => {
+      const el = await fixture(
+        html`<outline-button button-variant="${args}"></outline-button>`
+      );
+      assert.shadowDom.equal(el, expected);
+    });
+  });
+
+  // Test the ButtonVariant and assert values not in type return 'error'
+  // Test the ButtonSize and assert the values are rendered as classes - Jacob
+  it('renders ButtonSize values as classes', async () => {
+    const tests = [
+      {
+        args: 'small',
+        expected: `
+      <button aria-disabled="false" class="btn small primary">
+        <slot></slot>
+      </button>
+    `,
+      },
+      {
+        args: 'medium',
+        expected: `
+      <button aria-disabled="false" class="btn medium primary">
+        <slot></slot>
+      </button>
+    `,
+      },
+      {
+        args: 'large',
+        expected: `
+      <button aria-disabled="false" class="btn large primary">
+        <slot></slot>
+      </button>
+    `,
+      },
+    ];
+    tests.forEach(async ({ args, expected }) => {
+      it(`correctly renders button-size classes `, async () => {
+        const el = await fixture(
+          html`<outline-button button-size="${args}"></outline-button>`
+        );
+        assert.shadowDom.equal(el, expected);
+      });
+    });
+  });
+  // cleaner?
+  // it('renders ButtonSize values as classes', async () => {
+  //   const tests = [
+  //     {args: 'small', expected: `class="btn small primary"`},
+  //     {args: 'medium', expected: `class="btn medium primary"`},
+  //     {args: 'large', expected: `class="btn large primary"`}
+  //   ];
+  //   tests.forEach(async ({args, expected}) => {
+  //     it(`correctly renders button-size classes `, async () => {
+  //       const el = await fixture(
+  //         html`<outline-button button-size="${args}"></outline-button>`
+  //       );
+  //       assert.shadowDom.equal(
+  //         el,
+  //         expected
+  //       );
+  //     });
+  //   });
+  // });
+  // Test the ButtonSize and assert values not in type return 'error' - Ian
+  // Test the onClick handler - Peter
+
+  // Test the onKeyUp handler
+
+  // Test button type 'submit', 'reset' or 'button' (button by default)
+
+  it('renders button type as attribute', async () => {
+    const el = await fixture(html`<outline-button></outline-button>`);
+    assert.shadowDom.equal(
+      el,
+      `
+      <button aria-disabled="false" class="btn medium primary" type="button">
+        <slot></slot>
+      </button>
+    `
+    );
+  });
+
+  it('renders button type as attribute', async () => {
+    const el = await fixture(
+      html`<outline-button button-type="submit"></outline-button>`
+    );
+    assert.shadowDom.equal(
+      el,
+      `
+      <button aria-disabled="false" class="btn medium primary" type="submit">
+        <slot></slot>
+      </button>
+    `
+    );
+  });
+
+  it('renders button type as attribute', async () => {
+    const el = await fixture(
+      html`<outline-button button-type="reset"></outline-button>`
+    );
+    assert.shadowDom.equal(
+      el,
+      `
+      <button aria-disabled="false" class="btn medium primary" type="reset">
+        <slot></slot>
+      </button>
+    `
+    );
+  });
+
+  // Test button use of left or right icon with empty slot, assert aria-label
+
   it('renders with an aria-label', async () => {
     const el = await fixture(
       html`<outline-button button-label="Button label"></outline-button>`
@@ -143,5 +286,13 @@ describe('outline-button', () => {
   it('renders with slotted content', async () => {
     const el = await fixture(html`<outline-button>Test</outline-button>`);
     assert.lightDom.equal(el, `Test`);
+  });
+
+  it('does not apply variant styles when invalid buttonVariant is added', async () => {
+    const el = (await fixture(
+      html`<outline-button variant="invalid">Test</outline-button>`
+    )) as HTMLElement;
+    const variants = ['primary', 'secondary', 'none'];
+    variants.map(variant => assert(!el.classList.contains(variant)));
   });
 });

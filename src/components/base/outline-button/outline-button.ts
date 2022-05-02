@@ -10,6 +10,8 @@ export type ButtonVariant = 'none' | 'primary' | 'secondary';
 
 export type ButtonSize = 'small' | 'medium' | 'large';
 
+export type ButtonType = 'button' | 'submit' | 'reset';
+
 /**
  * The Outline Button component
  * @element outline-button
@@ -61,6 +63,12 @@ export class OutlineButton extends OutlineElement {
   buttonSize: ButtonSize = 'medium';
 
   /**
+   * The button type ()
+   */
+  @property({ type: String, attribute: 'button-type' })
+  buttonType: ButtonType = 'button';
+
+  /**
    * Whether the button is disabled. Only applies to
    * implementations not using the url property
    */
@@ -105,6 +113,7 @@ export class OutlineButton extends OutlineElement {
         </a>`
       : html`<button
           class="btn ${this.buttonVariant} ${this.buttonSize}"
+          type="${this.buttonType}"
           aria-label="${ifDefined(this.buttonLabel)}"
           aria-disabled="${ifDefined(this.isDisabled)}"
           .onclick="${this.onClick}"
