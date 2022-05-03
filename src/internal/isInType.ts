@@ -2,7 +2,11 @@
 // Returns a boolean whether the value is in the provided type
 //
 export function isInType<T>(x: T, values: readonly T[]): x is T {
-  return values.includes(x);
+  const result = values.includes(x);
+  if (!result) {
+    typeWarning(x, values);
+  }
+  return result;
 }
 
 export function typeWarning<T>(value: T, type: readonly T[]) {

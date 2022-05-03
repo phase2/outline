@@ -5,7 +5,7 @@ import { LinkTargetType } from '../outline-link/config';
 import { OutlineElement } from '../outline-element/outline-element';
 import { SlotController } from '../../controllers/slot-controller';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { isInType, typeWarning } from '../../../internal/isInType';
+import { isInType } from '../../../internal/isInType';
 
 const buttonVariants = ['none', 'primary', 'secondary'] as const;
 export type ButtonVariant = typeof buttonVariants[number];
@@ -59,9 +59,6 @@ export class OutlineButton extends OutlineElement {
     type: String,
     attribute: 'button-variant',
     converter: value => {
-      !isInType(value, buttonVariants)
-        ? typeWarning(value, buttonVariants)
-        : null;
       return isInType(value, buttonVariants) ? value : '';
     },
   })
