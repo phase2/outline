@@ -1,6 +1,10 @@
-import { OutlineButton } from '../outline-button';
+import {
+  OutlineButton,
+  ButtonVariant,
+  ButtonSize,
+  ButtonType,
+} from '../outline-button';
 import { assert, expect, fixture, html } from '@open-wc/testing';
-import { ButtonVariant, ButtonSize, ButtonType } from '../outline-button';
 
 describe('outline-button', () => {
   const buttonVariants: Array<ButtonVariant> = ['none', 'primary', 'secondary'];
@@ -119,7 +123,6 @@ describe('outline-button', () => {
     const el = (await fixture(
       html`<outline-button variant="invalid">Test</outline-button>`
     )) as HTMLElement;
-    const variants = ['primary', 'secondary', 'none'];
-    variants.map(variant => assert(!el.classList.contains(variant)));
+    buttonVariants.map(variant => assert(!el.classList.contains(variant)));
   });
 });
