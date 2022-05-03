@@ -4,7 +4,7 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { ButtonSize, ButtonVariant } from '../outline-button/outline-button';
 import './outline-dropdown.ts';
 
-const triggerVariants: ButtonVariant[] = ['none', 'primary', 'secondary'];
+const triggerVariants: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];
 const triggerSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 const configuration = {
@@ -300,7 +300,7 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
 <div class="flex flex-row flex-wrap">
   <outline-dropdown 
     trigger-text="Dropdown Menu & Link" 
-    trigger-variant="none" 
+    trigger-variant="link" 
     trigger-size="medium" 
     trigger-url="https://outline.phase2tech.com/"
   >  
@@ -314,7 +314,7 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
   </outline-dropdown>
   <outline-dropdown 
     trigger-text="Disabled Link" 
-    trigger-variant="none" 
+    trigger-variant="link" 
     trigger-size="medium" 
     trigger-url="https://outline.phase2tech.com/" 
     is-disabled
@@ -322,14 +322,14 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
   </outline-dropdown>
   <outline-dropdown 
     trigger-text="Link Only" 
-    trigger-variant="none" 
+    trigger-variant="link" 
     trigger-size="medium" 
     trigger-url="https://outline.phase2tech.com/" 
   >
   </outline-dropdown>
   <outline-dropdown 
     trigger-text="Dropdown" 
-    trigger-variant="none" 
+    trigger-variant="link" 
     trigger-size="medium"
   >
     <div slot="dropdown">
@@ -339,7 +339,7 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
   </outline-dropdown>
   <outline-dropdown 
     trigger-text="Dropdown & Link" 
-    trigger-variant="none" 
+    trigger-variant="link" 
     trigger-size="medium" 
     trigger-url="https://outline.phase2tech.com/"
   >  
@@ -350,7 +350,7 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
   </outline-dropdown>
   <outline-dropdown 
     trigger-text="Disabled Dropdown" 
-    trigger-variant="none" 
+    trigger-variant="link" 
     trigger-size="medium" 
     is-disabled
   >

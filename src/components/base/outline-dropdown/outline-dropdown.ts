@@ -102,7 +102,7 @@ export default class OutlineDropdown extends OutlineElement {
    * The button style variant to use.
    */
   @property({ type: String, attribute: 'trigger-variant' })
-  triggerVariant: ButtonVariant = 'none';
+  triggerVariant: ButtonVariant = 'link';
 
   @state() hasHeader: boolean;
   @state() hasDropdown: boolean;
@@ -382,7 +382,7 @@ export default class OutlineDropdown extends OutlineElement {
       <span
         class=${classMap({
           icon__trigger: true,
-          icon__bordered: this.triggerUrl && this.triggerVariant !== 'none',
+          icon__bordered: this.triggerUrl && this.triggerVariant !== 'link',
         })}
       >
         ${this.triggerUrl
