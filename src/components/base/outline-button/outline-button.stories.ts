@@ -6,7 +6,7 @@ import {
 import { ButtonVariant, ButtonSize } from './outline-button';
 import './outline-button';
 
-const buttonOptions: ButtonVariant[] = ['none', 'primary', 'secondary'];
+const buttonOptions: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];
 const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default {
@@ -81,6 +81,19 @@ This component renders a button that can either be a link or trigger an action.
 ## Difference from \`button\` element
 
 This is rendered as an \`a\` element if a link and a \`button\` element if not a link. This allows for consistent styling that matches the user expectation of a button while matching the browser expectation for those elements.
+
+## CSS Variables
+
+The primary coloring of the \`outline-button\` component is handled by the following CSS Variables. 
+
+> Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.
+
+Additional documentation and references for these CSS Variables can be found in \`outline-button/css-variables/vars-default.css\`.
+
+- \`--outline-btn-weight\`
+- \`--outline-btn-family\`
+- \`--outline-btn-padding\`
+- \`--outline-btn-border-radius\`
         `,
       },
     },
@@ -120,7 +133,7 @@ Link.args = {
   isDisabled: false,
 };
 
-const inlineIconDecorator = [
+const inlineButtonsDecorator = [
   (Story): TemplateResult => html`
 <div class="flex flex-row">
 ${Story()}
@@ -167,7 +180,6 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
 
 export const PrimaryButtons = PrimaryButtonsTemplate.bind({});
 PrimaryButtons.parameters = {
-  name: 'Primary Button',
   docs: {
     source: {
       code: `
@@ -175,12 +187,13 @@ PrimaryButtons.parameters = {
 <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
 <outline-button class="mr-2" button-url="#" button-label="Button">Button</outline-button>
 <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
-<!-- Primary Buttons (Disabled) -->
+<!-- Primary Buttons (Disabled State) -->
 <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
 <outline-button class="mr-2" button-url="#" button-label="Button" is-disabled>Button</outline-button>
 <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
-      `,
-    },
+`,
+    }, 
+  
   },
 };
 
@@ -220,7 +233,6 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
 `;
 
 export const SecondaryButtons = SecondaryButtonsTemplate.bind({});
-//PrimaryButtons.decorators = inlineIconDecorator;
 SecondaryButtonsTemplate.parameters = {
   name: 'Secondary Button',
   docs: {
@@ -239,12 +251,69 @@ SecondaryButtonsTemplate.parameters = {
   },
 };
 
+const TertiaryButtonsTemplate = (): TemplateResult =>
+  html`
+  <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
+  <p>This section of primary buttons demonstrates various configurations, and can be navigated to test hover/focus states.</p>
+  <div class="my-6">
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button">Button</outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
+  </div>
+  
+  <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>  
+  <p>This section of primary buttons demonstrates the disabled version of the same buttons as the previous example.</p>
+  
+  <div class="my-6">
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
+  </div>
+
+  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>  
+  <p>This section highlights using icons in the primary button.</p>
+  
+  <div class="my-6">
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button">
+      Large Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button">
+      Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>
+    <outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button">
+      Small Button
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
+    </outline-button>  
+  </div>
+`;
+
+export const TertiaryButtons = TertiaryButtonsTemplate.bind({});
+PrimaryButtons.parameters = {
+  name: 'Tertiary Button',
+  docs: {
+    source: {
+      code: `
+<!-- Primary Buttons -->
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button">Button</outline-button>
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
+<!-- Primary Buttons (Disabled) -->
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-button>
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-label="Button" is-disabled>Button</outline-button>
+<outline-button class="mr-2" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button" is-disabled>Small Button</outline-button>
+      `,
+    },
+  },
+};
+
 const LinkButtonsTemplate = (): TemplateResult =>
   html`  
-  <outline-button class="mr-2" button-variant="none" button-url="#">Link Button</outline-button>
-  <outline-button class="mr-2" button-variant="none" button-url="#" icon-right="chevron-down">Link Button</outline-button>
-  <outline-button class="mr-2" button-variant="none" button-url="#" is-disabled>Disabled Link Button</outline-button>
+  <outline-button class="mr-2" button-variant="link" button-url="#">Link Button</outline-button>
+  <outline-button class="mr-2" button-variant="link" button-url="#" icon-right="chevron-down">Link Button</outline-button>
+  <outline-button class="mr-2" button-variant="link" button-url="#" is-disabled>Disabled Link Button</outline-button>
 `;
 
 export const LinkButtons = LinkButtonsTemplate.bind({});
-LinkButtons.decorators = inlineIconDecorator;
+LinkButtons.decorators = inlineButtonsDecorator;

@@ -147,12 +147,12 @@ export default class OutlineIcon extends OutlineElement {
       icon: true,
       [`icon-library--${this.library}`]: this.library,
     };
+    // aria-hidden=${ifDefined(hasLabel ? undefined : 'true')}
     return html` <div
       part="base"
       class="${classMap(wrapperClasses)}"
       role=${ifDefined(hasLabel ? 'img' : undefined)}
       aria-label=${ifDefined(hasLabel ? this.label : undefined)}
-      aria-hidden=${ifDefined(hasLabel ? undefined : 'true')}
     >
       ${unsafeSVG(this.svg)}
     </div>`;

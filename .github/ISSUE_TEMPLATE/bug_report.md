@@ -1,8 +1,8 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Bug Report
+about: Create a bug report to help us improve an individual component, or the platform in general.
 title: "[Bug]: "
-labels: ["Type: bug", "Requires Triage"]
+labels: ["Type: Bug", "Requires Triage"]
 assignees: ''
 
 ---

@@ -14,7 +14,7 @@ If you have a web browser, you can get a fully pre-configured development enviro
 
 ## Testing (pending)
 
-All PRs require passing tests before the PR will be reviewed
+All PRs require passing tests before the PR will be reviewed.
 
 Test files should be located in a test folder in your component directory with a .test.ts extension i.e. `src/components/base/outline-element/test/outline-element.test.ts`
 
@@ -28,9 +28,9 @@ You can also append one or more browsers to test on specifically i.e.
 
 Optionally you can run tests using [BrowserStack](https://www.browserstack.com/) by running 
 `yarn run test:browserstack`
-Note: You must enter your username and access key in the .env file to use BrowserStack testing
+Note: You must enter your username and access key in the .env file to use BrowserStack testing.
 
-More info on writing tests for web components can be found at [Open-WC.org](https://open-wc.org/docs/testing/helpers/)
+More info on writing tests for web components can be found at [Open-WC.org](https://open-wc.org/docs/testing/helpers/).
 
 ---
 
@@ -43,7 +43,7 @@ Pull requests are greatly appreciated! To ensure a smooth review process, please
 3. All PRs that change behavior or fix bugs should have new or updated tests.
 4. Try to create a set of descriptive commits that each do one focused change. Avoid commits like "oops", and prefer commits like "Added method foo to Bar".
 5. When addressing review comments, try to add new commits, rather than modifying previous commits. This makes it easier for reviewers to see what changed since the last review. 
-6. Please run `yarn lint` and `yarn fmt` before submitting PRs. PRs that don't lint and aren't formatted will fail continuous integration tests.
+6. Please run `yarn lint` and `yarn format` before submitting PRs. PRs that don't lint and aren't formatted will fail continuous integration tests.
 
 ---
 
@@ -56,18 +56,29 @@ Outline uses [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.
 
 #### Patch releases
 
-`fix: updated Storybook packages`
-This will create a patch release. (1.0.0 --> 1.0.1)
+This will create a patch release (1.0.0 --> 1.0.1).
+
+```bash
+fix: updated Storybook packages
+```
 
 #### Minor releases
 
-`feat: added outline-something component`
-This will create a minor release (1.0.0 --> 1.1.0)
+This will create a minor release (1.0.0 --> 1.1.0).
 
-`feat(ci): updated CI setup`
+```bash
+feat: added outline-something component
+```
+
 This will create a minor release (1.0.0 --> 1.1.0) and uses (ci) to 'tag' this as a feature related to the continuous integration setup.
 
+```bash
+feat(ci): updated CI setup
+```
+
 #### Major releases
+
+This will create a major release (1.0.0 --> 2.0.0).
 
 ```bash
 feat: refactoring the something component
@@ -75,18 +86,16 @@ feat: refactoring the something component
 BREAKING CHANGE - Requires a rewrite of all your code.
 ```
 
-This will create a major release. (1.0.0 --> 2.0.0)
-
 ---
 
 ## Code Cleanup
 
-Code is not automatically formatted upon commit. As a matter of best practices, you should run `yarn fmt` and `yarn lint` prior to committing code to prevent pipelines from failing in the `Test and Build` task.
+Code is not automatically formatted upon commit. As a matter of best practices, you should run `yarn format` and `yarn lint` prior to committing code to prevent pipelines from failing in the `Test and Build` task.
 
 ### Run all Prettier and SVG formatting
 
 ```bash
-yarn fmt
+yarn format
 ```
 
 ---
@@ -94,7 +103,7 @@ yarn fmt
 ### Run Prettier formatting
 
 ```bash
-yarn fmt.code
+yarn format:code
 ```
 
 ---
@@ -102,7 +111,7 @@ yarn fmt.code
 ### Run svgo formatting
 
 ```bash
-yarn fmt.svg
+yarn format:svg
 ```
 
 ---

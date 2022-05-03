@@ -9,8 +9,36 @@ export type AllowedHeadingLevels =
   | 'h6'
   | undefined;
 
-export type AllowedHeadingSizes = keyof typeof tailwindConfig.fontSize;
-export const HeadingSizes = Object.keys(tailwindConfig.fontSize);
+// Updated to limit the allowed values to the set we want to be selectable in Storybook.
+export type AllowedHeadingSizes =
+  | 'xs'
+  | 'sm'
+  | 'base'
+  | 'lg'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl'
+  | '5xl'
+  | '6xl'
+  | '7xl'
+  | '8xl'
+  | '9xl';
+export const HeadingSizes = [
+  'xs',
+  'sm',
+  'base',
+  'lg',
+  'xl',
+  '2xl',
+  '3xl',
+  '4xl',
+  '5xl',
+  '6xl',
+  '7xl',
+  '8xl',
+  '9xl',
+];
 
 export type AllowedHeadingStyles = keyof typeof tailwindConfig.fontWeight;
 export const HeadingStyles = Object.keys(tailwindConfig.fontWeight);
