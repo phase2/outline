@@ -60,8 +60,6 @@ describe('outline-button', () => {
       html`<outline-button button-variant="foo">Test</outline-button>`
     )) as HTMLElement;
     const button = el.shadowRoot?.querySelector('button');
-    // Apparently we're getting "foo" if foo is added.
-    // <button class="btn foo medium" type="button" aria-disabled="false">
     expect(button?.getAttribute('class')).to.not.contain('foo');
   });
 
