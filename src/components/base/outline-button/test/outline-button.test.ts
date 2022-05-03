@@ -39,7 +39,6 @@ describe('outline-button', () => {
     });
   });
 
-  // Test the ButtonVariant and assert values not in type return 'error'
   // Test the ButtonSize and assert the values are rendered as classes - Jacob
   buttonSizes.forEach(async size => {
     it(`correctly renders button-size ${size} class `, async () => {
@@ -119,10 +118,14 @@ describe('outline-button', () => {
     assert.lightDom.equal(el, `Test`);
   });
 
+  // Test the ButtonVariant and assert values not in type return 'error'
   it('does not apply variant styles when invalid buttonVariant is added', async () => {
     const el = (await fixture(
-      html`<outline-button variant="invalid">Test</outline-button>`
+      html`<outline-button button-variant="foo">Test</outline-button>`
     )) as HTMLElement;
-    buttonVariants.map(variant => assert(!el.classList.contains(variant)));
+    const button = el.shadowRoot?.querySelector('button');
+    // Apparently we're getting "foo" if foo is added.
+    // <button class="btn foo medium" type="button" aria-disabled="false">
+    expect(button?.getAttribute('class')).to.not.contain('foo');
   });
 });
