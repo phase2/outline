@@ -53,7 +53,6 @@ describe('outline-button', () => {
   // Test the onKeyUp handler
 
   // Test button type 'submit', 'reset' or 'button' (button by default)
-
   buttonTypes.forEach(async bType => {
     it(`correctly renders button-type ${bType} class `, async () => {
       const el = await fixture(
