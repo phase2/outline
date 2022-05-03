@@ -16,6 +16,8 @@ describe('outline-button', () => {
     assert.instanceOf(el, OutlineButton);
   });
 
+  // TODO: Update test to assert/expect class to include 'medium' and 'primary'
+  // Unless we wish to keep this like a 'snapshot' test.
   it('renders with default values', async () => {
     const el = await fixture(html`<outline-button></outline-button>`);
     assert.shadowDom.equal(
@@ -50,10 +52,22 @@ describe('outline-button', () => {
     });
   });
 
-  // Test the ButtonSize and assert values not in type return 'error' - Ian
-  // Test the onClick handler - Peter
+  // TODO: Test the ButtonSize and assert values not in type return 'error' - Ian
 
-  // Test the onKeyUp handler
+  // TODO: Test the ButtonVariant and assert values not in type return 'error'
+  it('does not apply variant styles when invalid buttonVariant is added', async () => {
+    const el = (await fixture(
+      html`<outline-button button-variant="foo">Test</outline-button>`
+    )) as HTMLElement;
+    const button = el.shadowRoot?.querySelector('button');
+    // Apparently we're getting "foo" if foo is added.
+    // <button class="btn foo medium" type="button" aria-disabled="false">
+    expect(button?.getAttribute('class')).to.not.contain('foo');
+  });
+
+  // TODO: Test the onClick handler - Peter
+
+  // TODO: Test the onKeyUp handler
 
   // Test button type 'submit', 'reset' or 'button' (button by default)
   buttonTypes.forEach(async bType => {
@@ -66,8 +80,9 @@ describe('outline-button', () => {
     });
   });
 
-  // Test button use of left or right icon with empty slot, assert aria-label
+  // TODO: Test button use of left or right icon with empty slot, assert aria-label
 
+  // TODO: Update test to only assert/expect the aria-label to exist.
   it('renders with an aria-label', async () => {
     const el = await fixture(
       html`<outline-button button-label="Button label"></outline-button>`
@@ -82,6 +97,7 @@ describe('outline-button', () => {
     );
   });
 
+  // TODO: Update test to only assert/expect href to match the url var.
   it('renders as a link', async () => {
     const el = await fixture(
       html`<outline-button
@@ -99,6 +115,7 @@ describe('outline-button', () => {
     );
   });
 
+  // TODO: Update test to only assert/expect the aria-defalut to exist.
   it('renders as a disabled button', async () => {
     const el = await fixture(
       html`<outline-button is-disabled></outline-button>`
@@ -116,16 +133,5 @@ describe('outline-button', () => {
   it('renders with slotted content', async () => {
     const el = await fixture(html`<outline-button>Test</outline-button>`);
     assert.lightDom.equal(el, `Test`);
-  });
-
-  // Test the ButtonVariant and assert values not in type return 'error'
-  it('does not apply variant styles when invalid buttonVariant is added', async () => {
-    const el = (await fixture(
-      html`<outline-button button-variant="foo">Test</outline-button>`
-    )) as HTMLElement;
-    const button = el.shadowRoot?.querySelector('button');
-    // Apparently we're getting "foo" if foo is added.
-    // <button class="btn foo medium" type="button" aria-disabled="false">
-    expect(button?.getAttribute('class')).to.not.contain('foo');
   });
 });
