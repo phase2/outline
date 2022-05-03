@@ -43,7 +43,7 @@ Pull requests are greatly appreciated! To ensure a smooth review process, please
 3. All PRs that change behavior or fix bugs should have new or updated tests.
 4. Try to create a set of descriptive commits that each do one focused change. Avoid commits like "oops", and prefer commits like "Added method foo to Bar".
 5. When addressing review comments, try to add new commits, rather than modifying previous commits. This makes it easier for reviewers to see what changed since the last review. 
-6. Please run `yarn lint` and `yarn fmt` before submitting PRs. PRs that don't lint and aren't formatted will fail continuous integration tests.
+6. Please run `yarn lint` and `yarn format` before submitting PRs. PRs that don't lint and aren't formatted will fail continuous integration tests.
 
 ---
 
@@ -90,12 +90,12 @@ BREAKING CHANGE - Requires a rewrite of all your code.
 
 ## Code Cleanup
 
-Code is not automatically formatted upon commit. As a matter of best practices, you should run `yarn fmt` and `yarn lint` prior to committing code to prevent pipelines from failing in the `Test and Build` task.
+Code is not automatically formatted upon commit. As a matter of best practices, you should run `yarn format` and `yarn lint` prior to committing code to prevent pipelines from failing in the `Test and Build` task.
 
 ### Run all Prettier and SVG formatting
 
 ```bash
-yarn fmt
+yarn format
 ```
 
 ---
@@ -103,7 +103,7 @@ yarn fmt
 ### Run Prettier formatting
 
 ```bash
-yarn fmt.code
+yarn format:code
 ```
 
 ---
@@ -111,7 +111,7 @@ yarn fmt.code
 ### Run svgo formatting
 
 ```bash
-yarn fmt.svg
+yarn format:svg
 ```
 
 ---
