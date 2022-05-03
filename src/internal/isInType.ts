@@ -1,19 +1,19 @@
 //
 // Returns a boolean whether the value is in the provided type
 //
-export function isInType<T>(x: T, values: readonly T[]): x is T {
+export function isInType<T>(x: T, values: readonly T[], name = ''): x is T {
   const result = values.includes(x);
   if (!result) {
-    typeWarning(x, values);
+    typeWarning(x, values, name);
   }
   return result;
 }
 
-export function typeWarning<T>(value: T, type: readonly T[]) {
+export function typeWarning<T>(x: T, values: readonly T[], name = '') {
   // eslint-disable-next-line
   console.warn(
-    `Warning: "${value}" is not of type ButtonVariant. Provide one of '${type.join(
-      ' | '
-    )}' for "button-variant".`
+    `Warning: "${x}" is not ${
+      name ? `of type ${name}` : `in type`
+    }. Allowed '${values.join(' | ')}'.`
   );
 }

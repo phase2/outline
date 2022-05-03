@@ -59,7 +59,7 @@ export class OutlineButton extends OutlineElement {
     type: String,
     attribute: 'button-variant',
     converter: value => {
-      return isInType(value, buttonVariants) ? value : '';
+      return isInType(value, buttonVariants, 'ButtonVariant') ? value : '';
     },
   })
   buttonVariant: ButtonVariant = 'primary';
