@@ -11,7 +11,7 @@
   @apply text-2xl font-semibold !important;
   @apply flex items-center justify-center text-center;
   @apply cursor-pointer rounded-2xl no-underline;
-  @apply text-neutral-white !important;
+  @apply text-outline-white !important;
   @apply outline-none;
 }
 
@@ -29,12 +29,12 @@
 
 ::slotted(a.phase2-blue:hover),
 ::slotted(a.phase2-blue:focus) {
-  @apply bg-outline-dark-blue !important;
-  @apply ring-outline-dark-gray !important;
+  @apply bg-outline-blue-600 !important;
+  @apply ring-outline-gray-600 !important;
 }
 
 ::slotted(a.medium-blue) {
-  @apply bg-outline-medium-blue;
+  @apply bg-outline-blue-300;
   @apply text-outline-soft-black;
 }
 
@@ -45,13 +45,13 @@
 }
 
 ::slotted(a.medium-gray) {
-  @apply bg-outline-medium-gray !important;
+  @apply bg-outline-gray-300 !important;
   @apply text-outline-soft-black !important;
 }
 
 ::slotted(a.medium-gray:hover),
 ::slotted(a.medium-gray:focus) {
-  @apply bg-outline-dark-gray !important;
+  @apply bg-outline-gray-600 !important;
   @apply ring-outline-not-gray !important;
   @apply text-outline-white !important;
 }
@@ -72,12 +72,12 @@
 
 ::slotted(a.dusty-blue:hover),
 ::slotted(a.dusty-blue:focus) {
-  @apply ring-outline-dark-gray !important;
-  @apply text-outline-dark-gray !important;
+  @apply ring-outline-gray-600 !important;
+  @apply text-outline-gray-600 !important;
 }
 
 ::slotted(a.dark-gray) {
-  @apply bg-outline-dark-gray;
+  @apply bg-outline-gray-600;
 }
 
 ::slotted(a.dark-gray:hover),

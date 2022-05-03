@@ -14,7 +14,7 @@ type rowSpanRange = 1 | 2 | 3 | 4 | 5 | 6;
  * The Outline Column component
  * @element outline-column
  *
- * @slot - The default, and only slot for this element.
+ * @slot - The default slot for this element.
  */
 @customElement('outline-column')
 export class OutlineColumn extends OutlineElement {

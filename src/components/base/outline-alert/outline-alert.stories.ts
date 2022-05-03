@@ -43,6 +43,9 @@ export default {
       control: { type: 'boolean' },
     },
   },
+  args: {
+    statusType: 'info',
+  },
   parameters: {
     docs: {
       description: {
@@ -105,7 +108,7 @@ const Template = ({
 export const Information = Template.bind({});
 Information.args = {
   defaultSlot: html`Here is an informational message.`,
-  statusType: 'information',
+  statusType: 'info',
 };
 
 export const Warning = Template.bind({});

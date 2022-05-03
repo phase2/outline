@@ -38,7 +38,7 @@ export default {
   args: {
     clean: false,
     active: false,
-    headingSlotContent: '<outline-heading level="p" level-style="semibold" slot="heading">Accordion Panel</outline-heading>',
+    headingSlotContent: '<outline-heading level="h3" level-style="semibold" slot="heading">Accordion Panel</outline-heading>',
     defaultSlotContent:
       `<outline-styled-text>
         <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
