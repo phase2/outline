@@ -5,8 +5,10 @@ import { LinkTargetType } from '../outline-link/config';
 import { OutlineElement } from '../outline-element/outline-element';
 import { SlotController } from '../../controllers/slot-controller';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { isInType, typeWarning } from '../../../internal/isInType';
 
-export type ButtonVariant = 'none' | 'primary' | 'secondary';
+const buttonVariants = ['none', 'primary', 'secondary'] as const;
+export type ButtonVariant = typeof buttonVariants[number];
 
 export type ButtonSize = 'small' | 'medium' | 'large';
 
@@ -53,7 +55,16 @@ export class OutlineButton extends OutlineElement {
   /**
    * The button style variant to use.
    */
-  @property({ type: String, attribute: 'button-variant' })
+  @property({
+    type: String,
+    attribute: 'button-variant',
+    converter: value => {
+      !isInType(value, buttonVariants)
+        ? typeWarning(value, buttonVariants)
+        : null;
+      return isInType(value, buttonVariants) ? value : '';
+    },
+  })
   buttonVariant: ButtonVariant = 'primary';
 
   /**
