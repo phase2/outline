@@ -142,8 +142,17 @@ ${Story()}
 
 const PrimaryButtonsTemplate = (): TemplateResult =>
   html`
+
+  <outline-heading level-size="xl" level-style="semibold">Actual Buttons</outline-heading>  
+  <p>This section shows the button as a real button element.</p>
+  <div class="my-6">
+    <outline-button class="mr-2" button-size="large" button-label="Large Button">Large Button</outline-button>
+    <outline-button class="mr-2" button-label="Button">Button</outline-button>
+    <outline-button class="mr-2" button-size="small" button-label="Small Button">Small Button</outline-button>
+  </div>
+
   <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
-  <p>This section of primary buttons demonstrates various configurations, and can be navigated to test hover/focus states.</p>
+  <p>This section of primary buttons demonstrates various configurations, and can be navigated to test hover/focus states. The buttons shown here are rendered as a link because the button-url attribute was used. </p>
   <div class="my-6">
     <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
     <outline-button class="mr-2" button-url="#" button-label="Button">Button</outline-button>

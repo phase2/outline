@@ -11,8 +11,8 @@
 }
 
 .dropdown--open .dropdown__panel {
-  @apply m-0 border-2 border-solid border-demo-mediumGray p-4;
-  @apply bg-demo-lightGray text-demo-black;
+  @apply m-0 border-2 border-solid border-outline-gray-400 p-4;
+  @apply bg-outline-gray-200 text-outline-black;
   @apply absolute z-50;
   @apply min-w-[350px];
   pointer-events: all;

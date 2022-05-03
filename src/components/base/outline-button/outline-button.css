@@ -21,6 +21,8 @@
   transition-duration: 300ms;
   text-decoration-line: none;
   outline: none;
+  border: none;
+
   line-height: 1.5;
 
   border-radius: var(
