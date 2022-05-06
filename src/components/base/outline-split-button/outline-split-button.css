@@ -1,21 +1,117 @@
 :host {
-  @apply inline-flex align-middle;
+  display: inline-flex;
+  vertical-align: middle;
 }
+
 /* Remove button padding */
 .btn {
   padding: 0 !important;
 }
 
+/* .button__trigger:hover
+  + .icon__trigger
+  .icon__button[button-variant='primary'] {
+  background-color: var(
+    --outline--button--primary-bg-color-hover,
+    var(--outline-button--default--primary-bg-color-hover)
+  );
+  color: var(
+    --outline--button--primary-text-color-hover,
+    var(--outline-button--default--primary-text-color-hover)
+  );
+  font-weight: var(
+    --outline--button--primary-weight-hover,
+    var(--outline-button--default--primary-weight-hover)
+  );
+  box-shadow: var(
+    --outline--button--primary-ring-hover,
+    var(--outline-button--default--primary-ring-hover)
+  );
+}
+.button__trigger:hover
+  + .icon__trigger
+  outline-button[button-variant='secondary'] {
+}
+.button__trigger:hover
+  + .icon__trigger
+  outline-button[button-variant='tertiary'] {
+}
+.button__trigger:hover + .icon__trigger outline-button[button-variant='link'] {
+} */
+
 /* Reassign button padding to the actual link */
 ::slotted(.button__trigger) {
   display: flex;
-  padding: 0.5em 1em;
+  padding: var(--outline-btn-padding, var(--outline-button--default-padding));
+}
+
+/* Primary variant */
+[trigger-variant='primary'] ::slotted(.button__trigger) {
+  padding: var(
+    --outline--button--primary-padding,
+    var(--outline-btn-padding, var(--outline-button--default--primary-padding))
+  );
+}
+
+[trigger-variant='primary']:hover ::slotted(.icon__trigger) .btn.primary {
+  background-color: var(
+    --outline--button--primary-bg-color-hover,
+    var(--outline-button--default--primary-bg-color-hover)
+  );
+  color: var(
+    --outline--button--primary-text-color-hover,
+    var(--outline-button--default--primary-text-color-hover)
+  );
+  font-weight: var(
+    --outline--button--primary-weight-hover,
+    var(--outline-button--default--primary-weight-hover)
+  );
+  box-shadow: var(
+    --outline--button--primary-ring-hover,
+    var(--outline-button--default--primary-ring-hover)
+  );
+}
+
+/* Secondary variant */
+[trigger-variant='secondary'] ::slotted(.button__trigger) {
+  padding: var(
+    --outline--button--secondary-padding,
+    var(
+      --outline-btn-padding,
+      var(--outline-button--default--secondary-padding)
+    )
+  );
+}
+
+/* Tertiary variant */
+[trigger-variant='tertiary'] ::slotted(.button__trigger) {
+  padding: var(
+    --outline--button--tertiary-padding,
+    var(--outline-btn-padding, var(--outline-button--default--tertiary-padding))
+  );
+}
+
+/* Link variant */
+[trigger-variant='link'] ::slotted(.button__trigger) {
+  padding: var(
+    --outline--button--link-padding,
+    var(--outline-btn-padding, var(--outline-button--default--link-padding))
+  );
 }
 
 ::slotted(.icon__trigger) {
-  @apply flex h-full;
+  display: flex;
+  height: 100%;
 }
 
 ::slotted(.icon__bordered) {
   border-left: 1px solid currentColor;
+}
+
+:host([button-variant='link']) ::slotted(.icon__bordered) {
+  border-left-width: 0px !important;
+}
+
+:host([button-variant='link']) ::slotted(.button__trigger) {
+  //padding-right: var(--spacing-2);
 }

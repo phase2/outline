@@ -13,7 +13,7 @@ import { SlotController } from '../../controllers/slot-controller';
 import { LinkTargetType } from '../outline-link/config';
 import { ButtonVariant } from '../outline-button/outline-button';
 import { ifDefined } from 'lit/directives/if-defined.js';
-
+import { MobileController } from '../../controllers/mobile-controller';
 /**
  * @element outline-dropdown
  * @since 1.0.0
@@ -35,10 +35,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 @customElement('outline-dropdown')
 export default class OutlineDropdown extends OutlineElement {
   static styles: CSSResultGroup = [a11yStyles, componentStyles];
-  slots = new SlotController(
-    this, // This, the host element.
-    true // To shift or not to shift LightDom nodes to ShadowDOM.
-  );
+  private mobileController = new MobileController(this, 'lg');
+  slots = new SlotController(this, true);
 
   @query('.dropdown__trigger')
   trigger: HTMLElement;
@@ -102,7 +100,7 @@ export default class OutlineDropdown extends OutlineElement {
    * The button style variant to use.
    */
   @property({ type: String, attribute: 'trigger-variant' })
-  triggerVariant: ButtonVariant = 'link';
+  triggerVariant: ButtonVariant = 'none';
 
   @state() hasHeader: boolean;
   @state() hasDropdown: boolean;
@@ -137,7 +135,6 @@ export default class OutlineDropdown extends OutlineElement {
   firstUpdated() {}
 
   disconnectedCallback() {
-    super.disconnectedCallback();
     this.hide();
   }
 
@@ -160,7 +157,7 @@ export default class OutlineDropdown extends OutlineElement {
   }
 
   /**
-   * Hides the dropdown panel
+   * Hides the dropdown panel.
    */
   async hide() {
     if (!this.isOpen) {
@@ -290,6 +287,10 @@ export default class OutlineDropdown extends OutlineElement {
     this.handleFocusChange();
   }
 
+  handleHoverStyles(event: MouseEvent) {
+    // console.log('Handle the hover event. ', event);
+  }
+
   /**
    * @todo: Ensure there IS a dropdown before triggering the functionality.
    * @returns {TemplateResult}
@@ -303,13 +304,13 @@ export default class OutlineDropdown extends OutlineElement {
           'dropdown--open': this.isOpen,
         })}
       >
-        <span
+        <div
           class="dropdown__trigger"
-          @mouseenter="${this.show}"
-          @mouseleave="${this.hide}"
+          @mouseenter="${!this.mobileController.isMobile ? this.show : null}"
+          @mouseleave="${this.handleFocusChange}"
         >
           ${this.buttonTemplate()} ${this.dropdownTemplate()}
-        </span>
+        </div>
       </div>
     `;
   }
@@ -326,10 +327,18 @@ export default class OutlineDropdown extends OutlineElement {
             button-target="${ifDefined(this.triggerTarget)}"
             button-url="${ifDefined(this.triggerUrl)}"
             button-label="${ifDefined(this.triggerLabel)}"
+            @mouseenter="${this.handleHoverStyles}"
             @keydown="${this.handleButtonTrigger}"
             ?is-disabled=${this.isDisabled}
           >
-            <span class="button__trigger">${this.triggerText}</span>
+            <span
+              class=${classMap({
+                button__trigger: true,
+                button__has_menu:
+                  this.hasDropdown && this.triggerVariant == 'link',
+              })}
+              >${this.triggerText}</span
+            >
             ${this.iconWrapperTemplate()}
           </outline-split-button>
         `
@@ -407,18 +416,18 @@ export default class OutlineDropdown extends OutlineElement {
 
   /**
    * Template partial for the icon rendering.
-   * @todo: something fishy with that label attribute.
-   * @todo: Wrap the outline-icon with a button or a tag instead of tabindex.
+   * @todo: Ensure chevron can be swapped out for other icons.
+   * @todo: Ensure "standard" chevron-down can be replaced/rotated when menu is open.
    * @returns TemplateResult | null
    */
   iconTemplate(): TemplateResult | null {
     return html`
       <outline-icon
         slot="right"
-        name="chevron-down"
+        name="${this.isOpen ? 'chevron-up' : 'chevron-down'}"
         library="system"
         size="1em"
-        label="${ifDefined(this.triggerUrl) ? this.triggerLabel : false}"
+        ?label="${ifDefined(this.triggerUrl) ? this.triggerLabel : false}"
       ></outline-icon>
     `;
   }

@@ -230,63 +230,239 @@ export const SecondaryMenuDropdown = () =>
 SecondaryMenuDropdownsTemplate();
 SecondaryMenuDropdown.decorators = paddedMenuWrapper;
 
+const dropdownContent = html`
+<div slot="dropdown">
+  <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+  <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
+</div>
+`
+
 const MultipleButtonDropdownsTemplate = (): TemplateResult => {
   return html`
-<outline-dropdown 
-  class="my-4 pr-2" 
-  trigger-text="Dropdown Only" 
-  trigger-variant="primary" 
-  trigger-size="medium" 
->  
-  <div slot="dropdown">
-    <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-    <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
-  </div>
-</outline-dropdown>
-<outline-dropdown 
+<div class="my-12">
+  <outline-heading level="h4" level-size="lg">Styling variant: primary</outline-heading>  
+  <outline-dropdown 
     class="my-4 pr-2" 
     trigger-text="Link Only" 
     trigger-variant="primary" 
     trigger-size="medium" 
     trigger-url="https://outline.phase2tech.com/" 
   >
-</outline-dropdown>
-<outline-dropdown 
-  class="my-4 pr-2" 
-  trigger-text="Dropdown & Link" 
-  trigger-variant="primary" 
-  trigger-size="medium" 
-  trigger-url="https://outline.phase2tech.com/"
->  
-  <div slot="dropdown">
-    <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-    <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
-  </div>
-</outline-dropdown>
-<outline-dropdown 
-  class="my-4 pr-2" 
-  trigger-text="Disabled Dropdown & Link" 
-  trigger-variant="primary" 
-  trigger-size="medium" 
-  trigger-url="https://outline.phase2tech.com/"
-  is-disabled
->  
-  <div slot="dropdown">
-    <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-    <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
-  </div>
-</outline-dropdown>
-<outline-dropdown 
-  class="my-4 pr-2" 
-  trigger-text="Dropdown Only" 
-  trigger-variant="primary" 
-  trigger-size="medium" 
->  
-  <div slot="dropdown">
-    <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-    <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
-  </div>
-</outline-dropdown>
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown Only" 
+    trigger-variant="primary" 
+    trigger-size="medium" 
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown & Link" 
+    trigger-variant="primary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Link" 
+    trigger-variant="primary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+    is-disabled
+  >
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Dropdown" 
+    trigger-variant="primary" 
+    trigger-size="medium" 
+    is-disabled
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Dropdown & Link" 
+    trigger-variant="primary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+    is-disabled
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+</div>
+<div class="my-12">
+  <outline-heading level="h4" level-size="lg">Styling variant: secondary</outline-heading>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Link Only" 
+    trigger-variant="secondary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+  >
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown Only" 
+    trigger-variant="secondary" 
+    trigger-size="medium" 
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown & Link" 
+    trigger-variant="secondary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Link" 
+    trigger-variant="secondary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+    is-disabled
+  >
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Dropdown" 
+    trigger-variant="secondary" 
+    trigger-size="medium" 
+    is-disabled
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Dropdown & Link" 
+    trigger-variant="secondary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+    is-disabled
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+</div>
+<div class="my-12">
+  <outline-heading level="h4" level-size="lg">Styling variant: tertiary</outline-heading>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Link Only" 
+    trigger-variant="tertiary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+  >
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown Only" 
+    trigger-variant="tertiary" 
+    trigger-size="medium" 
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown & Link" 
+    trigger-variant="tertiary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Link" 
+    trigger-variant="tertiary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+    is-disabled
+  >
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Dropdown" 
+    trigger-variant="tertiary" 
+    trigger-size="medium" 
+    is-disabled
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Dropdown & Link" 
+    trigger-variant="tertiary" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+    is-disabled
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+</div>
+<div class="my-12">
+  <outline-heading level="h4" level-size="lg">Styling variant: link</outline-heading>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Link Only" 
+    trigger-variant="link" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+  >
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown Only" 
+    trigger-variant="link" 
+    trigger-size="medium" 
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Dropdown & Link" 
+    trigger-variant="link" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Link" 
+    trigger-variant="link" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/" 
+    is-disabled
+  >
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Dropdown" 
+    trigger-variant="link" 
+    trigger-size="medium" 
+    is-disabled
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+  <outline-dropdown 
+    class="my-4 pr-2" 
+    trigger-text="Disabled Dropdown & Link" 
+    trigger-variant="link" 
+    trigger-size="medium" 
+    trigger-url="https://outline.phase2tech.com/"
+    is-disabled
+  >  
+    ${dropdownContent}
+  </outline-dropdown>
+</div>
   `;
 }
 export const MultipleButtonDropdowns = () =>
@@ -332,10 +508,7 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
     trigger-variant="link" 
     trigger-size="medium"
   >
-    <div slot="dropdown">
-      <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-      <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
-    </div>
+    ${dropdownContent}
   </outline-dropdown>
   <outline-dropdown 
     trigger-text="Dropdown & Link" 
@@ -343,10 +516,7 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
     trigger-size="medium" 
     trigger-url="https://outline.phase2tech.com/"
   >  
-    <div slot="dropdown">
-      <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-      <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
-    </div>
+    ${dropdownContent}
   </outline-dropdown>
   <outline-dropdown 
     trigger-text="Disabled Dropdown" 
@@ -354,10 +524,7 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
     trigger-size="medium" 
     is-disabled
   >
-    <div slot="dropdown">
-      <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
-      <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
-    </div>
+    ${dropdownContent}
   </outline-dropdown>
 </div>
 `;
