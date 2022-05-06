@@ -84,7 +84,14 @@ This is rendered as an \`a\` element if a link and a \`button\` element if not a
 <outline-alert statusType="info" size="large" class="mb-6">
   <span slot="header">CSS Variables</span>
   <p>Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.</p>
-  <p>Additional documentation and references for these CSS Variables can be found in \`outline-button/css-variables/vars-default.css\`.</p>
+  <p>Additional documentation and references for available CSS Variables can be found in the following locations.</p>
+  <ul>
+    <li>\`outline-button/css-variables/vars-default.css\`</li>
+    <li>\`outline-button/css-variables/vars-primary.css\`</li>
+    <li>\`outline-button/css-variables/vars-secondary.css\`</li>
+    <li>\`outline-button/css-variables/vars-tertiary.css\`</li>
+    <li>\`outline-button/css-variables/vars-link.css\`</li>
+  </ul>
 </outline-alert>
         `,
       },
