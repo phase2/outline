@@ -39,8 +39,23 @@ module.exports = {
       xxxl: '2180px',
     },
     colors: {
+      // Demo styles specific to Storybook implementation.
+      // Do not remove.
+      'outline': {
+        'phase2-blue': 'var(--outline-phase2-blue)',
+        'karma-coral': 'var(--outline-karma-coral)',
+        'soft-black': 'var(--outline-soft-black)',
+        'not-gray': 'var(--outline-not-gray)',
+        'misty-teal': 'var(--outline-misty-teal)',
+        'electric-violet': 'var(--outline-electric-violet)',
+        'dusty-blue': 'var(--outline-dusty-blue)',
+        'transparent': 'var(--outline-transparent)',
+        'white': 'var(--outline-white)',
+        'black': 'var(--outline-black)',
+      },
+
       // Custom Brand colors can be added/edited here.
-      brand: {
+      'brand': {
         primary: 'var(--brand-primary)',
         secondary: 'var(--brand-secondary)',
         tertiary: 'var(--brand-tertiary)',
@@ -52,67 +67,44 @@ module.exports = {
         nonary: 'var(--brand-nonary)',
         denary: 'var(--brand-denary)',
       },
-      // Custom Neutral colors can be added/edited here.
-      neutral: {
-        transparent: 'var(--neutral-transparent)',
-        white: 'var(--neutral-white)',
-        grayLight: 'var(--neutral-grayLight)',
-        grayMedium: 'var(--neutral-grayMedium)',
-        grayDark: 'var(--neutral-grayDark)',
-        black: 'var(--neutral-black)',
-      },
+
       // These are used for system alerts and should not be removed.
-      ui: {
-        error: 'var(--ui-errorBackground)',
-        warning: 'var(--ui-warningBackground)',
-        info: 'var(--ui-infoBackground)',
-        success: 'var(--ui-successBackground)',
-        errorText: 'var(--ui-errorText)',
-        warningText: 'var(--ui-warningText)',
-        infoText: 'var(--ui-infoText)',
-        successText: 'var(--ui-successText)',
+      'ui': {
+        error: 'var(--status-error)',
+        warning: 'var(--status-warning)',
+        info: 'var(--status-info)',
+        success: 'var(--status-success)',
       },
-      // Demo styles specific to Storybook implementation.
-      // Do not remove.
-      demo: {
-        white: 'var(--demo-white)',
-        black: 'var(--demo-black)',
-        darkBlue: 'var(--demo-darkBlue)',
-        mediumBlue: 'var(--demo-mediumBlue)',
-        lightBlue: 'var(--demo-lightBlue)',
-        darkGray: 'var(--demo-darkGray)',
-        mediumGray: 'var(--demo-mediumGray)',
-        lightGray: 'var(--demo-lightGray)',
-      },
+
       // The defaults are completely overwritten, so manually including
       // sets from Tailwind CSS we want to use.
       // You may remove any/all of these items assuming you have removed
       // or changed any references above that depend on these.
-      gray: {
-        50: 'var(--gray-50)',
-        100: 'var(--gray-100)',
-        200: 'var(--gray-200)',
-        300: 'var(--gray-300)',
-        400: 'var(--gray-400)',
-        500: 'var(--gray-500)',
-        600: 'var(--gray-600)',
-        700: 'var(--gray-700)',
-        800: 'var(--gray-800)',
-        900: 'var(--gray-900)',
+      'outline-gray': {
+        50: 'var(--outline-gray-50)',
+        100: 'var(--outline-gray-100)',
+        200: 'var(--outline-gray-200)',
+        300: 'var(--outline-gray-300)',
+        400: 'var(--outline-gray-400)',
+        500: 'var(--outline-gray-500)',
+        600: 'var(--outline-gray-600)',
+        700: 'var(--outline-gray-700)',
+        800: 'var(--outline-gray-800)',
+        900: 'var(--outline-gray-900)',
       },
-      blue: {
-        50: 'var(--blue-50)',
-        100: 'var(--blue-100)',
-        200: 'var(--blue-200)',
-        300: 'var(--blue-300)',
-        400: 'var(--blue-400)',
-        500: 'var(--blue-500)',
-        600: 'var(--blue-600)',
-        700: 'var(--blue-700)',
-        800: 'var(--blue-800)',
-        900: 'var(--blue-900)',
+      'outline-blue': {
+        50: 'var(--outline-blue-50)',
+        100: 'var(--outline-blue-100)',
+        200: 'var(--outline-blue-200)',
+        300: 'var(--outline-blue-300)',
+        400: 'var(--outline-blue-400)',
+        500: 'var(--outline-blue-500)',
+        600: 'var(--outline-blue-600)',
+        700: 'var(--outline-blue-700)',
+        800: 'var(--outline-blue-800)',
+        900: 'var(--outline-blue-900)',
       },
-      red: {
+      'red': {
         50: 'var(--red-50)',
         100: 'var(--red-100)',
         200: 'var(--red-200)',
@@ -124,7 +116,7 @@ module.exports = {
         800: 'var(--red-800)',
         900: 'var(--red-900)',
       },
-      yellow: {
+      'yellow': {
         50: 'var(--yellow-50)',
         100: 'var(--yellow-100)',
         200: 'var(--yellow-200)',
@@ -136,7 +128,7 @@ module.exports = {
         800: 'var(--yellow-800)',
         900: 'var(--yellow-900)',
       },
-      green: {
+      'green': {
         50: 'var(--green-50)',
         100: 'var(--green-100)',
         200: 'var(--green-200)',
@@ -148,7 +140,7 @@ module.exports = {
         800: 'var(--green-800)',
         900: 'var(--green-900)',
       },
-      indigo: {
+      'indigo': {
         50: 'var(--red-50)',
         100: 'var(--red-100)',
         200: 'var(--red-200)',
@@ -160,7 +152,7 @@ module.exports = {
         800: 'var(--red-800)',
         900: 'var(--red-900)',
       },
-      purple: {
+      'purple': {
         50: 'var(--purple-50)',
         100: 'var(--purple-100)',
         200: 'var(--purple-200)',
@@ -172,7 +164,7 @@ module.exports = {
         800: 'var(--purple-800)',
         900: 'var(--purple-900)',
       },
-      pink: {
+      'pink': {
         50: 'var(--pink-50)',
         100: 'var(--pink-100)',
         200: 'var(--pink-200)',
@@ -199,6 +191,42 @@ module.exports = {
       '7xl': ['var(--fs-7xl)', { lineHeight: 'var(--lh-7xl)' }],
       '8xl': ['var(--fs-8xl)', { lineHeight: 'var(--lh-8xl)' }],
       '9xl': ['var(--fs-9xl)', { lineHeight: 'var(--lh-9lx)' }],
+      'h1': ['var(--fs-h1)', { lineHeight: 'var(--lh-h1)' }],
+      'h1-small': ['var(--fs-h1-small)', { lineHeight: 'var(--lh-h1-small)' }],
+      'h1-medium': [
+        'var(--fs-h1-medium)',
+        { lineHeight: 'var(--lh-h1-medium)' },
+      ],
+      'h2': ['var(--fs-h2)', { lineHeight: 'var(--lh-h2)' }],
+      'h2-small': ['var(--fs-h2-small)', { lineHeight: 'var(--lh-h2-small)' }],
+      'h2-medium': [
+        'var(--fs-h2-medium)',
+        { lineHeight: 'var(--lh-h2-medium)' },
+      ],
+      'h3': ['var(--fs-h3)', { lineHeight: 'var(--lh-h3)' }],
+      'h3-small': ['var(--fs-h3-small)', { lineHeight: 'var(--lh-h3-small)' }],
+      'h3-medium': [
+        'var(--fs-h3-medium)',
+        { lineHeight: 'var(--lh-h3-medium)' },
+      ],
+      'h4': ['var(--fs-h4)', { lineHeight: 'var(--lh-h4)' }],
+      'h4-small': ['var(--fs-h4-small)', { lineHeight: 'var(--lh-h4-small)' }],
+      'h4-medium': [
+        'var(--fs-h4-medium)',
+        { lineHeight: 'var(--lh-h4-medium)' },
+      ],
+      'h5': ['var(--fs-h5)', { lineHeight: 'var(--lh-h5)' }],
+      'h5-small': ['var(--fs-h5-small)', { lineHeight: 'var(--lh-h5-small)' }],
+      'h5-medium': [
+        'var(--fs-h5-medium)',
+        { lineHeight: 'var(--lh-h5-medium)' },
+      ],
+      'h6': ['var(--fs-h6)', { lineHeight: 'var(--lh-h6)' }],
+      'h6-small': ['var(--fs-h6-small)', { lineHeight: 'var(--lh-h6-small)' }],
+      'h6-medium': [
+        'var(--fs-h6-medium)',
+        { lineHeight: 'var(--lh-h6-medium)' },
+      ],
     },
     fontWeight: {
       thin: 'var(--fw-extralight)',
@@ -223,8 +251,9 @@ module.exports = {
         '2-1': '8fr 4fr',
       },
       fontFamily: {
-        display: ['Inter var', 'Helvetica', 'Arial', 'sans-serif'],
-        body: ['Inter var', 'Helvetica', 'Arial', 'sans-serif'],
+        display: [`var(--ff-display)`],
+        body: [`var(--ff-body)`],
+        demo: [`var(--ff-demo)`],
       },
       height: {
         ...screenSizes,

@@ -1,0 +1,33 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { html } from 'lit';
+import { OutlineSwatchSet, swatchSets } from './outline-swatch-set';
+
+<Meta
+  title="Utilities/Swatch Set"
+  component="outline-swatch-set"
+  argTypes={{
+    set: {
+      name: 'set',
+      description: 'The color set.',
+      options: swatchSets,
+      control: { type: 'select' },
+    },
+  }}
+/>
+
+export const Template = ({ set }) => html`
+  <outline-swatch-set set="${set}"> </outline-swatch-set>
+`;
+
+## Outline Color Palette
+
+<Canvas>
+  <Story
+    name="Outline Swatch Set"
+    args={{
+      set: 'outline',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

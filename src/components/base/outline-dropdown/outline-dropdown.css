@@ -1,0 +1,104 @@
+:host {
+  display: inline-flex;
+}
+
+.dropdown {
+  display: flex;
+  position: relative;
+}
+
+.dropdown__trigger {
+}
+.dropdown--open {
+  .btn.primary {
+    background-color: var(
+      --outline--button--primary-bg-color-hover,
+      var(--outline-button--default--primary-bg-color-hover)
+    );
+    color: var(
+      --outline--button--primary-text-color-hover,
+      var(--outline-button--default--primary-text-color-hover)
+    );
+    font-weight: var(
+      --outline--button--primary-weight-hover,
+      var(--outline-button--default--primary-weight-hover)
+    );
+    box-shadow: var(
+      --outline--button--primary-ring-hover,
+      var(--outline-button--default--primary-ring-hover)
+    );
+  }
+}
+
+.dropdown--open .dropdown__panel {
+  margin: 0;
+  position: absolute;
+  z-index: 50;
+  min-width: 350px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--outline-gray-400);
+  background-color: var(--outline-gray-200);
+  color: var(--outline-black);
+  padding: 1rem;
+  pointer-events: all;
+}
+
+/* 
+  Applies a margin to the span containing the button text
+  assuming there is a button-url, meaning there should be an 
+  icon for opening a dropdown. 
+*/
+outline-split-button {
+}
+
+outline-button {
+  .btn {
+    padding: var(--outline-btn-padding, var(--outline-button--default-padding));
+  }
+
+  .btn.primary {
+    padding: var(
+      --outline--button--primary-padding,
+      var(
+        --outline-btn-padding,
+        var(--outline-button--default--primary-padding)
+      )
+    );
+  }
+
+  .btn.secondary {
+    padding: var(
+      --outline--button--secondary-padding,
+      var(
+        --outline-btn-padding,
+        var(--outline-button--default--secondary-padding)
+      )
+    );
+  }
+
+  .btn.tertiary {
+    padding: var(
+      --outline--button--tertiary-padding,
+      var(
+        --outline-btn-padding,
+        var(--outline-button--default--tertiary-padding)
+      )
+    );
+  }
+
+  .btn.link {
+    padding: var(
+      --outline--button--link-padding,
+      var(--outline-btn-padding, var(--outline-button--default--link-padding))
+    );
+  }
+
+  .btn.primary:hover {
+  }
+
+  .icon__trigger {
+    display: flex;
+    margin-left: 1rem;
+  }
+}

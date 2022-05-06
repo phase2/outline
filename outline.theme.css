@@ -10,68 +10,47 @@
   --brand-octonary: #525252;
   --brand-nonary: #1e3a8a;
   --brand-denary: #171717;
-
-  /* Brand specific neutral colors & Generic tones/ */
-  --neutral-transparent: transparent;
-  --neutral-white: #fff;
-  --neutral-grayLight: #f4f4f5;
-  --neutral-grayMedium: #a1a1aa;
-  --neutral-grayDark: #3f3f46;
-  --neutral-black: #000;
-
+  
   /* Colors for UI notification messages. */
   --status-success: #2f855a;
   --status-warning: #b64301;
   --status-error: #c53030;
   --status-info: #1e3a8a;
 
-  --ui-infoBackground: var(--demo-white);
-  --ui-infoText: var(--status-info);
-  --ui-infoBorder: var(--status-info);
-
-  --ui-successBackground: var(--demo-white);
-  --ui-successText: var(--status-success);
-  --ui-successBorder: var(--status-success);
-
-  --ui-warningBackground: var(--demo-white);
-  --ui-warningText: var(--status-warning);
-  --ui-warningBorder: var(--status-warning);
-
-  --ui-errorBackground: var(--demo-white);
-  --ui-errorText: var(--status-error);
-  --ui-errorBorder: var(--status-error);
-
   /* Demo colors used for default component demonstrations */
-  --demo-darkBlue: #2563eb;
-  --demo-mediumBlue: #3b82f6;
-  --demo-lightBlue: #eff6ff;
-  --demo-darkGray: #3f3f46;
-  --demo-mediumGray: #e0e0e0;
-  --demo-lightGray: #f4f4f5;
-  --demo-white: #fff;
-  --demo-black: #000;
+  --outline-phase2-blue: #0080ff;
+  --outline-karma-coral: #fa5c5c;
+  --outline-soft-black: #171717;
+  --outline-not-gray: #cfc7d4;
+  --outline-misty-teal: #73f2e5;
+  --outline-electric-violet: #9484ff;
+  --outline-dusty-blue: #7fc7ee;
+  --outline-transparent: transparent;
+  --outline-white: #fff;
+  --outline-black: #000;
+  
+  --outline-gray-50: #fafafa;
+  --outline-gray-100: #f5f5f5;
+  --outline-gray-200: #e5e5e5;
+  --outline-gray-300: #d4d4d4;
+  --outline-gray-400: #a3a3a3;
+  --outline-gray-500: #737373;
+  --outline-gray-600: #525252;
+  --outline-gray-700: #404040;
+  --outline-gray-800: #262626;
+  --outline-gray-900: #171717;
 
-  /* Default Tailwind CSS Colors converted to CSS Variables. */
-  --gray-50: #fafafa;
-  --gray-100: #f5f5f5;
-  --gray-200: #e5e5e5;
-  --gray-300: #d4d4d4;
-  --gray-400: #a3a3a3;
-  --gray-500: #737373;
-  --gray-600: #525252;
-  --gray-700: #404040;
-  --gray-800: #262626;
-  --gray-900: #171717;
-  --blue-50: #eff6ff;
-  --blue-100: #dbeafe;
-  --blue-200: #bfdbfe;
-  --blue-300: #93c5fd;
-  --blue-400: #60a5fa;
-  --blue-500: #3b82f6;
-  --blue-600: #2563eb;
-  --blue-700: #1d4ed8;
-  --blue-800: #1e40af;
-  --blue-900: #1e3a8a;
+  --outline-blue-50: #eff6ff;
+  --outline-blue-100: #dbeafe;
+  --outline-blue-200: #bfdbfe;
+  --outline-blue-300: #93c5fd;
+  --outline-blue-400: #60a5fa;
+  --outline-blue-500: #3b82f6;
+  --outline-blue-600: #2563eb;
+  --outline-blue-700: #1d4ed8;
+  --outline-blue-800: #1e40af;
+  --outline-blue-900: #1e3a8a;
+
   --red-50: #fef2f2;
   --red-100: #fee2e2;
   --red-200: #fecaca;
@@ -204,6 +183,10 @@
   --lh-8xl: 6.75rem;
   --lh-9xl: 7.75rem;
 
+  --ff-display: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+  --ff-body: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+  --ff-demo: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+
   --fw-thin: 100;
   --fw-extralight: 200;
   --fw-light: 300;
@@ -214,47 +197,71 @@
   --fw-extrabold: 800;
   --fw-black: 900;
 
-  /*
-   * Configuration values for `outline-container`.
-   */
-  --outline-container-padding-x: 1.5rem;
-  --outline-container-padding-y: 1.5rem;
+  --fs-h1: 4rem;
+  --fs-h1-medium: 3rem;
+  --fs-h1-small: 2.5rem;
+  
+  --lh-h1: 3rem;
+  --lh-h1-medium: 3.75rem;
+  --lh-h1-small: 2rem;
+
+  --fs-h2: 2.75rem;
+  --fs-h2-medium: 2.5rem;
+  --fs-h2-small: 2rem;
+  
+  --lh-h2: 3.5rem;
+  --lh-h2-medium: 3rem;
+  --lh-h2-small: 2.5rem;
+  
+
+  --fs-h3: 2rem;
+  --fs-h3-medium: 1.75rem;
+  --fs-h3-small: 1.5rem;
+  
+  --lh-h3: 2.25rem;
+  --lh-h3-medium: 2rem;
+  --lh-h3-small: 1.75rem;
+  
+  --fs-h4: 1.5rem;
+  --fs-h4-medium: 1.5rem;
+  --fs-h4-small: 1.375rem;
+  
+  --lh-h4: 2rem;
+  --lh-h4-medium: 1.75rem;
+  --lh-h4-small: 1.75rem;
+  
+  --fs-h5: 1.375rem;
+  --fs-h5-medium: 1.25rem;
+  --fs-h5-small: 1.125rem;
+  
+  --lh-h5: 1.75rem;
+  --lh-h5-medium: 1.5rem;
+  --lh-h5-small: 1.375rem;
+  
+  --fs-h6: 1.125rem;
+  --fs-h6-medium: 1.125rem;
+  --fs-h6-small: 1rem;
+  
+  --lh-h6: 1.5rem;
+  --lh-h6-medium: 1.375rem;
+  --lh-h6-small: 1.25rem;
+
+  /* General variables */
+  --outline-ring-width: 2px;
+  --outline-ring-inset: ;
+  --outline-ring-offset-width: 2px;
+  --outline-ring-offset-color: var(--outline-gray-100);
+  --outline-ring-color: var(--outline-soft-black);
+  --outline-ring-offset-shadow: 0 0 rgba(0, 0, 0, 0);
+  --outline-ring-shadow: 0 0 rgba(0, 0, 0, 0);
+  --outline-ring-offset-shadow: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-ring-offset-color);
+  --outline-ring-shadow: var(--outline-ring-inset) 0 0 0 calc(var(--outline-ring-width) + var(--outline-ring-offset-width)) var(--outline-ring-color);
+
+  --outline-shadow: 0 0 rgba(0, 0, 0, 0);
+  --outline-shadow-colored: 0 0 rgba(0, 0, 0, 0);
 
   /*
-   * Configuration values for `outline-link`.
-   */
-  --outline-link-color-default: var(--demo-darkBlue);
-  --outline-link-color-hover: var(--demo-darkGray);
-  --outline-link-color-focus: var(--demo-darkGray);
-
-  /*
-   * Configuration values for `outline-breadcrumb`.
-   */
-  --outline-breadcrumb-text-color-default: var(--demo-lightGray);
-  --outline-breadcrumb-link-color-default: var(--demo-white);
-  --outline-breadcrumb-link-color-hover: var(--demo-mediumGray);
-  --outline-breadcrumb-link-color-focus: var(--demo-mediumGray);
-  --outline-breadcrumb-link-decoration-default: none;
-  --outline-breadcrumb-link-decoration-hover: underline;
-  --outline-breadcrumb-link-decoration-focus: underline;
-  --outline-breadcrumb-bg-color: var(--demo-darkGray);
-  --outline-breadcrumb-bg-padding: var(--spacing-4) var(--spacing-4);
-  --outline-breadcrumb-separator-spacing: var(--spacing-2);
-
-  /*
-  * Configuration values for `outline-admin-links`.
-  * This component's styles represent a standard set of administrative
-  * links like one found in Drupal or other systems.
+  * Custom variables overriding default variables.
   */
-  --outline-admin-links-color-default: var(--demo-darkGray);
-  --outline-admin-links-color-hover: var(--demo-black);
-  --outline-admin-links-color-focus: var(--demo-black);
-  --outline-admin-links-color-active: var(--demo-white);
-  --outline-admin-links-bg-default: var(--demo-lightGray);
-  --outline-admin-links-bg-hover: var(--demo-mediumGray);
-  --outline-admin-links-bg-focus: var(--demo-mediumGray);
-  --outline-admin-links-bg-active: var(--demo-darkGray);
-  --outline-admin-links-y-spacing: var(--spacing-4);
-  --outline-admin-links-link-y-spacing: var(--spacing-4);
-  --outline-admin-links-link-x-spacing: var(--spacing-6);
+  
 }

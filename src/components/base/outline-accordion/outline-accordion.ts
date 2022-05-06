@@ -2,29 +2,26 @@ import { html, TemplateResult, CSSResultGroup } from 'lit';
 import {
   customElement,
   property,
+  queryAssignedElements,
   state,
-  queryAssignedNodes,
 } from 'lit/decorators.js';
 import { OutlineElement } from '../../base/outline-element/outline-element';
 import componentStyles from './outline-accordion.css.lit';
 import { MobileController } from '../../controllers/mobile-controller';
+import { OutlineAccordionPanel } from '../outline-accordion-panel/outline-accordion-panel';
+import { SlotController } from '../../controllers/slot-controller';
 
 /**
  * Accordion Component
  * @element outline-accordion
+ * @slot label: The title text for the accordion component.
  * @slot panels: For outline-accordion-panels only.
  */
 @customElement('outline-accordion')
 export class OutlineAccordion extends OutlineElement {
   private mobileController = new MobileController(this);
-
+  slots = new SlotController(this, false);
   static styles: CSSResultGroup = [componentStyles];
-
-  /**
-   * Optional title heading text.
-   */
-  @property({ type: String })
-  label: string;
 
   /**
    * Sets to 'clean' variant
@@ -45,28 +42,19 @@ export class OutlineAccordion extends OutlineElement {
   allOpen = false;
 
   /**
-   * Array of active/open panels.
+   * Reference to <outline-accordion-panels> in panels slot.
    */
-  @state() active: string[] = [];
+  @queryAssignedElements({ slot: 'panels' })
+  panels: OutlineAccordionPanel[];
 
-  /**
-   * ref to <outline-accordion-panels> in panels slot.
-   */
-  @queryAssignedNodes('panels', true)
-  panels: HTMLSlotElement[];
+  @state() hasLabel: boolean;
 
   render(): TemplateResult {
     return html`
-      ${this.label
-        ? html`<h4 class="accordion-title ${this.isMobile()}">
-            ${this.label}
-          </h4>`
+      ${this.hasLabel
+        ? html`<div class="label"><slot name="label"></slot></div>`
         : null}
-      <div
-        class="accordion"
-        @click=${this.setActive}
-        @keydown=${this.handleKeyboardNav}
-      >
+      <div class="accordion" @keydown=${this.handleKeyboardNav}>
         <slot name="panels"></slot>
       </div>
     `;
@@ -76,26 +64,6 @@ export class OutlineAccordion extends OutlineElement {
    * Takes the element id of content <div>
    * to maintain state list of active/open panels.
    */
-  setActive(e: PointerEvent) {
-    const element = e?.target as HTMLElement;
-    const contentId = element.id;
-
-    // if single-panel = true
-
-    if (this.singlePanel) {
-      if (this.active.includes(contentId)) {
-        return (this.active = []);
-      }
-      return (this.active = [contentId]);
-    }
-
-    // if single-panel = false
-
-    if (this.active.includes(contentId)) {
-      return (this.active = this.active.filter(item => item !== contentId));
-    }
-    return (this.active = [contentId, ...this.active]);
-  }
 
   /**
    * @returns string | null
@@ -141,9 +109,9 @@ export class OutlineAccordion extends OutlineElement {
    */
 
   firstUpdated() {
+    this.hasLabel = this.slots.test('label');
     if (this.allOpen) {
       this.panels.map(panel => {
-        this.active.push(panel.id);
         panel.setAttribute('active', 'active');
       });
     }
@@ -153,18 +121,6 @@ export class OutlineAccordion extends OutlineElement {
       this.panels.map(panel => panel.setAttribute('clean', 'clean'));
     } else {
       this.panels.map(panel => panel.removeAttribute('clean'));
-    }
-    if (this.allOpen) {
-      this.panels.map(panel => {
-        this.active.push(panel.id);
-        panel.setAttribute('active', 'active');
-      });
-    } else {
-      this.panels.map(panel =>
-        this.active.includes(panel.id)
-          ? panel.setAttribute('active', 'active')
-          : panel.removeAttribute('active')
-      );
     }
   }
 }

@@ -3,7 +3,7 @@
 }
 
 .tab-group {
-  @apply flex border border-neutral-transparent;
+  @apply flex border border-outline-transparent;
 }
 
 .tab-group .tab-group__tabs {
@@ -23,7 +23,7 @@
 }
 
 .tab-group--start .tab-group__nav-container {
-  @apply order-1 border border-b-demo-lightGray;
+  @apply order-1 border border-b-outline-gray-100;
 }
 
 .tab-group--start .tab-group__tabs {
@@ -66,7 +66,7 @@
 }
 
 .tab-group--top .tab-group__tabs {
-  @apply relative mb-8 flex flex-row border border-b-demo-darkGray;
+  @apply relative mb-8 flex flex-row border border-b-outline-gray-600;
 }
 
 .tab-group--top .tab-group__tabs .tab {
