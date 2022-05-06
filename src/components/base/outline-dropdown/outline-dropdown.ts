@@ -100,7 +100,7 @@ export default class OutlineDropdown extends OutlineElement {
    * The button style variant to use.
    */
   @property({ type: String, attribute: 'trigger-variant' })
-  triggerVariant: ButtonVariant = 'none';
+  triggerVariant: ButtonVariant = 'link';
 
   @state() hasHeader: boolean;
   @state() hasDropdown: boolean;
@@ -287,7 +287,7 @@ export default class OutlineDropdown extends OutlineElement {
     this.handleFocusChange();
   }
 
-  handleHoverStyles(event: MouseEvent) {
+  handleHoverStyles() {
     // console.log('Handle the hover event. ', event);
   }
 
