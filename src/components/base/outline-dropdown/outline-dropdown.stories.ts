@@ -107,7 +107,7 @@ const configuration = {
 
 <outline-alert statusType="warning" size="large" class="mb-6">
   <span slot="header">Status: Experimental</span>
-  <p>This component is still in an experimental stage, and has additional work to be feature complete.</p>
+  <div>This component is still in an experimental stage, and has additional work to be feature complete.</div>
 </outline-alert>
         `,
       },

@@ -86,11 +86,11 @@ This is rendered as an \`a\` element if a link and a \`button\` element if not a
   <p>Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.</p>
   <p>Additional documentation and references for available CSS Variables can be found in the following locations.</p>
   <ul>
-    <li>\`outline-button/css-variables/vars-default.css\`</li>
-    <li>\`outline-button/css-variables/vars-primary.css\`</li>
-    <li>\`outline-button/css-variables/vars-secondary.css\`</li>
-    <li>\`outline-button/css-variables/vars-tertiary.css\`</li>
-    <li>\`outline-button/css-variables/vars-link.css\`</li>
+    <li>[\`outline-button/css-variables/vars-default.css\`](https://github.com/phase2/outline/blob/next/src/components/base/outline-button/css-variables/vars-default.css)</li>
+    <li>[\`outline-button/css-variables/vars-primary.css\`](https://github.com/phase2/outline/blob/next/src/components/base/outline-button/css-variables/vars-primary.css)</li>
+    <li>[\`outline-button/css-variables/vars-secondary.css\`](https://github.com/phase2/outline/blob/next/src/components/base/outline-button/css-variables/vars-secondary.css)</li>
+    <li>[\`outline-button/css-variables/vars-tertiary.css\`](https://github.com/phase2/outline/blob/next/src/components/base/outline-button/css-variables/vars-tertiary.css)</li>
+    <li>[\`outline-button/css-variables/vars-link.css\`](https://github.com/phase2/outline/blob/next/src/components/base/outline-button/css-variables/vars-link.css)</li>
   </ul>
 </outline-alert>
         `,
