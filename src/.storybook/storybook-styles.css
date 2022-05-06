@@ -2,18 +2,34 @@
 
 /*
  * Due to the specificity of Storybook's styles any of
- * our overrides must include an important declaration.
+ * our overrides (probably) must include an !important declaration.
  */
 
 .sbdocs-h1 {
-  @apply mb-4 border-none font-display text-3xl font-black !important;
+  margin-bottom: var(--spacing-4) !important;
+  border-style: none !important;
+  font-family: var(--ff-display) !important;
+  font-size: var(--fs-3xl) !important;
+  line-height: var(--lh-3xl) !important;
+  font-weight: var(--fw-black) !important;
 }
+
 .sbdocs-h2 {
-  @apply mb-4 border-none font-display text-2xl font-semibold !important;
+  margin-bottom: var(--spacing-4) !important;
+  border-style: none !important;
+  font-family: var(--ff-display) !important;
+  font-size: var(--fs-2xl) !important;
+  line-height: var(--lh-2xl) !important;
+  font-weight: var(--fw-semibold) !important;
 }
-.sbdocs .sbdocs-content {
-  max-width: 2240px;
-}
+
 .sbdocs-p {
-  @apply mt-0 !important;
+  margin-top: 0 !important;
+}
+
+/* Used to control the max-width / maximum width of the primary wrapper 
+ * in the Docs view in Storybook. 
+ */
+.sbdocs .sbdocs-content {
+  max-width: 1440px;
 }
