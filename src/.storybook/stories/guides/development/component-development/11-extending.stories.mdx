@@ -25,6 +25,11 @@ import '../../../../../components/base/outline-code-block/outline-code-block';
 > This section will provide an in-depth overview of extending components with Lit and Outline. 
 > The abiilty to extend components is one of, if not the core reason we utilize Lit as the standard for Outine component development.
 
+## Best Practices
+
+Whenever a `.ts` file requires an update, it's recommended to extend that element to a specific element of your design system.
+ie. when customizing the button component functionality beyond CSS styling, extend `outline-button` to `acme-button`.
+
 ## Extending Components in Outline
 
 Lit gives us the ability to extend the base `LitElement` component class as well as our own custom component classes. 
