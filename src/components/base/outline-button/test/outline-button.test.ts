@@ -4,7 +4,14 @@ import {
   ButtonSize,
   ButtonType,
 } from '../outline-button';
-import { assert, expect, fixture, html } from '@open-wc/testing';
+import {
+  assert,
+  expect,
+  fixture,
+  fixtureCleanup,
+  html,
+} from '@open-wc/testing';
+import sinon from 'sinon';
 
 describe('outline-button', () => {
   const buttonVariants: Array<ButtonVariant> = ['none', 'primary', 'secondary'];
@@ -23,7 +30,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" class="btn medium primary" type="button">
+      <button class="btn medium primary" type="button">
         <slot></slot>
       </button>
     `
@@ -63,9 +70,15 @@ describe('outline-button', () => {
     expect(button?.getAttribute('class')).to.not.contain('foo');
   });
 
-  // TODO: Test the onClick handler - Peter
-
-  // TODO: Test the onKeyUp handler
+  // Test the onClick handler
+  it('fires a click handler when clicked', async () => {
+    const callback = sinon.spy();
+    const el = (await fixture(
+      html`<outline-button @click=${callback}>Test</outline-button>`
+    )) as HTMLElement;
+    el.shadowRoot?.querySelector('button')?.click();
+    expect(callback.called);
+  });
 
   // Test button type 'submit', 'reset' or 'button' (button by default)
   buttonTypes.forEach(async bType => {
@@ -88,7 +101,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <button aria-disabled="false" aria-label="Button label" class="btn medium primary" type="button">
+      <button aria-label="Button label" class="btn medium primary" type="button">
         <slot></slot>
       </button>
     `
@@ -106,7 +119,7 @@ describe('outline-button', () => {
     assert.shadowDom.equal(
       el,
       `
-      <a aria-disabled="false" class="btn medium primary" href="https://outline.phase2tech.com" target="_blank">
+      <a class="btn medium primary" href="https://outline.phase2tech.com" target="_blank">
         <slot></slot>
       </a>
     `
@@ -131,5 +144,9 @@ describe('outline-button', () => {
   it('renders with slotted content', async () => {
     const el = await fixture(html`<outline-button>Test</outline-button>`);
     assert.lightDom.equal(el, `Test`);
+  });
+
+  afterEach(() => {
+    fixtureCleanup();
   });
 });

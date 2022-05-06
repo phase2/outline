@@ -81,17 +81,12 @@ export class OutlineButton extends OutlineElement {
    * implementations not using the url property
    */
   @property({ type: Boolean, attribute: 'is-disabled' })
-  isDisabled = false;
+  isDisabled: boolean;
 
   /**
    * A click handler to be passed only to onClick. DO NOT USE @click on this component.
    */
   @property() onClick: () => void;
-
-  /**
-   * A keyUp handler to be passed to the onKeyUp. DO NOT USE @keyup on this component.
-   */
-  @property() onKeyUp: () => void;
 
   @state() hasLeftIcon: boolean;
   @state() hasRightIcon: boolean;
@@ -113,7 +108,9 @@ export class OutlineButton extends OutlineElement {
           href=${this.buttonUrl}
           target=${ifDefined(this.buttonTarget)}
           aria-label="${ifDefined(this.buttonLabel)}"
-          aria-disabled="${ifDefined(this.isDisabled)}"
+          aria-disabled="${ifDefined(
+            this.isDisabled === true ? 'true' : undefined
+          )}"
         >
           ${this.iconTemplate(this.hasLeftIcon, 'left')}
           <slot></slot>
@@ -123,9 +120,10 @@ export class OutlineButton extends OutlineElement {
           class="btn ${this.buttonVariant} ${this.buttonSize}"
           type="${this.buttonType}"
           aria-label="${ifDefined(this.buttonLabel)}"
-          aria-disabled="${ifDefined(this.isDisabled)}"
+          aria-disabled="${ifDefined(
+            this.isDisabled === true ? 'true' : undefined
+          )}"
           .onclick="${this.onClick}"
-          .onkeyup="${this.onKeyUp}"
         >
           ${this.iconTemplate(this.hasLeftIcon, 'left')}
           <slot></slot>
@@ -143,15 +141,6 @@ export class OutlineButton extends OutlineElement {
   iconTemplate(exists: boolean, slot: string): TemplateResult | null {
     if (!exists) return null;
     return html`<slot name="${slot}"></slot>`;
-  }
-
-  updated() {
-    // checks the is-disabled prop and manages aria-disabled attributes on the <outline-button> element itself.
-    if (this.hasAttribute('is-disabled')) {
-      this.setAttribute('aria-disabled', 'true');
-    } else {
-      this.setAttribute('aria-disabled', 'false');
-    }
   }
 }
 
