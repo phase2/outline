@@ -8,7 +8,7 @@ import {
 import './outline-list';
 import '../outline-heading/outline-heading';
 export default {
-  title: 'Content/List',
+  title: 'Navigation/List',
   component: 'outline-list',
   parameters: {
     docs: {
