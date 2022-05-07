@@ -1,30 +1,63 @@
 .outline-breadcrumbs {
-  color: var(--outline-breadcrumb-text-color-default);
-  background: var(--outline-breadcrumb-bg-color);
-  padding: var(--outline-breadcrumb-bg-padding);
+  color: var(
+    --outline-breadcrumb-text-color-default,
+    var(--outline-breadcrumb--default-text-color-default)
+  );
+  background: var(
+    --outline-breadcrumb-bg-color,
+    var(--outline-breadcrumb--default-bg-color)
+  );
+  padding: var(
+    --outline-breadcrumb-bg-padding,
+    var(--outline-breadcrumb--default-bg-padding)
+  );
 }
 
 a,
 ::slotted(a) {
   @apply font-body transition-colors duration-300;
-  text-decoration: var(--outline-breadcrumb-link-decoration-default);
-  color: var(--outline-breadcrumb-link-color-default);
+  text-decoration: var(
+    --outline-breadcrumb-link-decoration-default,
+    var(--outline-breadcrumb--default-link-decoration-default)
+  );
+  color: var(
+    --outline-breadcrumb-link-color-default,
+    var(--outline-breadcrumb--default-link-color-default)
+  );
 }
 
 a:hover,
 ::slotted(a:hover) {
-  text-decoration: var(--outline-breadcrumb-link-decoration-hover);
-  color: var(--outline-breadcrumb-link-color-hover);
+  text-decoration: var(
+    --outline-breadcrumb-link-decoration-hover,
+    var(--outline-breadcrumb--default-link-decoration-hover)
+  );
+  color: var(
+    --outline-breadcrumb-link-color-hover,
+    var(--outline-breadcrumb--default-link-color-hover)
+  );
 }
 
 a:focus,
 ::slotted(a:focus) {
-  text-decoration: var(--outline-breadcrumb-link-decoration-focus);
+  text-decoration: var(
+    --outline-breadcrumb-link-decoration-focus,
+    var(--outline-breadcrumb--default-link-decoration-focus)
+  );
   outline: none;
-  color: var(--outline-breadcrumb-link-color-focus);
+  color: var(
+    --outline-breadcrumb-link-color-focus,
+    var(--outline-breadcrumb--default-link-color-focus)
+  );
 }
 
 .separator {
-  margin-left: var(--outline-breadcrumb-separator-spacing);
-  margin-right: var(--outline-breadcrumb-separator-spacing);
+  margin-left: var(
+    --outline-breadcrumb-separator-spacing,
+    var(--outline-breadcrumb--default-separator-spacing)
+  );
+  margin-right: var(
+    --outline-breadcrumb-separator-spacing,
+    var(--outline-breadcrumb--default-separator-spacing)
+  );
 }

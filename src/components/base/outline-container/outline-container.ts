@@ -2,16 +2,23 @@
 import { OutlineElement } from '../outline-element/outline-element';
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
+import componentVars from './css-variables/vars-container.css.lit';
 import componentStyles from './outline-container.css.lit';
 import type { HorizontalAlignment } from '../outline-element/utils/types';
 
 /**
  * The Outline  Link component
- * @slot - The default, and only slot for this element.
+ * @element outline-link
+ * @extends OutlineElement
+ * @slot - The default slot for this element.
+ * @cssprop --outline-container-padding-x: The horizontal padding for the container.
+ * @cssprop --outline-container-padding-y: The vertical padding for the container.
+ * @todo: Cleanup default responsive CSS styling and Tailwind CSS usage.
+ * @todo: Implement a method for 'simplified' media queries.
  */
 @customElement('outline-container')
 export class OutlineContainer extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentVars, componentStyles];
 
   /**
    * Whether or not this container has padding.

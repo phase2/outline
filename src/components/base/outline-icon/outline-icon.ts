@@ -42,8 +42,8 @@ export default class OutlineIcon extends OutlineElement {
 
   /** An alternate description to use for accessibility. If omitted, the icon will be ignored by assistive devices. */
   /** @todo: Make this default to "true" and be turned off when an icon is decorative. */
-  @property({ type: String, attribute: 'label' })
-  label = '';
+  @property({ attribute: 'label' })
+  label: string | boolean = false;
 
   /** The name of a registered custom icon library. */
   @property({ type: String, attribute: 'library' })
@@ -162,12 +162,12 @@ export default class OutlineIcon extends OutlineElement {
       icon: true,
       [`icon-library--${this.library}`]: this.library,
     };
+    // aria-hidden=${ifDefined(hasLabel ? undefined : 'true')}
     return html` <div
       part="base"
       class="${classMap(wrapperClasses)}"
       role=${ifDefined(hasLabel ? 'img' : undefined)}
       aria-label=${ifDefined(hasLabel ? this.label : undefined)}
-      aria-hidden=${ifDefined(hasLabel ? undefined : 'true')}
     >
       ${unsafeSVG(this.svg)}
     </div>`;

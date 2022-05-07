@@ -22,16 +22,16 @@ export interface LinkType {
 }
 
 export const argTypeHref = {
-  name: 'Link Destination',
+  name: 'link-href',
   description: 'https://www.w3schools.com/tags/att_a_href.asp',
   control: {
     type: 'text',
   },
-  table: { defaultValue: { summary: 'false' } },
+  table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
 };
 
 export const argTypeTarget = {
-  name: 'Link Target',
+  name: 'link-target',
   description: 'https://www.w3schools.com/tags/att_a_target.asp',
   options: ['_blank', '_self', '_parent', '_top'],
   control: {
@@ -41,7 +41,7 @@ export const argTypeTarget = {
 };
 
 export const argTypeRel = {
-  name: 'Link Relationship',
+  name: 'link-rel',
   description: 'https://www.w3schools.com/tags/att_a_rel.asp',
   options: [
     'alternate',
@@ -61,5 +61,5 @@ export const argTypeRel = {
   control: {
     type: 'select',
   },
-  table: { defaultValue: { summary: 'null' } },
+  table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
 };

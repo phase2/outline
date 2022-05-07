@@ -20,7 +20,12 @@ export const ALL_VERTICAL_ALIGNMENT = ['top', 'middle', 'bottom'] as const;
 type AlignmentTuple = typeof ALL_VERTICAL_ALIGNMENT;
 export type VerticalAlignment = AlignmentTuple[number];
 
-export const ALL_HORIZONTAL_ALIGNMENT = ['left', 'center', 'right'] as const;
+export const ALL_HORIZONTAL_ALIGNMENT = [
+  'left',
+  'center',
+  'right',
+  'none',
+] as const;
 type HorizontalAlignmentTuple = typeof ALL_HORIZONTAL_ALIGNMENT;
 export type HorizontalAlignment = HorizontalAlignmentTuple[number];
 

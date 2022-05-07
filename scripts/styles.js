@@ -82,9 +82,19 @@ const createCssLiterals = filepath => {
     postcss([...config.plugins])
       .process(css, { from: filepath, to: nFilePath })
       .then(result => {
-        fs.writeFile(
-          nFilePath,
-          `
+        if (filepath.includes('css-variables')) {
+          createVariableLiterals(result, nFilePath);
+        } else {
+          createComponentLiterals(result, nFilePath);
+        }
+      });
+  });
+};
+
+const createComponentLiterals = (result, path) => {
+  fs.writeFile(
+    path,
+    `
 import { css } from 'lit';
 export default css\`
 /* Apply standardized box sizing to the component. */
@@ -96,15 +106,34 @@ export default css\`
 :host *::after {
   box-sizing: inherit;
 }
-[hidden] {
-  display: none !important;
+/* Apply proper CSS for accessibly hiding elements to each component. */
+:host([aria-hidden="true"]),
+[aria-hidden="true"],
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
 }
 /* Apply component specific CSS */
 ${result.css}\`;`,
-          () => true
-        );
-      });
-  });
+    () => true
+  );
+};
+
+const createVariableLiterals = (result, path) => {
+  fs.writeFile(
+    path,
+    `
+import { css } from 'lit';
+export default css\`
+/* Apply CSS Variables to the host element. */
+:host {
+${result.css}\`;`,
+    () => true
+  );
 };
 
 // Ensure dist directory exists.
