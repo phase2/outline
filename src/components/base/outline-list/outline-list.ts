@@ -1,6 +1,7 @@
 import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, property } from 'lit/decorators.js';
+import componentVars from './css-variables/vars-list.css.lit';
 import componentStyles from './outline-list.css.lit';
 import '../outline-link/outline-link';
 import { classMap } from 'lit/directives/class-map.js';
@@ -9,36 +10,33 @@ export const listTypes = ['ol', 'ul', 'div'] as const;
 
 export type ListType = typeof listTypes[number];
 
-export const listOrientations = [
-  'column',
-  'row',
-  'mobile-row',
-  'mobile-col',
-  'col-center',
-  'mobile-col-center',
-] as const;
+export const listOrientations = ['column', 'row', 'col-center'] as const;
 
 export type ListOrientation = typeof listOrientations[number];
 
-export const dividerColors = ['blue', 'teal', 'red', 'white', 'black'] as const;
-
-export type ListDividerColors = typeof dividerColors[number];
-
-export const columnsCount = ['2', '3', '4'] as const;
-
-export type ColumnCount = typeof columnsCount[number];
-
 export type ClassInfo = { [name: string]: string | boolean | number };
+
 /**
  * The OutlineList component
  * @element outline-list
+ * @extends OutlineElement
+ *
+ * @cssprop --outline-list-default-spacing - The default spacing between items.
+ * @cssprop --outline-list-default-spacing-xs - The default spacing between items for extra small screens.
+ * @cssprop --outline-list-default-spacing-sm - The default spacing between items for small screens.
+ * @cssprop --outline-list-default-spacing-md - The default spacing between items for medium screens.
+ * @cssprop --outline-list-default-spacing-lg - The default spacing between items for large screens.
+ * @cssprop --outline-list-default-spacing-xl - The default spacing between items for extra large screens.
+ * @cssprop --outline-list-default-spacing-xxl - The default spacing between items for extra extra large screens.
+ * @cssprop --outline-list-default-spacing-xxxl - The default spacing between items for extra extra extra large screens.
+ *
  * @slot default slot.
  * @slot heading: for content above the default slot.
  * @slot footer: for content below the default slot.
  */
 @customElement('outline-list')
 export class OutlineList extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentVars, componentStyles];
 
   /**
    * Determines which type of list is rendered.
@@ -61,28 +59,10 @@ export class OutlineList extends OutlineElement {
   @property({ type: String, attribute: 'nav-label' })
   navLabel: string | undefined;
 
-  /**
-   * If set adds a pseudo element divider of chose color
-   * between all list items. Best only for row.
-   */
-  @property({ type: String })
-  divider: ListDividerColors;
-
-  /**
-   *  If set, overrides orientation setting and
-   *  renders list above mobile in selected number of columns.
-   */
-  @property({ type: String })
-  columns: ColumnCount;
-
   render(): TemplateResult {
     const classes = {
-      list: !this.columns,
-      grid: this.columns,
-      [`${this.orientation}`]: this.orientation && !this.columns,
-      divided: this.divider,
-      [`${this.divider}`]: this.divider,
-      [`columns--${this.columns}`]: this.columns,
+      list: true,
+      [`${this.orientation}`]: this.orientation,
     };
 
     return this.navLabel
