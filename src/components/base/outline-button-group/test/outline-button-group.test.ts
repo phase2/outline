@@ -15,8 +15,7 @@ describe('outline-button-group', () => {
       el,
       `
       <outline-list
-        listtype="ul"
-        orientation="column"
+        orientation="row"
       >
         <slot>
         </slot>

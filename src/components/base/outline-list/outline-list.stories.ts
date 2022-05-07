@@ -4,8 +4,6 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import {
   listOrientations,
   listTypes,
-  columnsCount,
-  dividerColors,
 } from './outline-list';
 import './outline-list';
 import '../outline-heading/outline-heading';
@@ -60,8 +58,9 @@ export default {
   },
   argTypes: {
     listType: {
+      table: { category: 'Properties', defaultValue: { summary: 'div' } },
       description:
-        '**`<ListType>`("ol" | "ul" | "div"):** <br> Determines which type of list is rendered.',
+        'Determines which type of list is rendered.',
       options: listTypes,
       control: {
         type: 'select',
@@ -69,54 +68,41 @@ export default {
       name: 'list-type',
     },
     orientation: {
+      table: { category: 'Properties', defaultValue: { summary: 'row' } },
       description:
-        '**`<ListOrientation>`("row" | "column"):** <br> Sets orientation of list',
+        'Sets orientation of list',
       options: listOrientations,
       control: { type: 'select' },
     },
     navLabel: {
+      table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
       description:
-        'If set will wrap list in a nav tag with the passed string set as the aria-label',
+        'If set will wrap list in a `nav` tag with the passed string set as the `aria-label`',
       control: { type: 'text' },
       name: 'nav-label',
     },
-    columns: {
-      description:
-        '**`<ColumnCount>`("2", "3", "4"):** <br> If set, overrides orientation setting and renders list above mobile in selected number of columns',
-      options: [...columnsCount, undefined],
-      control: {
-        type: 'select',
-      },
-    },
-    divider: {
-      description:
-        '**`<ListDividerColors>` ("orange","green","blue","teal","purple","white"):** <br>If set adds a pseudo element divider of chose color between all list items. Currently only setup for `<ul/>`. Best only for row.',
-      options: [...dividerColors, undefined],
-      control: {
-        type: 'select',
-      },
-    },
     headingSlotContent: {
+      table: { category: 'Slots', defaultValue: { summary: 'NULL' } },
       control: { type: 'text' },
-      name: 'heading slot content',
+      name: 'heading',
       description: '**slot="heading"**',
     },
     footerSlotContent: {
+      table: { category: 'Slots', defaultValue: { summary: 'NULL' } },
       control: { type: 'text' },
-      name: 'footer slot content',
+      name: 'footer',
       description: '**slot="footer"**',
     },
     itemCount: {
+      table: { category: 'Other Controls', defaultValue: { summary: '4' } },
       control: { type: 'range', min: 0, max: 30, step: 1 },
     },
   },
   args: {
-    divider: false,
-    columns: false,
-    listType: 'ul',
+    listType: 'div',
     navLabel: '',
-    orientation: ' row',
-    itemCount: 6,
+    orientation: 'row',
+    itemCount: 4,
     headingSlotContent: '',
     footerSlotContent: '',
   },
@@ -124,7 +110,7 @@ export default {
 const items = itemCount => {
   const itemList = [];
   for (let i = 0; i < itemCount; i++) {
-    itemList.push({ linkHref: '/', text: `link ${i + 1}` });
+    itemList.push({ linkHref: '/', text: `Sample Link ${i + 1}` });
   }
   return itemList;
 };
@@ -137,7 +123,6 @@ const Template = ({
   headingSlotContent,
   footerSlotContent,
   divider,
-  columns,
 }): TemplateResult => {
   return html`
     <outline-list
@@ -145,7 +130,6 @@ const Template = ({
       nav-label="${navLabel}"
       orientation="${orientation}"
       .divider=${divider}
-      .columns=${columns}
     >
       ${headingSlotContent ? html`
       <outline-heading slot="heading" level="h3" levelSize="3xl"
@@ -154,12 +138,10 @@ const Template = ({
       `: ``}
       ${items(itemCount).map(
         item => html`
-          <li style=${`padding: 0.5rem; list-style: none`}>
-            <outline-link
-              link-href=${item.linkHref}
-              link-text=${item.text}
-            ></outline-link>
-          </li>
+          <outline-link
+            link-href=${item.linkHref}
+            link-text=${item.text}
+          ></outline-link>
         `
       )}
       <slot slot="footer">${ifDefined(unsafeHTML(footerSlotContent))}</slot>

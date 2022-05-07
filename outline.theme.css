@@ -115,13 +115,13 @@
   /* Utitlizing CSS properties here (screens) caused
      the responsive tailwind classes to simply fail.
      @todo: Make screens work with css variables. */
-  /* --screen-xs: 480px;
+  --screen-xs: 480px;
   --screen-sm: 640px;
   --screen-md: 768px;
   --screen-lg: 1024px;
   --screen-xl: 1280px;
   --screen-xxl: 1440px;
-  --screen-xxxl: 2180px; */
+  --screen-xxxl: 2180px;
 
   --spacing-0: 0px;
   --spacing-1: 0.25rem;
@@ -263,5 +263,5 @@
   /*
   * Custom variables overriding default variables.
   */
-  
+
 }
