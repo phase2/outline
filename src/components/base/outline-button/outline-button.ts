@@ -6,13 +6,16 @@ import { OutlineElement } from '../outline-element/outline-element';
 import { SlotController } from '../../controllers/slot-controller';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { isInType } from '../../../internal/isInType';
+import { deepSearch } from '../../../internal/deepSearch';
 
 const buttonVariants = ['none', 'primary', 'secondary'] as const;
 export type ButtonVariant = typeof buttonVariants[number];
 
-export type ButtonSize = 'small' | 'medium' | 'large';
+const buttonSizes = ['small', 'medium', 'large'] as const;
+export type ButtonSize = typeof buttonSizes[number];
 
-export type ButtonType = 'button' | 'submit' | 'reset';
+const buttonTypes = ['button', 'submit', 'reset'] as const;
+export type ButtonType = typeof buttonTypes[number];
 
 /**
  * The Outline Button component
@@ -67,7 +70,13 @@ export class OutlineButton extends OutlineElement {
   /**
    * The button size to use.
    */
-  @property({ type: String, attribute: 'button-size' })
+  @property({
+    type: String,
+    attribute: 'button-size',
+    converter: value => {
+      return isInType(value, buttonSizes, 'ButtonSize') ? value : '';
+    },
+  })
   buttonSize: ButtonSize = 'medium';
 
   /**
@@ -90,10 +99,26 @@ export class OutlineButton extends OutlineElement {
 
   @state() hasLeftIcon: boolean;
   @state() hasRightIcon: boolean;
+  @state() hasDefaultSlot: boolean;
 
   firstUpdated(): void {
     this.hasLeftIcon = this.slots.test('left');
     this.hasRightIcon = this.slots.test('right');
+    this.hasDefaultSlot = this.slots.test();
+
+    const ariaLabeled: Array<HTMLElement> = deepSearch(
+      'aria-label',
+      [this],
+      'attribute'
+    );
+    const innerText: Array<HTMLElement> = deepSearch(
+      'innerText',
+      [this],
+      'property'
+    );
+    if (!innerText.length && !ariaLabeled.length && !this.buttonLabel) {
+      throw new Error('Button has neither button-label nor default slot text.');
+    }
   }
 
   /**

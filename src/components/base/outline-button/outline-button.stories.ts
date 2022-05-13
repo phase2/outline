@@ -132,8 +132,8 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
   <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
   <p>This section of primary buttons demonstrates various configurations, and can be navigated to test hover/focus states.</p>
   <div class="my-6">
-    <outline-button class="mr-2" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
-    <outline-button class="mr-2" button-url="#" button-label="Button">Button</outline-button>
+    <outline-button button-variant="foo" class="mr-2" button-url="#" button-size="large" button-label="Large Button">Large Button</outline-button>
+    <outline-button button-variant="primary" class="mr-2" button-url="#" button-label="Button">Button</outline-button>
     <outline-button class="mr-2" button-url="#" button-size="small" button-label="Small Button">Small Button</outline-button>
   </div>
   
