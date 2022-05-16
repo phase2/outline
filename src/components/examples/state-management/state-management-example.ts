@@ -1,6 +1,6 @@
 import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../../base/outline-element/outline-element';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement } from 'lit/decorators.js';
 import componentStyles from './state-management-example.css.lit';
 
 import { observeState } from 'lit-element-state';
