@@ -1,5 +1,5 @@
 .wrapper {
-  @apply max-w-max border-solid border border-outline-black p-12 rounded flex flex-col justify-center; 
+  @apply flex max-w-max flex-col justify-center rounded border border-solid border-outline-black p-12;
 }
 
 .count {
