@@ -10204,6 +10204,11 @@ lit-analyzer@1.2.1:
     vscode-html-languageservice "3.1.0"
     web-component-analyzer "~1.1.1"
 
+lit-element-state@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/lit-element-state/-/lit-element-state-1.7.0.tgz#d3163ef845fcbbc4c0271f3d5a00db364300f863"
+  integrity sha512-QL6HWlQkVU14cQbeWjLP/piXXC6e4oEFiRNjE6ulg6WBQPSu9VhM3oaz0xKIwv8MUPTAYCh1obGdiVajD2SmMw==
+
 lit-element@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-3.2.0.tgz#9c981c55dfd9a8f124dc863edb62cc529d434db7"

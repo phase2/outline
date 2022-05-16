@@ -87,7 +87,8 @@
   ],
   "dependencies": {
     "@splidejs/splide": "^3.2.1",
-    "lit": "^2.0.0"
+    "lit": "^2.0.0",
+    "lit-element-state": "^1.7.0"
   },
   "engines": {
     "node": ">=14"
