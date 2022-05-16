@@ -4,7 +4,7 @@ import './example-state-component/example-state-component';
 import '../../base/outline-code-block/outline-code-block';
 
 export default {
-  title: 'Examples/State Management',
+  title: 'Documentation/Code Examples/State Management',
   component: 'state-management-example',
 };
 
