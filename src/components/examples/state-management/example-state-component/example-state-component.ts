@@ -7,7 +7,7 @@ import { observeState } from 'lit-element-state';
 import { exampleState } from '../state';
 
 /**
- * The ExampleStateComponent component
+ *
  * @element example-state-component
  */
 @customElement('example-state-component')

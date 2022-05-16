@@ -70,8 +70,10 @@ export const CodeExample = (): TemplateResult =>
         increaseCount
       } from './state';
 
-      // Extend our component with out base class passed into this mixin
-      export class StateManagementExample extends observeState(OutlineElement) {}
+      // Extend our component with our base class passed into this mixin
+      export class StateManagementExample extends observeState(OutlineElement) {
+        ...
+      }
 
       </outline-code-block>
       
