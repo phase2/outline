@@ -1,0 +1,7 @@
+.wrapper {
+  @apply max-w-max border-solid border border-brand-primary p-12 rounded flex flex-col justify-center; 
+}
+
+.count {
+  @apply self-center text-5xl text-brand-primary;
+}
