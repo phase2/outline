@@ -57,7 +57,7 @@ describe('outline-image', () => {
       el,
       `
       <figure><picture><img src="image.jpg" alt='An image' /></picture><slot></slot></figure>
-      <figcaption><p slot='caption'>A test caption</p></figcaption>
+      <figcaption><slot name="caption"><p slot='caption'>A test caption</p></slot></figcaption>
       `
     );
   });
