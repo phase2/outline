@@ -100,11 +100,48 @@ jobs:
       - name: Run prettier
         run: yarn lint:prettier
 
+  # Job to run tests, linters and formatting checks.
+  a11y:
+    name: Accessibility
+    runs-on: ubuntu-latest
+    needs: ['setup', 'test']
+
+    # The steps for the test job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Install from cache
+        run: yarn install --prefer-offline
+
+      - name: Run axe-storybook-testing
+        run: yarn storybook:axe:prod 
+
   # Job to build and cache the distribution package.
   build-dist:
     name: Build & Test Package(s)
     runs-on: ubuntu-latest
-    needs: test
+    needs: ['test', 'a11y']
 
     # The steps for the build-dist job.
     steps:
@@ -158,7 +195,7 @@ jobs:
   build-storybook:
     name: Build Storybook
     runs-on: ubuntu-latest
-    needs: test
+    needs: ['test', 'a11y']
 
     # The steps for the build-storybook job.
     steps:
