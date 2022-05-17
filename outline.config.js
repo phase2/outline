@@ -53,8 +53,8 @@ module.exports = {
       // @status stable
       full: true,
       // @see src/data.ts
-      // @status optional
-      data: false,
+      // @status stable
+      data: true,
     },
   },
   // @todo: Importing this into swatch-sets causes issues.
