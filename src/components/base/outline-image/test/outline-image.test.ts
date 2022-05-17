@@ -56,8 +56,15 @@ describe('outline-image', () => {
     assert.shadowDom.equal(
       el,
       `
-      <figure><picture><img src="image.jpg" alt='An image' /></picture><slot></slot></figure>
-      <figcaption><slot name="caption"><p slot='caption'>A test caption</p></slot></figcaption>
+      <figure>
+        <picture><img src="image.jpg" alt='An image' /></picture>
+        <slot></slot>
+        <figcaption>
+          <slot name="caption">
+            <p slot='caption'>A test caption</p>
+          </slot>
+        </figcaption>
+      </figure>
       `
     );
   });
