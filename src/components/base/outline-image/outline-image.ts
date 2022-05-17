@@ -23,7 +23,7 @@ export type AspectRatios = typeof aspectRatios[number];
  * @extends OutlineElement
  * @see https://codepen.io/alvarotrigo/pen/OJxOrOg
  * @see https://keithclark.co.uk/articles/pure-css-parallax-websites/demo3/
- * @slot default - The image to be presented.
+ * @slot - The image to be presented.
  * @slot caption - The caption text for the image.
  */
 @customElement('outline-image')

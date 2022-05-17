@@ -54,7 +54,7 @@ module.exports = {
       full: true,
       // @see src/data.ts
       // @status stable
-      data: true,
+      data: false,
     },
   },
   // @todo: Importing this into swatch-sets causes issues.

@@ -145,6 +145,6 @@ export const imageDisplayMethodData = (
 // },
 
 export const NarrowStoryDecorator = [
-  (Story): TemplateResult =>
+  (Story: () => unknown): TemplateResult =>
     html` <div class="block max-w-[600px]">${Story()}</div> `,
 ];
