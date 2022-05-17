@@ -21,10 +21,16 @@ export type AspectRatios = typeof aspectRatios[number];
  * The image component, with support for parallax scrolling.
  * @element outline-image
  * @extends OutlineElement
+ * @since 1.0.0
+ *
  * @see https://codepen.io/alvarotrigo/pen/OJxOrOg
  * @see https://keithclark.co.uk/articles/pure-css-parallax-websites/demo3/
  * @slot - The image to be presented.
  * @slot caption - The caption text for the image.
+ * @todo: Update the caption slot. Add CSS Variables.
+ * @todo: Add support for loading="lazy". Add support for loading="eager"?
+ * @todo: Add more demos for the image component, including caption usage.
+ * @todo: Add more tests for the image component.
  */
 @customElement('outline-image')
 export class OutlineImage extends OutlineElement {
@@ -75,9 +81,9 @@ export class OutlineImage extends OutlineElement {
           <picture>
             <img src=${this.imageHref} alt="${ifDefined(this.imageLabel)}" />
           </picture>
+          ${this.captionSlotTemplate()}
         </figure>`
-      : html`<figure><slot></slot></figure>`}
-    ${this.captionSlotTemplate()} `;
+      : html`<figure><slot></slot>${this.captionSlotTemplate()}</figure>`} `;
   }
 }
 

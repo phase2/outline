@@ -10,7 +10,6 @@ import code7 from '../../../.storybook/static/media/tech/1440/code-7.jpg';
 import { imageDisplayMethodData, imageRatioPropertyData, NarrowStoryDecorator } from '../../../data';
 import { argTypeHidden } from '../outline-element/utils/utils';
 import './outline-image';
-// import '../outline-heading/outline-heading'
 
 export default {
   title: 'Media/Image',
