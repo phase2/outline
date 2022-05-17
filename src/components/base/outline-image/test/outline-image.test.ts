@@ -17,6 +17,7 @@ describe('outline-image', () => {
     );
   });
 
+  // Using image.jpg here throws a warning during test run.
   it('renders slotted content', async () => {
     const el = await fixture(
       html`<outline-image
@@ -31,6 +32,7 @@ describe('outline-image', () => {
     );
   });
 
+  // Using image.jpg here throws a warning during test run.
   it('renders image with properties', async () => {
     const el = await fixture(
       html`<outline-image
@@ -46,6 +48,7 @@ describe('outline-image', () => {
     );
   });
 
+  // Using image.jpg here throws a warning during test run.
   it('renders caption slotted content', async () => {
     const el = await fixture(
       html`<outline-image
