@@ -49,7 +49,7 @@ describe('outline-image', () => {
   it('renders caption slotted content', async () => {
     const el = await fixture(
       html`<outline-image
-        ><img alt="An image" />
+        ><picture><img src="image.jpg" alt="An image" /></picture>
         <p slot="caption">A test caption</p></outline-image
       >`
     );
