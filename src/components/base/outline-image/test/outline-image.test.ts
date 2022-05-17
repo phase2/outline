@@ -19,12 +19,29 @@ describe('outline-image', () => {
 
   it('renders slotted content', async () => {
     const el = await fixture(
-      html`<outline-image><img alt="Im an image" /></outline-image>`
+      html`<outline-image
+        ><picture><img src="image.jpg" alt="An image" /></picture
+      ></outline-image>`
     );
-    assert.lightDom.equal(
+    assert.shadowDom.equal(
       el,
       `
-      <img alt='Im an image' />
+      <figure><picture><img src="image.jpg" alt='An image' /></picture><slot></slot></figure>
+      `
+    );
+  });
+
+  it('renders image with properties', async () => {
+    const el = await fixture(
+      html`<outline-image
+        image-href="image.jpg"
+        image-label="An image"
+      ></outline-image>`
+    );
+    assert.shadowDom.equal(
+      el,
+      `
+      <figure><picture><img src="image.jpg" alt='An image' /></picture></figure>
       `
     );
   });
@@ -32,15 +49,15 @@ describe('outline-image', () => {
   it('renders caption slotted content', async () => {
     const el = await fixture(
       html`<outline-image
-        ><img alt="Im an image" />
-        <p slot="caption">Im a test caption</p></outline-image
+        ><picture><img src="image.jpg" alt="An image" /></picture>
+        <p slot="caption">A test caption</p></outline-image
       >`
     );
-    assert.lightDom.equal(
+    assert.shadowDom.equal(
       el,
       `
-      <img alt='Im an image' />
-      <p slot='caption'>Im a test caption</p>
+      <figure><picture><img src="image.jpg" alt='An image' /></picture><slot></slot></figure>
+      <figcaption><slot name="caption"><p slot='caption'>A test caption</p></slot></figcaption>
       `
     );
   });
