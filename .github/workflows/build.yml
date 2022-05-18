@@ -134,11 +134,8 @@ jobs:
       - name: Install from cache
         run: yarn install --prefer-offline
 
-      # @see https://github.com/marketplace/actions/run-playwright-tests
-      - uses: microsoft/playwright-github-action@v1  
-
       - name: Setup playwright browsers
-        run: npx playwright install
+        run: npx playwright install --with-deps
         
       - name: Run axe-storybook-testing
         run: yarn storybook:axe:prod 
@@ -189,11 +186,8 @@ jobs:
       - name: Build
         run: yarn build
 
-      # @see https://github.com/marketplace/actions/run-playwright-tests
-      - uses: microsoft/playwright-github-action@v1  
-
       - name: Setup playwright browsers
-        run: npx playwright install
+        run: npx playwright install --with-deps
 
       - name: Run tests
         run: yarn reset && yarn test
