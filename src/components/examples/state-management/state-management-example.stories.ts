@@ -27,7 +27,7 @@ export const CodeExample = (): TemplateResult =>
       import { LitState } from 'lit-element-state';
 
       // Create an interface to shape our state data
-      export type ExampleStateType = {
+      export interface ExampleStateType = {
         count: number;
       };
 
@@ -72,7 +72,18 @@ export const CodeExample = (): TemplateResult =>
 
       // Extend our component with our base class passed into this mixin
       export class StateManagementExample extends observeState(OutlineElement) {
-        ...
+        render(): TemplateResult {
+          return html&#180;
+            &#60;div class="wrapper">
+              &#60;p class="count">&#36;{exampleState.count}&#60;/p>
+              &#60;div class="btn-wrapper">
+                &#60;outline-button @click=&#36;{decreaseCount}>-&#60;/outline-button>
+                &#60;outline-button @click=&#36;{resetCount}>0&#60;/outline-button>
+                &#60;outline-button @click=&#36;{increaseCount}>+&#60;/outline-button>
+              &#60;/div>
+            &#60;/div>
+            &#180;;
+        }
       }
 
       </outline-code-block>
@@ -92,9 +103,15 @@ export const CodeExample = (): TemplateResult =>
       export class ExampleStateComponent extends observeState(OutlineElement) {
           
         // anytime our observed state is changed our component will update with the new state
-        render = () => {exampleState.counter}
+        render(): TemplateResult {
+            return html&#180;
+            &#60;div class="wrapper">
+              &#60;outline-heading>Days Since Last Incident&#60;/outline-heading>
+              &#60;p class="count">&#36;{exampleState.count}&#60;/p>
+            &#60;/div>
+            &#180;;
+        }
       }
-
       </outline-code-block>
     </div>
   `
