@@ -134,10 +134,10 @@ jobs:
       - name: Install from cache
         run: yarn install --prefer-offline
 
-      - name: Setup playwright browsers
+      - name: Install Playwright
         run: npx playwright install --with-deps
         
-      - name: Run axe-storybook-testing
+      - name: Run Accessibility Tests
         run: yarn storybook:axe:prod 
 
   # Job to build and cache the distribution package.
@@ -186,10 +186,10 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Setup playwright browsers
+      - name: Install Playwright
         run: npx playwright install --with-deps
 
-      - name: Run tests
+      - name: Run Web Test Runner Tests
         run: yarn reset && yarn test
 
   build-storybook:
