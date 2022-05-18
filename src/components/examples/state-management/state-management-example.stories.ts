@@ -113,5 +113,26 @@ export const CodeExample = (): TemplateResult =>
         }
       }
       </outline-code-block>
+      
+      <br/>
+      
+      <code>imports.d.ts</code>
+      <outline-code-block >
+      ...
+      // The last step is to make sure that we have our library and types declared 
+      // as it doesn't have typescript support and we'll get a lot of TS errors without this
+      
+      declare module 'lit-element-state' {
+        import { LitElement } from 'lit';
+
+        export function observeState(baseClass: typeof LitElement): typeof LitElement;
+
+        // TODO: Properly type stateVar()
+        function stateVar(): any;
+
+        class LitState {}
+      }
+
+      </outline-code-block>
     </div>
   `
