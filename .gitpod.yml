@@ -6,6 +6,7 @@ tasks:
       yarn
       nvm install $(cat .nvmrc)
       nvm use
+      npx playwright install --with-deps
     command: |
       yarn start
 
