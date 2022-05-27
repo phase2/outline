@@ -6,7 +6,6 @@ import { OutlineElement } from '../outline-element/outline-element';
 import { SlotController } from '../../controllers/slot-controller';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { isInType } from '../../../internal/isInType';
-import { deepSearch } from '../../../internal/deepSearch';
 
 const buttonVariants = ['none', 'primary', 'secondary'] as const;
 export type ButtonVariant = typeof buttonVariants[number];
@@ -105,20 +104,6 @@ export class OutlineButton extends OutlineElement {
     this.hasLeftIcon = this.slots.test('left');
     this.hasRightIcon = this.slots.test('right');
     this.hasDefaultSlot = this.slots.test();
-
-    const ariaLabeled: Array<HTMLElement> = deepSearch(
-      'aria-label',
-      [this],
-      'attribute'
-    );
-    const innerText: Array<HTMLElement> = deepSearch(
-      'innerText',
-      [this],
-      'property'
-    );
-    if (!innerText.length && !ariaLabeled.length && !this.buttonLabel) {
-      throw new Error('Button has neither button-label nor default slot text.');
-    }
   }
 
   /**

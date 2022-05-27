@@ -15,17 +15,33 @@ function classFound(query: string, currentElement: HTMLElement) {
 }
 
 function propertyFound(query: string, currentElement: HTMLElement) {
-  const isAttr = currentElement.hasOwnProperty(query);
-  return isAttr;
+  let property = null;
+  // eslint-disable-next-line
+  // @ts-ignore
+  property = currentElement[query];
+
+  if (property) {
+    if (typeof property === 'string') {
+      property = property.trim();
+    }
+    if (typeof property == 'object') {
+      // eslint-disable-next-line
+      // @ts-ignore
+      property = property.filter(el => {
+        return el != null && el != '';
+      });
+    }
+  }
+
+  return !!property;
 }
 
 export function deepSearch(
   query: string,
   elements: HTMLElement | Array<HTMLElement>,
-  type: String = 'element'
+  type: String = 'element',
+  nodes: Array<HTMLElement> = []
 ) {
-  const nodes: Array<HTMLElement> = [];
-
   Array.prototype.forEach.call(elements, node => {
     switch (type) {
       case 'attribute':
@@ -50,8 +66,17 @@ export function deepSearch(
     }
 
     // If the element has shadow DOM, dig deeper.
+    if (node.children) {
+      const childrenNodes = deepSearch(query, node.children, type);
+      nodes.push(...childrenNodes);
+    }
     if (node.shadowRoot) {
-      deepSearch(query, node.shadowRoot.querySelectorAll('*'));
+      const deepNodes = deepSearch(
+        query,
+        node.shadowRoot.querySelectorAll('*'),
+        type
+      );
+      nodes.push(...deepNodes);
     }
   });
   return nodes;
