@@ -14,7 +14,12 @@ import {
 import sinon from 'sinon';
 
 describe('outline-button', () => {
-  const buttonVariants: Array<ButtonVariant> = ['none', 'primary', 'secondary'];
+  const buttonVariants: Array<ButtonVariant> = [
+    'link',
+    'primary',
+    'secondary',
+    'tertiary',
+  ];
   const buttonSizes: Array<ButtonSize> = ['small', 'medium', 'large'];
   const buttonTypes: Array<ButtonType> = ['button', 'submit', 'reset'];
 

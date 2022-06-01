@@ -13,7 +13,7 @@ import { SlotController } from '../../controllers/slot-controller';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { isInType } from '../../../internal/isInType';
 
-const buttonVariants = ['none', 'primary', 'secondary', 'tertiary'] as const;
+const buttonVariants = ['link', 'primary', 'secondary', 'tertiary'] as const;
 export type ButtonVariant = typeof buttonVariants[number];
 
 const buttonSizes = ['small', 'medium', 'large'] as const;
