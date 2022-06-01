@@ -1,5 +1,5 @@
 :host {
-  @apply block;
+  @apply mb-4 block;
 }
 
 h1,
@@ -8,7 +8,7 @@ h3,
 h4,
 h5,
 h6 {
-  @apply m-0 mb-4;
+  @apply m-0;
 }
 
 /* Default sizes, can be changed with level-size prop */
