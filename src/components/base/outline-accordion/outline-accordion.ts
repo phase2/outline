@@ -7,7 +7,7 @@ import {
 } from 'lit/decorators.js';
 import { OutlineElement } from '../../base/outline-element/outline-element';
 import componentStyles from './outline-accordion.css.lit';
-import { MobileController } from '../../controllers/mobile-controller';
+import { BreakpointController } from '../../controllers/breakpoint-controller';
 import { OutlineAccordionPanel } from '../outline-accordion-panel/outline-accordion-panel';
 import { SlotController } from '../../controllers/slot-controller';
 
@@ -19,7 +19,7 @@ import { SlotController } from '../../controllers/slot-controller';
  */
 @customElement('outline-accordion')
 export class OutlineAccordion extends OutlineElement {
-  private mobileController = new MobileController(this);
+  private breakpointController = new BreakpointController(this);
   slots = new SlotController(this, false);
   static styles: CSSResultGroup = [componentStyles];
 
@@ -69,7 +69,7 @@ export class OutlineAccordion extends OutlineElement {
    * @returns string | null
    * Checks if the window is at mobile size.
    */
-  isMobile = () => (this.mobileController.isMobile ? 'mobile' : null);
+  isMobile = () => (this.breakpointController.isMobile ? 'mobile' : null);
 
   /**
    * @param event

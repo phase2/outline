@@ -10,7 +10,7 @@ import type OutlineTab from '../outline-tab/outline-tab';
 import type OutlineTabPanel from '../outline-tab-panel/outline-tab-panel';
 import '../../outline-container/outline-container';
 import componentStyles from './outline-tab-group.css.lit';
-import { MobileController } from '../../../controllers/mobile-controller';
+import { BreakpointController } from '../../../controllers/breakpoint-controller';
 
 /**
  * @slot - Used for grouping tab panels in the tab group.
@@ -34,7 +34,7 @@ export default class OutlineTabGroup extends OutlineElement {
   @query('.tab-group__nav') nav: HTMLElement;
   @query('.tab-group__indicator') indicator: HTMLElement;
 
-  private mobileController = new MobileController(this);
+  private breakpointController = new BreakpointController(this);
   private activeTab: OutlineTab;
   private mutationObserver: MutationObserver;
   private resizeObserver: ResizeObserver;
@@ -60,7 +60,7 @@ export default class OutlineTabGroup extends OutlineElement {
     window.addEventListener('resize', this._handleResize);
 
     this.resizeObserver = new ResizeObserver(() => {
-      if (!this.mobileController.isMobile) {
+      if (!this.breakpointController.isMobile) {
         this.preventIndicatorTransition();
         this.repositionIndicator();
       }
@@ -85,7 +85,7 @@ export default class OutlineTabGroup extends OutlineElement {
       }
     });
 
-    if (!this.mobileController.isMobile) {
+    if (!this.breakpointController.isMobile) {
       this.updateComplete.then(() => {
         this.syncTabsAndPanels();
         this.mutationObserver.observe(this, {
@@ -108,7 +108,7 @@ export default class OutlineTabGroup extends OutlineElement {
   }
 
   _handleResize = () => {
-    if (!this.mobileController.isMobile) {
+    if (!this.breakpointController.isMobile) {
       this.intersectionObserver();
     }
   };
@@ -366,7 +366,7 @@ export default class OutlineTabGroup extends OutlineElement {
   // In some orientations, when the component is resized, the indicator's position will change causing it to animate
   // while you resize. Calling this method will prevent the transition from running on resize, which feels more natural.
   preventIndicatorTransition() {
-    if (!this.mobileController.isMobile) {
+    if (!this.breakpointController.isMobile) {
       const transitionValue = this.indicator.style.transition;
       this.indicator.style.transition = 'none';
 
@@ -378,7 +378,7 @@ export default class OutlineTabGroup extends OutlineElement {
 
   // This stores tabs and panels so we can refer to a cache instead of calling querySelectorAll() multiple times.
   syncTabsAndPanels() {
-    if (!this.mobileController.isMobile) {
+    if (!this.breakpointController.isMobile) {
       this.tabs = this.getAllTabs();
       this.panels = this.getAllPanels();
     }
@@ -387,7 +387,7 @@ export default class OutlineTabGroup extends OutlineElement {
 
   render() {
     return html`${
-      this.mobileController.isMobile
+      this.breakpointController.isMobile
         ? html`<slot name="accordion-wrapper"></slot> `
         : html`<outline-container
             ><div

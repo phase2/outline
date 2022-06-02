@@ -3,7 +3,7 @@ import { ReactiveControllerHost, ReactiveController } from 'lit';
 
 type ScreenSize = typeof outline.screens;
 type Breakpoint = keyof ScreenSize;
-export class MobileController implements ReactiveController {
+export class BreakpointController implements ReactiveController {
   isMobile = false;
   host: ReactiveControllerHost;
   mobileBreakpoint: Breakpoint;

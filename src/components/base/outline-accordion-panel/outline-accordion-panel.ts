@@ -2,7 +2,7 @@ import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-accordion-panel.css.lit';
-import { MobileController } from '../../controllers/mobile-controller';
+import { BreakpointController } from '../../controllers/breakpoint-controller';
 import { OutlineAccordion } from '../outline-accordion/outline-accordion';
 import '../outline-icon/outline-icon';
 
@@ -16,7 +16,7 @@ import '../outline-icon/outline-icon';
  */
 @customElement('outline-accordion-panel')
 export class OutlineAccordionPanel extends OutlineElement {
-  private mobileController = new MobileController(this);
+  private breakpointController = new BreakpointController(this);
 
   static styles: CSSResultGroup = [componentStyles];
 
@@ -42,7 +42,7 @@ export class OutlineAccordionPanel extends OutlineElement {
   id: string = Math.floor(Math.random() * 10000).toString();
 
   render(): TemplateResult {
-    const isMobile = this.mobileController.isMobile ? 'mobile' : null;
+    const isMobile = this.breakpointController.isMobile ? 'mobile' : null;
     const isClean = this.clean ? 'clean' : null;
     const isActive = this.active ? 'active' : 'inactive';
 

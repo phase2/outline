@@ -13,7 +13,7 @@ import { SlotController } from '../../controllers/slot-controller';
 import { LinkTargetType } from '../outline-link/config';
 import { ButtonVariant } from '../outline-button/outline-button';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { MobileController } from '../../controllers/mobile-controller';
+import { BreakpointController } from '../../controllers/breakpoint-controller';
 /**
  * @element outline-dropdown
  * @since 1.0.0
@@ -35,7 +35,7 @@ import { MobileController } from '../../controllers/mobile-controller';
 @customElement('outline-dropdown')
 export default class OutlineDropdown extends OutlineElement {
   static styles: CSSResultGroup = [a11yStyles, componentStyles];
-  private mobileController = new MobileController(this, 'lg');
+  private breakpointController = new BreakpointController(this, 'lg');
   slots = new SlotController(this, true);
 
   @query('.dropdown__trigger')
@@ -306,7 +306,9 @@ export default class OutlineDropdown extends OutlineElement {
       >
         <div
           class="dropdown__trigger"
-          @mouseenter="${!this.mobileController.isMobile ? this.show : null}"
+          @mouseenter="${!this.breakpointController.isMobile
+            ? this.show
+            : null}"
           @mouseleave="${this.handleFocusChange}"
         >
           ${this.buttonTemplate()} ${this.dropdownTemplate()}
