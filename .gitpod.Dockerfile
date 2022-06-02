@@ -1,4 +1,4 @@
 FROM gitpod/workspace-node-lts
 
-# Install custom tools, runtime, etc.
-RUN npx playwright install-deps
+RUN sudo apt-get -qq update
+RUN sudo apt-get -qq install -y rsync

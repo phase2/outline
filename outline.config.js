@@ -53,7 +53,7 @@ module.exports = {
       // @status stable
       full: true,
       // @see src/data.ts
-      // @status optional
+      // @status stable
       data: false,
     },
   },

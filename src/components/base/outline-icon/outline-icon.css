@@ -1,4 +1,5 @@
 :host svg {
   height: inherit;
   width: inherit;
+  display: flex;
 }
