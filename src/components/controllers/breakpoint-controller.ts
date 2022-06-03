@@ -4,7 +4,7 @@ import { ReactiveControllerHost, ReactiveController } from 'lit';
 type ScreenSize = typeof outline.screens;
 type Breakpoint = keyof ScreenSize;
 export class BreakpointController implements ReactiveController {
-  isMobile = false;
+  isBreakpoint = false;
   host: ReactiveControllerHost;
   mobileBreakpoint: Breakpoint;
 
@@ -30,9 +30,9 @@ export class BreakpointController implements ReactiveController {
       outline.screens[this.mobileBreakpoint]
     );
     if (window.innerWidth <= mobileScreen) {
-      this.isMobile = true;
+      this.isBreakpoint = true;
     } else {
-      this.isMobile = false;
+      this.isBreakpoint = false;
     }
     this.host.requestUpdate();
   };
