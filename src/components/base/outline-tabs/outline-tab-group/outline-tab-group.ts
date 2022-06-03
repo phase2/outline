@@ -60,7 +60,7 @@ export default class OutlineTabGroup extends OutlineElement {
     window.addEventListener('resize', this._handleResize);
 
     this.resizeObserver = new ResizeObserver(() => {
-      if (!this.breakpointController.isMobile) {
+      if (!this.breakpointController.isBreakpoint) {
         this.preventIndicatorTransition();
         this.repositionIndicator();
       }
@@ -85,7 +85,7 @@ export default class OutlineTabGroup extends OutlineElement {
       }
     });
 
-    if (!this.breakpointController.isMobile) {
+    if (!this.breakpointController.isBreakpoint) {
       this.updateComplete.then(() => {
         this.syncTabsAndPanels();
         this.mutationObserver.observe(this, {
@@ -108,7 +108,7 @@ export default class OutlineTabGroup extends OutlineElement {
   }
 
   _handleResize = () => {
-    if (!this.breakpointController.isMobile) {
+    if (!this.breakpointController.isBreakpoint) {
       this.intersectionObserver();
     }
   };
@@ -366,7 +366,7 @@ export default class OutlineTabGroup extends OutlineElement {
   // In some orientations, when the component is resized, the indicator's position will change causing it to animate
   // while you resize. Calling this method will prevent the transition from running on resize, which feels more natural.
   preventIndicatorTransition() {
-    if (!this.breakpointController.isMobile) {
+    if (!this.breakpointController.isBreakpoint) {
       const transitionValue = this.indicator.style.transition;
       this.indicator.style.transition = 'none';
 
@@ -378,7 +378,7 @@ export default class OutlineTabGroup extends OutlineElement {
 
   // This stores tabs and panels so we can refer to a cache instead of calling querySelectorAll() multiple times.
   syncTabsAndPanels() {
-    if (!this.breakpointController.isMobile) {
+    if (!this.breakpointController.isBreakpoint) {
       this.tabs = this.getAllTabs();
       this.panels = this.getAllPanels();
     }
@@ -387,7 +387,7 @@ export default class OutlineTabGroup extends OutlineElement {
 
   render() {
     return html`${
-      this.breakpointController.isMobile
+      this.breakpointController.isBreakpoint
         ? html`<slot name="accordion-wrapper"></slot> `
         : html`<outline-container
             ><div

@@ -46,7 +46,7 @@ export class OutlineHeading extends OutlineElement {
       'outline-text': true,
       [`outline-text--${this.levelSize}`]: this.levelSize ? true : '',
       [`outline-font--${this.levelStyle}`]: true,
-      'mobile': this.breakpointController.isMobile,
+      'mobile': this.breakpointController.isBreakpoint,
     };
     return html`
       <${unsafeStatic(this.level as string)} class=${classMap(classes)}>

@@ -306,7 +306,7 @@ export default class OutlineDropdown extends OutlineElement {
       >
         <div
           class="dropdown__trigger"
-          @mouseenter="${!this.breakpointController.isMobile
+          @mouseenter="${!this.breakpointController.isBreakpoint
             ? this.show
             : null}"
           @mouseleave="${this.handleFocusChange}"

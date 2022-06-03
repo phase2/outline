@@ -42,7 +42,7 @@ export class OutlineAccordionPanel extends OutlineElement {
   id: string = Math.floor(Math.random() * 10000).toString();
 
   render(): TemplateResult {
-    const isMobile = this.breakpointController.isMobile ? 'mobile' : null;
+    const isMobile = this.breakpointController.isBreakpoint ? 'mobile' : null;
     const isClean = this.clean ? 'clean' : null;
     const isActive = this.active ? 'active' : 'inactive';
 

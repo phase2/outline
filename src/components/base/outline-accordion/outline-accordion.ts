@@ -69,7 +69,7 @@ export class OutlineAccordion extends OutlineElement {
    * @returns string | null
    * Checks if the window is at mobile size.
    */
-  isMobile = () => (this.breakpointController.isMobile ? 'mobile' : null);
+  isMobile = () => (this.breakpointController.isBreakpoint ? 'mobile' : null);
 
   /**
    * @param event
