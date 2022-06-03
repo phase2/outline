@@ -11,10 +11,16 @@ import { LinkTargetType } from '../outline-link/config';
 import { OutlineElement } from '../outline-element/outline-element';
 import { SlotController } from '../../controllers/slot-controller';
 import { ifDefined } from 'lit/directives/if-defined.js';
+import { isInType } from '../../../internal/isInType';
 
-export type ButtonVariant = 'link' | 'primary' | 'secondary' | 'tertiary';
+const buttonVariants = ['link', 'primary', 'secondary', 'tertiary'] as const;
+export type ButtonVariant = typeof buttonVariants[number];
 
-export type ButtonSize = 'small' | 'medium' | 'large';
+const buttonSizes = ['small', 'medium', 'large'] as const;
+export type ButtonSize = typeof buttonSizes[number];
+
+const buttonTypes = ['button', 'submit', 'reset'] as const;
+export type ButtonType = typeof buttonTypes[number];
 
 /**
  * The Outline Button component
@@ -66,38 +72,53 @@ export class OutlineButton extends OutlineElement {
   /**
    * The button style variant to use.
    */
-  @property({ type: String, attribute: 'button-variant' })
+  @property({
+    type: String,
+    attribute: 'button-variant',
+    converter: value => {
+      return isInType(value, buttonVariants, 'ButtonVariant') ? value : '';
+    },
+  })
   buttonVariant: ButtonVariant = 'primary';
 
   /**
    * The button size to use.
    */
-  @property({ type: String, attribute: 'button-size' })
+  @property({
+    type: String,
+    attribute: 'button-size',
+    converter: value => {
+      return isInType(value, buttonSizes, 'ButtonSize') ? value : '';
+    },
+  })
   buttonSize: ButtonSize = 'medium';
+
+  /**
+   * The button type ()
+   */
+  @property({ type: String, attribute: 'button-type' })
+  buttonType: ButtonType = 'button';
 
   /**
    * Whether the button is disabled. Only applies to
    * implementations not using the url property
    */
   @property({ type: Boolean, attribute: 'is-disabled' })
-  isDisabled = false;
+  isDisabled: boolean;
 
   /**
    * A click handler to be passed only to onClick. DO NOT USE @click on this component.
    */
   @property() onClick: () => void;
 
-  /**
-   * A keyUp handler to be passed to the onKeyUp. DO NOT USE @keyup on this component.
-   */
-  @property() onKeyUp: () => void;
-
   @state() hasLeftIcon: boolean;
   @state() hasRightIcon: boolean;
+  @state() hasDefaultSlot: boolean;
 
   firstUpdated(): void {
     this.hasLeftIcon = this.slots.test('left');
     this.hasRightIcon = this.slots.test('right');
+    this.hasDefaultSlot = this.slots.test();
   }
 
   /**
@@ -112,7 +133,9 @@ export class OutlineButton extends OutlineElement {
           href=${this.buttonUrl}
           target=${ifDefined(this.buttonTarget)}
           aria-label="${ifDefined(this.buttonLabel)}"
-          aria-disabled="${ifDefined(this.isDisabled)}"
+          aria-disabled="${ifDefined(
+            this.isDisabled === true ? 'true' : undefined
+          )}"
         >
           ${this.iconTemplate(this.hasLeftIcon, 'left')}
           <slot></slot>
@@ -120,10 +143,12 @@ export class OutlineButton extends OutlineElement {
         </a>`
       : html`<button
           class="btn ${this.buttonVariant} ${this.buttonSize}"
+          type="${this.buttonType}"
           aria-label="${ifDefined(this.buttonLabel)}"
-          aria-disabled="${ifDefined(this.isDisabled)}"
+          aria-disabled="${ifDefined(
+            this.isDisabled === true ? 'true' : undefined
+          )}"
           .onclick="${this.onClick}"
-          .onkeyup="${this.onKeyUp}"
         >
           ${this.iconTemplate(this.hasLeftIcon, 'left')}
           <slot></slot>
@@ -141,15 +166,6 @@ export class OutlineButton extends OutlineElement {
   iconTemplate(exists: boolean, slot: string): TemplateResult | null {
     if (!exists) return null;
     return html`<slot name="${slot}"></slot>`;
-  }
-
-  updated() {
-    // checks the is-disabled prop and manages aria-disabled attributes on the <outline-button> element itself.
-    if (this.hasAttribute('is-disabled')) {
-      this.setAttribute('aria-disabled', 'true');
-    } else {
-      this.setAttribute('aria-disabled', 'false');
-    }
   }
 }
 
