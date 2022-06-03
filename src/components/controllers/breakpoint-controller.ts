@@ -1,6 +1,6 @@
 import outline from '../../resolved-outline-config';
 import { ReactiveControllerHost, ReactiveController } from 'lit';
-
+// @todo - add functionality to pass in multiple screen widths
 type ScreenSize = typeof outline.screens;
 type Breakpoint = keyof ScreenSize;
 export class BreakpointController implements ReactiveController {
