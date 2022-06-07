@@ -106,6 +106,8 @@ export default class OutlineDropdown extends OutlineElement {
   @state() hasDropdown: boolean;
   @state() hasFooter: boolean;
 
+  seed: string = Math.floor(Math.random() * 100000).toString();
+
   connectedCallback() {
     super.connectedCallback();
     this.hasDropdown = this.slots.test('dropdown');
@@ -298,7 +300,7 @@ export default class OutlineDropdown extends OutlineElement {
   render(): TemplateResult {
     return html`
       <div
-        id="dropdown"
+        id="dropdown-${this.seed}"
         class=${classMap({
           'dropdown': true,
           'dropdown--open': this.isOpen,
@@ -351,6 +353,8 @@ export default class OutlineDropdown extends OutlineElement {
             @keydown="${this.handleButtonTrigger}"
             @click="${this.handleIconClick}"
             ?is-disabled=${this.isDisabled}
+            aria-controls="panel-${this.seed}"
+            aria-expanded="${this.isOpen ? 'true' : 'false'}"
           >
             <span class="button__trigger">${this.triggerText}</span>
             ${this.iconWrapperTemplate()}
@@ -368,8 +372,7 @@ export default class OutlineDropdown extends OutlineElement {
     return html`
       <div
         class="dropdown__panel"
-        aria-hidden=${this.isOpen ? 'false' : 'true'}
-        aria-labelledby="dropdown"
+        id="panel-${this.seed}"
         @keydown="${this.handlePanelKeystrokes}"
       >
         ${this.headerTemplate()}
@@ -427,7 +430,7 @@ export default class OutlineDropdown extends OutlineElement {
         name="${this.isOpen ? 'chevron-up' : 'chevron-down'}"
         library="system"
         size="1em"
-        ?label="${ifDefined(this.triggerUrl) ? this.triggerLabel : false}"
+        label="${ifDefined(this.triggerUrl ? this.triggerLabel : undefined)}"
       ></outline-icon>
     `;
   }

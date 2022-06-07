@@ -33,7 +33,7 @@
 .dropdown--open .dropdown__panel {
   margin: 0;
   position: absolute;
-  z-index: 50;
+  z-index: 3;
   min-width: 350px;
   border-width: 2px;
   border-style: solid;
