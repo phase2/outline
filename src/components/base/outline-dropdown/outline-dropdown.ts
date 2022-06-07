@@ -332,6 +332,8 @@ export default class OutlineDropdown extends OutlineElement {
             @mouseenter="${this.handleHoverStyles}"
             @keydown="${this.handleButtonTrigger}"
             ?is-disabled=${this.isDisabled}
+            aria-controls="panel-${this.seed}"
+            aria-expanded="${this.isOpen ? 'true' : 'false'}"
           >
             <span
               class=${classMap({
