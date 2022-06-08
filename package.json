@@ -1,11 +1,17 @@
 {
   "name": "@phase2/outline",
+  "version": "0.0.0",
+  "developmentVersion": "0.1.0",
   "description": "Outline Component Design",
   "main": "dist/outline.js",
   "module": "dist/outline.js",
   "es2015": "dist/outline-legacy.js",
   "es2017": "dist/outline.js",
   "unpkg": "dist/outline.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "files": [
     "dist/",
     ".prettierrc.json",
@@ -38,6 +44,8 @@
     "build:tsc": "yarn tsc",
     "build:rollup": "yarn rollup",
     "build:watch": "npm-run-all -p -r tsc:watch rollup:watch",
+    "release:development": "export NODE_ENV=development && npm run build && node ./scripts/release.js",
+    "release:production": "export NODE_ENV=production && npm run build && node ./scripts/release.js",
     "tsc": "tsc",
     "tsc:watch": "tsc --watch",
     "rollup": "yarn rollup:bundle",

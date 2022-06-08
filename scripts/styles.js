@@ -145,7 +145,7 @@ if (!fs.existsSync(outline.destBasePath)) {
 createCssGlobals();
 
 // Run the component style generation.
-glob('src/components/**/*.css', (err, files) => {
+glob('packages/**/*.css', (err, files) => {
   files.forEach(createCssLiterals);
 });
 

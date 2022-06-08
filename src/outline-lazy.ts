@@ -27,11 +27,9 @@ const observer = new IntersectionObserver((entries, observerRef) => {
       // Once we've observed this element come into view, we can safely remove
       // the observer since we won't need to import the WC code again
       observerRef.unobserve(entry.target);
-      // @ts-expect-error - because
       if (!imported[name]) {
         // Keep a note of which WCs have been loaded so if we have multiple
         // instances we don't import twice
-        // @ts-expect-error - because
         imported[name] = true;
         // Dynamic import.
         const importPath = `../dist/${componentPath}`;
@@ -52,8 +50,7 @@ const elements = document.querySelectorAll(selector);
 // console.log(elements)
 // console.log(selector);
 // console.log(customElements)
-// @ts-expect-error - because
-const components = [];
+const components: Array<Element> = [];
 
 elements.forEach((el, i) => {
   const tagName = el.tagName.toLowerCase();
@@ -73,7 +70,6 @@ elements.forEach((el, i) => {
     }
   });
 });
-// @ts-expect-error - because
 components.forEach(el => {
   observer.observe(el);
 });

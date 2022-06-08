@@ -1,0 +1,37 @@
+{
+  "name": "@phase2/outline-core",
+  "version": "0.0.1",
+  "description": "Core functionality that is shared across all Outline Web Components",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-core"
+  },
+  "type": "module",
+  "main": "index.ts",
+  "module": "index.ts",
+  "scripts": {
+    "debug": "cd ../../ && npm run debug -- --group core",
+    "debug:firefox": "cd ../../ && npm run debug:firefox -- --group core",
+    "debug:webkit": "cd ../../ && npm run debug:webkit -- --group core",
+    "publish-docs": "node ../../packages-node/publish-docs/src/cli.js --github-url https://github.com/ing-bank/lion/ --git-root-dir ../../",
+    "prepublishOnly": "npm run publish-docs",
+    "test": "cd ../../ && npm run test:browser -- --group core"
+  },
+  "sideEffects": false,
+  "dependencies": {
+    "lit": "^2.0.2"
+  },
+  "keywords": [
+    "outline",
+    "web-components"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts",
+    "./docs/*": "./docs/*"
+  }
+}

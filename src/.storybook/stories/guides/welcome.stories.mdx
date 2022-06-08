@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
-import '../../../components/utility/sb-section-link/sb-section-link';
-import '../../../components/base/outline-icon/outline-icon';
+import { SbSectionLink } from '@phase2/outline-utility';
+// import '../../../components/base/outline-icon/outline-icon';
 
 <Meta
   title="Documentation/Welcome"
@@ -32,13 +32,13 @@ import '../../../components/base/outline-icon/outline-icon';
   <outline-column col-span-default="12" col-span-md="4">
     <sb-section-link>
       <span slot="badge" class="tag">Icons</span>
-      <a slot="link" class="dusty-blue" href="?path=/docs/media-outline-icon--an-icon">
+      {/* <a slot="link" class="dusty-blue" href="?path=/docs/media-outline-icon--an-icon">
         <outline-icon library="lucide" name="arrow-left" size="32px" class="mr-2"></outline-icon>
         <outline-icon library="lucide" name="more-vertical" size="32px" class="mr-2"></outline-icon>
         <outline-icon library="lucide" name="map" size="32px" class="mr-2"></outline-icon>
         <outline-icon library="lucide" name="more-vertical" size="32px" class="mr-2"></outline-icon>
         <outline-icon library="lucide" name="arrow-right" size="32px" class="mr-2"></outline-icon>
-      </a>
+      </a> */}
     </sb-section-link>
   </outline-column>
   <outline-column col-span-default="12" col-span-md="4">

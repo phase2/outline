@@ -1,0 +1,25 @@
+{
+  "name": "@phase2/outline-code-block",
+  "description": "The Outline Components for the web code block component",
+  "version": "0.0.1",
+  "license": "MIT",
+  "type": "module",
+  "keywords": [
+    "outline components",
+    "outline design",
+    "code block"
+  ],
+  "main": "index.ts",
+  "module": "index.ts",
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-code-block"
+  },
+  "dependencies": {
+    "@phase2/outline-element": "^0.0.1",
+    "cross-env": "5.0.5",
+    "tslib": "^2.1.0"
+  }
+}

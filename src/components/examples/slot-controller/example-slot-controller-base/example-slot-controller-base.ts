@@ -1,8 +1,8 @@
-import { OutlineElement } from '../../../base/outline-element/outline-element';
+import { OutlineElement } from '@phase2/outline-element';
 import { CSSResultGroup, html, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './example-slot-controller-base.css.lit';
-import '../../../base/outline-container/outline-container';
+import { OutlineContainer } from '@phase2/outline-container';
 
 /**
  * The Outline  Breadcrumbs component

@@ -3,12 +3,18 @@
     "target": "es2017",
     "module": "esnext",
     "lib": ["es2017", "dom", "dom.iterable"],
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "alwaysStrict": true,
+    "types": ["node", "mocha", "sinon"],
+    "esModuleInterop": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
     "inlineSources": true,
-    "outDir": "dist",
-    "rootDir": "src",
     "strict": true,
     "allowUnreachableCode": false,
     "noUnusedLocals": true,
@@ -34,12 +40,9 @@
     ]
   },
   "include": [
-    "./src/components/**/*.ts",
-    "./src/components/**/*/*.test.ts",
+    "./packages/**/*.ts",
+    "./packages/**/*/*.test.ts",
     "./src/imports.d.ts"
   ],
-  "exclude": [
-    "./src/components/**/*.stories.ts",
-    "./src/components/**/*.lit.ts"
-  ]
+  "exclude": ["./packages/**/*.stories.ts", "./packages/**/*.lit.ts"]
 }
