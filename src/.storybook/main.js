@@ -12,7 +12,7 @@ module.exports = {
   core: {
     builder: 'webpack5',
   },
-  staticDirs: ['./static'],
+  staticDirs: ['./static', '../assets'],
   stories: [
     // Explicitly order the main documentation.
     './stories/guides/welcome.stories.mdx',
