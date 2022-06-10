@@ -19,29 +19,29 @@
 }
 
 .outline-bg-primary {
-  @apply bg-demo-darkBlue;
+  @apply bg-outline-blue-600;
 }
 
 .outline-bg-secondary {
-  @apply bg-demo-mediumBlue;
+  @apply bg-outline-blue-300;
 }
 
 .outline-bg-tertiary {
-  @apply bg-demo-lightBlue;
+  @apply bg-outline-blue-100;
 }
 
 .outline-bg-black {
-  @apply bg-neutral-black;
+  @apply bg-outline-black;
 }
 
 .outline-bg-white {
-  @apply bg-neutral-white;
+  @apply bg-outline-white;
 }
 
 .outline-bg-gray {
-  @apply bg-neutral-grayMedium;
+  @apply bg-outline-gray-300;
 }
 
-.outline-bg-lightgray {
-  @apply bg-neutral-grayLight;
+.outline-bg-outline-gray-100 {
+  @apply bg-outline-gray-100;
 }

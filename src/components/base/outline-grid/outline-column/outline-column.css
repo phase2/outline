@@ -286,7 +286,7 @@
       @apply mb-0;
     }
     &([has-left-divider]) {
-      border-left: 1px solid var(--neutral-grayMedium) !important;
+      border-left: 1px solid var(--outline-gray-300) !important;
     }
 
     &([has-left-divider][border-gap-size="small"]) {

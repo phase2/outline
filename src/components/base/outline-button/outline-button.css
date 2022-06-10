@@ -1,81 +1,518 @@
 :host {
-  /* flex and border-radius constrain the actual boundaries of the element,
-   preventing literal edge cases where a user can click on the edge or corner of the button and defeat states like disabled */
-  @apply inline-flex rounded-lg align-middle;
+  /*
+   * Configuration values for `outline-button`.
+   */
+
+  /* Shared, but variables that can be overridden per button */
+
+  display: inline-flex;
+
+  vertical-align: middle;
 }
 
 .btn {
-  @apply flex flex-nowrap items-center;
-  @apply cursor-pointer rounded-lg;
-  @apply transition-colors duration-300;
-  @apply font-semibold no-underline outline-none;
-  @apply leading-normal !important;
-  padding: 0.5em 1em;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  cursor: pointer;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, outline, outline-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  text-decoration-line: none;
+  outline: none;
+  border: none;
+
+  line-height: 1.5;
+
+  border-radius: var(
+    --outline-btn-radius,
+    var(--outline-button--default-radius)
+  );
+  font-family: var(--outline-btn-family, var(--outline-button--default-family));
+  font-weight: var(--outline-btn-weight, var(--outline-button--default-weight));
+  padding: var(--outline-btn-padding, var(--outline-button--default-padding));
 }
 
 .btn[aria-disabled='true'] {
-  @apply pointer-events-none cursor-not-allowed select-none !important;
+  pointer-events: none;
+  cursor: not-allowed;
+  user-select: none;
 }
 
 .btn.primary {
-  @apply border-none bg-demo-darkBlue text-demo-white;
+  padding: var(
+    --outline--button--primary-padding,
+    var(--outline-btn-padding, var(--outline-button--default--primary-padding))
+  );
+  border-radius: var(
+    --outline--button--primary-radius,
+    var(--outline-btn-radius, var(--outline-button--default-radius))
+  );
+  /* Can change per button state */
+  background-color: var(
+    --outline--button--primary-bg-color-default,
+    var(--outline-button--default--primary-bg-color-default)
+  );
+  color: var(
+    --outline--button--primary-text-color-default,
+    var(--outline-button--default--primary-text-color-default)
+  );
+  font-weight: var(
+    --outline--button--primary-weight-default,
+    var(--outline-button--default--primary-weight-default)
+  );
+  box-shadow: var(
+    --outline--button--primary-ring-default,
+    var(--outline-button--default--primary-ring-default)
+  );
 
-  &:hover,
+  &:hover {
+    background-color: var(
+      --outline--button--primary-bg-color-hover,
+      var(--outline-button--default--primary-bg-color-hover)
+    );
+    color: var(
+      --outline--button--primary-text-color-hover,
+      var(--outline-button--default--primary-text-color-hover)
+    );
+    font-weight: var(
+      --outline--button--primary-weight-hover,
+      var(--outline-button--default--primary-weight-hover)
+    );
+    box-shadow: var(
+      --outline--button--primary-ring-hover,
+      var(--outline-button--default--primary-ring-hover)
+    );
+  }
+
   &:focus {
-    @apply bg-demo-mediumBlue text-demo-white ring-2 ring-demo-darkBlue;
+    background-color: var(
+      --outline--button--primary-bg-color-focus,
+      var(--outline-button--default--primary-bg-color-focus)
+    );
+    color: var(
+      --outline--button--primary-text-color-focus,
+      var(--outline-button--default--primary-text-color-focus)
+    );
+    font-weight: var(
+      --outline--button--primary-weight-focus,
+      var(--outline-button--default--primary-weight-focus)
+    );
+    box-shadow: var(
+      --outline--button--primary-ring-focus,
+      var(--outline-button--default--primary-ring-focus)
+    );
   }
 }
 
-.primary[aria-disabled='true'] {
-  @apply bg-demo-lightGray text-demo-darkGray !important;
+.btn.primary[aria-disabled='true'] {
+  background-color: var(
+    --outline--button--primary--disabled-bg-color,
+    var(--outline-button--default--primary--disabled-bg-color)
+  );
+  color: var(
+    --outline--button--primary--disabled-text-color,
+    var(--outline-button--default--primary--disabled-text-color)
+  );
+  font-weight: var(
+    --outline--button--primary--disabled-weight,
+    var(--outline-button--default--primary--disabled-weight)
+  );
+  box-shadow: var(
+    --outline--button--primary--disabled-ring,
+    var(--outline-button--default--primary--disabled-ring)
+  );
 
-  &:hover,
   &:focus {
-    @apply ring-2 ring-demo-mediumGray;
+    background-color: var(
+      --outline--button--primary--disabled-bg-color-focus,
+      var(--outline-button--default--primary--disabled-bg-color-focus)
+    );
+    color: var(
+      --outline--button--primary--disabled-text-color-focus,
+      var(--outline-button--default--primary--disabled-text-color-focus)
+    );
+    font-weight: var(
+      --outline--button--primary--disabled-weight-focus,
+      var(--outline-button--default--primary--disabled-weight-focus)
+    );
+    box-shadow: var(
+      --outline--button--primary--disabled-ring-focus,
+      var(--outline-button--default--primary--disabled-ring-focus)
+    );
   }
 }
 
 .btn.secondary {
-  @apply bg-demo-white text-demo-darkBlue;
-  border: 1px solid var(--demo-darkBlue);
+  padding: var(
+    --outline--button--secondary-padding,
+    var(
+      --outline-btn-padding,
+      var(--outline-button--default--secondary-padding)
+    )
+  );
+  border-radius: var(
+    --outline--button--secondary-radius,
+    var(--outline-btn-radius, var(--outline-button--default-radius))
+  );
 
-  &:hover,
+  background-color: var(
+    --outline--button--secondary-bg-color-default,
+    var(--outline-button--default--secondary-bg-color-default)
+  );
+  color: var(
+    --outline--button--secondary-text-color-default,
+    var(--outline-button--default--secondary-text-color-default)
+  );
+  font-weight: var(
+    --outline--button--secondary-weight-default,
+    var(--outline-button--default--secondary-weight-default)
+  );
+  box-shadow: var(
+    --outline--button--secondary-ring-default,
+    var(--outline-button--default--secondary-ring-default)
+  );
+
+  &:hover {
+    background-color: var(
+      --outline--button--secondary-bg-color-hover,
+      var(--outline-button--default--secondary-bg-color-hover)
+    );
+    color: var(
+      --outline--button--secondary-text-color-hover,
+      var(--outline-button--default--secondary-text-color-hover)
+    );
+    font-weight: var(
+      --outline--button--secondary-weight-hover,
+      var(--outline-button--default--secondary-weight-hover)
+    );
+    box-shadow: var(
+      --outline--button--secondary-ring-hover,
+      var(--outline-button--default--secondary-ring-hover)
+    );
+  }
+
   &:focus {
-    @apply bg-demo-lightBlue text-demo-darkBlue ring-2 ring-demo-mediumBlue;
+    background-color: var(
+      --outline--button--secondary-bg-color-focus,
+      var(--outline-button--default--secondary-bg-color-focus)
+    );
+    color: var(
+      --outline--button--secondary-text-color-focus,
+      var(--outline-button--default--secondary-text-color-focus)
+    );
+    font-weight: var(
+      --outline--button--secondary-weight-focus,
+      var(--outline-button--default--secondary-weight-focus)
+    );
+    box-shadow: var(
+      --outline--button--secondary-ring-focus,
+      var(--outline-button--default--secondary-ring-focus)
+    );
   }
 }
 
-.secondary[aria-disabled='true'] {
-  @apply bg-demo-lightGray text-demo-darkGray !important;
-  border-color: var(--demo-darkGray);
+.btn.secondary[aria-disabled='true'] {
+  background-color: var(
+    --outline--button--secondary--disabled-bg-color,
+    var(--outline-button--default--secondary--disabled-bg-color)
+  );
+  color: var(
+    --outline--button--secondary--disabled-text-color,
+    var(--outline-button--default--secondary--disabled-text-color)
+  );
+  font-weight: var(
+    --outline--button--secondary--disabled-weight,
+    var(--outline-button--default--secondary--disabled-weight)
+  );
+  box-shadow: var(
+    --outline--button--secondary--disabled-ring,
+    var(--outline-button--default--secondary--disabled-ring)
+  );
 
-  &:hover,
   &:focus {
-    @apply ring-2 ring-demo-mediumGray;
+    background-color: var(
+      --outline--button--secondary--disabled-bg-color-focus,
+      var(--outline-button--default--secondary--disabled-bg-color-focus)
+    );
+    color: var(
+      --outline--button--secondary--disabled-text-color-focus,
+      var(--outline-button--default--secondary--disabled-text-color-focus)
+    );
+    font-weight: var(
+      --outline--button--secondary--disabled-weight-focus,
+      var(--outline-button--default--secondary--disabled-weight-focus)
+    );
+    box-shadow: var(
+      --outline--button--secondary--disabled-ring-focus,
+      var(--outline-button--default--secondary--disabled-ring-focus)
+    );
   }
 }
 
+.btn.tertiary {
+  padding: var(
+    --outline--button--tertiary-padding,
+    var(--outline-btn-padding, var(--outline-button--default--tertiary-padding))
+  );
+  border-radius: var(
+    --outline--button--tertiary-radius,
+    var(--outline-btn-radius, var(--outline-button--default-radius))
+  );
+
+  background-color: var(
+    --outline--button--tertiary-bg-color-default,
+    var(--outline-button--default--tertiary-bg-color-default)
+  );
+  color: var(
+    --outline--button--tertiary-text-color-default,
+    var(--outline-button--default--tertiary-text-color-default)
+  );
+  font-weight: var(
+    --outline--button--tertiary-weight-default,
+    var(--outline-button--default--tertiary-weight-default)
+  );
+  box-shadow: var(
+    --outline--button--tertiary-ring-default,
+    var(--outline-button--default--tertiary-ring-default)
+  );
+
+  &:hover {
+    background-color: var(
+      --outline--button--tertiary-bg-color-hover,
+      var(--outline-button--default--tertiary-bg-color-hover)
+    );
+    color: var(
+      --outline--button--tertiary-text-color-hover,
+      var(--outline-button--default--tertiary-text-color-hover)
+    );
+    font-weight: var(
+      --outline--button--tertiary-weight-hover,
+      var(--outline-button--default--tertiary-weight-hover)
+    );
+    box-shadow: var(
+      --outline--button--tertiary-ring-hover,
+      var(--outline-button--default--tertiary-ring-hover)
+    );
+  }
+
+  &:focus {
+    background-color: var(
+      --outline--button--tertiary-bg-color-focus,
+      var(--outline-button--default--tertiary-bg-color-focus)
+    );
+    color: var(
+      --outline--button--tertiary-text-color-focus,
+      var(--outline-button--default--tertiary-text-color-focus)
+    );
+    font-weight: var(
+      --outline--button--tertiary-weight-focus,
+      var(--outline-button--default--tertiary-weight-focus)
+    );
+    box-shadow: var(
+      --outline--button--tertiary-ring-focus,
+      var(--outline-button--default--tertiary-ring-focus)
+    );
+  }
+}
+
+.btn.tertiary[aria-disabled='true'] {
+  background-color: var(
+    --outline--button--tertiary--disabled-bg-color,
+    var(--outline-button--default--tertiary--disabled-bg-color)
+  );
+  color: var(
+    --outline--button--tertiary--disabled-text-color,
+    var(--outline-button--default--tertiary--disabled-text-color)
+  );
+  font-weight: var(
+    --outline--button--tertiary--disabled-weight,
+    var(--outline-button--default--tertiary--disabled-weight)
+  );
+  box-shadow: var(
+    --outline--button--tertiary--disabled-ring,
+    var(--outline-button--default--tertiary--disabled-ring)
+  );
+
+  &:focus {
+    background-color: var(
+      --outline--button--tertiary--disabled-bg-color-focus,
+      var(--outline-button--default--tertiary--disabled-bg-color-focus)
+    );
+    color: var(
+      --outline--button--tertiary--disabled-text-color-focus,
+      var(--outline-button--default--tertiary--disabled-text-color-focus)
+    );
+    font-weight: var(
+      --outline--button--tertiary--disabled-weight-focus,
+      var(--outline-button--default--tertiary--disabled-weight-focus)
+    );
+    box-shadow: var(
+      --outline--button--tertiary--disabled-ring-focus,
+      var(--outline-button--default--tertiary--disabled-ring-focus)
+    );
+  }
+}
+
+.btn.link {
+  padding: var(
+    --outline--button--link-padding,
+    var(--outline-btn-padding, var(--outline-button--default--link-padding))
+  );
+  border-radius: var(
+    --outline--button--link-radius,
+    var(--outline-btn-radius, var(--outline-button--default-radius))
+  );
+
+  background-color: var(
+    --outline--button--link-bg-color-default,
+    var(--outline-button--default--link-bg-color-default)
+  );
+  color: var(
+    --outline--button--link-text-color-default,
+    var(--outline-button--default--link-text-color-default)
+  );
+  font-weight: var(
+    --outline--button--link-weight-default,
+    var(--outline-button--default--link-weight-default)
+  );
+  text-decoration: var(
+    --outline--button--link-decoration-default,
+    var(--outline-button--default--link-decoration-default)
+  );
+  box-shadow: var(
+    --outline--button--link-ring-default,
+    var(--outline-button--default--link-ring-default)
+  );
+
+  &:hover {
+    background-color: var(
+      --outline--button--link-bg-color-hover,
+      var(--outline-button--default--link-bg-color-hover)
+    );
+    color: var(
+      --outline--button--link-text-color-hover,
+      var(--outline-button--default--link-text-color-hover)
+    );
+    font-weight: var(
+      --outline--button--link-weight-hover,
+      var(--outline-button--default--link-weight-hover)
+    );
+    text-decoration: var(
+      --outline--button--link-decoration-hover,
+      var(--outline-button--default--link-decoration-hover)
+    );
+    box-shadow: var(
+      --outline--button--link-ring-hover,
+      var(--outline-button--default--link-ring-hover)
+    );
+  }
+
+  &:focus {
+    background-color: var(
+      --outline--button--link-bg-color-focus,
+      var(--outline-button--default--link-bg-color-focus)
+    );
+    color: var(
+      --outline--button--link-text-color-focus,
+      var(--outline-button--default--link-text-color-focus)
+    );
+    font-weight: var(
+      --outline--button--link-weight-focus,
+      var(--outline-button--default--link-weight-focus)
+    );
+    text-decoration: var(
+      --outline--button--link-decoration-focus,
+      var(--outline-button--default--link-decoration-focus)
+    );
+    box-shadow: var(
+      --outline--button--link-ring-focus,
+      var(--outline-button--default--link-ring-focus)
+    );
+  }
+}
+
+.btn.link[aria-disabled='true'] {
+  background-color: var(
+    --outline--button--link--disabled-bg-color,
+    var(--outline-button--default--link--disabled-bg-color)
+  );
+  color: var(
+    --outline--button--link--disabled-text-color,
+    var(--outline-button--default--link--disabled-text-color)
+  );
+  font-weight: var(
+    --outline--button--link--disabled-weight,
+    var(--outline-button--default--link--disabled-weight)
+  );
+  text-decoration: var(
+    --outline--button--link--disabled-decoration,
+    var(--outline-button--default--link--disabled-decoration)
+  );
+  box-shadow: var(
+    --outline--button--link--disabled-ring,
+    var(--outline-button--default--link--disabled-ring)
+  );
+
+  &:focus {
+    background-color: var(
+      --outline--button--link--disabled-bg-color-focus,
+      var(--outline-button--default--link--disabled-bg-color-focus)
+    );
+    color: var(
+      --outline--button--link--disabled-text-color-focus,
+      var(--outline-button--default--link--disabled-text-color-focus)
+    );
+    font-weight: var(
+      --outline--button--link--disabled-weight-focus,
+      var(--outline-button--default--link--disabled-weight-focus)
+    );
+    text-decoration: var(
+      --outline--button--link--disabled-decoration-focus,
+      var(--outline-button--default--link--disabled-decoration-focus)
+    );
+    box-shadow: var(
+      --outline--button--link--disabled-ring-focus,
+      var(--outline-button--default--link--disabled-ring-focus)
+    );
+  }
+}
+
+:host(.icon__button) {
+  .btn.primary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .btn.secondary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .btn.tertiary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .btn.link {
+    border: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Button Sizing */
 .btn.small {
-  @apply text-sm;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-sm);
 }
 
 .btn.medium {
-  @apply text-base;
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
 }
 
 .btn.large {
-  @apply text-lg;
-}
-
-.btn.none {
-  @apply py-0 pr-4 pl-0 text-base font-semibold text-demo-darkBlue !important;
-
-  &:hover,
-  &:focus {
-    @apply text-demo-mediumBlue underline !important;
-  }
-
-  &[aria-disabled='true'] {
-    @apply text-demo-darkGray !important;
-  }
+  font-size: var(--fs-lg);
+  line-height: var(--lh-lg);
 }

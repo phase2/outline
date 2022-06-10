@@ -11,7 +11,7 @@ import '../outline-container/outline-container';
  * @attr y-padding - passed to outline-container wrapper.
  * @attr full-bleed - passed to outline-container wrapper.
  * @attr container-align - passed to outline-container wrapper.
- * @slot - The default, and only slot for this element.
+ * @slot - The default slot for this element.
  */
 @customElement('outline-grid')
 export class OutlineGrid extends OutlineElement {

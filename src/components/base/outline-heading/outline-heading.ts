@@ -10,6 +10,7 @@ import {
 } from './config';
 
 import componentStyles from './outline-heading.css.lit';
+import { MobileController } from '../../controllers/mobile-controller';
 
 /**
  * The Heading component.
@@ -18,10 +19,12 @@ import componentStyles from './outline-heading.css.lit';
  */
 @customElement('outline-heading')
 export class OutlineHeading extends OutlineElement {
+  private mobileController = new MobileController(this);
+
   static styles = [componentStyles];
 
   /**
-   * The heading tag to apply: h1 | h2 | h3 | h4 | h5 | h6
+   * The tag to apply: h1 | h2 | h3 | h4 | h5 | h6
    */
   @property({ type: String, reflect: true, attribute: 'level' })
   level: AllowedHeadingLevels = 'h2';
@@ -30,7 +33,7 @@ export class OutlineHeading extends OutlineElement {
    * The heading level size to apply. Optional override to default styles for a given level
    */
   @property({ type: String, reflect: true, attribute: 'level-size' })
-  levelSize: AllowedHeadingSizes = '2xl';
+  levelSize: AllowedHeadingSizes;
 
   /**
    * The heading level style to apply. Optional override to default styles for a given level
@@ -41,8 +44,9 @@ export class OutlineHeading extends OutlineElement {
   render(): TemplateResult {
     const classes = {
       'outline-text': true,
-      [`outline-text--${this.levelSize}`]: true,
+      [`outline-text--${this.levelSize}`]: this.levelSize ? true : '',
       [`outline-font--${this.levelStyle}`]: true,
+      'mobile': this.mobileController.isMobile,
     };
     return html`
       <${unsafeStatic(this.level as string)} class=${classMap(classes)}>

@@ -1,33 +1,52 @@
 :host {
-  @apply block;
+  display: block;
 
-  &([parallax]) figure {
-    @apply h-half-screen-h;
-    clip-path: inset(0 0 0 0);
-  }
-
-  &([parallax='false']) figure {
-    @apply h-auto;
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-@screen lg {
-  :host {
-    &([parallax='false']) figure {
-      @apply h-auto;
-    }
+  figure {
+    margin: 0;
+    display: block;
+    height: auto;
   }
 }
 
 figure {
-  @apply m-0 block;
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
-::slotted([slot='caption']) {
-  @apply mt-2 font-body text-sm;
+picture {
+  aspect-ratio: default;
+  overflow: hidden;
+  display: flex;
 }
 
-::slotted(img) {
-  @apply w-full;
+img {
+  object-fit: cover;
+  height: auto;
+  min-width: 100%;
+}
+
+:host([image-ratio='1/1']) picture {
+  aspect-ratio: 1 / 1;
+}
+:host([image-ratio='3/2']) picture {
+  aspect-ratio: 3 / 2;
+}
+:host([image-ratio='3/4']) picture {
+  aspect-ratio: 3 / 4;
+}
+:host([image-ratio='4/3']) picture {
+  aspect-ratio: 4 / 3;
+}
+:host([image-ratio='5/4']) picture {
+  aspect-ratio: 5 / 4;
+}
+:host([image-ratio='16/9']) picture {
+  aspect-ratio: 16 / 9;
+}
+:host([image-ratio='9/16']) picture {
+  aspect-ratio: 9 / 16;
+}
+:host([image-ratio='21/9']) picture {
+  aspect-ratio: 21 / 9;
 }

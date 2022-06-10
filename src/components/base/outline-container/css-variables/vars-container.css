@@ -1,0 +1,12 @@
+/*
+Default CSS Variables for `outline-container`.
+You can override these using `outline.theme.css`, 
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default 
+`outline-container` styling can be found in 
+`outline-container.ts` delcared with the `@cssprop` annotations.
+*/
+
+--outline-container--default-padding-x: 1.5rem;
+--outline-container--default-padding-y: 1.5rem;

@@ -1,20 +1,52 @@
 :host,
 a,
 ::slotted(a) {
-  @apply font-body no-underline transition-colors duration-300;
-  color: var(--outline-link-color-default);
+  font-family: var(--ff-body);
+  text-decoration: var(
+    --outline-link-color-default-decoration,
+    var(--outline--link-default-color-default-decoration)
+  );
+  color: var(
+    --outline-link-color-default,
+    var(--outline--link-default-color-default)
+  );
+  transition-property: var(
+    --outline-link-transition-property,
+    var(--outline--link-default-transition-property)
+  );
+  transition-timing-function: var(
+    --outline-link-transition-timing-function,
+    var(--outline--link-default-transition-timing-function)
+  );
+  transition-duration: var(
+    --outline-link-transition-duration,
+    var(--outline--link-default-transition-duration)
+  );
 }
 
 :host(:hover),
 a:hover,
 ::slotted(a:hover) {
-  @apply underline;
-  color: var(--outline-link-color-hover) !important;
+  text-decoration: var(
+    --outline-link-color-hover-decoration,
+    var(--outline--link-default-color-hover-decoration)
+  );
+  color: var(
+    --outline-link-color-hover,
+    var(--outline--link-default-color-hover)
+  );
 }
 
 :host(:focus),
 a:focus,
 ::slotted(a:focus) {
-  @apply underline outline-none;
-  color: var(--outline-link-color-focus) !important;
+  text-decoration: var(
+    --outline-link-color-focus-decoration,
+    var(--outline--link-default-color-focus-decoration)
+  );
+  color: var(
+    --outline-link-color-focus,
+    var(--outline--link-default-color-focus)
+  );
+  outline: none;
 }

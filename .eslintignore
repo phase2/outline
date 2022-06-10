@@ -2,8 +2,11 @@ node_modules/*
 docs/*
 dist/*
 docs-src/*
-rollup-config.js
+rollup.config.js
 custom-elements.json
+component-list.json
+resolved-outline-config.ts
+resolved-tailwind-config.ts
 .history/
 storybook-static/
 *.js
@@ -12,3 +15,5 @@ storybook-static/
 .octane-ci/
 .bin/
 .docksal/
+.yarn/
+project/

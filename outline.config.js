@@ -15,6 +15,15 @@ module.exports = {
     dir: ['src/assets'],
     sync: ['dist', 'src/.storybook/static/dist'],
   },
+  screens: {
+    xs: '480px',
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    xxl: '1440px',
+    xxxl: '2160px',
+  },
   css: {
     global: [
       {
@@ -44,12 +53,13 @@ module.exports = {
       // @status stable
       full: true,
       // @see src/data.ts
-      // @status optional
+      // @status stable
       data: false,
     },
   },
+  // @todo: Importing this into swatch-sets causes issues.
   color: {
-    sets: ['primary', 'secondary', 'tertiary', 'neutral', 'demo'],
+    sets: ['outline', 'primary', 'secondary', 'tertiary', 'neutral'],
   },
   icons: {
     libraries: {
