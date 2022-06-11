@@ -138,10 +138,8 @@ export class SlotController implements ReactiveController {
    */
   private moveNamedSlots(slot: HTMLSlotElement) {
     // Fetch the corresponding named slot in the lightDom
-    const slotLightDomArray = this.hostEl.querySelectorAll(
-      '[slot=' + slot.name + ']'
-    );
-    slotLightDomArray.forEach(slotLightDom => {
+    const slotLightDom = this.hostEl.querySelector('[slot=' + slot.name + ']');
+    if (slotLightDom) {
       const clonedSlot = slotLightDom.cloneNode(true) as HTMLElement;
       clonedSlot.setAttribute('cloned-slot-type', 'named-slot');
       clonedSlot.setAttribute('cloned-slot-name', slot.name);
@@ -152,7 +150,7 @@ export class SlotController implements ReactiveController {
         `Original named-slot '${slot.name}' was moved into shadow DOM by slotController`
       );
       slotLightDom.before(newComment);
-    });
+    }
   }
 
   /**
@@ -201,7 +199,6 @@ export class SlotController implements ReactiveController {
     if (this.shadowShift) {
       const slotsArray: NodeListOf<HTMLSlotElement> =
         this.hostEl.renderRoot.querySelectorAll('slot');
-
       slotsArray.forEach(slot => {
         if (slot.name) {
           this.moveNamedSlots(slot);
