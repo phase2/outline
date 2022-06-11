@@ -134,23 +134,24 @@ export class SlotController implements ReactiveController {
    * @todo: Continue improvement and performance in this method.
    * @todo: Observe slot changes and adding new elements to the slot.
    *
-   * @param slotName string The name of the named slot.
+   * @param slotShadowDom The named slot to be moved.
    */
-  private moveNamedSlots(slot: HTMLSlotElement) {
-    // Fetch the corresponding named slot in the lightDom
-    const slotLightDom = this.hostEl.querySelector('[slot=' + slot.name + ']');
-    if (slotLightDom) {
+  private moveNamedSlots(slotShadowDom: HTMLSlotElement) {
+    const slotLightDomArray = this.hostEl.querySelectorAll(
+      `:scope > [slot="${slotShadowDom.name}"]`
+    );
+    slotLightDomArray.forEach(slotLightDom => {
       const clonedSlot = slotLightDom.cloneNode(true) as HTMLElement;
       clonedSlot.setAttribute('cloned-slot-type', 'named-slot');
-      clonedSlot.setAttribute('cloned-slot-name', slot.name);
+      clonedSlot.setAttribute('cloned-slot-name', slotShadowDom.name);
       clonedSlot.removeAttribute('slot');
-      slot.before(clonedSlot);
+      slotShadowDom.before(clonedSlot);
 
       const newComment = document.createComment(
-        `Original named-slot '${slot.name}' was moved into shadow DOM by slotController`
+        `Original named-slot '${slotShadowDom.name}' was moved into shadow DOM by slotController`
       );
       slotLightDom.before(newComment);
-    }
+    });
   }
 
   /**
