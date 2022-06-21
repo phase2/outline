@@ -67,6 +67,10 @@ export default class OutlineIcon extends OutlineElement {
     this.sizeIcon();
   }
 
+  updated() {
+    this.setIcon();
+  }
+
   disconnectedCallback() {
     super.disconnectedCallback();
     unwatchIcon(this);
