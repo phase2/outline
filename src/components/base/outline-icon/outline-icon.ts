@@ -140,10 +140,6 @@ export default class OutlineIcon extends OutlineElement {
     }
   }
 
-  handleChange() {
-    this.setIcon();
-  }
-
   render() {
     const hasLabel = typeof this.label === 'string' && this.label.length > 0;
 
