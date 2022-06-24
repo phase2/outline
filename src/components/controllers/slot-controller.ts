@@ -137,9 +137,10 @@ export class SlotController implements ReactiveController {
    * @param slotShadowDom The named slot to be moved.
    */
   private moveNamedSlots(slotShadowDom: HTMLSlotElement) {
-    const slotLightDomArray = this.hostEl.querySelectorAll(
-      `:scope > [slot="${slotShadowDom.name}"]`
-    );
+    const slotLightDomArray = slotShadowDom
+      .assignedNodes({ flatten: true })
+      .filter(node => node instanceof HTMLElement) as HTMLElement[];
+
     slotLightDomArray.forEach(slotLightDom => {
       const clonedSlot = slotLightDom.cloneNode(true) as HTMLElement;
       clonedSlot.setAttribute('cloned-slot-type', 'named-slot');
@@ -158,7 +159,9 @@ export class SlotController implements ReactiveController {
    * Method to move all content in the default slot into ShadowDOM.
    */
   private moveDefaultSlots(slot: HTMLSlotElement) {
-    const slotLightDomArray = Array.from(this.hostEl.childNodes);
+    const slotLightDomArray = slot.assignedNodes({
+      flatten: true,
+    }) as HTMLElement[];
 
     slotLightDomArray.forEach(node => {
       // default slot - content only without an element
