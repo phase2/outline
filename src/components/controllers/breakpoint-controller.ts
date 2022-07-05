@@ -1,12 +1,17 @@
 import outline from '../../resolved-outline-config';
 import { ReactiveControllerHost, ReactiveController } from 'lit';
-//TODO: add functionality to receive array of screen sizes to map to object in controller state
-export class MobileController implements ReactiveController {
-  isMobile = false;
+// @todo - add functionality to pass in multiple screen widths
+type ScreenSize = typeof outline.screens;
+type Breakpoint = keyof ScreenSize;
+export class BreakpointController implements ReactiveController {
+  isBreakpoint = false;
   host: ReactiveControllerHost;
-  mobileBreakpoint: string;
+  mobileBreakpoint: Breakpoint;
 
-  constructor(host: ReactiveControllerHost, mobileBreakpoint = 'md') {
+  constructor(
+    host: ReactiveControllerHost,
+    mobileBreakpoint: Breakpoint = 'md'
+  ) {
     this.mobileBreakpoint = mobileBreakpoint;
     (this.host = host).addController(this);
     this.handleResize();
@@ -22,14 +27,12 @@ export class MobileController implements ReactiveController {
 
   handleResize = () => {
     const mobileScreen = this.formatScreenSize(
-      // @TODO: FIX THIS Typing.
-      // @ts-expect-error shrug
       outline.screens[this.mobileBreakpoint]
     );
     if (window.innerWidth <= mobileScreen) {
-      this.isMobile = true;
+      this.isBreakpoint = true;
     } else {
-      this.isMobile = false;
+      this.isBreakpoint = false;
     }
     this.host.requestUpdate();
   };
