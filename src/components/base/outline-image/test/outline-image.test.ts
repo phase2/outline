@@ -27,7 +27,11 @@ describe('outline-image', () => {
     assert.shadowDom.equal(
       el,
       `
-      <figure><picture><img src="image.jpg" alt='An image' /></picture><slot></slot></figure>
+      <figure>
+        <picture cloned-slot-name="default" cloned-slot-type="default-slot--element" >
+          <img src="image.jpg" alt='An image' />
+        </picture>
+      </figure>
       `
     );
   });
@@ -60,12 +64,13 @@ describe('outline-image', () => {
       el,
       `
       <figure>
-        <picture><img src="image.jpg" alt='An image' /></picture>
-        <slot></slot>
+        <picture cloned-slot-name="default" cloned-slot-type="default-slot--element">
+          <img src="image.jpg" alt='An image' />
+        </picture>
         <figcaption>
-          <slot name="caption">
-            <p slot='caption'>A test caption</p>
-          </slot>
+          <p cloned-slot-name="caption" cloned-slot-type="named-slot">
+            A test caption
+          </p>
         </figcaption>
       </figure>
       `

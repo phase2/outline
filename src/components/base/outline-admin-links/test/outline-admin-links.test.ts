@@ -12,8 +12,10 @@ describe('outline-admin-links', () => {
     const el = await fixture(html`<outline-admin-links></outline-admin-links>`);
     assert.shadowDom.equal(
       el,
-      `<div class="links">
-        <slot></slot>
+      `
+      <div class="links">
+        <slot>
+        </slot>
       </div>`
     );
   });
@@ -32,15 +34,13 @@ describe('outline-admin-links', () => {
       el,
       `
       <div class="links">
-        <ul>
+        <ul cloned-slot-name="default" cloned-slot-type="default-slot--element">
           <li>
             <a href="#">
               Ping
             </a>
           </li>
         </ul>
-        <slot>
-        </slot>
       </div>`
     );
   });

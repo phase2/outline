@@ -74,8 +74,9 @@ export class SlotController implements ReactiveController {
   }
 
   test(slotName?: string | undefined) {
-    const slot = slotName ? slotName : '';
-    return slot === '' ? this.hasDefaultSlot() : this.hasNamedSlot(slot);
+    return slotName === undefined
+      ? this.hasDefaultSlot()
+      : this.hasNamedSlot(slotName);
   }
 
   hostConnected() {
@@ -107,6 +108,7 @@ export class SlotController implements ReactiveController {
    * Function to return an array of slots on an element.
    *
    * @returns string[]
+   * @todo: only query for 'slot' attributes, and not '[slot]'
    */
   getSlots() {
     const slots: string[] = [];
@@ -132,46 +134,66 @@ export class SlotController implements ReactiveController {
    * @todo: Continue improvement and performance in this method.
    * @todo: Observe slot changes and adding new elements to the slot.
    *
-   * @param slotName string The name of the named slot.
+   * @param slotShadowDom The named slot to be moved.
    */
-  private moveNamedSlot(slotName: string) {
-    // Reassign host for better typing.
-    const host = this.host as unknown as ReactiveElement;
+  private moveNamedSlots(slotShadowDom: HTMLSlotElement) {
+    const slotLightDomArray = slotShadowDom
+      .assignedNodes({ flatten: true })
+      .filter(node => node instanceof HTMLElement) as HTMLElement[];
 
-    const shadowSlotLocation = host.renderRoot
-      ? host.renderRoot.querySelector(`slot[name="${slotName}"]`)
-      : false;
+    slotLightDomArray.forEach(slotLightDom => {
+      const clonedSlot = slotLightDom.cloneNode(true) as HTMLElement;
+      clonedSlot.setAttribute('cloned-slot-type', 'named-slot');
+      clonedSlot.setAttribute('cloned-slot-name', slotShadowDom.name);
+      clonedSlot.removeAttribute('slot');
+      slotShadowDom.before(clonedSlot);
 
-    if (shadowSlotLocation) {
-      const slotLightDom = host.querySelector('[slot=' + slotName + ']');
-
-      // Only if named slot found in light dom - move it into ShadowDOM.
-      if (slotLightDom) {
-        shadowSlotLocation.append(slotLightDom);
-      }
-    }
+      const newComment = document.createComment(
+        `Original named-slot '${slotShadowDom.name}' was moved into shadow DOM by slotController`
+      );
+      slotLightDom.before(newComment);
+    });
   }
 
   /**
    * Method to move all content in the default slot into ShadowDOM.
    */
-  private moveDefaultSlot() {
-    const host = this.host as unknown as ReactiveElement;
-    // Get all content that doesn't have slot as attribute
-    const slotLightDomArray = Array.from(host.children).filter(node => {
-      return !node.getAttributeNode('slot');
+  private moveDefaultSlots(slot: HTMLSlotElement) {
+    const slotLightDomArray = slot.assignedNodes({
+      flatten: true,
+    }) as HTMLElement[];
+
+    slotLightDomArray.forEach(node => {
+      // default slot - content only without an element
+      if (node.nodeType === node.TEXT_NODE && node.textContent!.trim() !== '') {
+        const newSlot = document.createElement('cloned-slot');
+        newSlot.setAttribute('cloned-slot-type', 'default-slot--content');
+        newSlot.setAttribute('cloned-slot-name', 'default');
+        newSlot.appendChild(node.cloneNode(true));
+        slot.before(newSlot);
+
+        const newComment = document.createComment(
+          'Original default slot content was moved into shadow DOM by slotController'
+        );
+        node.before(newComment);
+      }
+
+      // element default slot
+      if (node.nodeType === node.ELEMENT_NODE) {
+        const el = node as HTMLElement;
+        if (!el.hasAttribute('slot')) {
+          const clonedSlot = node.cloneNode(true) as HTMLElement;
+          clonedSlot.setAttribute('cloned-slot-type', 'default-slot--element');
+          clonedSlot.setAttribute('cloned-slot-name', 'default');
+          slot.before(clonedSlot);
+
+          const newComment = document.createComment(
+            'Original default slot element was moved into shadow DOM by slotController'
+          );
+          node.before(newComment);
+        }
+      }
     });
-
-    const shadowSlotLocation = host.renderRoot
-      ? host.renderRoot.querySelector(`slot`)
-      : false;
-
-    if (shadowSlotLocation) {
-      // Move all unnamed slot content to the corresponding position in shadow DOM
-      slotLightDomArray.forEach(slotLightDom => {
-        shadowSlotLocation.before(slotLightDom);
-      });
-    }
   }
 
   /**
@@ -179,12 +201,16 @@ export class SlotController implements ReactiveController {
    */
   private moveSlots() {
     if (this.shadowShift) {
-      // Move named slots.
-      this.slotNames.map(name => {
-        this.moveNamedSlot(name);
+      const slotsArray: NodeListOf<HTMLSlotElement> =
+        this.hostEl.renderRoot.querySelectorAll('slot');
+      slotsArray.forEach(slot => {
+        if (slot.name) {
+          this.moveNamedSlots(slot);
+        } else {
+          this.moveDefaultSlots(slot);
+        }
+        slot.remove();
       });
-      // Move default slot items.
-      this.moveDefaultSlot();
     }
   }
 }
