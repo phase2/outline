@@ -67,6 +67,10 @@ export default class OutlineIcon extends OutlineElement {
     this.sizeIcon();
   }
 
+  updated() {
+    this.setIcon();
+  }
+
   disconnectedCallback() {
     super.disconnectedCallback();
     unwatchIcon(this);
@@ -134,10 +138,6 @@ export default class OutlineIcon extends OutlineElement {
       // If we can't resolve a URL and an icon was previously set, remove it
       this.svg = '';
     }
-  }
-
-  handleChange() {
-    this.setIcon();
   }
 
   render() {
