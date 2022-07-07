@@ -1,20 +1,20 @@
 import { html, TemplateResult } from 'lit';
 import sampleImage from '../../../.storybook/static/media/color/Code_color.jpg';
-import './outline-image-slider';
+import './outline-carousel';
 import '../outline-image/outline-image';
 
 export default {
-  title: 'Media/Image Slider',
-  component: 'outline-image-slider',
+  title: 'Media/Carousel',
+  component: 'outline-carousel',
   argTypes: {},
   args: {},
 };
 
 export const ImageSlider = (): TemplateResult =>
   html`
-    <outline-image-slider>
+    <outline-carousel>
       <img src="${sampleImage}" alt="random image" />
       <img src="${sampleImage}" alt="random image" />
       <img src="${sampleImage}" alt="random image" />
-    </outline-image-slider>
+    </outline-carousel>
   `;

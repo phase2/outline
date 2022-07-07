@@ -2,15 +2,15 @@ import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '../outline-element/outline-element';
 import { customElement, query } from 'lit/decorators.js';
 import Splide from '@splidejs/splide';
-import componentStyles from './outline-image-slider.css.lit';
+import componentStyles from './outline-carousel.css.lit';
 
 /**
- * The Image Slider component
- * @element outline-image-slider
- * @slot image-<number> - slots are generated in code, component accepts stack of desired elements to display
+ * The Carousel component
+ * @element outline-carousel
+ * @slot slide-<number> - slots are generated in code, component accepts stack of desired elements to display
  */
-@customElement('outline-image-slider')
-export class OutlineImageSlider extends OutlineElement {
+@customElement('outline-carousel')
+export class OutlineCarousel extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   @query('.splide')
@@ -28,7 +28,7 @@ export class OutlineImageSlider extends OutlineElement {
 
   firstUpdated() {
     this.splide = new Splide(this.splideEl, {
-      keyboard: false,
+      keyboard: true,
       arrows: true,
     }).mount();
 
@@ -52,43 +52,38 @@ export class OutlineImageSlider extends OutlineElement {
     return html`
       <section class="splide">
         <div class="splide__track">
-          <div class="splide__list">${this.imageListTemplate()}</div>
+          <div class="splide__list">${this.slideListTemplate()}</div>
         </div>
       </section>
     `;
   }
 
-  imageListTemplate = (): TemplateResult[] => {
-    let counter = 0;
+  slideListTemplate = (): TemplateResult[] => {
     const templateArr: TemplateResult[] = [];
 
-    while (counter < this.childElementCount) {
+    for (let counter = 0; counter < this.childElementCount; counter++) {
       templateArr.push(
         html` <div
           class="splide__slide"
           role="group"
           aria-label="slide ${counter + 1} of ${this.childElementCount}"
         >
-          <slot name="image-${counter + 1}"></slot>
+          <slot name="slide-${counter + 1}"></slot>
           <div aria-hidden="true" class="slide-count">
             <span>${counter + 1} / ${this.childElementCount}</span>
           </div>
         </div>`
       );
-
-      counter++;
     }
 
     return templateArr;
   };
 
   setSlots = () => {
-    let counter = 0;
-    while (counter <= this.childElementCount) {
+    for (let counter = 0; counter < this.childElementCount; counter++) {
       if (this.children[counter]) {
-        this.children[counter].setAttribute('slot', `image-${counter + 1}`);
+        this.children[counter].setAttribute('slot', `slide-${counter + 1}`);
       }
-      counter++;
     }
     this.requestUpdate();
   };
@@ -96,6 +91,6 @@ export class OutlineImageSlider extends OutlineElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'outline-image-slider': OutlineImageSlider;
+    'outline-carousel': OutlineCarousel;
   }
 }
