@@ -26,7 +26,7 @@ export class MobileController implements ReactiveController {
       // @ts-expect-error shrug
       outline.screens[this.mobileBreakpoint]
     );
-    if (window.innerWidth <= mobileScreen) {
+    if (window.innerWidth < mobileScreen) {
       this.isMobile = true;
     } else {
       this.isMobile = false;
