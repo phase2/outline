@@ -1,8 +1,7 @@
-last 2 major versions, 
-> 2%, 
-not dead, 
-not ie > 0, 
-not opera > 0, 
-not op_mini all, 
-not op_mob > 0,
-
+last 2 Chrome version
+last 2 Firefox version
+last 2 Edge major versions
+last 2 Safari major version
+last 2 iOS major versions
+Firefox ESR
+not IE 11 # For IE 11 support, remove 'not'.
