@@ -86,7 +86,7 @@
     "lit"
   ],
   "dependencies": {
-    "@splidejs/splide": "^3.2.1",
+    "@splidejs/splide": "^4.0.7",
     "lit": "^2.0.0"
   },
   "engines": {

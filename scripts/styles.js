@@ -107,8 +107,6 @@ export default css\`
   box-sizing: inherit;
 }
 /* Apply proper CSS for accessibly hiding elements to each component. */
-:host([aria-hidden="true"]),
-[aria-hidden="true"],
 .visually-hidden {
   position: absolute !important;
   overflow: hidden;
