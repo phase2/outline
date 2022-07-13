@@ -100,4 +100,7 @@ module.exports = {
     keyboard: false,
     arrows: true,
   },
+  // Bubble non-composed events up the DOM tree.
+  // See `outline-element.ts` for documentation around these events.
+  bubbledEvents: ['submit'],
 };
