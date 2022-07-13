@@ -61,12 +61,23 @@ export class OutlineLink extends OutlineElement {
     return html`${this.linkHref
       ? html` <a
           href=${this.linkHref}
-          rel="${ifDefined(this.linkRel)}"
+          rel="${ifDefined(this.evaluateRelValue())}"
           target="${ifDefined(this.linkTarget)}"
         >
           ${this.linkText ? html`${this.linkText}` : html`<slot></slot>`}
         </a>`
       : html`<slot></slot>`}`;
+  }
+
+  evaluateRelValue() {
+    const relValue = [];
+    if (this.linkRel) relValue.push(this.linkRel);
+    // Protection for Tabnabbing vulnerability
+    // Source: https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#tabnabbing
+    // TLDR: when a link has the attribute target="_blank", always add ref="noreferrer noopener"
+    if (this.linkTarget === '_blank') relValue.push('noreferrer', 'noopener');
+    if (relValue.length > 0) return relValue.join(' ');
+    return;
   }
 }
 
