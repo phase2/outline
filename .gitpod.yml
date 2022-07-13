@@ -4,9 +4,7 @@ image:
 tasks:
   - init: |
       yarn
-      nvm install $(cat .nvmrc)
-      nvm use
-      npx playwright install --with-deps
+      nvm install
     command: |
       yarn start
 
