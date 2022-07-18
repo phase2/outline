@@ -1,5 +1,10 @@
-:host svg {
-  height: inherit;
-  width: inherit;
-  display: flex;
+:host {
+  .icon {
+    display: flex;
+  }
+
+  svg {
+    height: inherit;
+    width: inherit;
+  }
 }
