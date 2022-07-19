@@ -5,6 +5,7 @@ import replace from '@rollup/plugin-replace';
 import multi from '@rollup/plugin-multi-entry';
 import typescript from 'rollup-plugin-typescript2';
 import svg from 'rollup-plugin-svg';
+import image from 'rollup-plugin-image;gin-image';
 import json from '@rollup/plugin-json';
 const outline = require('./outline.config');
 
@@ -32,6 +33,7 @@ const sharedConfig = {
     summary(),
     multi(),
     svg(),
+    image()
   ],
 };
 
