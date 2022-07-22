@@ -1,15 +1,13 @@
-// import { html, TemplateResult } from 'lit';
-// import { ifDefined } from 'lit/directives/if-defined.js';
-// import { repeat } from 'lit/directives/repeat.js';
-import { html, TemplateResult, repeat, ifDefined } from '@phase2/outline-core';
-
+import { html, TemplateResult } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { repeat } from 'lit/directives/repeat.js';
 
 import {
   argTypeSlotContent,
   argTypeColSpan,
   argTypeRowSpan,
   argTypeVerticalAlign,
-} from '@phase2/outline-element/utils/utils';
+} from '@phase2/outline-core';
 
 import './outline-column';
 
@@ -68,6 +66,8 @@ export default {
     numContentCols: 12,
   },
   decorators: [
+    // eslint-disable-next-line
+    // @ts-ignore
     Story => html`
       <outline-container>
         <!-- <outline-heading level="h2" level-style="2" class="my-10"
@@ -129,6 +129,8 @@ const Template = ({
 };
 
 export const ResponsiveColumns = Template.bind({});
+// eslint-disable-next-line
+// @ts-ignore
 ResponsiveColumns.args = {
   colSpanDefault: 12,
   colSpanSm: 6,

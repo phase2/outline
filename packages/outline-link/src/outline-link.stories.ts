@@ -2,9 +2,10 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeRel, argTypeTarget, argTypeHref } from './config';
 import type { LinkTargetType, LinkRelType } from './config';
-import sampleImage from '../../../.storybook/static/media/tech/1440/code-1.jpg';
 // Import the component itself.
 import './outline-link';
+
+const sampleImage = 'https://picsum.photos/1440';
 
 export default {
   title: 'Navigation/Link',
@@ -93,9 +94,13 @@ const LinkTemplate = ({
   `;
 
 export const Link = LinkTemplate.bind({});
+// eslint-disable-next-line
+// @ts-ignore
 Link.args = {
   linkText: 'Sample Link',
 };
+// eslint-disable-next-line
+// @ts-ignore
 Link.parameters = {
   docs: {
     source: {

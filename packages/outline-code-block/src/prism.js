@@ -26,6 +26,7 @@ var Prism = (function (_self) {
   var uniqueId = 0;
 
   // The grammar object for plaintext
+  var Grammar = {};
   var plainTextGrammar = {};
 
   var _ = {

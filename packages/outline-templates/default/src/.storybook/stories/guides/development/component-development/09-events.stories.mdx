@@ -1,0 +1,41 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Event Handlers"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Outline Coding Guide & Standards
+
+> @todo - document this documentation.
+
+## Event Handlers
+
+<Story name="Event Handlers">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+eventHandler = (e: Event) => {
+  e.preventDefault()
+  console.log('event handler fired')
+}
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+Event handlers are placed below the template partials.
+
+
+
+
+
+

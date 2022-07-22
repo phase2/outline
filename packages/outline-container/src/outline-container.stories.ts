@@ -1,9 +1,8 @@
-// import { html, TemplateResult } from 'lit';
-// import { ifDefined } from 'lit/directives/if-defined.js';
-import { html, TemplateResult, ifDefined } from '@phase2/outline-core';
+import { html, TemplateResult } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
-import type { HorizontalAlignment } from '@phase2/outline-element';
-import { argTypeHorizontalAlign } from '@phase2/outline-element';
+import type { HorizontalAlignment } from '@phase2/outline-core';
+import { argTypeHorizontalAlign } from '@phase2/outline-core';
 import './outline-container';
 
 export default {

@@ -1,17 +1,10 @@
-import { OutlineElement } from '@phase2/outline-element';
-import {
-  html,
-  TemplateResult,
-  CSSResultGroup,
-  customElement,
-  property,
-  query,
-} from '@phase2/outline-core';
-
-// import { CSSResultGroup, TemplateResult, html } from 'lit';
-// import { OutlineElement } from '../outline-element/outline-element';
-// import { customElement, property, query } from 'lit/decorators.js';
+import { CSSResultGroup, TemplateResult, html } from 'lit';
+import { customElement, property, query } from 'lit/decorators.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
+import { OutlineElement } from '@phase2/outline-core';
+
+// eslint-disable-next-line
+// @ts-ignore
 import Prism from './prism.js';
 import componentStyles from './outline-code-block.css.lit';
 
@@ -153,10 +146,4 @@ export class OutlineCodeBlock extends OutlineElement {
     }
     return prismCode;
   };
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'outline-code-block': OutlineCodeBlock;
-  }
 }

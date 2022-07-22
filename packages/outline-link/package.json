@@ -1,25 +1,40 @@
 {
   "name": "@phase2/outline-link",
-  "description": "The Outline Components for the web link component",
   "version": "0.0.1",
-  "license": "MIT",
-  "type": "module",
+  "description": "The Outline Components for the web link component",
   "keywords": [
-    "outline components",
-    "outline design",
-    "link"
+    "outline",
+    "web-components",
+    "design system"
   ],
-  "main": "index.ts",
-  "module": "index.ts",
-  "sideEffects": false,
+  "main": "dist/index",
+  "types": "dist/index",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "/dist/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
     "directory": "packages/outline-link"
   },
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "publish": "yarn npm publish"
+  },
   "dependencies": {
-    "@phase2/outline-element": "^0.0.1",
+    "@phase2/outline-core": "^0.0.1",
     "cross-env": "5.0.5",
+    "lit": "^2.0.2",
     "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./dist/index.js"
   }
 }

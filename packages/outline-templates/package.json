@@ -1,0 +1,14 @@
+{
+  "name": "@phase2/outline-templates",
+  "description": "The Outline Starter Templates",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "publish": "yarn npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-templates"
+  }
+}

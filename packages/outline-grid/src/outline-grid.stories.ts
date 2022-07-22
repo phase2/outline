@@ -1,9 +1,9 @@
-// import { html, TemplateResult } from 'lit';
-// import { ifDefined } from 'lit/directives/if-defined.js';
-import { html, TemplateResult, ifDefined } from '@phase2/outline-core';
-import type { Size } from '@phase2/outline-element';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { html, TemplateResult } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import type { Size } from '@phase2/outline-core/';
 
-import { argTypeGapSize, argTypeHidden } from '@phase2/outline-element';
+import { argTypeGapSize, argTypeHidden } from '@phase2/outline-core';
 import './outline-grid';
 
 export default {
@@ -118,10 +118,10 @@ const Template = ({
 `;
 
 const DefaultGridDecorators = [
-  (Story): TemplateResult => html` <div class="block py-12">${Story()}</div> `,
+  (Story: () => unknown): TemplateResult => html` <div class="block py-12">${Story()}</div> `,
 ];
 
-export const RowsAndColumns = Template.bind({});
+export const RowsAndColumns: any = Template.bind({});
 RowsAndColumns.decorators = DefaultGridDecorators;
 RowsAndColumns.args = {
   gapSize: 'small',
@@ -168,7 +168,7 @@ RowsAndColumns.args = {
   `,
 };
 
-export const EqualColumns = Template.bind({});
+export const EqualColumns: any = Template.bind({});
 EqualColumns.decorators = DefaultGridDecorators;
 EqualColumns.args = {
   gapSize: 'small',
@@ -199,7 +199,7 @@ EqualColumns.args = {
   `,
 };
 
-export const FullBleed = Template.bind({});
+export const FullBleed: any = Template.bind({});
 FullBleed.decorators = DefaultGridDecorators;
 FullBleed.args = {
   gapSize: 'small',
@@ -231,7 +231,7 @@ FullBleed.args = {
   `,
 };
 
-export const AsymmetricLeft = Template.bind({});
+export const AsymmetricLeft: any = Template.bind({});
 AsymmetricLeft.decorators = DefaultGridDecorators;
 AsymmetricLeft.args = {
   gapSize: 'small',
@@ -262,7 +262,7 @@ AsymmetricLeft.args = {
   `,
 };
 
-export const AsymmetricRight = Template.bind({});
+export const AsymmetricRight: any = Template.bind({});
 AsymmetricRight.decorators = DefaultGridDecorators;
 AsymmetricRight.args = {
   gapSize: 'small',
@@ -293,7 +293,7 @@ AsymmetricRight.args = {
   `,
 };
 
-export const AsymmetricLeftWithBorder = Template.bind({});
+export const AsymmetricLeftWithBorder: any = Template.bind({});
 AsymmetricLeftWithBorder.decorators = DefaultGridDecorators;
 AsymmetricLeftWithBorder.args = {
   gapSize: '',
@@ -420,7 +420,7 @@ AsymmetricLeftWithBorder.args = {
   `,
 };
 
-export const OffsetLeft = Template.bind({});
+export const OffsetLeft: any = Template.bind({});
 OffsetLeft.decorators = DefaultGridDecorators;
 OffsetLeft.args = {
   defaultSlot: html`
@@ -441,7 +441,7 @@ OffsetLeft.args = {
   `,
 };
 
-export const OffsetRight = Template.bind({});
+export const OffsetRight: any = Template.bind({});
 OffsetRight.decorators = DefaultGridDecorators;
 OffsetRight.args = {
   defaultSlot: html`

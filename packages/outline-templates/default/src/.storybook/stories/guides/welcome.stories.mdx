@@ -1,0 +1,106 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+import '../../../components/utility/sb-section-link/sb-section-link';
+
+<!-- Importing the needed components for default stories -->
+import { OutlineContainer } from '@phase2/outline-container';
+import { OutlineGrid, OutlineColumn } from '@phase2/outline-grid';
+import { OutlineLink } from '@phase2/outline-link';
+import { OutlineCodeBlock } from '@phase2/outline-code-block';
+import { OutlineIcon } from '@phase2/outline-icon';
+import { OutlineAlert } from '@phase2/outline-alert';
+
+<Story id="Components-for-Guide-Pages" play={()=>{
+  new OutlineContainer()
+  new OutlineGrid()
+  new OutlineColumn()
+  new OutlineLink()
+  new OutlineCodeBlock()
+  new OutlineIcon()
+  new OutlineAlert()
+}}></Story>
+
+
+<Meta
+  title="Documentation/Welcome"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Welcome to your design system
+
+> This document serves as a landing page for your custom design system based on Outline.
+> It should be customized to meet the needs of an appropriate landing page for your project.
+
+<outline-grid y-padding full-bleed gap-size="small">
+  <outline-column col-span-default="12" col-span-md="4">
+    <sb-section-link>
+      <span slot="badge" class="tag">Design Tokens</span>
+      <a slot="link" class="phase2-blue" href="?path=/docs/design-tokens-colors-solid--page">
+        Colors
+      </a>
+    </sb-section-link>
+  </outline-column>
+  <outline-column col-span-default="12" col-span-md="4">
+    <sb-section-link>
+      <span slot="badge" class="tag">Icons</span>
+      <a slot="link" class="dusty-blue" href="?path=/docs/media-outline-icon--an-icon">
+        <outline-icon library="lucide" name="arrow-left" size="32px" class="mr-2"></outline-icon>
+        <outline-icon library="lucide" name="more-vertical" size="32px" class="mr-2"></outline-icon>
+        <outline-icon library="lucide" name="map" size="32px" class="mr-2"></outline-icon>
+        <outline-icon library="lucide" name="more-vertical" size="32px" class="mr-2"></outline-icon>
+        <outline-icon library="lucide" name="arrow-right" size="32px" class="mr-2"></outline-icon>
+      </a>
+    </sb-section-link>
+  </outline-column>
+  <outline-column col-span-default="12" col-span-md="4">
+    <sb-section-link>
+      <span slot="badge" class="tag">Design Tokens</span>
+      <a slot="link" class="phase2-blue" href="?path=/docs/design-tokens-typefaces--page">
+        Typography
+      </a>
+    </sb-section-link>
+  </outline-column>
+  
+  <outline-column col-span-default="12">
+    <sb-section-link>
+      <span slot="badge" class="tag">Documentation</span>
+      <a slot="link" class="medium-gray large" href="?path=/docs/documentation-guides-tooling-commands-helpful-commands--page">
+        Helpful Commands
+      </a>
+    </sb-section-link>
+  </outline-column>
+
+  <outline-column col-span-default="12" col-span-md="6" col-span-lg="6">
+    <sb-section-link>
+      <span slot="badge" class="tag">Documentation</span>
+      <a slot="link" class="karma-coral" href="?path=/docs/documentation-guides-tooling-commands-about-outline--page">
+        About Outline
+      </a>
+    </sb-section-link>
+  </outline-column>
+  <outline-column row-span="2" col-span-default="12" col-span-md="6" col-span-lg="6">
+    <sb-section-link>
+      <span slot="badge" class="tag">Documentation</span>
+      <a slot="link" class="dark-gray large" href="?path=/docs/documentation-guides-component-development-coding-guide-standards--introduction">
+        Outline Coding Guide & Standards
+      </a>
+    </sb-section-link>
+  </outline-column>
+  <outline-column col-span-default="12" col-span-md="6" col-span-lg="6">
+    <sb-section-link>
+      <span slot="badge" class="tag">Documentation</span>
+      <a slot="link" class="karma-coral" href="?path=/docs/documentation-guides-qa-uat-using-storybook--introduction">
+        Using Storybook
+      </a>
+    </sb-section-link>
+  </outline-column>
+  
+</outline-grid>

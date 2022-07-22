@@ -1,17 +1,11 @@
-// Our base component, which all others extend.
-import { OutlineElement } from '@phase2/outline-element';
-import {
-  html,
-  TemplateResult,
-  CSSResultGroup,
-  customElement,
-  property,
-} from '@phase2/outline-core';
-// import { html, TemplateResult, CSSResultGroup } from 'lit';
-// import { customElement, property } from 'lit/decorators.js';
-import componentVars from '../css-variables/vars-container.css.lit';
+import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import componentVars from './css-variables/vars-container.css.lit';
 import componentStyles from './outline-container.css.lit';
-import type { HorizontalAlignment } from '@phase2/outline-element';
+
+// Our base component, which all others extend.
+import { OutlineElement } from '@phase2/outline-core';
+import type { HorizontalAlignment } from '@phase2/outline-core';
 
 /**
  * The Outline  Link component
@@ -72,11 +66,5 @@ export class OutlineContainer extends OutlineElement {
    */
   render(): TemplateResult {
     return html`<slot></slot>`;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'outline-container': OutlineContainer;
   }
 }

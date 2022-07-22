@@ -2,36 +2,37 @@
   "name": "@phase2/outline-core",
   "version": "0.0.1",
   "description": "Core functionality that is shared across all Outline Web Components",
-  "license": "MIT",
+  "keywords": [
+    "outline",
+    "web-components",
+    "design system"
+  ],
+  "main": "dist/index",
+  "types": "dist/index",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "/dist/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
     "directory": "packages/outline-core"
   },
-  "type": "module",
-  "main": "index.ts",
-  "module": "index.ts",
+  "license": "BSD-3-Clause",
   "scripts": {
-    "debug": "cd ../../ && npm run debug -- --group core",
-    "debug:firefox": "cd ../../ && npm run debug:firefox -- --group core",
-    "debug:webkit": "cd ../../ && npm run debug:webkit -- --group core",
-    "publish-docs": "node ../../packages-node/publish-docs/src/cli.js --github-url https://github.com/ing-bank/lion/ --git-root-dir ../../",
-    "prepublishOnly": "npm run publish-docs",
-    "test": "cd ../../ && npm run test:browser -- --group core"
+    "build": "node ../../scripts/build.js",
+    "publish": "yarn npm publish"
   },
-  "sideEffects": false,
   "dependencies": {
     "lit": "^2.0.2"
   },
-  "keywords": [
-    "outline",
-    "web-components"
-  ],
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./index.ts",
-    "./docs/*": "./docs/*"
+    ".": "./dist/index.js",
+    "./src/outline-element": "./dist/src/outline-element/outline-element.js"
   }
 }

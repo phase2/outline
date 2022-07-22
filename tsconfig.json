@@ -1,19 +1,14 @@
 {
+  "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "target": "es2017",
-    "module": "esnext",
+    "baseUrl": "./packages",
+    "paths": {
+      "@phase2/*": ["*"]
+    },
     "lib": ["es2017", "dom", "dom.iterable"],
-    "allowJs": true,
-    "checkJs": true,
-    "noEmit": true,
-    "alwaysStrict": true,
-    "types": ["node", "mocha", "sinon"],
-    "esModuleInterop": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "skipLibCheck": true,
+    "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true,
     "inlineSources": true,
     "strict": true,
     "allowUnreachableCode": false,
@@ -38,11 +33,5 @@
         "strict": true
       }
     ]
-  },
-  "include": [
-    "./packages/**/*.ts",
-    "./packages/**/*/*.test.ts",
-    "./src/imports.d.ts"
-  ],
-  "exclude": ["./packages/**/*.stories.ts", "./packages/**/*.lit.ts"]
+  }
 }

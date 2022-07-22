@@ -1,20 +1,9 @@
-// import { OutlineElement } from '../../outline-element/outline-element';
-// import { html, TemplateResult, CSSResultGroup } from 'lit';
-// import { customElement, property } from 'lit/decorators.js';
-import { OutlineElement } from '@phase2/outline-element';
-import {
-  html,
-  TemplateResult,
-  CSSResultGroup,
-  customElement,
-  property,
-} from '@phase2/outline-core';
+import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { OutlineElement } from '@phase2/outline-core';
 
 import componentStyles from './outline-column.css.lit';
-import type {
-  VerticalAlignment,
-  Size,
-} from '@phase2/outline-element/utils/types';
+import type { VerticalAlignment, Size } from '@phase2/outline-core';
 
 type colSpanRange = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 type rowSpanRange = 1 | 2 | 3 | 4 | 5 | 6;

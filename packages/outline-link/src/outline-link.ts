@@ -1,16 +1,10 @@
+import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+
 // Our base component, which all others extend.
-import { OutlineElement } from '@phase2/outline-element';
-import {
-  html,
-  TemplateResult,
-  CSSResultGroup,
-  customElement,
-  property,
-  ifDefined,
-} from '@phase2/outline-core';
-// import { html, TemplateResult, CSSResultGroup } from 'lit';
-// import { customElement, property } from 'lit/decorators.js';
-// import { ifDefined } from 'lit/directives/if-defined.js';
+import { OutlineElement } from '@phase2/outline-core';
+
 import type { LinkTargetType, LinkRelType } from './config';
 import componentVars from './css-variables/vars-link.css.lit';
 import componentStyles from './outline-link.css.lit';
@@ -75,11 +69,5 @@ export class OutlineLink extends OutlineElement {
           ${this.linkText ? html`${this.linkText}` : html`<slot></slot>`}
         </a>`
       : html`<slot></slot>`}`;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'outline-link': OutlineLink;
   }
 }

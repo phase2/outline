@@ -1,0 +1,84 @@
+default:
+  image: node:16
+
+cache: &global_cache
+  paths:
+    - .yarn/
+
+stages:
+  - build
+  - deploy
+  - release
+
+variables:
+  NPM_TOKEN: ${CI_JOB_TOKEN}
+  STORYBOOK_IMAGE: ${CI_REGISTRY_IMAGE}/storybook
+
+Test and Build:
+  stage: build
+  variables:
+    # Prevent puppeteer from downloading chromium.
+    # Change this if cypress tests are added to this job.
+    PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+  environment:
+    name: ${CI_COMMIT_REF_SLUG}
+    url: "https://$CI_PROJECT_ROOT_NAMESPACE.gitlab.io/-/frontend/tooling/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/storybook-static/index.html"
+  script:
+    - env
+    - yarn install --cache-folder .yarn
+    - yarn lint
+    - yarn build
+    # We can just run storybook.prod here vs storybook.prod.build because
+    # the yarn prep step has already been ran via the yarn build above.
+    - yarn storybook.prod
+    - echo "Testing instance available at $CI_ENVIRONMENT_URL"
+  artifacts:
+    paths:
+      - storybook-static/
+      - dist/
+  cache: *global_cache
+  only:
+    - master
+    - next
+    - /^issue/
+    - /^task/
+    - /^feature/
+    - /^bug/
+
+# Gitlab Pages deploy only supported for main branch.
+# Issue branches use the CI_ENVIRONMENT_URL.
+pages:
+  stage: deploy
+  script:
+    - cp -r storybook-static public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+    - next
+
+# We need to make this run last because semantic release changes the git hash.
+# @see https://docs.gitlab.com/13.11/ee/ci/examples/semantic-release.html#set-up-cicd-variables
+# Uncomment the following after setting up the appropriate CI/CD access token (GITLAB_TOKEN)
+# in your project settings.
+package:
+  stage: release
+  script:
+    - env
+    - yarn ci
+    # Setup .npmrc to connect to package repository.
+    - |
+      {
+        echo "@${CI_PROJECT_ROOT_NAMESPACE}:registry=${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/npm/"
+        echo "${CI_API_V4_URL#https?}/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=\${CI_JOB_TOKEN}"
+      } | tee --append .npmrc
+    # Install semantic release & required dependencies 
+    # to publish package to GitLab.
+    - npm install -g semantic-release@17 @semantic-release/gitlab @semantic-release/npm @semantic-release/commit-analyzer
+    - semantic-release
+  cache: *global_cache
+  only:
+    - master
+    - next
+

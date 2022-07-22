@@ -1,20 +1,10 @@
-import { OutlineElement } from '@phase2/outline-element';
-import {
-  html,
-  TemplateResult,
-  CSSResultGroup,
-  customElement,
-  property,
-  ifDefined,
-} from '@phase2/outline-core';
+import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
-// import { OutlineElement } from '../outline-element/outline-element';
-// import { html, TemplateResult, CSSResultGroup } from 'lit';
-// import { customElement, property } from 'lit/decorators.js';
+import { OutlineElement } from '@phase2/outline-core';
+import type { HorizontalAlignment, Size } from '@phase2/outline-core';
 import componentStyles from './outline-grid.css.lit';
-// import { ifDefined } from 'lit/directives/if-defined.js';
-// import type { HorizontalAlignment, Size } from '../outline-element/utils/types';
-import type { HorizontalAlignment, Size } from '@phase2/outline-element';
 
 /**
  * The Outline Grid component
@@ -121,11 +111,5 @@ export class OutlineGrid extends OutlineElement {
         <slot></slot>
       </outline-container>
     `;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'outline-grid': OutlineGrid;
   }
 }

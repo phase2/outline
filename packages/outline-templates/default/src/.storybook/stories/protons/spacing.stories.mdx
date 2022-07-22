@@ -1,0 +1,81 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+import { extractPx } from '@phase2/outline-core';
+import tailwindThemeConfig from '../../../resolved-tailwind-config';
+
+<Meta
+  title="Design Tokens/Spacing"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Spacing values
+
+<outline-alert statusType="info" size="large" class="mb-6">
+  <span slot="outline-alert--header">Documentation Status</span>
+  The documentation on this page is in need of additional updates, corrections or information. <span class="font-semibold italic">Expect frequent updates and/or changes.</span>
+</outline-alert>
+
+<Story name="Spacing">
+  {() => {
+    const spacings = Object.entries(tailwindThemeConfig.spacing).map(
+      ([name, value]) => html`
+        <tr>
+          <td class="py-2 text-center">
+            ${name}
+          </td>
+          <td class="py-2 text-center">
+            ${value}
+          </td>
+          <td class="py-2 text-center">
+            ${extractPx(value)}
+          </td>
+          <td class="py-2 text-center">
+            <div class="rounded h-6 bg-outline-phase2-blue w-${name}"></div>
+          </td>
+        </tr>
+      `
+    );
+    return html`
+      <div class="prose my-4">
+        <h2 class="group flex whitespace-pre-wrap mb-0" id="overview">
+          <span class="sr-only">Overview</span>
+        </h2>
+        <p>
+          The consistent, finite set of spacings used throughout components.
+        </p>
+        <div class="mt-10"></div>
+      </div>
+      <table
+        class="table-auto overflow-hidden"
+      >
+        <thead class="text-base font-display">
+          <tr class="border border-neutral-gray-700 bg-outline-soft-black">
+            <th scope="col" class="p-3 font-semibold text-outline-white">
+              Name
+            </th>
+            <th scope="col" class="p-3 font-semibold text-outline-white">
+              Size
+            </th>
+            <th scope="col" class="p-3 font-semibold text-outline-white">
+              Pixels
+            </th>
+            <th scope="col" class="p-3 text-left font-semibold text-outline-white">
+              Example
+            </th>
+          </tr>
+        </thead>
+        <tbody class="font-body text-sm">
+          ${spacings}
+        </tbody>
+      </table>
+    `;
+  }}
+</Story>
