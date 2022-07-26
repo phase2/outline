@@ -85,3 +85,9 @@ export class OutlineImage extends OutlineElement {
       : html`<figure><slot></slot>${this.captionSlotTemplate()}</figure>`} `;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-image': OutlineImage;
+  }
+}

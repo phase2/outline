@@ -5,7 +5,8 @@
   "keywords": [
     "outline",
     "web-components",
-    "design system"
+    "design system",
+    "link"
   ],
   "main": "dist/index",
   "types": "dist/index",
@@ -27,7 +28,6 @@
   },
   "dependencies": {
     "@phase2/outline-core": "^0.0.1",
-    "cross-env": "5.0.5",
     "lit": "^2.0.2",
     "tslib": "^2.1.0"
   },

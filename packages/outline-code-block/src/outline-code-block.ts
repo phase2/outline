@@ -147,3 +147,9 @@ export class OutlineCodeBlock extends OutlineElement {
     return prismCode;
   };
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-code-block': OutlineCodeBlock;
+  }
+}

@@ -68,3 +68,9 @@ export class OutlineContainer extends OutlineElement {
     return html`<slot></slot>`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-container': OutlineContainer;
+  }
+}

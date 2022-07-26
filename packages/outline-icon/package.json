@@ -29,7 +29,6 @@
   "dependencies": {
     "@phase2/outline-core": "^0.0.1",
     "@phase2/outline-include": "^0.0.1",
-    "cross-env": "5.0.5",
     "lit": "^2.0.2",
     "tslib": "^2.1.0"
   },

@@ -2683,12 +2683,63 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@phase2/outline-accordion@workspace:packages/outline-accordion":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-accordion@workspace:packages/outline-accordion"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    "@phase2/outline-icon": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-admin-links@workspace:packages/outline-admin-links":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-admin-links@workspace:packages/outline-admin-links"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
 "@phase2/outline-alert@workspace:packages/outline-alert":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-alert@workspace:packages/outline-alert"
   dependencies:
     "@phase2/outline-core": ^0.0.1
-    cross-env: 5.0.5
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-breadcrumbs@workspace:packages/outline-breadcrumbs":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-breadcrumbs@workspace:packages/outline-breadcrumbs"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-button-group@workspace:packages/outline-button-group":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-button-group@workspace:packages/outline-button-group"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-button@^0.0.1, @phase2/outline-button@workspace:packages/outline-button":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-button@workspace:packages/outline-button"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    "@phase2/outline-link": ^0.0.1
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
@@ -2728,7 +2779,6 @@ __metadata:
   resolution: "@phase2/outline-code-block@workspace:packages/outline-code-block"
   dependencies:
     "@phase2/outline-core": ^0.0.1
-    cross-env: 5.0.5
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
@@ -2739,7 +2789,6 @@ __metadata:
   resolution: "@phase2/outline-container@workspace:packages/outline-container"
   dependencies:
     "@phase2/outline-core": ^0.0.1
-    cross-env: 5.0.5
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
@@ -2753,24 +2802,56 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@phase2/outline-grid@workspace:packages/outline-grid":
+"@phase2/outline-dropdown@workspace:packages/outline-dropdown":
   version: 0.0.0-use.local
-  resolution: "@phase2/outline-grid@workspace:packages/outline-grid"
+  resolution: "@phase2/outline-dropdown@workspace:packages/outline-dropdown"
   dependencies:
+    "@phase2/outline-button": ^0.0.1
     "@phase2/outline-core": ^0.0.1
-    cross-env: 5.0.5
+    "@phase2/outline-icon": ^0.0.1
+    "@phase2/outline-link": ^0.0.1
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
   linkType: soft
 
-"@phase2/outline-icon@workspace:packages/outline-icon":
+"@phase2/outline-grid@workspace:packages/outline-grid":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-grid@workspace:packages/outline-grid"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-heading@workspace:packages/outline-heading":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-heading@workspace:packages/outline-heading"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-icon@^0.0.1, @phase2/outline-icon@workspace:packages/outline-icon":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-icon@workspace:packages/outline-icon"
   dependencies:
     "@phase2/outline-core": ^0.0.1
     "@phase2/outline-include": ^0.0.1
-    cross-env: 5.0.5
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-image-slider@workspace:packages/outline-image-slider":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-image-slider@workspace:packages/outline-image-slider"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    "@splidejs/splide": ^4.0.7
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
@@ -2781,7 +2862,6 @@ __metadata:
   resolution: "@phase2/outline-image@workspace:packages/outline-image"
   dependencies:
     "@phase2/outline-core": ^0.0.1
-    cross-env: 5.0.5
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
@@ -2792,18 +2872,26 @@ __metadata:
   resolution: "@phase2/outline-include@workspace:packages/outline-include"
   dependencies:
     "@phase2/outline-core": ^0.0.1
-    cross-env: 5.0.5
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
   linkType: soft
 
-"@phase2/outline-link@workspace:packages/outline-link":
+"@phase2/outline-link@^0.0.1, @phase2/outline-link@workspace:packages/outline-link":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-link@workspace:packages/outline-link"
   dependencies:
     "@phase2/outline-core": ^0.0.1
-    cross-env: 5.0.5
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-list@workspace:packages/outline-list":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-list@workspace:packages/outline-list"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
@@ -2938,6 +3026,13 @@ __metadata:
   dependencies:
     "@sinonjs/commons": ^1.7.0
   checksum: 8e331aa1412d905ecc8efd63550f58a6f77dcb510f878172004e53be63eb82650623618763001a918fc5e21257b86c45041e4e97c454ed6a2d187de084abbd11
+  languageName: node
+  linkType: hard
+
+"@splidejs/splide@npm:^4.0.7":
+  version: 4.0.7
+  resolution: "@splidejs/splide@npm:4.0.7"
+  checksum: 0e95bbb59d4d55302851c652adfe07c661addd2ba4e1b495e037df37db52aa3dcb269cea36eb5d6446c4dbb781c6228ef32884c0f476d9d21ccead2dc197f36c
   languageName: node
   linkType: hard
 
@@ -5802,36 +5897,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cross-env@npm:5.0.5":
-  version: 5.0.5
-  resolution: "cross-env@npm:5.0.5"
-  dependencies:
-    cross-spawn: ^5.1.0
-    is-windows: ^1.0.0
-  bin:
-    cross-env: dist/bin/cross-env.js
-    cross-env-shell: dist/bin/cross-env-shell.js
-  checksum: 232ff7c8fa2f9cee3ebf31f73bc7fbd329a674a9d02edeb503276e77c8571a454e55fc104954363fcc3b433934405f8326ae02031831a5dd80f18e0eed96d7de
-  languageName: node
-  linkType: hard
-
 "cross-fetch@npm:3.1.5":
   version: 3.1.5
   resolution: "cross-fetch@npm:3.1.5"
   dependencies:
     node-fetch: 2.6.7
   checksum: f6b8c6ee3ef993ace6277fd789c71b6acf1b504fd5f5c7128df4ef2f125a429e29cd62dc8c127523f04a5f2fa4771ed80e3f3d9695617f441425045f505cf3bb
-  languageName: node
-  linkType: hard
-
-"cross-spawn@npm:^5.1.0":
-  version: 5.1.0
-  resolution: "cross-spawn@npm:5.1.0"
-  dependencies:
-    lru-cache: ^4.0.1
-    shebang-command: ^1.2.0
-    which: ^1.2.9
-  checksum: 726939c9954fc70c20e538923feaaa33bebc253247d13021737c3c7f68cdc3e0a57f720c0fe75057c0387995349f3f12e20e9bfdbf12274db28019c7ea4ec166
   languageName: node
   linkType: hard
 
@@ -9054,7 +9125,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-windows@npm:^1.0.0, is-windows@npm:^1.0.2":
+"is-windows@npm:^1.0.2":
   version: 1.0.2
   resolution: "is-windows@npm:1.0.2"
   checksum: 438b7e52656fe3b9b293b180defb4e448088e7023a523ec21a91a80b9ff8cdb3377ddb5b6e60f7c7de4fa8b63ab56e121b6705fe081b3cf1b828b0a380009ad7
@@ -10388,7 +10459,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:4.1.x, lru-cache@npm:^4.0.1":
+"lru-cache@npm:4.1.x":
   version: 4.1.5
   resolution: "lru-cache@npm:4.1.5"
   dependencies:

@@ -165,3 +165,9 @@ export class OutlineIcon extends OutlineElement {
     </div>`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-icon': OutlineIcon;
+  }
+}

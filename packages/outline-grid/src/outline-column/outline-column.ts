@@ -83,3 +83,9 @@ export class OutlineColumn extends OutlineElement {
     return html`<slot></slot>`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-column': OutlineColumn;
+  }
+}

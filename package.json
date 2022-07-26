@@ -22,7 +22,7 @@
   "license": "BSD-3-Clause",
   "sbport": 6042,
   "scripts": {
-    "build": "prep:css && turbo run build",
+    "build": "node scripts/styles.js && turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",
     "prep:css": "node scripts/styles.js",

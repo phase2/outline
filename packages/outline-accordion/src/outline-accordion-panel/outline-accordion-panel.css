@@ -1,0 +1,76 @@
+.accordion-button {
+  @apply flex w-full items-center justify-between border-0 py-0 pl-8 pr-0;
+}
+
+.accordion-button.mobile {
+  @apply py-0 pl-4 pr-0 text-base leading-5 !important;
+}
+
+.accordion-button.active {
+  @apply bg-outline-soft-black text-outline-white;
+}
+
+.accordion-button.inactive {
+  @apply bg-outline-white text-outline-soft-black;
+}
+
+.accordion-button.clean {
+  @apply border-b border-solid border-outline-gray-300 pl-0;
+}
+
+.accordion-button.clean.active {
+  @apply bg-outline-white text-outline-soft-black !important;
+}
+
+.accordion-button.clean.inactive {
+  @apply text-outline-soft-black;
+}
+
+.accordion-content {
+  @apply px-8 py-4;
+}
+
+.accordion-content.mobile {
+  @apply px-4;
+}
+
+.clean .accordion-content {
+  @apply px-0;
+}
+
+.accordion-label {
+  @apply text-left;
+  max-width: 75%;
+}
+
+::slotted(outline-heading) {
+  margin: 1rem 0;
+}
+
+.accordion-heading {
+  @apply m-0 flex;
+}
+
+.accordion-icon {
+  @apply flex h-full w-20 items-center justify-center;
+}
+
+.accordion-icon.clean {
+  @apply bg-outline-white text-outline-soft-black !important;
+}
+
+.accordion-icon.active {
+  @apply bg-outline-soft-black text-outline-white;
+}
+
+.accordion-icon.inactive {
+  @apply bg-outline-gray-600 text-outline-white;
+}
+
+.accordion-panel {
+  @apply mb-6 flex flex-col overflow-hidden rounded-md border border-solid border-outline-soft-black;
+}
+
+.accordion-panel.clean {
+  @apply border-0;
+}

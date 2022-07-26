@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-image",
   "version": "0.0.1",
-  "description": "The Outline Components for the iamge component",
+  "description": "The Outline Components for the image component",
   "keywords": [
     "outline",
     "web-components",
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "@phase2/outline-core": "^0.0.1",
-    "cross-env": "5.0.5",
     "lit": "^2.0.2",
     "tslib": "^2.1.0"
   },

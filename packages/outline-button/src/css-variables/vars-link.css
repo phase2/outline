@@ -1,0 +1,78 @@
+/*
+Default CSS Variables for the `outline-button` link variant.
+You can override these using `outline.theme.css`, 
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default 
+`outline-button` styling can be found in 
+`outline-button.ts` delcared with the `@cssprop` annotations.
+*/
+
+/* 
+--outline--button--link-padding
+--outline--button--link-radius
+--outline--button--link-bg-color-default
+--outline--button--link-text-color-default
+--outline--button--link-decoration-default
+--outline--button--link-weight-default
+--outline--button--link-ring-default
+--outline--button--link-bg-color-hover
+--outline--button--link-text-color-hover
+--outline--button--link-decoration-hover
+--outline--button--link-weight-hover
+--outline--button--link-ring-hover
+--outline--button--link-bg-color-focus
+--outline--button--link-text-color-focus
+--outline--button--link-decoration-focus
+--outline--button--link-weight-focus
+--outline--button--link-ring-focus
+--outline--button--link--disabled-bg-color
+--outline--button--link--disabled-text-color
+--outline--button--link--disabled-decoration
+--outline--button--link--disabled-weight
+--outline--button--link--disabled-ring
+--outline--button--link--disabled-bg-color-focus
+--outline--button--link--disabled-text-color-focus
+--outline--button--link--disabled-decoration-focus
+--outline--button--link--disabled-weight-focus
+--outline--button--link--disabled-ring-focus
+*/
+
+/* Link Button(s) */
+--outline-button--default--link-padding: var(--outline-button--default-padding);
+--outline-button--default--link-radius: var(--outline-button--default-radius);
+
+/* Link Button(s) - Default */
+--outline-button--default--link-bg-color-default: var(--outline-transparent);
+--outline-button--default--link-text-color-default: var(--outline--link-default-color-default);
+--outline-button--default--link-decoration-default: none;
+--outline-button--default--link-weight-default: var(--outline-button--default-weight);
+--outline-button--default--link-ring-default: none;
+
+/* Link Button(s) - Hover */
+--outline-button--default--link-bg-color-hover: var(--outline-transparent);
+--outline-button--default--link-text-color-hover: var(--outline--link-default-color-hover);
+--outline-button--default--link-decoration-hover: underline;
+--outline-button--default--link-weight-hover: var(--outline-button--default-weight);
+--outline-button--default--link-ring-hover: none;
+
+/* Link Button(s) - Focus */
+--outline-button--default--link-bg-color-focus: var(--outline-transparent);
+--outline-button--default--link-text-color-focus: var(--outline--link-default-color-focus);
+--outline-button--default--link-decoration-focus: none;
+--outline-button--default--link-weight-focus: var(--outline-button--default-weight);
+--outline-button--default--link-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500);
+
+/* Link Button(s) - Disabled */
+--outline-button--default--link--disabled-bg-color: var(--outline-transparent);
+--outline-button--default--link--disabled-text-color: var(--outline-gray-500);
+--outline-button--default--link--disabled-decoration: none;
+--outline-button--default--link--disabled-weight: var(--outline-button--default-weight);
+--outline-button--default--link--disabled-ring: none;
+
+/* Link Button(s) - Disabled:Focus */
+--outline-button--default--link--disabled-bg-color-focus: var(--outline-transparent);;
+--outline-button--default--link--disabled-text-color-focus: var(--outline-gray-500);
+--outline-button--default--link--disabled-decoration-focus: none;
+--outline-button--default--link--disabled-weight-focus: var(--outline-button--default-weight);
+--outline-button--default--link--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500);

@@ -51,3 +51,9 @@ export class OutlineElement extends LitElement {
       : null;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-element': OutlineElement;
+  }
+}
