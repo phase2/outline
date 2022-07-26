@@ -1,12 +1,12 @@
 {
-  "name": "@phase2/outline-list",
+  "name": "@phase2/outline-video-youtube",
   "version": "0.0.1",
-  "description": "The Outline Components for the web list component",
+  "description": "The Outline Components for the web video youtube component",
   "keywords": [
-    "outline",
-    "web-components",
-    "design system",
-    "list"
+    "outline components",
+    "outline design",
+    "video",
+    "youtube"
   ],
   "main": "dist/index",
   "types": "dist/index",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-list"
+    "directory": "packages/outline-video-youtube"
   },
   "license": "BSD-3-Clause",
   "scripts": {
@@ -30,9 +30,6 @@
     "@phase2/outline-core": "^0.0.1",
     "lit": "^2.0.2",
     "tslib": "^2.1.0"
-  },
-  "devDependencies": {
-    "@phase2/outline-heading": "^0.0.1"
   },
   "publishConfig": {
     "access": "public"

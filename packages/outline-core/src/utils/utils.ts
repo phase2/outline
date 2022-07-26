@@ -97,6 +97,15 @@ export const argTypeHidden = {
   },
 };
 
+export const argTypeMapMarkers = {
+  defaultSlot: {
+    table: { category: 'Slots', defaultValue: { summary: 'NULL' } },
+    name: 'Map Marker Slots',
+    description:
+      'Renders all Map Marker and User Marker custome elements passed into the inner Map html.',
+  },
+};
+
 /**
  * Turn a rem string like `4rem` into a px string like `64px`
  * @param {string} remVal

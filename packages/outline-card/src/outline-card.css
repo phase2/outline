@@ -1,0 +1,47 @@
+:host {
+  @apply block overflow-hidden;
+
+  & section {
+    @apply flex flex-col overflow-hidden text-left;
+  }
+
+  & p {
+    @apply mb-10;
+  }
+}
+
+.outline-shadow {
+  @apply shadow;
+}
+
+.outline-rounded-2xl {
+  @apply rounded-2xl;
+}
+
+.outline-bg-primary {
+  @apply bg-outline-blue-600;
+}
+
+.outline-bg-secondary {
+  @apply bg-outline-blue-300;
+}
+
+.outline-bg-tertiary {
+  @apply bg-outline-blue-100;
+}
+
+.outline-bg-black {
+  @apply bg-outline-black;
+}
+
+.outline-bg-white {
+  @apply bg-outline-white;
+}
+
+.outline-bg-gray {
+  @apply bg-outline-gray-300;
+}
+
+.outline-bg-outline-gray-100 {
+  @apply bg-outline-gray-100;
+}

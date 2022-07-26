@@ -56,6 +56,7 @@ export {
 } from './src/internal/slot';
 export { uppercaseFirstLetter } from './src/internal/string';
 export { getTabbableBoundary } from './src/internal/tabbable';
+export { updateUrlSearchParam } from './src/internal/url';
 export { watch } from './src/internal/watch';
 
 export type {
@@ -79,6 +80,7 @@ export {
   argTypeSize,
   argTypeImageUrl,
   argTypeHidden,
+  argTypeMapMarkers,
 } from './src/utils/utils';
 
 export const defaultColorSets = {

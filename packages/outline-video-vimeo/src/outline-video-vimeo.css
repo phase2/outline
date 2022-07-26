@@ -1,0 +1,10 @@
+/* See https://github.com/tailwindlabs/tailwindcss-aspect-ratio/blob/master/src/index.js */
+
+:host {
+  @apply relative block h-0;
+  padding-bottom: calc(9 / 16 * 100%);
+}
+
+iframe {
+  @apply absolute top-0 bottom-0 left-0 right-0 block h-full w-full;
+}

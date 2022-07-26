@@ -2683,7 +2683,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@phase2/outline-accordion@workspace:packages/outline-accordion":
+"@phase2/outline-accordion@^0.0.1, @phase2/outline-accordion@workspace:packages/outline-accordion":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-accordion@workspace:packages/outline-accordion"
   dependencies:
@@ -2745,6 +2745,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@phase2/outline-card@workspace:packages/outline-card":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-card@workspace:packages/outline-card"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
 "@phase2/outline-cli@workspace:packages/outline-cli":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-cli@workspace:packages/outline-cli"
@@ -2784,7 +2794,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@phase2/outline-container@workspace:packages/outline-container":
+"@phase2/outline-container@^0.0.1, @phase2/outline-container@workspace:packages/outline-container":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-container@workspace:packages/outline-container"
   dependencies:
@@ -2815,6 +2825,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@phase2/outline-google-map@workspace:packages/outline-google-map":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-google-map@workspace:packages/outline-google-map"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    "@phase2/outline-icon": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
 "@phase2/outline-grid@workspace:packages/outline-grid":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-grid@workspace:packages/outline-grid"
@@ -2825,7 +2846,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@phase2/outline-heading@workspace:packages/outline-heading":
+"@phase2/outline-heading@^0.0.1, @phase2/outline-heading@workspace:packages/outline-heading":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-heading@workspace:packages/outline-heading"
   dependencies:
@@ -2892,6 +2913,40 @@ __metadata:
   resolution: "@phase2/outline-list@workspace:packages/outline-list"
   dependencies:
     "@phase2/outline-core": ^0.0.1
+    "@phase2/outline-heading": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-modal@workspace:packages/outline-modal":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-modal@workspace:packages/outline-modal"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-styled-text@workspace:packages/outline-styled-text":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-styled-text@workspace:packages/outline-styled-text"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-tabs@workspace:packages/outline-tabs":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-tabs@workspace:packages/outline-tabs"
+  dependencies:
+    "@phase2/outline-accordion": ^0.0.1
+    "@phase2/outline-container": ^0.0.1
+    "@phase2/outline-core": ^0.0.1
+    "@phase2/outline-heading": ^0.0.1
     lit: ^2.0.2
     tslib: ^2.1.0
   languageName: unknown
@@ -2900,6 +2955,26 @@ __metadata:
 "@phase2/outline-templates@workspace:packages/outline-templates":
   version: 0.0.0-use.local
   resolution: "@phase2/outline-templates@workspace:packages/outline-templates"
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-video-vimeo@workspace:packages/outline-video-vimeo":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-video-vimeo@workspace:packages/outline-video-vimeo"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
+  languageName: unknown
+  linkType: soft
+
+"@phase2/outline-video-youtube@workspace:packages/outline-video-youtube":
+  version: 0.0.0-use.local
+  resolution: "@phase2/outline-video-youtube@workspace:packages/outline-video-youtube"
+  dependencies:
+    "@phase2/outline-core": ^0.0.1
+    lit: ^2.0.2
+    tslib: ^2.1.0
   languageName: unknown
   linkType: soft
 
