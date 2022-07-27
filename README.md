@@ -22,15 +22,26 @@ Information regarding how to contribute to Outline development, can be found in 
 
 ## Local Setup
 
-Run the following steps to ensure your environment is installed and up to date. This assumes you are using [NVM](https://github.com/nvm-sh/nvm) locally to manage your NPM version(s).
+Outline is organized as a mono-repo and is available to use via NPM Packages and our CLI.
 
-### Checkout the repository
-
+### Install the cli:
 ```bash
-git clone git@github.com:phase2/outline.git && cd outline
+npm install -g @phase2/outline-cli
+```
+Then run the command:
+```bash
+outline init project-name
 ```
 
----
+### Optionally use npx:
+```bash
+npx @phase2/outline-cli init project-name
+```
+
+The `init` command will clone Outline's starter files then run `yarn install`
+```bash
+cd project-name
+```
 
 ### Ensure you are using the correct version of `npm`
 
@@ -39,14 +50,6 @@ nvm use
 ```
 
 If you need to update your node version, see the [usage documentation](https://github.com/nvm-sh/nvm#usage) for nvm.
-
----
-
-### Install project dependencies
-
-```bash
-yarn install
-```
 
 ---
 
