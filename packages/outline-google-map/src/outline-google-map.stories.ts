@@ -157,7 +157,7 @@ const Template = ({
 
 export const StandardGoogleMap: any = Template.bind({});
 StandardGoogleMap.args = {
-  apiKey: 'AIzaSyCNAf5tDcraq83EdJXme6au4OMOhTf_xSU',
+  apiKey: '',
   zoom: 5,
   mapType: 'roadmap',
   centerLatitude: 43.150696434249717,
