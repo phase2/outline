@@ -3,12 +3,10 @@ image:
 
 tasks:
   - init: |
-      yarn
+      bun
       nvm install $(cat .nvmrc)
-      nvm use
-      npx playwright install --with-deps
     command: |
-      yarn start
+      bun start
 
 vscode:
   extensions:
