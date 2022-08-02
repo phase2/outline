@@ -2,7 +2,11 @@ image:
   file: .gitpod.Dockerfile
 
 tasks:
-  - init: |
+  - before: |
+      curl https://bun.sh/install | bash
+      export BUN_INSTALL="$HOME/.bun"
+      export PATH="$BUN_INSTALL/bin:$PATH"
+    init: |
       bun
       nvm install $(cat .nvmrc)
     command: |
