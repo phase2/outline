@@ -7,7 +7,7 @@ tasks:
       export BUN_INSTALL="$HOME/.bun"
       export PATH="$BUN_INSTALL/bin:$PATH"
     init: |
-      bun
+      bun install
       nvm install $(cat .nvmrc)
     command: |
       bun start
