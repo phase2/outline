@@ -30,7 +30,7 @@ USAGE
 # Commands
 <!-- commands -->
 * [`outline help [COMMAND]`](#outline-help-command)
-* [`outline init NAME`](#outline-init-name)
+* [`outline init`](#outline-init)
 * [`outline plugins`](#outline-plugins)
 * [`outline plugins:install PLUGIN...`](#outline-pluginsinstall-plugin)
 * [`outline plugins:inspect PLUGIN...`](#outline-pluginsinspect-plugin)
@@ -61,21 +61,13 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.12/src/commands/help.ts)_
 
-## `outline init NAME`
+## `outline init`
 
 Scaffolds a new Outline Project
 
 ```
 USAGE
-  $ outline init [NAME] [-n <value>] [-f] [-t]
-
-ARGUMENTS
-  NAME  name of project
-
-FLAGS
-  -f, --force
-  -n, --nameSpace=<value>  name space for the project. Defaults to the base name used for the component
-  -t, --template           name of the starter template. Defaults to "default"
+  $ outline init
 
 DESCRIPTION
   Scaffolds a new Outline Project
@@ -129,8 +121,8 @@ DESCRIPTION
 
   Installation of a user-installed plugin will override a core plugin.
 
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in the CLI without the need to patch and update the whole
-  CLI.
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command will override the core plugin implementation. This is useful if a
+  user needs to update core plugin functionality in the CLI without the need to patch and update the whole CLI.
 
 ALIASES
   $ outline plugins add
@@ -188,8 +180,8 @@ DESCRIPTION
 
   Installation of a user-installed plugin will override a core plugin.
 
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in the CLI without the need to patch and update the whole
-  CLI.
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command will override the core plugin implementation. This is useful if a
+  user needs to update core plugin functionality in the CLI without the need to patch and update the whole CLI.
 
 ALIASES
   $ outline plugins add
@@ -222,7 +214,8 @@ DESCRIPTION
 
   Installation of a linked plugin will override a user-installed or core plugin.
 
-  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello' command will override the user-installed or core plugin implementation. This is useful for development work.
+  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello' command will override the user-installed or core plugin
+  implementation. This is useful for development work.
 
 EXAMPLES
   $ outline plugins:link myplugin

@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 import {mkdirsSync, copySync} from 'fs-extra'
 import {renameSync, readFileSync, writeFileSync} from 'node:fs'
 import path = require('path');
