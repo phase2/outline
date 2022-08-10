@@ -8,13 +8,3 @@ new OutlineGrid();
 new OutlineColumn();
 new OutlineLink();
 new OutlineCodeBlock();
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'outline-container': OutlineContainer;
-    'outline-grid': OutlineGrid;
-    'outline-link': OutlineLink;
-    'outline-code-block': OutlineCodeBlock;
-    'outline-column': OutlineColumn;
-  }
-}
