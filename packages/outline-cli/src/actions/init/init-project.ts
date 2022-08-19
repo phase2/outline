@@ -7,8 +7,8 @@ import chalk = require('chalk');
 type Prompts = {
   name: string,
   starterTemplate: string,
-  gitOrigin: string|null,
-  gitName: string|null,
+  gitRepo: string|null,
+  gitPackage: string|null,
   gitDescription: string|null,
   octane: boolean
 }
@@ -24,10 +24,7 @@ export const initProject = (prompts: Prompts): void => {
   ).toLowerCase()
   const currDir = process.cwd()
   const resolvedPath = path.resolve(currDir, nameSpace)
-  const starterPath = path.resolve(
-    `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
-    prompts.starterTemplate,
-  )
+  const starterPath = path.resolve(`${resolvedPath + '/node_modules/@phase2/outline-templates/'}`, 'default')
 
   mkdirsSync(resolvedPath)
   process.chdir(resolvedPath)
@@ -41,7 +38,7 @@ export const initProject = (prompts: Prompts): void => {
   }
 
   console.log(`${chalk.blue('info')}: Installing Outline dependencies`)
-  execSync('yarnpkg', {stdio: [0, 1, 2]})
+  // execSync('yarnpkg', {stdio: [0, 1, 2]})
 
   // NPM does not package .gitignore files. To include it we renamed it. Now rename it correctly.
   try {
@@ -53,7 +50,10 @@ export const initProject = (prompts: Prompts): void => {
 
   // Set Storybook name
   // Check for default or other starters that have storybook
-  if (prompts.starterTemplate === 'default') {
+  if (prompts.starterTemplate === 'minimal' ||
+    prompts.starterTemplate === 'standard' ||
+    prompts.starterTemplate === 'full'
+  ) {
     const themeFile = 'src/.storybook/CustomTheme.js'
     console.log(`${chalk.blue('info')}: Updating CustomTheme.js`)
     try {
@@ -64,10 +64,18 @@ export const initProject = (prompts: Prompts): void => {
     } catch (error) {
       throw console.error(`${chalk.red('error')}: ${error}`)
     }
+
+    const settingFile = path.resolve(`${resolvedPath + '/node_modules/@phase2/outline-templates/' + prompts.starterTemplate + '/'}`, `${prompts.starterTemplate}.settings.json`)
+    const settingsData = JSON.parse(readFileSync(settingFile, {encoding: 'utf8', flag: 'r'}))
+    for (const [fileName] of Object.keys(settingsData).entries()) {
+      console.log('fileName', fileName)
+      const fileData = readFileSync(fileName, {encoding: 'utf8', flag: 'r'})
+      console.log('fileData', fileData)
+    }
   }
 
   // set up git
-  if (prompts.gitOrigin) {
+  if (prompts.gitRepo) {
     // Update package.json to use project names.
     const jsonFile = './package.json'
     console.log(`${chalk.blue('info')}: Updating package.json`)
@@ -75,7 +83,7 @@ export const initProject = (prompts: Prompts): void => {
       let packageData = readFileSync(jsonFile, {encoding: 'utf8', flag: 'r'}) || null
 
       if (packageData) {
-        packageData = packageData.replace(/"name": ".*",/, `"name": "${prompts.gitName}",`)
+        packageData = packageData.replace(/"name": ".*",/, `"name": "${prompts.gitPackage}",`)
         packageData = packageData.replace(/"description": ".*",/, `"description": "${prompts.gitDescription}",`)
 
         writeFileSync(jsonFile, packageData, {encoding: 'utf8'})
@@ -88,7 +96,7 @@ export const initProject = (prompts: Prompts): void => {
     // Run git commands for git setup
     const gitCmd1 = [
       'git init -b main',
-      `git remote add origin ${prompts.gitOrigin}`,
+      `git remote add origin ${prompts.gitRepo}`,
       'git add .gitignore',
       'git commit -m "feat(init): main branch for semantic-release"',
       'git push origin main',
@@ -111,7 +119,7 @@ export const initProject = (prompts: Prompts): void => {
   }
 
   // Commit all files in project and push to origin
-  if (prompts.gitOrigin) {
+  if (prompts.gitRepo) {
     const gitCmd1 = [
       'git add .',
       'git commit -m "feat(init): Outline installation."',
