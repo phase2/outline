@@ -95,7 +95,6 @@
     "@phase2/outline-link": "^0.0.1",
     "@phase2/outline-icon": "^0.0.1",
     "@phase2/outline-include": "^0.0.1",
-    "@splidejs/splide": "^3.2.1",
     "lit": "^2.2.6"
   },
   "engines": {
