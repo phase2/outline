@@ -8,13 +8,13 @@ import './outline-image';
 
 // Grabbing the iamge urls from github for now.
 // TODO: Determine the best way to serve these.
-const code1 = 'https://github.com/phase2/outline/blob/next/src/.storybook/static/media/tech/1440/code-1.jpg';
-const code2 = 'https://github.com/phase2/outline/blob/next/src/.storybook/static/media/tech/1440/code-2.jpg';
-const code3 = 'https://github.com/phase2/outline/blob/next/src/.storybook/static/media/tech/1440/code-3.jpg';
-const code4 = 'https://github.com/phase2/outline/blob/next/src/.storybook/static/media/tech/1440/code-4.jpg';
-const code5 = 'https://github.com/phase2/outline/blob/next/src/.storybook/static/media/tech/1440/code-5.jpg';
-const code6 = 'https://github.com/phase2/outline/blob/next/src/.storybook/static/media/tech/1440/code-6.jpg';
-const code7 = 'https://github.com/phase2/outline/blob/next/src/.storybook/static/media/tech/1440/code-7.jpg';
+const code1 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-1.jpg';
+const code2 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-2.jpg';
+const code3 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-3.jpg';
+const code4 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-4.jpg';
+const code5 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-5.jpg';
+const code6 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-6.jpg';
+const code7 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-7.jpg';
 
 export default {
   title: 'Media/Image',
