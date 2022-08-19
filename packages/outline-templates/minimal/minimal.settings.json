@@ -1,0 +1,24 @@
+{
+  "outline.config.js":{
+  "includedStories": [
+    "../../node_modules/@phase2/outline-grid/dist/src/outline-grid.stories.js",
+    "../../node_modules/@phase2/outline-link/dist/src/outline-link.stories.js",
+    "../../node_modules/@phase2/outline-icon/dist/src/outline-icon.stories.js",
+    "../../node_modules/@phase2/outline-alert/dist/src/outline-alert.stories.js",
+    "../../node_modules/@phase2/outline-code-block/dist/src/outline-code-block.stories.mdx"
+  ]
+},
+  "package.json": {
+    "dependencies": {
+      "@phase2/outline-alert": "^0.0.1",
+      "@phase2/outline-code-block": "^0.0.1",
+      "@phase2/outline-container": "^0.0.1",
+      "@phase2/outline-core": "^0.0.1",
+      "@phase2/outline-grid": "^0.0.1",
+      "@phase2/outline-link": "^0.0.1",
+      "@phase2/outline-icon": "^0.0.1",
+      "@phase2/outline-include": "^0.0.1",
+      "lit": "^2.2.6"
+    }
+  }
+}
