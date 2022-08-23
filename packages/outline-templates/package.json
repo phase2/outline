@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "package": "npm publish"
+    "package": "yarn publish"
   },
   "repository": {
     "type": "git",

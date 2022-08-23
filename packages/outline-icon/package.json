@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "node ../../scripts/build.js",
-    "package": "npm publish"
+    "package": "yarn publish"
   },
   "dependencies": {
     "@phase2/outline-core": "^0.0.1",
