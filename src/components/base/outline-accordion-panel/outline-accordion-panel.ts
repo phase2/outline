@@ -59,10 +59,7 @@ export class OutlineAccordionPanel extends OutlineElement {
             <slot name="heading"> </slot>
           </span>
           <span class="accordion-icon ${isMobile} ${isActive} ${isClean}">
-            <outline-icon
-              name="${this.active ? 'chevron-up' : 'chevron-down'}"
-              size="24px"
-            ></outline-icon>
+            ${this.IconTemplate()}
           </span>
         </button>
       </div>
@@ -76,6 +73,17 @@ export class OutlineAccordionPanel extends OutlineElement {
         <slot></slot>
       </div>
     </div>`;
+  }
+
+  /**
+   * This template allow an easy overwrite when
+   * any component extends this accordion panel
+   */
+  IconTemplate(): TemplateResult {
+    return html`<outline-icon
+      name="${this.active ? 'chevron-up' : 'chevron-down'}"
+      size="24px"
+    ></outline-icon>`;
   }
 
   setActive() {
