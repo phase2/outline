@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-package-test",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "developmentVersion": "0.0.1",
   "description": "Outline Component Design",
   "main": "dist/outline.js",
