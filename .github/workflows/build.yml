@@ -191,7 +191,7 @@ jobs:
         run: yarn build
 
       - name: Publish
-        run: yarn publish
+        run: yarn package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
