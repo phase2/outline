@@ -191,8 +191,8 @@ jobs:
       - name: Build from cache
         run: yarn build
 
-      - name: Publish
-        run: yarn package -v
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Publish
+      #   run: yarn package -v
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             
