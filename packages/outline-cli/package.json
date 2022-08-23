@@ -70,7 +70,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/phase2/outline.git",
+    "url": "https://github.com/phase2/outline-package-test.git",
     "directory": "packages/outline-cli"
   },
   "scripts": {
@@ -78,7 +78,7 @@
     "lint": "eslint . --ext .ts --config .eslintrc",
     "postpack": "shx rm -f oclif.manifest.json",
     "posttest": "yarn lint",
-    "publish": "npm publish",
+    "package": "npm publish",
     "prepack": "yarn build && oclif manifest && oclif readme",
     "test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"

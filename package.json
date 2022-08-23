@@ -26,12 +26,12 @@
   "license": "BSD-3-Clause",
   "sbport": 6042,
   "scripts": {
-    "prep": "npm-run-all -s prep:*",
+    "prep": "npm-run-all -s prep:css",
     "prep:css": "node scripts/styles.js",
     "prebuild": "yarn prep",
     "build": "turbo run build",
     "test": "turbo run test",
-    "package": "turbo run publish",
+    "package": "turbo run package",
     "lint": "npm-run-all -s lint:*",
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit",
@@ -40,7 +40,7 @@
     "format:code": "eslint --fix . && prettier --write .",
     "format:svg": "svgo -f ./src -r --config=svgo.config.js",
     "fix": "yarn format && yarn lint",
-    "clean": "npm-run-all -c clean:*",
+    "clean": "npm-run-all -s clean:dist clean:turbo clean:css",
     "clean:dist": "rimraf dist && rimraf packages/**/dist",
     "clean:turbo": "rimraf packages/**/.turbo",
     "clean:storybook": "rimraf storybook-static",
@@ -54,7 +54,7 @@
     "typescript",
     "lit"
   ],
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@3.2.2",
   "engines": {
     "node": ">=16"
   },

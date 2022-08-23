@@ -147,6 +147,7 @@ jobs:
         run: yarn --version
 
   # Job to run package publishing process.
+  # This should ONLY be ran on on branches where 
   publish:
     name: Publish NPM Packages
     runs-on: ubuntu-latest
@@ -193,5 +194,5 @@ jobs:
       - name: Publish
         run: yarn package -v
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             

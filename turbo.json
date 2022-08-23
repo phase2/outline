@@ -14,7 +14,7 @@
     "lint": {
       "outputs": []
     },
-    "publish": {
+    "package": {
       "dependsOn": ["build", "test", "lint"],
       "inputs": ["/packages/*"],
       "outputs": []

@@ -18,13 +18,13 @@
   "author": "Phase2 Technology",
   "repository": {
     "type": "git",
-    "url": "https://github.com/phase2/outline.git",
+    "url": "https://github.com/phase2/outline-package-test.git",
     "directory": "packages/outline-admin-links"
   },
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "node ../../scripts/build.js",
-    "publish": "npm publish"
+    "package": "npm publish"
   },
   "dependencies": {
     "@phase2/outline-core": "^0.0.1",

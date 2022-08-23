@@ -4,11 +4,11 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "publish": "npm publish"
+    "package": "npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/phase2/outline.git",
+    "url": "https://github.com/phase2/outline-package-test.git",
     "directory": "packages/outline-templates"
   }
 }
