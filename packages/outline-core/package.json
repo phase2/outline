@@ -23,7 +23,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "node ../../scripts/build.js",
-    "publish": "yarn npm publish"
+    "publish": "npm publish"
   },
   "dependencies": {
     "lit": "^2.0.2"
