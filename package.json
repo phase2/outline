@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-package-test",
-  "version": "0.1.0",
+  "version": "0.0.2",
   "developmentVersion": "0.0.1",
   "description": "Outline Component Design",
   "main": "dist/outline.js",
@@ -8,7 +8,7 @@
   "es2015": "dist/outline-legacy.js",
   "es2017": "dist/outline.js",
   "unpkg": "dist/outline.js",
-  "private": true,
+  "private": false,
   "workspaces": [
     "packages/*"
   ],
@@ -26,7 +26,7 @@
   "license": "BSD-3-Clause",
   "sbport": 6042,
   "scripts": {
-    "prep": "npm-run-all -s prep:css",
+    "prep": "npm-run-all -s prep:*",
     "prep:css": "node scripts/styles.js",
     "prebuild": "yarn prep",
     "build": "turbo run build",
@@ -40,7 +40,7 @@
     "format:code": "eslint --fix . && prettier --write .",
     "format:svg": "svgo -f ./src -r --config=svgo.config.js",
     "fix": "yarn format && yarn lint",
-    "clean": "npm-run-all -s clean:dist clean:turbo clean:css",
+    "clean": "npm-run-all -s clean:*",
     "clean:dist": "rimraf dist && rimraf packages/**/dist",
     "clean:turbo": "rimraf packages/**/.turbo",
     "clean:storybook": "rimraf storybook-static",
@@ -54,7 +54,7 @@
     "typescript",
     "lit"
   ],
-  "packageManager": "yarn@3.2.2",
+  "packageManager": "yarn@1.22.19",
   "engines": {
     "node": ">=16"
   },
