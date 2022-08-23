@@ -38,10 +38,10 @@ jobs:
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
-      - name: Checkout codebase
-        uses: actions/checkout@v2
+      - name: Checkout Codebase
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
 
@@ -50,7 +50,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
@@ -61,7 +61,7 @@ jobs:
             ${{ runner.os }}-yarn-
 
       # @todo: Remove this test step.
-      - name: Get yarn version
+      - name: "DEBUG: YARN VERSION"
         run: yarn --version
 
       - name: Install
@@ -70,19 +70,19 @@ jobs:
       - name: Build
         run: yarn build
 
-  # Job to run tests, linters and formatting checks.
+  # Job to run build, and basic assurances the codebase is ready for additional processing.
   build:
     name: Build Codebase
     runs-on: ubuntu-latest
-    needs: setup
+    needs: ['setup']
 
     # The steps for the build job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
-      - name: Checkout codebase
-        uses: actions/checkout@v2
+      - name: Checkout Codebase
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
 
@@ -91,7 +91,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
@@ -101,8 +101,97 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: Install from cache
-        run: yarn install --prefer-offline
+      # @todo: Remove this test step.
+      - name: "DEBUG: YARN VERSION"
+        run: yarn --version
 
-      - name: Check Cached Build
+      - name: Install from cache
+        run: yarn install
+
+      - name: Build from cache
         run: yarn build
+
+  # Job to run package publishing process.
+  test:
+    name: Test Codebase
+    runs-on: ubuntu-latest
+    needs: ['build']
+
+    # The steps for the build job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # @todo: Remove this test step.
+      - name: "DEBUG: YARN VERSION"
+        run: yarn --version
+
+  # Job to run package publishing process.
+  publish:
+    name: Publish NPM Packages
+    runs-on: ubuntu-latest
+    needs: ['test']
+
+    # The steps for the build job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@phase2'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      # @todo: Remove this test step.
+      - name: "DEBUG: YARN VERSION"
+        run: yarn --version
+
+      - name: Install from cache
+        run: yarn install
+
+      - name: Build from cache
+        run: yarn build
+
+      - name: Publish
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            

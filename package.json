@@ -1,7 +1,7 @@
 {
-  "name": "@phase2/outline",
-  "version": "0.2.4",
-  "developmentVersion": "0.2.0",
+  "name": "@phase2/outline-package-test",
+  "version": "0.0.1",
+  "developmentVersion": "0.0.1",
   "description": "Outline Component Design",
   "main": "dist/outline.js",
   "module": "dist/outline.js",
@@ -19,20 +19,43 @@
     "name": "Phase2 Technology",
     "url": "https://phase2technology.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline-package-test.git"
+  },
   "license": "BSD-3-Clause",
   "sbport": 6042,
   "scripts": {
-    "build": "node scripts/styles.js && turbo run build",
+    "prep": "npm-run-all -s prep:*",
+    "prep:css": "node scripts/styles.js",
+    "prebuild": "yarn prep",
+    "build": "turbo run build",
     "test": "turbo run test",
     "lint": "turbo run lint",
-    "prep:css": "node scripts/styles.js",
-    "publish": "turbo run publish"
+    "publish": "turbo run publish",
+    "lint": "npm-run-all -s lint:*",
+    "lint:eslint": "eslint .",
+    "lint:tsc": "tsc --noEmit",
+    "lint:prettier": "prettier --check .",
+    "format": "npm-run-all -s format:*",
+    "format:code": "eslint --fix . && prettier --write .",
+    "format:svg": "svgo -f ./src -r --config=svgo.config.js",
+    "fix": "yarn format && yarn lint",
+    "clean": "npm-run-all -c clean:*",
+    "clean:dist": "rimraf dist && rimraf packages/**/dist",
+    "clean:turbo": "rimraf packages/**/.turbo",
+    "clean:storybook": "rimraf storybook-static",
+    "clean:css": "rimraf packages/**/*.lit.ts",
+    "clean:modules": "rimraf node_modules",
+    "reset": "yarn clean && yarn install",
+    "reboot": "yarn clean && yarn install && yarn build"
   },
   "keywords": [
     "web-components",
     "typescript",
     "lit"
   ],
+  "packageManager": "yarn@1.22.19",
   "engines": {
     "node": ">=16"
   },
@@ -70,6 +93,5 @@
     "ts-lit-plugin": "^1.2.1",
     "turbo": "^1.2.16",
     "wait-on": "^5.3.0"
-  },
-  "packageManager": "yarn@1.22.19"
+  }
 }
