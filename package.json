@@ -34,7 +34,7 @@
     "lit"
   ],
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.2.0",
@@ -71,5 +71,5 @@
     "turbo": "^1.2.16",
     "wait-on": "^5.3.0"
   },
-  "packageManager": "yarn@1.22.1"
+  "packageManager": "yarn@1.22.19"
 }
