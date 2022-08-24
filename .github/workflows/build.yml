@@ -168,6 +168,18 @@ jobs:
       - name: "DEBUG: YARN VERSION"
         run: yarn --version
 
+      - name: Install from cache
+        run: yarn install
+
+      - name: Build from cache
+        run: yarn build
+
+      - name: Run eslint
+        run: yarn lint:eslint
+
+      - name: Run prettier
+        run: yarn lint:prettier
+
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
   publish:
@@ -199,9 +211,9 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
-          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
+            ${{ runner.os }}-node-16-yarn-
 
       # @todo: Remove this test step.
       - name: "DEBUG: YARN VERSION"

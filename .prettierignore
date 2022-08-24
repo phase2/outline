@@ -27,3 +27,4 @@ docs/
 project/
 outline.theme.css
 **/vars-*.css
+*.d.ts

@@ -10,9 +10,9 @@ export function updateUrlSearchParam(param: string, value: string | null) {
 
 export function getUrlSearchParam(params: Array<string> | []) {
   const urlParams = new URLSearchParams(document.location.search);
-  const filteredParams: {[key: string]: string | null} = {};
+  const filteredParams: { [key: string]: string | null } = {};
 
-  if(params.length) {
+  if (params.length) {
     // Returns only the requested parameters
     params.forEach((value: string) => {
       filteredParams[value] = urlParams.get(value);

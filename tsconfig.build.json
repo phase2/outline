@@ -12,6 +12,7 @@
     "**/node_modules/*",
     "**/coverage/*",
     "**/dist/**/*",
-    "*.tsbuildinfo"
+    "*.tsbuildinfo",
+    "*.d.ts"
   ]
 }
