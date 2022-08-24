@@ -86,7 +86,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
-        run: yarn build --force
+        run: yarn build
         
   # Job to run build, and basic assurances the codebase is ready for additional processing.
   build:
