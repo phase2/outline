@@ -36,7 +36,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest]
         node: [ 16, 18 ]
     # The steps for the setup job.
     steps:
