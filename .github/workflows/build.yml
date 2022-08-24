@@ -65,14 +65,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
-      # @todo: Remove this test step.
-      - name: "DEBUG: YARN VERSION"
-        run: yarn --version
-
-      # @todo: Remove this test step.
-      # - name: "DEBUG: .npmrc CONTENTS"
-      #   run: cat .npmrc
-
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
@@ -164,10 +156,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
-      # @todo: Remove this test step.
-      - name: "DEBUG: YARN VERSION"
-        run: yarn --version
-
       - name: Install from cache
         run: yarn install
 
@@ -215,10 +203,6 @@ jobs:
           key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-16-yarn-
-
-      # @todo: Remove this test step.
-      - name: "DEBUG: YARN VERSION"
-        run: yarn --version
 
       - name: Install from cache
         run: yarn install
