@@ -47,6 +47,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@phase2'
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -70,6 +72,13 @@ jobs:
       # @todo: Remove this test step.
       # - name: "DEBUG: .npmrc CONTENTS"
       #   run: cat .npmrc
+
+      - name: Initialize .npmrc
+        run: cp $NPM_CONFIG_USERCONFIG .npmrc
+
+      # @todo: Remove this test step.
+      - name: "DEBUG: .npmrc CONTENTS"
+        run: cat .npmrc
 
       - name: Install
         run: yarn install
