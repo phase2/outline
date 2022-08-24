@@ -185,6 +185,7 @@ jobs:
   publish:
     name: Publish NPM Packages
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/release'
     needs: ['setup', 'build', 'test']
 
     # The steps for the build job.
