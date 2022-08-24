@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Core functionality that is shared across all Outline Web Components",
   "keywords": [
     "outline",

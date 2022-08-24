@@ -1,5 +1,11 @@
 # @phase2/outline-core
 
+## 2.0.0
+
+### Major Changes
+
+- A big refactor for the thing.
+
 ## 1.0.0
 
 ### Major Changes
