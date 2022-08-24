@@ -46,6 +46,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+          registry-url: 'https://npm.pkg.github.com'
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -72,6 +73,8 @@ jobs:
 
       - name: Install
         run: yarn install
+        env: 
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build
         run: yarn build --force
