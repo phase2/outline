@@ -66,6 +66,10 @@ jobs:
       - name: "DEBUG: YARN VERSION"
         run: yarn --version
 
+      # @todo: Remove this test step.
+      - name: "DEBUG: ~/.npmrc CONTENTS"
+        run: cat ~/.npmrc
+
       - name: Install
         run: yarn install
 
