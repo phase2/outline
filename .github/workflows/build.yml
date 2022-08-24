@@ -34,7 +34,9 @@ jobs:
   setup:
     name: Installation & Caching
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node: [ 14, 16, 18 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -43,7 +45,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: ${{ matrix.node }}
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -68,7 +70,7 @@ jobs:
         run: yarn install
 
       - name: Build
-        run: yarn build
+        run: yarn build --force
 
   # Job to run build, and basic assurances the codebase is ready for additional processing.
   build:
