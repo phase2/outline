@@ -92,7 +92,7 @@ jobs:
   build:
     name: Build Codebase
     runs-on: ubuntu-latest
-    needs: ['build']
+    needs: ['setup']
     strategy:
       matrix:
         node: [ 14, 16, 18 ]
@@ -173,7 +173,7 @@ jobs:
   publish:
     name: Publish NPM Packages
     runs-on: ubuntu-latest
-    needs: ['build', 'test']
+    needs: ['setup', 'build', 'test']
 
     # The steps for the build job.
     steps:
