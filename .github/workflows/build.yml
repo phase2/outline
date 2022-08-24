@@ -62,9 +62,9 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
-          key: ${{ runner.os }}-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ matrix.os }}-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-${{ matrix.node }}-yarn-
+            ${{ matrix.os }}-${{ matrix.node }}-yarn-
 
       # @todo: Remove this test step.
       - name: "DEBUG: YARN VERSION"
