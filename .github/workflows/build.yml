@@ -87,7 +87,7 @@ jobs:
 
       - name: Build
         run: yarn build --force
-
+        
   # # Job to run build, and basic assurances the codebase is ready for additional processing.
   # build:
   #   name: Build Codebase
