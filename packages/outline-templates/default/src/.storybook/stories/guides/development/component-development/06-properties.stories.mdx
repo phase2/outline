@@ -1,0 +1,171 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Properties"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<Story name="Introduction">
+  {() => {
+    return html``;
+  }}
+</Story>
+
+# Outline Coding Guide & Standards
+
+> @todo - document this documentation.
+
+## Introduction to Properties
+
+Lit components receive input and store their state as JavaScript class fields or properties. 
+[Reactive properties](https://lit.dev/docs/components/properties/) are properties that can trigger the reactive update cycle when changed, 
+re-rendering the component, and optionally be read or written to attributes. 
+
+### Property usage basics
+- Properties should be commented using [JSDoc](https://github.com/jsdoc/jsdoc).
+- Each property should provide a comment including a description of the attribute functionality or purpose.
+- Pass to `type` the appropriate [converter](https://lit.dev/docs/components/properties/#conversion-type) (`String`, `Boolean`, etc.). 
+- Pass to `attribute` an attribute name in kebab-case.
+- Attribute names must not collide with HTML standard ones `title`, `href`, etc.
+  - This means it is best to name properties more like `link-title`, `link-href`, etc. 
+
+### When to use a property
+- 
+
+### When to use a slot instead
+- 
+
+--- 
+
+### Property with default value
+
+The below sample uses the `stringProperty = ''` to provide a default value to the property if it is not supplied or calculated by the component itself.
+
+<Story name="With default value">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+/**
+* This is a description of stringProperty.
+* It provides a default value of "Default Property Value".
+*/
+@property({type: String, attribute: 'string-property'})
+stringProperty = 'Default Property Value'
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+### Property without default value
+
+The below sample simply uses the variable name `stringProperty` after the `@property` decorator to not supply a default value, thus making it `NULL` by default.
+
+<Story name="Without default value">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+/**
+* This is a description of stringProperty.
+* It does not provide a default value, therefore is NULL by default.
+*/
+@property({type: String, attribute: 'string-property'}) stringProperty
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+## Property Types
+
+### String
+
+<Story name="Property: String">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+/**
+* This is a description of stringProperty.
+*/
+@property({type: String, attribute: 'string-property'})
+stringProperty = 'Default string value'
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+### Number
+
+<Story name="Property: Number">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+/**
+* This is a description of numberProperty.
+*/
+@property({type: Number, attribute: 'number-property'})
+numberProperty = 42
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+### Boolean
+
+Boolean properties are a special case, and should always default to a value of `false`. 
+This is so that the property can be accurately passed via HTML markup, which only passes a string value which returns as truthy. 
+
+<Story name="Property: Boolean">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+/**
+* This is a description of booleanProperty.
+*/
+@property({type: Boolean, attribute: 'boolean-property'})
+booleanProperty = false
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+In the above example, a usage of this component would look like `<my-component boolean-property>` means the value of `booleanProperty` is `true`. 
+The simple exclusion of the attribute on the HTML element would then represent the default value of `false`.
+
+### Object
+
+<Story name="Property: Object">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+/**
+* This is a description of objectProperty.
+*/
+@property({type: Object, attribute: 'object-property'})
+objectProperty = { thingOne: 'value', thingTwo: 'value' }
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+### Array
+
+<Story name="Property: Array">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+/**
+* This is a description of arrayProperty.
+*/
+@property({type: Array, attribute: 'array-property'})
+arrayProperty = [ { thingOne: 'value' }, { thingOne: 'value' } ]
+</outline-code-block>
+    `;
+  }}
+</Story>

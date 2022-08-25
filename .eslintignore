@@ -17,3 +17,5 @@ storybook-static/
 .docksal/
 .yarn/
 project/
+*.d.ts
+packages/outline-cli/

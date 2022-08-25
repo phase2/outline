@@ -1,14 +1,15 @@
 {
+  "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "target": "es2017",
-    "module": "esnext",
+    "baseUrl": "./packages",
+    "paths": {
+      "@phase2/*": ["*"]
+    },
     "lib": ["es2017", "dom", "dom.iterable"],
+    "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true,
     "inlineSources": true,
-    "outDir": "dist",
-    "rootDir": "src",
     "strict": true,
     "allowUnreachableCode": false,
     "noUnusedLocals": true,
@@ -32,14 +33,5 @@
         "strict": true
       }
     ]
-  },
-  "include": [
-    "./src/components/**/*.ts",
-    "./src/components/**/*/*.test.ts",
-    "./src/imports.d.ts"
-  ],
-  "exclude": [
-    "./src/components/**/*.stories.ts",
-    "./src/components/**/*.lit.ts"
-  ]
+  }
 }

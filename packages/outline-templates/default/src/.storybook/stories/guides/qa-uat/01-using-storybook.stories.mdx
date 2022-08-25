@@ -1,0 +1,41 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/QA & UAT/Using Storybook"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<Story name="Introduction">
+  {() => {
+    return html``;
+  }}
+</Story>
+
+# Outline Storybook Guide
+
+> This guide will help QA & UAT contributors to better understand Storybook, and how to utilize it for testing components.
+
+<outline-alert statusType="info" size="large" class="mb-6">
+  <span slot="outline-alert--header">Documentation Status</span>
+  The documentation on this page is in need of additional updates, corrections or information. <span class="font-semibold italic">Expect frequent updates and/or changes.</span>
+</outline-alert>
+
+## Introduction to Storybook
+
+### Storybook Basics
+- Use the search feature to find the component or page you are looking for.
+- Use the controls to manipulate various components in.
+- Note the `Canvas` and `Docs` tabs at the top of some components. 
+  - `Docs` are a bit more friendly to view/read.
+  - `Canvas` offers more tools, including accessiblity plugin among others. 
+- Note the Prototypes section in the sidebar for full page samples.
+
+--- 

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "es2017",
+    "sourceMap": true
+  },
+  "exclude": [
+    "packages/outline-templates/*",
+    "packages/outline-cli/*",
+    "node_modules",
+    "dist",
+    "**/node_modules/*",
+    "**/coverage/*",
+    "**/dist/**/*",
+    "*.tsbuildinfo",
+    "*.d.ts"
+  ]
+}

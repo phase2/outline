@@ -1,0 +1,78 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Render"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<Story name="Introduction">
+  {() => {
+    return html``;
+  }}
+</Story>
+
+# Outline Coding Guide & Standards
+
+> @todo - document this documentation.
+
+The Lit `render` method is what allows us to compose and return any markup required for our component. 
+In this simple example, this render function is simply returning hard coded HTML markup. Most web components 
+we develop would never contain just hard coded HTML, as the components are designed to be flexible and reusable, 
+which calls for a more dynamic `render` method. Yet, there’s absolutely nothing wrong with returning simple HTML markup exactly as shown below.
+
+## Render Method
+
+<Story name="Render Method">
+  {() => {
+    return html`
+      <outline-code-block language="jsx" class="mb-6">
+render(): TemplateResult {
+  return html\`
+  <div>
+    <p>Simple "hard coded" paragraph/element inside the component's ShadowDOM.</p>
+  </div>
+  \`
+}</outline-code-block>
+    `;
+  }}
+</Story>
+
+<hr/>
+
+## Partial Templates
+
+<Story name="Partial Template">
+  {() => {
+    return html`
+<outline-code-block language="jsx" class="mb-6">
+render(): TemplateResult {
+  return html\`\${headerTemplate}\`
+}
+/**
+ * Example usage of a partial template, implemented above
+ * in the render() function.
+ */
+headerTemplate(): TemplateResult {
+  if (boolProperty) {
+    return html\`
+      <h1>Hello World</h1>
+    \`
+  } else {
+    return html\`
+      <h1>Hola Mundo</h1>
+    \`
+  }
+}
+</outline-code-block>`;
+  }}
+</Story>
+
+[Partial Templates](https://lit.dev/docs/components/rendering/#composing-templates) are used to break up the render function into smaller chunks and allows for overriding of pieces of the template in subclasses. This is also great for extracting conditional logic from the render function.

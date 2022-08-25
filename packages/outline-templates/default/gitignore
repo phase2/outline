@@ -1,0 +1,52 @@
+# .gitignore files are not included in npm packages.
+# This file is named 'gitignore' in the monorepo 
+# then renamed to '.gitignore' during the cli installation.
+
+# Security related
+.aws
+.npmrc
+
+# General 
+.env-local
+.hidden
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+*.tmp.*
+log.txt
+
+# Generated files
+dist/
+
+# Editor related
+.history/
+.idea/
+.vscode/
+.sass-cache/
+.versions/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+$RECYCLE.BIN/
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+
+# Tooling specific
+storybook-static/
+node_modules/
+
+# Other
+mutagen.yml.lock
+www/
+
+# Outline specific 
+custom-elements.json
+component-list.json
+resolved-outline-config.ts
+resolved-tailwind-config.ts
+safelist.txt
+*.lit.ts
+*.generated.css

@@ -1,0 +1,51 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Controllers"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<Story name="Introduction">
+  {() => {
+    return html``;
+  }}
+</Story>
+
+# Outline Coding Guide & Standards
+
+> @todo - document this documentation.
+
+## Implementation Standards
+
+- [Reactive Controllers](https://lit.dev/docs/composition/controllers/) should be instantiated immediately below the style definition.
+
+## Reactive Controllers
+
+<Story name="Controllers">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+import { reactiveController } from '../../controllers/reactive-controller';
+...
+/**
+* The Outline Widget component
+* @element outline-widget 
+*/
+@customElement('outline-widget')
+export class OutlineWidget extends OutlineElement {
+  static styles: CSSResultGroup = [componentStyles];
+  const reactiveController = new ReactiveController(this);
+  ...
+}
+...
+</outline-code-block>`;
+  }}
+</Story>

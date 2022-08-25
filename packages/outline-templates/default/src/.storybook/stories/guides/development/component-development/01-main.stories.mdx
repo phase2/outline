@@ -1,0 +1,159 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<Story name="Introduction">
+  {() => {
+    return html``;
+  }}
+</Story>
+
+# Outline Coding Guide & Standards
+
+Building web components with Outline and Lit2 is a straightforward process 
+thanks to the many tools and extensive documentation we have at the ready. 
+The following section will go over some of the basics as well as reference 
+related resources where appropriate to serve as a basis of how things are, 
+and will be built in your Outline design system. 
+
+## Component Best Practices & Implementation Standards
+
+> Consider this the TLDR for then entire set of documentation. 
+> The bullets below will briefly outline the best pratices gathered from 
+> forthcoming sections of the Coding Guide & Standards
+
+- `styles` should be defined immediately following the class definition. 
+- [Reactive Controllers](https://lit.dev/docs/composition/controllers/) should be instantiated immediately below the style definition.
+
+## Component Composition
+
+[Component composition](https://lit.dev/docs/composition/component-composition/) is the process of assembling complex components from simpler components. 
+A component can use subcomponents in its template. 
+Components can use standard DOM mechanisms to communicate: setting properties on subcomponents, 
+and listening for events from subcomponents.
+
+## Component Structure Overview
+
+The following component sample provides simple, or even empty examples of the 
+various portions of a new web component.
+
+<Story name="Component Overview">
+  {() => {
+    return html`
+<outline-code-block language="typescript">
+import { CSSResultGroup, TemplateResult, html } from 'lit';
+import { customElement, property, query, queryAll } from 'lit/decorators.js';
+import { OutlineElement } from '@phase2/outline-core';
+import { ReactiveController } '../controllers/ReactiveController';
+import componentStyles from './outline-widget.css.lit';
+<br/>
+/**
+* The Outline Widget component
+* @element outline-widget 
+* @slot default - The default slot
+*/
+@customElement('outline-widget')
+export class OutlineWidget extends OutlineElement {
+  // styles is defined directly after the class definition
+  static styles: CSSResultGroup = [componentStyles];
+<br/>
+  // reactive controllers go below styles
+  const reactiveController = new ReactiveController(this);
+<br/>
+  // @queryAll and @query decorators
+  @queryAll('li')
+  listItems: HTMLElement[];
+<br/>      
+  @query('.wrapper');
+  wrapper: HTMLElement;
+<br/>
+  // internal private variables that are not intended to be reactive like @state
+  private varName = 'foo';
+<br/>
+  // @state
+  @state()
+  counter: number;
+<br/>
+  // @property
+<br/>
+  /**
+  * Example string property
+  * @attr
+  */
+  @property({type: String, attribute: 'string-property'})
+  stringProperty = 'Default Property'
+<br/>
+  /**
+  * Example boolean property
+  * @attr
+  */
+  @property({type: Boolean, attribute: 'bool-property'})
+  boolProperty = 'Default Property'
+<br/>
+  /**
+  * Example number property
+  * @attr
+  */
+  @property({type: Number, attribute: 'num-property'})
+  numProperty = 'Default Property'
+<br/>
+  /**
+  * Example array property with single word variable
+  * @attr
+  */
+  @property({type: Array})
+  arr: string:
+<br/>
+  // lifecycle methods in approximate chronological order except for render which gets called at the end
+  constructor() {
+    super();
+  };
+  connectedCallback() {
+    super.connectedCallback()
+  };
+  shouldUpdate(){};
+  willUpdate(){};
+  firstUpdated(){};
+  update(){
+    super.update();
+  };
+  updated(){};
+  disconnectedCallback() {
+    super.disconnectedCallback()
+  };
+<br/>
+  render(): TemplateResult {
+    return html\`\${headerTemplate}\`
+  }
+<br/>
+  // partial template functions below render function for quick reference
+  headerTemplate(): TemplateResult {
+    if (true) {
+      return html\`a\`
+    } else {
+      return html\`b\`
+    }
+  }
+<br/>
+  // event handlers and utility functions
+  eventHandler = (e: Event) => {
+    e.preventDefault()
+    console.log('event handler fired')
+  }
+}
+      </outline-code-block>
+    `;
+  }}
+</Story>
+

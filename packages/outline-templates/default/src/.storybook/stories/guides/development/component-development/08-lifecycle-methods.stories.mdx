@@ -1,0 +1,74 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Lifecycle"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<Story name="Introduction">
+  {() => {
+    return html``;
+  }}
+</Story>
+
+# Outline Coding Guide & Standards
+
+> @todo - document this documentation.
+
+## Lifecycle Methods
+
+<Story name="Lifecycle Methods">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+// Called when an element is created. Also, it’s invoked when an existing
+// element is upgraded, which happens when the definition for a custom 
+// element is loaded after the element is already in the DOM.
+constructor() {
+  super();
+};
+<br/>
+// Invoked when a component is added to the document's DOM.
+connectedCallback() {
+  super.connectedCallback()
+};
+<br/>
+// Called to determine whether an update cycle is required.
+shouldUpdate(){};
+<br/>
+// Called before update() to compute values needed during the update.
+willUpdate(){};
+<br/>
+// Called after the component's DOM has been updated the first time, 
+// immediately before updated() is called.
+firstUpdated(){};
+<br/>
+// Called to update the component's DOM.
+update(){
+  super.update();
+};
+<br/>
+// Called to update the component's DOM.
+updated(){};
+<br/>
+// Invoked when a component is removed from the document's DOM.
+disconnectedCallback() {
+  super.disconnectedCallback()
+};
+// Called by update() and should be implemented to return a renderable result 
+// (such as a TemplateResult) used to render the component's DOM.
+render() {};
+</outline-code-block>`;
+  }}
+</Story>
+
+[Lifecycle Methods](https://lit.dev/docs/components/lifecycle/) should be placed in approximate chronological order. The render function is placed at the bottom of these. Note that some lifecycle methods require `super` to be called.
+

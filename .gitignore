@@ -12,8 +12,32 @@
 *.tmp.*
 log.txt
 
+# Yarn files
+.pnp.*
+.yarnrc.yml
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+## types
+*.d.ts
+!packages/**/*/types/**/*
+!packages/**/index.d.ts
+!packages/**/index.d.ts.map
+!packages/**/index.js
+!packages/**/index.js.map
+!packages-node/**/*/types/**/*
+!packages-node/**/index.d.ts
+!packages-node/**/types.d.ts
+
 # Generated files
 dist/
+dibuildst/**
+.next/**
+*.tsbuildinfo
 
 # Editor related
 .history/
@@ -37,6 +61,7 @@ node_modules/
 # Other
 mutagen.yml.lock
 www/
+.turbo
 
 # Outline specific 
 custom-elements.json

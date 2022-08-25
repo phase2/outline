@@ -1,12 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Build & Test Codebase
+name: Outline Core Build
 
 # Controls when the workflow will run
 on:
   # Which branches to test on push/merge.
   push:
     branches:
+      - main
       - next
       - dev
       - alpha
@@ -15,6 +16,7 @@ on:
   # Which branches to test on pull request.
   pull_request:
     branches:
+      - main
       - next
       - dev
       - alpha
@@ -24,6 +26,7 @@ on:
       - /^task/
       - /^feature/
       - /^bug/
+      - /^test/
 
 # The jobs for the build workflow.
 jobs:
@@ -31,68 +34,133 @@ jobs:
   setup:
     name: Installation & Caching
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node: [ 14, 16, 18 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
-      - name: Checkout codebase
-        uses: actions/checkout@v2
+      - name: Checkout Codebase
+        uses: actions/checkout@v3 
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: ${{ matrix.node }}
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@phase2'
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
+
+      - name: Initialize .npmrc
+        run: cp $NPM_CONFIG_USERCONFIG .npmrc
+
+      # @todo: Remove this test step.
+      - name: "DEBUG: .npmrc CONTENTS"
+        run: cat .npmrc
 
       - name: Install
-        run: yarn install --prefer-offline
+        run: yarn install
+        env: 
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  # Job to run tests, linters and formatting checks.
-  test:
-    name: Formatting & Linting
+      - name: Build
+        run: yarn build
+        
+  # Job to run build, and basic assurances the codebase is ready for additional processing.
+  build:
+    name: Build Codebase
     runs-on: ubuntu-latest
-    needs: setup
-
-    # The steps for the test job.
+    needs: ['setup']
+    strategy:
+      matrix:
+        node: [ 14, 16, 18 ]
+    # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
-      - name: Checkout codebase
-        uses: actions/checkout@v2
+      - name: Checkout Codebase
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: ${{ matrix.node }}
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
+
+      # @todo: Remove this test step.
+      - name: "DEBUG: YARN VERSION"
+        run: yarn --version
 
       - name: Install from cache
-        run: yarn install --prefer-offline
+        run: yarn install
+
+      - name: Build from cache
+        run: yarn build
+
+  # Job to run package publishing process.
+  test:
+    name: Test Codebase
+    runs-on: ubuntu-latest
+    needs: ['setup']
+    strategy:
+      matrix:
+        node: [ 14, 16, 18 ]
+    # The steps for the setup job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout Codebase
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
+
+      - name: Install from cache
+        run: yarn install
+
+      - name: Build from cache
+        run: yarn build
 
       - name: Run eslint
         run: yarn lint:eslint
@@ -100,139 +168,50 @@ jobs:
       - name: Run prettier
         run: yarn lint:prettier
 
-  # Job to run tests, linters and formatting checks.
-  a11y:
-    name: Accessibility
+  # Job to run package publishing process.
+  # This should ONLY be ran on on branches where 
+  publish:
+    name: Publish NPM Packages
     runs-on: ubuntu-latest
-    needs: ['setup', 'test']
+    if: github.ref == 'refs/heads/release'
+    needs: ['setup', 'build', 'test']
 
-    # The steps for the test job.
+    # The steps for the build job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@phase2'
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
+      - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-node-16-yarn-
 
       - name: Install from cache
-        run: yarn install --prefer-offline
+        run: yarn install
 
-      - name: Install Playwright
-        run: npx playwright install --with-deps
-        
-      - name: Run Accessibility Tests
-        run: yarn storybook:axe:prod 
-
-  # Job to build and cache the distribution package.
-  build-dist:
-    name: Build & Test Package(s)
-    runs-on: ubuntu-latest
-    needs: ['test', 'a11y']
-
-    # The steps for the build-dist job.
-    steps:
-      # @see https://github.com/marketplace/actions/checkout
-      - name: Checkout codebase
-        uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
-        id: dist-cache
-        with:
-          path: dist/
-          key: ${{ runner.os }}-dist-${{ hashFiles('./dist') }}
-          restore-keys: |
-            ${{ runner.os }}-dist-
-
-      - name: Install from cache
-        run: yarn install --prefer-offline
-
-      - name: Build
+      - name: Build from cache
         run: yarn build
 
-      - name: Install Playwright
-        run: npx playwright install --with-deps
-
-      - name: Run Web Test Runner Tests
-        run: yarn reset && yarn test
-
-  build-storybook:
-    name: Build Storybook
-    runs-on: ubuntu-latest
-    needs: ['test', 'a11y']
-
-    # The steps for the build-storybook job.
-    steps:
-      # @see https://github.com/marketplace/actions/checkout
-      - name: Checkout codebase
-        uses: actions/checkout@v2
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
-
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v2
-        id: storybook-cache
-        with:
-          path: storybook-static/
-          key: ${{ runner.os }}-storybook-${{ hashFiles('./storybook-static/') }}
-          restore-keys: |
-            ${{ runner.os }}-storybook-
-
-      - name: Install from cache
-        run: yarn install --prefer-offline
-
-      - name: Build Storybook
-        run: yarn storybook:prod
+      # - name: Publish
+      #   run: yarn package -v
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            

@@ -1,0 +1,40 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Utility Functions"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Outline Coding Guide & Standards
+
+> @todo - document this documentation.
+
+## Utility Functions
+
+<Story name="Utility Functions">
+  {() => {
+    return html`
+<outline-code-block language="typescript" class="mb-6">
+private utilityFunction = (data: string[]) => {
+  data.forEach(str: string => console.log(str))
+}
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+Utility functions are placed below the template partials and event handlers.
+
+
+
+
+
+

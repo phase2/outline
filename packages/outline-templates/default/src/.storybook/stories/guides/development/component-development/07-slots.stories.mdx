@@ -1,0 +1,122 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Slots"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<Story name="Introduction">
+  {() => {
+    return html``;
+  }}
+</Story>
+
+# Outline Coding Guide & Standards
+
+> @todo - document this documentation.
+
+## Declaring Slots
+[Slots](https://lit.dev/docs/components/shadow-dom/#slots) are a method that allows us to pass markup from the consumer into a placeholder inside the web component.
+
+### JSDoc for slots
+
+<Story name="JSDoc for Slots">
+  {() => {
+    return html`
+<outline-code-block language="jsx" class="mb-6">
+...
+/**
+* The Outline Widget component
+* @element outline-widget
+* @slot default slot.
+* @slot heading: for content above the default slot.
+* @slot footer: for content below the default slot.
+*/
+...
+</outline-code-block>
+    `;
+  }}
+</Story>
+
+### @customElement Decorator
+
+<Story name="@customElement Decorator">
+  {() => {
+    return html`
+<outline-code-block language="jsx" class="mb-6">
+...
+@customElement('outline-widget')
+export class OutlineWidget extends OutlineElement {
+...
+}
+</outline-code-block>`;
+  }}
+</Story>
+
+### render() method for slots
+
+<Story name="Render method with slots">
+  {() => {
+    return html`
+<outline-code-block language="jsx" class="mb-6">
+render(): TemplateResult {
+  return html\`
+    <slot name="heading"></slot>
+    <slot></slot>
+    <slot name="footer"></slot>
+    <p>"Hard coded" element inside the component's ShadowDOM.</p>
+  \`
+}
+</outline-code-block>`;
+  }}
+</Story>
+
+### Default placeholder content in slots.
+
+<Story name="Slots with default content">
+  {() => {
+    return html`
+<outline-code-block language="jsx" class="mb-6">
+render(): TemplateResult {
+  return html\`
+    <slot name="heading">Default header content</slot>
+    <slot>default content for the default slot</slot>
+    <slot name="footer">default content for the footer slot</slot>
+  \`
+}
+</outline-code-block>`;
+  }}
+</Story>
+
+<hr/>
+
+## Using Slots
+
+<Story name="Using Slots">
+  {() => {
+    return html`
+<outline-code-block language="html" class="mb-6">
+<!-- An example of passing content to the default slot. -->
+<outline-widget>
+  <p>This paragraph is content that will be passed to the default slot in the component.</p>
+</outline-widget>
+</outline-code-block>
+<hr />
+<outline-code-block language="html" class="mb-6">
+<!-- An example of passing content to the default slot and named slots. -->
+<outline-widget>
+  <p slot="heading">This is passed to the heading slot.</p>
+  <p>This is passed to the default slot.</p>
+  <p slot="footer">This is passed to the footer slot.</p>
+</outline-widget>
+</outline-code-block>`;
+  }}
+</Story>

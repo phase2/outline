@@ -1,0 +1,63 @@
+import { html, unsafeHTML } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+import tailwindThemeConfig from '../../../resolved-tailwind-config';
+import '../../../components/utility/outline-swatch-set/outline-swatch-set'
+
+<Meta
+  title="Design Tokens/Colors/Solid"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<outline-container>
+
+# Brand Color Palette
+
+> This palette is used for brand colors, and can easily be updated to reflect the needs of a project,
+> as well as the brand colors of the project and used in client specific components.
+
+</outline-container>
+
+<outline-swatch-set set="brand"></outline-swatch-set>
+
+<outline-container>
+
+# Status Color Palette
+
+<outline-swatch-set set="ui"></outline-swatch-set>
+
+</outline-container>
+
+<outline-container>
+
+# Outline Core Color Palette
+
+> The core set of Outline colors are typically used for various component defaults.
+
+</outline-container>
+
+<outline-swatch-set set="outline"></outline-swatch-set>
+
+<outline-container>
+
+## Gray Color Palette
+
+<outline-swatch-set set="outline-gray"></outline-swatch-set>
+
+</outline-container>
+
+<outline-container>
+
+## Blue Color Palette
+
+</outline-container>
+
+<outline-swatch-set set="outline-blue"></outline-swatch-set>
+
+
