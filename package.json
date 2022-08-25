@@ -32,7 +32,7 @@
     "build": "turbo run build",
     "test": "turbo run test",
     "package": "turbo run package",
-    "lint": "npm-run-all -s lint:*",
+    "lint": "npm-run-all -s lint:eslint lint:prettier",
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --check .",

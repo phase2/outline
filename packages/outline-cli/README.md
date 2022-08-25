@@ -20,7 +20,7 @@ $ npm install -g @phase2/outline-cli
 $ outline COMMAND
 running command...
 $ outline (--version)
-@phase2/outline-cli/0.0.1 darwin-x64 node-v16.13.2
+@phase2/outline-cli/0.0.1 darwin-x64 node-v18.7.0
 $ outline --help [COMMAND]
 USAGE
   $ outline COMMAND
@@ -121,8 +121,9 @@ DESCRIPTION
 
   Installation of a user-installed plugin will override a core plugin.
 
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command will override the core plugin implementation. This is useful if a
-  user needs to update core plugin functionality in the CLI without the need to patch and update the whole CLI.
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
+  the CLI without the need to patch and update the whole CLI.
 
 ALIASES
   $ outline plugins add
@@ -180,8 +181,9 @@ DESCRIPTION
 
   Installation of a user-installed plugin will override a core plugin.
 
-  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command will override the core plugin implementation. This is useful if a
-  user needs to update core plugin functionality in the CLI without the need to patch and update the whole CLI.
+  e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
+  will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
+  the CLI without the need to patch and update the whole CLI.
 
 ALIASES
   $ outline plugins add
@@ -214,8 +216,8 @@ DESCRIPTION
 
   Installation of a linked plugin will override a user-installed or core plugin.
 
-  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello' command will override the user-installed or core plugin
-  implementation. This is useful for development work.
+  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
+  command will override the user-installed or core plugin implementation. This is useful for development work.
 
 EXAMPLES
   $ outline plugins:link myplugin
