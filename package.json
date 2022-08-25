@@ -1,8 +1,8 @@
 {
-  "name": "@phase2/outline-package-test",
+  "name": "@phase2/outline",
   "version": "0.0.1",
   "developmentVersion": "0.0.1",
-  "description": "Outline Component Design",
+  "description": "Outline Component Design - Web Component Library by Phase2",
   "main": "dist/outline.js",
   "module": "dist/outline.js",
   "es2015": "dist/outline-legacy.js",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/phase2/outline-package-test.git"
+    "url": "https://github.com/phase2/outline.git"
   },
   "license": "BSD-3-Clause",
   "sbport": 6042,

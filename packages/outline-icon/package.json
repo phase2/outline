@@ -19,7 +19,7 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/phase2/outline-package-test.git",
+    "url": "https://github.com/phase2/outline.git",
     "directory": "packages/outline-icon"
   },
   "scripts": {

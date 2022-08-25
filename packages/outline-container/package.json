@@ -18,7 +18,7 @@
   "author": "Phase2 Technology",
   "repository": {
     "type": "git",
-    "url": "https://github.com/phase2/outline-package-test.git",
+    "url": "https://github.com/phase2/outline.git",
     "directory": "packages/outline-container"
   },
   "license": "BSD-3-Clause",
