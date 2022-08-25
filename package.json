@@ -38,7 +38,6 @@
     "lint:prettier": "prettier --check .",
     "format": "npm-run-all -s format:*",
     "format:code": "eslint --fix . && prettier --write .",
-    "format:svg": "svgo -f ./src -r --config=svgo.config.js",
     "fix": "yarn format && yarn lint",
     "clean": "npm-run-all -s clean:*",
     "clean:dist": "rimraf dist && rimraf packages/**/dist",
