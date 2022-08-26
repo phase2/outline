@@ -28,6 +28,7 @@
   "scripts": {
     "prep": "npm-run-all -s prep:*",
     "prep:css": "node scripts/styles.js",
+    "start": "yarn storybook",
     "prebuild": "yarn prep",
     "build": "turbo run build",
     "test": "turbo run test",
@@ -46,7 +47,9 @@
     "clean:css": "rimraf packages/**/*.lit.ts",
     "clean:modules": "rimraf node_modules",
     "reset": "yarn clean && yarn install",
-    "reboot": "yarn clean && yarn install && yarn build"
+    "reboot": "yarn clean && yarn install && yarn build",
+    "storybook": "start-storybook -p ${npm_package_sbport}",
+    "build-storybook": "build-storybook"
   },
   "keywords": [
     "web-components",
@@ -58,10 +61,18 @@
     "node": ">=14"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.13",
     "@changesets/cli": "^2.24.3",
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@open-wc/testing": "^3.0.0-next.2",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/builder-webpack5": "^6.5.10",
+    "@storybook/manager-webpack5": "^6.5.10",
+    "@storybook/web-components": "^6.5.10",
     "@types/estree": "^0.0.47",
     "@typescript-eslint/eslint-plugin": "^4.0.0",
     "@typescript-eslint/parser": "^4.0.0",
@@ -75,10 +86,12 @@
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.23.0",
+    "eslint-plugin-storybook": "^0.6.4",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "lint-staged": "^10.5.4",
+    "lit-html": "^2.3.1",
     "npm-run-all": "^4.1.5",
     "postcss": "8.4.8",
     "postcss-custom-properties": "12.1.8",
@@ -92,5 +105,6 @@
     "tailwindcss": "3.0.0",
     "ts-lit-plugin": "^1.2.1",
     "turbo": "^1.2.16"
-  }
+  },
+  "dependencies": {}
 }

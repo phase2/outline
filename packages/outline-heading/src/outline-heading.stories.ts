@@ -6,7 +6,7 @@ import { argTypeSlotContent } from '@phase2/outline-core';
 import { AllowedHeadingLevels, HeadingSizes, HeadingStyles } from './config';
 
 import './outline-heading';
-import '../outline-container/outline-container';
+import '../../outline-container/src/outline-container';
 
 const levelOptions: AllowedHeadingLevels[] = [
   'h1',

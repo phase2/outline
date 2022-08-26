@@ -2,8 +2,8 @@
 import { html, TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import './outline-accordion';
-import '../outline-accordion-panel/outline-accordion-panel';
-import '../outline-styled-text/outline-styled-text';
+import './outline-accordion-panel/outline-accordion-panel';
+import '../../outline-styled-text/src/outline-styled-text';
 import { argTypeHidden } from '@phase2/outline-core';
 
 export default {
