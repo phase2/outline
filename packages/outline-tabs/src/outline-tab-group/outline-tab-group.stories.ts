@@ -5,8 +5,8 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import './outline-tab-group';
 import '../outline-tab/outline-tab';
 import '../outline-tab-panel/outline-tab-panel';
-import '@phase2/outline-heading';
-import '@phase2/outline-accordion';
+import '../../../outline-heading';
+import '../../../outline-accordion';
 
 const tabControlPosition: string[] = ['top', 'start'];
 

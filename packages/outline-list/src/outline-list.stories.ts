@@ -7,7 +7,7 @@ import {
   listTypes,
 } from './outline-list';
 import './outline-list';
-import '@phase2/outline-heading';
+import '../../outline-heading';
 export default {
   title: 'Navigation/List',
   component: 'outline-list',

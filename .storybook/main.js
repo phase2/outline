@@ -15,8 +15,7 @@ module.exports = {
     // Explicitly order the main documentation.
     //'../packages/outline-templates/default/src/.storybook/stories/guides/welcome.stories.mdx',
     //'../packages/outline-templates/default/src/.storybook/stories/guides/development/component-development/01-main.stories.mdx',
-    '../packages/**/*.stories.ts',
-    //'../packages/**/*.stories.@(ts)',
+    '../packages/!(dist)**/*.stories.@(ts|mdx)',
     // Intentionally order the Code Style Guide pages.
     //'./stories/guides/development/component-development/01-main.stories.mdx',
     // './stories/guides/development/component-development/stories.@(js|ts|mdx)',

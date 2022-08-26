@@ -10,7 +10,7 @@
     "ecmaVersion": 2020,
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "plugin:storybook/recommended"],
+  "plugins": ["@typescript-eslint"],
   "env": {
     "browser": true
   },
