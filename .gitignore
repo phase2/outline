@@ -24,14 +24,9 @@ log.txt
 
 ## types
 *.d.ts
-!packages/**/*/types/**/*
-!packages/**/index.d.ts
-!packages/**/index.d.ts.map
-!packages/**/index.js
-!packages/**/index.js.map
-!packages-node/**/*/types/**/*
-!packages-node/**/index.d.ts
-!packages-node/**/types.d.ts
+*.d.ts.map
+*.js.map
+*.lit.js
 
 # Generated files
 dist/

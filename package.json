@@ -10,10 +10,10 @@
   "unpkg": "dist/outline.js",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "./packages/*"
   ],
   "files": [
-    "packages/*/dist"
+    "./packages/*/dist"
   ],
   "author": {
     "name": "Phase2 Technology",
@@ -45,7 +45,9 @@
     "clean:turbo": "rimraf packages/**/.turbo",
     "clean:storybook": "rimraf storybook-static",
     "clean:css": "rimraf packages/**/*.lit.ts",
-    "clean:modules": "rimraf node_modules",
+    "clean:maps": "rimraf packages/**/*.map",
+    "clean:types": "rimraf packages/**/*.d.ts",
+    "clean:modules": "rimraf ./node_modules packages/**/node_modules",
     "reset": "yarn clean && yarn install",
     "reboot": "yarn clean && yarn install && yarn build",
     "storybook": "start-storybook -p ${npm_package_sbport}",

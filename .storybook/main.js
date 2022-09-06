@@ -1,21 +1,25 @@
 // const path = require('path');
-// const outlineConfig = require('@phase2/outline-temnplates/default/src/outline.config');
+// const outlineConfig = require('@phase2/outline-templates/default/src/outline.config');
 
 // const excludedStories = outlineConfig.excludedStories;
 // const includedStories = outlineConfig.includedStories;
+
 // function getExcluded() {
 //   return excludedStories.join('|');
 // }
 
 module.exports = {
-  core: {
-    builder: 'webpack5',
-  },
+  core: { builder: 'webpack5' },
+  framework: '@storybook/web-components',
+  features: { storyStoreV7: true },
   stories: [
     // Explicitly order the main documentation.
-    //'../packages/outline-templates/default/src/.storybook/stories/guides/welcome.stories.mdx',
-    //'../packages/outline-templates/default/src/.storybook/stories/guides/development/component-development/01-main.stories.mdx',
-    '../packages/!(dist)**/*.stories.@(ts|mdx)',
+    // '../packages/outline-templates/default/src/.storybook/stories/guides/welcome.stories.mdx',
+    //  '../packages/outline-templates/default/src/.storybook/stories/guides/development/component-development/01-main.stories.mdx',
+    //'../packages/outline-templates/default/src/.storybook/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../packages/outline-admin-links/src/outline-admin-links.stories.ts',
+    // '../packages/**/*.stories.@(ts|mdx)',
+    // '!(../packages/outline-templates)',
     // Intentionally order the Code Style Guide pages.
     //'./stories/guides/development/component-development/01-main.stories.mdx',
     // './stories/guides/development/component-development/stories.@(js|ts|mdx)',
@@ -41,5 +45,4 @@ module.exports = {
     //'@storybook/addon-links',
     //'@storybook/addon-a11y',
   ],
-  framework: '@storybook/web-components',
 };

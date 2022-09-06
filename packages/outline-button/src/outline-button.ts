@@ -5,7 +5,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { OutlineElement, SlotController } from '@phase2/outline-core';
 import { LinkTargetType } from '@phase2/outline-link';
 
-import linkVars from '../outline-link/css-variables/vars-link.css.lit';
+import linkVars from '../../outline-link/src/css-variables/vars-link.css.lit';
 import defaultVars from './css-variables/vars-default.css.lit';
 import primaryButtonVars from './css-variables/vars-primary.css.lit';
 import secondaryButtonVars from './css-variables/vars-secondary.css.lit';

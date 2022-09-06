@@ -2,8 +2,15 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "es2017",
-    "sourceMap": true
+    "sourceMap": true,
+    "baseUrl": ".",
   },
+  "paths": {
+    "@phase2/*": ["packages/*"]
+  },
+  "include": [
+    "packages/**/*.ts"
+  ],
   "exclude": [
     "packages/outline-templates/*",
     "packages/outline-cli/*",
@@ -12,7 +19,6 @@
     "**/node_modules/*",
     "**/coverage/*",
     "**/dist/**/*",
-    "*.tsbuildinfo",
-    "*.d.ts"
+    "*.tsbuildinfo"
   ]
 }
