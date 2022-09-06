@@ -3,14 +3,12 @@
     "module": "esnext",
     "target": "es2017",
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": "."
   },
   "paths": {
     "@phase2/*": ["packages/*"]
   },
-  "include": [
-    "packages/**/*.ts"
-  ],
+  "include": ["packages/**/*.ts"],
   "exclude": [
     "packages/outline-templates/*",
     "packages/outline-cli/*",

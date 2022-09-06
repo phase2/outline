@@ -1,7 +1,6 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    
     "lib": ["es2017", "dom", "dom.iterable"],
     "composite": true,
     "declaration": true,
