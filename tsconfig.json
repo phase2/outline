@@ -5,6 +5,7 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
+    "sourceMap": true,
     "inlineSources": true,
     "strict": true,
     "allowUnreachableCode": false,
@@ -23,6 +24,7 @@
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
+    "noEmit": true,
     "plugins": [
       {
         "name": "ts-lit-plugin",

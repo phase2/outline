@@ -7,9 +7,9 @@
     "web-components",
     "design system"
   ],
-  "main": "dist/index",
-  "types": "dist/index",
-  "typings": "dist/index.d.ts",
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
   "files": [
     "/dist/",
     "!/dist/tsconfig.build.tsbuildinfo"
@@ -32,7 +32,7 @@
     "access": "public"
   },
   "exports": {
-    ".": "./dist/index.js",
-    "./src/outline-element": "./dist/src/outline-element/outline-element.js"
+    ".": "./index.ts",
+    "./src/outline-element": "./src/outline-element/outline-element.ts"
   }
 }
