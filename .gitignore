@@ -22,14 +22,16 @@ log.txt
 !.yarn/sdks
 !.yarn/versions
 
-## types
+## Types & Maps
 *.d.ts
 *.d.ts.map
 *.js.map
-*.lit.js
+*.map
+*.map.*
 
 # Generated files
 dist/
+*.lit.js
 dibuildst/**
 .next/**
 *.tsbuildinfo
