@@ -2,7 +2,14 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "es2017",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": false,
+    "inlineSources": true,
   },
   "paths": {
     "@phase2/*": ["packages/*"]

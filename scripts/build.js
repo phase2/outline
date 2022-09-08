@@ -7,13 +7,13 @@ series([
   // Build the client-side assets.
   callback =>
     exec(
-      'esbuild index.ts --bundle --outdir=dist --tsconfig=tsconfig.build.json',
+      'esbuild index.ts --bundle --minify --sourcemap --outdir=dist --tsconfig=tsconfig.build.json',
       callback
     ),
   callback => exec('tsc -p tsconfig.build.json', callback),
   callback =>
     exec(
-      "rsync -avm --remove-source-files --include '*.js' --include '*.css' --exclude '*' . dist",
+      "rsync -avm --remove-source-files --include '*.css' --exclude '*' . dist",
       callback
     ),
 ]);
