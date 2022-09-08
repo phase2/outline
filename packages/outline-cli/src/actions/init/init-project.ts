@@ -29,7 +29,7 @@ export const initProject = (prompts: Prompts): void => {
   mkdirsSync(resolvedPath);
   process.chdir(resolvedPath);
   console.log(
-    `${chalk.blue('info')}: Dowloading Outline ${
+    `${chalk.blue('info')}: Downloading Outline ${
       prompts.starterTemplate
     } starter template`
   );
@@ -132,7 +132,7 @@ export const initProject = (prompts: Prompts): void => {
       'git push origin next',
     ];
 
-    console.log(`${chalk.blue('info')}: Commiting all files ot Origin`);
+    console.log(`${chalk.blue('info')}: Committing all files to origin`);
 
     for (const cmd of gitCmd1) {
       execSync(cmd, { stdio: [0, 1, 2] });
@@ -143,6 +143,6 @@ export const initProject = (prompts: Prompts): void => {
   console.log(
     `${chalk.green(
       'success'
-    )}: Outline Installed and Initialized! Happy Coding!`
+    )}: Outline installed and initialized! Happy Coding!`
   );
 };
