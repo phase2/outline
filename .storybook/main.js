@@ -9,7 +9,15 @@
 // }
 
 module.exports = {
-  core: { builder: 'webpack5' },
+  core: {
+    builder: {
+      name: 'webpack5',
+      options: {
+        // lazyCompilation: true,
+        fsCache: true,
+      },
+    },
+  },
   framework: '@storybook/web-components',
   features: { storyStoreV7: true },
   stories: [
@@ -36,38 +44,40 @@ module.exports = {
         },
       },
     },
-    '@storybook/addon-links',
+    // '@storybook/addon-links',
     // @todo: Investigate why this is failing
     // '@storybook/addon-a11y',
   ],
-  // webpackFinal: async config => {
-  //   /**
-  //    * Delete the ProgressPlugin from Storybook to remove log file spam.
-  //    */
-  //   const progressKey = config.plugins.findIndex(
-  //     v => v.constructor.name === 'ProgressPlugin'
-  //   );
-  //   config.plugins.splice(progressKey, 1);
+  webpackFinal: async config => {
+    /**
+     * Delete the ProgressPlugin from Storybook to remove log file spam.
+     */
+    const progressKey = config.plugins.findIndex(
+      v => v.constructor.name === 'ProgressPlugin'
+    );
+    config.plugins.splice(progressKey, 1);
 
-  //   config.module.rules.push({
-  //     test: /\.css$/,
-  //     use: [
-  //       {
-  //         loader: 'postcss-loader',
-  //         options: {
-  //           postcssOptions: {
-  //             plugins: [
-  //               require('postcss-import'),
-  //               require('tailwindcss')('./tailwind.config.js'),
-  //               require('postcss-preset-env')({ stage: 1 }),
-  //             ],
-  //           },
-  //         },
-  //       },
-  //     ],
-  //     include: path.resolve(__dirname, '../'),
-  //   });
+    config.module.rules.push({
+      test: /\.css$/,
+      use: [
+        {
+          loader: 'postcss-loader',
+          options: {
+            postcssOptions: {
+              plugins: [
+                require('postcss-import'),
+                require('tailwindcss')('../tailwind.config.js'),
+                require('postcss-nested'),
+                require('postcss-custom-properties'),
+                require('autoprefixer'),
+                require('postcss-discard-comments'),
+              ],
+            },
+          },
+        },
+      ],
+    });
 
-  //   return config;
-  // },
+    return config;
+  },
 };

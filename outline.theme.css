@@ -1,0 +1,267 @@
+:root {
+  /* Brand specific primary colors. */
+  --brand-primary: #2563eb;
+  --brand-secondary: #059669;
+  --brand-tertiary: #dc2626;
+  --brand-quaternary: #d97706;
+  --brand-quinary: #9333ea;
+  --brand-senary: #db2777;
+  --brand-septenary: #4f46e5;
+  --brand-octonary: #525252;
+  --brand-nonary: #1e3a8a;
+  --brand-denary: #171717;
+  
+  /* Colors for UI notification messages. */
+  --status-success: #2f855a;
+  --status-warning: #b64301;
+  --status-error: #c53030;
+  --status-info: #1e3a8a;
+
+  /* Demo colors used for default component demonstrations */
+  --outline-phase2-blue: #0080ff;
+  --outline-karma-coral: #fa5c5c;
+  --outline-soft-black: #171717;
+  --outline-not-gray: #cfc7d4;
+  --outline-misty-teal: #73f2e5;
+  --outline-electric-violet: #9484ff;
+  --outline-dusty-blue: #7fc7ee;
+  --outline-transparent: transparent;
+  --outline-white: #fff;
+  --outline-black: #000;
+  
+  --outline-gray-50: #fafafa;
+  --outline-gray-100: #f5f5f5;
+  --outline-gray-200: #e5e5e5;
+  --outline-gray-300: #d4d4d4;
+  --outline-gray-400: #a3a3a3;
+  --outline-gray-500: #737373;
+  --outline-gray-600: #525252;
+  --outline-gray-700: #404040;
+  --outline-gray-800: #262626;
+  --outline-gray-900: #171717;
+
+  --outline-blue-50: #eff6ff;
+  --outline-blue-100: #dbeafe;
+  --outline-blue-200: #bfdbfe;
+  --outline-blue-300: #93c5fd;
+  --outline-blue-400: #60a5fa;
+  --outline-blue-500: #3b82f6;
+  --outline-blue-600: #2563eb;
+  --outline-blue-700: #1d4ed8;
+  --outline-blue-800: #1e40af;
+  --outline-blue-900: #1e3a8a;
+
+  --red-50: #fef2f2;
+  --red-100: #fee2e2;
+  --red-200: #fecaca;
+  --red-300: #fca5a5;
+  --red-400: #f87171;
+  --red-500: #ef4444;
+  --red-600: #dc2626;
+  --red-700: #b91c1c;
+  --red-800: #991b1b;
+  --red-900: #7f1d1d;
+  --yellow-50: #fffbeb;
+  --yellow-100: #fef3c7;
+  --yellow-200: #fde68a;
+  --yellow-300: #fcd34d;
+  --yellow-400: #fbbf24;
+  --yellow-500: #f59e0b;
+  --yellow-600: #d97706;
+  --yellow-700: #b45309;
+  --yellow-800: #92400e;
+  --yellow-900: #78350f;
+  --green-50: #ecfdf5;
+  --green-100: #d1fae5;
+  --green-200: #a7f3d0;
+  --green-300: #6ee7b7;
+  --green-400: #34d399;
+  --green-500: #10b981;
+  --green-600: #059669;
+  --green-700: #047857;
+  --green-800: #065f46;
+  --green-900: #064e3b;
+  --indigo-50: #eef2ff;
+  --indigo-100: #e0e7ff;
+  --indigo-200: #c7d2fe;
+  --indigo-300: #a5b4fc;
+  --indigo-400: #818cf8;
+  --indigo-500: #6366f1;
+  --indigo-600: #4f46e5;
+  --indigo-700: #4338ca;
+  --indigo-800: #3730a3;
+  --indigo-900: #312e81;
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-200: #e9d5ff;
+  --purple-300: #d8b4fe;
+  --purple-400: #c084fc;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7e22ce;
+  --purple-800: #6b21a8;
+  --purple-900: #581c87;
+  --pink-50: #fdf2f8;
+  --pink-100: #fce7f3;
+  --pink-200: #fbcfe8;
+  --pink-300: #f9a8d4;
+  --pink-400: #f472b6;
+  --pink-500: #ec4899;
+  --pink-600: #db2777;
+  --pink-700: #be185d;
+  --pink-800: #9d174d;
+  --pink-900: #831843;
+
+  /* Utitlizing CSS properties here (screens) caused
+     the responsive tailwind classes to simply fail.
+     @todo: Make screens work with css variables. */
+  --screen-xs: 480px;
+  --screen-sm: 640px;
+  --screen-md: 768px;
+  --screen-lg: 1024px;
+  --screen-xl: 1280px;
+  --screen-xxl: 1440px;
+  --screen-xxxl: 2180px;
+
+  --spacing-0: 0px;
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 1.75rem;
+  --spacing-8: 2rem;
+  --spacing-9: 2.25rem;
+  --spacing-10: 2.5rem;
+  --spacing-11: 2.75rem;
+  --spacing-12: 3rem;
+  --spacing-14: 3.5rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+  --spacing-24: 6rem;
+  --spacing-28: 7rem;
+  --spacing-32: 8rem;
+  --spacing-36: 9rem;
+  --spacing-40: 10rem;
+  --spacing-44: 11rem;
+  --spacing-48: 12rem;
+  --spacing-52: 13rem;
+  --spacing-56: 14rem;
+  --spacing-60: 15rem;
+  --spacing-64: 16rem;
+  --spacing-72: 18rem;
+  --spacing-80: 20rem;
+  --spacing-96: 24rem;
+  --spacing-px: 1px;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: 3.5rem;
+  --fs-6xl: 4.5rem;
+  --fs-7xl: 5.5rem;
+  --fs-8xl: 6.5rem;
+  --fs-9xl: 7.5rem;
+
+  --lh-xs: 1rem;
+  --lh-sm: 1.25rem;
+  --lh-base: 1.5rem;
+  --lh-lg: 1.75rem;
+  --lh-xl: 1.75rem;
+  --lh-2xl: 2rem;
+  --lh-3xl: 2.25rem;
+  --lh-4xl: 2.5rem;
+  --lh-5xl: 3.75rem;
+  --lh-6xl: 4.75rem;
+  --lh-7xl: 5.75rem;
+  --lh-8xl: 6.75rem;
+  --lh-9xl: 7.75rem;
+
+  --ff-display: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+  --ff-body: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+  --ff-demo: 'Inter var', 'Helvetica', 'Arial', 'sans-serif';
+
+  --fw-thin: 100;
+  --fw-extralight: 200;
+  --fw-light: 300;
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+  --fw-black: 900;
+
+  --fs-h1: 4rem;
+  --fs-h1-medium: 3rem;
+  --fs-h1-small: 2.5rem;
+  
+  --lh-h1: 3rem;
+  --lh-h1-medium: 3.75rem;
+  --lh-h1-small: 2rem;
+
+  --fs-h2: 2.75rem;
+  --fs-h2-medium: 2.5rem;
+  --fs-h2-small: 2rem;
+  
+  --lh-h2: 3.5rem;
+  --lh-h2-medium: 3rem;
+  --lh-h2-small: 2.5rem;
+  
+
+  --fs-h3: 2rem;
+  --fs-h3-medium: 1.75rem;
+  --fs-h3-small: 1.5rem;
+  
+  --lh-h3: 2.25rem;
+  --lh-h3-medium: 2rem;
+  --lh-h3-small: 1.75rem;
+  
+  --fs-h4: 1.5rem;
+  --fs-h4-medium: 1.5rem;
+  --fs-h4-small: 1.375rem;
+  
+  --lh-h4: 2rem;
+  --lh-h4-medium: 1.75rem;
+  --lh-h4-small: 1.75rem;
+  
+  --fs-h5: 1.375rem;
+  --fs-h5-medium: 1.25rem;
+  --fs-h5-small: 1.125rem;
+  
+  --lh-h5: 1.75rem;
+  --lh-h5-medium: 1.5rem;
+  --lh-h5-small: 1.375rem;
+  
+  --fs-h6: 1.125rem;
+  --fs-h6-medium: 1.125rem;
+  --fs-h6-small: 1rem;
+  
+  --lh-h6: 1.5rem;
+  --lh-h6-medium: 1.375rem;
+  --lh-h6-small: 1.25rem;
+
+  /* General variables */
+  --outline-ring-width: 2px;
+  --outline-ring-inset: ;
+  --outline-ring-offset-width: 2px;
+  --outline-ring-offset-color: var(--outline-gray-100);
+  --outline-ring-color: var(--outline-soft-black);
+  --outline-ring-offset-shadow: 0 0 rgba(0, 0, 0, 0);
+  --outline-ring-shadow: 0 0 rgba(0, 0, 0, 0);
+  --outline-ring-offset-shadow: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-ring-offset-color);
+  --outline-ring-shadow: var(--outline-ring-inset) 0 0 0 calc(var(--outline-ring-width) + var(--outline-ring-offset-width)) var(--outline-ring-color);
+
+  --outline-shadow: 0 0 rgba(0, 0, 0, 0);
+  --outline-shadow-colored: 0 0 rgba(0, 0, 0, 0);
+
+  /*
+  * Custom variables overriding default variables.
+  */
+
+}
