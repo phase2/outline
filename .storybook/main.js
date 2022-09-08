@@ -32,7 +32,7 @@ module.exports = {
       name: '@storybook/addon-postcss',
       options: {
         postcssLoaderOptions: {
-          implementation: require('postcss')('../postcss.config.js'),
+          implementation: require('postcss'),
         },
       },
     },
