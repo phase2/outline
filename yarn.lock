@@ -10782,7 +10782,7 @@ kleur@^4.1.4:
   resolved "https://registry.yarnpkg.com/kleur/-/kleur-4.1.5.tgz#95106101795f7050c6c650f350c683febddb1780"
   integrity sha512-o+NO+8WrRiQEE4/7nwRJhN1HWpVmJm511pBHUxPLtp0BUISzlBplORYSmTclCnJvQq2tKu/sgl3xVpkc7ZWuQQ==
 
-klona@^2.0.4:
+klona@^2.0.4, klona@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/klona/-/klona-2.0.5.tgz#d166574d90076395d9963aa7a928fabb8d76afbc"
   integrity sha512-pJiBpiXMbt7dkzXe8Ghj/u4FfXOOa98fPW+bihOJ4SjnoijweJrNThJfd3ifXpXhREjpoF2mZVH1GfS9LV3kHQ==
@@ -13149,6 +13149,15 @@ postcss-loader@^4.2.0:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
     semver "^7.3.4"
+
+postcss-loader@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-7.0.1.tgz#4c883cc0a1b2bfe2074377b7a74c1cd805684395"
+  integrity sha512-VRviFEyYlLjctSM93gAZtcJJ/iSkPZ79zWbN/1fSH+NisBByEiVLqpdVDrPLVSi8DX0oJo12kL/GppTBdKVXiQ==
+  dependencies:
+    cosmiconfig "^7.0.0"
+    klona "^2.0.5"
+    semver "^7.3.7"
 
 postcss-logical@^5.0.4:
   version "5.0.4"

@@ -14,7 +14,7 @@ module.exports = {
   mode: 'jit',
   content: [
     './packages/**/*.{ts,tsx,mdx,html,txt,css}',
-    './packages/outline-templates/.storybook/**/*.{ts,tsx,mdx,html,txt,css}',
+    './.storybook/**/*.{ts,tsx,mdx,html,txt,css}',
   ],
   theme: {
     // Utilizing CSS properties here (screens) caused
