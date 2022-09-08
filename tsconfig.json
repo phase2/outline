@@ -2,6 +2,8 @@
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
     "lib": ["es2017", "dom", "dom.iterable"],
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
     "composite": true,
     "declaration": true,
     "declarationMap": true,
@@ -24,7 +26,6 @@
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
     "resolveJsonModule": true,
-    "noEmit": true,
     "plugins": [
       {
         "name": "ts-lit-plugin",
