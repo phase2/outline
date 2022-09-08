@@ -9,7 +9,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": false,
-    "inlineSources": true,
+    "inlineSources": true
   },
   "paths": {
     "@phase2/*": ["packages/*"]
