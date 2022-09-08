@@ -4,8 +4,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import {
   argTypeSlotContent,
 } from '@phase2/outline-core';
-import { ButtonVariant, ButtonSize } from './outline-button';
-import './outline-button';
+import { ButtonVariant, ButtonSize } from '../../../../outline-button/src/outline-button';
+import '../../../../outline-button/src/outline-button';
 
 const buttonOptions: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];
 const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];

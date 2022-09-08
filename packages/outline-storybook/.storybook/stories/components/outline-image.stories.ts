@@ -2,9 +2,9 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { argImageDisplayMethod, argImageRatioProperty, NarrowStoryDecorator } from './config';
+import { argImageDisplayMethod, argImageRatioProperty, NarrowStoryDecorator } from '../../../../outline-image/src/config';
 import { argTypeHidden } from '@phase2/outline-core';
-import './outline-image';
+import '../../../../outline-image/src/outline-image';
 
 // Grabbing the iamge urls from github for now.
 // TODO: Determine the best way to serve these.

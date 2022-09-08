@@ -3,7 +3,7 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { ButtonSize, ButtonVariant } from '@phase2/outline-button';
-import './outline-dropdown.ts';
+import '@phase2/outline-dropdown';
 
 const triggerVariants: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];
 const triggerSizes: ButtonSize[] = ['small', 'medium', 'large'];

@@ -5,9 +5,3 @@ export type {
   AllowedHeadingStyles,
 } from './src/config';
 export { HeadingLevels, HeadingSizes, HeadingStyles } from './src/config';
-
-export {
-  default,
-  Heading,
-  DefaultHeading,
-} from './src/outline-heading.stories';

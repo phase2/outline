@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import type { Size } from '@phase2/outline-core/';
 
 import { argTypeGapSize, argTypeHidden } from '@phase2/outline-core';
-import './outline-grid';
+import '../../../../outline-grid/src/outline-grid';
 
 export default {
   title: 'Templates/Grid',

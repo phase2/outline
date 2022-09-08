@@ -1,9 +1,9 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { argTypeRel, argTypeTarget, argTypeHref } from './config';
-import type { LinkTargetType, LinkRelType } from './config';
+import { argTypeRel, argTypeTarget, argTypeHref } from '@phase2/outline-link';
+import type { LinkTargetType, LinkRelType } from '@phase2/outline-link';
 // Import the component itself.
-import './outline-link';
+import '@phase2/outline-link';
 
 const sampleImage = 'https://picsum.photos/1440';
 

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
 // Import the component itself.
-import './outline-admin-links';
+import '../../../../outline-admin-links/src/outline-admin-links';
 
 export default {
   title: 'Navigation/Administrative Links',

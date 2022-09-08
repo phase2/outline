@@ -1,35 +1,35 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import './outline-video-vimeo';
+import '../../../../outline-video-youtube/src/outline-video-youtube';
 
 const configuration = {
-  title: 'Media/Vimeo Video',
-  component: 'outline-video-vimeo',
+  title: 'Media/Youtube Video',
+  component: 'outline-video-youtube',
   argTypes: {
     videoID: {
       name: 'video-id',
-      description: 'Vimeo video id',
+      description: 'Youtube video id',
       control: { type: 'text' },
     },
   },
   args: {
-    videoID: '432639001',
+    videoID: 'xiqgG8HUZXE',
   },
   parameters: {
     docs: {
       description: {
         component: `
-Vimeo video. Allows the embedded video to fit the space.
+Responsive Youtube video.
 `,
       },
       source: {
         // This code sample will be used for every example unless overridden.
         code: `
-<outline-video-vimeo
+<outline-video-youtube
   video-id="{{ videoID }}"
 >
-</outline-video-vimeo>
+</outline-video-youtube>
         `,
       },
     },
@@ -45,14 +45,14 @@ const Template = (args = configuration.args): TemplateResult => {
   };
 
   return html`
-    <outline-video-vimeo video-id="${ifDefined(args.videoID)}">
-    </outline-video-vimeo>
+    <outline-video-youtube video-id="${ifDefined(args.videoID)}">
+    </outline-video-youtube>
   `;
 };
 
 // @todo: Investigate the `Error: page.evaluate: Error: allowedOrigins value "null" is not a valid origin` error. 
-export const VimeoVideo: any = Template.bind({});
-VimeoVideo.parameters = {
+export const YoutubeVideo: any = Template.bind({});
+YoutubeVideo.parameters = {
   axe: {
     skip: true,
   },

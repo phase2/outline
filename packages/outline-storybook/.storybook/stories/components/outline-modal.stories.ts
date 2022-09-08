@@ -3,8 +3,8 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import { argTypeSlotContent } from '@phase2/outline-core';
-import { modalSizes } from './outline-modal';
-import './outline-modal';
+import { modalSizes } from '../../../../outline-modal/src/outline-modal';
+import '../../../../outline-modal/src/outline-modal';
 
 export default {
   title: 'Content/Modal',
