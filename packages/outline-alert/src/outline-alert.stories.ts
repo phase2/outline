@@ -2,7 +2,7 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '@phase2/outline-core';
-import { alertSizes, alertStatusTypes } from '@phase2/outline-alert';
+import { alertSizes, alertStatusTypes } from './outline-alert';
 import './outline-alert';
 
 export default {

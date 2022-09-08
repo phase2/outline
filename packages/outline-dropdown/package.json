@@ -8,9 +8,9 @@
     "design system",
     "dropdown"
   ],
-  "main": "dist/index",
-  "types": "dist/index",
-  "typings": "dist/index.d.ts",
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
   "files": [
     "/dist/",
     "!/dist/tsconfig.build.tsbuildinfo"
@@ -38,6 +38,6 @@
     "access": "public"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./index.ts"
   }
 }

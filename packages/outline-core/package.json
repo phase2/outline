@@ -33,6 +33,8 @@
   },
   "exports": {
     ".": "./index.ts",
-    "./src/outline-element": "./src/outline-element/outline-element.ts"
+    "./src/outline-element": "./src/outline-element/outline-element.ts",
+    "./src/outline-element/outline-element.a11y.css.lit": "./src/outline-element/outline-element.a11y.css.lit.ts",
+    "./src/outline-element/outline-element.base.css.lit": "./src/outline-element/outline-element.base.css.lit.ts"
   }
 }

@@ -16,7 +16,7 @@ import { ButtonVariant } from '@phase2/outline-button';
 import '@phase2/outline-button';
 import '@phase2/outline-icon';
 
-import a11yStyles from '../outline-element/outline-element.a11y.css.lit';
+import a11yStyles from '@phase2/outline-core/src/outline-element/outline-element.a11y.css.lit';
 import componentStyles from './outline-dropdown.css.lit';
 
 /**

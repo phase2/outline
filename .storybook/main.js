@@ -15,16 +15,10 @@ module.exports = {
   stories: [
     // Explicitly order the main documentation.
     // '../packages/outline-templates/default/src/.storybook/stories/guides/welcome.stories.mdx',
-    //  '../packages/outline-templates/default/src/.storybook/stories/guides/development/component-development/01-main.stories.mdx',
+    // '../packages/outline-templates/default/src/.storybook/stories/guides/development/component-development/01-main.stories.mdx',
     //'../packages/outline-templates/default/src/.storybook/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../packages/outline-admin-links/src/outline-admin-links.stories.ts',
-    // '../packages/**/*.stories.@(ts|mdx)',
-    // '!(../packages/outline-templates)',
-    // Intentionally order the Code Style Guide pages.
-    //'./stories/guides/development/component-development/01-main.stories.mdx',
-    // './stories/guides/development/component-development/stories.@(js|ts|mdx)',
-    // Other stories in the .storybook directory.
-    //'./stories/**/*.stories.@(js|ts|mdx)',
+    '../packages/**/src/*.stories.@(js|jsx|ts|tsx|mdx)',
+
     // External Stories added to outlineConfig.
     // ...includedStories,
     // All other components in src directory except those excluded on outlineConfig.
@@ -34,15 +28,46 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-essentials',
-    // {
-    //   name: '@storybook/addon-postcss',
-    //   options: {
-    //     postcssLoaderOptions: {
-    //       implementation: require('postcss'),
-    //     },
-    //   },
-    // },
-    //'@storybook/addon-links',
-    //'@storybook/addon-a11y',
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss')('../postcss.config.js'),
+        },
+      },
+    },
+    '@storybook/addon-links',
+    // @todo: Investigate why this is failing
+    // '@storybook/addon-a11y',
   ],
+  // webpackFinal: async config => {
+  //   /**
+  //    * Delete the ProgressPlugin from Storybook to remove log file spam.
+  //    */
+  //   const progressKey = config.plugins.findIndex(
+  //     v => v.constructor.name === 'ProgressPlugin'
+  //   );
+  //   config.plugins.splice(progressKey, 1);
+
+  //   config.module.rules.push({
+  //     test: /\.css$/,
+  //     use: [
+  //       {
+  //         loader: 'postcss-loader',
+  //         options: {
+  //           postcssOptions: {
+  //             plugins: [
+  //               require('postcss-import'),
+  //               require('tailwindcss')('./tailwind.config.js'),
+  //               require('postcss-preset-env')({ stage: 1 }),
+  //             ],
+  //           },
+  //         },
+  //       },
+  //     ],
+  //     include: path.resolve(__dirname, '../'),
+  //   });
+
+  //   return config;
+  // },
 };
