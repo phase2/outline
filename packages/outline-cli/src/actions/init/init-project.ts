@@ -48,23 +48,23 @@ export const initProject = (prompts: Prompts): void => {
     throw console.error(`${chalk.red('error')}: ${error}`)
   }
 
+  const themeFile = 'src/.storybook/CustomTheme.js'
+  console.log(`${chalk.blue('info')}: Updating CustomTheme.js`)
+  try {
+    const themeData = readFileSync(themeFile, {encoding: 'utf8', flag: 'r'})
+    const replacedData = themeData.replace(/brandTitle: '.*',/g, `brandTitle: '${prompts.name}',`)
+    writeFileSync(themeFile, replacedData, {encoding: 'utf8'})
+    console.log(`${chalk.green('success')}: CustomTheme Renamed`)
+  } catch (error) {
+    throw console.error(`${chalk.red('error')}: ${error}`)
+  }
+
   // Set Storybook name
   // Check for default or other starters that have storybook
   if (prompts.starterTemplate === 'minimal' ||
     prompts.starterTemplate === 'standard' ||
     prompts.starterTemplate === 'full'
   ) {
-    const themeFile = 'src/.storybook/CustomTheme.js'
-    console.log(`${chalk.blue('info')}: Updating CustomTheme.js`)
-    try {
-      const themeData = readFileSync(themeFile, {encoding: 'utf8', flag: 'r'})
-      const replacedData = themeData.replace(/brandTitle: '.*',/g, `brandTitle: '${prompts.name}',`)
-      writeFileSync(themeFile, replacedData, {encoding: 'utf8'})
-      console.log(`${chalk.green('success')}: CustomTheme Renamed`)
-    } catch (error) {
-      throw console.error(`${chalk.red('error')}: ${error}`)
-    }
-
     const settingFile = path.resolve(`${resolvedPath + '/node_modules/@phase2/outline-templates/' + prompts.starterTemplate + '/'}`, `${prompts.starterTemplate}.settings.json`)
     const settingsData = JSON.parse(readFileSync(settingFile, {encoding: 'utf8', flag: 'r'}))
     for (const [fileName] of Object.keys(settingsData).entries()) {
