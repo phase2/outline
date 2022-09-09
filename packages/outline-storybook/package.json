@@ -4,7 +4,6 @@
   "version": "0.0.1",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && rsync -am . dist",
     "package": "yarn publish"
   },
   "repository": {
