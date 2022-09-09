@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
-import '../../../../outline-breadcrumbs/src/outline-breadcrumbs';
+import '../../../outline-breadcrumbs/src/outline-breadcrumbs';
 
 const configuration = {
   title: 'Navigation/Breadcrumb',

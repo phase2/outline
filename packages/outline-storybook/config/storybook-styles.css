@@ -1,4 +1,4 @@
-@import '../../dist/storybook.css';
+@import './storybook.css';
 
 /*
  * Due to the specificity of Storybook's styles any of

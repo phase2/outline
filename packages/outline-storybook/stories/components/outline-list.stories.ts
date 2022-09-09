@@ -5,9 +5,9 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import {
   listOrientations,
   listTypes,
-} from '../../../../outline-list/src/outline-list';
-import '../../../../outline-list/src/outline-list';
-import '../../../../outline-heading';
+} from '@phase2/outline-list/src/outline-list';
+import '@phase2/outline-list/src/outline-list';
+import '../../../outline-heading';
 export default {
   title: 'Navigation/List',
   component: 'outline-list',

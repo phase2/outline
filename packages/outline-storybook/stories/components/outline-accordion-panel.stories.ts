@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import '../../../../outline-accordion/src/outline-accordion-panel/outline-accordion-panel';
-import '../../../../outline-styled-text';
+import '../../../outline-accordion/src/outline-accordion-panel/outline-accordion-panel';
+import '../../../outline-styled-text';
 export default {
   title: 'Content/Accordion/Single Panel',
   component: 'outline-accordion-panel',

@@ -3,7 +3,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 import type { HorizontalAlignment } from '@phase2/outline-core';
 import { argTypeHorizontalAlign } from '@phase2/outline-core';
-import '../../../../outline-container/src/outline-container';
+import '../../../outline-container/src/outline-container';
 
 export default {
   title: 'Templates/Container',

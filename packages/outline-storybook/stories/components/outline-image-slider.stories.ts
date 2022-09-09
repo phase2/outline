@@ -3,7 +3,7 @@ const sampleImage1 = 'https://raw.githubusercontent.com/phase2/outline/next/src/
 const sampleImage2 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/color/Codeworkbench_color.jpg';
 const sampleImage3 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/color/Laptop_Keyboard_2_color.jpg';
 
-import '../../../../outline-image-slider/src/outline-image-slider';
+import '../../../outline-image-slider/src/outline-image-slider';
 
 export default {
   title: 'Media/Image Slider',

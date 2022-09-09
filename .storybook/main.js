@@ -27,7 +27,7 @@ module.exports = {
     //'../packages/outline-templates/default/src/.storybook/**/*.stories.@(js|jsx|ts|tsx|mdx)',
     //'../packages/**/src/*.stories.@(js|jsx|ts|tsx|mdx)',
     // '../packages/outline-storybook/.storybook/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../packages/outline-storybook/.storybook/stories/components/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../packages/outline-storybook/stories/components/*.stories.@(js|jsx|ts|tsx|mdx)',
 
     // External Stories added to outlineConfig.
     // ...includedStories,

@@ -79,6 +79,6 @@ if (!fs.existsSync(destBasePath)) {
 }
 
 // Run the component style generation.
-glob('packages/**/*.css', (err, files) => {
+glob('packages/**/*.css', { ignore: 'dist' }, (err, files) => {
   files.forEach(createCssLiterals);
 });
