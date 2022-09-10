@@ -2,7 +2,7 @@
   @apply h-full;
 }
 
-.sb-link {
+.outline-section-link {
   @apply relative block h-full rounded-2xl shadow-xl;
 }
 

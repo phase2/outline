@@ -2,17 +2,18 @@ import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement } from 'lit/decorators.js';
 import { OutlineElement, SlotController } from '@phase2/outline-core';
 
-import componentStyles from './sb-section-link.css.lit';
+import componentStyles from './outline-section-link.css.lit';
 
 /**
- * The Outline Admin Links component
- * @element outline-admin-links
+ * The Outline Section Link component
+ * @element outline-section-link
+ * @extends OutlineElement
  * @slot link - Slot for link.
  * @slot badge - Slot for badge.
  * @todo: Ensure this component is more mobile friendly.
  */
-@customElement('sb-section-link')
-export class SbSectionLink extends OutlineElement {
+@customElement('outline-section-link')
+export class OutlineSectionLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
   slots = new SlotController(
     this, // This, the host element.
@@ -21,10 +22,16 @@ export class SbSectionLink extends OutlineElement {
 
   render(): TemplateResult {
     return html`
-      <div class="sb-link">
+      <div class="outline-section-link">
         <slot name="badge"></slot>
         <slot name="link"></slot>
       </div>
     `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-section-link': OutlineSectionLink;
   }
 }

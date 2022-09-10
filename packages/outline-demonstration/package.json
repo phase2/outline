@@ -1,0 +1,39 @@
+{
+  "name": "@phase2/outline-demonstrations",
+  "version": "0.0.1",
+  "description": "Web Components utilized primarily in a component style guide.",
+  "keywords": [
+    "outline",
+    "web-components",
+    "design system"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "/dist/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-demonstrations"
+  },
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "@phase2/outline-core": "^0.0.1",
+    "lit": "^2.0.2",
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}

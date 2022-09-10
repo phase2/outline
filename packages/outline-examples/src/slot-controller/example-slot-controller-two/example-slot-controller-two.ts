@@ -1,6 +1,6 @@
 import { customElement } from 'lit/decorators.js';
 import { SlotController } from '@phase2/outline-core';
-import { ExampleSlotControllerBase } from '../example-slot-controller-base/example-slot-controller-base';
+import { ExampleSlotControllerBase } from '@phase2/outline-examples';
 
 /**
  * Sample SlotControllerComponent test.

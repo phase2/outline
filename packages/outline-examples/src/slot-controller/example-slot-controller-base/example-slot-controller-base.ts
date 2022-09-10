@@ -5,7 +5,7 @@ import componentStyles from './example-slot-controller-base.css.lit';
 
 /**
  * The Outline  Breadcrumbs component
- * @element SlotControllerComponent
+ * @element ExampleSlotControllerBase
  * @slot - The default slot.
  * @slot named-slot--one - A named slot.
  * @slot named-slot--two - A named slot.

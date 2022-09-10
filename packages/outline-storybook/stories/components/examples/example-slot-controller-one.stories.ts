@@ -1,10 +1,10 @@
 import { html, TemplateResult } from 'lit';
-import './example-slot-controller-two';
+import '@phase2/outline-examples';
 
 const configuration = {
   title:
-    'Documentation/Code Examples/Slot Controller/Shadow DOM Shift',
-  component: 'example-slot-controller-two',
+    'Documentation/Code Examples/Slot Controller/Simple Usage',
+  component: 'example-slot-controller-one',
   parameters: {
     viewMode: 'docs',
     previewTabs: {
@@ -21,7 +21,7 @@ export default configuration;
 
 const Template = (): TemplateResult => {
   return html`
-<example-slot-controller-two>
+<example-slot-controller-one>
   <p>This is slotted content in a paragraph tag inside the default slot.</p>
   <p>This is slotted content in a paragraph tag inside the default slot.</p>
   <p>This is slotted content in a paragraph tag inside the default slot.</p>
@@ -33,8 +33,8 @@ const Template = (): TemplateResult => {
   <p slot="named-slot--five">This is some slotted content in <code>named-slot--five</code>.</p>
   <p slot="named-slot--five">This is some slotted content in a second instance of <code>named-slot--five</code>.</p>
   <p slot="named-slot--five">This is some slotted content in a third instance of <code>named-slot--five</code>.</p>
-</example-slot-controller-two>
+</example-slot-controller-one>
 `;
 };
 
-export const ShadowDOMShift = () => Template();
+export const SimpleUsage = () => Template();
