@@ -6,6 +6,7 @@ import componentStyles from './outline-swatch-set.css.lit';
 //@todo: Refactor the color pallette to be more dynamic and not tied to Tailwind.
 //import tailwindThemeConfig from '../../../resolved-tailwind-config';
 import '@phase2/outline-demonstrations';
+import '@phase2/outline-grid';
 
 export const swatchSets = [
   'outline',

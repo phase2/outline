@@ -1,5 +1,5 @@
 // const path = require('path');
-// const outlineConfig = require('@phase2/outline-templates/default/src/outline.config');
+// const outlineConfig = require('@phase2/outline-config/outline.config');
 
 // const excludedStories = outlineConfig.excludedStories;
 // const includedStories = outlineConfig.includedStories;
@@ -27,7 +27,7 @@ module.exports = {
     //'../packages/outline-storybook/default/src/.storybook/**/*.stories.@(js|jsx|ts|tsx|mdx)',
     //'../packages/**/src/*.stories.@(js|jsx|ts|tsx|mdx)',
     // '../packages/outline-storybook/.storybook/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    '../packages/outline-storybook/stories/components/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../packages/outline-storybook/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
 
     // External Stories added to outlineConfig.
     // ...includedStories,

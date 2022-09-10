@@ -8,15 +8,13 @@
     "composite": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": false,
-    "inlineSources": true
+    "sourceMap": false
   },
   "paths": {
     "@phase2/*": ["packages/*"]
   },
   "include": ["packages/**/*.ts"],
   "exclude": [
-    "packages/outline-templates/*",
     "packages/outline-cli/*",
     "node_modules",
     "dist",

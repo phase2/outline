@@ -3,11 +3,11 @@ import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-swatch.css.lit';
 
 import { OutlineElement } from '@phase2/outline-core';
-import { SwatchSet } from '../outline-swatch-set/outline-swatch-set';
+import { OutlineSwatchSet } from '@phase2/outline-demonstrations';
 import tailwindThemeConfig from '../../../resolved-tailwind-config';
 
 export interface OutlineSwatchInterface extends HTMLElement {
-  set: SwatchSet;
+  set: OutlineSwatchSet;
   color: string;
 }
 
@@ -24,7 +24,7 @@ export class OutlineSwatch
   static styles: CSSResultGroup = [componentStyles];
 
   @property({ type: String })
-  set: SwatchSet = 'brand';
+  set: OutlineSwatchSet = 'brand';
 
   @property({ type: String })
   color = 'blue';
