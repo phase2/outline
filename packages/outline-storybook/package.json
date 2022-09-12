@@ -12,7 +12,6 @@
     "directory": "packages/outline-storybook"
   },
   "dependencies": {
-    "@phase2/outline-style-guide": "^0.0.1",
     "lit": "^2.0.2"
   },
   "publishConfig": {

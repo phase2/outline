@@ -55,7 +55,9 @@
     "restart": "yarn reset && yarn start",
     "rebuild": "yarn reset && yarn build",
     "storybook": "start-storybook -p ${npm_package_storybook_port}",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "wca": "npm-run-all -s wca:*",
+    "wca:md": "wca analyze packages/**/*.ts --format markdown --outFiles \"{dir}/README.md\""
   },
   "keywords": [
     "web-components",

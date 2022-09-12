@@ -31,7 +31,7 @@
     "@phase2/outline-core": "^0.0.1",
     "@phase2/outline-icon": "^0.0.1",
     "@phase2/outline-link": "^0.0.1",
-    "lit": "^2.0.2",
+    "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },
   "publishConfig": {
