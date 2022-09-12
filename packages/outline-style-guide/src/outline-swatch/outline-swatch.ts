@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-swatch.css.lit';
 
 import { OutlineElement } from '@phase2/outline-core';
-import { OutlineSwatchSet } from '@phase2/outline-demonstrations';
+import { OutlineSwatchSet } from '@phase2/outline-style-guide';
 import tailwindThemeConfig from '../../../resolved-tailwind-config';
 
 export interface OutlineSwatchInterface extends HTMLElement {

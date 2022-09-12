@@ -1,0 +1,25 @@
+{
+  "source": ["tokens/**/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "dist/css/",
+      "files": [
+        {
+          "destination": "outline.tokens.css",
+          "format": "css/variables"
+        }
+      ]
+    },
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "dist/scss/",
+      "files": [
+        {
+          "destination": "_outline.tokens.scss",
+          "format": "scss/variables"
+        }
+      ]
+    }
+  }
+}

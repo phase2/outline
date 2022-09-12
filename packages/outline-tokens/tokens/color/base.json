@@ -1,0 +1,56 @@
+{
+  "outline": {
+    "phase2-blue": { "value": "#0080ff" },
+    "karma-coral": { "value": "#fa5c5c" },
+    "soft-black": { "value": "#171717" },
+    "not-gray": { "value": "#cfc7d4" },
+    "misty-teal": { "value": "#73f2e5" },
+    "electric-violet": { "value": "#9484ff" },
+    "dusty-blue": { "value": "#7fc7ee" },
+    "transparent": { "value": "transparent" },
+    "white": { "value": "#fff" },
+    "black": { "value": "#000" }
+  },
+  "brand": {
+    "primary": { "value": "#2563eb" },
+    "secondary": { "value": "#059669" },
+    "tertiary": { "value": "#dc2626" },
+    "quaternary": { "value": "#d97706" },
+    "quinary": { "value": "#9333ea" },
+    "senary": { "value": "#db2777" },
+    "septenary": { "value": "#4f46e5" },
+    "octonary": { "value": "#525252" },
+    "nonary": { "value": "#1e3a8a" },
+    "denary": { "value": "#171717" }
+  },
+  "status": {
+    "error": { "value": "#c53030" },
+    "warning": { "value": "#b64301" },
+    "info": { "value": "#1e3a8a" },
+    "success": { "value": "#2f855a" }
+  },
+  "outline-gray": {
+    "50": { "value": "#fafafa" },
+    "100": { "value": "#f5f5f5" },
+    "200": { "value": "#e5e5e5" },
+    "300": { "value": "#d4d4d4" },
+    "400": { "value": "#a3a3a3" },
+    "500": { "value": "#737373" },
+    "600": { "value": "#525252" },
+    "700": { "value": "#404040" },
+    "800": { "value": "#262626" },
+    "900": { "value": "#171717" }
+  },
+  "outline-blue": {
+    "50": { "value": "#eff6ff" },
+    "100": { "value": "#dbeafe" },
+    "200": { "value": "#bfdbfe" },
+    "300": { "value": "#93c5fd" },
+    "400": { "value": "#60a5fa" },
+    "500": { "value": "#3b82f6" },
+    "600": { "value": "#2563eb" },
+    "700": { "value": "#1d4ed8" },
+    "800": { "value": "#1e40af" },
+    "900": { "value": "#1e3a8a" }
+  }
+}

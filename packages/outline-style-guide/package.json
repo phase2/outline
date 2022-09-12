@@ -1,5 +1,5 @@
 {
-  "name": "@phase2/outline-demonstrations",
+  "name": "@phase2/outline-style-guide",
   "version": "0.0.1",
   "description": "Web Components utilized primarily in a component style guide.",
   "keywords": [
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-demonstrations"
+    "directory": "packages/outline-style-guide"
   },
   "scripts": {
     "build": "node ../../scripts/build.js",
