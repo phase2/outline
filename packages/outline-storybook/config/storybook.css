@@ -2,4 +2,6 @@
 /* Outline */
 @import '../../outline-templates/default/outline.theme.css';
 /* Global Tailwind Utilities */
-@import './tailwind.css';
+@tailwind base;
+@tailwind utilities;
+@tailwind components;

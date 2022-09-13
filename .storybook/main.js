@@ -22,13 +22,11 @@ module.exports = {
   features: { storyStoreV7: true },
   stories: [
     // Explicitly order the main documentation.
-    // '../packages/outline-storybook/default/src/.storybook/stories/guides/welcome.stories.mdx',
-    // '../packages/outline-storybook/default/src/.storybook/stories/guides/development/component-development/01-main.stories.mdx',
-    //'../packages/outline-storybook/default/src/.storybook/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    //'../packages/**/src/*.stories.@(js|jsx|ts|tsx|mdx)',
-    // '../packages/outline-storybook/.storybook/stories/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    '../packages/outline-storybook/stories/guides/welcome.stories.mdx',
+    '../packages/outline-storybook/stories/guides/development/component-development/01-main.stories.mdx',
     '../packages/outline-storybook/stories/!(tokens|demonstration)**/*.stories.@(js|jsx|ts|tsx|mdx)',
-
+    // '../packages/outline-storybook/**/*.stories.@(js|jsx|ts|tsx|mdx)',
+    // '../packages/**/src/*.stories.@(js|jsx|ts|tsx|mdx)',
     // External Stories added to outlineConfig.
     // ...includedStories,
     // All other components in src directory except those excluded on outlineConfig.
