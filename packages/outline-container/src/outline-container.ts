@@ -8,9 +8,10 @@ import { OutlineElement } from '@phase2/outline-core';
 import type { HorizontalAlignment } from '@phase2/outline-core';
 
 /**
- * The Outline  Link component
- * @element outline-link
+ * The Outline Container component
+ * @element outline-container
  * @extends OutlineElement
+ 
  * @slot - The default slot for this element.
  * @cssprop --outline-container-padding-x: The horizontal padding for the container.
  * @cssprop --outline-container-padding-y: The vertical padding for the container.
