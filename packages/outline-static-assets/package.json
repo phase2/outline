@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-static-assets",
   "description": "Static assets reusable in Outline component demonstrations.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "scripts": {
     "package": "yarn publish"

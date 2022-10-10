@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-examples",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Examples of Outline component creation and usage",
   "keywords": [
     "outline",
@@ -26,7 +26,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.0.1",
+    "@phase2/outline-core": "^0.0.2",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },
