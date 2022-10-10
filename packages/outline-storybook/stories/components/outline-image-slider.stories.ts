@@ -1,9 +1,9 @@
 import { html, TemplateResult } from 'lit';
-const sampleImage1 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/color/Code_color.jpg';
-const sampleImage2 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/color/Codeworkbench_color.jpg';
-const sampleImage3 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/color/Laptop_Keyboard_2_color.jpg';
+import sampleImage1 from '@phase2/outline-static-assets/media/color/Code_color.jpg';
+import sampleImage2 from '@phase2/outline-static-assets/media/color/Codeworkbench_color.jpg';
+import sampleImage3 from '@phase2/outline-static-assets/media/color/Laptop_Keyboard_2_color.jpg';
 
-import '../../../outline-image-slider/src/outline-image-slider';
+import '@phase2/outline-image-slider';
 
 export default {
   title: 'Media/Image Slider',

@@ -18,6 +18,7 @@ module.exports = {
       },
     },
   },
+  staticDirs: ['../static', '../assets'],
   framework: '@storybook/web-components',
   features: { storyStoreV7: true },
   stories: [

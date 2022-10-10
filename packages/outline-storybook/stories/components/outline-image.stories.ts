@@ -4,17 +4,17 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 import { argImageDisplayMethod, argImageRatioProperty, NarrowStoryDecorator } from '../../../outline-image/src/config';
 import { argTypeHidden } from '@phase2/outline-core';
-import '../../../outline-image/src/outline-image';
+import '@phase2/outline-image';
 
-// Grabbing the iamge urls from github for now.
+// Grabbing the image urls from github for now.
 // TODO: Determine the best way to serve these.
-const code1 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-1.jpg';
-const code2 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-2.jpg';
-const code3 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-3.jpg';
-const code4 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-4.jpg';
-const code5 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-5.jpg';
-const code6 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-6.jpg';
-const code7 = 'https://raw.githubusercontent.com/phase2/outline/next/src/.storybook/static/media/tech/1440/code-7.jpg';
+import code1 from '@phase2/outline-static-assets/media/tech/1440/code-1.jpg';
+import code2 from '@phase2/outline-static-assets/media/tech/1440/code-2.jpg';
+import code3 from '@phase2/outline-static-assets/media/tech/1440/code-3.jpg';
+import code4 from '@phase2/outline-static-assets/media/tech/1440/code-4.jpg';
+import code5 from '@phase2/outline-static-assets/media/tech/1440/code-5.jpg';
+import code6 from '@phase2/outline-static-assets/media/tech/1440/code-6.jpg';
+import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 
 export default {
   title: 'Media/Image',
@@ -65,7 +65,7 @@ ${imageMode == 'prop' ? html`
 
 export const ImageDefault: any = Template.bind({});
 ImageDefault.args = {
-  imageUrl: code6,
+  imageUrl: code2,
   imageRatio: '21/9',
   imageMode: 'slot',
 };
@@ -74,7 +74,7 @@ ImageDefault.storyName = 'Image (Configurable)';
 
 export const ImageOne: any = Template.bind({});
 ImageOne.args = {
-  imageUrl: code1,
+  imageUrl: code3,
   imageRatio: '1/1',
   imageMode: 'prop',
 };
@@ -91,7 +91,7 @@ ImageOne.storyName = 'Image: 1:1';
 
 export const ImageTwo: any = Template.bind({});
 ImageTwo.args = {
-  imageUrl: code2,
+  imageUrl: code4,
   imageRatio: '3/2',
   imageMode: 'slot',
 };
@@ -108,7 +108,7 @@ ImageTwo.storyName = 'Image: 3:2';
 
 export const ImageThree: any = Template.bind({});
 ImageThree.args = {
-  imageUrl: code3,
+  imageUrl: code5,
   imageRatio: '3/4',
   imageMode: 'prop',
 };
@@ -125,7 +125,7 @@ ImageThree.storyName = 'Image: 3:4';
 
 export const ImageFour: any = Template.bind({});
 ImageFour.args = {
-  imageUrl: code4,
+  imageUrl: code6,
   imageRatio: '4/3',
   imageMode: 'slot',
 };
@@ -142,7 +142,7 @@ ImageFour.storyName = 'Image: 4:3';
 
 export const ImageFive: any = Template.bind({});
 ImageFive.args = {
-  imageUrl: code5,
+  imageUrl: code7,
   imageRatio: '5/4',
   imageMode: 'prop',
 };
@@ -159,7 +159,7 @@ ImageFive.storyName = 'Image: 5:4';
 
 export const ImageSix: any = Template.bind({});
 ImageSix.args = {
-  imageUrl: code6,
+  imageUrl: code1,
   imageRatio: '16/9',
   imageMode: 'slot',
 };
@@ -176,7 +176,7 @@ ImageSix.storyName = 'Image: 16:9';
 
 export const ImageSeven: any = Template.bind({});
 ImageSeven.args = {
-  imageUrl: code7,
+  imageUrl: code2,
   imageRatio: '9/16',
   imageMode: 'prop',
 };
