@@ -1,0 +1,39 @@
+{
+  "source": ["tokens/**/*.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "dist/css/",
+      "files": [
+        {
+          "destination": "outline.tokens.css",
+          "format": "css/variables"
+        }
+      ]
+    },
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "dist/scss/",
+      "files": [
+        {
+          "destination": "_outline.tokens.scss",
+          "format": "scss/variables"
+        }
+      ]
+    },
+    "javascript": {
+      "transformGroup": "js",
+      "buildPath": "dist/js/",
+      "files": [
+        {
+          "destination": "outline.tokens.js",
+          "format": "javascript/es6"
+        },
+        {
+          "destination": "outline.tokens.d.ts",
+          "format": "typescript/es6-declarations"
+        }
+      ]
+    }
+  }
+}

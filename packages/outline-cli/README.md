@@ -20,7 +20,7 @@ $ npm install -g @phase2/outline-cli
 $ outline COMMAND
 running command...
 $ outline (--version)
-@phase2/outline-cli/0.0.1 darwin-x64 node-v18.7.0
+@phase2/outline-cli/0.0.2 darwin-x64 node-v18.7.0
 $ outline --help [COMMAND]
 USAGE
   $ outline COMMAND
@@ -76,7 +76,7 @@ EXAMPLES
   $ outline init
 ```
 
-_See code: [dist/commands/init.ts](https://github.com/phase2/outline/blob/v0.0.1/dist/commands/init.ts)_
+_See code: [dist/commands/init.ts](https://github.com/phase2/outline/blob/v0.0.2/dist/commands/init.ts)_
 
 ## `outline plugins`
 

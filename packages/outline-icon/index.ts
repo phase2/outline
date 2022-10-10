@@ -11,21 +11,3 @@ export {
   registerIconLibrary,
   unregisterIconLibrary,
 } from './src/library';
-
-export {
-  default,
-  AnIcon,
-  SystemIcons,
-  CustomIcons,
-  Bootstrap,
-  Boxicons,
-  FontAwesomeFree,
-  Heroicons,
-  Iconoir,
-  Ionicons,
-  Jam,
-  Lucide,
-  Material,
-  Remix,
-  Unicons,
-} from './src/outline-icon.stories';

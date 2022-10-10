@@ -1,0 +1,48 @@
+{
+  "fs": {
+    "xs": { "value": "0.75rem" },
+    "sm": { "value": "0.875rem" },
+    "base": { "value": "1rem" },
+    "lg": { "value": "1.125rem" },
+    "xl": { "value": "1.25rem" },
+    "2xl": { "value": "1.5rem" },
+    "3xl": { "value": "1.875rem" },
+    "4xl": { "value": "2.25rem" },
+    "5xl": { "value": "3.5rem" },
+    "6xl": { "value": "4.5rem" },
+    "7xl": { "value": "5.5rem" },
+    "8xl": { "value": "6.5rem" },
+    "9xl": { "value": "7.5rem" }
+  },
+  "lh": {
+    "xs": { "value": "1rem" },
+    "sm": { "value": "1.25rem" },
+    "base": { "value": "1.5rem" },
+    "lg": { "value": "1.75rem" },
+    "xl": { "value": "1.75rem" },
+    "2xl": { "value": "2rem" },
+    "3xl": { "value": "2.25rem" },
+    "4xl": { "value": "2.5rem" },
+    "5xl": { "value": "3.75rem" },
+    "6xl": { "value": "4.75rem" },
+    "7xl": { "value": "5.75rem" },
+    "8xl": { "value": "6.75rem" },
+    "9xl": { "value": "7.75rem" }
+  },
+  "ff": {
+    "display": { "value": "'Inter var', 'Helvetica', 'Arial', 'sans-serif'" },
+    "body": { "value": "'Inter var', 'Helvetica', 'Arial', 'sans-serif'" },
+    "demo": { "value": "'Inter var', 'Helvetica', 'Arial', 'sans-serif'" }
+  },
+  "fw": {
+    "thin": { "value": "100" },
+    "extralight": { "value": "200" },
+    "light": { "value": "300" },
+    "normal": { "value": "400" },
+    "medium": { "value": "500" },
+    "semibold": { "value": "600" },
+    "bold": { "value": "700" },
+    "extrabold": { "value": "800" },
+    "black": { "value": "900" }
+  }
+}

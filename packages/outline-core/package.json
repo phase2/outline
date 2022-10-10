@@ -1,15 +1,15 @@
 {
   "name": "@phase2/outline-core",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Core functionality that is shared across all Outline Web Components",
   "keywords": [
     "outline",
     "web-components",
     "design system"
   ],
-  "main": "dist/index",
-  "types": "dist/index",
-  "typings": "dist/index.d.ts",
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
   "files": [
     "/dist/",
     "!/dist/tsconfig.build.tsbuildinfo"
@@ -26,13 +26,16 @@
     "package": "yarn publish"
   },
   "dependencies": {
+    "@phase2/outline-config": "^0.0.2",
     "lit": "^2.0.2"
   },
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./dist/index.js",
-    "./src/outline-element": "./dist/src/outline-element/outline-element.js"
+    ".": "./index.ts",
+    "./src/outline-element": "./src/outline-element/outline-element.ts",
+    "./src/outline-element/outline-element.a11y.css.lit": "./src/outline-element/outline-element.a11y.css.lit.ts",
+    "./src/outline-element/outline-element.base.css.lit": "./src/outline-element/outline-element.base.css.lit.ts"
   }
 }

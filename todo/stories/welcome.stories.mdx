@@ -1,0 +1,104 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+
+import '@phase2/outline-style-guide';
+
+<!-- Importing the needed components for default stories -->
+import { OutlineContainer } from '@phase2/outline-container';
+import { OutlineGrid, OutlineColumn } from '@phase2/outline-grid';
+import { OutlineLink } from '@phase2/outline-link';
+import { OutlineCodeBlock } from '@phase2/outline-code-block';
+import { OutlineIcon } from '@phase2/outline-icon';
+
+<Story id="Components-for-Guide-Pages" play={()=>{
+  new OutlineContainer()
+  new OutlineGrid()
+  new OutlineColumn()
+  new OutlineLink()
+  new OutlineCodeBlock()
+  new OutlineIcon()
+}}></Story>
+
+
+<Meta
+  title="Documentation/Welcome"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Welcome to your design system
+
+> This document serves as a landing page for your custom design system based on Outline.
+> It should be customized to meet the needs of an appropriate landing page for your project.
+
+<outline-grid y-padding full-bleed gap-size="small">
+  <outline-column col-span-default="12" col-span-md="4">
+    <outline-section-link>
+      <span slot="badge" class="tag">Design Tokens</span>
+      <a slot="link" class="phase2-blue" href="?path=/docs/design-tokens-colors-solid--page">
+        Colors
+      </a>
+    </outline-section-link>
+  </outline-column>
+  <outline-column col-span-default="12" col-span-md="4">
+    <outline-section-link>
+      <span slot="badge" class="tag">Icons</span>
+      <a slot="link" class="dusty-blue" href="?path=/docs/media-outline-icon--an-icon">
+        <outline-icon library="lucide" name="arrow-left" size="32px" class="mr-2"></outline-icon>
+        <outline-icon library="lucide" name="more-vertical" size="32px" class="mr-2"></outline-icon>
+        <outline-icon library="lucide" name="map" size="32px" class="mr-2"></outline-icon>
+        <outline-icon library="lucide" name="more-vertical" size="32px" class="mr-2"></outline-icon>
+        <outline-icon library="lucide" name="arrow-right" size="32px" class="mr-2"></outline-icon>
+      </a>
+    </outline-section-link>
+  </outline-column>
+  <outline-column col-span-default="12" col-span-md="4">
+    <outline-section-link>
+      <span slot="badge" class="tag">Design Tokens</span>
+      <a slot="link" class="phase2-blue" href="?path=/docs/design-tokens-typefaces--page">
+        Typography
+      </a>
+    </outline-section-link>
+  </outline-column>
+  
+  <outline-column col-span-default="12">
+    <outline-section-link>
+      <span slot="badge" class="tag">Documentation</span>
+      <a slot="link" class="medium-gray large" href="?path=/docs/documentation-guides-tooling-commands-helpful-commands--page">
+        Helpful Commands
+      </a>
+    </outline-section-link>
+  </outline-column>
+
+  <outline-column col-span-default="12" col-span-md="6" col-span-lg="6">
+    <outline-section-link>
+      <span slot="badge" class="tag">Documentation</span>
+      <a slot="link" class="karma-coral" href="?path=/docs/documentation-guides-tooling-commands-about-outline--page">
+        About Outline
+      </a>
+    </outline-section-link>
+  </outline-column>
+  <outline-column row-span="2" col-span-default="12" col-span-md="6" col-span-lg="6">
+    <outline-section-link>
+      <span slot="badge" class="tag">Documentation</span>
+      <a slot="link" class="dark-gray large" href="?path=/docs/documentation-guides-component-development-coding-guide-standards--introduction">
+        Outline Coding Guide & Standards
+      </a>
+    </outline-section-link>
+  </outline-column>
+  <outline-column col-span-default="12" col-span-md="6" col-span-lg="6">
+    <outline-section-link>
+      <span slot="badge" class="tag">Documentation</span>
+      <a slot="link" class="karma-coral" href="?path=/docs/documentation-guides-qa-uat-using-storybook--introduction">
+        Using Storybook
+      </a>
+    </outline-section-link>
+  </outline-column>
+  
+</outline-grid>

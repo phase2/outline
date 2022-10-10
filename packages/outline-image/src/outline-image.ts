@@ -20,10 +20,10 @@ export type AspectRatios = typeof aspectRatios[number];
  * The image component, with support for parallax scrolling.
  * @element outline-image
  * @extends OutlineElement
- * @since 1.0.0
- *
- * @see https://codepen.io/alvarotrigo/pen/OJxOrOg
- * @see https://keithclark.co.uk/articles/pure-css-parallax-websites/demo3/
+ * @since 0.0.1
+ * @attr image-href - The image URL.
+ * @attr image-label - The image alt text.
+ * @attr image-ratio - The image aspect ratio.
  * @slot - The image to be presented.
  * @slot caption - The caption text for the image.
  * @todo: Update the caption slot. Add CSS Variables.

@@ -2,17 +2,25 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "es2017",
-    "sourceMap": true
+    "baseUrl": ".",
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": false
   },
+  "paths": {
+    "@phase2/*": ["packages/*"]
+  },
+  "include": ["packages/**/*.ts"],
   "exclude": [
-    "packages/outline-templates/*",
     "packages/outline-cli/*",
     "node_modules",
     "dist",
     "**/node_modules/*",
     "**/coverage/*",
     "**/dist/**/*",
-    "*.tsbuildinfo",
-    "*.d.ts"
+    "*.tsbuildinfo"
   ]
 }

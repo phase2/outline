@@ -1,0 +1,20 @@
+{
+  "name": "@phase2/outline-storybook",
+  "description": "Storybook integration for Outline",
+  "version": "0.0.2",
+  "license": "MIT",
+  "scripts": {
+    "package": "yarn publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-storybook"
+  },
+  "dependencies": {
+    "lit": "^2.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
