@@ -22,9 +22,7 @@ export const initProject = (prompts: Prompts): void => {
   const currDir = process.cwd();
   const resolvedPath = path.resolve(currDir, nameSpace);
   const storybookSource = path.resolve(
-    currDir,
-    nameSpace,
-    '/node_modules/@phase2/outline-storybook'
+    './node_modules/@phase2/outline-storybook'
   );
   const starterPath = path.resolve(
     `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
@@ -38,8 +36,9 @@ export const initProject = (prompts: Prompts): void => {
       prompts.starterTemplate
     } starter template`
   );
-  execSync('yarn add @phase2/outline-templates', { stdio: [0, 1, 2] });
-  execSync('yarn add @phase2/outline-storybook', { stdio: [0, 1, 2] });
+  execSync('yarn add @phase2/outline-templates @phase2/outline-storybook', {
+    stdio: [0, 1, 2],
+  });
 
   // Move the default files to the root directory.
   try {
@@ -49,12 +48,15 @@ export const initProject = (prompts: Prompts): void => {
   }
 
   try {
-    mkdirsSync(`${resolvedPath}/src/.storybook`);
-    mkdirsSync(`${resolvedPath}/src/.storybook/stories`);
-    copySync(`${storybookSource}/config`, `${resolvedPath}/src/.storybook`);
+    mkdirsSync(`./src/.storybook`);
+    mkdirsSync(`./src/.storybook/stories`);
     copySync(
-      `${storybookSource}/stories`,
-      `${resolvedPath}/src/.storybook/stories`
+      './node_modules/@phase2/outline-storybook/config',
+      './src/.storybook'
+    );
+    copySync(
+      './node_modules/@phase2/outline-storybook/stories',
+      './src/.storybook/stories'
     );
   } catch (error) {
     throw console.error(`${chalk.red('error')}: ${error}`);
@@ -70,6 +72,10 @@ export const initProject = (prompts: Prompts): void => {
   } catch (error) {
     throw console.error(`${chalk.red('error')}: ${error}`);
   }
+
+  // execSync('ln -s ./src/components/outline ./node_modules/@phase2', {
+  //   stdio: [0, 1, 2],
+  // });
 
   // Set Storybook name
   // Check for default or other starters that have storybook

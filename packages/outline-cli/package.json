@@ -11,6 +11,8 @@
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
+    "@phase2/outline-storybook": "^0.0.3",
+    "@phase2/outline-templates": "^0.0.3",
     "@types/inquirer": "^8.2.1",
     "chalk": "^4.1.2",
     "fs": "^0.0.2-security",
