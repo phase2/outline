@@ -39,6 +39,7 @@ export const initProject = (prompts: Prompts): void => {
     } starter template`
   );
   execSync('yarn add @phase2/outline-templates', { stdio: [0, 1, 2] });
+  execSync('yarn add @phase2/outline-storybook', { stdio: [0, 1, 2] });
 
   // Move the default files to the root directory.
   try {
