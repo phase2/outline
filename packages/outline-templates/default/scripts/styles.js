@@ -8,7 +8,7 @@ const fs = require('fs');
 const glob = require('glob');
 const config = require('../postcss.config');
 const outline = require('../outline.config');
-const components = require('../src/custom-elements.json');
+// const components = require('../src/custom-elements.json');
 const options = yargs.option('watch', {
   type: 'boolean',
   describe: 'Watch the file system for changes and render automatically',
@@ -35,19 +35,25 @@ const globalStylesheets = () => {
  * Function to generate a project specific stylesheet to correct or minify the FOUC.
  */
 const foucStylesheet = () => {
-  let style = '/* Prevent FOUC in all custom components */';
-  if (outline.css.fouc.enabled && components.tags.length) {
-    components.tags.forEach((tag, index) => {
-      style += `
-${tag.name}:not(:defined),
-${tag.name}:not(:defined) *${index !== components.tags.length - 1 ? ',' : ''}`;
-    });
-    style += ` {
+  let style = `
+/* Prevent FOUC in all custom components */
+:not(:defined),
+:not(:defined) * {
   opacity: 0;
 }
-    `;
-    fs.writeFile(outline.css.fouc.dest, style, () => true);
-  }
+  `;
+  //   if (outline.css.fouc.enabled && components.tags.length) {
+  //     components.tags.forEach((tag, index) => {
+  //       style += `
+  // ${tag.name}:not(:defined),
+  // ${tag.name}:not(:defined) *${index !== components.tags.length - 1 ? ',' : ''}`;
+  //     });
+  //     style += ` {
+  //   opacity: 0;
+  // }
+  //     `;
+  // }
+  fs.writeFile(outline.css.fouc.dest, style, () => true);
 };
 
 /**
