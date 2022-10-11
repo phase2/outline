@@ -10,7 +10,7 @@ type Prompts = {
   gitOrigin: string | null;
   gitName: string | null;
   gitDescription: string | null;
-  octane: boolean;
+  //octane: boolean;
 };
 /**
  * Creates story from custom element json file
@@ -22,6 +22,7 @@ export const initProject = (prompts: Prompts): void => {
   const currDir = process.cwd();
   const resolvedPath = path.resolve(currDir, nameSpace);
   const storybookSource = path.resolve(
+    resolvedPath,
     './node_modules/@phase2/outline-storybook'
   );
   const starterPath = path.resolve(
@@ -48,16 +49,10 @@ export const initProject = (prompts: Prompts): void => {
   }
 
   try {
-    mkdirsSync(`./src/.storybook`);
-    mkdirsSync(`./src/.storybook/stories`);
-    copySync(
-      './node_modules/@phase2/outline-storybook/config',
-      './src/.storybook'
-    );
-    copySync(
-      './node_modules/@phase2/outline-storybook/stories',
-      './src/.storybook/stories'
-    );
+    mkdirsSync(`${resolvedPath}/src/.storybook`);
+    mkdirsSync(`${resolvedPath}/src/.storybook/stories`);
+    copySync(`${storybookSource}/config`, './src/.storybook');
+    copySync(`${storybookSource}/stories`, './src/.storybook/stories');
   } catch (error) {
     throw console.error(`${chalk.red('error')}: ${error}`);
   }
@@ -73,9 +68,13 @@ export const initProject = (prompts: Prompts): void => {
     throw console.error(`${chalk.red('error')}: ${error}`);
   }
 
-  // execSync('ln -s ./src/components/outline ./node_modules/@phase2', {
-  //   stdio: [0, 1, 2],
-  // });
+  // No longer needed with --discoverNodeModules in our wca commands.
+  // execSync(
+  //   `ln -sf ${resolvedPath}/node_modules/@phase2 ${resolvedPath}/src/components/outline`,
+  //   {
+  //     stdio: [0, 1, 2],
+  //   }
+  // );
 
   // Set Storybook name
   // Check for default or other starters that have storybook
@@ -143,11 +142,11 @@ export const initProject = (prompts: Prompts): void => {
     }
   }
 
-  // Execute octane cli if selected
-  if (prompts.octane) {
-    console.log(`${chalk.blue('info')}: Initializing Octane`);
-    execSync('npx github:phase2/octane-update.git', { stdio: [0, 1, 2] });
-  }
+  // // Execute octane cli if selected
+  // if (prompts.octane) {
+  //   console.log(`${chalk.blue('info')}: Initializing Octane`);
+  //   execSync('npx github:phase2/octane-update.git', { stdio: [0, 1, 2] });
+  // }
 
   // Commit all files in project and push to origin
   if (prompts.gitOrigin) {
