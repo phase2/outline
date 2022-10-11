@@ -24,7 +24,7 @@ export const initProject = (prompts: Prompts): void => {
   const storybookSource = path.resolve(
     currDir,
     nameSpace,
-    '/node_modules/@phase2/outline-storybook/'
+    '/node_modules/@phase2/outline-storybook'
   );
   const starterPath = path.resolve(
     `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
@@ -74,7 +74,7 @@ export const initProject = (prompts: Prompts): void => {
   // Set Storybook name
   // Check for default or other starters that have storybook
   if (prompts.starterTemplate === 'default') {
-    const themeFile = `${storybookSource}config/CustomTheme.js`;
+    const themeFile = `${resolvedPath}/src/.storybook/CustomTheme.js`;
     console.log(`${chalk.blue('info')}: Updating CustomTheme.js`);
     try {
       const themeData = readFileSync(themeFile, {
