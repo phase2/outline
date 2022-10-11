@@ -21,6 +21,11 @@ export const initProject = (prompts: Prompts): void => {
   const nameSpace = prompts.name.replace(/[^\dA-Za-z]/g, '-').toLowerCase();
   const currDir = process.cwd();
   const resolvedPath = path.resolve(currDir, nameSpace);
+  const storybookSource = path.resolve(
+    currDir,
+    nameSpace,
+    '/node_modules/@phase2/outline-storybook/'
+  );
   const starterPath = path.resolve(
     `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
     prompts.starterTemplate
@@ -35,8 +40,21 @@ export const initProject = (prompts: Prompts): void => {
   );
   execSync('yarn add @phase2/outline-templates', { stdio: [0, 1, 2] });
 
+  // Move the default files to the root directory.
   try {
     copySync(starterPath, resolvedPath);
+  } catch (error) {
+    throw console.error(`${chalk.red('error')}: ${error}`);
+  }
+
+  try {
+    mkdirsSync(`${resolvedPath}/src/.storybook`);
+    mkdirsSync(`${resolvedPath}/src/.storybook/stories`);
+    copySync(`${storybookSource}/config`, `${resolvedPath}/src/.storybook`);
+    copySync(
+      `${storybookSource}/stories`,
+      `${resolvedPath}/src/.storybook/stories`
+    );
   } catch (error) {
     throw console.error(`${chalk.red('error')}: ${error}`);
   }
@@ -55,7 +73,7 @@ export const initProject = (prompts: Prompts): void => {
   // Set Storybook name
   // Check for default or other starters that have storybook
   if (prompts.starterTemplate === 'default') {
-    const themeFile = 'src/.storybook/CustomTheme.js';
+    const themeFile = `${storybookSource}config/CustomTheme.js`;
     console.log(`${chalk.blue('info')}: Updating CustomTheme.js`);
     try {
       const themeData = readFileSync(themeFile, {

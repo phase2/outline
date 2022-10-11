@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-storybook",
   "description": "Storybook integration for Outline",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "scripts": {
     "package": "yarn publish"
@@ -12,7 +12,8 @@
     "directory": "packages/outline-storybook"
   },
   "dependencies": {
-    "lit": "^2.0.2"
+    "@phase2/outline-core": "^0.0.2",
+    "@phase2/outline-static-assets": "^0.0.2"
   },
   "publishConfig": {
     "access": "public"

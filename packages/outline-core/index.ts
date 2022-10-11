@@ -35,8 +35,9 @@ export {
   hasFocusVisible,
   focusVisibleSelector,
 } from './src/internal/focus-visible';
+
+export type { FormSubmitControllerOptions } from './src/internal/form-control';
 export {
-  FormSubmitControllerOptions,
   FormSubmitController,
   renderFormControl,
   getLabelledBy,

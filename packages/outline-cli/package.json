@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-cli",
   "description": "Outline command-line interface for creating new Outline projects and Outline commands",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Phase2 Technology",
   "bin": {
     "outline": "./bin/run"
