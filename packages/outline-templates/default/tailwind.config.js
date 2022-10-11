@@ -3,6 +3,7 @@ module.exports = {
   ...defaultConfig,
   // Ensure we scan appropriate package(s) and files for Tailwind classes.
   content: [
-    './packages/outline-storybook/.storybook/stories/**/*.{ts,tsx,mdx,html,txt,css}',
+    './src/**/*.{ts,tsx,mdx,html,txt,css}',
+    './src/.storybook/**/*.{ts,tsx,mdx,html,txt,css}',
   ],
 };

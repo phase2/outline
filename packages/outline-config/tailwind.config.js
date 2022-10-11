@@ -13,8 +13,7 @@ module.exports = {
   },
   mode: 'jit',
   content: [
-    './src/**/*.{ts,tsx,mdx,html,txt,css}',
-    './src/.storybook/**/*.{ts,tsx,mdx,html,txt,css}',
+    './packages/outline-storybook/.storybook/stories/**/*.{ts,tsx,mdx,html,txt,css}',
   ],
   theme: {
     // Utilizing CSS properties here (screens) caused

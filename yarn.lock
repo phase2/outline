@@ -2431,6 +2431,24 @@
     "@types/sinon-chai" "^3.2.3"
     chai-a11y-axe "^1.3.2"
 
+"@phase2/outline-config@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@phase2/outline-config/-/outline-config-0.0.2.tgz#79304f44b55321a18f13114808fd4e6daaf3bc32"
+  integrity sha512-OIMZrNVtHAPThma7lVaeJb96y/bunFIXFHDrhWiSWbhpgKk3gUp7ePIvfrzUeieW+B+kLBiRyzLEsEM69u685Q==
+
+"@phase2/outline-storybook@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@phase2/outline-storybook/-/outline-storybook-0.0.3.tgz#49e2449587c2f649795c5610af611493ba2923b6"
+  integrity sha512-y2/Os9KQkH1eAZqtFpa440Mj4xXMTuXkn0RiDtrWuxi6X47+SfmGbS90XD6n3YbiL2x8WohoO7nUTew3whxvRA==
+  dependencies:
+    "@phase2/outline-core" "^0.0.2"
+    "@phase2/outline-static-assets" "^0.0.2"
+
+"@phase2/outline-templates@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@phase2/outline-templates/-/outline-templates-0.0.3.tgz#4d759fcd86f875088068f9bdf85bdb3909a84c3f"
+  integrity sha512-+rTqh/iOdT0d0XqyywWNE0k1YLAM029X4EyCFKFwSlb1iVjCe7Q8pEHX0JDTWjqRqi4YsucbfnHH4SCl4JW/Mw==
+
 "@rollup/plugin-node-resolve@^10.0.0":
   version "10.0.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-node-resolve/-/plugin-node-resolve-10.0.0.tgz#44064a2b98df7530e66acf8941ff262fc9b4ead8"
