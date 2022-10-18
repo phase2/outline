@@ -7,7 +7,7 @@ module.exports = {
   css: {
     global: [
       {
-        src: `${storybookPath}/storybook.src.css`,
+        src: `${storybookPath}/storybook.outline.css`,
         dest: `${storybookPath}/storybook.main.css`,
       },
     ],

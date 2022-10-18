@@ -49,37 +49,37 @@ module.exports = {
     // @todo: Investigate why this is failing
     // '@storybook/addon-a11y',
   ],
-  webpackFinal: async config => {
-    /**
-     * Delete the ProgressPlugin from Storybook to remove log file spam.
-     */
-    const progressKey = config.plugins.findIndex(
-      v => v.constructor.name === 'ProgressPlugin'
-    );
-    config.plugins.splice(progressKey, 1);
+  // webpackFinal: async config => {
+  //   /**
+  //    * Delete the ProgressPlugin from Storybook to remove log file spam.
+  //    */
+  //   const progressKey = config.plugins.findIndex(
+  //     v => v.constructor.name === 'ProgressPlugin'
+  //   );
+  //   config.plugins.splice(progressKey, 1);
 
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            postcssOptions: {
-              plugins: [
-                require('postcss-import'),
-                require('tailwindcss')('./tailwind.config.js'),
-                require('postcss-nested'),
-                require('postcss-custom-properties'),
-                require('autoprefixer'),
-                require('postcss-discard-comments'),
-              ],
-            },
-            sourceMap: true,
-          },
-        },
-      ],
-    });
+  //   config.module.rules.push({
+  //     test: /\.css$/,
+  //     use: [
+  //       {
+  //         loader: 'postcss-loader',
+  //         options: {
+  //           postcssOptions: {
+  //             plugins: [
+  //               require('postcss-import'),
+  //               require('tailwindcss')('./tailwind.config.js'),
+  //               require('postcss-nested'),
+  //               require('postcss-custom-properties'),
+  //               require('autoprefixer'),
+  //               require('postcss-discard-comments'),
+  //             ],
+  //           },
+  //           sourceMap: true,
+  //         },
+  //       },
+  //     ],
+  //   });
 
-    return config;
-  },
+  //   return config;
+  // },
 };
