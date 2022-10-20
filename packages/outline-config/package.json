@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-config",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Primary Outline configuration files.",
   "keywords": [
     "outline",
@@ -24,23 +24,7 @@
   "scripts": {
     "package": "yarn publish"
   },
-  "dependencies": {
-    "@commitlint/cli": "^13.2.0",
-    "@commitlint/config-conventional": "^13.2.0",
-    "@tailwindcss/aspect-ratio": "^0.4.0",
-    "@tailwindcss/forms": "^0.4.0",
-    "@tailwindcss/typography": "^0.5.0",
-    "postcss": "^8.4.4",
-    "postcss-cli": "^8.3.1",
-    "postcss-custom-properties": "^11.0.0",
-    "postcss-discard-comments": "^5.1.0",
-    "postcss-import": "^14.0.2",
-    "postcss-loader": "^5.2.0",
-    "postcss-nested": "^5.0.6",
-    "postcss-preset-env": "^7.0.0",
-    "svgo": "^2.7",
-    "tailwindcss": "^3.0.0"
-  },
+  "dependencies": {},
   "publishConfig": {
     "access": "public"
   },
