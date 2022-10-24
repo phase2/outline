@@ -20,7 +20,7 @@ module.exports = {
   },
   staticDirs: ['../static', '../assets'],
   framework: '@storybook/web-components',
-  features: { storyStoreV7: true },
+  features: { storyStoreV7: false },
   stories: [
     // Explicitly order the main documentation.
     '../packages/outline-storybook/stories/guides/welcome.stories.mdx',

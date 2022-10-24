@@ -2,7 +2,6 @@
 import { html, TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import '../../../outline-accordion/src/outline-accordion-panel/outline-accordion-panel';
-import '../../../outline-styled-text';
 export default {
   title: 'Content/Accordion/Single Panel',
   component: 'outline-accordion-panel',
@@ -41,10 +40,10 @@ export default {
     active: false,
     headingSlotContent: '<outline-heading level="h3" level-style="semibold" slot="heading">Accordion Panel</outline-heading>',
     defaultSlotContent:
-      `<outline-styled-text>
+      `<div>
         <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
         <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p>
-      </outline-styled-text>`,
+      </div>`,
   },
 };
 

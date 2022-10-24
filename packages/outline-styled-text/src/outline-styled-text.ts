@@ -6,7 +6,8 @@ import componentStyles from './outline-styled-text.css.lit';
 /**
  * The Outline Styled Text component
  * @element outline-styled-text
- * @since 1.0.0
+ * @since 0.0.1
+ * @deprecated
  * @slot - default slot
  */
 @customElement('outline-styled-text')
