@@ -1,4 +1,3 @@
-import customTheme from './CustomTheme';
 import './storybook-styles.css';
 
 export const parameters = {
@@ -23,8 +22,5 @@ export const parameters = {
         'Utility Components',
       ],
     },
-  },
-  docs: {
-    theme: customTheme,
   },
 };
