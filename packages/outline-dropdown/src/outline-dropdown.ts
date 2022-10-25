@@ -38,7 +38,7 @@ import componentStyles from './outline-dropdown.css.lit';
  * @csspart panel - The panel that gets shown when the dropdown is open.
  */
 @customElement('outline-dropdown')
-export default class OutlineDropdown extends OutlineElement {
+export class OutlineDropdown extends OutlineElement {
   static styles: CSSResultGroup = [a11yStyles, componentStyles];
   private mobileController = new MobileController(this, 'lg');
   slots = new SlotController(this, true);

@@ -3,10 +3,10 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '@phase2/outline-core';
 
-import { AllowedHeadingLevels, HeadingSizes, HeadingStyles } from '../../../outline-heading/src/config';
+import { AllowedHeadingLevels, HeadingSizes, HeadingStyles } from '@phase2/outline-heading';
 
-import '../../../outline-heading/src/outline-heading';
-import '../../../outline-container';
+import '@phase2/outline-heading';
+import '@phase2/outline-container';
 
 const levelOptions: AllowedHeadingLevels[] = [
   'h1',

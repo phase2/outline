@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import '../../../outline-accordion/src/outline-accordion';
-import '../../../outline-accordion/src/outline-accordion-panel/outline-accordion-panel';
 import { argTypeHidden } from '@phase2/outline-core';
+import '@phase2/outline-accordion'
+import '@phase2/outline-heading'
 
 export default {
   title: 'Content/Accordion/Accordion',

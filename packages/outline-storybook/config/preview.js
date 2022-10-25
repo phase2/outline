@@ -1,8 +1,6 @@
-import customTheme from './CustomTheme';
-import { addParameters } from '@storybook/web-components';
 import './storybook-styles.css';
 
-addParameters({
+export const parameters = {
   actions: {
     argTypesRegex: '^on[A-Z].*',
   },
@@ -25,7 +23,4 @@ addParameters({
       ],
     },
   },
-  docs: {
-    theme: customTheme,
-  },
-});
+};

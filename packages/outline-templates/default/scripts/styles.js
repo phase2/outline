@@ -19,7 +19,6 @@ const options = yargs.option('watch', {
  */
 const createCssGlobals = () => {
   globalStylesheets();
-  foucStylesheet();
 };
 
 /**
@@ -29,19 +28,6 @@ const globalStylesheets = () => {
   outline.css.global.forEach(style => {
     global(style.src, style.dest);
   });
-};
-
-/**
- * Function to generate a project specific stylesheet to correct or minify the FOUC.
- */
-const foucStylesheet = () => {
-  const style = `/* Prevent FOUC in all custom components */
-:not(:defined),
-:not(:defined) * {
-  opacity: 0;
-}
-  `;
-  fs.writeFile(outline.css.fouc.dest, style, () => true);
 };
 
 /**
