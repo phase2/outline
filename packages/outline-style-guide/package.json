@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-style-guide",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Web Components utilized primarily in a component style guide.",
   "keywords": [
     "outline",
