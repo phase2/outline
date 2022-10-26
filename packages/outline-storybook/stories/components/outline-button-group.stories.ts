@@ -2,7 +2,7 @@
 
 import { html, TemplateResult } from 'lit';
 import { listOrientations } from '@phase2/outline-list';
-import '../../../outline-button-group/src/outline-button-group';
+import '@phase2/outline-button-group';
 
 export default {
   title: 'Navigation/Button Group',

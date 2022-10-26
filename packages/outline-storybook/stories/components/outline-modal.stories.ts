@@ -3,8 +3,7 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 import { argTypeSlotContent } from '@phase2/outline-core';
-import { modalSizes } from '../../../outline-modal/src/outline-modal';
-import '../../../outline-modal/src/outline-modal';
+import '@phase2/outline-modal';
 
 export default {
   title: 'Content/Modal',
@@ -42,12 +41,12 @@ export default {
         category: 'Slots',
       },
     },
-    size: {
-      name: 'size',
-      description: 'The size of the modal.',
-      options: modalSizes,
-      control: { type: 'select' },
-    },
+    // size: {
+    //   name: 'size',
+    //   description: 'The size of the modal.',
+    //   options: modalSizes,
+    //   control: { type: 'select' },
+    // },
     shouldForceAction: {
       name: 'shouldForceAction',
       description:

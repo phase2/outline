@@ -2,11 +2,10 @@
 import { html, TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
-import '../../../outline-tabs/src/outline-tab-group/outline-tab-group';
-import '../../../outline-tabs/src/outline-tab/outline-tab';
-import '../../../outline-tabs/src/outline-tab-panel/outline-tab-panel';
-import '../../../outline-heading';
-import '../../../outline-accordion';
+import { OutlineTab, OutlineTabPanel } from '@phase2/outline-tabs';
+import '@phase2/outline-tabs';
+import '@phase2/outline-heading';
+import '@phase2/outline-accordion';
 
 const tabControlPosition: string[] = ['top', 'start'];
 

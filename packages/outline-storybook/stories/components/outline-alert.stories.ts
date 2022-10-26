@@ -2,8 +2,8 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '@phase2/outline-core';
-import { alertSizes, alertStatusTypes } from '../../../outline-alert/src/outline-alert';
-import '../../../outline-alert/src/outline-alert';
+import { alertSizes, alertStatusTypes } from '@phase2/outline-alert';
+import '@phase2/outline-alert';
 
 export default {
   title: 'Content/Alert',
@@ -15,11 +15,11 @@ export default {
       table: {
         category: 'Slots',
       },
-      // We aren't setting a control type here so we can edit the value using the infered object.
+      // We aren't setting a control type here so we can edit the value using the inferred object.
     },
-    // We aren't setting a control type here so we can edit the value using the infered object.
     defaultSlot: {
       ...argTypeSlotContent.defaultSlot,
+      // We aren't setting a control type here so we can edit the value using the inferred object.
       table: {
         category: 'Slots',
       },

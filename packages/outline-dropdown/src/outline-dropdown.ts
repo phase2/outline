@@ -16,7 +16,6 @@ import { ButtonVariant } from '@phase2/outline-button';
 import '@phase2/outline-button';
 import '@phase2/outline-icon';
 
-import a11yStyles from '@phase2/outline-core/src/outline-element/outline-element.a11y.css.lit';
 import componentStyles from './outline-dropdown.css.lit';
 
 /**
@@ -39,7 +38,7 @@ import componentStyles from './outline-dropdown.css.lit';
  */
 @customElement('outline-dropdown')
 export class OutlineDropdown extends OutlineElement {
-  static styles: CSSResultGroup = [a11yStyles, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
   private mobileController = new MobileController(this, 'lg');
   slots = new SlotController(this, true);
 

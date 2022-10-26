@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '../../../outline-video-youtube/src/outline-video-youtube';
+import '@phase2/outline-video-youtube';
 
 const configuration = {
   title: 'Media/Youtube Video',

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import '../../../outline-video-vimeo/src/outline-video-vimeo';
+import '@phase2/outline-video-vimeo';
 
 const configuration = {
   title: 'Media/Vimeo Video',

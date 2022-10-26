@@ -2,7 +2,7 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { argImageDisplayMethod, argImageRatioProperty, NarrowStoryDecorator } from '../../../outline-image/src/config';
+import { argImageDisplayMethod, argImageRatioProperty, NarrowStoryDecorator } from '@phase2/outline-image';
 import { argTypeHidden } from '@phase2/outline-core';
 import '@phase2/outline-image';
 

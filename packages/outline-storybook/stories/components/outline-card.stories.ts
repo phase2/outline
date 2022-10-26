@@ -2,9 +2,9 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeHidden } from '@phase2/outline-core';
-import '../../../outline-card/src/outline-card';
-import '../../../outline-container';
-import '../../../outline-heading'
+import '@phase2/outline-card';
+import '@phase2/outline-container';
+import '@phase2/outline-heading'
 
 const sampleImage1 = 'https://github.com/phase2/outline/blob/next/src/.storybook/static/media/color/Codeworkbench_color.jpg';
 
