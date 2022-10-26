@@ -7,66 +7,37 @@ function getExcluded() {
 }
 
 module.exports = {
-  // Issues still with incorporating latest Webpack.
-  // Leaving here for sample of switching builders.
-  core: {
-    builder: 'webpack5',
+  features: {
+    storyStoreV7: true,
   },
-  staticDirs: ['../static', '../assets'],
+  framework: {
+    name: '@storybook/web-components-vite',
+    options: {},
+  },
+  staticDirs: ['../assets'],
   stories: [
-    // Explicitly order the main documentation.
-    './stories/guides/welcome.stories.mdx',
-    // Intentionally order the Code Style Guide pages.
-    './stories/guides/development/component-development/01-main.stories.mdx',
-    //'./stories/guides/development/component-development/stories.@(js|ts|mdx)',
-    // Other stories in the .storybook directory.
-    './stories/**/*.stories.@(js|ts|mdx)',
-    // All other components in src directory except those excluded on outlineConfig.
-    ...(excludedStories.length
-      ? [`../components/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
-      : [`../components/**/*.stories.@(js|ts|mdx)`]),
+    // // Explicitly order the main documentation.
+    // './stories/guides/welcome.stories.mdx',
+    // // Intentionally order the Code Style Guide pages.
+    // './stories/guides/development/component-development/01-main.stories.mdx',
+    // //'./stories/guides/development/component-development/stories.@(js|ts|mdx)',
+    // // Other stories in the .storybook directory.
+    // './stories/**/*.stories.@(js|ts|mdx)',
+    // // All other components in src directory except those excluded on outlineConfig.
+    // ...(excludedStories.length
+    //   ? [`../components/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
+    //   : [`../components/**/*.stories.@(js|ts|mdx)`]),
+    './stories/!(guides|tokens|demonstration|examples)**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
   addons: [
     '@storybook/addon-essentials',
-    {
-      name: '@storybook/addon-postcss',
-      options: {
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
-        },
-      },
-    },
-    '@storybook/addon-links',
-    '@storybook/addon-a11y',
+    // {
+    //   name: '@storybook/addon-postcss',
+    //   options: {
+    //     postcssLoaderOptions: {
+    //       implementation: require('postcss'),
+    //     },
+    //   },
+    // },
   ],
-  webpackFinal: async config => {
-    /**
-     * Delete the ProgressPlugin from Storybook to remove log file spam.
-     */
-    const progressKey = config.plugins.findIndex(
-      v => v.constructor.name === 'ProgressPlugin'
-    );
-    config.plugins.splice(progressKey, 1);
-
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            postcssOptions: {
-              plugins: [
-                require('postcss-import'),
-                require('tailwindcss')('./tailwind.config.js'),
-                require('postcss-preset-env')({ stage: 1 }),
-              ],
-            },
-          },
-        },
-      ],
-      include: path.resolve(__dirname, '../'),
-    });
-
-    return config;
-  },
 };
