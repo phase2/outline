@@ -79,22 +79,22 @@ export const initProject = (prompts: Prompts): void => {
   // Set Storybook name
   // Check for default or other starters that have storybook
   if (prompts.starterTemplate === 'default') {
-    const themeFile = `${resolvedPath}/src/.storybook/CustomTheme.js`;
-    console.log(`${chalk.blue('info')}: Updating CustomTheme.js`);
-    try {
-      const themeData = readFileSync(themeFile, {
-        encoding: 'utf8',
-        flag: 'r',
-      });
-      const replacedData = themeData.replace(
-        /brandTitle: '.*',/g,
-        `brandTitle: '${prompts.name}',`
-      );
-      writeFileSync(themeFile, replacedData, { encoding: 'utf8' });
-      console.log(`${chalk.green('success')}: CustomTheme Renamed`);
-    } catch (error) {
-      throw console.error(`${chalk.red('error')}: ${error}`);
-    }
+    // const themeFile = `${resolvedPath}/src/.storybook/CustomTheme.js`;
+    // console.log(`${chalk.blue('info')}: Updating CustomTheme.js`);
+    // try {
+    //   const themeData = readFileSync(themeFile, {
+    //     encoding: 'utf8',
+    //     flag: 'r',
+    //   });
+    //   const replacedData = themeData.replace(
+    //     /brandTitle: '.*',/g,
+    //     `brandTitle: '${prompts.name}',`
+    //   );
+    //   writeFileSync(themeFile, replacedData, { encoding: 'utf8' });
+    //   console.log(`${chalk.green('success')}: CustomTheme Renamed`);
+    // } catch (error) {
+    //   throw console.error(`${chalk.red('error')}: ${error}`);
+    // }
   }
 
   // set up git
