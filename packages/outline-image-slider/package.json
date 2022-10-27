@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-image-slider",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "The Outline Components for the image slider component",
   "keywords": [
     "outline",
@@ -27,7 +27,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.0.2",
+    "@phase2/outline-core": "^0.1.0",
     "@splidejs/splide": "^4.0.7",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"

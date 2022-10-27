@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline",
-  "version": "0.0.3",
-  "developmentVersion": "0.0.3",
+  "version": "0.1.0",
+  "developmentVersion": "0.1.0",
   "description": "Outline Component Design - Web Component Library by Phase2",
   "main": "dist/outline.js",
   "module": "dist/outline.js",
@@ -57,7 +57,8 @@
     "storybook": "storybook",
     "build-storybook": "storybook build",
     "generate": "npm-run-all -s generate:*",
-    "generate:md": "lit-analyzer packages/**/*.ts --format markdown"
+    "generate:md": "lit-analyzer packages/**/*.ts --format markdown",
+    "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'"
   },
   "keywords": [
     "web-components",

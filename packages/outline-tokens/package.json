@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-tokens",
-  "version": "0.0.3",
-  "description": "The Outline Components for the web styled text component",
+  "version": "0.1.0",
+  "description": "The Outline Tokens package.",
   "keywords": [
     "outline components",
     "outline design",
