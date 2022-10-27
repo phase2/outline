@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline",
-  "version": "0.1.0",
-  "developmentVersion": "0.1.0",
+  "version": "0.1.1",
+  "developmentVersion": "0.1.1",
   "description": "Outline Component Design - Web Component Library by Phase2",
   "main": "dist/outline.js",
   "module": "dist/outline.js",
