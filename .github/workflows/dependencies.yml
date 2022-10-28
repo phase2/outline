@@ -6,15 +6,6 @@
 # Public documentation: https://docs.github.com/en/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement
 name: 'Dependency Review'
 on: 
-  # Which branches to test on push/merge.
-  push:
-    branches:
-      - main
-      - next
-      - dev
-      - alpha
-      - beta
-      - rc
   # Which branches to test on pull request.
   pull_request:
     branches:
