@@ -115,3 +115,44 @@ yarn format:svg
 ```
 
 ---
+
+## Resetting local environment
+
+The following commands help clean a local environment.
+
+- Cleanup generated assets: `yarn clean`
+- Cleanup node packages: `yarn reset`
+- Full cleanup & restart: `yarn restart`
+
+### Ensure you are using the correct version of `npm`
+
+```bash
+nvm use
+```
+
+If you need to update your node version, see the [usage documentation](https://github.com/nvm-sh/nvm#usage) for nvm.
+
+---
+
+## Storybook Development
+
+Primary component development is done and demonstrated via [Storybook](https://storybook.js.org/).
+
+### Start storybook instance.
+
+```bash
+yarn start
+```
+
+---
+
+## Production builds
+
+Runs both `tsc` and `yarn rollup` to handle the following:
+
+- Packaging individual components to `dist` directory.
+- Packaging modern and legacy builds of all components to `dist` directory.
+
+```bash
+yarn build
+```

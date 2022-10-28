@@ -107,7 +107,7 @@
     "@phase2/outline-link": "^0.1.0",
     "@phase2/outline-list": "^0.1.0",
     "@phase2/outline-modal": "^0.1.0",
-    "@phase2/outline-static-assets": "^0.0.2",
+    "@phase2/outline-static-assets": "^0.0.3",
     "@phase2/outline-storybook": "^0.0.1",
     "@phase2/outline-style-guide": "^0.0.1",
     "@phase2/outline-styled-text": "^0.0.1",
