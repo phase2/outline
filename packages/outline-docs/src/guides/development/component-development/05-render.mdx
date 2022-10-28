@@ -19,13 +19,11 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
   }}
 </Story>
 
-
-
 > @todo - document this documentation.
 
-The Lit `render` method is what allows us to compose and return any markup required for our component. 
-In this simple example, this render function is simply returning hard coded HTML markup. Most web components 
-we develop would never contain just hard coded HTML, as the components are designed to be flexible and reusable, 
+The Lit `render` method is what allows us to compose and return any markup required for our component.
+In this simple example, this render function is simply returning hard coded HTML markup. Most web components
+we develop would never contain just hard coded HTML, as the components are designed to be flexible and reusable,
 which calls for a more dynamic `render` method. Yet, there’s absolutely nothing wrong with returning simple HTML markup exactly as shown below.
 
 ## Render Method
@@ -34,44 +32,35 @@ which calls for a more dynamic `render` method. Yet, there’s absolutely nothin
   {() => {
     return html`
       <outline-code-block language="jsx" class="mb-6">
-render(): TemplateResult {
-  return html\`
-  <div>
-    <p>Simple "hard coded" paragraph/element inside the component's ShadowDOM.</p>
-  </div>
-  \`
-}</outline-code-block>
+        render(): TemplateResult { return html\`
+        <div>
+          <p>
+            Simple "hard coded" paragraph/element inside the component's
+            ShadowDOM.
+          </p>
+        </div>
+        \` }</outline-code-block
+      >
     `;
   }}
 </Story>
 
-<hr/>
+<hr />
 
 ## Partial Templates
 
 <Story name="Partial Template">
   {() => {
-    return html`
-<outline-code-block language="jsx" class="mb-6">
-render(): TemplateResult {
-  return html\`\${headerTemplate}\`
-}
-/**
- * Example usage of a partial template, implemented above
- * in the render() function.
- */
-headerTemplate(): TemplateResult {
-  if (boolProperty) {
-    return html\`
+    return html` <outline-code-block language="jsx" class="mb-6">
+      render(): TemplateResult { return html\`\${headerTemplate}\` } /** *
+      Example usage of a partial template, implemented above * in the render()
+      function. */ headerTemplate(): TemplateResult { if (boolProperty) { return
+      html\`
       <h1>Hello World</h1>
-    \`
-  } else {
-    return html\`
+      \` } else { return html\`
       <h1>Hola Mundo</h1>
-    \`
-  }
-}
-</outline-code-block>`;
+      \` } }
+    </outline-code-block>`;
   }}
 </Story>
 
