@@ -19,8 +19,6 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
   }}
 </Story>
 
-
-
 > @todo - document this documentation.
 
 ## Implementation Standards
@@ -31,21 +29,13 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
 
 <Story name="Controllers">
   {() => {
-    return html`
-<outline-code-block language="typescript" class="mb-6">
-import { reactiveController } from '../../controllers/reactive-controller';
-...
-/**
-* The Outline Widget component
-* @element outline-widget 
-*/
-@customElement('outline-widget')
-export class OutlineWidget extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
-  const reactiveController = new ReactiveController(this);
-  ...
-}
-...
-</outline-code-block>`;
+    return html` <outline-code-block language="typescript" class="mb-6">
+      import { reactiveController } from
+      '../../controllers/reactive-controller'; ... /** * The Outline Widget
+      component * @element outline-widget */ @customElement('outline-widget')
+      export class OutlineWidget extends OutlineElement { static styles:
+      CSSResultGroup = [componentStyles]; const reactiveController = new
+      ReactiveController(this); ... } ...
+    </outline-code-block>`;
   }}
 </Story>

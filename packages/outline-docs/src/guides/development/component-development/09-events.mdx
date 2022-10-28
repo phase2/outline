@@ -13,8 +13,6 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
   }}
 />
 
-
-
 > @todo - document this documentation.
 
 ## Event Handlers
@@ -22,20 +20,12 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
 <Story name="Event Handlers">
   {() => {
     return html`
-<outline-code-block language="typescript" class="mb-6">
-eventHandler = (e: Event) => {
-  e.preventDefault()
-  console.log('event handler fired')
-}
-</outline-code-block>
+      <outline-code-block language="typescript" class="mb-6">
+        eventHandler = (e: Event) => { e.preventDefault() console.log('event
+        handler fired') }
+      </outline-code-block>
     `;
   }}
 </Story>
 
 Event handlers are placed below the template partials.
-
-
-
-
-
-

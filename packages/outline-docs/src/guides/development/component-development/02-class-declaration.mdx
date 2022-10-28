@@ -19,8 +19,6 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
   }}
 </Story>
 
-
-
 > @todo - document this documentation.
 
 ## Class and Custom Element Declaration
@@ -28,20 +26,17 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
 <Story name="Class Declaration">
   {() => {
     return html`
-<outline-code-block language="typescript" class="mb-6">
-...
-/**
-* The Outline Widget component
-* @element outline-widget 
-*/
-@customElement('outline-widget')
-export class OutlineWidget extends OutlineElement {
-...
-}
-</outline-code-block>
+      <outline-code-block language="typescript" class="mb-6">
+        ... /** * The Outline Widget component * @element outline-widget */
+        @customElement('outline-widget') export class OutlineWidget extends
+        OutlineElement { ... }
+      </outline-code-block>
     `;
   }}
 </Story>
 
-<p>Here is where we define our component class and the name of the custom element we are building.
-Use JSDoc style comments to document the element name, any slots used, and a brief description of the component and its functionality</p>
+<p>
+  Here is where we define our component class and the name of the custom element
+  we are building. Use JSDoc style comments to document the element name, any
+  slots used, and a brief description of the component and its functionality
+</p>

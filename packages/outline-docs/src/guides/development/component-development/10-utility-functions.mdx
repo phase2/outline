@@ -13,8 +13,6 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
   }}
 />
 
-
-
 > @todo - document this documentation.
 
 ## Utility Functions
@@ -22,19 +20,12 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
 <Story name="Utility Functions">
   {() => {
     return html`
-<outline-code-block language="typescript" class="mb-6">
-private utilityFunction = (data: string[]) => {
-  data.forEach(str: string => console.log(str))
-}
-</outline-code-block>
+      <outline-code-block language="typescript" class="mb-6">
+        private utilityFunction = (data: string[]) => { data.forEach(str: string
+        => console.log(str)) }
+      </outline-code-block>
     `;
   }}
 </Story>
 
 Utility functions are placed below the template partials and event handlers.
-
-
-
-
-
-
