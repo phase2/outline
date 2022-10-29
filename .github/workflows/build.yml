@@ -7,6 +7,7 @@ on:
   # Which branches to test on push/merge.
   push:
     branches:
+      - release
       - main
       - next
       - dev
@@ -16,6 +17,7 @@ on:
   # Which branches to test on pull request.
   pull_request:
     branches:
+      - release
       - main
       - next
       - dev
@@ -61,6 +63,7 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
+            storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
@@ -79,6 +82,9 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Build Storybook
+        run: yarn storybook:build
         
   # Job to run build, and basic assurances the codebase is ready for additional processing.
   build:
@@ -109,6 +115,7 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
+            storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
@@ -122,6 +129,9 @@ jobs:
 
       - name: Build from cache
         run: yarn build
+
+      - name: Build Storybook
+        run: yarn storybook:build
 
   # Job to run package publishing process.
   test:
@@ -152,6 +162,7 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
+            storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
@@ -167,6 +178,9 @@ jobs:
 
       - name: Run prettier
         run: yarn lint:prettier
+
+      - name: Build Storybook
+        run: yarn storybook:build
 
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
@@ -200,6 +214,7 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
+            storybook-static
           key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-16-yarn-

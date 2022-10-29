@@ -30,3 +30,5 @@ The `init` command will clone Outline's starter files then run `yarn install`
 cd project-name
 yarn start
 ```
+
+[![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg 'Deploys by Netlify')](https://www.netlify.com)

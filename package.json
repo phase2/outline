@@ -55,7 +55,7 @@
     "restart": "yarn reset && yarn start",
     "rebuild": "yarn reset && yarn build",
     "storybook": "storybook",
-    "build-storybook": "storybook build",
+    "storybook:build": "storybook build",
     "generate": "npm-run-all -s generate:*",
     "generate:md": "lit-analyzer packages/**/*.ts --format markdown",
     "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'"
