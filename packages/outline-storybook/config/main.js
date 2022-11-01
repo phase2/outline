@@ -17,7 +17,7 @@ module.exports = {
   staticDirs: ['../assets'],
   stories: [
     // // Explicitly order the main documentation.
-    // './stories/guides/welcome.stories.mdx',
+    './stories/guides/welcome.stories.mdx',
     // // Intentionally order the Code Style Guide pages.
     // './stories/guides/development/component-development/01-main.stories.mdx',
     // //'./stories/guides/development/component-development/stories.@(js|ts|mdx)',
