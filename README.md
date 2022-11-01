@@ -1,5 +1,6 @@
 # Outline Design System
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4f86fb44-ada5-4b55-b1ae-f4864f1ca2b5/deploy-status)](https://outlinejs.style/)
+[![GitHub Pages](https://img.shields.io/badge/pages-outline.phase2tech.com-blue?logo=github&style=lfat)](https://outline.phase2tech.com/)
 
 
 Outline is a [web component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) based design system starter kit. Outline is based on the latest technologies and tools to help your component authoring experience and facilitate adoption in your organization.
