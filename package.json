@@ -68,7 +68,7 @@
   ],
   "packageManager": "yarn@1.22.19",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",

@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 14, 16, 18, 20 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -93,7 +93,7 @@ jobs:
     needs: ['setup']
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 14, 16, 18, 20 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -140,7 +140,7 @@ jobs:
     needs: ['setup']
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 14, 16, 18, 20 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -203,7 +203,7 @@ jobs:
         run: yarn install
 
       - name: Build Outline
-        run: yarn install
+        run: yarn build
 
       - name: Build Storybook
         run: yarn storybook:build
