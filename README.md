@@ -9,6 +9,7 @@ Outline is a both a growing [web component](https://developer.mozilla.org/en-US/
 
 Outline and Outline design systems are built with many of the following notable tools:
 
+[![Turborepo](https://img.shields.io/badge/lit-v1.6.0-blue?logo=turborepo&logoColor=ffffff&style=flat)](https://lit.dev/)
 [![Lit](https://img.shields.io/badge/lit-v2-blue?logo=lit&logoColor=ffffff&style=flat)](https://lit.dev/)
 [![TypeScript](https://img.shields.io/badge/typescript-v4.8.4-blue?logo=typescript&logoColor=ffffff&style=flat)](https://www.typescriptlang.org/)
 [![CSS Custom Properties](https://img.shields.io/badge/CSS_Custom_Properties-Level_1-blue?logo=css3&logoColor=ffffff&style=flat)](https://www.w3.org/TR/css-variables-1/)
