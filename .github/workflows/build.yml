@@ -78,7 +78,7 @@ jobs:
       - name: Install
         run: yarn install
         env: 
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
       - name: Build Outline
         run: yarn build
@@ -185,7 +185,7 @@ jobs:
   # Basic setup job to prepare codebase.
   publish-storybook:
     name: Publish to GitHub Pages
-    if: github.ref == 'refs/heads/release'
+    if: github.ref == 'refs/heads/next'
     runs-on: ubuntu-latest
     needs: ['setup', 'build', 'test']
 
@@ -209,7 +209,7 @@ jobs:
         run: yarn storybook:build
 
       - name: Check GitHub Pages status
-        uses: crazy-max/ghaction-github-status@v2
+        uses: crazy-max/ghaction-github-status@v3
         with:
           pages_threshold: major_outage
 
@@ -217,11 +217,12 @@ jobs:
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
+          target_branch: gh-pages
           build_dir: storybook-static
           commit_message: 'chore(deploy): Storybook'
           keep_history: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
       # @see https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload Storybook artifact
@@ -234,7 +235,7 @@ jobs:
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
   publish:
-    name: Publish NPM Packages
+    name: "Publish NPM Packages: GitHub"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/release'
     needs: ['setup', 'build', 'test']
@@ -277,5 +278,5 @@ jobs:
       # - name: Publish
       #   run: yarn package -v
       #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     NPM_GITHUB_PACKAGES: ${{ secrets.NPM_GITHUB_PACKAGES }}
             
