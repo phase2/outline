@@ -275,17 +275,23 @@ jobs:
       - name: Build Outline
         run: yarn build
 
-      # - name: Publish
-      #   run: yarn package -v
-      #   env:
-      #     NPM_GITHUB_PACKAGES: ${{ secrets.NPM_GITHUB_PACKAGES }}
+      - name: Manage Changesets
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        # You can do something when a publish should happen.
+        run: yarn changeset publish
             
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
   publish-npm:
     name: "Publish: NPM"
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/release'
+    if: github.ref == 'refs/heads/next'
     needs: ['setup', 'build', 'test']
 
     # The steps for the build job.
@@ -297,7 +303,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-          registry-url: 'https://npm.pkg.github.com'
+          registry-url: 'https://registry.npmjs.org/'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
@@ -323,8 +329,14 @@ jobs:
       - name: Build Outline
         run: yarn build
 
-      # - name: Publish
-      #   run: yarn package -v
-      #   env:
-      #     NPM_GITHUB_PACKAGES: ${{ secrets.NPM_GITHUB_PACKAGES }}
+      - name: Manage Changesets
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.NPMJS_SECRET }}
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        # You can do something when a publish should happen.
+        run: yarn changeset publish
             
