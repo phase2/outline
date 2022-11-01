@@ -1,15 +1,28 @@
-# Outline Design System
+
+# OutlineJS
+
 [![Version](https://img.shields.io/npm/v/@phase2/outline-core.svg)](https://npmjs.org/package/@phase2/outline-core)
 [![Netlify](https://img.shields.io/badge/netlify-outline.style-success?logo=netlify&logoColor=ffffff&style=flat)](https://outlinejs.style/)
 [![GitHub Pages](https://img.shields.io/badge/pages-outline.phase2tech.com-success?logo=github&logoColor=ffffff&style=flat)](https://outline.phase2tech.com/)
 [![GitPod](https://img.shields.io/badge/gitpod-development-lightgray?logo=gitpod&logoColor=ffffff&style=flat)](https://gitpod.io/#https://github.com/phase2/outline)
 [![License](https://img.shields.io/npm/l/@phase2/outline-cli.svg)](https://github.com/phase2/outline/blob/next/package.json)
 
-Outline is a both a growing [web component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) library as well as a toolkit for building out bespoke design systems for a wide variety of client and personal usages. Outline is based on the latest technologies and tools to help your component authoring experience and facilitate adoption in your organization.
+Outline is a both a growing [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components) library as well as a toolkit for building out bespoke design systems for a wide variety of client and personal usages. Outline is based on the latest technologies and tools to help your component authoring experience and facilitate adoption in your organization.
+
+## More than a Design System
+
+Outline is much more than just you run of the mill design system. Outline provides an added benefit on top of multiple similar libraries available.
+
+* Outline is a set of components
+* Outline is a set of tooling and technology to scaffold design systems for a multitude of projects
+* Outline is a set of rules for defining components
+* Outline is a set of rules for integrating components
+* Outline provides well curated documentation on many complex topics
+* Outline grows with internal lessons learned project after project here [@phase2](https://github.com/phase2).
 
 Outline and Outline design systems are built with many of the following notable tools:
 
-[![Turborepo](https://img.shields.io/badge/lit-v1.6.0-blue?logo=turborepo&logoColor=ffffff&style=flat)](https://lit.dev/)
+[![Turborepo](https://img.shields.io/badge/turborepo-v1.6.0-blue?logo=turborepo&logoColor=ffffff&style=flat)](https://lit.dev/)
 [![Lit](https://img.shields.io/badge/lit-v2-blue?logo=lit&logoColor=ffffff&style=flat)](https://lit.dev/)
 [![TypeScript](https://img.shields.io/badge/typescript-v4.8.4-blue?logo=typescript&logoColor=ffffff&style=flat)](https://www.typescriptlang.org/)
 [![CSS Custom Properties](https://img.shields.io/badge/CSS_Custom_Properties-Level_1-blue?logo=css3&logoColor=ffffff&style=flat)](https://www.w3.org/TR/css-variables-1/)
@@ -29,11 +42,23 @@ Outline is organized as a mono-repo and is available to use via NPM Packages and
 npx @phase2/outline-cli init
 ```
 
-The `init` command will clone Outline's starter files then run `yarn install`
+
+### Global Installation
+
+This method will require manually updating from time to time for the latest updates on your system. If you are using [NVM](https://github.com/nvm-sh/nvm) appropriately, any version of node would need this installed. If you are using yarn, you can just install it once globally.
+
+#### With NPM
 
 ```bash
-cd project-name
-yarn start
+npm install -g @phase2/outline-cli
+outline init
+```
+
+#### With Yarn
+
+```bash
+yarn global add @phase2/outline-cli
+outline init
 ```
 
 ## Contributing to Outline
