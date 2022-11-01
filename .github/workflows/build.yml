@@ -80,7 +80,7 @@ jobs:
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build
+      - name: Build Outline
         run: yarn build
 
       - name: Build Storybook
@@ -170,7 +170,7 @@ jobs:
       - name: Install from cache
         run: yarn install
 
-      - name: Build from cache
+      - name: Build Outline
         run: yarn build
 
       - name: Run eslint
@@ -200,6 +200,9 @@ jobs:
           node-version: '16'
 
       - name: Install
+        run: yarn install
+
+      - name: Build Outline
         run: yarn install
 
       - name: Build Storybook
@@ -268,7 +271,7 @@ jobs:
       - name: Install from cache
         run: yarn install
 
-      - name: Build from cache
+      - name: Build Outline
         run: yarn build
 
       # - name: Publish
