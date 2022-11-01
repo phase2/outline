@@ -138,7 +138,7 @@ If you need to update your node version, see the [usage documentation](https://g
 
 Primary component development is done and demonstrated via [Storybook](https://storybook.js.org/).
 
-### Start storybook instance.
+### Start storybook instance
 
 ```bash
 yarn start
