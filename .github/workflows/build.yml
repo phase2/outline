@@ -34,11 +34,11 @@ on:
 jobs:
   # Basic setup job to prepare codebase.
   setup:
-    name: Installation & Caching
+    name: Install Codebase
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 16, 18 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -78,9 +78,9 @@ jobs:
       - name: Install
         run: yarn install
         env: 
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
-      - name: Build
+      - name: Build Outline
         run: yarn build
 
       - name: Build Storybook
@@ -93,7 +93,7 @@ jobs:
     needs: ['setup']
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 16, 18 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -140,7 +140,7 @@ jobs:
     needs: ['setup']
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 16, 18 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -170,7 +170,7 @@ jobs:
       - name: Install from cache
         run: yarn install
 
-      - name: Build from cache
+      - name: Build Outline
         run: yarn build
 
       - name: Run eslint
@@ -182,10 +182,60 @@ jobs:
       - name: Build Storybook
         run: yarn storybook:build
 
+  # Basic setup job to prepare codebase.
+  publish-storybook:
+    name: "Publish: Storybook"
+    if: github.ref == 'refs/heads/next'
+    runs-on: ubuntu-latest
+    needs: ['setup', 'build', 'test']
+
+    # The steps for the setup job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install
+        run: yarn install
+
+      - name: Build Outline
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn storybook:build
+
+      - name: Check GitHub Pages status
+        uses: crazy-max/ghaction-github-status@v3
+        with:
+          pages_threshold: major_outage
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: storybook-static
+          commit_message: 'chore(deploy): Storybook'
+          keep_history: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
+
+      # @see https://github.com/marketplace/actions/upload-a-build-artifact
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-latest
+          path: storybook-static/
+          retention-days: 1
+  
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
-  publish:
-    name: Publish NPM Packages
+  publish-github:
+    name: "Publish: GitHub"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/release'
     needs: ['setup', 'build', 'test']
@@ -222,11 +272,71 @@ jobs:
       - name: Install from cache
         run: yarn install
 
-      - name: Build from cache
+      - name: Build Outline
         run: yarn build
 
-      # - name: Publish
-      #   run: yarn package -v
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Manage Changesets
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        # You can do something when a publish should happen.
+        run: yarn changeset publish
+            
+  # Job to run package publishing process.
+  # This should ONLY be ran on on branches where 
+  publish-npm:
+    name: "Publish: NPM"
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/next'
+    needs: ['setup', 'build', 'test']
+
+    # The steps for the build job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: 'https://registry.npmjs.org/'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@phase2'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-16-yarn-
+
+      - name: Install from cache
+        run: yarn install
+
+      - name: Build Outline
+        run: yarn build
+
+      - name: Manage Changesets
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.NPM_NPM_PACKAGES }}
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        # You can do something when a publish should happen.
+        run: yarn changeset publish
             
