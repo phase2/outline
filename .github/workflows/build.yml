@@ -343,7 +343,6 @@ jobs:
   chromatic-deployment:
     name: "Publish: Chromatic"
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/next'
     needs: ['setup', 'build', 'test']
 
     steps:
