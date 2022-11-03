@@ -345,6 +345,23 @@ jobs:
     if: github.ref != 'refs/heads/next'
     needs: ['setup', 'build', 'test']
     steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install
+        run: yarn install
+
+      - name: Build Outline
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn storybook:build
+
         # 👇 Checks if the branch is not main and runs Chromatic
       - name: Publish to Chromatic
         uses: chromaui/action@v1
@@ -359,6 +376,23 @@ jobs:
     needs: ['setup', 'build', 'test']
 
     steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install
+        run: yarn install
+
+      - name: Build Outline
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn storybook:build
+        
       - name: Publish to Chromatic ( main branch )
         if: github.ref == 'refs/heads/next'
         uses: chromaui/action@v1
