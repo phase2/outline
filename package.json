@@ -59,7 +59,7 @@
     "generate": "npm-run-all -s generate:*",
     "generate:md": "lit-analyzer packages/**/*.ts --format markdown",
     "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
-    "chromatic": "npx chromatic --build-script-name=storybook:build --exit-zero-on-changes"
+    "chromatic": "chromatic --build-script-name=storybook:build --exit-zero-on-changes --skip '@(renovate/**|dependabot/**)'"
   },
   "keywords": [
     "web-components",

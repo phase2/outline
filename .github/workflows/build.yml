@@ -183,8 +183,8 @@ jobs:
         run: yarn storybook:build
 
   # Basic setup job to prepare codebase.
-  publish-storybook:
-    name: "Publish: Storybook"
+  deploy-github-pages:
+    name: "Publish: Storybook > GitHub Pages"
     if: github.ref == 'refs/heads/next'
     runs-on: ubuntu-latest
     needs: ['setup', 'build', 'test']
@@ -234,8 +234,8 @@ jobs:
   
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
-  publish-github:
-    name: "Publish: GitHub"
+  deploy-github-packages:
+    name: "Publish: GitHub Packages"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/release'
     needs: ['setup', 'build', 'test']
@@ -288,8 +288,8 @@ jobs:
             
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
-  publish-npm:
-    name: "Publish: NPM"
+  deploy-npm-packages:
+    name: "Publish: NPM Packages"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/next'
     needs: ['setup', 'build', 'test']
@@ -338,5 +338,32 @@ jobs:
       - name: Publish
         if: steps.changesets.outputs.hasChangesets == 'false'
         # You can do something when a publish should happen.
-        run: yarn changeset publish
-            
+        run: yarn changeset publish  
+  chromatic-deployment-main:
+    name: "Publish: Chromatic (main)"
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/next'
+    needs: ['setup', 'build', 'test']
+    steps:
+        # 👇 Checks if the branch is not main and runs Chromatic
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Required options for the Chromatic GitHub Action
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+  chromatic-deployment-preview:
+    name: "Publish: Chromatic (preview)"
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/next'
+    needs: ['setup', 'build', 'test']
+
+    steps:
+      - name: Publish to Chromatic ( main branch )
+        if: github.ref == 'refs/heads/next'
+        uses: chromaui/action@v1
+        # Required options for the Chromatic GitHub Action
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          autoAcceptChanges: true # 👈 Option to accept all changes
