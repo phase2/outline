@@ -1,24 +1,19 @@
 # outline-container
 
-The Outline Container component
+The `outline-container` Web Component.
 
 ## Properties
 
-| Property         | Attribute         | Type                                      | Default  | Description                                    |
-|------------------|-------------------|-------------------------------------------|----------|------------------------------------------------|
-| `containerAlign` | `container-align` | `"left" \| "center" \| "right" \| "none"` | "center" | The horizontal position of the container.      |
-| `fullBleed`      | `full-bleed`      | `boolean`                                 | false    | Whether or not this is a full bleed container. |
-| `xPadding`       | `x-padding`       | `boolean`                                 | false    | Whether or not this container has padding.     |
-| `yPadding`       | `y-padding`       | `boolean`                                 | false    | Whether or not this container has padding.     |
+| Property           | Attribute           | Type      | Default | Description                                      |
+|--------------------|---------------------|-----------|---------|--------------------------------------------------|
+| `bottomMargin`     | `bottom-margin`     | `string`  |         | Sets the bottom margin of the container. Options are none, small, medium, and large. |
+| `componentSpacing` | `component-spacing` | `string`  |         |                                                  |
+| `containerWidth`   | `container-width`   | `string`  | "wide"  | Sets the width of the container. Options are wide, medium, narrow, and full. |
+| `justifyEnd`       | `justify-end`       | `boolean` | false   | Sets the container to justify content to the end. |
+| `topMargin`        | `top-margin`        | `string`  |         | The vertical space from the component above it (using Utopia fluid space variables defined in outline.theme.css, ie. space-3xl) |
 
 ## Slots
 
-| Name | Description                        |
-|------|------------------------------------|
-|      | The default slot for this element. |
-
-## CSS Custom Properties
-
-| Property                      | Description                                  |
-|-------------------------------|----------------------------------------------|
-| `--outline-container-padding` | x: The horizontal padding for the container. |
+| Name | Description   |
+|------|---------------|
+|      | Default Slot. |

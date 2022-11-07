@@ -2,7 +2,6 @@
 import { html, TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
-import { OutlineTab, OutlineTabPanel } from '@phase2/outline-tabs';
 import '@phase2/outline-tabs';
 import '@phase2/outline-heading';
 import '@phase2/outline-accordion';

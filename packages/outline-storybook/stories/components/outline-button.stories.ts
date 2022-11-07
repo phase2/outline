@@ -5,6 +5,7 @@ import {
   argTypeSlotContent,
 } from '@phase2/outline-core';
 import { ButtonVariant, ButtonSize } from '@phase2/outline-button';
+
 import '@phase2/outline-button';
 
 const buttonOptions: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];

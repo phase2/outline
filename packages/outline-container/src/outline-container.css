@@ -11,6 +11,10 @@
   max-width: calc(
     var(--container-max-content-width) + 2 * var(--container-padding)
   );
+
+  & > ::slotted(*) {
+    margin-bottom: var(--component-spacing, 0);
+  }
 }
 
 .wide {

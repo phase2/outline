@@ -35,6 +35,7 @@
     "access": "public"
   },
   "exports": {
-    ".": "./index.ts"
+    ".": "./index.ts",
+    "./readme": "./README.md"
   }
 }

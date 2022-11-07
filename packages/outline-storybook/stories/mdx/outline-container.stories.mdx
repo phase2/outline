@@ -1,0 +1,68 @@
+import { OutlineContainer } from '@phase2/outline-container';
+
+import OutlineContainerReadme from '@phase2/outline-container/readme';
+
+import '@phase2/outline-container';
+import '@phase2/outline-image';
+import '@phase2/outline-alert';
+import '@phase2/outline-tabs';
+
+import { html } from 'lit';
+import { ArgsTable, Meta, Canvas, Story } from '@storybook/addon-docs';
+
+import code1 from '@phase2/outline-static-assets/media/tech/1440/code-1.jpg';
+import code2 from '@phase2/outline-static-assets/media/tech/1440/code-2.jpg';
+import code3 from '@phase2/outline-static-assets/media/tech/1440/code-3.jpg';
+import code4 from '@phase2/outline-static-assets/media/tech/1440/code-4.jpg';
+import code5 from '@phase2/outline-static-assets/media/tech/1440/code-5.jpg';
+import code6 from '@phase2/outline-static-assets/media/tech/1440/code-6.jpg';
+import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
+
+<Meta
+  title="Outline/OutlineContainer"
+  component="outline-container"
+  parameters={{
+    layout: 'fullscreen'
+  }}
+/>
+
+# `OutlineContainer`
+
+> The OutlineContainer is a wrapper component that provides a consistent outline style for content.
+> The following samples contain a variety of markup, including images to demonstrate the full container width. 
+
+## Examples
+<outline-container container-width="narrow" top-margin="spacing-12" bottom-margin="spacing-12" component-spacing="spacing-6">
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Narrow</span>
+    This `outline-container` component is using the `container-width` set to `narrow`.
+  </outline-alert>
+  <outline-image image-href={code1} image-label="image of code on a screen" image-ratio="21/9"></outline-image>
+</outline-container>
+
+<outline-container container-width="medium" top-margin="spacing-12" bottom-margin="spacing-12">
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Full</span>
+    This `outline-container` component is using the `container-width` set to `medium`.
+  </outline-alert>
+  <outline-image image-href={code3} image-label="image of code on a screen" image-ratio="21/9"></outline-image>
+</outline-container>
+
+<outline-container container-width="wide" top-margin="spacing-12" bottom-margin="spacing-12">
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Full</span>
+    This `outline-container` component is using the `container-width` set to `wide`.
+  </outline-alert>
+  <outline-image image-href={code5} image-label="image of code on a screen" image-ratio="21/9"></outline-image>
+</outline-container>
+
+<outline-container container-width="full" top-margin="spacing-12" bottom-margin="spacing-12">
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Full</span>
+    This `outline-container` component is using the `container-width` set to `full`.
+  </outline-alert>
+  <outline-image image-href={code7} image-label="image of code on a screen" image-ratio="21/9"></outline-image>
+</outline-container>
+
+## Documentation
+<OutlineContainerReadme />

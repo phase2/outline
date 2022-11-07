@@ -1,4 +1,4 @@
-import { CSSResultGroup, TemplateResult, html } from 'lit';
+import { CSSResultGroup, TemplateResult, html, css } from 'lit';
 import { OutlineElement } from '@phase2/outline-core';
 import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
@@ -28,7 +28,14 @@ type containerWidths = 'wide' | 'medium' | 'narrow' | 'full';
  */
 @customElement('outline-container')
 export class OutlineContainer extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [
+    css`
+      :host {
+        --component-spacing: var(--spacing-6);
+      }
+    `,
+    componentStyles,
+  ];
   /**
    * The vertical space from the component above it (using Utopia fluid space variables defined in outline.theme.css, ie. space-3xl)
    **/
@@ -45,6 +52,13 @@ export class OutlineContainer extends OutlineElement {
     attribute: 'bottom-margin',
   })
   bottomMargin: string;
+
+  @property({
+    type: String,
+    reflect: true,
+    attribute: 'component-spacing',
+  })
+  componentSpacing: string;
 
   @property({
     type: Boolean,

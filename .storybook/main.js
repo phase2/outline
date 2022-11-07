@@ -23,8 +23,24 @@ module.exports = {
     //   ? [`../components/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
     //   : [`../components/**/*.stories.@(js|ts|mdx)`]),
   ],
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: prop =>
+        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+    },
+  },
   addons: [
-    '@storybook/addon-essentials',
+    {
+      name: '@storybook/addon-essentials',
+      options: {
+        transcludeMarkdown: true, //👈 Set transcludeMarkdown to true
+      },
+    },
+    'storybook-addon-mdx-embed',
     // {
     //   name: '@storybook/addon-postcss',
     //   options: {
@@ -36,6 +52,10 @@ module.exports = {
   ],
   features: {
     storyStoreV7: true,
+    postcss: false,
+    buildStoriesJson: true,
+    modernInlineRender: true,
+    previewMdx2: true,
   },
   framework: {
     name: '@storybook/web-components-vite',

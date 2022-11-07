@@ -20,6 +20,12 @@ export type ButtonSize = 'small' | 'medium' | 'large';
  * The Outline Button component
  * @element outline-button
  * @since 1.0.0
+ * @attr {string} button-url - The url to use for a link. This will render an anchor element.
+ * @attr {string} button-target - The target to use for a link, used in conjunction with the url attribute.
+ * @attr {string} button-label -ARIA label attribute to pass down to the resulting button or a element.
+ * @attr {string} button-variant - The button variant. One of: link, primary, secondary, tertiary.
+ * @attr {string} button-size - The button size. One of: small, medium, large.
+ * @attr {boolean} is-disabled - Whether the button is disabled.
  * @slot - default slot, used for button text.
  * @slot left - slot used for left side icon.
  * @slot right - slot used for right side icon.

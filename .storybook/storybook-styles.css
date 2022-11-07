@@ -1,5 +1,20 @@
 @import './storybook.css';
 
+body {
+  color: #000;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  body {
+    color: #fff;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: #000;
+  }
+} */
 /*
  * Due to the specificity of Storybook's styles any of
  * our overrides (probably) must include an !important declaration.
@@ -27,9 +42,12 @@
   margin-top: 0 !important;
 }
 
+.sbdocs-wrapper {
+  padding: var(--spacing-0) !important;
+}
 /* Used to control the max-width / maximum width of the primary wrapper 
  * in the Docs view in Storybook. 
  */
 .sbdocs .sbdocs-content {
-  max-width: 1440px;
+  max-width: 2180px;
 }
