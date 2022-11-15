@@ -349,6 +349,8 @@ jobs:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
 
       - uses: actions/setup-node@v2
         with:
