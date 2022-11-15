@@ -53,27 +53,11 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-            storybook-static
-          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
-
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
-      # @todo: Remove this test step.
-      - name: "DEBUG: .npmrc CONTENTS"
-        run: cat .npmrc
-
       - name: Install
-        run: yarn install
+        run: yarn install --prefer-offline
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
@@ -102,24 +86,8 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
 
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-            storybook-static
-          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
-
-      # @todo: Remove this test step.
-      - name: "DEBUG: YARN VERSION"
-        run: yarn --version
-
-      - name: Install from cache
-        run: yarn install
+      - name: Install
+        run: yarn install --prefer-offline
 
       - name: Build from cache
         run: yarn build
@@ -146,20 +114,8 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
 
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-            storybook-static
-          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
-
-      - name: Install from cache
-        run: yarn install
+      - name: Install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
@@ -192,7 +148,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install
-        run: yarn install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
@@ -246,20 +202,8 @@ jobs:
           scope: '@phase2'
           cache: 'yarn'
 
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-            storybook-static
-          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-16-yarn-
-
-      - name: Install from cache
-        run: yarn install
+      - name: Install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
@@ -297,20 +241,8 @@ jobs:
           scope: '@phase2'
           cache: 'yarn'
 
-      # @see https://github.com/marketplace/actions/cache
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
-            node_modules
-            storybook-static
-          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-16-yarn-
-
-      - name: Install from cache
-        run: yarn install
+      - name: Install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
@@ -344,7 +276,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install
-        run: yarn install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
