@@ -48,20 +48,18 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+          cache: 'yarn'
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
       # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
       - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
             storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
@@ -71,17 +69,13 @@ jobs:
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
-      # @todo: Remove this test step.
-      - name: "DEBUG: .npmrc CONTENTS"
-        run: cat .npmrc
-
       - name: Install
-        run: yarn install
+        run: yarn install --check-cache
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
       - name: Build Outline
-        run: yarn build
+        run: yarn build --force
 
       - name: Build Storybook
         run: yarn storybook:build
@@ -103,29 +97,23 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+          cache: 'yarn'
 
       # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
       - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
             storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
-      # @todo: Remove this test step.
-      - name: "DEBUG: YARN VERSION"
-        run: yarn --version
-
-      - name: Install from cache
-        run: yarn install
+      - name: Install
+        run: yarn install --prefer-offline
 
       - name: Build from cache
         run: yarn build
@@ -150,25 +138,23 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+          cache: 'yarn'
 
       # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
       - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
             storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
-      - name: Install from cache
-        run: yarn install
+      - name: Install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
@@ -195,12 +181,26 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
+          cache: 'yarn'
+
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-16-yarn-
 
       - name: Install
-        run: yarn install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
@@ -252,25 +252,23 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+          cache: 'yarn'
 
       # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
       - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
             storybook-static
           key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-16-yarn-
 
-      - name: Install from cache
-        run: yarn install
+      - name: Install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
@@ -306,25 +304,23 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+          cache: 'yarn'
 
       # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
       - uses: actions/cache@v3
         id: yarn-cache
         with:
           path: |
-            ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
             storybook-static
           key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-16-yarn-
 
-      - name: Install from cache
-        run: yarn install
+      - name: Install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
@@ -352,12 +348,26 @@ jobs:
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
+          cache: 'yarn'
+
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-16-yarn-
 
       - name: Install
-        run: yarn install
+        run: yarn install --prefer-offline
 
       - name: Build Outline
         run: yarn build
