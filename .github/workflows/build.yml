@@ -53,6 +53,19 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
+
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
@@ -86,6 +99,19 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
 
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
+
       - name: Install
         run: yarn install --prefer-offline
 
@@ -113,6 +139,19 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
+
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
@@ -144,8 +183,21 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           cache: 'yarn'
+
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-18-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-18-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
@@ -196,11 +248,24 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
           cache: 'yarn'
+
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-18-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-18-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
@@ -235,11 +300,24 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           registry-url: 'https://registry.npmjs.org/'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
           cache: 'yarn'
+
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-18-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-18-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
@@ -272,8 +350,21 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           cache: 'yarn'
+
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-18-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-18-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
