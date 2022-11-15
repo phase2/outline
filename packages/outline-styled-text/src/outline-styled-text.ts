@@ -22,3 +22,9 @@ export class OutlineStyledText extends OutlineElement {
     return html`<slot></slot>`;
   }
 }
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-styled-text': OutlineStyledText;
+  }
+}

@@ -6,7 +6,7 @@ The Outline Grid component
 
 | Property         | Attribute         | Type                                       | Default  | Description                                      |
 |------------------|-------------------|--------------------------------------------|----------|--------------------------------------------------|
-| `containerAlign` | `container-align` | `"left" \| "center" \| "right" \| "none"`  | "center" | The horizontal position of the container.        |
+| `containerAlign` | `container-align` | `"none" \| "left" \| "center" \| "right"`  | "center" | The horizontal position of the container.        |
 | `fullBleed`      | `full-bleed`      | `boolean`                                  | false    | Whether or not this is a full bleed container.   |
 | `gapSize`        | `gap-size`        | `"small" \| "large" \| "medium" \| "none"` | "small"  | How much of a gap should exist between columns? (This affects both the vertical and horizontal column/row gaps.) |
 | `gapSizeLg`      | `gap-size-lg`     | `"small" \| "large" \| "medium" \| "none"` |          | How much of a gap should exist between columns on large+ screens? (This affects both the vertical and horizontal column/row gaps.) |

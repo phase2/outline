@@ -1,3 +1,14 @@
+:host([aria-hidden='true']),
+[aria-hidden='true'],
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+
 .accordion-button {
   @apply flex w-full items-center justify-between border-0 py-0 pl-8 pr-0;
 }

@@ -137,6 +137,7 @@
     "@storybook/addon-links": "^7.0.0-alpha.47",
     "@storybook/addon-postcss": "^3.0.0-alpha.1",
     "@storybook/builder-vite": "^7.0.0-alpha.47",
+    "@storybook/mdx2-csf": "^0.0.3",
     "@storybook/web-components": "^7.0.0-alpha.47",
     "@storybook/web-components-vite": "^7.0.0-alpha.47",
     "@tailwindcss/aspect-ratio": "^0.4.0",

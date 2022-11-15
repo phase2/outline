@@ -1,0 +1,107 @@
+import { OutlineContainer } from '@phase2/outline-container';
+
+import OutlineContainerReadme from '@phase2/outline-container/readme';
+
+import '@phase2/outline-container';
+import '@phase2/outline-image';
+import '@phase2/outline-alert';
+
+import { html } from 'lit';
+import { Meta } from '@storybook/addon-docs';
+import { CodePen, Gist } from 'mdx-embed';
+
+import code1 from '@phase2/outline-static-assets/media/tech/1440/code-1.jpg';
+import code2 from '@phase2/outline-static-assets/media/tech/1440/code-2.jpg';
+import code3 from '@phase2/outline-static-assets/media/tech/1440/code-3.jpg';
+import code4 from '@phase2/outline-static-assets/media/tech/1440/code-4.jpg';
+import code5 from '@phase2/outline-static-assets/media/tech/1440/code-5.jpg';
+import code6 from '@phase2/outline-static-assets/media/tech/1440/code-6.jpg';
+import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
+
+<Meta
+  title="Outline/OutlineContainer"
+  component="outline-container"
+  parameters={{
+    layout: 'fullscreen'
+  }}
+/>
+<div class="bg-outline-gray-200 py-1 md:py-6 xl:py-12 mb-6">
+<outline-container container-width="medium" top-margin="spacing-12" bottom-margin="spacing-12">
+  # `OutlineContainer`
+
+  <outline-alert statusType="warning" size="large" className="mb-6">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>The `OutlineContainer` class, is a wrapper component that provides the `outline-container` component, giving consistent containers for content spacing both horizontally and vertically.</p>
+  </outline-alert>
+  <br />
+  <outline-alert statusType="error" size="large" className="mb-6">
+    <span slot="header">@todo</span>
+    <ul> 
+      <li>Fix for Documentation section styling. (`README.md` import)</li>
+    </ul>
+  </outline-alert>
+</outline-container>
+</div>
+
+## Examples
+
+<outline-container container-width="full" top-margin="spacing-12" bottom-margin="spacing-12">
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Full</span>
+    <p>This `outline-container` component is using the `container-width` set to `full`.</p>
+  </outline-alert>
+  <outline-image image-href={code7} image-label="image of code on a screen" image-ratio="42/9"></outline-image>
+</outline-container>
+
+<outline-container container-width="wide" top-margin="spacing-12" bottom-margin="spacing-12">
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Wide</span>
+    <p>This `outline-container` component is using the `container-width` set to `wide`.</p>
+  </outline-alert>
+  <outline-image image-href={code5} image-label="image of code on a screen" image-ratio="42/9"></outline-image>
+</outline-container>
+
+<outline-container container-width="medium" top-margin="spacing-12" bottom-margin="spacing-12">
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Medium</span>
+    <p>This `outline-container` component is using the `container-width` set to `medium`.</p>
+  </outline-alert>
+  <outline-image image-href={code3} image-label="image of code on a screen" image-ratio="42/9"></outline-image>
+</outline-container>
+
+<outline-container container-width="narrow" top-margin="spacing-12" bottom-margin="spacing-12" component-spacing="spacing-6">
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Narrow</span>
+    <p>This `outline-container` component is using the `container-width` set to `narrow`.</p>
+  </outline-alert>
+  <outline-image image-href={code1} image-label="image of code on a screen" image-ratio="42/9"></outline-image>
+</outline-container>
+
+<outline-container container-width="medium" top-margin="spacing-12" bottom-margin="spacing-12" component-spacing="spacing-6" justify-end>
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Medium (Right)</span>
+    <p>This `outline-container` component is using the `container-width` set to `medium`.</p>
+    <p>The `justify-end` attribute is used in order to align the content to the right.</p>
+  </outline-alert>
+  <outline-image image-href={code2} image-label="image of code on a screen" image-ratio="42/9"></outline-image>
+</outline-container>
+
+<outline-container container-width="medium" top-margin="spacing-12" bottom-margin="spacing-12" component-spacing="spacing-6" justify-start>
+  <outline-alert statusType="info" size="large">
+    <span slot="header">Container: Medium (Left)</span>
+    <p>This `outline-container` component is using the `container-width` set to `medium`.</p>
+    <p>The `justify-start` attribute is used in order to align the content to the left.</p>
+  </outline-alert>
+  <outline-image image-href={code6} image-label="image of code on a screen" image-ratio="42/9"></outline-image>
+</outline-container>
+
+## Documentation
+
+<outline-alert statusType="error" size="large" className="mb-6">
+  <span slot="header">Status: Experiencing Issues</span>
+  <p>The following documentation is automagically generated using [`yarn analyze`](https://github.com/phase2/outline/blob/next/package.json#L61), powered by [`web-component-analyzer`](https://github.com/runem/web-component-analyzer).</p>
+  <p>The current import and attempt to display inline dipslays various issues yet to be investigated.</p>
+</outline-alert>
+> 
+
+<OutlineContainerReadme />

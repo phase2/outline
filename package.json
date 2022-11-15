@@ -9,6 +9,7 @@
   "es2017": "dist/outline.js",
   "unpkg": "dist/outline.js",
   "private": true,
+  "storybook_port": 6042,
   "workspaces": [
     "./packages/*"
   ],
@@ -24,7 +25,6 @@
     "url": "git+https://github.com/phase2/outline.git"
   },
   "license": "BSD-3-Clause",
-  "storybook_port": 6042,
   "scripts": {
     "prep": "npm-run-all -s prep:*",
     "prep:css": "node scripts/styles.js",
@@ -59,7 +59,7 @@
     "generate": "npm-run-all -s generate:*",
     "generate:md": "lit-analyzer packages/**/*.ts --format markdown",
     "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
-    "chromatic": "npx chromatic --build-script-name=storybook:build --exit-zero-on-changes"
+    "chromatic": "chromatic --build-script-name storybook:build --exit-zero-on-changes --skip '@(renovate/**|dependabot/**)'"
   },
   "keywords": [
     "web-components",
@@ -76,20 +76,22 @@
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@open-wc/testing": "^3.0.0-next.2",
-    "@storybook/addon-actions": "^7.0.0-alpha.47",
-    "@storybook/addon-essentials": "^7.0.0-alpha.47",
-    "@storybook/addon-links": "^7.0.0-alpha.47",
+    "@storybook/addon-actions": "^7.0.0-alpha.49",
+    "@storybook/addon-essentials": "^7.0.0-alpha.49",
+    "@storybook/addon-links": "^7.0.0-alpha.49",
     "@storybook/addon-postcss": "^3.0.0-alpha.1",
-    "@storybook/builder-vite": "^7.0.0-alpha.47",
-    "@storybook/web-components": "^7.0.0-alpha.47",
-    "@storybook/web-components-vite": "^7.0.0-alpha.47",
+    "@storybook/builder-vite": "^7.0.0-alpha.49",
+    "@storybook/mdx2-csf": "^0.1.0-next.5",
+    "@storybook/web-components": "^7.0.0-alpha.49",
+    "@storybook/web-components-vite": "^7.0.0-alpha.49",
     "@types/estree": "^0.0.47",
-    "@typescript-eslint/eslint-plugin": "^4.0.0",
-    "@typescript-eslint/parser": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "@web/test-runner": "^0.13.15",
     "@web/test-runner-browserstack": "^0.4.2",
     "@web/test-runner-playwright": "^0.8.6",
     "autoprefixer": "10.4.0",
+    "chromatic": "^6.11.3",
     "esbuild": "^0.15.7",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^7.2.0",
@@ -114,13 +116,17 @@
     "prettier-plugin-tailwindcss": "^0.1.7",
     "rimraf": "^3.0.2",
     "rsync": "^0.6.1",
-    "storybook": "^7.0.0-alpha.47",
+    "storybook": "^7.0.0-alpha.49",
     "svgo": "^2.8.0",
     "tailwindcss": "3.0.0",
     "ts-lit-plugin": "^1.2.1",
     "turbo": "^1.2.16"
   },
-  "dependencies": {},
+  "dependencies": {
+    "mdx-embed": "^1.1.2",
+    "react-syntax-highlighter": "^15.5.0",
+    "storybook-addon-mdx-embed": "^1.1.1"
+  },
   "bugs": {
     "url": "https://github.com/phase2/outline/issues"
   },

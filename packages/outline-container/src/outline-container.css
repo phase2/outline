@@ -1,3 +1,8 @@
+::slotted(*) {
+  display: block;
+  margin-bottom: var(--spacing-6);
+}
+
 .container {
   --container-padding: 1rem;
 
@@ -11,6 +16,10 @@
   max-width: calc(
     var(--container-max-content-width) + 2 * var(--container-padding)
   );
+
+  > * {
+    margin-bottom: var(--component-spacing, 0);
+  }
 }
 
 .wide {
@@ -30,6 +39,10 @@
   --container-padding: 0;
 }
 
+.justify-start {
+  margin-left: 0;
+}
+
 .justify-end {
-  justify-content: flex-end;
+  margin-right: 0;
 }

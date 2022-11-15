@@ -35,6 +35,6 @@
     "access": "public"
   },
   "exports": {
-    ".": "./index.js"
+    ".": "./index.ts"
   }
 }
