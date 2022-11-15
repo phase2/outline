@@ -52,7 +52,11 @@ export class SlotsController {
       );
     }
 
-    return slottedNodes;
+    if (slottedNodes.length) {
+      return slottedNodes;
+    } else {
+      return false;
+    }
   }
 
   isDefaultSlotText(node: Node) {
@@ -110,34 +114,38 @@ export class SlotsController {
 
   renderInShadow(slotName = '', asIs = false) {
     // Cloning node allow us to re-use slots, as well a keep a copy in the light DOM.
-    const allClonedSlots = this.slotExists(slotName).map(slot => {
-      const lightDomSlot = slot;
-      let clonedSlot: HTMLElement;
+    const slots = this.slotExists(slotName);
 
-      if (asIs) {
-        // Clone the slot into the shadow DOM as is
-        clonedSlot = lightDomSlot.cloneNode(true) as HTMLElement;
-      } else {
-        // Add additional annotations - cloned-slot attributes and a comment in light DOM
-        clonedSlot = this.addAnnotations(slotName, lightDomSlot);
-      }
-      // Dispatch click events from shadow DOM to original node in light DOM
-      clonedSlot.addEventListener('click', () => {
-        const clickEvent = new Event('click');
-        lightDomSlot.dispatchEvent(clickEvent);
+    if (slots) {
+      const allClonedSlots = slots.map(slot => {
+        const lightDomSlot = slot;
+        let clonedSlot: HTMLElement;
+
+        if (asIs) {
+          // Clone the slot into the shadow DOM as is
+          clonedSlot = lightDomSlot.cloneNode(true) as HTMLElement;
+        } else {
+          // Add additional annotations - cloned-slot attributes and a comment in light DOM
+          clonedSlot = this.addAnnotations(slotName, lightDomSlot);
+        }
+        // Dispatch click events from shadow DOM to original node in light DOM
+        clonedSlot.addEventListener('click', () => {
+          const clickEvent = new Event('click');
+          lightDomSlot.dispatchEvent(clickEvent);
+        });
+
+        return clonedSlot;
       });
 
-      return clonedSlot;
-    });
-
-    // Add mutation observer to watch for changes in the light DOM
-    this._mutationObserver.observe(this.host, {
-      subtree: true,
-      childList: true,
-      attributes: true,
-      characterData: true,
-    });
-
-    return allClonedSlots;
+      // Add mutation observer to watch for changes in the light DOM
+      this._mutationObserver.observe(this.host, {
+        subtree: true,
+        childList: true,
+        attributes: true,
+        characterData: true,
+      });
+      return allClonedSlots;
+    }
+    return null;
   }
 }
