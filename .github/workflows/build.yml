@@ -369,4 +369,5 @@ jobs:
         with:
           # 👇 Chromatic projectToken, refer to the manage page to obtain it.
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: storybook:build
           autoAcceptChanges: true # 👈 Option to accept all changes
