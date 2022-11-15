@@ -9,6 +9,7 @@
   "es2017": "dist/outline.js",
   "unpkg": "dist/outline.js",
   "private": true,
+  "storybook_port": 6042,
   "workspaces": [
     "./packages/*"
   ],
@@ -28,7 +29,7 @@
     "prep": "npm-run-all -s prep:*",
     "prep:css": "node scripts/styles.js",
     "prestart": "yarn prep",
-    "start": "yarn storybook dev -c ./.storybook --port 6042",
+    "start": "yarn storybook dev -p ${npm_package_storybook_port}",
     "prebuild": "yarn prep",
     "build": "turbo run build",
     "test": "turbo run test",
