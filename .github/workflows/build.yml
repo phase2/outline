@@ -70,12 +70,12 @@ jobs:
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
       - name: Install
-        run: yarn install
+        run: yarn install --check-cache
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
       - name: Build Outline
-        run: yarn build
+        run: yarn build --force
 
       - name: Build Storybook
         run: yarn storybook:build
