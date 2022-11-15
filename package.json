@@ -29,7 +29,7 @@
     "prep": "npm-run-all -s prep:*",
     "prep:css": "node scripts/styles.js",
     "prestart": "yarn prep",
-    "start": "yarn storybook dev",
+    "start": "yarn storybook dev -p ${npm_package_storybook_port}",
     "prebuild": "yarn prep",
     "build": "turbo run build",
     "test": "turbo run test",
