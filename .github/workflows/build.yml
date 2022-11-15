@@ -48,13 +48,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
+          cache: 'yarn'
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "{dir}={$(yarn cache dir)}" >> $GITHUB_OUTPUT
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v3
@@ -103,10 +100,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "{dir}={$(yarn cache dir)}" >> $GITHUB_OUTPUT
+          cache: 'yarn'
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v3
@@ -150,10 +144,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "{dir}={$(yarn cache dir)}" >> $GITHUB_OUTPUT
+          cache: 'yarn'
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v3
@@ -195,9 +186,10 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v2
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
+          cache: 'yarn'
 
       - name: Install
         run: yarn install
@@ -252,10 +244,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "{dir}={$(yarn cache dir)}" >> $GITHUB_OUTPUT
+          cache: 'yarn'
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v3
@@ -306,10 +295,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org/'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "{dir}={$(yarn cache dir)}" >> $GITHUB_OUTPUT
+          cache: 'yarn'
 
       # @see https://github.com/marketplace/actions/cache
       - uses: actions/cache@v3
@@ -352,9 +338,10 @@ jobs:
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: '16'
+          cache: 'yarn'
 
       - name: Install
         run: yarn install
