@@ -1,16 +1,5 @@
 export { OutlineElement } from './src/outline-element/outline-element';
-export {
-  setDefaultAnimation,
-  setAnimation,
-  getAnimation,
-} from './src/outline-element/utilities/animation-registry';
-export {
-  setBasePath,
-  getBasePath,
-} from './src/outline-element/utilities/base-path';
-export { serialize } from './src/outline-element/utilities/form';
 
-// ours
 export {
   ContainerSizeController,
   defaultScreenSizes,
@@ -35,8 +24,9 @@ export {
   hasFocusVisible,
   focusVisibleSelector,
 } from './src/internal/focus-visible';
+
+export type { FormSubmitControllerOptions } from './src/internal/form-control';
 export {
-  FormSubmitControllerOptions,
   FormSubmitController,
   renderFormControl,
   getLabelledBy,

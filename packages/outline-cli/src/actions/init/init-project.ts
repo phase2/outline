@@ -10,7 +10,7 @@ type Prompts = {
   gitOrigin: string | null;
   gitName: string | null;
   gitDescription: string | null;
-  octane: boolean;
+  //octane: boolean;
 };
 /**
  * Creates story from custom element json file
@@ -21,6 +21,10 @@ export const initProject = (prompts: Prompts): void => {
   const nameSpace = prompts.name.replace(/[^\dA-Za-z]/g, '-').toLowerCase();
   const currDir = process.cwd();
   const resolvedPath = path.resolve(currDir, nameSpace);
+  const storybookSource = path.resolve(
+    resolvedPath,
+    './node_modules/@phase2/outline-storybook'
+  );
   const starterPath = path.resolve(
     `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
     prompts.starterTemplate
@@ -29,14 +33,26 @@ export const initProject = (prompts: Prompts): void => {
   mkdirsSync(resolvedPath);
   process.chdir(resolvedPath);
   console.log(
-    `${chalk.blue('info')}: Dowloading Outline ${
+    `${chalk.blue('info')}: Downloading Outline ${
       prompts.starterTemplate
     } starter template`
   );
-  execSync('yarn add @phase2/outline-templates', { stdio: [0, 1, 2] });
+  execSync('yarn add @phase2/outline-templates @phase2/outline-storybook', {
+    stdio: [0, 1, 2],
+  });
 
+  // Move the default files to the root directory.
   try {
     copySync(starterPath, resolvedPath);
+  } catch (error) {
+    throw console.error(`${chalk.red('error')}: ${error}`);
+  }
+
+  try {
+    mkdirsSync(`${resolvedPath}/src/.storybook`);
+    mkdirsSync(`${resolvedPath}/src/.storybook/stories`);
+    copySync(`${storybookSource}/config`, './src/.storybook');
+    copySync(`${storybookSource}/stories`, './src/.storybook/stories');
   } catch (error) {
     throw console.error(`${chalk.red('error')}: ${error}`);
   }
@@ -52,25 +68,33 @@ export const initProject = (prompts: Prompts): void => {
     throw console.error(`${chalk.red('error')}: ${error}`);
   }
 
+  // No longer needed with --discoverNodeModules in our wca commands.
+  // execSync(
+  //   `ln -sf ${resolvedPath}/node_modules/@phase2 ${resolvedPath}/src/components/outline`,
+  //   {
+  //     stdio: [0, 1, 2],
+  //   }
+  // );
+
   // Set Storybook name
   // Check for default or other starters that have storybook
   if (prompts.starterTemplate === 'default') {
-    const themeFile = 'src/.storybook/CustomTheme.js';
-    console.log(`${chalk.blue('info')}: Updating CustomTheme.js`);
-    try {
-      const themeData = readFileSync(themeFile, {
-        encoding: 'utf8',
-        flag: 'r',
-      });
-      const replacedData = themeData.replace(
-        /brandTitle: '.*',/g,
-        `brandTitle: '${prompts.name}',`
-      );
-      writeFileSync(themeFile, replacedData, { encoding: 'utf8' });
-      console.log(`${chalk.green('success')}: CustomTheme Renamed`);
-    } catch (error) {
-      throw console.error(`${chalk.red('error')}: ${error}`);
-    }
+    // const themeFile = `${resolvedPath}/src/.storybook/CustomTheme.js`;
+    // console.log(`${chalk.blue('info')}: Updating CustomTheme.js`);
+    // try {
+    //   const themeData = readFileSync(themeFile, {
+    //     encoding: 'utf8',
+    //     flag: 'r',
+    //   });
+    //   const replacedData = themeData.replace(
+    //     /brandTitle: '.*',/g,
+    //     `brandTitle: '${prompts.name}',`
+    //   );
+    //   writeFileSync(themeFile, replacedData, { encoding: 'utf8' });
+    //   console.log(`${chalk.green('success')}: CustomTheme Renamed`);
+    // } catch (error) {
+    //   throw console.error(`${chalk.red('error')}: ${error}`);
+    // }
   }
 
   // set up git
@@ -118,11 +142,11 @@ export const initProject = (prompts: Prompts): void => {
     }
   }
 
-  // Execute octane cli if selected
-  if (prompts.octane) {
-    console.log(`${chalk.blue('info')}: Initializing Octane`);
-    execSync('npx github:phase2/octane-update.git', { stdio: [0, 1, 2] });
-  }
+  // // Execute octane cli if selected
+  // if (prompts.octane) {
+  //   console.log(`${chalk.blue('info')}: Initializing Octane`);
+  //   execSync('npx github:phase2/octane-update.git', { stdio: [0, 1, 2] });
+  // }
 
   // Commit all files in project and push to origin
   if (prompts.gitOrigin) {
@@ -132,7 +156,7 @@ export const initProject = (prompts: Prompts): void => {
       'git push origin next',
     ];
 
-    console.log(`${chalk.blue('info')}: Commiting all files ot Origin`);
+    console.log(`${chalk.blue('info')}: Committing all files to origin`);
 
     for (const cmd of gitCmd1) {
       execSync(cmd, { stdio: [0, 1, 2] });
@@ -143,6 +167,6 @@ export const initProject = (prompts: Prompts): void => {
   console.log(
     `${chalk.green(
       'success'
-    )}: Outline Installed and Initialized! Happy Coding!`
+    )}: Outline installed and initialized! Happy Coding!`
   );
 };

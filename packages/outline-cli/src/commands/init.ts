@@ -42,7 +42,7 @@ export default class Init extends Command {
         name: 'gitSetup',
         message: 'Do you wish to setup git for this project?',
         type: 'confirm',
-        default: true,
+        default: false,
       },
     ]);
 
@@ -96,14 +96,15 @@ export default class Init extends Command {
       ]);
     }
 
-    const octane = await inquirer.prompt([
-      {
-        name: 'octane',
-        message: 'Do you want to include Devcloud tooling via Octane?',
-        type: 'confirm',
-        default: true,
-      },
-    ]);
+    // @todo: This should NOT be added by default to the open source Outline package.
+    // const octane = await inquirer.prompt([
+    //   {
+    //     name: 'octane',
+    //     message: 'Do you want to include Devcloud tooling via Octane?',
+    //     type: 'confirm',
+    //     default: true,
+    //   },
+    // ]);
 
     // const {args, flags} = await this.parse(Init)
     const prompts = {
@@ -112,7 +113,7 @@ export default class Init extends Command {
       gitOrigin: gitOrigin?.gitOrigin || null,
       gitName: gitName?.gitName || null,
       gitDescription: gitDescription?.gitDescription || null,
-      octane: octane.octane,
+      // octane: octane.octane,
     };
     initProject(prompts);
   }

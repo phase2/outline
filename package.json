@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline",
-  "version": "0.0.1",
-  "developmentVersion": "0.0.1",
+  "version": "0.1.1",
+  "developmentVersion": "0.1.1",
   "description": "Outline Component Design - Web Component Library by Phase2",
   "main": "dist/outline.js",
   "module": "dist/outline.js",
@@ -9,11 +9,12 @@
   "es2017": "dist/outline.js",
   "unpkg": "dist/outline.js",
   "private": true,
+  "storybook_port": 6042,
   "workspaces": [
-    "packages/*"
+    "./packages/*"
   ],
   "files": [
-    "packages/*/dist"
+    "./packages/*/dist"
   ],
   "author": {
     "name": "Phase2 Technology",
@@ -21,13 +22,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/phase2/outline.git"
+    "url": "git+https://github.com/phase2/outline.git"
   },
   "license": "BSD-3-Clause",
-  "sbport": 6042,
   "scripts": {
     "prep": "npm-run-all -s prep:*",
     "prep:css": "node scripts/styles.js",
+    "prestart": "yarn prep",
+    "start": "yarn storybook dev -p ${npm_package_storybook_port}",
     "prebuild": "yarn prep",
     "build": "turbo run build",
     "test": "turbo run test",
@@ -43,10 +45,21 @@
     "clean:dist": "rimraf dist && rimraf packages/**/dist",
     "clean:turbo": "rimraf packages/**/.turbo",
     "clean:storybook": "rimraf storybook-static",
-    "clean:css": "rimraf packages/**/*.lit.ts",
-    "clean:modules": "rimraf node_modules",
-    "reset": "yarn clean && yarn install",
-    "reboot": "yarn clean && yarn install && yarn build"
+    "clean:css": "rimraf packages/**/*.lit.*",
+    "clean:maps": "rimraf packages/**/*.map",
+    "clean:types": "rimraf packages/**/*.d.ts",
+    "reset": "yarn clean && npm-run-all -s reset:*",
+    "reset:packages": "rimraf packages/**/node_modules",
+    "reset:root": "rimraf ./node_modules",
+    "reset:install": "yarn install",
+    "restart": "yarn reset && yarn start",
+    "rebuild": "yarn reset && yarn build",
+    "storybook": "storybook",
+    "storybook:build": "storybook build",
+    "generate": "npm-run-all -s generate:*",
+    "generate:md": "lit-analyzer packages/**/*.ts --format markdown",
+    "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
+    "chromatic": "chromatic --build-script-name storybook:build --exit-zero-on-changes --skip '@(renovate/**|dependabot/**)'"
   },
   "keywords": [
     "web-components",
@@ -55,42 +68,69 @@
   ],
   "packageManager": "yarn@1.22.19",
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "devDependencies": {
+    "@babel/core": "^7.18.13",
     "@changesets/cli": "^2.24.3",
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
     "@open-wc/testing": "^3.0.0-next.2",
+    "@storybook/addon-actions": "^7.0.0-alpha.49",
+    "@storybook/addon-essentials": "^7.0.0-alpha.49",
+    "@storybook/addon-links": "^7.0.0-alpha.49",
+    "@storybook/addon-postcss": "^3.0.0-alpha.1",
+    "@storybook/builder-vite": "^7.0.0-alpha.49",
+    "@storybook/mdx2-csf": "^0.1.0-next.5",
+    "@storybook/web-components": "^7.0.0-alpha.49",
+    "@storybook/web-components-vite": "^7.0.0-alpha.49",
     "@types/estree": "^0.0.47",
-    "@typescript-eslint/eslint-plugin": "^4.0.0",
-    "@typescript-eslint/parser": "^4.0.0",
-    "@web/dev-server": "0.0.29",
-    "@web/dev-server-legacy": "^0.1.4",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "@web/test-runner": "^0.13.15",
     "@web/test-runner-browserstack": "^0.4.2",
     "@web/test-runner-playwright": "^0.8.6",
     "autoprefixer": "10.4.0",
+    "chromatic": "^6.11.3",
+    "esbuild": "^0.15.7",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-react": "^7.23.0",
+    "eslint-plugin-storybook": "^0.6.7",
+    "gaze": "^1.1.3",
     "husky": "^4.3.8",
     "jest": "^26.6.3",
     "jest-cli": "^26.6.3",
     "lint-staged": "^10.5.4",
+    "lit-analyzer": "^1.2.1",
+    "lit-html": "^2.3.1",
     "npm-run-all": "^4.1.5",
     "postcss": "8.4.8",
     "postcss-custom-properties": "12.1.8",
     "postcss-discard-comments": "5.1.0",
     "postcss-import": "14.0.2",
+    "postcss-loader": "^7.0.1",
+    "postcss-preset-env": "^7.8.1",
     "prettier": "^2.0.4",
     "prettier-plugin-tailwindcss": "^0.1.7",
     "rimraf": "^3.0.2",
     "rsync": "^0.6.1",
+    "storybook": "^7.0.0-alpha.49",
     "svgo": "^2.8.0",
     "tailwindcss": "3.0.0",
     "ts-lit-plugin": "^1.2.1",
     "turbo": "^1.2.16"
-  }
+  },
+  "dependencies": {
+    "mdx-embed": "^1.1.2",
+    "react-syntax-highlighter": "^15.5.0",
+    "storybook-addon-mdx-embed": "^1.1.1"
+  },
+  "bugs": {
+    "url": "https://github.com/phase2/outline/issues"
+  },
+  "readme": "ERROR: No README data found!",
+  "homepage": "https://github.com/phase2/outline#readme",
+  "_id": "@phase2/outline@0.1.1"
 }

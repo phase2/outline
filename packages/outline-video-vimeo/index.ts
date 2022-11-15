@@ -1,6 +1,2 @@
-export {
-  OutlineVideoVimeo,
-  OutlineVideoVimeoInterface,
-} from './src/outline-video-vimeo';
-
-export { default, VimeoVideo } from './src/outline-video-vimeo.stories';
+export { OutlineVideoVimeo } from './src/outline-video-vimeo';
+export type { OutlineVideoVimeoInterface } from './src/outline-video-vimeo';

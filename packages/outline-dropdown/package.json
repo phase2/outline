@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-dropdown",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The Outline Components for the dropdown web component",
   "keywords": [
     "outline",
@@ -8,9 +8,9 @@
     "design system",
     "dropdown"
   ],
-  "main": "dist/index",
-  "types": "dist/index",
-  "typings": "dist/index.d.ts",
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
   "files": [
     "/dist/",
     "!/dist/tsconfig.build.tsbuildinfo"
@@ -23,21 +23,20 @@
   },
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../scripts/build.js",
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-button": "^0.0.1",
-    "@phase2/outline-core": "^0.0.1",
-    "@phase2/outline-icon": "^0.0.1",
-    "@phase2/outline-link": "^0.0.1",
-    "lit": "^2.0.2",
+    "@phase2/outline-button": "^0.1.0",
+    "@phase2/outline-core": "^0.1.0",
+    "@phase2/outline-icon": "^0.1.0",
+    "@phase2/outline-link": "^0.1.0",
+    "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./index.ts"
   }
 }

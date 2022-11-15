@@ -1,0 +1,38 @@
+{
+  "name": "@phase2/outline-config",
+  "version": "0.0.9",
+  "description": "Primary Outline configuration files.",
+  "keywords": [
+    "outline",
+    "web-components",
+    "design system"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "*",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-config"
+  },
+  "scripts": {
+    "package": "yarn publish"
+  },
+  "dependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    "./outline.config": "./outline.config.js",
+    "./commitlint.config": "./commitlint.config.js",
+    "./postcss.config": "./postcss.config.js",
+    "./svgo.config": "./svgo.config.js",
+    "./tailwind.config": "./tailwind.config.js"
+  }
+}

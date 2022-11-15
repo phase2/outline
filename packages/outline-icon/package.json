@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-icon",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "The Outline Components for the icon component",
   "keywords": [
     "outline",
@@ -8,9 +8,9 @@
     "design system",
     "icon"
   ],
-  "main": "dist/index",
-  "types": "dist/index",
-  "typings": "dist/index.d.ts",
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
   "files": [
     "/dist/",
     "!/dist/tsconfig.build.tsbuildinfo"
@@ -27,15 +27,15 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.0.1",
-    "@phase2/outline-include": "^0.0.1",
-    "lit": "^2.0.2",
+    "@phase2/outline-core": "^0.1.0",
+    "@phase2/outline-include": "^0.1.0",
+    "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./dist/index.js"
+    ".": "./index.ts"
   }
 }

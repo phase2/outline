@@ -1,15 +1,7 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "baseUrl": "./packages",
-    "paths": {
-      "@phase2/*": ["*"]
-    },
     "lib": ["es2017", "dom", "dom.iterable"],
-    "composite": true,
-    "declaration": true,
-    "declarationMap": true,
-    "inlineSources": true,
     "strict": true,
     "allowUnreachableCode": false,
     "noUnusedLocals": true,

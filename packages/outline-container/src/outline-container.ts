@@ -1,71 +1,108 @@
-import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { CSSResultGroup, TemplateResult, html, css } from 'lit';
+import { OutlineElement } from '@phase2/outline-core';
 import { customElement, property } from 'lit/decorators.js';
-import componentVars from './css-variables/vars-container.css.lit';
+import { classMap } from 'lit/directives/class-map.js';
 import componentStyles from './outline-container.css.lit';
 
-// Our base component, which all others extend.
-import { OutlineElement } from '@phase2/outline-core';
-import type { HorizontalAlignment } from '@phase2/outline-core';
+type containerWidths = 'wide' | 'medium' | 'narrow' | 'full';
 
 /**
- * The Outline  Link component
- * @element outline-link
+ * The `outline-container` Web Component.
+ *
+ * @element outline-container
+ *
+ * @since 0.0.1
  * @extends OutlineElement
- * @slot - The default slot for this element.
- * @cssprop --outline-container-padding-x: The horizontal padding for the container.
- * @cssprop --outline-container-padding-y: The vertical padding for the container.
- * @todo: Cleanup default responsive CSS styling and Tailwind CSS usage.
- * @todo: Implement a method for 'simplified' media queries.
+ *
+ * @attr container-width - Sets the width of the container. Options are wide, medium, narrow, and full.
+ * @attr top-margin - Sets the top margin of the container. Options are none, small, medium, and large.
+ * @attr bottom-margin - Sets the bottom margin of the container. Options are none, small, medium, and large.
+ * @attr justify-end - Sets the container to justify content to the end.
+ * @attr component-spacing - Sets the spacing between components.
+ * @prop {string} topMargin - Sets the top margin of the container.
+ * @prop {string} bottomMargin - Sets the bottom margin of the container.
+ * @prop {boolean} justifyEnd - Sets the container to justify content to the end.
+ * @prop {string} containerWidth - Sets the width of the container.
+ * @prop {string} componentSpacing - Sets the spacing between components.
+ *
+ * @slot - Default Slot.
  */
 @customElement('outline-container')
 export class OutlineContainer extends OutlineElement {
-  static styles: CSSResultGroup = [componentVars, componentStyles];
-
+  static styles: CSSResultGroup = [
+    css`
+      :host {
+        --component-spacing: var(--spacing-6);
+      }
+    `,
+    componentStyles,
+  ];
   /**
-   * Whether or not this container has padding.
-   */
-  @property({
-    type: Boolean,
-    reflect: true,
-    attribute: 'x-padding',
-  })
-  xPadding = false;
-
-  /**
-   * Whether or not this container has padding.
-   */
-  @property({
-    type: Boolean,
-    reflect: true,
-    attribute: 'y-padding',
-  })
-  yPadding = false;
-
-  /**
-   * Whether or not this is a full bleed container.
-   */
-  @property({
-    type: Boolean,
-    reflect: true,
-    attribute: 'full-bleed',
-  })
-  fullBleed = false;
-
-  /**
-   * The horizontal position of the container.
-   */
+   * The vertical space from the component above it (using Utopia fluid space variables defined in outline.theme.css, ie. space-3xl)
+   **/
   @property({
     type: String,
     reflect: true,
-    attribute: 'container-align',
+    attribute: 'top-margin',
   })
-  containerAlign: HorizontalAlignment = 'center';
+  topMargin: string;
 
-  /**
-   * Return the container element.
-   */
+  @property({
+    type: String,
+    reflect: true,
+    attribute: 'bottom-margin',
+  })
+  bottomMargin: string;
+
+  @property({
+    type: String,
+    reflect: true,
+    attribute: 'child-spacing',
+  })
+  childSpacing: string;
+
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'justify-end',
+  })
+  justifyEnd = false;
+
+  @property({
+    type: Boolean,
+    reflect: true,
+    attribute: 'justify-start',
+  })
+  justifyStart = false;
+
+  @property({
+    type: String,
+    reflect: true,
+    attribute: 'container-width',
+  })
+  containerWidth: containerWidths = 'wide';
+
   render(): TemplateResult {
-    return html`<slot></slot>`;
+    const containerWidth = this.containerWidth;
+    const classes = {
+      'container': true,
+      [containerWidth]: true,
+      'justify-end': this.justifyEnd,
+      'justify-start': this.justifyStart,
+    };
+    return html`
+      ${this.topMargin || this.bottomMargin
+        ? html` <style>
+            .container {
+              margin-top: var(--${this.topMargin});
+              margin-bottom: var(--${this.bottomMargin});
+            }
+          </style>`
+        : ''}
+      <div class=${classMap(classes)}>
+        <slot></slot>
+      </div>
+    `;
   }
 }
 

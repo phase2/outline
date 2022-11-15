@@ -10,7 +10,6 @@ import {
   getOffset,
   scrollIntoView,
 } from '@phase2/outline-core';
-import '@phase2/outline-container';
 
 import { OutlineTab } from '../outline-tab/outline-tab';
 import { OutlineTabPanel } from '../outline-tab-panel/outline-tab-panel';
@@ -390,42 +389,35 @@ export class OutlineTabGroup extends OutlineElement {
   }
 
   render() {
-    return html`${
-      this.mobileController.isMobile
-        ? html`<slot name="accordion-wrapper"></slot> `
-        : html`<outline-container
-            ><div
-              part="base"
-              class=${classMap({
-                'tab-group': true,
-                'tab-group--top': this.placement === 'top',
-                'tab-group--bottom': this.placement === 'bottom',
-                'tab-group--start': this.placement === 'start',
-                'tab-group--end': this.placement === 'end',
-              })}
-              @click=${this.handleClick}
-              @keydown=${this.handleKeyDown}
-            >
-              <div class="tab-group__nav-container">
-                <div part="nav" class="tab-group__nav">
-                  <div part="tabs" class="tab-group__tabs" role="tablist">
-                    <div
-                      part="active-tab-indicator"
-                      class="tab-group__indicator"
-                    ></div>
-                    <slot
-                      name="nav"
-                      @slotchange=${this.syncTabsAndPanels}
-                    ></slot>
-                  </div>
-                </div>
+    return html`${this.mobileController.isMobile
+      ? html`<slot name="accordion-wrapper"></slot> `
+      : html`<div
+          part="base"
+          class=${classMap({
+            'tab-group': true,
+            'tab-group--top': this.placement === 'top',
+            'tab-group--bottom': this.placement === 'bottom',
+            'tab-group--start': this.placement === 'start',
+            'tab-group--end': this.placement === 'end',
+          })}
+          @click=${this.handleClick}
+          @keydown=${this.handleKeyDown}
+        >
+          <div class="tab-group__nav-container">
+            <div part="nav" class="tab-group__nav">
+              <div part="tabs" class="tab-group__tabs" role="tablist">
+                <div
+                  part="active-tab-indicator"
+                  class="tab-group__indicator"
+                ></div>
+                <slot name="nav" @slotchange=${this.syncTabsAndPanels}></slot>
               </div>
-              <div part="body" class="tab-group__body">
-                <slot @slotchange=${this.syncTabsAndPanels}></slot>
-              </div></div
-          ></outline-container>`
-    }
-    </outline-container>`;
+            </div>
+          </div>
+          <div part="body" class="tab-group__body">
+            <slot @slotchange=${this.syncTabsAndPanels}></slot>
+          </div>
+        </div>`} `;
   }
 }
 

@@ -1,0 +1,116 @@
+import { html } from 'lit';
+import { Meta, Story } from '@storybook/addon-docs';
+import '@phase2/outline-code-block';
+
+<Meta
+  title="Utilities/Code Block"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Outline Code Block
+Syntax Highlighting powered by [PrismJS](https://prismjs.com/])
+
+
+<Story name="HTML Block">
+  {() => {
+    return html`
+    <div class='w-1/2'>
+      <outline-code-block language="html">
+        <div>
+          <p>Hello World</p>
+          <p>Hello World</p>
+          <p>Hello World</p>
+        </div>
+      </outline-code-block>
+    </div>
+    `;
+  }}
+</Story>
+
+<br />
+
+<Story name="TypeScript Block">
+  {() => {
+    return html`
+      <div class='w-1/2'>
+      <outline-code-block language="typescript">
+          const helloWorld = 'Hi'
+          
+          const function = () => {
+            console.log(helloWorld) // prints 'Hi'
+          }
+      </outline-code-block>
+      </div>
+    `;
+  }}
+</Story>
+
+<br />
+
+<Story name="CSS Block">
+  {() => {
+    return html`
+      <div class='w-1/2'>
+      <outline-code-block language="css">
+        .btn {
+          background-color: green;
+          padding: 10px;
+        }
+      </outline-code-block>
+      </div>
+    `;
+  }}
+</Story>
+
+<br />
+
+## Supported Languages
+
+- CSS
+- GraphQL
+- HTML
+- JavaScript
+- JSON
+- Markdown
+- SVG
+- TypeScript
+- XML
+
+<hr />
+
+## How to use
+
+Wrap your code/mark-up in the `outline-code-block` component and pass in the desired language to the `lang` attribute
+
+<Story name="How to Use">
+  {() => {
+    return html`
+      <outline-code-block language="html">
+      <outline-code-block language="css">
+        .btn {
+          background-color: green;
+          padding: 10px;
+        }
+      </outline-code-block>
+      </outline-code-block>
+      </div>
+    `;
+  }}
+</Story>
+
+### Known Issues
+
+- MDX Story fails to render when there are empty lines in the template. This issue is seen when trying add spaces between blocks of code<br/>
+This can sometimes be worked around by deleting the empty line and adding it again with several tabs (Looking for way to repeat this consistantly)<br/>
+For blocks that are not markdown a workaround is to use any html tag as they do not get parsed in the block, `<br/>` is the tag used in the examples.<br/>
+(TODO: Find workaround for markdown blocks)
+
+- Code Blocks using TypeScript or Javascript will not render any html elements inside of the code, this is due to how PrismJS is used to parse the innerhtml of the component. This issue is seen when trying to render a template in a component snippet<br/>
+(TODO: Find solution for rendering html templates in JS or TS)

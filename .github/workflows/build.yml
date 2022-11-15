@@ -7,6 +7,7 @@ on:
   # Which branches to test on push/merge.
   push:
     branches:
+      - release
       - main
       - next
       - dev
@@ -16,6 +17,7 @@ on:
   # Which branches to test on pull request.
   pull_request:
     branches:
+      - release
       - main
       - next
       - dev
@@ -32,11 +34,11 @@ on:
 jobs:
   # Basic setup job to prepare codebase.
   setup:
-    name: Installation & Caching
+    name: Install Codebase
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 16, 18 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -61,6 +63,7 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
+            storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
@@ -75,10 +78,13 @@ jobs:
       - name: Install
         run: yarn install
         env: 
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
-      - name: Build
+      - name: Build Outline
         run: yarn build
+
+      - name: Build Storybook
+        run: yarn storybook:build
         
   # Job to run build, and basic assurances the codebase is ready for additional processing.
   build:
@@ -87,7 +93,7 @@ jobs:
     needs: ['setup']
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 16, 18 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -109,6 +115,7 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
+            storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
@@ -123,6 +130,9 @@ jobs:
       - name: Build from cache
         run: yarn build
 
+      - name: Build Storybook
+        run: yarn storybook:build
+
   # Job to run package publishing process.
   test:
     name: Test Codebase
@@ -130,7 +140,7 @@ jobs:
     needs: ['setup']
     strategy:
       matrix:
-        node: [ 14, 16, 18 ]
+        node: [ 16, 18 ]
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -152,6 +162,7 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
+            storybook-static
           key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node }}-yarn-
@@ -159,7 +170,7 @@ jobs:
       - name: Install from cache
         run: yarn install
 
-      - name: Build from cache
+      - name: Build Outline
         run: yarn build
 
       - name: Run eslint
@@ -168,10 +179,63 @@ jobs:
       - name: Run prettier
         run: yarn lint:prettier
 
+      - name: Build Storybook
+        run: yarn storybook:build
+
+  # Basic setup job to prepare codebase.
+  deploy-github-pages:
+    name: "Publish: GitHub Pages"
+    if: github.ref == 'refs/heads/next'
+    runs-on: ubuntu-latest
+    needs: ['setup', 'build', 'test']
+
+    # The steps for the setup job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install
+        run: yarn install
+
+      - name: Build Outline
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn storybook:build
+
+      - name: Check GitHub Pages status
+        uses: crazy-max/ghaction-github-status@v3
+        with:
+          pages_threshold: major_outage
+
+      - name: Deploy to GitHub Pages
+        if: success()
+        uses: crazy-max/ghaction-github-pages@v2
+        with:
+          target_branch: gh-pages
+          build_dir: storybook-static
+          commit_message: 'chore(deploy): Storybook'
+          keep_history: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
+
+      # @see https://github.com/marketplace/actions/upload-a-build-artifact
+      - name: Upload Storybook artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: storybook-latest
+          path: storybook-static/
+          retention-days: 1
+  
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
-  publish:
-    name: Publish NPM Packages
+  deploy-github-packages:
+    name: "Publish: GitHub Packages"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/release'
     needs: ['setup', 'build', 'test']
@@ -200,6 +264,7 @@ jobs:
           path: |
             ${{ steps.yarn-cache-dir-path.outputs.dir }}
             node_modules
+            storybook-static
           key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-node-16-yarn-
@@ -207,11 +272,104 @@ jobs:
       - name: Install from cache
         run: yarn install
 
-      - name: Build from cache
+      - name: Build Outline
         run: yarn build
 
-      # - name: Publish
-      #   run: yarn package -v
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Manage Changesets
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        # You can do something when a publish should happen.
+        run: yarn changeset publish
             
+  # Job to run package publishing process.
+  # This should ONLY be ran on on branches where 
+  deploy-npm-packages:
+    name: "Publish: NPM Packages"
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/next'
+    needs: ['setup', 'build', 'test']
+
+    # The steps for the build job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          registry-url: 'https://registry.npmjs.org/'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@phase2'
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # @see https://github.com/marketplace/actions/cache
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            ${{ steps.yarn-cache-dir-path.outputs.dir }}
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-16-yarn-
+
+      - name: Install from cache
+        run: yarn install
+
+      - name: Build Outline
+        run: yarn build
+
+      - name: Manage Changesets
+        id: changesets
+        uses: changesets/action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.NPM_NPM_PACKAGES }}
+
+      - name: Publish
+        if: steps.changesets.outputs.hasChangesets == 'false'
+        # You can do something when a publish should happen.
+        run: yarn changeset publish  
+  
+  chromatic-deployment:
+    name: "Publish: Chromatic"
+    runs-on: ubuntu-latest
+    needs: ['setup', 'build', 'test']
+
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout codebase
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+
+      - name: Install
+        run: yarn install
+
+      - name: Build Outline
+        run: yarn build
+
+      - name: Build Storybook
+        run: yarn storybook:build
+
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Required options for the Chromatic GitHub Action
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: storybook:build
+          autoAcceptChanges: true # 👈 Option to accept all changes

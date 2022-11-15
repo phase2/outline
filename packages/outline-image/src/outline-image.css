@@ -50,3 +50,6 @@ img {
 :host([image-ratio='21/9']) picture {
   aspect-ratio: 21 / 9;
 }
+:host([image-ratio='42/9']) picture {
+  aspect-ratio: 42 / 9;
+}

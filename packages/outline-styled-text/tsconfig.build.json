@@ -4,6 +4,5 @@
     "rootDir": ".",
     "outDir": "./dist"
   },
-  "include": ["index.ts", "src/**/*", "tests/**/*"],
-  "references": [{ "path": "../outline-core/tsconfig.build.json" }]
+  "include": ["index.ts", "src/**/*", "tests/**/*"]
 }
