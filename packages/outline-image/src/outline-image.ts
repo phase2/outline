@@ -14,6 +14,7 @@ export const aspectRatios = [
   '16/9',
   '9/16',
   '21/9',
+  '42/9',
 ] as const;
 export type AspectRatios = typeof aspectRatios[number];
 /**

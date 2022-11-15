@@ -2,6 +2,7 @@
 
 body {
   color: #000;
+  background: #fff;
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -43,11 +44,12 @@ body {
 }
 
 .sbdocs-wrapper {
-  padding: var(--spacing-0) !important;
+  padding: var(--spacing-6) !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 /* Used to control the max-width / maximum width of the primary wrapper 
  * in the Docs view in Storybook. 
  */
 .sbdocs .sbdocs-content {
-  max-width: 2180px;
+  max-width: 1600px;
 }
