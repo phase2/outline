@@ -1,7 +1,6 @@
 .sr-only,
 .visually-hidden,
-::slotted(.visually-hidden),
-[aria-hidden='true'] {
+::slotted(.visually-hidden) {
   position: absolute !important;
   overflow: hidden;
   clip: rect(1px, 1px, 1px, 1px);
