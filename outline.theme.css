@@ -1,50 +1,37 @@
 :root {
-  
   --fs-h1: 4rem;
   --fs-h1-medium: 3rem;
   --fs-h1-small: 2.5rem;
-  
   --lh-h1: 3rem;
   --lh-h1-medium: 3.75rem;
   --lh-h1-small: 2rem;
-
   --fs-h2: 2.75rem;
   --fs-h2-medium: 2.5rem;
   --fs-h2-small: 2rem;
-  
   --lh-h2: 3.5rem;
   --lh-h2-medium: 3rem;
   --lh-h2-small: 2.5rem;
-  
-
   --fs-h3: 2rem;
   --fs-h3-medium: 1.75rem;
   --fs-h3-small: 1.5rem;
-  
   --lh-h3: 2.25rem;
   --lh-h3-medium: 2rem;
   --lh-h3-small: 1.75rem;
-  
   --fs-h4: 1.5rem;
   --fs-h4-medium: 1.5rem;
   --fs-h4-small: 1.375rem;
-  
   --lh-h4: 2rem;
   --lh-h4-medium: 1.75rem;
   --lh-h4-small: 1.75rem;
-  
   --fs-h5: 1.375rem;
   --fs-h5-medium: 1.25rem;
   --fs-h5-small: 1.125rem;
-  
   --lh-h5: 1.75rem;
   --lh-h5-medium: 1.5rem;
   --lh-h5-small: 1.375rem;
-  
   --fs-h6: 1.125rem;
   --fs-h6-medium: 1.125rem;
   --fs-h6-small: 1rem;
-  
   --lh-h6: 1.5rem;
   --lh-h6-medium: 1.375rem;
   --lh-h6-small: 1.25rem;
@@ -59,12 +46,10 @@
   --outline-ring-shadow: 0 0 rgba(0, 0, 0, 0);
   --outline-ring-offset-shadow: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-ring-offset-color);
   --outline-ring-shadow: var(--outline-ring-inset) 0 0 0 calc(var(--outline-ring-width) + var(--outline-ring-offset-width)) var(--outline-ring-color);
-
   --outline-shadow: 0 0 rgba(0, 0, 0, 0);
   --outline-shadow-colored: 0 0 rgba(0, 0, 0, 0);
 
   /*
   * Custom variables overriding default variables.
   */
-
 }
