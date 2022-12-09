@@ -23,6 +23,7 @@ module.exports = {
     //   ? [`../components/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
     //   : [`../components/**/*.stories.@(js|ts|mdx)`]),
   ],
+
   typescript: {
     check: false,
     checkOptions: {},
@@ -50,15 +51,19 @@ module.exports = {
     //   },
     // },
   ],
+
   features: {
     storyStoreV7: true,
     postcss: false,
     buildStoriesJson: true,
     modernInlineRender: true,
-    previewMdx2: true,
+    previewMdx2: false,
   },
   framework: {
     name: '@storybook/web-components-vite',
     options: {},
+  },
+  docsPage: {
+    docs: 'automatic',
   },
 };
