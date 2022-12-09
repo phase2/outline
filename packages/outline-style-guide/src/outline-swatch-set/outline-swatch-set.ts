@@ -4,7 +4,7 @@ import { OutlineElement } from '@phase2/outline-core';
 
 import componentStyles from './outline-swatch-set.css.lit';
 //@todo: Refactor the color pallette to be more dynamic and not tied to Tailwind.
-import tailwindThemeConfig from '../../../resolved-tailwind-config';
+// import tailwindThemeConfig from '../../../resolved-tailwind-config';
 import '@phase2/outline-style-guide';
 import '@phase2/outline-grid';
 

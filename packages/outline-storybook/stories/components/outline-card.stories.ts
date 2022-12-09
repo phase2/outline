@@ -29,6 +29,8 @@ const argTypeColors = {
 export default {
   title: 'Content/Card',
   component: 'outline-card',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     bgColorHeader: {
       ...argTypeColors,

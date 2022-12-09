@@ -8,6 +8,8 @@ import '@phase2/outline-modal';
 export default {
   title: 'Content/Modal',
   component: 'outline-modal',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     triggerSlot: {
       name: 'slot="outline-modal--trigger"',

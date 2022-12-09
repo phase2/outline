@@ -11,6 +11,8 @@ const triggerSizes: ButtonSize[] = ['small', 'medium', 'large'];
 const configuration = {
   title: 'Navigation/Dropdown',
   component: 'outline-dropdown',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     isDisabled: {
       name: 'is-disabled',

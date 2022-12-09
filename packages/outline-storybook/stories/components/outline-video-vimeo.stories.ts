@@ -6,6 +6,8 @@ import '@phase2/outline-video-vimeo';
 const configuration = {
   title: 'Media/Vimeo Video',
   component: 'outline-video-vimeo',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     videoID: {
       name: 'video-id',

@@ -7,6 +7,8 @@ import '@phase2/outline-button-group';
 export default {
   title: 'Navigation/Button Group',
   component: 'outline-button-group',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     orientation: {
       table: { category: 'Properties', defaultValue: { summary: 'row' } },

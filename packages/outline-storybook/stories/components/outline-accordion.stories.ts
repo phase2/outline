@@ -8,6 +8,8 @@ import '@phase2/outline-heading'
 export default {
   title: 'Content/Accordion/Accordion',
   component: 'outline-accordion',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     label: {
       control: {

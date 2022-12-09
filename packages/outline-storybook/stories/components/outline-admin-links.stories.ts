@@ -6,6 +6,8 @@ import '@phase2/outline-admin-links';
 export default {
   title: 'Navigation/Administrative Links',
   component: 'outline-admin-links',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {},
   args: {},
   parameters: {

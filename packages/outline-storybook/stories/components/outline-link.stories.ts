@@ -10,6 +10,8 @@ const sampleImage = 'https://picsum.photos/1440';
 export default {
   title: 'Navigation/Link',
   component: 'outline-link',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     linkHref: {
       ...argTypeHref,

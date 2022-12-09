@@ -11,6 +11,8 @@ import '@phase2/outline-heading';
 export default {
   title: 'Navigation/List',
   component: 'outline-list',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   parameters: {
     docs: {
       source: {

@@ -5,6 +5,8 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 export default {
   title: 'Content/Accordion/Single Panel',
   component: 'outline-accordion-panel',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     clean: {
       control: {

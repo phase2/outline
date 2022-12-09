@@ -49,6 +49,8 @@ const tabData: TabData[] = [
 export default {
   title: 'Navigation/Tabs',
   component: 'outline-tab-group',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   parameters: {
     viewMode: 'docs',
   },

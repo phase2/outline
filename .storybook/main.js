@@ -10,29 +10,17 @@ module.exports = {
   //   builder: 'webpack5',
   // },
   // staticDirs: ['../static', '../assets'],
-  stories: [
-    // Explicitly order the main documentation.
-    //'../packages/outline-storybook/stories/guides/welcome.stories.mdx',
-    //'../packages/outline-storybook/stories/guides/development/component-development/01-main.stories.mdx',
-    '../packages/outline-storybook/stories/!(guides|tokens|demonstration|examples)**/*.stories.@(js|jsx|ts|tsx|mdx)', // '../packages/outline-storybook/**/*.stories.@(js|jsx|ts|tsx|mdx)',
-    // '../packages/**/src/*.stories.@(js|jsx|ts|tsx|mdx)',
-    // External Stories added to outlineConfig.
-    // ...includedStories,
-    // All other components in src directory except those excluded on outlineConfig.
-    // ...(excludedStories.length
-    //   ? [`../components/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
-    //   : [`../components/**/*.stories.@(js|ts|mdx)`]),
-  ],
+  stories: ['../packages/outline-storybook/stories/**/*.stories.@(js|ts)'],
 
   typescript: {
     check: false,
     checkOptions: {},
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: prop =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
-    },
+    // reactDocgen: 'react-docgen-typescript',
+    // reactDocgenTypescriptOptions: {
+    //   shouldExtractLiteralValuesFromEnum: true,
+    //   propFilter: prop =>
+    //     prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
+    // },
   },
   addons: [
     {
@@ -64,6 +52,6 @@ module.exports = {
     options: {},
   },
   docsPage: {
-    docs: 'automatic',
+    docsPage: 'automatic',
   },
 };

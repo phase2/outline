@@ -19,6 +19,8 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 export default {
   title: 'Media/Image',
   component: 'outline-image',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   parameters: {
     layout: 'fullscreen',
     docs: {

@@ -8,6 +8,8 @@ import '@phase2/outline-alert';
 export default {
   title: 'Content/Alert',
   component: 'outline-alert',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     headerSlot: {
       name: 'slot="outline-alert--header"',

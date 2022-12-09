@@ -6,6 +6,8 @@ import '@phase2/outline-video-youtube';
 const configuration = {
   title: 'Media/Youtube Video',
   component: 'outline-video-youtube',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     videoID: {
       name: 'video-id',

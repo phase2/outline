@@ -23,6 +23,8 @@ const icons = {
 const configuration = {
   title: 'Media/Outline Icon',
   component: 'outline-icon',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   parameters: {
     docs: {
       description: {

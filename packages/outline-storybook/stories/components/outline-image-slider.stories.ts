@@ -8,6 +8,8 @@ import '@phase2/outline-image-slider';
 export default {
   title: 'Media/Image Slider',
   component: 'outline-image-slider',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {},
   args: {},
 };
