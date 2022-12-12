@@ -9,10 +9,17 @@ function getExcluded() {
 module.exports = {
   features: {
     storyStoreV7: true,
+    postcss: false,
+    buildStoriesJson: true,
+    modernInlineRender: true,
+    previewMdx2: true,
   },
   framework: {
     name: '@storybook/web-components-vite',
     options: {},
+  },
+  docs: {
+    docsPage: 'automatic',
   },
   staticDirs: ['../assets'],
   stories: [
