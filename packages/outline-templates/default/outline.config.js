@@ -40,7 +40,7 @@ module.exports = {
     output: {
       // @see src/outline-lazy.ts
       // @status experimental
-      lazy: true,
+      lazy: false,
       // Export full library to `outline.js`.
       // @status stable
       full: true,

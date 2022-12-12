@@ -53,7 +53,6 @@ const defaultOutput = {
   },
   output: [
     {
-      // file: `${outline.destBasePath}/outline.js`,
       file: `${outline.destBasePath}/outline.js`,
       format: 'esm',
     },
