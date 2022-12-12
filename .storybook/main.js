@@ -10,8 +10,7 @@ module.exports = {
   //   builder: 'webpack5',
   // },
   // staticDirs: ['../static', '../assets'],
-  stories: ['../packages/outline-storybook/stories/**/*.stories.@(js|ts)'],
-
+  stories: ['../packages/outline-storybook/stories/**/*.stories.@(js|ts|mdx)'],
   typescript: {
     check: false,
     checkOptions: {},
@@ -22,6 +21,7 @@ module.exports = {
     //     prop.parent ? !/node_modules/.test(prop.parent.fileName) : true,
     // },
   },
+
   addons: [
     {
       name: '@storybook/addon-essentials',
@@ -45,13 +45,13 @@ module.exports = {
     postcss: false,
     buildStoriesJson: true,
     modernInlineRender: true,
-    previewMdx2: false,
+    previewMdx2: true,
   },
   framework: {
     name: '@storybook/web-components-vite',
     options: {},
   },
-  docsPage: {
+  docs: {
     docsPage: 'automatic',
   },
 };
