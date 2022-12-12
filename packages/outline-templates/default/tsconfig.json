@@ -32,15 +32,16 @@
         "name": "ts-lit-plugin",
         "strict": true
       }
-    ]
+    ],
   },
   "include": [
+    "./src/*.ts",
     "./src/components/**/*.ts",
-    "./src/components/**/*/*.test.ts",
-    "./src/imports.d.ts"
+    "./src/components/**/*/*.test.ts"
   ],
   "exclude": [
     "./src/components/**/*.stories.ts",
-    "./src/components/**/*.lit.ts"
+    "./src/components/**/*.lit.ts",
+    "node_modules"
   ]
 }
