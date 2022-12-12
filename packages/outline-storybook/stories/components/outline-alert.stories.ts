@@ -4,7 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '@phase2/outline-core';
 import { alertSizes, alertStatusTypes } from '@phase2/outline-alert';
 import '@phase2/outline-alert';
-
+import '@phase2/outline-link';
 export default {
   title: 'Content/Alert',
   component: 'outline-alert',
@@ -71,6 +71,7 @@ If the alert has an interaction, you should indicate this with \`isInteractive\`
 `,
       },
       source: {
+        state: 'open',
         // This code sample will be used for every example unless overridden.
         code: `
 <outline-alert

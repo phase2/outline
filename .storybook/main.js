@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ['../packages/outline-storybook/stories/**/*.stories.@(js|ts|mdx)'],
+  stories: ['../packages/outline-storybook/stories/**/*.stories.@(js|ts)'],
   typescript: {
     check: false,
     checkOptions: {},
@@ -8,11 +8,7 @@ module.exports = {
   addons: [
     {
       name: '@storybook/addon-essentials',
-      options: {
-        transcludeMarkdown: true, //👈 Set transcludeMarkdown to true
-      },
     },
-    'storybook-addon-mdx-embed',
   ],
 
   features: {
@@ -20,7 +16,6 @@ module.exports = {
     postcss: false,
     buildStoriesJson: true,
     modernInlineRender: true,
-    previewMdx2: true,
   },
   framework: {
     name: '@storybook/web-components-vite',
@@ -28,5 +23,6 @@ module.exports = {
   },
   docs: {
     docsPage: 'automatic',
+    defaultName: 'Full Documentation', // set to change the name of generated docs entries
   },
 };
