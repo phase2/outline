@@ -1,5 +1,5 @@
 import { ReactiveControllerHost, ReactiveController } from 'lit';
-import { defaultScreenSizes } from '../../index';
+import { defaultScreenSizes } from '@phase2/outline-core';
 
 /**
  * Screen size lookup, ordered small to large.

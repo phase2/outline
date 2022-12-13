@@ -1,5 +1,5 @@
 import { ReactiveControllerHost, ReactiveController } from 'lit';
-import { defaultScreenSizes } from '../../index';
+import { defaultScreenSizes } from '@phase2/outline-core';
 
 //TODO: add functionality to receive array of screen sizes to map to object in controller state
 export class MobileController implements ReactiveController {

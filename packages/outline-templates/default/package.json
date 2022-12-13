@@ -21,7 +21,7 @@
   "publishConfig": {
     "registry": "https://us-central1-npm.pkg.dev/phase2-devcloud/phase2-npm/"
   },
-  "sbport": 6042,
+  "sbport": 6099,
   "scripts": {
     "prestart": "yarn prep",
     "start": "yarn storybook:dev:watch",
@@ -33,7 +33,6 @@
     "prep:css": "node scripts/styles.js",
     "prep:tailwind": "node scripts/resolve-tailwind-config.js",
     "prep:safelist": "node scripts/generate-tw-safelist.js",
-    "prep:rimraf": "yarn rimraf ./node_modules/@types/react",
     "prebuild": "yarn prep",
     "build": "npm-run-all -s build:tsc build:rollup",
     "build:tsc": "yarn tsc",
@@ -137,7 +136,6 @@
     "@storybook/addon-links": "^7.0.0-beta.3",
     "@storybook/addon-postcss": "^3.0.0-alpha.1",
     "@storybook/builder-vite": "^7.0.0-beta.3",
-    "@storybook/mdx2-csf": "^0.1.0-next.8",
     "@storybook/web-components": "^7.0.0-beta.3",
     "@storybook/web-components-vite": "^7.0.0-beta.3",
     "@tailwindcss/aspect-ratio": "^0.4.0",
@@ -184,7 +182,6 @@
     "rsync": "^0.6.1",
     "sinon": "^13.0.2",
     "storybook": "^7.0.0-beta.3",
-    "storybook-addon-mdx-embed": "^1.1.1",
     "svgo": "^2.7",
     "tailwindcss": "^3.0.0",
     "ts-lit-plugin": "^1.2.1",
