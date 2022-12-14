@@ -210,6 +210,8 @@ export class OutlineJumpNav extends OutlineElement {
       anchor.id = `${jump[0]}-jump`;
       anchor.setAttribute('href', `#${jump[0]}`);
       anchor.setAttribute('aria-label', `scroll to ${jump[1]}`);
+
+      // insert your preferred string processing here
       anchor.innerText = jump[1].toUpperCase();
 
       li.appendChild(anchor);
@@ -224,6 +226,8 @@ export class OutlineJumpNav extends OutlineElement {
     Object.entries(this.jumps).forEach(jump => {
       const option = document.createElement('option');
       option.setAttribute('value', `${jump[0]}`);
+
+      // insert your preferred string processing here
       option.innerText = `${jump[1]}`.toUpperCase();
       this.select.appendChild(option);
     });
