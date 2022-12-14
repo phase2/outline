@@ -1,11 +1,6 @@
 import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '@phase2/outline-core';
-import {
-  customElement,
-  property,
-  state,
-  query,
-} from 'lit/decorators.js';
+import { customElement, property, state, query } from 'lit/decorators.js';
 import componentStyles from './outline-jump-nav.css.lit';
 
 export type OutlineJumpNavJumps = { [key: string]: string };
@@ -138,9 +133,7 @@ export class OutlineJumpNav extends OutlineElement {
    * { element id: link text }
    */
   initializeJumpsAndVisibility() {
-    const targetedElements = document.querySelectorAll(
-      `[id^="${this.slug}"]`
-    );
+    const targetedElements = document.querySelectorAll(`[id^="${this.slug}"]`);
     targetedElements?.forEach(element => {
       const name = element.id.split('--')[1];
       this.jumps[`${element.id}`] = name;
