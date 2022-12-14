@@ -2,9 +2,12 @@ import { CSSResultGroup, TemplateResult, html } from 'lit';
 import { OutlineElement } from '@phase2/outline-core';
 import { customElement, property, state, query } from 'lit/decorators.js';
 import componentStyles from './outline-jump-nav.css.lit';
+import { MobileController } from '@phase2/outline-core';
 
 export type OutlineJumpNavJumps = { [key: string]: string };
 export type OutlineJumpNavVisibility = { [key: string]: number };
+export const outlineJumpNavStatuses = ['loading', true, false] as const;
+export type OutlineJumpNavStatus = typeof outlineJumpNavStatuses[number];
 
 /**
  * The OutlineJumpNav component
@@ -13,6 +16,7 @@ export type OutlineJumpNavVisibility = { [key: string]: number };
 @customElement('outline-jump-nav')
 export class OutlineJumpNav extends OutlineElement {
   resizeObserver: ResizeObserver;
+  mobileController = new MobileController(this);
   static styles: CSSResultGroup = [componentStyles];
 
   /**
@@ -52,10 +56,22 @@ export class OutlineJumpNav extends OutlineElement {
   jumps: OutlineJumpNavJumps = {};
 
   /**
-   * Ref to the ul element
+   * Ref to the desktop ul element
    */
   @query('.outline-jump-nav--list')
   ul: HTMLElement;
+
+  /**
+   * Ref to the mobile select element
+   */
+  @query('.outline-jump-nav--select')
+  select: HTMLElement;
+
+  /**
+   * Indicates if the component is first loading or if a toggle between desktop/mobile is required.
+   */
+  @property({ type: String || Boolean })
+  status: OutlineJumpNavStatus = 'loading';
 
   /**
    * Current height of the jump-nav. Used to determine true viewable space.
@@ -85,16 +101,36 @@ export class OutlineJumpNav extends OutlineElement {
   render(): TemplateResult {
     return html`<section class="outline-jump-nav">
       <outline-container class="outline-jump-nav--container">
-        <nav class="outline-jump-nav--nav" aria-label="jump navigation">
-          <ul class="outline-jump-nav--list"></ul>
-        </nav>
+        ${this.mobileController.isMobile
+          ? this.mobileTemplate()
+          : this.desktopTemplate()}
       </outline-container>
     </section>`;
   }
+
+  desktopTemplate() {
+    return html`
+      <nav class="outline-jump-nav--nav" aria-label="jump navigation">
+        <ul class="outline-jump-nav--list"></ul>
+      </nav>
+    `;
+  }
+
+  mobileTemplate() {
+    return html`
+      <label class="outline-jump-nav--label" for="jump-nav">Scroll To</label>
+      <select
+        @change=${this.scrollHandler}
+        class="outline-jump-nav--select"
+        id="jump-nav"
+      ></select>
+    `;
+  }
+
   firstUpdated() {
     this.initializeJumpsAndVisibility();
     this.setOffsets();
-    this.generateLinks();
+    this.toggleLinks();
     this.setReduceMotion();
     this.determineViewStatus();
     this.resizeObserver.observe(this);
@@ -102,6 +138,7 @@ export class OutlineJumpNav extends OutlineElement {
 
   updated() {
     this.setOffsets();
+    this.toggleLinks();
   }
 
   connectedCallback(): void {
@@ -122,6 +159,9 @@ export class OutlineJumpNav extends OutlineElement {
     super.disconnectedCallback();
   }
 
+  /**
+   * If user has prefers reduced motion set, prevents scrolling behavior and jumps the page to the link.
+   */
   setReduceMotion() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       this.preventScroll = true;
@@ -178,13 +218,52 @@ export class OutlineJumpNav extends OutlineElement {
   }
 
   /**
-   * On click "scroll handler" to initiate scrolling when jump link is clicked.
+   * Generates mobile select options from this.jumps object.
+   */
+  generateMobileSelectOptions() {
+    Object.entries(this.jumps).forEach(jump => {
+      const option = document.createElement('option');
+      option.setAttribute('value', `${jump[0]}`);
+      option.innerText = `${jump[1]}`.toUpperCase();
+      this.select.appendChild(option);
+    });
+  }
+
+  /**
+   * Generates correct markup depending on screen width. Forces setActive to make sure all styles are toggled.
+   */
+  toggleLinks() {
+    if (this.mobileController.isMobile === this.status) {
+      return;
+    } else {
+      this.mobileController.isMobile
+        ? this.generateMobileSelectOptions()
+        : this.generateLinks();
+      this.status = this.mobileController.isMobile;
+    }
+    if (this.isActive) {
+      this.setActive(this.isActive, true);
+    }
+  }
+
+  /**
+   * On click/change "scroll handler" to initiate scrolling.
    */
   scrollHandler(e: Event) {
     e.preventDefault();
     const host = document.querySelector('outline-jump-nav') as OutlineJumpNav;
-    const target = e.target as HTMLAnchorElement;
-    const targetHref = target.getAttribute('href');
+    let target;
+    let targetHref;
+
+    if (host.mobileController.isMobile) {
+      target = e.target as HTMLOptionElement;
+      targetHref = `#${target.value}`;
+    }
+    if (!host.mobileController.isMobile) {
+      target = e.target as HTMLAnchorElement;
+      targetHref = target.getAttribute('href');
+    }
+
     const scrollTarget = document.querySelector(`${targetHref}`) as HTMLElement;
 
     if (scrollTarget) {
@@ -341,7 +420,7 @@ export class OutlineJumpNav extends OutlineElement {
   }
 
   /**
-   * Sorts through multiple elements that are the same percentage in view, and passes the if of the element highest on the page to setActive.
+   * Sorts through multiple elements that are the same percentage in view, and passes the id of the element highest on the page to setActive.
    */
   getTopPositions(ids: [string, number][]) {
     const topPositions: { [key: string]: number } = {};
@@ -365,9 +444,10 @@ export class OutlineJumpNav extends OutlineElement {
 
   /**
    * Takes an ID and if not already the active ID, sets it as this.isActive, then handles the passing of the active-jump class to the correct link.
+   * The force argument is used when the component switches between mobile and desktop to make sure the active class is applied.
    */
-  setActive(id: string) {
-    if (this.isActive !== id) {
+  setActive(id: string, force?: boolean) {
+    if (this.isActive !== id || force === true) {
       this.isActive = id;
       this.shadowRoot
         ?.querySelector(`.active-jump`)
@@ -375,6 +455,11 @@ export class OutlineJumpNav extends OutlineElement {
       this.shadowRoot
         ?.querySelector(`#${id}-jump`)
         ?.classList.add('active-jump');
+
+      if (this.mobileController.isMobile) {
+        const selector = this.select as HTMLSelectElement;
+        selector.value = id;
+      }
     }
   }
 }

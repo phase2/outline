@@ -73,9 +73,9 @@ const Template = ({ slug, nav, hero }: any): TemplateResult => html`
 `
 
 
-export const JumpNavNoJumps: any = Template.bind({});
-JumpNavNoJumps.args = {slug: 'outline-jump-nav--'}
-JumpNavNoJumps.parameters = {
+export const JumpNav: any = Template.bind({});
+JumpNav.args = {slug: 'outline-jump-nav--'}
+JumpNav.parameters = {
   layout: 'fullscreen'
 };
 

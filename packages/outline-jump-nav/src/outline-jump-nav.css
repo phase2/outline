@@ -19,6 +19,10 @@
 
 .outline-jump-nav--container {
   width: 100%;
+  padding: 0.5rem 0;
+  @media (min-width: 768px) {
+    padding: 0;
+  }
 }
 
 .outline-jump-nav--list {
@@ -56,4 +60,19 @@
   height: 4px;
   background-color: darkblue;
   bottom: 0;
+}
+
+.outline-jump-nav--select {
+  padding: 0.5rem 0.25rem;
+  margin: 0 auto;
+  background-color: lightskyblue;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 8px;
+}
+
+.outline-jump-nav--label {
+  margin: 0 auto;
+  width: fit-content;
 }
