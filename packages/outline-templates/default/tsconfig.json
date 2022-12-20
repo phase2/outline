@@ -32,7 +32,7 @@
         "name": "ts-lit-plugin",
         "strict": true
       }
-    ],
+    ]
   },
   "include": [
     "./src/*.ts",
