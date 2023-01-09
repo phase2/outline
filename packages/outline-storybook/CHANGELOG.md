@@ -1,5 +1,11 @@
 # @phase2/outline-storybook
 
+## 0.0.18
+
+### Patch Changes
+
+- 9ff315f: Updates to implement simplified outline-container.
+
 ## 0.0.15
 
 ### Patch Changes
