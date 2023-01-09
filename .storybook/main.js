@@ -4,13 +4,11 @@ module.exports = {
     check: false,
     checkOptions: {},
   },
-
   addons: [
     {
       name: '@storybook/addon-essentials',
     },
   ],
-
   features: {
     storyStoreV7: true,
     postcss: false,
@@ -22,7 +20,7 @@ module.exports = {
     options: {},
   },
   docs: {
-    docsPage: 'automatic',
+    autodocs: true,
     defaultName: 'Full Documentation', // set to change the name of generated docs entries
   },
 };
