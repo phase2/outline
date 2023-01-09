@@ -220,7 +220,7 @@ jobs:
           target_branch: gh-pages
           build_dir: storybook-static
           commit_message: 'chore(deploy): Storybook'
-          keep_history: false
+          keep_history: true
         env:
           GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
