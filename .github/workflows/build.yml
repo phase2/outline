@@ -220,7 +220,8 @@ jobs:
           target_branch: gh-pages
           build_dir: storybook-static
           commit_message: 'chore(deploy): Storybook'
-          keep_history: true
+          keep_history: false
+          fqdn: outline.phase2tech.com
         env:
           GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
@@ -289,7 +290,7 @@ jobs:
   deploy-npm-packages:
     name: "Publish: NPM Packages"
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/next'
+    if: github.ref == 'refs/heads/release'
     needs: ['setup', 'build', 'test']
 
     # The steps for the build job.
