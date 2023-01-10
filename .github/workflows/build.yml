@@ -227,7 +227,7 @@ jobs:
 
       # @see https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload Storybook artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: storybook-latest
           path: storybook-static/
