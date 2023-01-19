@@ -223,6 +223,7 @@ jobs:
           build_dir: storybook-static
           commit_message: 'chore(deploy): Storybook'
           keep_history: false
+          jekyll: false
           fqdn: outline.phase2tech.com
         env:
           GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
