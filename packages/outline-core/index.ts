@@ -3,6 +3,7 @@ export { OutlineElement } from './src/outline-element/outline-element';
 export { ContainerSizeController } from './src/controllers/container-size-controller';
 export { IsHoverableDeviceController } from './src/controllers/is-hoverable-device-controller';
 export { LinkedBlockController } from './src/controllers/linked-block-controller';
+export { MobileController } from './src/controllers/mobile-controller';
 export { ScreenSizeController } from './src/controllers/screen-size-controller';
 export { SlotController } from './src/controllers/slot-controller';
 
