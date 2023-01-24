@@ -1,5 +1,5 @@
 import summary from 'rollup-plugin-summary';
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import multi from '@rollup/plugin-multi-entry';
@@ -7,7 +7,7 @@ import typescript from 'rollup-plugin-typescript2';
 import svg from 'rollup-plugin-svg';
 import image from '@rollup/plugin-image';
 import json from '@rollup/plugin-json';
-const outline = require('./outline.config');
+import outline from './outline.config.js';
 
 const sharedConfig = {
   onwarn(warning) {
@@ -47,7 +47,7 @@ const defaultOutput = {
       'src/components/**/*.stories.ts',
       'src/components/**/*.css.lit.ts',
       'src/components/**/*.test.ts',
-      'src/components/examples/**/*'
+      'src/components/examples/**/*',
     ],
   },
   output: [
