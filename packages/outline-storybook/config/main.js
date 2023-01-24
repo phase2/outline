@@ -18,7 +18,7 @@ module.exports = {
     options: {},
   },
   docs: {
-    docsPage: 'automatic',
+    autodocs: true,
     defaultName: 'Full Documentation', // set to change the name of generated docs entries
   },
   staticDirs: ['../assets'],

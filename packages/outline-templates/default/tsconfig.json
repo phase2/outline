@@ -9,7 +9,7 @@
     "sourceMap": true,
     "inlineSources": true,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": ".",
     "strict": true,
     "allowUnreachableCode": false,
     "noUnusedLocals": true,
