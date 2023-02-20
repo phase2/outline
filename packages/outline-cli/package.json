@@ -25,6 +25,8 @@
     "@types/fs-extra": "^9.0.13",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",

@@ -5,7 +5,7 @@ import type { Prompts } from '../actions/init/init-project';
 
 export default class Init extends Command {
   static description = 'Scaffolds a new Outline Project';
-  static examples = ['<%= config.bin %> <%= command.id %>'];
+  static examples = ['npx @phase2/outline-cli <%= command.id %>'];
 
   static flags = {
     automated: Flags.boolean({

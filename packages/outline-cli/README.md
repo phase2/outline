@@ -18,22 +18,60 @@ Outline CLI
 npx @phase2/outline-cli COMMAND
 ```
 
+#### Checking the version being used via NPX
+
+You will want this version to match up with the latest version at [npmjs](https://www.npmjs.com/package/@phase2/outline-cli) [![Version](https://img.shields.io/npm/v/@phase2/outline-cli.svg)](https://npmjs.org/package/@phase2/outline-cli).
+
+```shell
+npx @phase2/outline-cli --version
+```
+
 ### Global NPM Instalation
 
 ```shell
 npm install -g @phase2/outline-cli
 ```
 
+If you install `@phase2/outline-cli` locally, rather than running the commands with `npx @phase2/outline-cli`, you'd preface those commands with `outline COMMAND` instead.
+
+```shell
+outline --version
+outline help init
+outline init
+```
+
 ## Commands
 
-* `outline help [COMMAND]`
-* [`outline init`](#outline-init)
+* `npx @phase2/outline-cli help [COMMAND]`
+* [`npx @phase2/outline-cli init`](#outline-init)
 
 ### `outline init`
 
 > Scaffolds a new [Outline](https://github.com/phase2/outline) project based on prompts or automated via arguments.
 
-#### NPX (Interactive)
+```text
+Scaffolds a new Outline Project
+
+USAGE
+  $ outline init [-a] [-n <value>] [-s <value>] [-p <value>] [-d <value>] [-t <value>]
+
+FLAGS
+  -a, --automated            Enable/disable interactive mode.
+  -d, --description=<value>  Project description.
+  -n, --name=<value>         Project name.
+  -p, --packageName=<value>  Project package name.
+  -s, --slug=<value>         Project slug.
+  -t, --template=<value>     Project template.
+
+DESCRIPTION
+  Scaffolds a new Outline Project
+
+EXAMPLES
+  $ outline init
+  $ npx @phase2/outline-cli init
+```
+
+#### Interactive
 
 The following is the simplest method that will prompt you step by step through providing the `name`, `slug`, `packageName`, `description`, and `template` that will be sent to the `init` functionality.
 
@@ -41,10 +79,11 @@ The following is the simplest method that will prompt you step by step through p
 npx @phase2/outline-cli init
 ```
 
-#### NPX (Automated)
+#### Automated
 
 This method enables you to scaffold a design system by a set of provided values. The required `automated` flag must be provided in order to "disable" the default [inquirer](https://www.npmjs.com/package/inquirer#documentation) prompts.
 
+When providing flags to the `init` command, it should be assumed that ALL prompts are provided through flags, and not just one. Using the `--automated` flag turns off the inquirer functionality and would otherwise provide default values for all missing flags. 
 ##### Sample 1
 
 ```shell
@@ -79,9 +118,4 @@ npx @phase2/outline-cli init \
   --packageName="@phase2/design-system-three" \
   --description="Web component library powered by OutlineJS." \
   --template="default"  
-```
-#### Globally
-
-```shell
-outline init
 ```
