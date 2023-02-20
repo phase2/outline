@@ -4,7 +4,7 @@ import path = require('path');
 import { execSync } from 'node:child_process';
 import chalk = require('chalk');
 
-type Prompts = {
+export type Prompts = {
   name: string;
   slug: string;
   packageName: string;
@@ -12,14 +12,12 @@ type Prompts = {
   description: string | null;
 };
 /**
- * Creates story from custom element json file
  * @param {string} prompts - prompts: Object of the values from the prompt questions;
- * @returns Nothing, fixing lint warning
+ * @returns {void}
  */
 export const initProject = (prompts: Prompts): void => {
-  const slug = prompts.slug.replace(/[^\dA-Za-z]/g, '-').toLowerCase();
   const currDir = process.cwd();
-  const resolvedPath = path.resolve(currDir, slug);
+  const resolvedPath = path.resolve(currDir, prompts.slug);
   const storybookSource = path.resolve(
     resolvedPath,
     './node_modules/@phase2/outline-storybook'
@@ -29,20 +27,11 @@ export const initProject = (prompts: Prompts): void => {
     prompts.template
   );
 
-  console.log(
-    `${chalk.blue('!')}: Creating directory: ${resolvedPath.replace(
-      currDir,
-      ''
-    )}`
-  );
-
   mkdirsSync(resolvedPath);
-
-  console.log(`${chalk.blue('!')}: Changing directory: ${resolvedPath}`);
   process.chdir(resolvedPath);
-  console.log(`${chalk.blue('!')}: Moved to directory: ${resolvedPath}`);
+  console.log(`${chalk.blue('info')}: Moved to directory: ${resolvedPath}`);
   console.log(
-    `${chalk.bold.blue('!')}: Downloading Outline ${
+    `${chalk.bold.blue('info')}: Downloading Outline ${
       prompts.template
     } starter template`
   );

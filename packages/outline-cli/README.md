@@ -10,35 +10,37 @@ Outline CLI
 
 ## Usage
 
-```sh-session
-$ npm install -g @phase2/outline-cli
-$ outline COMMAND
-running command...
-$ outline (--version)
-@phase2/outline-cli/0.0.12 darwin-x64 node-v18.7.0
-$ outline --help [COMMAND]
-USAGE
-  $ outline COMMAND
-...
+### Using NPX (Recommended)
+
+> Using `npx` will ensure you are always using the latest version of the CLI without having to ensure your global dependencies are up to date.
+
+```shell
+npx @phase2/outline-cli COMMAND
 ```
+
+### Global NPM Instalation
+
+```shell
+npm install -g @phase2/outline-cli
+```
+
 ## Commands
 
-* [`outline help [COMMAND]`](#outline-help-command)
+* `outline help [COMMAND]`
 * [`outline init`](#outline-init)
 
 ### `outline init`
 
-Scaffolds a new Outline Project
+> Scaffolds a new [Outline](https://github.com/phase2/outline) project based on prompts.
 
-```
-USAGE
-  $ outline init
+#### NPX
 
-DESCRIPTION
-  Scaffolds a new Outline Project
-
-EXAMPLES
-  $ outline init
+```shell
+npx @phase2/outline-cli init
 ```
 
-_See code: [dist/commands/init.ts](https://github.com/phase2/outline/blob/v0.0.7/dist/commands/init.ts)_
+#### Globally
+
+```shell
+outline init
+```
