@@ -31,14 +31,55 @@ npm install -g @phase2/outline-cli
 
 ### `outline init`
 
-> Scaffolds a new [Outline](https://github.com/phase2/outline) project based on prompts.
+> Scaffolds a new [Outline](https://github.com/phase2/outline) project based on prompts or automated via arguments.
 
-#### NPX
+#### NPX (Interactive)
+
+The following is the simplest method that will prompt you step by step through providing the `name`, `slug`, `packageName`, `description`, and `template` that will be sent to the `init` functionality.
 
 ```shell
 npx @phase2/outline-cli init
 ```
 
+#### NPX (Automated)
+
+This method enables you to scaffold a design system by a set of provided values. The required `automated` flag must be provided in order to "disable" the default [inquirer](https://www.npmjs.com/package/inquirer#documentation) prompts.
+
+##### Sample 1
+
+```shell
+npx @phase2/outline-cli init \
+  --automated \
+  --name="Design System: 1" \
+  --slug="design-system-one" \
+  --packageName="@phase2/design-system-one" \
+  --description="Web component library powered by OutlineJS." \
+  --template="default" 
+```
+
+##### Sample 2
+
+```shell
+npx @phase2/outline-cli init \
+  --automated \
+  --name="Design System: 2" \
+  --slug="design-system-two" \
+  --packageName="@phase2/design-system-two" \
+  --description="Web component library powered by OutlineJS." \
+  --template="default"
+```
+
+##### Sample 3
+
+```shell
+npx @phase2/outline-cli init \
+  --automated \
+  --name="Design System: 3" \
+  --slug="design-system-three" \
+  --packageName="@phase2/design-system-three" \
+  --description="Web component library powered by OutlineJS." \
+  --template="default"  
+```
 #### Globally
 
 ```shell
