@@ -26,6 +26,20 @@ You will want this version to match up with the latest version at [npmjs](https:
 npx @phase2/outline-cli --version
 ```
 
+#### Updating Version used by NPX
+
+Ensure cache is cleared if local environment is not looking for the latest version. Uses the [clear-npx-cache](https://www.npmjs.com/package/clear-npx-cache) package.
+
+```shell
+npx clear-npx-cache
+```
+
+#### Check the version with the cli again 
+
+```shell
+npx @phase2/outline-cli --version
+```
+
 ### Global NPM Instalation
 
 ```shell
@@ -83,7 +97,7 @@ npx @phase2/outline-cli init
 
 This method enables you to scaffold a design system by a set of provided values. The required `automated` flag must be provided in order to "disable" the default [inquirer](https://www.npmjs.com/package/inquirer#documentation) prompts.
 
-When providing flags to the `init` command, it should be assumed that ALL prompts are provided through flags, and not just one. Using the `--automated` flag turns off the inquirer functionality and would otherwise provide default values for all missing flags. 
+When providing flags to the `init` command, it should be assumed that ALL prompts are provided through flags, and not just one. Using the `--automated` flag turns off the inquirer functionality and would otherwise provide default values for all missing flags.
 ##### Sample 1
 
 ```shell
