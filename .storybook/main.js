@@ -1,5 +1,5 @@
 module.exports = {
-  stories: ['../packages/outline-storybook/stories/**/*.stories.@(js|ts)'],
+  stories: ['../packages/outline-storybook/stories/**/*.stories.@(js|ts|mdx)'],
   typescript: {
     check: false,
     checkOptions: {},
