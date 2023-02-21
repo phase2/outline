@@ -53,9 +53,11 @@ export class OutlineAccordion extends OutlineElement {
 
   render(): TemplateResult {
     return html`
-      ${this.hasLabel
-        ? html`<div class="label"><slot name="label"></slot></div>`
-        : null}
+      ${
+        this.hasLabel
+          ? html`<div class="label"><slot name="label"></slot></div>`
+          : null
+      }
       <div class="accordion" @keydown=${this.handleKeyboardNav}>
         <slot name="panels"></slot>
       </div>

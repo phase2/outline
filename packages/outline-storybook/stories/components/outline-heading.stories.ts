@@ -3,7 +3,11 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '@phase2/outline-core';
 
-import { AllowedHeadingLevels, HeadingSizes, HeadingStyles } from '@phase2/outline-heading';
+import {
+  AllowedHeadingLevels,
+  HeadingSizes,
+  HeadingStyles,
+} from '@phase2/outline-heading';
 
 import '@phase2/outline-heading';
 import '@phase2/outline-container';
@@ -137,9 +141,9 @@ StandardHeadings.parameters = {
 <outline-heading level="h4">This is a standard Heading 4 element.</outline-heading>
 <outline-heading level="h5">This is a standard Heading 5 element.</outline-heading>
 <outline-heading level="h6">This is a standard Heading 6 element.</outline-heading>
-`
-    }
-  }
+`,
+    },
+  },
 };
 
 const DefaultHeadingTemplate = (): TemplateResult => {
@@ -158,7 +162,7 @@ DefaultHeading.parameters = {
     source: {
       code: `
 <outline-heading>Sample heading text that should take up multiple lines so we can test for proper size and leading.</outline-heading>
-`
-    }
-  }
+`,
+    },
+  },
 };

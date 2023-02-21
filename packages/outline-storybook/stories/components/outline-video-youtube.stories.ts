@@ -52,7 +52,7 @@ const Template = (args = configuration.args): TemplateResult => {
   `;
 };
 
-// @todo: Investigate the `Error: page.evaluate: Error: allowedOrigins value "null" is not a valid origin` error. 
+// @todo: Investigate the `Error: page.evaluate: Error: allowedOrigins value "null" is not a valid origin` error.
 export const YoutubeVideo: any = Template.bind({});
 YoutubeVideo.parameters = {
   axe: {

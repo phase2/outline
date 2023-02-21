@@ -5,7 +5,12 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { ButtonSize, ButtonVariant } from '@phase2/outline-button';
 import '@phase2/outline-dropdown';
 
-const triggerVariants: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];
+const triggerVariants: ButtonVariant[] = [
+  'link',
+  'primary',
+  'secondary',
+  'tertiary',
+];
 const triggerSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 const configuration = {
@@ -53,8 +58,7 @@ const configuration = {
     text: {
       name: 'trigger-text',
       table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
-      description:
-        'Text of the actual button/link of the trigger element.',
+      description: 'Text of the actual button/link of the trigger element.',
       control: {
         type: 'text',
       },
@@ -127,7 +131,6 @@ ${Story()}
 </div> `,
 ];
 
-
 const DropdownTemplate = (customArguments = {}): TemplateResult => {
   const args = {
     ...configuration.args,
@@ -150,14 +153,14 @@ const DropdownTemplate = (customArguments = {}): TemplateResult => {
 };
 
 export const DropdownButtonWithLink = (customArguments = {}) =>
-DropdownTemplate(customArguments);
+  DropdownTemplate(customArguments);
 DropdownButtonWithLink.args = {
   isOpen: false,
 };
 DropdownButtonWithLink.decorators = paddedMenuWrapper;
 
 export const DropdownButtonWithoutLink = (customArguments = {}) =>
-DropdownTemplate(customArguments);
+  DropdownTemplate(customArguments);
 DropdownButtonWithoutLink.args = {
   isOpen: false,
   url: null,
@@ -196,9 +199,8 @@ const MenuDropdownsTemplate = (): TemplateResult => {
   </div>
 </outline-dropdown>
   `;
-}
-export const MenuDropdown = () =>
-MenuDropdownsTemplate();
+};
+export const MenuDropdown = () => MenuDropdownsTemplate();
 MenuDropdown.decorators = paddedMenuWrapper;
 
 const SecondaryMenuDropdownsTemplate = (): TemplateResult => {
@@ -242,9 +244,8 @@ const SecondaryMenuDropdownsTemplate = (): TemplateResult => {
   </div>
 </outline-dropdown>
   `;
-}
-export const SecondaryMenuDropdown = () =>
-SecondaryMenuDropdownsTemplate();
+};
+export const SecondaryMenuDropdown = () => SecondaryMenuDropdownsTemplate();
 SecondaryMenuDropdown.decorators = paddedMenuWrapper;
 
 const dropdownContent = html`
@@ -252,7 +253,7 @@ const dropdownContent = html`
   <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
   <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
 </div>
-`
+`;
 
 const MultipleButtonDropdownsTemplate = (): TemplateResult => {
   return html`
@@ -481,14 +482,11 @@ const MultipleButtonDropdownsTemplate = (): TemplateResult => {
   </outline-dropdown>
 </div>
   `;
-}
-export const MultipleButtonDropdowns = () =>
-MultipleButtonDropdownsTemplate();
+};
+export const MultipleButtonDropdowns = () => MultipleButtonDropdownsTemplate();
 MultipleButtonDropdowns.decorators = paddedMenuWrapper;
 
-
 const MultipleLinkDropdownsTemplate = (): TemplateResult => {
-
   return html`
 <div class="flex flex-row flex-wrap">
   <outline-dropdown 
@@ -547,6 +545,5 @@ const MultipleLinkDropdownsTemplate = (): TemplateResult => {
 `;
 };
 
-export const MultipleLinkDropdowns = () =>
-MultipleLinkDropdownsTemplate();
+export const MultipleLinkDropdowns = () => MultipleLinkDropdownsTemplate();
 MultipleLinkDropdowns.decorators = paddedMenuWrapper;

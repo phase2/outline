@@ -18,7 +18,7 @@ const icons = {
     unicons: true,
   },
   defaults: { library: 'bootstrap', size: '16px', icon: 'chevron-right' },
-}
+};
 
 const configuration = {
   title: 'Media/Outline Icon',
@@ -107,9 +107,7 @@ The \`outline-icon\` component will render all manner of icons for your componen
   },
   args: {
     icon: icons.defaults.icon,
-    library: icons.defaults.library
-      ? icons.defaults.library
-      : 'system',
+    library: icons.defaults.library ? icons.defaults.library : 'system',
     size: icons.defaults.size ? icons.defaults.size : null,
     sizeEnabled: true,
   },

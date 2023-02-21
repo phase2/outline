@@ -1,14 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import {
-  argTypeSlotContent,
-} from '@phase2/outline-core';
+import { argTypeSlotContent } from '@phase2/outline-core';
 import { ButtonVariant, ButtonSize } from '@phase2/outline-button';
 
 import '@phase2/outline-button';
 
-const buttonOptions: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];
+const buttonOptions: ButtonVariant[] = [
+  'link',
+  'primary',
+  'secondary',
+  'tertiary',
+];
 const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default {
@@ -188,7 +191,7 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
 `;
 
 export const PrimaryButtons: any = PrimaryButtonsTemplate.bind({});
-PrimaryButtons.parameters = {  
+PrimaryButtons.parameters = {
   docs: {
     description: {
       story: `
@@ -250,7 +253,7 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
 `;
 
 export const SecondaryButtons: any = SecondaryButtonsTemplate.bind({});
-SecondaryButtons.parameters = {  
+SecondaryButtons.parameters = {
   docs: {
     description: {
       story: `
@@ -314,7 +317,7 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
 `;
 
 export const TertiaryButtons: any = TertiaryButtonsTemplate.bind({});
-TertiaryButtons.parameters = {  
+TertiaryButtons.parameters = {
   docs: {
     description: {
       story: `
@@ -378,7 +381,7 @@ const LinkButtonsTemplate = (): TemplateResult =>
 `;
 
 export const LinkButtons: any = LinkButtonsTemplate.bind({});
-LinkButtons.parameters = {  
+LinkButtons.parameters = {
   docs: {
     description: {
       story: `

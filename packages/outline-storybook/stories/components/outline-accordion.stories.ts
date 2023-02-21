@@ -2,8 +2,8 @@
 import { html, TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { argTypeHidden } from '@phase2/outline-core';
-import '@phase2/outline-accordion'
-import '@phase2/outline-heading'
+import '@phase2/outline-accordion';
+import '@phase2/outline-heading';
 
 export default {
   title: 'Content/Accordion/Accordion',
@@ -17,7 +17,7 @@ export default {
       },
       description:
         'Markup to be used as heading for the accordion. If not provided, the accordion will not have a heading.',
-        table: { category: 'Slots', defaultValue: { summary: 'NULL' } },
+      table: { category: 'Slots', defaultValue: { summary: 'NULL' } },
     },
     allOpen: {
       description:
@@ -51,7 +51,7 @@ export default {
     singlePanel: true,
     clean: false,
     allOpen: false,
-    label: `<outline-heading level="h2" level-style="semibold" slot="label">Accordion Items</outline-heading>`
+    label: `<outline-heading level="h2" level-style="semibold" slot="label">Accordion Items</outline-heading>`,
   },
 };
 
