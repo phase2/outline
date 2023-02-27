@@ -2,7 +2,6 @@ import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { OutlineElement } from '@phase2/outline-core';
-import componentVars from './css-variables/vars-alert.css.lit';
 import componentStyles from './outline-alert.css.lit';
 
 export const alertSizes = ['small', 'large'] as const;
@@ -31,18 +30,18 @@ export interface OutlineAlertInterface extends HTMLElement {
  * @extends OutlineElement
  * @slot default - The alert contents.
  * @slot header - The header in the alert.
- * @cssprop --outline-alert-info-background: The background color for the info alert.
- * @cssprop --outline-alert-info-text: The text color for the info alert.
- * @cssprop --outline-alert-info-border: The border color for the info alert.
- * @cssprop --outline-alert-success-background: The background color for the success alert.
- * @cssprop --outline-alert-success-text: The text color for the success alert.
- * @cssprop --outline-alert-success-border: The border color for the success alert.
- * @cssprop --outline-alert-warning-background: The background color for the warning alert.
- * @cssprop --outline-alert-warning-text: The text color for the warning alert.
- * @cssprop --outline-alert-warning-border: The border color for the warning alert.
- * @cssprop --outline-alert-error-background: The background color for the error alert.
- * @cssprop --outline-alert-error-text: The text color for the error alert.
- * @cssprop --outline-alert-error-border: The border color for the error alert.
+ * @cssprop --outline-alert--info-background: The background color for the info alert.
+ * @cssprop --outline-alert--info-text: The text color for the info alert.
+ * @cssprop --outline-alert--info-border: The border color for the info alert.
+ * @cssprop --outline-alert--success-background: The background color for the success alert.
+ * @cssprop --outline-alert--success-text: The text color for the success alert.
+ * @cssprop --outline-alert--success-border: The border color for the success alert.
+ * @cssprop --outline-alert--warning-background: The background color for the warning alert.
+ * @cssprop --outline-alert--warning-text: The text color for the warning alert.
+ * @cssprop --outline-alert--warning-border: The border color for the warning alert.
+ * @cssprop --outline-alert--error-background: The background color for the error alert.
+ * @cssprop --outline-alert--error-text: The text color for the error alert.
+ * @cssprop --outline-alert--error-border: The border color for the error alert.
  * @todo: Make the alert styling more flexible.
  */
 @customElement('outline-alert')
@@ -50,7 +49,7 @@ export class OutlineAlert
   extends OutlineElement
   implements OutlineAlertInterface
 {
-  static styles: CSSResultGroup = [componentVars, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
 
   @property({ type: String })
   statusType: AlertStatusType = 'info';

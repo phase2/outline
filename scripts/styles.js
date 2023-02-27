@@ -109,7 +109,6 @@ const createVariableLiterals = (result, path) => {
 import { css } from 'lit';
 export default css\`
 /* Apply CSS Variables to the host element. */
-:host {
 ${result.css}\`;`,
     () => true
   );

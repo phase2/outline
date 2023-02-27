@@ -2,7 +2,6 @@
 import { OutlineElement, SlotController } from '@phase2/outline-core';
 import { CSSResultGroup, html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import componentVars from './css-variables/vars-breadcrumbs.css.lit';
 import componentStyles from './outline-breadcrumbs.css.lit';
 import '@phase2/outline-container';
 
@@ -11,16 +10,16 @@ import '@phase2/outline-container';
  * @element outline-breadcrumbs
  * @extends OutlineElement
  * @slot - The default slot for this element.
- * @cssprop --outline-breadcrumb-text-color-default: The default text color for the breadcrumbs.
- * @cssprop --outline-breadcrumb-link-color-default: The default link color for the breadcrumbs.
- * @cssprop --outline-breadcrumb-link-color-hover: The hover link color for the breadcrumbs.
- * @cssprop --outline-breadcrumb-link-color-focus: The focus link color for the breadcrumbs.
- * @cssprop --outline-breadcrumb-link-decoration-default: The default text decoration for the breadcrumb links.
- * @cssprop --outline-breadcrumb-link-decoration-hover: The hover text decoration for the breadcrumb links.
- * @cssprop --outline-breadcrumb-link-decoration-focus: The focus text decoration for the breadcrumb links.
- * @cssprop --outline-breadcrumb-bg-color: The background color for the breadcrumbs.
- * @cssprop --outline-breadcrumb-bg-padding: The padding for the breadcrumbs.
- * @cssprop --outline-breadcrumb-separator-spacing: The spacing between the breadcrumbs.
+ * @cssprop --outline-breadcrumb--text-color: The default text color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb--link-color: The default link color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb--link-color-hover: The hover link color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb--link-color-focus: The focus link color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb--link-decoration: The default text decoration for the breadcrumb links.
+ * @cssprop --outline-breadcrumb--link-decoration-hover: The hover text decoration for the breadcrumb links.
+ * @cssprop --outline-breadcrumb--link-decoration-focus: The focus text decoration for the breadcrumb links.
+ * @cssprop --outline-breadcrumb--bg-color: The background color for the breadcrumbs.
+ * @cssprop --outline-breadcrumb--bg-padding: The padding for the breadcrumbs.
+ * @cssprop --outline-breadcrumb--separator-spacing: The spacing between the breadcrumbs.
  *
  * @todo - Add support for separator icons in slots. This would need optionally a home icon, and a separator icon.
  */
@@ -31,7 +30,7 @@ export class OutlineBreadcrumbs extends OutlineElement {
     this, // This, the host element.
     true // To shift or not to shift LightDom nodes to ShadowDOM.
   );
-  static styles: CSSResultGroup = [componentVars, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
 
   firstUpdated(): void {
     const breadcrumbItems: NodeListOf<HTMLSpanElement> =

@@ -1,12 +1,8 @@
+@import './css-variables/vars-admin-links.css';
+
 .links {
-  padding-top: var(
-    --outline-admin-links-y-spacing,
-    var(--outline-admin-links--default-y-spacing)
-  );
-  padding-bottom: var(
-    --outline-admin-links-y-spacing,
-    var(--outline-admin-links--default-y-spacing)
-  );
+  padding-top: var(--outline-admin-links--spacing-y--computed);
+  padding-bottom: var(--outline-admin-links--spacing-y--computed);
 }
 
 ul {
@@ -25,53 +21,23 @@ li {
 a {
   position: relative;
   text-decoration: none;
-  padding-top: var(
-    --outline-admin-links-link-y-spacing,
-    var(--outline-admin-links--default-link-y-spacing)
-  );
-  padding-bottom: var(
-    --outline-admin-links-link-y-spacing,
-    var(--outline-admin-links--default-link-y-spacing)
-  );
-  padding-left: var(
-    --outline-admin-links-link-x-spacing,
-    var(--outline-admin-links--default-link-x-spacing)
-  );
-  padding-right: var(
-    --outline-admin-links-link-x-spacing,
-    var(--outline-admin-links--default-link-x-spacing)
-  );
-  background: var(
-    --outline-admin-links-bg-default,
-    var(--outline-admin-links--default-bg-default)
-  );
-  color: var(
-    --outline-admin-links-color-default,
-    var(--outline-admin-links--default-color-default)
-  );
+  padding-top: var(--outline-admin-links--link-spacing-y--computed);
+  padding-bottom: var(--outline-admin-links--link-spacing-y--computed);
+  padding-left: var(--outline-admin-links--link-spacing-x--computed);
+  padding-right: var(--outline-admin-links--link-spacing-x--computed);
+  background: var(--outline-admin-links--bg--computed);
+  color: var(--outline-admin-links--color--computed);
 
   &:hover {
     outline: none;
-    background: var(
-      --outline-admin-links-bg-hover,
-      var(--outline-admin-links--default-bg-hover)
-    );
-    color: var(
-      --outline-admin-links-color-hover,
-      var(--outline-admin-links--default-color-hover)
-    );
+    background: var(--outline-admin-links--bg-hover--computed);
+    color: var(--outline-admin-links--color-hover--computed);
   }
 
   &:focus {
     outline: none;
-    background: var(
-      --outline-admin-links-bg-focus,
-      var(--outline-admin-links--default-bg-focus)
-    );
-    color: var(
-      --outline-admin-links-color-focus,
-      var(--outline-admin-links--default-color-focus)
-    );
+    background: var(--outline-admin-links--bg-focus--computed);
+    color: var(--outline-admin-links--color-focus--computed);
   }
 
   &:not(.is-active):hover::before,
@@ -84,27 +50,15 @@ a {
     content: '';
     transform: translate(-50%, -50%);
     border: solid 2px
-      var(
-        --outline-admin-links-color-hover,
-        var(--outline-admin-links--default-color-hover)
-      );
+      var(--outline-admin-links--color-hover--computed);
     border-radius: 0.25rem;
   }
 
   &.is-active {
     outline: solid 2px
-      var(
-        --outline-admin-links-color-hover,
-        var(--outline-admin-links--default-color-hover)
-      );
-    background: var(
-      --outline-admin-links-bg-active,
-      var(--outline-admin-links--default-bg-active)
-    );
-    color: var(
-      --outline-admin-links-color-active,
-      var(--outline-admin-links--default-color-active)
-    );
+      var(--outline-admin-links--color-hover--computed);
+    background: var(--outline-admin-links--bg-active--computed);
+    color: var(--outline-admin-links--color-active--computed);
     z-index: 1;
 
     &:hover,

@@ -6,7 +6,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { OutlineElement } from '@phase2/outline-core';
 
 import type { LinkTargetType, LinkRelType } from './config';
-import componentVars from './css-variables/vars-link.css.lit';
 import componentStyles from './outline-link.css.lit';
 
 /**
@@ -27,7 +26,7 @@ import componentStyles from './outline-link.css.lit';
  */
 @customElement('outline-link')
 export class OutlineLink extends OutlineElement {
-  static styles: CSSResultGroup = [componentVars, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
   /**
    * Link url
    */
