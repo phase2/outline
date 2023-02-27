@@ -8,6 +8,19 @@ Outline CLI
 [![Downloads/week](https://img.shields.io/npm/dw/@phase2/outline-cli.svg)](https://npmjs.org/package/@phase2/outline-cli)
 [![License](https://img.shields.io/npm/l/@phase2/outline-cli.svg)](https://github.com/phase2/outline/blob/next/packages/outline-cli/package.json)
 
+## Features
+
+The `@phase2/outline-cli` handles a multitude (1 presently) of common day to day tasks when using Outline.
+
+- Scaffold new design system project(s) using the CLI.
+- @todo: Scaffold new components using the CLI.
+- @todo: Scaffold new controllers using the CLI.
+- @debug: Do some things.
+- @review: Do some things.
+- @note: Do some things.
+- @hack: Do some things.
+- @todo: Do some things.
+
 ## Usage
 
 ### Using NPX (Recommended)
@@ -34,13 +47,13 @@ Ensure cache is cleared if local environment is not looking for the latest versi
 npx clear-npx-cache
 ```
 
-#### Check the version with the cli again 
+#### Check the version with the cli again
 
 ```shell
 npx @phase2/outline-cli --version
 ```
 
-### Global NPM Instalation
+### Global NPM Installation
 
 ```shell
 npm install -g @phase2/outline-cli
@@ -56,8 +69,8 @@ outline init
 
 ## Commands
 
-* `npx @phase2/outline-cli help [COMMAND]`
-* [`npx @phase2/outline-cli init`](#outline-init)
+- `npx @phase2/outline-cli help [COMMAND]`
+- [`npx @phase2/outline-cli init`](#outline-init)
 
 ### `outline init`
 
@@ -98,6 +111,7 @@ npx @phase2/outline-cli init
 This method enables you to scaffold a design system by a set of provided values. The required `automated` flag must be provided in order to "disable" the default [inquirer](https://www.npmjs.com/package/inquirer#documentation) prompts.
 
 When providing flags to the `init` command, it should be assumed that ALL prompts are provided through flags, and not just one. Using the `--automated` flag turns off the inquirer functionality and would otherwise provide default values for all missing flags.
+
 ##### Sample 1
 
 ```shell
