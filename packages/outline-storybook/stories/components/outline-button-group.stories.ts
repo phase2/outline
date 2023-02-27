@@ -12,8 +12,7 @@ export default {
   argTypes: {
     orientation: {
       table: { category: 'Properties', defaultValue: { summary: 'row' } },
-      description:
-        'Sets the orientation of group of buttons.',
+      description: 'Sets the orientation of group of buttons.',
       options: listOrientations,
       control: { type: 'select' },
     },
@@ -59,7 +58,7 @@ const items = (itemCount: any) => {
 const Template = ({
   navLabel,
   itemCount,
-  orientation
+  orientation,
 }: any): TemplateResult => {
   return html`
   <outline-button-group

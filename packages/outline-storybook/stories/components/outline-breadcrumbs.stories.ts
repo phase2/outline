@@ -9,7 +9,7 @@ const configuration = {
   tags: ['docsPage'],
   parameters: {
     viewMode: 'docs',
-    docs: {source: { state: 'open' },},
+    docs: { source: { state: 'open' } },
   },
   argTypes: {},
   args: {},

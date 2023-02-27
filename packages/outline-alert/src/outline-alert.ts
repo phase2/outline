@@ -75,20 +75,24 @@ export class OutlineAlert
         role="${this.isInteractive ? 'alertdialog' : 'alert'}"
         aria-labelledby=${ifDefined(this.isInteractive ? 'message' : undefined)}
       >
-        ${this.shouldShowIcon === true
-          ? html`
+        ${
+          this.shouldShowIcon === true
+            ? html`
               <div class="icon">
                 <!--@todo include icon when we have that ready.-->
               </div>
             `
-          : null}
-        ${this.size === 'large'
-          ? html`
+            : null
+        }
+        ${
+          this.size === 'large'
+            ? html`
               <div class="alert-header">
                 <slot name="header">${this.statusType}</slot>
               </div>
             `
-          : null}
+            : null
+        }
         <div class="message" id="message">
           <slot></slot>
         </div>

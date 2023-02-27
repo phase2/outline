@@ -89,7 +89,6 @@ If the alert has an interaction, you should indicate this with \`isInteractive\`
   },
 };
 
-
 const Template = ({
   headerSlot,
   defaultSlot,

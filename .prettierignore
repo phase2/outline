@@ -11,15 +11,13 @@ resolved-tailwind-config.ts
 packages/outline-storybook/config/storybook.main.css
 src/components.d.ts
 *.md
+*.mdx
 .history/
 package-lock.json
 docs/
 .gitlab-ci.yml
 .gitlab-ci/*
 *.lit.ts
-*.stories.mdx
-*.stories.ts
-*.stories.js
 .github/
 .octane-ci/
 .bin/

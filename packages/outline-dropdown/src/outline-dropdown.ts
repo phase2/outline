@@ -398,8 +398,9 @@ export class OutlineDropdown extends OutlineElement {
           icon__bordered: this.triggerUrl && this.triggerVariant !== 'link',
         })}
       >
-        ${this.triggerUrl
-          ? html` <outline-button
+        ${
+          this.triggerUrl
+            ? html` <outline-button
               class="icon__button"
               button-variant="${ifDefined(this.triggerVariant)}"
               button-target="${ifDefined(this.triggerTarget)}"
@@ -413,7 +414,8 @@ export class OutlineDropdown extends OutlineElement {
                 >Sub-navigation for ${this.triggerText}</span
               >
             </outline-button>`
-          : html` ${this.iconTemplate()} `}
+            : html` ${this.iconTemplate()} `
+        }
       </span>
     `;
   }

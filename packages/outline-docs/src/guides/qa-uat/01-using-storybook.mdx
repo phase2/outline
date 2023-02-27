@@ -1,5 +1,6 @@
-import { html } from 'lit';
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
 
 <Meta
   title="Documentation/Guides/QA & UAT/Using Storybook"
@@ -13,33 +14,29 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
   }}
 />
 
-<Story name="Introduction">
-  {() => {
-    return html``;
-  }}
-</Story>
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Description
+  This guide will help QA & UAT contributors to better understand Storybook, and how to utilize it for testing components.
+
+  ## Documentation Status
+  <outline-alert statusType="warning" size="large">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
 
 # Outline Storybook Guide
-
-> This guide will help QA & UAT contributors to better understand Storybook, and how to utilize it for testing components.
-
-<outline-alert statusType="info" size="large" class="mb-6">
-  <span slot="outline-alert--header">Documentation Status</span>
-  The documentation on this page is in need of additional updates, corrections or
-  information. <span class="font-semibold italic">
-    Expect frequent updates and/or changes.
-  </span>
-</outline-alert>
 
 ## Introduction to Storybook
 
 ### Storybook Basics
 
 - Use the search feature to find the component or page you are looking for.
-- Use the controls to manipulate various components in.
-- Note the `Canvas` and `Docs` tabs at the top of some components.
-  - `Docs` are a bit more friendly to view/read.
-  - `Canvas` offers more tools, including accessiblity plugin among others.
-- Note the Prototypes section in the sidebar for full page samples.
-
----
+- Use the sidebar to navigate between components and pages.
