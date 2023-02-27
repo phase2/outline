@@ -11,7 +11,6 @@ import code3 from '@phase2/outline-static-assets/media/tech/1440/code-3.jpg';
 import code4 from '@phase2/outline-static-assets/media/tech/1440/code-4.jpg';
 import code5 from '@phase2/outline-static-assets/media/tech/1440/code-5.jpg';
 import code6 from '@phase2/outline-static-assets/media/tech/1440/code-6.jpg';
-import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 
 const configuration = {
   title: 'Structure/Container',
