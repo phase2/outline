@@ -1,6 +1,39 @@
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
+
+<Meta
+  title="Documentation/Guides/Tooling & Commands/Versioning with Changesets"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
 # Creating Changesets
 
 > This document will outline how to use [Changesets](https://github.com/changesets/changesets) to manage package versioning for Outline and Outline packages.
+
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Documentation Status
+  <outline-alert statusType="warning" size="large">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
+
+
 
 ## References
 
@@ -23,12 +56,6 @@ The second two steps can be made part of a CI process.
 ## Adding changesets
 
 ```shell
-npx changeset
-```
-
-or
-
-```shell
 yarn changeset
 ```
 
@@ -39,13 +66,7 @@ yarn changeset
 Once you decide you want to do a release, you can run
 
 ```shell
-npx changeset version
-```
-
-or
-
-```shell
-yarn changeset version
+yarn changeset:version
 ```
 
 This consumes all changesets, and updates to the most appropriate semver version based on those changesets. It also writes changelog entries for each consumed changeset.
@@ -53,13 +74,7 @@ This consumes all changesets, and updates to the most appropriate semver version
 We recommend at this step reviewing both the changelog entries and the version changes for packages. Once you are confident that these are correct, and have made any necessary tweeks to changelogs, you can publish your packages:
 
 ```shell
-npx changeset publish
-```
-
-or
-
-```shell
-yarn changeset publish
+yarn changeset:publish
 ```
 
 This will run npm publish in each package that is of a later version than the one currently listed on npm.
