@@ -1,5 +1,6 @@
-import { html } from 'lit';
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
 
 <Meta
   title="Documentation/Guides/Component Development/Coding Guide & Standards/Class Declaration"
@@ -13,30 +14,41 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
   }}
 />
 
-<Story name="Introduction">
-  {() => {
-    return html``;
-  }}
-</Story>
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Description
+  Building web components with Outline and Lit2 is a straightforward process thanks to the many tools and extensive documentation we have at the ready. 
+  The following section will go over some of the basics as well as reference related resources where appropriate to serve as a basis of how things are, and will be built in your Outline design system.
 
-> @todo - document this documentation.
+  ## Documentation Status
+  <outline-alert statusType="warning" size="large">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
 
 ## Class and Custom Element Declaration
 
-<Story name="Class Declaration">
-  {() => {
-    return html`
-      <outline-code-block language="typescript" class="mb-6">
-        ... /** * The Outline Widget component * @element outline-widget */
-        @customElement('outline-widget') export class OutlineWidget extends
-        OutlineElement { ... }
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```typescript
+import { customElement } from 'lit/decorators.js';
 
-<p>
-  Here is where we define our component class and the name of the custom element
-  we are building. Use JSDoc style comments to document the element name, any
-  slots used, and a brief description of the component and its functionality
-</p>
+/** 
+ * The Outline Widget component 
+ * @element outline-widget 
+ */
+  
+  @customElement('outline-widget') 
+  export class OutlineWidget extends OutlineElement { 
+
+  }
+```
+
+Here is where we define our component class and the name of the custom element
+we are building. Use JSDoc style comments to document the element name, any
+slots used, and a brief description of the component and its functionality

@@ -1,5 +1,6 @@
-import { html } from 'lit';
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
 
 <Meta
   title="Documentation/Guides/Component Development/Coding Guide & Standards/Styling"
@@ -13,13 +14,23 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
   }}
 />
 
-<Story name="Introduction">
-  {() => {
-    return html``;
-  }}
-</Story>
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Description
+  This section will provide guidance on the specific usages and patterns for styling a component in Outline.
 
-> This section will provide guidance on the specific usages and patterns for styling a component in Outline.
+  ## Documentation Status
+  <outline-alert statusType="warning" size="large">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
 
 ## Implementation Standards
 
@@ -31,63 +42,61 @@ The styles for Outline components are kept in a typical `.css` file such as `out
 component `outline-widget.ts`. These component CSS files utilize [PostCSS](https://postcss.org/) processing and a variety of plugins to handle various
 features including implementing [Tailwind CSS](https://tailwindcss.com/) utility styles to keep the code clean and consistent.
 
-Lit utilizes the static styles to contain any CSS required for a component. The following examples shows us using import to bring in
-styles from our `outline-widget.css.lit.ts` file. Any CSS that is included should be wrapped in Lit’s `css` template literal.
+Lit utilizes the static `styles` to contain any CSS required for a component. 
+
+The following examples shows us using import to bring in styles from our `outline-widget.css.lit.ts` file. Any CSS that is included should be wrapped in Lit’s `css` template literal.
 This is where Outline applies additional logic to handle taking a standard CSS file like `outline-widget.css`,
 and converts to `outline-widget.css.lit.ts` which is then imported into the main component file, `outline-widget.ts` as seen in the following code sample.
 
-<Story name="Importing Styles">
-  {() => {
-    return html`
-      <outline-code-block language="typescript" class="mb-6">
-        import componentStyles from './outline-widget.css.lit'; ...
-        @customElement('outline-widget') export class OutlineWidget extends
-        OutlineElement { static styles: CSSResultGroup = [componentStyles]; ...
-        }
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```typescript
+import componentStyles from './outline-widget.css.lit'; 
+...
+        
+@customElement('outline-widget') 
+export class OutlineWidget extends OutlineElement { 
+  static styles: CSSResultGroup = [componentStyles]; 
+  ...
+}
+```
 
 ## Inheriting Styles
 
-> Interestingly, the above sample is a component, `OutlineWidget`, that extends `OutlineElement`.
-> This component is simply declaring the styles in `OutlineWidget`, and assumes zero style inheritance from the parent component.
-> Now, assume that `OutlineElement` provides styles that either should or could be inherited by any component
-> that extends it. If we want to include styles from the parent component, we
-> need to [inherit styles from the superclass](https://lit.dev/docs/components/styles/#inheriting-styles-from-a-superclass).
+Interestingly, the above sample is a component, `OutlineWidget`, that extends `OutlineElement`.
+This component is simply declaring the styles in `OutlineWidget`, and assumes zero style inheritance from the parent component.
+Now, assume that `OutlineElement` provides styles that either should or could be inherited by any component that extends it. If we want to include styles from the parent component, we need to [inherit styles from the superclass](https://lit.dev/docs/components/styles/#inheriting-styles-from-a-superclass).
 
-<Story name="Inheriting Styles">
-  {() => {
-    return html`
-      <outline-code-block language="typescript" class="mb-6">
-        import componentStyles from './outline-widget.css.lit'; ...
-        @customElement('outline-widget') export class OutlineWidget extends
-        OutlineElement { static styles: CSSResultGroup = [
-        OutlineElement.styles, componentStyles ]; ... } ...
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```typescript
+import componentStyles from './outline-widget.css.lit'; 
+...
+
+@customElement('outline-widget') 
+export class OutlineWidget extends OutlineElement { 
+  static styles: CSSResultGroup = [ OutlineElement.styles, componentStyles ]; 
+  ... 
+}
+```
 
 ## Inline Styles
 
-> The following example shows both importing content from the default `outline-widget.css.lit.ts`
-> file as well as including inline css wrapped in the `css` string literal provided by the `lit` package.
+The following example shows both importing content from the default `outline-widget.css.lit.ts` file as well as including inline css wrapped in the `css` string literal provided by the `lit` package.
 
-<Story name="Inline Styles">
-  {() => {
-    return html`
-      <outline-code-block language="typescript" class="mb-6">
-        import { css } from 'lit'; import componentStyles from
-        './outline-widget.css.lit'; ... @customElement('outline-widget') export
-        class OutlineWidget extends OutlineElement { static styles:
-        CSSResultGroup = [ componentStyles, css\` :host { display: block; } p {
-        margin: 0; } h2 { color: \${this.color} } \` ]; ... } ...
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```typescript
+import { css } from 'lit'; 
+import componentStyles from './outline-widget.css.lit'; 
+
+@customElement('outline-widget') 
+export class OutlineWidget extends OutlineElement { 
+  static styles: CSSResultGroup = [ 
+    componentStyles, 
+    css\`
+      :host { display: block; } 
+      p { margin: 0; } 
+      h2 { color: ${this.color} } 
+    \` 
+  ]; 
+  ... 
+}
+```
 
 Above, we can see above, the `${this.color}` variable is being used to dynamically
 set the color of the `h2` element.
@@ -108,23 +117,22 @@ Below is an example of Tailwind classes from our `outline-link.css` file.
 Notice how the `@apply` directive precedes a list of shorthand Tailwind classes.
 Also note the [`:host`](https://developer.mozilla.org/en-US/docs/Web/CSS/:host) and [`::slotted`](https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted) selectors. These are very helpful when styling components.
 
-<Story name="Using Tailwind CSS">
-  {() => {
-    return html`
-      <outline-code-block language="css" class="mb-6">
-        :host, a, ::slotted(a) { @apply no-underline font-body transition-colors
-        duration-300; } :host(:hover), a:hover, ::slotted(a:hover) { @apply
-        underline; } :host(:focus), a:focus, ::slotted(a:focus) { @apply
-        underline outline-none; }
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```css
+:host, a, ::slotted(a) { 
+  @apply no-underline font-body transition-colors duration-300; 
+} 
 
-> [Tailwind CSS documentation](https://tailwindcss.com/docs) is some of the best in the industry to find
-> particular utility classes you may be looking to utililze in your styles.
-> Tailwind documentation should be referenced at every turn in order to understand
-> the varying impact each utility class may have, and which ones are available.
+:host(:hover), a:hover, ::slotted(a:hover) { 
+  @apply underline; 
+} 
+
+:host(:focus), a:focus, ::slotted(a:focus) { 
+  @apply underline outline-none; 
+}
+```
+
+[Tailwind CSS documentation](https://tailwindcss.com/docs) is some of the best in the industry to find particular utility classes you may be looking to utililze in your styles.
+Tailwind documentation should be referenced at every turn in order to understand the varying impact each utility class may have, and which ones are available.
 
 ## Styling with CSS Variables
 
@@ -132,19 +140,19 @@ Below is an example of CSS Custom Property usage from our `outline-link.css` fil
 In this instance, we have utilized 3 custom CSS variables to help us alter the color of a link when using the `outline-link` component.
 The next section will discuss how and where those are declared or overwritten.
 
-<Story name="Using CSS Variables">
-  {() => {
-    return html`
-      <outline-code-block language="css" class="mb-6">
-        :host, a, ::slotted(a) { color: var(--outline-link-color-default); }
-        :host(:hover), a:hover, ::slotted(a:hover) { color:
-        var(--outline-link-color-hover) !important; } :host(:focus), a:focus,
-        ::slotted(a:focus) { color: var(--outline-link-color-focus) !important;
-        }
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```css
+:host, a, ::slotted(a) { 
+  color: var(--outline-link-color-default); 
+}
+
+:host(:hover), a:hover, ::slotted(a:hover) { 
+  color: var(--outline-link-color-hover) !important; 
+} 
+
+:host(:focus), a:focus, ::slotted(a:focus) { 
+  color: var(--outline-link-color-focus) !important;
+}
+```
 
 ## CSS Variable Declaration
 
@@ -159,35 +167,31 @@ Any project should consider adding a project specific CSS Variables file to over
 Again, each consumer would need to include this file, immediately following the inclusion of `outline.theme.css`.
 However, this separation is only a suggestion, and in theory the `outline.theme.css` file should be safe to be edited much like the `outline.config.js` system configuration.
 
-<Story name="Defining CSS Variables">
-  {() => {
-    return html`
-      <outline-code-block language="css" class="mb-6">
-        :root { ... /* Brand specific primary colors. */
-        --blue-responsible-darken-1: #002536; --blue-responsible-darken-2:
-        #00374e; --blue-responsible-main: #004e70; --blue-responsible-lighten-1:
-        #38758f; --blue-responsible-lighten-2: #9ebcc9;
-        --blue-responsible-lighten-3: #ccdce2; --blue-responsible-lighten-4:
-        #e0eaee; --blue-responsible-lighten-5: #f0f4f6; ... /* * Configuration
-        values for outline-link. */ --outline-link-color-default:
-        var(--blue-responsible-darken-1); --outline-link-color-hover:
-        var(--blue-responsible-lighten-1); --outline-link-color-focus:
-        var(--blue-responsible-lighten-1); ... }
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```css
+:root { 
+  ... 
+  /* Brand specific primary colors. */
+  --blue-darken-1: #002536; 
+  --blue-darken-2: #00374e; 
+  --blue-main: #004e70; 
+  --blue-lighten-1: #38758f; 
+  --blue-lighten-2: #9ebcc9;
+  --blue-lighten-3: #ccdce2; 
+  --blue-lighten-4: #e0eaee; 
+  --blue-lighten-5: #f0f4f6; 
+  ... 
+  /* Configuration values for outline-link. */ 
+   --outline-link-color-default: var(--blue-darken-1); 
+   --outline-link-color-hover: var(--blue-lighten-1); 
+   --outline-link-color-focus: var(--blue-lighten-1); 
+  ... 
+}
+```
 
 Note in the above example, the declaration of the `--blue-responsible` color set,
 as well as the configuration for the `outline-link` component.
 The first set declares the color values as the hex values,
 and the next section associates link colors with a pre-existing CSS variable.
-
-<Story name="Component Style Generation">
-  {() => {
-    return html``;
-  }}
-</Story>
 
 ## Component Style Generation
 
@@ -196,49 +200,47 @@ Let's take a look at a sample of this in action. We will use the `outline-link` 
 
 In this example, we see the combination of the samples we used above, including both Tailwind CSS classes and custom CSS Variables for styling.
 
-### `outline-link.css`
+### `outline-widget.css`
 
-<Story name="-- outline-link.css">
-  {() => {
-    return html`
-      <outline-code-block language="css" class="mb-6">
-        :host, a, ::slotted(a) { @apply no-underline font-body transition-colors
-        duration-300; color: var(--outline-link-color-default); } :host(:hover),
-        a:hover, ::slotted(a:hover) { @apply underline; color:
-        var(--outline-link-color-hover) !important; } :host(:focus), a:focus,
-        ::slotted(a:focus) { @apply underline outline-none; color:
-        var(--outline-link-color-focus) !important; }
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```css
+:host, a, ::slotted(a) { 
+  color: var(--outline-link-color-default); 
+} 
+```
 
-### `outline-link.css.lit.ts`
+### `outline-widget.css.lit.ts`
 
 > The following generated file is ignored by default in `.gitignore`, and is generated during all build procedures.
 
-<Story name="-- outline-link.css.lit.ts">
-  {() => {
-    return html`
-      <outline-code-block language="jsx" class="mb-6">
-        import { css } from 'lit'; export default css\` /* Apply standardized
-        box sizing to the component. */ :host { box-sizing: border-box; } :host
-        *, :host *::before, :host *::after { box-sizing: inherit; } [hidden] {
-        display: none !important; } /* Apply component specific CSS */ :host, a,
-        ::slotted(a) { font-family: Open Sans, Helvetica, Arial, sans-serif;
-        text-decoration: none; transition-property: background-color,
-        border-color, color, fill, stroke; transition-timing-function:
-        cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms;
-        color:var(--outline-link-color-default) } :host(:hover), a:hover,
-        ::slotted(a:hover) { text-decoration: underline;
-        color:var(--outline-link-color-hover) !important } :host(:focus),
-        a:focus, ::slotted(a:focus) { text-decoration: underline; outline: 2px
-        solid transparent; outline-offset: 2px;
-        color:var(--outline-link-color-focus) !important } \`;
-      </outline-code-block>
-    `;
-  }}
-</Story>
+```typescript
+import { css } from 'lit';
+export default css`
+/* Apply standardized box sizing to the component. */
+:host {
+  box-sizing: border-box;
+}
+:host *,
+:host *::before,
+:host *::after {
+  box-sizing: inherit;
+}
+/* Apply proper CSS for accessibly hiding elements to each component. */
+.visually-hidden {
+  position: absolute !important;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+}
+/* Apply component specific CSS */
+:host,
+a,
+::slotted(a){
+  color:var(--outline-link-color-default);
+}
+`;
+```
 
 The above `.ts` file is now what we include directly to our `outline-link.ts` component,
 and apply to the `static styles` array. It includes an initial section, applied to all Outline components,

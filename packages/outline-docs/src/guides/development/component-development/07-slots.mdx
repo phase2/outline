@@ -1,5 +1,6 @@
-import { html } from 'lit';
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
 
 <Meta
   title="Documentation/Guides/Component Development/Coding Guide & Standards/Slots"
@@ -13,13 +14,24 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
   }}
 />
 
-<Story name="Introduction">
-  {() => {
-    return html``;
-  }}
-</Story>
-
-> @todo - document this documentation.
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Description
+  Slots allow content to be passed into a web component. 
+  This is useful for allowing the consumer to pass in content that will be rendered inside the component's ShadowDOM.
+  
+  ## Documentation Status
+  <outline-alert statusType="warning" size="large">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
 
 ## Declaring Slots
 
@@ -27,79 +39,70 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
 ### JSDoc for slots
 
-<Story name="JSDoc for Slots">
-  {() => {
+```typescript
+... 
+/** 
+ * The Outline Widget component 
+ * @element outline-widget 
+ * @slot default slot. 
+ * @slot heading: for content above the default slot. 
+ * @slot footer: for content below the default slot. 
+ */ 
+...
+```
+
+### `@customElement` Decorator
+
+```typescript
+... 
+@customElement('outline-widget') 
+export class OutlineWidget extends OutlineElement { 
+... 
+}
+```
+
+### `render()` method for slots
+
+```typescript
+...
+  render(): TemplateResult { 
     return html`
-      <outline-code-block language="jsx" class="mb-6">
-        ... /** * The Outline Widget component * @element outline-widget * @slot
-        default slot. * @slot heading: for content above the default slot. *
-        @slot footer: for content below the default slot. */ ...
-      </outline-code-block>
-    `;
-  }}
-</Story>
-
-### @customElement Decorator
-
-<Story name="@customElement Decorator">
-  {() => {
-    return html` <outline-code-block language="jsx" class="mb-6">
-      ... @customElement('outline-widget') export class OutlineWidget extends
-      OutlineElement { ... }
-    </outline-code-block>`;
-  }}
-</Story>
-
-### render() method for slots
-
-<Story name="Render method with slots">
-  {() => {
-    return html` <outline-code-block language="jsx" class="mb-6">
-      render(): TemplateResult { return html\`
       <slot name="heading"></slot>
       <slot></slot>
       <slot name="footer"></slot>
       <p>"Hard coded" element inside the component's ShadowDOM.</p>
-      \` }
-    </outline-code-block>`;
-  }}
-</Story>
+    ` 
+  }
+...  
+```
 
 ### Default placeholder content in slots.
 
-<Story name="Slots with default content">
-  {() => {
-    return html` <outline-code-block language="jsx" class="mb-6">
-      render(): TemplateResult { return html\`
+```typescript
+...
+  render(): TemplateResult { 
+    return html`
       <slot name="heading">Default header content</slot>
       <slot>default content for the default slot</slot>
       <slot name="footer">default content for the footer slot</slot>
-      \` }
-    </outline-code-block>`;
-  }}
-</Story>
-
+    ` 
+  }
+...
+```
 <hr />
 
 ## Using Slots
 
-<Story name="Using Slots">
-  {() => {
-    return html`
-<outline-code-block language="html" class="mb-6">
+```html
 <!-- An example of passing content to the default slot. -->
 <outline-widget>
   <p>This paragraph is content that will be passed to the default slot in the component.</p>
 </outline-widget>
-</outline-code-block>
-<hr />
-<outline-code-block language="html" class="mb-6">
+
 <!-- An example of passing content to the default slot and named slots. -->
 <outline-widget>
   <p slot="heading">This is passed to the heading slot.</p>
   <p>This is passed to the default slot.</p>
   <p slot="footer">This is passed to the footer slot.</p>
 </outline-widget>
-</outline-code-block>`;
-  }}
-</Story>
+```

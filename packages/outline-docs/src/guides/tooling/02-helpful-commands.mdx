@@ -1,5 +1,7 @@
-import { html } from 'lit';
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
+
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
 
 <Meta
   title="Documentation/Guides/Tooling & Commands/Helpful Commands"
@@ -15,13 +17,20 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
 # Helpful Commands
 
-<outline-alert statusType="info" size="large" class="mb-6">
-  <span slot="outline-alert--header">Documentation Status</span>
-  The documentation on this page is in need of additional updates, corrections or
-  information. <span class="font-semibold italic">
-    Expect frequent updates and/or changes.
-  </span>
-</outline-alert>
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Documentation Status
+  <outline-alert statusType="warning" size="large">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
 
 ## Commonly Used Commands
 
@@ -50,7 +59,7 @@ The following commands help clean a local environment.
 
 Code is not automatically formatted upon commit, but automated tests will fail if you don't format code according to the tooling (Prettier).
 
-You can run `yarn fmt` or configure your IDE to run these commands for you.
+You can run `yarn format` or configure your IDE to run these commands for you.
 
 _Caution: Prettier will sometimes format code in a weird way, so you may want to review its changes._
 
