@@ -1,5 +1,11 @@
 # @phase2/outline-storybook
 
+## 0.0.22
+
+### Patch Changes
+
+- 4fa4cfd: Added documentation for changesets.
+
 ## 0.0.21
 
 ### Patch Changes

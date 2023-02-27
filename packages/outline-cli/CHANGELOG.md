@@ -1,5 +1,12 @@
 # @phase2/outline-cli
 
+## 0.0.21
+
+### Patch Changes
+
+- Updated dependencies [4fa4cfd]
+  - @phase2/outline-storybook@0.0.22
+
 ## 0.0.20
 
 ### Patch Changes

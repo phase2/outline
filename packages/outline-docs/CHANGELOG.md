@@ -1,5 +1,11 @@
 # @phase2/outline-docs
 
+## 0.0.5
+
+### Patch Changes
+
+- 4fa4cfd: Added documentation for changesets.
+
 ## 0.0.4
 
 ### Patch Changes
