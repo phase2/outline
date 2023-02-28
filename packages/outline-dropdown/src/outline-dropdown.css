@@ -36,22 +36,10 @@
 
 .dropdown--open {
   .btn.primary {
-    background-color: var(
-      --outline--button--primary-bg-color-hover,
-      var(--outline-button--default--primary-bg-color-hover)
-    );
-    color: var(
-      --outline--button--primary-text-color-hover,
-      var(--outline-button--default--primary-text-color-hover)
-    );
-    font-weight: var(
-      --outline--button--primary-weight-hover,
-      var(--outline-button--default--primary-weight-hover)
-    );
-    box-shadow: var(
-      --outline--button--primary-ring-hover,
-      var(--outline-button--default--primary-ring-hover)
-    );
+    background-color: var(--outline-button--primary-bg-color-hover--computed);
+    color: var(--outline-button--primary-text-color-hover--computed);
+    font-weight: var(--outline-button--primary-weight-hover--computed);
+    box-shadow: var(--outline-button--primary-ring-hover--computed);
   }
 }
 
@@ -69,54 +57,33 @@
   pointer-events: all;
 }
 
-/* 
+/*
   Applies a margin to the span containing the button text
-  assuming there is a button-url, meaning there should be an 
-  icon for opening a dropdown. 
+  assuming there is a button-url, meaning there should be an
+  icon for opening a dropdown.
 */
 outline-split-button {
 }
 
 outline-button {
   .btn {
-    padding: var(--outline-btn-padding, var(--outline-button--default-padding));
+    padding: var(--outline-button--padding--computed);
   }
 
   .btn.primary {
-    padding: var(
-      --outline--button--primary-padding,
-      var(
-        --outline-btn-padding,
-        var(--outline-button--default--primary-padding)
-      )
-    );
+    padding: var(--outline-button--primary-padding--computed);
   }
 
   .btn.secondary {
-    padding: var(
-      --outline--button--secondary-padding,
-      var(
-        --outline-btn-padding,
-        var(--outline-button--default--secondary-padding)
-      )
-    );
+    padding: var(--outline-button--secondary-padding--computed);
   }
 
   .btn.tertiary {
-    padding: var(
-      --outline--button--tertiary-padding,
-      var(
-        --outline-btn-padding,
-        var(--outline-button--default--tertiary-padding)
-      )
-    );
+    padding: var(--outline-button--tertiary-padding--computed);
   }
 
   .btn.link {
-    padding: var(
-      --outline--button--link-padding,
-      var(--outline-btn-padding, var(--outline-button--default--link-padding))
-    );
+    padding: var(--outline-button--link-padding--computed);
   }
 
   .btn.primary:hover {

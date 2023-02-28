@@ -1,19 +1,17 @@
 /*
 Default CSS Variables for `outline-list`.
-You can override these using `outline.theme.css`, 
+You can override these using `outline.theme.css`,
 or any css file in your consumer application with
 a later loading order than `outline.theme.css`.
-The variables used to override the default 
-`outline-list` styling can be found in 
-`outline-list.ts` delcared with the `@cssprop` annotations.
 */
 
---outline--list-default-spacing: var(--spacing-4);
---outline--list-default-spacing-xs: var(--outline--list-default-spacing, var(--spacing-4));
---outline--list-default-spacing-sm: var(--outline--list-default-spacing, var(--spacing-4));
---outline--list-default-spacing-md: var(--outline--list-default-spacing, var(--spacing-4));
---outline--list-default-spacing-lg: var(--outline--list-default-spacing, var(--spacing-4));
---outline--list-default-spacing-xl: var(--outline--list-default-spacing, var(--spacing-4));
---outline--list-default-spacing-xxl: var(--outline--list-default-spacing, var(--spacing-4));
---outline--list-default-spacing-xxxl: var(--outline--list-default-spacing, var(--spacing-4));
-
+:host {
+  --outline-list--spacing--computed: var(--outline-list--spacing, var(--spacing-4));
+  --outline-list--spacing-xs--computed: var(--outline-list--spacing-xs, var(--outline-list--spacing, var(--spacing-4)));
+  --outline-list--spacing-sm--computed: var(--outline-list--spacing-sm, var(--outline-list--spacing, var(--spacing-4)));
+  --outline-list--spacing-md--computed: var(--outline--list--spacing-md, var(--outline-list--spacing, var(--spacing-4)));
+  --outline-list--spacing-lg--computed: var(--outline--list--spacing-lg, var(--outline-list--spacing, var(--spacing-4)));
+  --outline-list--spacing-xl--computed: var(--outline--list--spacing-xl, var(--outline-list--spacing, var(--spacing-4)));
+  --outline-list--spacing-xxl--computed: var(--outline--list--spacing-xxl, var(--outline-list--spacing, var(--spacing-4)));
+  --outline-list--spacing-xxxl--computed: var(--outline--list--spacing-xxxl, var(--outline-list--spacing, var(--spacing-4)));
+}

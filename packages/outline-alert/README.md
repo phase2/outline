@@ -20,9 +20,9 @@ The Outline Alert component
 
 ## CSS Custom Properties
 
-| Property                  | Description                                      |
-|---------------------------|--------------------------------------------------|
-| `--outline-alert-error`   | background: The background color for the error alert. |
-| `--outline-alert-info`    | background: The background color for the info alert. |
-| `--outline-alert-success` | background: The background color for the success alert. |
-| `--outline-alert-warning` | background: The background color for the warning alert. |
+| Property                   | Description                                      |
+|----------------------------|--------------------------------------------------|
+| `--outline-alert--error`   | background: The background color for the error alert. |
+| `--outline-alert--info`    | background: The background color for the info alert. |
+| `--outline-alert--success` | background: The background color for the success alert. |
+| `--outline-alert--warning` | background: The background color for the warning alert. |

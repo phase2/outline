@@ -2897,56 +2897,10 @@
     "@types/sinon-chai" "^3.2.3"
     chai-a11y-axe "^1.3.2"
 
-"@phase2/outline-alert@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-alert/-/outline-alert-0.0.2.tgz#b77cf3fba8766b52e12aa80c33b511869c2f74c5"
-  integrity sha512-PanNjcdq8kRzU7wFG0O1ZgKknA4hLnN+hddqgHld30anLMEN6AQ/v+3PWn2zusj8Nv04AmxA1C6pTMqxu1RZMw==
-  dependencies:
-    "@phase2/outline-core" "^0.0.2"
-    lit "^2.3.1"
-    tslib "^2.1.0"
-
-"@phase2/outline-code-block@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-code-block/-/outline-code-block-0.0.2.tgz#8c6edd076b73ed90fb9274ef3ef29966152e185a"
-  integrity sha512-wPuudnULxYhime0lthDqETZyYDCkmoyfBsHJjnE3X7ypW1lThrRDCj5Ta6FjKu7MiUdULKkdJdAUiYrm/0SzPw==
-  dependencies:
-    "@phase2/outline-core" "^0.0.2"
-    lit "^2.3.1"
-    tslib "^2.1.0"
-
 "@phase2/outline-config@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@phase2/outline-config/-/outline-config-0.0.1.tgz#b3ccc3ae49166032753fe1165022e3752a6e50ac"
   integrity sha512-HoZhL4aqCjdm2HE3YvJgGLboJRPNJLXkRt0UqP0sofxJneAjAJsIdsCKnwecW6ANsEhTAzn0NUbW/g2S+cCuLw==
-
-"@phase2/outline-config@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-config/-/outline-config-0.0.2.tgz#79304f44b55321a18f13114808fd4e6daaf3bc32"
-  integrity sha512-OIMZrNVtHAPThma7lVaeJb96y/bunFIXFHDrhWiSWbhpgKk3gUp7ePIvfrzUeieW+B+kLBiRyzLEsEM69u685Q==
-
-"@phase2/outline-core@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-core/-/outline-core-0.0.2.tgz#05d833ece387fdd42962a9e1c89bb95ef0d885c8"
-  integrity sha512-1p300ISueihcSdsVsbeDL1MKxV6SnYxt0XOoQbqeswdSL6vYBgeyXXyX9/pkHXcncyVRd+yNdXEF2/7LcWdA3g==
-  dependencies:
-    "@phase2/outline-config" "^0.0.2"
-    lit "^2.0.2"
-
-"@phase2/outline-static-assets@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-static-assets/-/outline-static-assets-0.0.2.tgz#5e04cb14c61faf3203ddb760d76c7095880817fa"
-  integrity sha512-J7Hh3TozV81BxMP7UuVn3Ooj7tZwZ1/88xV9JWHM7vv8mG6zMpf2rk/1oOL+oHL3R4sNat1c3eCim157xtDrQQ==
-
-"@phase2/outline-storybook@^0.0.10":
-  version "0.0.10"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-storybook/-/outline-storybook-0.0.10.tgz#73fea29989179c8b4fd8db1f9cf6eef996119850"
-  integrity sha512-zQu3zWLDw8YD5nFa31rOUV1RZU+1tsmFhnazTw2/v3n9kd4splO8NNSV5ugmlr24O3P7aj+xvLijTte6k63WuA==
-  dependencies:
-    "@phase2/outline-alert" "^0.0.2"
-    "@phase2/outline-code-block" "^0.0.2"
-    "@phase2/outline-core" "^0.0.2"
-    "@phase2/outline-static-assets" "^0.0.2"
 
 "@phase2/outline-templates@^0.0.12":
   version "0.0.12"

@@ -6,11 +6,6 @@ import { OutlineElement, SlotController } from '@phase2/outline-core';
 import { LinkTargetType } from '@phase2/outline-link';
 
 import { linkVars } from '@phase2/outline-link';
-import defaultVars from './css-variables/vars-default.css.lit';
-import primaryButtonVars from './css-variables/vars-primary.css.lit';
-import secondaryButtonVars from './css-variables/vars-secondary.css.lit';
-import tertiaryButtonVars from './css-variables/vars-tertiary.css.lit';
-import linkButtonVars from './css-variables/vars-link.css.lit';
 import componentStyles from './outline-button.css.lit';
 
 export type ButtonVariant = 'link' | 'primary' | 'secondary' | 'tertiary';
@@ -33,15 +28,7 @@ export type ButtonSize = 'small' | 'medium' | 'large';
  */
 @customElement('outline-button')
 export class OutlineButton extends OutlineElement {
-  static styles: CSSResultGroup = [
-    linkVars,
-    defaultVars,
-    primaryButtonVars,
-    secondaryButtonVars,
-    tertiaryButtonVars,
-    linkButtonVars,
-    componentStyles,
-  ];
+  static styles: CSSResultGroup = [linkVars, componentStyles];
 
   slots = new SlotController(
     this, // This, the host element.

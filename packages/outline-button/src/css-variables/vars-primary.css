@@ -1,71 +1,74 @@
 /*
 Default CSS Variables for the `outline-button` primary variant.
-You can override these using `outline.theme.css`, 
+You can override these using `outline.theme.css`,
 or any css file in your consumer application with
 a later loading order than `outline.theme.css`.
-The variables used to override the default 
-`outline-button` styling can be found in 
+The variables used to override the default
+`outline-button` styling can be found in
 `outline-button.ts` delcared with the `@cssprop` annotations.
 */
-/* 
+/*
 // ### CSS Variables
 
 // > The following CSS Variables are used to style the primary buttons.
 
-// - \`--outline--button--primary-padding\`: Padding for the primary buttons.
-// - \`--outline--button--primary-radius\`: Border radius for the primary buttons.
-// - \`--outline--button--primary-bg-color-default\`: Background color for the primary buttons.
-// - \`--outline--button--primary-text-color-default\`: Text color for the primary buttons.
-// - \`--outline--button--primary-weight-default\`: Font weight for the primary buttons.
-// - \`--outline--button--primary-ring-default\`: Border ring for the primary buttons.
-// - \`--outline--button--primary-bg-color-hover\`: Background color for the primary buttons when hovered.
-// - \`--outline--button--primary-text-color-hover\`: Text color for the primary buttons when hovered.
-// - \`--outline--button--primary-weight-hover\`: Font weight for the primary buttons when hovered.
-// - \`--outline--button--primary-ring-hover\`: Border ring for the primary buttons when hovered.
-// - \`--outline--button--primary-bg-color-focus\`: Background color for the primary buttons when focused.
-// - \`--outline--button--primary-text-color-focus\`: Text color for the primary buttons when focused.
-// - \`--outline--button--primary-weight-focus\`: Font weight for the primary buttons when focused.
-// - \`--outline--button--primary-ring-focus\`: Border ring for the primary buttons when focused.
-// - \`--outline--button--primary--disabled-bg-color\`: Background color for the primary buttons when disabled.
-// - \`--outline--button--primary--disabled-text-color\`: Text color for the primary buttons when disabled.
-// - \`--outline--button--primary--disabled-weight\`: Font weight for the primary buttons when disabled.
-// - \`--outline--button--primary--disabled-ring\`: Border ring for the primary buttons when disabled.
-// - \`--outline--button--primary--disabled-bg-color-focus\`: Background color for the primary buttons when disabled and focused.
-// - \`--outline--button--primary--disabled-text-color-focus\`: Text color for the primary buttons when disabled and focused.
-// - \`--outline--button--primary--disabled-weight-focus\`: Font weight for the primary buttons when disabled and focused.
-// - \`--outline--button--primary--disabled-ring-focus\`: Border ring for the primary buttons when disabled and focused.
+// - \`--outline-button--primary-padding\`: Padding for the primary buttons.
+// - \`--outline-button--primary-radius\`: Border radius for the primary buttons.
+// - \`--outline-button--primary-bg-color\`: Background color for the primary buttons.
+// - \`--outline-button--primary-text-color\`: Text color for the primary buttons.
+// - \`--outline-button--primary-weight\`: Font weight for the primary buttons.
+// - \`--outline-button--primary-ring\`: Border ring for the primary buttons.
+// - \`--outline-button--primary-bg-color-hover\`: Background color for the primary buttons when hovered.
+// - \`--outline-button--primary-text-color-hover\`: Text color for the primary buttons when hovered.
+// - \`--outline-button--primary-weight-hover\`: Font weight for the primary buttons when hovered.
+// - \`--outline-button--primary-ring-hover\`: Border ring for the primary buttons when hovered.
+// - \`--outline-button--primary-bg-color-focus\`: Background color for the primary buttons when focused.
+// - \`--outline-button--primary-text-color-focus\`: Text color for the primary buttons when focused.
+// - \`--outline-button--primary-weight-focus\`: Font weight for the primary buttons when focused.
+// - \`--outline-button--primary-ring-focus\`: Border ring for the primary buttons when focused.
+// - \`--outline-button--primary-disabled-bg-color\`: Background color for the primary buttons when disabled.
+// - \`--outline-button--primary-disabled-text-color\`: Text color for the primary buttons when disabled.
+// - \`--outline-button--primary-disabled-weight\`: Font weight for the primary buttons when disabled.
+// - \`--outline-button--primary-disabled-ring\`: Border ring for the primary buttons when disabled.
+// - \`--outline-button--primary-disabled-bg-color-focus\`: Background color for the primary buttons when disabled and focused.
+// - \`--outline-button--primary-disabled-text-color-focus\`: Text color for the primary buttons when disabled and focused.
+// - \`--outline-button--primary-disabled-weight-focus\`: Font weight for the primary buttons when disabled and focused.
+// - \`--outline-button--primary-disabled-ring-focus\`: Border ring for the primary buttons when disabled and focused.
 */
 
-/* Primary Button(s) */
---outline-button--default--primary-padding: var(--outline-button--default-padding);
---outline-button--default--primary-radius: var(--outline-button--default-radius);
+:host {
 
-/* Primary Button(s) - Default */
---outline-button--default--primary-bg-color-default: var(--outline-blue-600);
---outline-button--default--primary-text-color-default: var(--outline-white);
---outline-button--default--primary-weight-default: var(--outline-button--default-weight);
---outline-button--default--primary-ring-default: none;
+  /* Primary Button(s) */
+  --outline-button--primary-padding--computed: var(--outline-button--primary-padding, var(--outline-button--padding--computed));
+  --outline-button--primary-radius--computed: var(--outline-button--primary-radius, var(--outline-button--radius--computed));
 
-/* Primary Button(s) - Hover */
---outline-button--default--primary-bg-color-hover: var(--outline-white);
---outline-button--default--primary-text-color-hover: var(--outline-blue-600);
---outline-button--default--primary-weight-hover: var(--outline-button--default-weight);
---outline-button--default--primary-ring-hover: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600);
+  /* Primary Button(s) - Default */
+  --outline-button--primary-bg-color--computed: var(--outline-button--primary-bg-color, var(--outline-blue-600));
+  --outline-button--primary-color--computed: var(--outline-button--primary-color, var(--outline-white));
+  --outline-button--primary-weight--computed: var(--outline-button--primary-weight, var(--outline-button--weight--computed));
+  --outline-button--primary-ring--computed: var(--outline-button--primary-ring, none);
 
-/* Primary Button(s) - Focus */
---outline-button--default--primary-bg-color-focus: var(--outline-white);
---outline-button--default--primary-text-color-focus: var(--outline-blue-600);
---outline-button--default--primary-weight-focus: var(--outline-button--default-weight);
---outline-button--default--primary-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600);
+  /* Primary Button(s) - Hover */
+  --outline-button--primary-bg-color-hover--computed: var(--outline-button--primary-bg-color-hover, var(--outline-white));
+  --outline-button--primary-color-hover--computed: var(--outline-button--primary-color-hover, var(--outline-blue-600));
+  --outline-button--primary-weight-hover--computed: var(--outline-button--primary-weight-hover, var(--outline-button--weight--computed));
+  --outline-button--primary-ring-hover--computed: var(--outline-button--primary-ring-hover, var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600));
 
-/* Primary Button(s) - Disabled */
---outline-button--default--primary--disabled-bg-color: var(--outline-white);
---outline-button--default--primary--disabled-text-color: var(--outline-gray-400);
---outline-button--default--primary--disabled-weight: var(--outline-button--default-weight);
---outline-button--default--primary--disabled-ring: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300);
+  /* Primary Button(s) - Focus */
+  --outline-button--primary-bg-color-focus--computed: var(--outline-button--primary-bg-color-focus, var(--outline-white));
+  --outline-button--primary-color-focus--computed: var(--outline-button--primary-color-focus, var(--outline-blue-600));
+  --outline-button--primary-weight-focus--computed: var(--outline-button--primary-weight-focus, var(--outline-button--weight--computed));
+  --outline-button--primary-ring-focus--computed: var(--outline-button--primary-ring-focus, var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600));
 
-/* Primary Button(s) - Disabled:Focus */
---outline-button--default--primary--disabled-bg-color-focus: var(--outline-white);
---outline-button--default--primary--disabled-text-color-focus: var(--outline-gray-400);
---outline-button--default--primary--disabled-weight-focus: var(--outline-button--default-weight);
---outline-button--default--primary--disabled-ring-focus: var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400);
+  /* Primary Button(s) - Disabled */
+  --outline-button--primary-disabled-bg-color--computed: var(--outline-button--primary-disabled-bg-color, var(--outline-white));
+  --outline-button--primary-disabled-color--computed: var(--outline-button--primary-disabled-color, var(--outline-gray-400));
+  --outline-button--primary-disabled-weight--computed: var(--outline-button--primary-disabled-weight, var(--outline-button--weight--computed));
+  --outline-button--primary-disabled-ring--computed: var(--outline-button--primary-disabled-ring, var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300));
+
+  /* Primary Button(s) - Disabled:Focus */
+  --outline-button--primary-disabled-bg-color-focus--computed: var(--outline-button--primary-disabled-bg-color-focus, var(--outline-white));
+  --outline-button--primary-disabled-color-focus--computed: var(--outline-button--primary-disabled-color-focus, var(--outline-gray-400));
+  --outline-button--primary-disabled-weight-focus--computed: var(--outline-button--primary-disabled-weight-focus, var(--outline-button--weight--computed));
+  --outline-button--primary-disabled-ring-focus--computed: var(--outline-button--primary-disabled-ring-focus, var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400));
+}
