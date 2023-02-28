@@ -18,7 +18,7 @@ import componentStyles from './outline-admin-links.css.lit';
  * @cssprop --outline-admin-links--bg-active: The active background color for the admin links.
  * @cssprop --outline-admin-links--spacing-y: The vertical spacing for the admin links group.
  * @cssprop --outline-admin-links--link-spacing-y: The vertical padding for the individual admin links.
- * @cssprop --outline-admin-links--link-spacing=x: The horizontal padding for the individual admin links.
+ * @cssprop --outline-admin-links--link-spacing-x: The horizontal padding for the individual admin links.
  * @todo: Ensure this component is more mobile friendly.
  */
 @customElement('outline-admin-links')
