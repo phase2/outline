@@ -56,7 +56,7 @@
     background-color: var(--outline-button--primary-bg-color-hover--computed);
     color: var(--outline-button--primary-color-hover--computed);
     font-weight: var(--outline-button--primary-weight-hover--computed);
-    box-shadow: var(--outline-button--primary-ring-hover--computed)
+    box-shadow: var(--outline-button--primary-ring-hover--computed);
   }
 
   &:focus {
@@ -74,7 +74,9 @@
   box-shadow: var(--outline-button--primary-disabled-ring--computed);
 
   &:focus {
-    background-color: var(--outline-button--primary-disabled-bg-color-focus--computed);
+    background-color: var(
+      --outline-button--primary-disabled-bg-color-focus--computed
+    );
     color: var(--outline-button--primary-disabled-color-focus--computed);
     font-weight: var(--outline-button--primary-disabled-weight-focus--computed);
     box-shadow: var(--outline-button--primary-disabled-ring-focus--computed);
@@ -106,15 +108,21 @@
 }
 
 .btn.secondary[aria-disabled='true'] {
-  background-color: var(--outline-button--secondary-disabled-bg-color--computed);
+  background-color: var(
+    --outline-button--secondary-disabled-bg-color--computed
+  );
   color: var(--outline-button--secondary-disabled-color--computed);
   font-weight: var(--outline-button--secondary-disabled-weight--computed);
   box-shadow: var(--outline-button--secondary-disabled-ring--computed);
 
   &:focus {
-    background-color: var(--outline-button--secondary-disabled-bg-color-focus--computed);
+    background-color: var(
+      --outline-button--secondary-disabled-bg-color-focus--computed
+    );
     color: var(--outline-button--secondary-disabled-color-focus--computed);
-    font-weight: var(--outline-button--secondary-disabled-weight-focus--computed);
+    font-weight: var(
+      --outline-button--secondary-disabled-weight-focus--computed
+    );
     box-shadow: var(--outline-button--secondary-disabled-ring-focus--computed);
   }
 }
@@ -150,9 +158,13 @@
   box-shadow: var(--outline-button--tertiary-disabled-ring--computed);
 
   &:focus {
-    background-color: var(--outline-button--tertiary-disabled-bg-color-focus--computed);
+    background-color: var(
+      --outline-button--tertiary-disabled-bg-color-focus--computed
+    );
     color: var(--outline-button--tertiary-disabled-color-focus--computed);
-    font-weight: var(--outline-button--tertiary-disabled-weight-focus--computed);
+    font-weight: var(
+      --outline-button--tertiary-disabled-weight-focus--computed
+    );
     box-shadow: var(--outline-button--tertiary-disabled-ring-focus--computed);
   }
 }
@@ -192,10 +204,14 @@
   box-shadow: var(--outline-button--link-disabled-ring--computed);
 
   &:focus {
-    background-color: var(--outline-button--link-disabled-bg-color-focus--computed);
+    background-color: var(
+      --outline-button--link-disabled-bg-color-focus--computed
+    );
     color: var(--outline-button--link-disabled-color-focus--computed);
     font-weight: var(--outline-button--link-disabled-weight-focus--computed);
-    text-decoration: var(--outline-button--link-disabled-decoration-focus--computed);
+    text-decoration: var(
+      --outline-button--link-disabled-decoration-focus--computed
+    );
     box-shadow: var(--outline-button--link-disabled-ring-focus--computed);
   }
 }

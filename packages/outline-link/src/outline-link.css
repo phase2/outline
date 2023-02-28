@@ -6,7 +6,9 @@ a,
   text-decoration: var(--outline-link--text-decoration--computed);
   color: var(--outline-link--color--computed);
   transition-property: var(--outline-link--transition-property--computed);
-  transition-timing-function: var(--outline-link--transition-timing-function--computed);
+  transition-timing-function: var(
+    --outline-link--transition-timing-function--computed
+  );
   transition-duration: var(--outline-link--transition-duration--computed);
 }
 

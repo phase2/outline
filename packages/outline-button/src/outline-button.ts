@@ -28,10 +28,7 @@ export type ButtonSize = 'small' | 'medium' | 'large';
  */
 @customElement('outline-button')
 export class OutlineButton extends OutlineElement {
-  static styles: CSSResultGroup = [
-    linkVars,
-    componentStyles,
-  ];
+  static styles: CSSResultGroup = [linkVars, componentStyles];
 
   slots = new SlotController(
     this, // This, the host element.

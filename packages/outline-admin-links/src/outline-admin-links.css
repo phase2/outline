@@ -49,14 +49,12 @@ a {
     height: 100%;
     content: '';
     transform: translate(-50%, -50%);
-    border: solid 2px
-      var(--outline-admin-links--color-hover--computed);
+    border: solid 2px var(--outline-admin-links--color-hover--computed);
     border-radius: 0.25rem;
   }
 
   &.is-active {
-    outline: solid 2px
-      var(--outline-admin-links--color-hover--computed);
+    outline: solid 2px var(--outline-admin-links--color-hover--computed);
     background: var(--outline-admin-links--bg-active--computed);
     color: var(--outline-admin-links--color-active--computed);
     z-index: 1;
