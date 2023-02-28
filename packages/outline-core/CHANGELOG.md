@@ -1,5 +1,11 @@
 # @phase2/outline-core
 
+## 0.1.7
+
+### Patch Changes
+
+- CSS Variable update version bumps.
+
 ## 2.0.0
 
 ### Major Changes

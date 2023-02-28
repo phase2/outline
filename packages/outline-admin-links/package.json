@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-admin-links",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The Outline Components for the outline-admin-links component",
   "keywords": [
     "outline components",
@@ -27,7 +27,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.1.0",
+    "@phase2/outline-core": "^0.1.7",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },

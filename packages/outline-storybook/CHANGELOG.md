@@ -1,5 +1,14 @@
 # @phase2/outline-storybook
 
+## 0.0.23
+
+### Patch Changes
+
+- CSS Variable update version bumps.
+- Updated dependencies
+  - @phase2/outline-core@0.1.7
+  - @phase2/outline-alert@0.1.2
+
 ## 0.0.22
 
 ### Patch Changes
