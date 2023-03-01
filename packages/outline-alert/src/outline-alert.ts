@@ -17,7 +17,7 @@ export type AlertStatusType = typeof alertStatusTypes[number];
 
 // This can be useful for testing.
 export interface OutlineAlertInterface extends HTMLElement {
-  statusType: AlertStatusType;
+  status: AlertStatusType;
   size: AlertSize;
   isInteractive: boolean;
   shouldShowIcon: boolean;
@@ -51,19 +51,19 @@ export class OutlineAlert
 {
   static styles: CSSResultGroup = [componentStyles];
 
-  @property({ type: String })
-  statusType: AlertStatusType = 'info';
+  @property({ type: String, attribute: 'status' })
+  status: AlertStatusType = 'info';
 
   /**
    * This is important context for screen readers.
    */
-  @property({ type: Boolean })
+  @property({ type: Boolean, attribute: 'is-interactive' })
   isInteractive = false;
 
-  @property({ type: Boolean })
-  shouldShowIcon = true;
+  @property({ type: Boolean, attribute: 'should-show-icon' })
+  shouldShowIcon = false;
 
-  @property({ type: String })
+  @property({ type: String, attribute: 'size' })
   size: AlertSize = 'large';
 
   render(): TemplateResult {
@@ -87,7 +87,7 @@ export class OutlineAlert
           this.size === 'large'
             ? html`
               <div class="alert-header">
-                <slot name="header">${this.statusType}</slot>
+                <slot name="header">${this.status}</slot>
               </div>
             `
             : null

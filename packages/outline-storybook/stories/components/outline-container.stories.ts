@@ -40,7 +40,7 @@ The \`outline-container\` component is a container/wrapper for components,
 page sections or entire pages. It is used to provide a consistent layout.
 
 ## Component Status
-<outline-alert statusType="warning" size="large" className="mb-6">
+<outline-alert status="warning" size="large" className="mb-6">
   <span slot="header">Status: Needs Work/In Progress</span>
   <p>
     The \`OutlineContainer\` class, is a wrapper component that provides the
@@ -49,7 +49,7 @@ page sections or entire pages. It is used to provide a consistent layout.
   </p>
 </outline-alert>
 <br />
-<outline-alert statusType="error" size="large" className="mb-6">
+<outline-alert status="error" size="large" className="mb-6">
   <span slot="header">@todo</span>
   <ul>
     <li>Fix for Documentation section styling. (\`README.md\` import)</li>
@@ -86,7 +86,7 @@ gridFullWidth.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert statusType="info" size="large">
+<outline-alert status="info" size="large">
   <span slot="header">Container: Full</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
@@ -120,7 +120,7 @@ gridWideWidth.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert statusType="info" size="large">
+<outline-alert status="info" size="large">
   <span slot="header">Container: Wide</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
@@ -154,7 +154,7 @@ gridMediumWidth.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert statusType="info" size="large">
+<outline-alert status="info" size="large">
   <span slot="header">Container: Medium</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
@@ -188,7 +188,7 @@ gridNarrowWidth.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert statusType="info" size="large">
+<outline-alert status="info" size="large">
   <span slot="header">Container: Narrow</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
@@ -223,7 +223,7 @@ gridNarrowWidthLeft.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert statusType="info" size="large">
+<outline-alert status="info" size="large">
   <span slot="header">Container: Narrow</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
@@ -258,7 +258,7 @@ gridNarrowWidthRight.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert statusType="info" size="large">
+<outline-alert status="info" size="large">
   <span slot="header">Container: Narrow</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`

@@ -88,7 +88,7 @@ export default {
 
 This is rendered as an \`a\` element if a link and a \`button\` element if not a link. This allows for consistent styling that matches the user expectation of a button while matching the browser expectation for those elements.
 
-<outline-alert statusType="info" size="large" class="mb-6">
+<outline-alert status="info" size="large" class="mb-6">
   <span slot="header">CSS Variables</span>
   <p>Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.</p>
   <p>Additional documentation and references for available CSS Variables can be found in the following locations.</p>
