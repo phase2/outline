@@ -5,7 +5,7 @@ import type { LinkTargetType, LinkRelType } from '@phase2/outline-link';
 // Import the component itself.
 import '@phase2/outline-link';
 
-const sampleImage = 'https://picsum.photos/1440';
+import sampleImage from '@phase2/outline-static-assets/media/tech/1440/code-6.jpg';
 
 export default {
   title: 'Navigation/Link',
