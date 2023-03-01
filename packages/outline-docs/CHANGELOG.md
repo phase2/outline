@@ -1,5 +1,11 @@
 # @phase2/outline-docs
 
+## 0.0.7
+
+### Patch Changes
+
+- Updating alert component properties.
+
 ## 0.0.6
 
 ### Patch Changes

@@ -15,25 +15,25 @@
   text-transform: capitalize;
 }
 
-:host([statusType='info']) .alert-body {
+:host([status='info']) .alert-body {
   background-color: var(--outline-alert--info-background--computed);
   border-color: var(--outline-alert--info-border--computed);
   color: var(--outline-alert--info-text--computed);
 }
 
-:host([statusType='warning']) .alert-body {
+:host([status='warning']) .alert-body {
   background-color: var(--outline-alert--warning-background--computed);
   border-color: var(--outline-alert--warning-border--computed);
   color: var(--outline-alert--warning-text--computed);
 }
 
-:host([statusType='error']) .alert-body {
+:host([status='error']) .alert-body {
   background-color: var(--outline-alert--error-background--computed);
   border-color: var(--outline-alert--error-border--computed);
   color: var(--outline-alert--error-text--computed);
 }
 
-:host([statusType='success']) .alert-body {
+:host([status='success']) .alert-body {
   background-color: var(--outline-alert--success-background--computed);
   border-color: var(--outline-alert--success-border--computed);
   color: var(--outline-alert--success-text--computed);

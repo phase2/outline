@@ -75,7 +75,7 @@ If the alert has an interaction, you should indicate this with \`isInteractive\`
         // This code sample will be used for every example unless overridden.
         code: `
 <outline-alert
-  statusType="{{ statusType }}"
+  status="{{ statusType }}"
   size="{{ size }}"
   {{ shouldShowIcon }}
   {{ isInteractive }}
@@ -99,10 +99,10 @@ const Template = ({
 }: any): TemplateResult => {
   return html`
     <outline-alert
-      statusType="${ifDefined(statusType)}"
+      status="${ifDefined(statusType)}"
       size="${ifDefined(size)}"
-      ?shouldShowIcon="${shouldShowIcon}"
-      ?isInteractive="${isInteractive}"
+      ?should-show-icon="${shouldShowIcon}"
+      ?is-interactive="${isInteractive}"
     >
       ${ifDefined(headerSlot)} ${ifDefined(defaultSlot)}
     </outline-alert>

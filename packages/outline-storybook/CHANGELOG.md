@@ -1,5 +1,13 @@
 # @phase2/outline-storybook
 
+## 0.0.25
+
+### Patch Changes
+
+- Updating alert component properties.
+- Updated dependencies
+  - @phase2/outline-alert@0.1.3
+
 ## 0.0.24
 
 ### Patch Changes
