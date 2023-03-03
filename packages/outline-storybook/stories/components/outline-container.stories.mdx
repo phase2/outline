@@ -3,7 +3,7 @@ import '@phase2/outline-image';
 import '@phase2/outline-alert';
 
 import { html } from 'lit';
-import { Meta, Canvas, Source } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
 
 import code1 from '@phase2/outline-static-assets/media/tech/1440/code-1.jpg';
 import code2 from '@phase2/outline-static-assets/media/tech/1440/code-2.jpg';
@@ -61,7 +61,6 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       <li>Increase flexibility & configurability: Fix for styles on `outline-container` breakpoints. (`outline-container.css`)</li>
     </ul>
   </outline-alert>
-
 </outline-container>
 
 ## Examples
@@ -73,10 +72,21 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       `full`. This, by default is demonstrating the container with an `outline-image` tag to display the full size of the container.
     </p>
   </outline-alert>
-
   <outline-container
     container-width="full"
-    top-margin="spacing-2"
+    top-margin="spacing-0"
+    bottom-margin="spacing-0"
+  >
+    <outline-image
+      image-href={code7}
+      image-label="image of code on a screen"
+      image-ratio="42/9"
+    ></outline-image>
+
+  ```html
+  <outline-container
+    container-width="full"
+    top-margin="spacing-0"
     bottom-margin="spacing-0"
   >   
     <outline-image
@@ -84,28 +94,12 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       image-label="image of code on a screen"
       image-ratio="42/9"
     ></outline-image>
-    <Source
-      language='html'
-      dark
-      format={false}
-      code={`
-  <outline-container
-    container-width="full"
-    top-margin="spacing-2"
-    bottom-margin="spacing-1"
-  >   
-    <outline-image
-      image-href={code7}
-      image-label="image of code on a screen"
-      image-ratio="42/9"
-    ></outline-image>
   </outline-container>
-      `}
-    ></Source>
+  ```
   </outline-container>
 </outline-container>
 
-<outline-container container-width="wide" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2">
+<outline-container container-width="wide" top-margin="spacing-6" bottom-margin="spacing-12" component-spacing="spacing-2">
   <outline-alert status="info" size="large">
     <span slot="header">Container: Wide</span>
     <p>
@@ -121,24 +115,19 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       image-label="image of code on a screen"
       image-ratio="42/9"
     ></outline-image>
-    <Source
-      language='html'
-      dark
-      format={false}
-      code={`
-  <outline-container
-    container-width="full"
-    top-margin="spacing-2"
-    bottom-margin="spacing-0"
-  >   
-    <outline-image
-      image-href={code7}
-      image-label="image of code on a screen"
-      image-ratio="42/9"
-    ></outline-image>
-  </outline-container>
-      `}
-    ></Source>
+```html
+<outline-container
+  container-width="full"
+  top-margin="spacing-2"
+  bottom-margin="spacing-0"
+>   
+  <outline-image
+    image-href={code7}
+    image-label="image of code on a screen"
+    image-ratio="42/9"
+  ></outline-image>
+</outline-container>
+```
   </outline-container>
 </outline-container>
 
@@ -153,35 +142,30 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
   <outline-container
     container-width="full"
     top-margin="spacing-2"
-    bottom-margin="spacing-0"
+    bottom-margin="spacing-1"
   >
     <outline-image
       image-href={code3}
       image-label="image of code on a screen"
       image-ratio="42/9"
     ></outline-image>
-    <Source
-      language='html'
-      dark
-      format={false}
-      code={`
-  <outline-container
-    container-width="medium"
-    top-margin="spacing-2"
-    bottom-margin="spacing-0"
-  >
-    <outline-image
-      image-href={code3}
-      image-label="image of code on a screen"
-      image-ratio="42/9"
-    ></outline-image>
-  </outline-container>
-    `}
-    ></Source>
+```html
+<outline-container
+  container-width="medium"
+  top-margin="spacing-2"
+  bottom-margin="spacing-0"
+>
+  <outline-image
+    image-href={code3}
+    image-label="image of code on a screen"
+    image-ratio="42/9"
+  ></outline-image>
+</outline-container>
+```
   </outline-container>
 </outline-container>
 
-<outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-12">
+<outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2">
   <outline-alert status="info" size="large">
     <span slot="header">Container: Narrow</span>
     <p>
@@ -199,28 +183,23 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       image-label="image of code on a screen"
       image-ratio="42/9"
     ></outline-image>
-    <Source
-      language='html'
-      dark
-      format={false}
-      code={`
-  <outline-container
-    container-width="narrow"
-    top-margin="spacing-2"
-    bottom-margin="spacing-0"
-  >
-    <outline-image
-      image-href={code1}
-      image-label="image of code on a screen"
-      image-ratio="42/9"
-    ></outline-image>
-  </outline-container>
-    `}
-    ></Source>
+```html
+<outline-container
+  container-width="narrow"
+  top-margin="spacing-2"
+  bottom-margin="spacing-0"
+>
+  <outline-image
+    image-href={code1}
+    image-label="image of code on a screen"
+    image-ratio="42/9"
+  ></outline-image>
+</outline-container>
+```
   </outline-container>
 </outline-container>
 
-<outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-12" justify-end>
+<outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2" justify-end>
   <outline-alert status="info" size="large">
     <span slot="header">Container: Narrow (Right)</span>
     <p>
@@ -242,29 +221,24 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       image-label="image of code on a screen"
       image-ratio="42/9"
     ></outline-image>
-    <Source
-      language='html'
-      dark
-      format={false}
-      code={`
-  <outline-container
-    container-width="narrow"
-    top-margin="spacing-2"
-    bottom-margin="spacing-0"
-    justify-end
-  >
-    <outline-image
-      image-href={code2}
-      image-label="image of code on a screen"
-      image-ratio="42/9"
-    ></outline-image>
-  </outline-container>    
-    `}
-    ></Source>
+```html
+<outline-container
+  container-width="narrow"
+  top-margin="spacing-2"
+  bottom-margin="spacing-0"
+  justify-end
+>
+  <outline-image
+    image-href={code2}
+    image-label="image of code on a screen"
+    image-ratio="42/9"
+  ></outline-image>
+</outline-container> 
+```
   </outline-container>
 </outline-container>
 
-<outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-0" component-spacing="spacing-2" justify-start>
+<outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2" component-spacing="spacing-2" justify-start>
   <outline-alert status="info" size="large">
     <span slot="header">Container: Narrow (Left)</span>
     <p>
@@ -286,24 +260,19 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       image-label="image of code on a screen"
       image-ratio="42/9"
     ></outline-image>
-    <Source
-      language='html'
-      dark
-      format={false}
-      code={`
-  <outline-container
-    container-width="narrow"
-    top-margin="spacing-2"
-    bottom-margin="spacing-0"
-    justify-start
-  >   
-    <outline-image
-      image-href={code6}
-      image-label="image of code on a screen"
-      image-ratio="42/9"
-    ></outline-image>
-  </outline-container>
-    `}
-    ></Source>
+```html
+<outline-container
+  container-width="narrow"
+  top-margin="spacing-2"
+  bottom-margin="spacing-0"
+  justify-start
+>   
+  <outline-image
+    image-href={code6}
+    image-label="image of code on a screen"
+    image-ratio="42/9"
+  ></outline-image>
+</outline-container>
+```
   </outline-container>
 </outline-container>
