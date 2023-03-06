@@ -6,7 +6,8 @@
 select {
   background-color: var(--outline-form--bg-color--computed);
   border: 1px solid var(--outline-form--border-color--computed);
-  padding: var(--outline-form--padding-y--computed) var(--outline-form--padding-x--computed);
+  padding: var(--outline-form--padding-y--computed)
+    var(--outline-form--padding-x--computed);
   margin-right: 2rem;
   appearance: none;
   border-radius: var(--outline-form--border-radius--computed);

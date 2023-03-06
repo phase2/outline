@@ -125,7 +125,10 @@ ${result.css}\`;`,
  */
 const createLightDomStyles = filepath => {
   fs.readFile(filepath, 'utf8', (err, css) => {
-    const nFilePath = `${filepath.replace('.global.', '.global.scoped.')}.lit.ts`;
+    const nFilePath = `${filepath.replace(
+      '.global.',
+      '.global.scoped.'
+    )}.lit.ts`;
     const componentName = path.basename(filepath, '.global.css');
     postcss([...config.plugins])
       .process(css, { from: filepath, to: nFilePath })
@@ -149,11 +152,7 @@ ${newCss}\`;`,
       .process(css, { from: filepath, to: nFilePath })
       .then(result => {
         const newCss = addScopeToStyles(result.css, componentName);
-        fs.writeFile(
-          nFilePath,
-          newCss,
-          () => true
-        );
+        fs.writeFile(nFilePath, newCss, () => true);
       });
   });
 };
@@ -163,13 +162,9 @@ createCssGlobals();
 
 // Add scoping to any *.global.css files.
 // Allow dot files to allow class-based scoping.
-glob(
-  'packages/**/*.global.css',
-  { dot: true },
-  (err, files) => {
-    files.forEach(createLightDomStyles);
-  }
-);
+glob('packages/**/*.global.css', { dot: true }, (err, files) => {
+  files.forEach(createLightDomStyles);
+});
 
 // Run the component style generation.
 glob(

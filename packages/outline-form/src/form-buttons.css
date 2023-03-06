@@ -8,7 +8,7 @@ input[type='submit'] {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding:  var(--outline-button--primary-padding--computed);
+  padding: var(--outline-button--primary-padding--computed);
   border-radius: var(--outline-button--primary-radius--computed);
   box-shadow: var(--outline-button--primary-ring--computed);
   flex-wrap: nowrap;
