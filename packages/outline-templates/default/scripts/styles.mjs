@@ -1,14 +1,15 @@
-/* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable global-require */
 /* eslint-disable no-console */
-const yargs = require('yargs');
-const gaze = require('gaze');
-const postcss = require('postcss');
-const fs = require('fs');
-const glob = require('glob');
-const config = require('../postcss.config');
-const outline = require('../outline.config');
-// const components = require('../src/custom-elements.json');
+import yargs from 'yargs';
+import gaze from 'gaze';
+import postcss from 'postcss';
+import fs from 'fs';
+import path from 'path';
+import glob from 'glob';
+import config from '@phase2/outline-config/postcss.config.js';
+import outline from '../outline.config.js';
+import { addScopeToStyles } from '@phase2/outline-core/src/internal/light-dom.mjs';
+
 const options = yargs.option('watch', {
   type: 'boolean',
   describe: 'Watch the file system for changes and render automatically',
@@ -41,7 +42,7 @@ const global = (src, dest) => {
     postcss([...config.plugins])
       .process(css, { from: src, to: dest })
       .then(result => {
-        console.log(`Writing ${src} to ${dest}...`);
+        //console.log(`Writing ${src} to ${dest}...`);
         fs.writeFile(dest, result.css, () => true);
         if (result.map) {
           fs.writeFile(`${dest}.map`, result.map.toString(), () => true);
@@ -56,7 +57,10 @@ const global = (src, dest) => {
  * @param {string} filepath
  */
 const createCssLiterals = filepath => {
-  const filename = filepath.replace(/^.*[\\\/]/, '');
+  if (filepath.includes('.global.scoped.css')) {
+    return;
+  }
+  const filename = filepath.replace(/^.*[\\/]/, '');
   fs.readFile(filepath, (err, css) => {
     const nFilePath = `${filepath}.lit.ts`;
     postcss([...config.plugins])
@@ -110,10 +114,49 @@ const createVariableLiterals = (result, path) => {
 import { css } from 'lit';
 export default css\`
 /* Apply CSS Variables to the host element. */
-:host {
 ${result.css}\`;`,
     () => true
   );
+};
+
+/**
+ * Function to wrap all generic .css files with CSS template literals suitable for consumption via Lit.
+ *
+ * @param {string} filepath
+ */
+const createLightDomStyles = filepath => {
+  fs.readFile(filepath, 'utf8', (err, css) => {
+    const nFilePath = `${filepath.replace('.global.', '.global.scoped.')}.lit.ts`;
+    const componentName = path.basename(filepath, '.global.css');
+    postcss([...config.plugins])
+      .process(css, { from: filepath, to: nFilePath })
+      .then(result => {
+        const newCss = addScopeToStyles(result.css, componentName);
+        fs.writeFile(
+          nFilePath,
+          `
+import { css } from 'lit';
+export default css\`
+/* Scoped CSS. */
+${newCss}\`;`,
+          () => true
+        );
+      });
+  });
+  fs.readFile(filepath, 'utf8', (err, css) => {
+    const nFilePath = filepath.replace('.global.', '.global.scoped.');
+    const componentName = path.basename(filepath, '.global.css');
+    postcss([...config.plugins])
+      .process(css, { from: filepath, to: nFilePath })
+      .then(result => {
+        const newCss = addScopeToStyles(result.css, componentName);
+        fs.writeFile(
+          nFilePath,
+          newCss,
+          () => true
+        );
+      });
+  });
 };
 
 // Ensure dist directory exists.
@@ -124,9 +167,21 @@ if (!fs.existsSync(outline.destBasePath)) {
 // Run the global style generation.
 createCssGlobals();
 
+// Add scoping to any *.global.css files.
+// Allow dot files to allow class-based scoping.
+glob(
+  'src/components/**/*.global.css',
+  { dot: true },
+  (err, files) => {
+    files.forEach(createLightDomStyles);
+  }
+);
+
 // Run the component style generation.
 glob('src/components/**/*.css', (err, files) => {
-  files.forEach(createCssLiterals);
+  (err, files) => {
+    files.forEach(createCssLiterals);
+  }
 });
 
 // Watch mode with --watch in cli.
@@ -135,6 +190,12 @@ if (options.watch) {
   gaze('*.css', (err, watcher) => {
     watcher.on('added', createCssGlobals);
     watcher.on('changed', createCssGlobals);
+  });
+
+  // Watch components global scoping.
+  gaze('src/components/**/*.global.css', (err, watcher) => {
+    watcher.on('added', createLightDomStyles);
+    watcher.on('changed', createLightDomStyles);
   });
 
   // Watch components.

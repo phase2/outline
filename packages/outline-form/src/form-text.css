@@ -1,0 +1,50 @@
+/**
+ * @file
+ * Form Text Input.
+ */
+
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='url'],
+input[type='number'],
+input[type='date'],
+input[type='datetime-local'],
+input[type='month'],
+input[type='search'],
+input[type='tel'],
+input[type='time'],
+input[type='week'],
+textarea {
+  background-color: var(--outline-form--bg-color--computed);
+  border: 1px solid var(--outline-form--border-color--computed);
+  padding: var(--outline-form--padding-y--computed) var(--outline-form--padding-x--computed);
+  border-radius: var(--outline-form--border-radius--computed);
+  font-family: var(--ff-body);
+  font-size: var(--outline-form--text-size--computed);
+  width: 100%;
+  color: var(--outline-form--color--computed);
+  &::placeholder {
+    color: var(--outline-form--placeholder-color--computed);
+  }
+  &:hover {
+    border-color: var(--outline-form--border-color-hover--computed);
+  }
+
+  &:focus {
+    border-color: var(--outline-form--border-color-focus--computed);
+  }
+
+  &.error {
+    border-color: var(--outline-form--border-color-error--computed);
+  }
+}
+
+label {
+  display: inline-block;
+  font-family: var(--ff-body);
+  font-size: var(--outline-form--label-size--computed);
+  font-weight: var(--outline-form--label-weight--computed);
+  line-height: var(--lh-xl);
+  color: var(--outline-form--label-color--computed);
+}

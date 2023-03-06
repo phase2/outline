@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@adobe/css-tools@4.0.2":
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.0.2.tgz#bd7d13543a186c3ff3eabb44bec2b22e8fb18ee0"
+  integrity sha512-Fx6tYjk2wKUgLi8uMANZr8GNZx05u44ArIJldn9VxLvolzlJVgHbTUCbwhMd6bcYky178+WUSxPHO3DAtGLWpw==
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
@@ -2896,16 +2901,6 @@
     "@types/chai-dom" "^0.0.12"
     "@types/sinon-chai" "^3.2.3"
     chai-a11y-axe "^1.3.2"
-
-"@phase2/outline-config@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-config/-/outline-config-0.0.1.tgz#b3ccc3ae49166032753fe1165022e3752a6e50ac"
-  integrity sha512-HoZhL4aqCjdm2HE3YvJgGLboJRPNJLXkRt0UqP0sofxJneAjAJsIdsCKnwecW6ANsEhTAzn0NUbW/g2S+cCuLw==
-
-"@phase2/outline-templates@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-templates/-/outline-templates-0.0.12.tgz#74eecc0c3813b895970581ffa967109dde3ad4ee"
-  integrity sha512-7/FFA5nnJIjG1/bMyu28mFue0HbQQKVBMAyOGDbe3fBxqXE6ntbFtFGufcuDK8ERfK3VyIPffCO6tpcxkm3hqQ==
 
 "@rollup/plugin-image@^3.0.0":
   version "3.0.2"

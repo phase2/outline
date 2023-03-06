@@ -1,0 +1,7 @@
+@import './css-variables/vars-form.css';
+
+@import './form-text.css';
+@import './form-boolean.css';
+@import './form-select.css';
+@import './form-buttons.css';
+@import './form-misc.css';

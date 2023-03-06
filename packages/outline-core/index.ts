@@ -6,6 +6,8 @@ export { LinkedBlockController } from './src/controllers/linked-block-controller
 export { MobileController } from './src/controllers/mobile-controller';
 export { ScreenSizeController } from './src/controllers/screen-size-controller';
 export { SlotController } from './src/controllers/slot-controller';
+export { LightDomStyles } from './src/controllers/light-dom-styles';
+export { addScopeToStyles } from './src/internal/light-dom';
 
 export {
   animateTo,

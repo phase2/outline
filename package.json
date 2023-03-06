@@ -50,7 +50,7 @@
     "lint:prettier": "prettier --check .",
     "package": "turbo run package",
     "prep": "npm-run-all -s prep:*",
-    "prep:css": "node scripts/styles.js",
+    "prep:css": "node scripts/styles.mjs",
     "prebuild": "yarn prep",
     "prestart": "yarn prep",
     "rebuild": "yarn reset && yarn build",
@@ -74,6 +74,7 @@
     "node": ">=16"
   },
   "devDependencies": {
+    "@adobe/css-tools": "4.0.2",
     "@babel/core": "^7.18.13",
     "@changesets/cli": "^2.24.3",
     "@commitlint/cli": "^17.4.0",
