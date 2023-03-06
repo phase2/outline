@@ -179,9 +179,7 @@ glob(
 
 // Run the component style generation.
 glob('src/components/**/*.css', (err, files) => {
-  (err, files) => {
-    files.forEach(createCssLiterals);
-  }
+  files.forEach(createCssLiterals);
 });
 
 // Watch mode with --watch in cli.
