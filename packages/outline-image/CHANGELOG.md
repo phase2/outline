@@ -1,5 +1,13 @@
 # @phase2/outline-image
 
+## 0.1.3
+
+### Patch Changes
+
+- Updates for outline core.
+- Updated dependencies
+  - @phase2/outline-core@0.1.9
+
 ## 0.1.2
 
 ### Patch Changes

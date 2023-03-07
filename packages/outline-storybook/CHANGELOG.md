@@ -1,5 +1,13 @@
 # @phase2/outline-storybook
 
+## 0.0.28
+
+### Patch Changes
+
+- Updates for outline core.
+- Updated dependencies
+  - @phase2/outline-core@0.1.9
+
 ## 0.0.27
 
 ### Patch Changes

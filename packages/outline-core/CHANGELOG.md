@@ -1,5 +1,11 @@
 # @phase2/outline-core
 
+## 0.1.9
+
+### Patch Changes
+
+- Updates for outline core.
+
 ## 0.1.8
 
 ### Patch Changes

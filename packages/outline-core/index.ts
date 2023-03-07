@@ -7,44 +7,11 @@ export { MobileController } from './src/controllers/mobile-controller';
 export { ScreenSizeController } from './src/controllers/screen-size-controller';
 export { SlotController } from './src/controllers/slot-controller';
 
-export {
-  animateTo,
-  parseDuration,
-  prefersReducedMotion,
-  stopAnimations,
-  shimKeyframesHeightAuto,
-} from './src/internal/animate';
-export { autoIncrement } from './src/internal/auto-increment';
-export { drag } from './src/internal/drag';
+export { animateTo } from './src/internal/animate';
 export { emit, waitForEvent } from './src/internal/event';
-export {
-  hasFocusVisible,
-  focusVisibleSelector,
-} from './src/internal/focus-visible';
-
-export type { FormSubmitControllerOptions } from './src/internal/form-control';
-export {
-  FormSubmitController,
-  renderFormControl,
-  getLabelledBy,
-} from './src/internal/form-control';
-export { clamp } from './src/internal/math';
-export { default } from './src/internal/modal';
-export { getOffset } from './src/internal/offset';
-export {
-  lockBodyScrolling,
-  unlockBodyScrolling,
-  scrollIntoView,
-} from './src/internal/scroll';
-export {
-  HasSlotController,
-  getInnerHTML,
-  getTextContent,
-} from './src/internal/slot';
-export { uppercaseFirstLetter } from './src/internal/string';
-export { getTabbableBoundary } from './src/internal/tabbable';
-export { updateUrlSearchParam } from './src/internal/url';
 export { watch } from './src/internal/watch';
+export { scrollIntoView } from './src/internal/scroll';
+export { getOffset } from './src/internal/offset';
 
 export type {
   Size,
