@@ -1,5 +1,14 @@
 # @phase2/outline-storybook
 
+## 0.0.26
+
+### Patch Changes
+
+- d5cc847: Updated for broken imports.
+- 3b6dea0: Fix for broken container story in mdx.
+- Updated dependencies [d5cc847]
+  - @phase2/outline-core@0.1.8
+
 ## 0.0.25
 
 ### Patch Changes
