@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-heading",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The Outline Components for the web heading component",
   "keywords": [
     "outline components",
@@ -12,6 +12,7 @@
   "typings": "index.d.ts",
   "files": [
     "/dist/",
+    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",

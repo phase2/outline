@@ -1,5 +1,11 @@
 # @phase2/outline-alert
 
+## 0.1.4
+
+### Patch Changes
+
+- Bumped versions with updated package contents.
+
 ## 0.1.3
 
 ### Patch Changes

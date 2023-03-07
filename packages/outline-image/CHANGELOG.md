@@ -1,5 +1,11 @@
 # @phase2/outline-image
 
+## 0.1.2
+
+### Patch Changes
+
+- Bumped versions with updated package contents.
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-image",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "The Outline Components for the image component",
   "keywords": [
     "outline",
@@ -13,6 +13,7 @@
   "typings": "index.d.ts",
   "files": [
     "/dist/",
+    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",

@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-image-slider",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The Outline Components for the image slider component",
   "keywords": [
     "outline",
@@ -13,6 +13,7 @@
   "typings": "index.d.ts",
   "files": [
     "/dist/",
+    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",

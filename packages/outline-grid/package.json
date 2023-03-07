@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-grid",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "The Outline Components for the grid web component",
   "keywords": [
     "outline",
@@ -13,6 +13,7 @@
   "typings": "index.d.ts",
   "files": [
     "/dist/",
+    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",
