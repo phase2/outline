@@ -1,5 +1,11 @@
 # @phase2/outline-container
 
+## 0.1.4
+
+### Patch Changes
+
+- Update to @phase2/outline-core packages.
+
 ## 0.1.3
 
 ### Patch Changes

@@ -87,7 +87,7 @@
     "@phase2/outline-code-block": "^0.1.0",
     "@phase2/outline-config": "^0.0.1",
     "@phase2/outline-container": "^0.0.1",
-    "@phase2/outline-core": "^0.1.0",
+    "@phase2/outline-core": "^0.1.9",
     "@phase2/outline-dropdown": "^0.1.0",
     "@phase2/outline-examples": "^0.0.3",
     "@phase2/outline-grid": "^0.0.1",

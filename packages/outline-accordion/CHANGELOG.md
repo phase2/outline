@@ -1,5 +1,13 @@
 # @phase2/outline-accordion
 
+## 0.1.3
+
+### Patch Changes
+
+- Update to @phase2/outline-core packages.
+- Updated dependencies
+  - @phase2/outline-icon@0.1.2
+
 ## 0.1.2
 
 ### Patch Changes

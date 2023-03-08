@@ -1,5 +1,11 @@
 # @phase2/outline-admin-links
 
+## 0.1.3
+
+### Patch Changes
+
+- Update to @phase2/outline-core packages.
+
 ## 0.1.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @phase2/outline-grid
 
+## 0.0.6
+
+### Patch Changes
+
+- Update to @phase2/outline-core packages.
+
 ## 0.0.5
 
 ### Patch Changes
