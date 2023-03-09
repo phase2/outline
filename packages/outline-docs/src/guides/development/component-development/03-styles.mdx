@@ -42,19 +42,19 @@ The styles for Outline components are kept in a typical `.css` file such as `out
 component `outline-widget.ts`. These component CSS files utilize [PostCSS](https://postcss.org/) processing and a variety of plugins to handle various
 features including implementing [Tailwind CSS](https://tailwindcss.com/) utility styles to keep the code clean and consistent.
 
-Lit utilizes the static `styles` to contain any CSS required for a component. 
+Lit utilizes the static `styles` to contain any CSS required for a component.
 
 The following examples shows us using import to bring in styles from our `outline-widget.css.lit.ts` file. Any CSS that is included should be wrapped in Lit’s `css` template literal.
 This is where Outline applies additional logic to handle taking a standard CSS file like `outline-widget.css`,
 and converts to `outline-widget.css.lit.ts` which is then imported into the main component file, `outline-widget.ts` as seen in the following code sample.
 
 ```typescript
-import componentStyles from './outline-widget.css.lit'; 
+import componentStyles from './outline-widget.css.lit';
 ...
-        
-@customElement('outline-widget') 
-export class OutlineWidget extends OutlineElement { 
-  static styles: CSSResultGroup = [componentStyles]; 
+
+@customElement('outline-widget')
+export class OutlineWidget extends OutlineElement {
+  static styles: CSSResultGroup = [componentStyles];
   ...
 }
 ```
@@ -66,13 +66,13 @@ This component is simply declaring the styles in `OutlineWidget`, and assumes ze
 Now, assume that `OutlineElement` provides styles that either should or could be inherited by any component that extends it. If we want to include styles from the parent component, we need to [inherit styles from the superclass](https://lit.dev/docs/components/styles/#inheriting-styles-from-a-superclass).
 
 ```typescript
-import componentStyles from './outline-widget.css.lit'; 
+import componentStyles from './outline-widget.css.lit';
 ...
 
-@customElement('outline-widget') 
-export class OutlineWidget extends OutlineElement { 
-  static styles: CSSResultGroup = [ OutlineElement.styles, componentStyles ]; 
-  ... 
+@customElement('outline-widget')
+export class OutlineWidget extends OutlineElement {
+  static styles: CSSResultGroup = [ OutlineElement.styles, componentStyles ];
+  ...
 }
 ```
 
@@ -81,20 +81,20 @@ export class OutlineWidget extends OutlineElement {
 The following example shows both importing content from the default `outline-widget.css.lit.ts` file as well as including inline css wrapped in the `css` string literal provided by the `lit` package.
 
 ```typescript
-import { css } from 'lit'; 
-import componentStyles from './outline-widget.css.lit'; 
+import { css } from 'lit';
+import componentStyles from './outline-widget.css.lit';
 
-@customElement('outline-widget') 
-export class OutlineWidget extends OutlineElement { 
-  static styles: CSSResultGroup = [ 
-    componentStyles, 
+@customElement('outline-widget')
+export class OutlineWidget extends OutlineElement {
+  static styles: CSSResultGroup = [
+    componentStyles,
     css\`
-      :host { display: block; } 
-      p { margin: 0; } 
-      h2 { color: ${this.color} } 
-    \` 
-  ]; 
-  ... 
+      :host { display: block; }
+      p { margin: 0; }
+      h2 { color: ${this.color} }
+    \`
+  ];
+  ...
 }
 ```
 
@@ -118,16 +118,16 @@ Notice how the `@apply` directive precedes a list of shorthand Tailwind classes.
 Also note the [`:host`](https://developer.mozilla.org/en-US/docs/Web/CSS/:host) and [`::slotted`](https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted) selectors. These are very helpful when styling components.
 
 ```css
-:host, a, ::slotted(a) { 
-  @apply no-underline font-body transition-colors duration-300; 
-} 
+:host, a, ::slotted(a) {
+  @apply no-underline font-body transition-colors duration-300;
+}
 
-:host(:hover), a:hover, ::slotted(a:hover) { 
-  @apply underline; 
-} 
+:host(:hover), a:hover, ::slotted(a:hover) {
+  @apply underline;
+}
 
-:host(:focus), a:focus, ::slotted(a:focus) { 
-  @apply underline outline-none; 
+:host(:focus), a:focus, ::slotted(a:focus) {
+  @apply underline outline-none;
 }
 ```
 
@@ -141,20 +141,22 @@ In this instance, we have utilized 3 custom CSS variables to help us alter the c
 The next section will discuss how and where those are declared or overwritten.
 
 ```css
-:host, a, ::slotted(a) { 
-  color: var(--outline-link-color-default); 
+:host, a, ::slotted(a) {
+  color: var(--outline-link--color);
 }
 
-:host(:hover), a:hover, ::slotted(a:hover) { 
-  color: var(--outline-link-color-hover) !important; 
-} 
+:host(:hover), a:hover, ::slotted(a:hover) {
+  color: var(--outline-link--color-hover) !important;
+}
 
-:host(:focus), a:focus, ::slotted(a:focus) { 
-  color: var(--outline-link-color-focus) !important;
+:host(:focus), a:focus, ::slotted(a:focus) {
+  color: var(--outline-link--color-focus) !important;
 }
 ```
 
 ## CSS Variable Declaration
+
+### Global project variables
 
 Outline defines all of its CSS Variables in `outline.theme.css`. Many of these CSS variables are utilized by Tailwind CSS as can be seen in the `tailwind.config.js` file.
 This means that if you use Tailwind utility classes, they are using the CSS Variables already associated with the design system, and our design tokens.
@@ -168,23 +170,23 @@ Again, each consumer would need to include this file, immediately following the 
 However, this separation is only a suggestion, and in theory the `outline.theme.css` file should be safe to be edited much like the `outline.config.js` system configuration.
 
 ```css
-:root { 
-  ... 
+:root {
+  ...
   /* Brand specific primary colors. */
-  --blue-darken-1: #002536; 
-  --blue-darken-2: #00374e; 
-  --blue-main: #004e70; 
-  --blue-lighten-1: #38758f; 
+  --blue-darken-1: #002536;
+  --blue-darken-2: #00374e;
+  --blue-main: #004e70;
+  --blue-lighten-1: #38758f;
   --blue-lighten-2: #9ebcc9;
-  --blue-lighten-3: #ccdce2; 
-  --blue-lighten-4: #e0eaee; 
-  --blue-lighten-5: #f0f4f6; 
-  ... 
-  /* Configuration values for outline-link. */ 
-   --outline-link-color-default: var(--blue-darken-1); 
-   --outline-link-color-hover: var(--blue-lighten-1); 
-   --outline-link-color-focus: var(--blue-lighten-1); 
-  ... 
+  --blue-lighten-3: #ccdce2;
+  --blue-lighten-4: #e0eaee;
+  --blue-lighten-5: #f0f4f6;
+  ...
+  /* Configuration values for outline-link. */
+   --outline-link--color: var(--blue-darken-1);
+   --outline-link--color-hover: var(--blue-lighten-1);
+   --outline-link--color-focus: var(--blue-lighten-1);
+  ...
 }
 ```
 
@@ -192,6 +194,53 @@ Note in the above example, the declaration of the `--blue-responsible` color set
 as well as the configuration for the `outline-link` component.
 The first set declares the color values as the hex values,
 and the next section associates link colors with a pre-existing CSS variable.
+
+### Component-specific variables
+
+When a component uses a CSS variable, it should be defined within that component and given a fallback value.
+Variables are normally defined within a `vars-COMPONENT.css` file within a `css-variables` subfolder of the component source.
+However, using the `css-variables` folder is no longer required.
+
+Component variables must be defined within a `:host` selector. When defining a variable that a project can override globally, the following naming convention should be used:
+
+```css
+:host {
+  --COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR--computed: var(--COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR, FALLBACK);
+}
+```
+where
+* `COMPONENT` is the name of the component.
+* `VARIANT` is the optional component variant, such as "primary", "secondary", etc.
+* `ELEMENT` is the optional HTML element, such as `input` or `h2`, etc
+* `SELECTOR` is the css property selector, with special characters replaced by a single hyphen, such as `color` or `bg-color` or `border-cover-hover` .
+* * States such as `::hover`, `::active` become `-hover` and `-active`.
+* * Selectors such as `input[disabled] border-color` become `input-disabled-border-color` for example, where `input` might be optional if referencing multiple elements (input, textarea, select, etc).
+* * Synonyms for properties such as using `bg` for `background`, `weight` or `fw` for `font-weight`, `radius` for `border-radius` etc, are allowed when the intent is obvious.
+But avoid when confusing such as with colors (border, background, etc). `color` refers to *text* color since that is the normal CSS property name. See the variable names in Tailwind CSS for other examples. (might update this ADR in the future with an exact list of allowed abbreviations)
+
+* The `--COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR` variable is the value specified in the `outline.theme.css` or project-specific globals file.
+* The `--COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR--computed` is the variable to actually use in your `COMPONENT.css` file.
+* The `FALLBACK` is the default value of the variable, either as a hardcoded css value, or a `var(--VARNAME)` to some other variable defined globally.
+You must ensure that the FALLBACK value is always defined or the browser will treat rules using this variable as invalid css.
+
+NOTE: The reason for the `--computed` suffix is because CSS variables cannot redefine themselves. And the above naming convention keeps the fallback
+value in a single location in the variable definition rather than being used multiple times within the `COMPONENT.css` file itself.
+
+Outline components should always declare all component-specific variables using the guidance above.
+Project-specific components are encouraged to declare all variables but if a variable is only used in a single place within the `COMPONENT.css` then
+using the `--COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR` global variable without making a `--computed` version is allowed as long as the
+variable always has a global value or fallback is specified.
+
+For example:
+```css
+:host {
+  --outline-link--color--computed: var(--outline-link--color, var(--primary-color));
+}
+
+a {
+  color: var(--outline-link--color--computed)
+}
+```
 
 ## Component Style Generation
 
@@ -203,9 +252,9 @@ In this example, we see the combination of the samples we used above, including 
 ### `outline-widget.css`
 
 ```css
-:host, a, ::slotted(a) { 
-  color: var(--outline-link-color-default); 
-} 
+:host, a, ::slotted(a) {
+  color: var(--outline-link--color);
+}
 ```
 
 ### `outline-widget.css.lit.ts`
@@ -237,7 +286,7 @@ export default css`
 :host,
 a,
 ::slotted(a){
-  color:var(--outline-link-color-default);
+  color:var(--outline-link--color);
 }
 `;
 ```
