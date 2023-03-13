@@ -84,7 +84,9 @@ export class OutlineImage extends OutlineElement {
           </picture>
           ${this.captionSlotTemplate()}
         </figure>`
-        : html`<figure>${this.slots.renderInShadow('')}${this.captionSlotTemplate()}</figure>`
+        : html`<figure>${this.slots.renderInShadow(
+            ''
+          )}${this.captionSlotTemplate()}</figure>`
     } `;
   }
 }

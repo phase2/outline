@@ -1,5 +1,5 @@
-import { ReactiveControllerHost } from "lit";
-import { html } from "lit-html";
+import { ReactiveControllerHost } from 'lit';
+import { html } from 'lit-html';
 
 /**
  * The SlotsController ReactiveController.
@@ -40,13 +40,12 @@ export class SlotsController {
   }
 
   slotExists(slotName: string | null = null) {
-    const defaultSlot = slotName === "" || slotName === null;
+    const defaultSlot = slotName === '' || slotName === null;
     let slottedNodes = [];
 
     if (defaultSlot) {
       slottedNodes = Array.from(this.host.childNodes).filter(
-        (node) =>
-          this.isDefaultSlotText(node) || this.isDefaultSlotElement(node)
+        node => this.isDefaultSlotText(node) || this.isDefaultSlotElement(node)
       );
     } else {
       slottedNodes = Array.from(
@@ -62,13 +61,13 @@ export class SlotsController {
   }
 
   isDefaultSlotText(node: Node) {
-    return node.nodeType === node.TEXT_NODE && node.textContent!.trim() !== "";
+    return node.nodeType === node.TEXT_NODE && node.textContent!.trim() !== '';
   }
 
   isDefaultSlotElement(node: Node) {
     return (
       node.nodeType === node.ELEMENT_NODE &&
-      (node as HTMLElement).getAttribute("slot") === null
+      (node as HTMLElement).getAttribute('slot') === null
     );
   }
 
@@ -79,37 +78,37 @@ export class SlotsController {
     // Add a comment above the slot in light DOM, to indicate it was cloned to shadow DOM
     const annotationComment =
       `slotsController cloned this ` +
-      (slotName === "" ? "default-slot" : `named-slot '${slotName}'`) +
+      (slotName === '' ? 'default-slot' : `named-slot '${slotName}'`) +
       ` into the shadow DOM`;
 
     // Add the comment only once, avoid duplicate comments when requestUpdate() runs
     // Check if a light DOM comment already exist
     const commentExist = Array.from(this.host.childNodes).some(
-      (node) => node.nodeValue === annotationComment
+      node => node.nodeValue === annotationComment
     );
     if (!commentExist) {
       lightDomSlot.before(document.createComment(annotationComment));
     }
 
-    if (slotName !== "") {
-      clonedSlot.setAttribute("cloned-slot-type", "named-slot");
-      clonedSlot.setAttribute("cloned-slot-name", slotName);
-      clonedSlot.removeAttribute("slot");
+    if (slotName !== '') {
+      clonedSlot.setAttribute('cloned-slot-type', 'named-slot');
+      clonedSlot.setAttribute('cloned-slot-name', slotName);
+      clonedSlot.removeAttribute('slot');
       return clonedSlot;
     }
 
     if (this.isDefaultSlotElement(lightDomSlot)) {
-      clonedSlot.setAttribute("cloned-slot-type", "default-slot--element");
-      clonedSlot.setAttribute("cloned-slot-name", "default");
-      clonedSlot.removeAttribute("slot");
+      clonedSlot.setAttribute('cloned-slot-type', 'default-slot--element');
+      clonedSlot.setAttribute('cloned-slot-name', 'default');
+      clonedSlot.removeAttribute('slot');
       return clonedSlot;
     } else {
       // Insert the text-only default slot into a node element
-      const slotWrapper = document.createElement("cloned-slot");
+      const slotWrapper = document.createElement('cloned-slot');
       clonedSlot.parentNode?.insertBefore(slotWrapper, clonedSlot);
       slotWrapper.appendChild(clonedSlot);
-      slotWrapper.setAttribute("cloned-slot-type", "default-slot--text");
-      slotWrapper.setAttribute("cloned-slot-name", "default");
+      slotWrapper.setAttribute('cloned-slot-type', 'default-slot--text');
+      slotWrapper.setAttribute('cloned-slot-name', 'default');
       return slotWrapper;
     }
   }
@@ -145,8 +144,8 @@ export class SlotsController {
     clonedSlot: HTMLElement
   ) {
     // Dispatch events from shadow DOM to original node in light DOM
-    eventsToDispatch.forEach((eventType) => {
-      clonedSlot.addEventListener(eventType, (event) => {
+    eventsToDispatch.forEach(eventType => {
+      clonedSlot.addEventListener(eventType, event => {
         if (event.target) {
           const elementPathInShadowDom = this.getElementPathInShadowDom(event);
           const elementPathInLightDom = this.getElementPathInLightDom(
@@ -175,7 +174,7 @@ export class SlotsController {
     });
   }
   renderInShadow(
-    slotName = "",
+    slotName = '',
     eventsToDispatch = [] as string[],
     addAnnotations = true
   ) {
@@ -183,7 +182,7 @@ export class SlotsController {
     const slots = this.slotExists(slotName);
 
     if (slots) {
-      const allClonedSlots = slots.map((slot) => {
+      const allClonedSlots = slots.map(slot => {
         const lightDomSlot = slot;
         let clonedSlot: HTMLElement;
 
@@ -205,7 +204,7 @@ export class SlotsController {
         subtree: true,
         childList: true,
         attributes: true,
-        characterData: true
+        characterData: true,
       });
       return allClonedSlots;
     }
@@ -230,7 +229,7 @@ export class SlotsController {
     for (let i = 0; !shadowFound && i < path.length; i++) {
       const el = path[i];
       // If we find a shadow root, we are done
-      if (el.nodeName === "#document-fragment") {
+      if (el.nodeName === '#document-fragment') {
         shadowFound = true;
       } else {
         // Get a CSS selector for this element
@@ -256,10 +255,10 @@ export class SlotsController {
 
     // Create a selector for the current element
     const currentSelectorClassName = Array.from(currentElement.classList).join(
-      "."
+      '.'
     );
     const currentSelector = `${currentElement.localName}${
-      currentSelectorClassName !== "" ? "." + currentSelectorClassName : ""
+      currentSelectorClassName !== '' ? '.' + currentSelectorClassName : ''
     }`;
 
     // Get all siblings of the current element
@@ -273,7 +272,7 @@ export class SlotsController {
     // Create the final selector object
     const selector = {
       name: currentSelector,
-      index: currentIndex
+      index: currentIndex,
     };
     return selector;
   }
@@ -320,9 +319,11 @@ export class SlotsController {
   ) {
     if (this.slotExists(slotName)) {
       return html` <div class="${slotName} ${classes}">
-        ${renderInShadow
-          ? html`${this.renderInShadow(slotName)}`
-          : html`<slot name=${slotName}></slot> `}
+        ${
+          renderInShadow
+            ? html`${this.renderInShadow(slotName)}`
+            : html`<slot name=${slotName}></slot> `
+        }
       </div>`;
     } else {
       return null;
