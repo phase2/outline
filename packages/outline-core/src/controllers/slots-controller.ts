@@ -1,4 +1,5 @@
 import { ReactiveControllerHost } from "lit";
+import { html } from "lit-html";
 
 /**
  * The SlotsController ReactiveController.
@@ -307,5 +308,24 @@ export class SlotsController {
     }
     // return the targeted element
     return El;
+  }
+
+  /*
+   * If slot exists - add it with div wrapper, slot name as a class and additional classes
+   */
+  conditionalSlot(
+    slotName: string,
+    renderInShadow = true,
+    classes: string | null = null
+  ) {
+    if (this.slotExists(slotName)) {
+      return html` <div class="${slotName} ${classes}">
+        ${renderInShadow
+          ? html`${this.renderInShadow(slotName)}`
+          : html`<slot name=${slotName}></slot> `}
+      </div>`;
+    } else {
+      return null;
+    }
   }
 }
