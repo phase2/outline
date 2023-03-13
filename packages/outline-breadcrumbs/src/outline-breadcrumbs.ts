@@ -1,5 +1,5 @@
 // Our base component, which all others extend.
-import { OutlineElement, SlotController } from '@phase2/outline-core';
+import { OutlineElement, SlotsController } from '@phase2/outline-core';
 import { CSSResultGroup, html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import componentStyles from './outline-breadcrumbs.css.lit';
@@ -26,10 +26,7 @@ import '@phase2/outline-container';
 
 @customElement('outline-breadcrumbs')
 export class OutlineBreadcrumbs extends OutlineElement {
-  slots = new SlotController(
-    this, // This, the host element.
-    true // To shift or not to shift LightDom nodes to ShadowDOM.
-  );
+  slots = new SlotsController(this);
   static styles: CSSResultGroup = [componentStyles];
 
   firstUpdated(): void {
@@ -53,7 +50,7 @@ export class OutlineBreadcrumbs extends OutlineElement {
     return html`
       <section class="outline-breadcrumbs">
         <outline-container>
-          <slot></slot>
+          ${this.slots.renderInShadow('')}
         </outline-container>
       </section>
     `;
