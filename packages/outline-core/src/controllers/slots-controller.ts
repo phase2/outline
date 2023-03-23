@@ -370,7 +370,7 @@ export class SlotsController {
    * @param {string | null} [attributes=null] - Additional attributes to add to the wrapper.
    * @returns {TemplateResult | null} The rendered slot or null if the slot does not exist.
    */
-  conditionalNGSlot(
+  conditionalSlot(
     slotName: string,
     renderInShadow = true,
     extraClasses: string | null = null,
@@ -388,9 +388,11 @@ export class SlotsController {
         class="${ifDefined(classMap(wrapperClasses))}"
         ${this.printExtraAttributes(extraAttributes)}
       >
-        ${renderInShadow
-          ? html`${this.renderInShadow(slotName)}`
-          : html`<slot name=${slotName}></slot> `}
+        ${
+          renderInShadow
+            ? html`${this.renderInShadow(slotName)}`
+            : html`<slot name=${slotName}></slot> `
+        }
       </div>`;
     } else {
       return null;
