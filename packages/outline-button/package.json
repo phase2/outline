@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-button",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "The Outline Components for the web button component",
   "keywords": [
     "outline components",
@@ -27,7 +27,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.1.9",
+    "@phase2/outline-core": "^0.1.10",
     "@phase2/outline-link": "^0.1.4",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"

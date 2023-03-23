@@ -1,5 +1,13 @@
 # @phase2/outline-button-group
 
+## 0.1.3
+
+### Patch Changes
+
+- Updates for controllers.
+- Updated dependencies
+  - @phase2/outline-core@0.1.10
+
 ## 0.1.2
 
 ### Patch Changes

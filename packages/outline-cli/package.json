@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-cli",
   "description": "Outline command-line interface for creating new Outline projects and Outline commands",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "author": "Phase2 Technology",
   "bin": {
     "outline": "./bin/run"
@@ -11,7 +11,7 @@
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
-    "@phase2/outline-storybook": "^0.0.29",
+    "@phase2/outline-storybook": "^0.0.30",
     "@phase2/outline-templates": "^0.0.33",
     "@types/inquirer": "^9.0.3",
     "chalk": "^4.1.2",

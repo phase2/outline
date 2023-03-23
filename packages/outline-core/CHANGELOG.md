@@ -1,5 +1,11 @@
 # @phase2/outline-core
 
+## 0.1.10
+
+### Patch Changes
+
+- Updates for controllers.
+
 ## 0.1.9
 
 ### Patch Changes

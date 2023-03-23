@@ -1,5 +1,13 @@
 # @phase2/outline-alert
 
+## 0.1.6
+
+### Patch Changes
+
+- Updates for controllers.
+- Updated dependencies
+  - @phase2/outline-core@0.1.10
+
 ## 0.1.5
 
 ### Patch Changes

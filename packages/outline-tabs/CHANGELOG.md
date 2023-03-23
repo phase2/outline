@@ -1,5 +1,14 @@
 # @phase2/outline-tabs
 
+## 0.1.4
+
+### Patch Changes
+
+- Updates for controllers.
+- Updated dependencies
+  - @phase2/outline-accordion@0.1.4
+  - @phase2/outline-core@0.1.10
+
 ## 0.1.3
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @phase2/outline-storybook
 
+## 0.0.30
+
+### Patch Changes
+
+- Updates for controllers.
+- Updated dependencies
+  - @phase2/outline-alert@0.1.6
+  - @phase2/outline-core@0.1.10
+
 ## 0.0.29
 
 ### Patch Changes
