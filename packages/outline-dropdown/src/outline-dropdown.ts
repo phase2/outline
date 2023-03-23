@@ -112,9 +112,9 @@ export class OutlineDropdown extends OutlineElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.hasDropdown = Boolean(this.slots.slotExists('dropdown'));
-    this.hasHeader = Boolean(this.slots.slotExists('header'));
-    this.hasFooter = Boolean(this.slots.slotExists('footer'));
+    this.hasDropdown = Boolean(this.slots.exist('dropdown'));
+    this.hasHeader = Boolean(this.slots.exist('header'));
+    this.hasFooter = Boolean(this.slots.exist('footer'));
     // @todo: Is any of this needed?
     this.handleButtonTrigger = this.handleButtonTrigger.bind(this);
     this.handleIconTrigger = this.handleIconTrigger.bind(this);

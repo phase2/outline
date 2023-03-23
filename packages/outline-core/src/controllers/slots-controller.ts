@@ -1,5 +1,7 @@
 import { ReactiveControllerHost } from 'lit';
-import { html } from 'lit-html';
+import { classMap } from 'lit/directives/class-map.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { html, unsafeStatic } from 'lit/static-html.js';
 
 /**
  * The SlotsController ReactiveController.
@@ -39,7 +41,12 @@ export class SlotsController {
     this.host.requestUpdate();
   }
 
-  slotExists(slotName: string | null = null) {
+  /**
+   * Get slotted nodes by slot name.
+   * @param {string | null} slotName - The slot name to search for.
+   * @returns {Array} An array of slotted nodes.
+   */
+  getSlottedNodes(slotName: string | null = null) {
     const defaultSlot = slotName === '' || slotName === null;
     let slottedNodes = [];
 
@@ -60,10 +67,29 @@ export class SlotsController {
     }
   }
 
+  /**
+   * Check if a slot exists.
+   * @param {string | null} slotName - The slot name to check for.
+   * @returns {boolean} True if the slot exists, false otherwise.
+   */
+  exist(slotName: string | null = null) {
+    return Boolean(this.getSlottedNodes(slotName));
+  }
+
+  /**
+   * Check if a node is a default slot text.
+   * @param {Node} node - The node to check.
+   * @returns {boolean} True if the node is a default slot text, false otherwise.
+   */
   isDefaultSlotText(node: Node) {
     return node.nodeType === node.TEXT_NODE && node.textContent!.trim() !== '';
   }
 
+  /**
+   * Check if a node is a default slot element.
+   * @param {Node} node - The node to check.
+   * @returns {boolean} True if the node is a default slot element, false otherwise.
+   */
   isDefaultSlotElement(node: Node) {
     return (
       node.nodeType === node.ELEMENT_NODE &&
@@ -71,6 +97,12 @@ export class SlotsController {
     );
   }
 
+  /**
+   * Add annotations to a slot.
+   * @param {string} slotName - The slot name.
+   * @param {ChildNode} lightDomSlot - The light DOM slot.
+   * @returns {HTMLElement} The annotated slot.
+   */
   addAnnotations(slotName: string, lightDomSlot: ChildNode) {
     // Create cloned-node element
     const clonedSlot = lightDomSlot.cloneNode(true) as HTMLElement;
@@ -114,9 +146,9 @@ export class SlotsController {
   }
 
   /**
-   *
-   * @param eventsToDispatch
-   * @param clonedSlot
+   * Dispatch events from cloned slots in shadow DOM to the equivalent light DOM slot.
+   * @param {string[]} eventsToDispatch - The events to dispatch.
+   * @param {HTMLElement} clonedSlot - The cloned slot.
    *
    * As there is no way (aside from devtools) to determine what events are occurring in the DOM,
    * what we can do is simulate an event that originated in the shadow DOM.
@@ -173,13 +205,21 @@ export class SlotsController {
       });
     });
   }
+
+  /**
+   * Render a slot in the shadow DOM.
+   * @param {string} [slotName=''] - The slot name.
+   * @param {string[]} [eventsToDispatch=[]] - The events to dispatch.
+   * @param {boolean} [addAnnotations=true] - Whether to add annotations to the slot.
+   * @returns {Array | null} An array of cloned slots or null if no slots found.
+   */
   renderInShadow(
     slotName = '',
     eventsToDispatch = [] as string[],
     addAnnotations = true
   ) {
     // Cloning node allow us to re-use slots, as well a keep a copy in the light DOM.
-    const slots = this.slotExists(slotName);
+    const slots = this.getSlottedNodes(slotName);
 
     if (slots) {
       const allClonedSlots = slots.map(slot => {
@@ -213,8 +253,8 @@ export class SlotsController {
 
   /**
    * Get an array of CSS selectors that can be used to select the target of the event.
-   * @param event The event whose target we are trying to find
-   * @returns An array of CSS selectors that can be used to select the target of the event.
+   * @param {Event} event - The event whose target we are trying to find.
+   * @returns {Array} An array of CSS selectors that can be used to select the target of the event.
    */
   getElementPathInShadowDom(event: Event) {
     // Get the path of the event
@@ -246,7 +286,11 @@ export class SlotsController {
     return reversedSelector;
   }
 
-  // Get the class selector for a single element
+  /**
+   * Get the class selector for a single element.
+   * @param {HTMLElement} currentElement - The current element.
+   * @returns {Object | null} The selector object or null if the element has no parent.
+   */
   getSelectorForSingleElement(currentElement: HTMLElement) {
     // If the element has no parent element, it is the root element
     if (!currentElement.parentElement) {
@@ -278,9 +322,10 @@ export class SlotsController {
   }
 
   /**
-   * Gets the targeted element from the event path
-   * @param elementPathInShadowDom The path of the event
-   * @returns The targeted element
+   * Gets the targeted element from the event path.
+   * @param {Array} elementPathInShadowDom - The path of the event.
+   * @param {boolean} [isShadow=false] - Whether to search in the shadow DOM.
+   * @returns {Element | null} The targeted element or null if not found.
    */
   getElementPathInLightDom(
     elementPathInShadowDom: {
@@ -309,21 +354,43 @@ export class SlotsController {
     return El;
   }
 
-  /*
-   * If slot exists - add it with div wrapper, slot name as a class and additional classes
+  printExtraAttributes(extraAttributes: { name: string; value: string }[]) {
+    return unsafeStatic(
+      extraAttributes
+        .map(attribute => `${attribute.name}=${attribute.value}`)
+        .join(' ')
+    );
+  }
+
+  /**
+   * Conditionally render a slot with a wrapper and additional classes.
+   * @param {string} slotName - The slot name.
+   * @param {boolean} [renderInShadow=true] - Whether to render the slot in the shadow DOM.
+   * @param {string | null} [classes=null] - Additional classes to add to the wrapper.
+   * @param {string | null} [attributes=null] - Additional attributes to add to the wrapper.
+   * @returns {TemplateResult | null} The rendered slot or null if the slot does not exist.
    */
-  conditionalSlot(
+  conditionalNGSlot(
     slotName: string,
     renderInShadow = true,
-    classes: string | null = null
+    extraClasses: string | null = null,
+    extraAttributes: { name: string; value: string }[] = []
   ) {
-    if (this.slotExists(slotName)) {
-      return html` <div class="${slotName} ${classes}">
-        ${
-          renderInShadow
-            ? html`${this.renderInShadow(slotName)}`
-            : html`<slot name=${slotName}></slot> `
-        }
+    const defaultSlot = slotName === '' || slotName === null;
+    const wrapperClasses = {
+      'default-slot': defaultSlot,
+      [`${slotName}`]: !defaultSlot,
+      [`${extraClasses}`]: extraClasses ?? false,
+    };
+
+    if (this.exist(slotName)) {
+      return html` <div
+        class="${ifDefined(classMap(wrapperClasses))}"
+        ${this.printExtraAttributes(extraAttributes)}
+      >
+        ${renderInShadow
+          ? html`${this.renderInShadow(slotName)}`
+          : html`<slot name=${slotName}></slot> `}
       </div>`;
     } else {
       return null;

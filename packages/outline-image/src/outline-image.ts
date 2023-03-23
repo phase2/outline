@@ -66,7 +66,7 @@ export class OutlineImage extends OutlineElement {
   imageRatio: AspectRatios;
 
   firstUpdated(): void {
-    this.hasCaptionSlot = Boolean(this.slots.slotExists('caption'));
+    this.hasCaptionSlot = Boolean(this.slots.exist('caption'));
   }
 
   captionSlotTemplate(): TemplateResult | null {

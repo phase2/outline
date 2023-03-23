@@ -86,8 +86,8 @@ export class OutlineButton extends OutlineElement {
   @state() hasRightIcon: boolean;
 
   firstUpdated(): void {
-    this.hasLeftIcon = Boolean(this.slots.slotExists('left'));
-    this.hasRightIcon = Boolean(this.slots.slotExists('right'));
+    this.hasLeftIcon = Boolean(this.slots.exist('left'));
+    this.hasRightIcon = Boolean(this.slots.exist('right'));
   }
 
   /**
