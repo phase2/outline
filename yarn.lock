@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@adobe/css-tools@^4.3.0-beta.2":
+  version "4.3.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.3.0-beta.2.tgz#b9554e285dde9ae2b1f748cd091373d7eb058573"
+  integrity sha512-VzekSqtYB+8XX8W1gNRIa1TbTXjVw64I5yLrbBP13JhwecixQzrpXWIszo7FghS9cm6FEFhzIivzwjns35DMlQ==
+
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
