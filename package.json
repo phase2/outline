@@ -26,6 +26,7 @@
   },
   "license": "BSD-3-Clause",
   "scripts": {
+    "prepare": "husky install",
     "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
     "build": "turbo run build",
     "changeset": "changeset",
