@@ -1,5 +1,39 @@
 # @phase2/outline-storybook
 
+## 0.0.29
+
+### Patch Changes
+
+- Update to @phase2/outline-core packages.
+- Updated dependencies
+  - @phase2/outline-alert@0.1.5
+  - @phase2/outline-code-block@0.1.1
+
+## 0.0.28
+
+### Patch Changes
+
+- Updates for outline core.
+- Updated dependencies
+  - @phase2/outline-core@0.1.9
+
+## 0.0.27
+
+### Patch Changes
+
+- Bumped versions with updated package contents.
+- Updated dependencies
+  - @phase2/outline-alert@0.1.4
+
+## 0.0.26
+
+### Patch Changes
+
+- d5cc847: Updated for broken imports.
+- 3b6dea0: Fix for broken container story in mdx.
+- Updated dependencies [d5cc847]
+  - @phase2/outline-core@0.1.8
+
 ## 0.0.25
 
 ### Patch Changes

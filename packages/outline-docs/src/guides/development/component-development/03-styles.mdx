@@ -156,6 +156,8 @@ The next section will discuss how and where those are declared or overwritten.
 
 ## CSS Variable Declaration
 
+### Global project variables
+
 Outline defines all of its CSS Variables in `outline.theme.css`. Many of these CSS variables are utilized by Tailwind CSS as can be seen in the `tailwind.config.js` file.
 This means that if you use Tailwind utility classes, they are using the CSS Variables already associated with the design system, and our design tokens.
 This ensures that you can adhere to brand guidelines and usage recommendations regardless of how you may choose to architect the CSS or a component or project.
@@ -192,6 +194,53 @@ Note in the above example, the declaration of the `--blue-responsible` color set
 as well as the configuration for the `outline-link` component.
 The first set declares the color values as the hex values,
 and the next section associates link colors with a pre-existing CSS variable.
+
+### Component-specific variables
+
+When a component uses a CSS variable, it should be defined within that component and given a fallback value.
+Variables are normally defined within a `vars-COMPONENT.css` file within a `css-variables` subfolder of the component source.
+However, using the `css-variables` folder is no longer required.
+
+Component variables must be defined within a `:host` selector. When defining a variable that a project can override globally, the following naming convention should be used:
+
+```css
+:host {
+  --COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR--computed: var(--COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR, FALLBACK);
+}
+```
+where
+* `COMPONENT` is the name of the component.
+* `VARIANT` is the optional component variant, such as "primary", "secondary", etc.
+* `ELEMENT` is the optional HTML element, such as `input` or `h2`, etc
+* `SELECTOR` is the css property selector, with special characters replaced by a single hyphen, such as `color` or `bg-color` or `border-cover-hover` .
+* * States such as `::hover`, `::active` become `-hover` and `-active`.
+* * Selectors such as `input[disabled] border-color` become `input-disabled-border-color` for example, where `input` might be optional if referencing multiple elements (input, textarea, select, etc).
+* * Synonyms for properties such as using `bg` for `background`, `weight` or `fw` for `font-weight`, `radius` for `border-radius` etc, are allowed when the intent is obvious.
+But avoid when confusing such as with colors (border, background, etc). `color` refers to *text* color since that is the normal CSS property name. See the variable names in Tailwind CSS for other examples. (might update this ADR in the future with an exact list of allowed abbreviations)
+
+* The `--COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR` variable is the value specified in the `outline.theme.css` or project-specific globals file.
+* The `--COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR--computed` is the variable to actually use in your `COMPONENT.css` file.
+* The `FALLBACK` is the default value of the variable, either as a hardcoded css value, or a `var(--VARNAME)` to some other variable defined globally.
+You must ensure that the FALLBACK value is always defined or the browser will treat rules using this variable as invalid css.
+
+NOTE: The reason for the `--computed` suffix is because CSS variables cannot redefine themselves. And the above naming convention keeps the fallback
+value in a single location in the variable definition rather than being used multiple times within the `COMPONENT.css` file itself.
+
+Outline components should always declare all component-specific variables using the guidance above.
+Project-specific components are encouraged to declare all variables but if a variable is only used in a single place within the `COMPONENT.css` then
+using the `--COMPONENT--[VARIANT]-[ELEMENT]-SELECTOR` global variable without making a `--computed` version is allowed as long as the
+variable always has a global value or fallback is specified.
+
+For example:
+```css
+:host {
+  --outline-link--color--computed: var(--outline-link--color, var(--primary-color));
+}
+
+a {
+  color: var(--outline-link--color--computed)
+}
+```
 
 ## Component Style Generation
 
@@ -237,7 +286,7 @@ export default css`
 :host,
 a,
 ::slotted(a){
-  color:var(--outline-link-color-default);
+  color:var(--outline-link--color);
 }
 `;
 ```

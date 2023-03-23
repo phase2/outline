@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "description": "Core functionality that is shared across all Outline Web Components",
   "keywords": [
     "outline",
@@ -12,6 +12,7 @@
   "typings": "index.d.ts",
   "files": [
     "/dist/",
+    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",

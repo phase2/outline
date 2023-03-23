@@ -1,5 +1,17 @@
 # @phase2/outline-core
 
+## 0.1.9
+
+### Patch Changes
+
+- Updates for outline core.
+
+## 0.1.8
+
+### Patch Changes
+
+- d5cc847: Updated for broken imports.
+
 ## 0.1.7
 
 ### Patch Changes

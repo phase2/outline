@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { OutlineElement, SlotController } from '@phase2/outline-core';
+import { OutlineElement, SlotsController } from '@phase2/outline-core';
 import componentStyles from './outline-image.css.lit';
 
 export const aspectRatios = [
@@ -34,7 +34,7 @@ export type AspectRatios = typeof aspectRatios[number];
  */
 @customElement('outline-image')
 export class OutlineImage extends OutlineElement {
-  slots = new SlotController(this, true);
+  slots = new SlotsController(this);
   static styles = [componentStyles];
 
   @state() hasCaptionSlot: boolean;
@@ -66,13 +66,13 @@ export class OutlineImage extends OutlineElement {
   imageRatio: AspectRatios;
 
   firstUpdated(): void {
-    this.hasCaptionSlot = this.slots.test('caption');
+    this.hasCaptionSlot = Boolean(this.slots.exist('caption'));
   }
 
   captionSlotTemplate(): TemplateResult | null {
     return !this.hasCaptionSlot
       ? null
-      : html`<figcaption><slot name="caption"></slot></figcaption>`;
+      : html`<figcaption>${this.slots.renderInShadow('caption')}</figcaption>`;
   }
 
   render(): TemplateResult {
@@ -84,7 +84,9 @@ export class OutlineImage extends OutlineElement {
           </picture>
           ${this.captionSlotTemplate()}
         </figure>`
-        : html`<figure><slot></slot>${this.captionSlotTemplate()}</figure>`
+        : html`<figure>${this.slots.renderInShadow(
+            ''
+          )}${this.captionSlotTemplate()}</figure>`
     } `;
   }
 }

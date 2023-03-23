@@ -5,7 +5,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 
 import {
   OutlineElement,
-  SlotController,
+  SlotsController,
   MobileController,
   emit,
   waitForEvent,
@@ -40,7 +40,7 @@ import componentStyles from './outline-dropdown.css.lit';
 export class OutlineDropdown extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
   private mobileController = new MobileController(this, 'lg');
-  slots = new SlotController(this, true);
+  slots = new SlotsController(this);
 
   @query('.dropdown__trigger')
   trigger: HTMLElement;
@@ -112,9 +112,9 @@ export class OutlineDropdown extends OutlineElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.hasDropdown = this.slots.test('dropdown');
-    this.hasHeader = this.slots.test('header');
-    this.hasFooter = this.slots.test('footer');
+    this.hasDropdown = Boolean(this.slots.exist('dropdown'));
+    this.hasHeader = Boolean(this.slots.exist('header'));
+    this.hasFooter = Boolean(this.slots.exist('footer'));
     // @todo: Is any of this needed?
     this.handleButtonTrigger = this.handleButtonTrigger.bind(this);
     this.handleIconTrigger = this.handleIconTrigger.bind(this);
@@ -377,7 +377,7 @@ export class OutlineDropdown extends OutlineElement {
         @keydown="${this.handlePanelKeystrokes}"
       >
         ${this.headerTemplate()}
-        <slot name="dropdown"></slot>
+        ${this.slots.renderInShadow('dropdown')}
         ${this.footerTemplate()}
       </div>
     `;
@@ -444,7 +444,7 @@ export class OutlineDropdown extends OutlineElement {
    */
   headerTemplate(): TemplateResult | null {
     if (!this.hasHeader) return null;
-    return html`<slot name="header"></slot>`;
+    return html`${this.slots.renderInShadow('header')}`;
   }
 
   /**
@@ -453,7 +453,7 @@ export class OutlineDropdown extends OutlineElement {
    */
   footerTemplate(): TemplateResult | null {
     if (!this.hasFooter) return null;
-    return html`<slot name="footer"></slot>`;
+    return html`${this.slots.renderInShadow('footer')}`;
   }
 }
 

@@ -1,5 +1,5 @@
 import { CSSResultGroup, TemplateResult, html } from 'lit';
-import { OutlineElement, SlotController } from '@phase2/outline-core';
+import { OutlineElement, SlotsController } from '@phase2/outline-core';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-admin-links.css.lit';
 
@@ -23,16 +23,13 @@ import componentStyles from './outline-admin-links.css.lit';
  */
 @customElement('outline-admin-links')
 export class OutlineAdminLinks extends OutlineElement {
-  slots = new SlotController(
-    this, // This, the host element.
-    true // To shift or not to shift LightDom nodes to ShadowDOM.
-  );
+  slots = new SlotsController(this);
   static styles: CSSResultGroup = [componentStyles];
 
   render(): TemplateResult {
     return html`
       <div class="links">
-        <slot></slot>
+        ${this.slots.renderInShadow('')}
       </div>
     `;
   }
