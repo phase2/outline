@@ -2,7 +2,7 @@ import { TemplateResult, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { OutlineElement, SlotController } from '@phase2/outline-core';
+import { OutlineElement, SlotsController } from '@phase2/outline-core';
 import '@phase2/outline-list';
 import type { ListOrientation } from '@phase2/outline-list';
 
@@ -16,7 +16,7 @@ import type { ListOrientation } from '@phase2/outline-list';
  */
 @customElement('outline-button-group')
 export class OutlineButtonGroup extends OutlineElement {
-  slots = new SlotController(this, false);
+  slots = new SlotsController(this);
 
   /**
    * Sets orientation of list.

@@ -5,7 +5,7 @@ export { IsHoverableDeviceController } from './src/controllers/is-hoverable-devi
 export { LinkedBlockController } from './src/controllers/linked-block-controller';
 export { MobileController } from './src/controllers/mobile-controller';
 export { ScreenSizeController } from './src/controllers/screen-size-controller';
-export { SlotController } from './src/controllers/slot-controller';
+export { SlotsController } from './src/controllers/slots-controller';
 
 export { animateTo } from './src/internal/animate';
 export { emit, waitForEvent } from './src/internal/event';
