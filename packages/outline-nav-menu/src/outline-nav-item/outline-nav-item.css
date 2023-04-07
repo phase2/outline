@@ -1,0 +1,120 @@
+ul {
+  @apply m-0 p-0;
+}
+
+li {
+  @apply list-none !important;
+}
+
+a {
+  @apply no-underline;
+  color: unset;
+}
+
+.list-item {
+  @apply relative flex w-full flex-col py-2 px-4 text-outline-blue-500;
+  border-bottom: 1px solid var(--blue-500);
+
+  & a {
+    @apply text-outline-black no-underline !important;
+  }
+
+  & li {
+    @apply list-none text-outline-black !important;
+  }
+}
+
+.list-item--main {
+  @apply relative mt-2 flex w-full justify-center rounded-t-md px-3 pb-2 pt-8 text-xl text-outline-white;
+}
+
+.list-item--main[active],
+.list-item[active] {
+  @apply bg-outline-white;
+}
+
+.list-item[active] {
+  border-bottom: 1px solid var(--blue-900);
+}
+
+.list-item--main[active] > span,
+.list-item--main[active] > a {
+  @apply text-outline-blue-500;
+}
+
+.list-item[active] > span,
+.list-item[active] > a {
+  @apply text-outline-blue-900;
+}
+
+.list-item--main[active] > .list-item--sub-menu,
+.list-item[active] > .list-item--sub-menu {
+  @apply flex;
+}
+
+.list-item--button {
+  display: flex;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  align-items: center;
+  max-width: fit-content;
+}
+
+.list-item--label {
+  @apply m-0;
+}
+
+.list-item--sub-menu {
+  @apply absolute top-full hidden w-full min-w-max list-none flex-col p-0;
+}
+
+.list-item[active] > .list-item--sub-menu {
+  @apply left-full top-0;
+}
+
+/* Mobile */
+.list-item.mobile,
+.list-item--main.mobile {
+  @apply flex w-full flex-row justify-between;
+  transition: 0.5s;
+}
+
+.list-item--main.mobile[active] > span,
+.list-item--main.mobile[active] > a,
+.list-item.mobile[active] > a,
+.list-item.mobile[active] > span {
+  @apply text-outline-blue-900;
+}
+
+.list-item--main.mobile {
+  @apply rounded-none;
+}
+
+.list-item--main.mobile[active] > .list-item--sub-menu,
+.list-item.mobile[active] > .list-item--sub-menu {
+  @apply left-0 top-full min-w-min;
+}
+
+.list-item--main.mobile[active] > .list-item--sub-menu {
+  @apply pl-3;
+  width: calc(100vw - 43px);
+}
+
+.list-item.mobile[active] > .list-item--sub-menu {
+  width: calc(100vw - 56px);
+}
+
+/* Utility */
+
+.flyaway {
+  transform: translateX(-150%);
+  visibility: hidden;
+  opacity: 0;
+  @apply m-0 h-0 border-0 p-0 !important;
+}
+
+/* makes sure pointer events register on the button not the icon. */
+.list-item--button-icon {
+  pointer-events: none;
+}
