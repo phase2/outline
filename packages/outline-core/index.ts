@@ -1,5 +1,6 @@
 export { OutlineElement } from './src/outline-element/outline-element';
 
+export { ResizeController } from './src/controllers/resize-controller';
 export { ContainerSizeController } from './src/controllers/container-size-controller';
 export { IsHoverableDeviceController } from './src/controllers/is-hoverable-device-controller';
 export { LinkedBlockController } from './src/controllers/linked-block-controller';
