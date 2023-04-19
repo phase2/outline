@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-storybook",
   "description": "Storybook integration for Outline",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "license": "MIT",
   "scripts": {
     "package": "yarn publish"

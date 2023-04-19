@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-form",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The Outline Components for the form component",
   "keywords": [
     "outline components",
@@ -12,6 +12,7 @@
   "typings": "index.d.ts",
   "files": [
     "/dist/",
+    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",
