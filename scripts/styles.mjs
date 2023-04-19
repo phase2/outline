@@ -7,7 +7,7 @@ import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
 import outline from '../outline.config.js';
-import config from '@phase2/outline-config/postcss.config';
+import config from '../postcss.config';
 import { addScopeToStyles } from '@phase2/outline-core/src/internal/light-dom.mjs';
 
 const options = yargs.option('watch', {
