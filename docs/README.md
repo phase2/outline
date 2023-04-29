@@ -21,7 +21,7 @@ If you want to test your work within the context of a project and your change do
 
 ### Outline CLI and project template development
 
-When adjusting the project initialization process it can be executed via direct reference instead of using the `@phase2/outline-cli` package. There is also a flag to the `init` command, `-l`, that will cause the templates used to come from the `../packages/outline-templates` and `../packages/outline-storybook` directories instead of the published `@phase2/outline-templates` and `@phase2/outline-storybook` packages.
+When adjusting the project initialization process it can be executed via direct reference instead of using the `@phase2/outline-cli` package. There is also a flag to the `init` command, `-l`, that will cause the templates used to come from the `../packages/outline-templates` and `../packages/outline-storybook` directories instead of the published `@phase2/outline-templates` and `@phase2/outline-storybook` packages. It will also cause the initial `yarnpkg` command in the generated project to be skipped.
 
 For example, to spin up a project directory as a sibling to this repo run:
 
@@ -29,4 +29,4 @@ For example, to spin up a project directory as a sibling to this repo run:
 npx ./outline/packages/outline-cli init -l
 ```
 
-> Note that this does not currently cause any initially installed packages to use linking technique above.
+> Note: Do not forget to execute a build before testing the project initialization process. Use of the -l flag does not currently cause any initially installed packages to use linking technique above.
