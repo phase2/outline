@@ -17,11 +17,11 @@ Running in the context of the Outline project is relatively straightforward as i
 
 ### Linking
 
-If you want to test your work within the context of a project and your change doesn't involve the installation of a package or initialization of a project [linking techniques](https://classic.yarnpkg.com/lang/en/docs/cli/link/) may be sufficient for your needs.
+If you want to test your work within the context of a project and your change doesn't involve the installation of a package or initialization of a project, [linking techniques](https://classic.yarnpkg.com/lang/en/docs/cli/link/) may be sufficient for your needs.
 
 ### Outline CLI and project template development
 
-When adjusting the project initialization process it can be executed via direct reference instead of using the `@phase2/outline-cli` package. There is also a flag to the `init` command, `-l`, that will cause the templates used to come from the `../packages/outline-templates` directory instead of the published `@phase2/outline-templates` package.
+When adjusting the project initialization process it can be executed via direct reference instead of using the `@phase2/outline-cli` package. There is also a flag to the `init` command, `-l`, that will cause the templates used to come from the `../packages/outline-templates` and `../packages/outline-storybook` directories instead of the published `@phase2/outline-templates` and `@phase2/outline-storybook` packages.
 
 For example, to spin up a project directory as a sibling to this repo run:
 
