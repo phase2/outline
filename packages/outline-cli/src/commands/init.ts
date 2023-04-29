@@ -23,6 +23,11 @@ export default class Init extends Command {
       char: 'd',
       description: 'Project description.',
     }),
+    local: Flags.boolean({
+      char: 'l',
+      description: 'Run in local development mode.',
+      default: false,
+    }),
     template: Flags.string({ char: 't', description: 'Project template.' }),
   };
 
@@ -111,7 +116,7 @@ export default class Init extends Command {
         description: description.description,
         template: template.template,
       };
-      initProject(prompts);
+      initProject(prompts, flags.local);
     } else {
       // Enable "manual mode".
       const prompts: Prompts = {
@@ -121,7 +126,7 @@ export default class Init extends Command {
         description: flags.description ?? 'Design system built with OutlineJS.',
         template: flags.template ?? 'default',
       };
-      initProject(prompts);
+      initProject(prompts, flags.local);
     }
   }
 }

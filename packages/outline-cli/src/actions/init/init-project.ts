@@ -13,19 +13,22 @@ export type Prompts = {
 };
 /**
  * @param {string} prompts - prompts: Object of the values from the prompt questions;
+ * @param {boolean} local - local: Whether to run in local development mode;
  * @returns {void}
  */
-export const initProject = (prompts: Prompts): void => {
+export const initProject = (prompts: Prompts, local: boolean = false): void => {
   const currDir = process.cwd();
   const resolvedPath = path.resolve(currDir, prompts.slug);
   const storybookSource = path.resolve(
     resolvedPath,
     './node_modules/@phase2/outline-storybook'
   );
-  const starterPath = path.resolve(
-    `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
-    prompts.template
-  );
+  const starterPath = local
+    ? `${__dirname}/../../../../outline-templates/${prompts.template}`
+    : path.resolve(
+        `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
+        prompts.template
+      );
 
   mkdirsSync(resolvedPath);
   process.chdir(resolvedPath);
@@ -33,7 +36,7 @@ export const initProject = (prompts: Prompts): void => {
   console.log(
     `${chalk.bold.blue('info')}: Downloading Outline ${
       prompts.template
-    } starter template`
+    } starter template using ${starterPath}`
   );
   execSync(
     `yarn add @phase2/outline-templates @phase2/outline-storybook --cwd='./'`,
