@@ -15,6 +15,7 @@
     "@phase2/outline-core": "^0.1.10",
     "@phase2/outline-alert": "^0.1.6",
     "@phase2/outline-code-block": "^0.1.1",
+    "@phase2/outline-docs": "^0.0.9",
     "@phase2/outline-static-assets": "^0.0.3"
   },
   "devDependencies": {
