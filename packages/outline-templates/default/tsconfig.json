@@ -42,6 +42,7 @@
   "exclude": [
     "./src/components/**/*.stories.ts",
     "./src/components/**/*.lit.ts",
+    "./src/components/sample/**/*",
     "node_modules"
   ]
 }
