@@ -158,7 +158,7 @@ jobs:
 
       - name: Generate a project
         run: |
-          PROJDIR=$(mktemp)
+          PROJDIR=$(mktemp -d)
           cd $PROJDIR
           npx ${{ github.workspace }}/packages/outline-cli init -a -l -s prj
           cd prj
