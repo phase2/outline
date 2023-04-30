@@ -285,7 +285,7 @@ jobs:
     name: "Publish: GitHub Packages"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/release'
-    needs: ['setup', 'build', 'test']
+    needs: ['setup', 'build_outline', 'test']
 
     # The steps for the build job.
     steps:
@@ -337,7 +337,7 @@ jobs:
     name: "Publish: NPM Packages"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/release'
-    needs: ['setup', 'build', 'test']
+    needs: ['setup', 'build_outline', 'test']
 
     # The steps for the build job.
     steps:
@@ -386,7 +386,7 @@ jobs:
   chromatic-deployment:
     name: "Publish: Chromatic"
     runs-on: ubuntu-latest
-    needs: ['setup', 'build', 'test']
+    needs: ['setup', 'build_outline', 'test']
 
     steps:
       # @see https://github.com/marketplace/actions/checkout
