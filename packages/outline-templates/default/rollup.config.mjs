@@ -48,6 +48,7 @@ const defaultOutput = {
       'src/components/**/*.css.lit.ts',
       'src/components/**/*.test.ts',
       'src/components/examples/**/*',
+      'src/components/sample/**/*',
     ],
   },
   output: [
