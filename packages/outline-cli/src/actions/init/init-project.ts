@@ -100,6 +100,14 @@ export const initProject = (prompts: Prompts, local: boolean = false): void => {
     throw console.error(`${chalk.red('error')}: ${error}`);
   }
 
+  if (local) {
+    console.log(
+      `${chalk.blue('info')}: Linking outline packages for local development`
+    );
+    execSync(`node scripts/link-for-local-dev.js ${__dirname}/../../../..`, {
+      stdio: [0, 1, 2],
+    });
+  }
   console.log(
     `${chalk.green(
       'success'
