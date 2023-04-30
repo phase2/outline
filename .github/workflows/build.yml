@@ -12,6 +12,7 @@ on:
       - alpha
       - beta
       - rc
+      - feature/local-dev-dx
   # Which branches to test on pull request.
   pull_request:
     branches:
@@ -27,7 +28,6 @@ on:
       - /^feature/
       - /^bug/
       - /^test/
-  workflow_dispatch:
 
 # The jobs for the build workflow.
 jobs:
