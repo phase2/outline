@@ -44,6 +44,7 @@ export class ResizeController implements ReactiveController {
   options: {
     debounce: number;
     breakpoints: number[];
+    elementToRerender: ReactiveControllerHost & HTMLElement;
   };
   currentComponentWidth: number;
   currentBreakpointRange: number;
@@ -59,11 +60,13 @@ export class ResizeController implements ReactiveController {
     options: {
       debounce?: number;
       breakpoints?: number[];
+      elementToRerender?: ReactiveControllerHost & HTMLElement;
     } = {}
   ) {
     const defaultOptions = {
       debounce: 200,
       breakpoints: [768],
+      elementToRerender: host,
     };
 
     /**
@@ -177,7 +180,7 @@ export class ResizeController implements ReactiveController {
 
     if (newBreakpointRange !== this.currentBreakpointRange) {
       this.currentBreakpointRange = newBreakpointRange;
-      this.host.requestUpdate();
+      this.options.elementToRerender.requestUpdate();
     }
   }
 }
