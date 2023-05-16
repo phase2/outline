@@ -15,14 +15,17 @@ npm install lit
 Import the `SlotsController` and instantiate it in your component:
 
 ```javascript
-import { ReactiveControllerHost } from 'lit';
 import { SlotsController } from './SlotsController';
 
 class MyComponent extends HTMLElement {
   constructor() {
     super();
     const slotsController = new SlotsController(this);
-    // ...
+    // ... @todo Add more usage examples
+    // default slot example
+    // slot exist function
+    // renderInShadow example
+    // conditionalSlot example
   }
 }
 ```
@@ -72,7 +75,7 @@ Renders the specified slot in the shadow DOM.
 - `eventsToDispatch`: An array of event types to dispatch from the cloned slots.
 - `addAnnotations`: Whether to add annotations to the slot. Defaults to `true`.
 
-##### conditionalNGSlot(slotName: string, renderInShadow?: boolean, extraClasses?: string | null, extraAttributes?: { name: string, value: string }[]): TemplateResult | null
+##### conditionalSlot(slotName: string, renderInShadow?: boolean, extraClasses?: string | null, extraAttributes?: { name: string, value: string }[]): TemplateResult | null
 
 Conditionally renders a slot with a wrapper and additional classes.
 
