@@ -24,11 +24,8 @@ import '@phase2/outline-container';
   This section will provide guidance on the specific usages and patterns for styling a component in Outline.
 
   ## Documentation Status
-  <outline-alert status="warning" size="large">
-    <span slot="header">Status: Needs Work/In Progress</span>
-    <p>
-      This documentation is in need of additional work, or is currently in progress.
-    </p>
+  <outline-alert status="success" size="large">
+    <span slot="header">Status: Complete / Up to date (Last Updated: May 2023)</span>
   </outline-alert>
 </outline-container>
 
@@ -118,16 +115,8 @@ Notice how the `@apply` directive precedes a list of shorthand Tailwind classes.
 Also note the [`:host`](https://developer.mozilla.org/en-US/docs/Web/CSS/:host) and [`::slotted`](https://developer.mozilla.org/en-US/docs/Web/CSS/::slotted) selectors. These are very helpful when styling components.
 
 ```css
-:host, a, ::slotted(a) {
-  @apply no-underline font-body transition-colors duration-300;
-}
-
-:host(:hover), a:hover, ::slotted(a:hover) {
-  @apply underline;
-}
-
-:host(:focus), a:focus, ::slotted(a:focus) {
-  @apply underline outline-none;
+ a {
+  @apply font-body transition-colors duration-300;
 }
 ```
 
@@ -141,16 +130,8 @@ In this instance, we have utilized 3 custom CSS variables to help us alter the c
 The next section will discuss how and where those are declared or overwritten.
 
 ```css
-:host, a, ::slotted(a) {
+a {
   color: var(--outline-link-color-default);
-}
-
-:host(:hover), a:hover, ::slotted(a:hover) {
-  color: var(--outline-link-color-hover) !important;
-}
-
-:host(:focus), a:focus, ::slotted(a:focus) {
-  color: var(--outline-link-color-focus) !important;
 }
 ```
 
@@ -183,9 +164,9 @@ However, this separation is only a suggestion, and in theory the `outline.theme.
   --blue-lighten-5: #f0f4f6;
   ...
   /* Configuration values for outline-link. */
-   --outline-link-color-default: var(--blue-darken-1);
-   --outline-link-color-hover: var(--blue-lighten-1);
-   --outline-link-color-focus: var(--blue-lighten-1);
+  --outline-link-color-default: var(--blue-darken-1);
+  --outline-link-color-hover: var(--blue-lighten-1);
+  --outline-link-color-focus: var(--blue-lighten-1);
   ...
 }
 ```
@@ -244,6 +225,7 @@ a {
 
 ## Component Style Generation
 
+#### TODO: Migrate this to Tooling Docs ####
 We have talked in previous sections about how the `.css` file will get compiled to a `.css.lit.ts` file.
 Let's take a look at a sample of this in action. We will use the `outline-link` component again.
 
@@ -297,12 +279,17 @@ as well as the second sections which are the styles defined by the `.css` file a
 
 ## Styling Slots
 
+CSS styles from external files will have priority over CSS styles that are done via the `:host` selector.
 Normally you can only target top-level elements in a slot with css (example `::slotted(ul)`).
+
+Since we often use Drupal as a consumer, we cannot control the markup that enters slots. The solutions listed below are based on this premise and allow us to style slot content in a similar way to how we style the component.
+
 When you need to style deeper elements within a slot, there are two approaches:
 
-1. Copy the slot content into the shadow DOM via a SlotController. This can sometimes break functionality from the consumer
-and should only be used when the component requires specific interaction and not for simple styling.
-2. The slot content can be styled via "global" CSS rules. These global rules need to be scoped by the component name.
+1. Copy the slot content into the Shadow DOM via a SlotController. For more information on this, see [Slots](/docs/documentation-guides-component-development-coding-guide-standards-slots--documentation)
+2. The slot content can be styled via "global" CSS rules.
+
+## LightDomStyles Controller ##
 
 Scoped CSS rules can be created in a number of ways:
 * **Added to the consumer's global style sheet.** However, you cannot `@import` an existing stylesheet within a scoping selector such as the component name, making it difficult to reuse existing styles in the design system without duplicating styling.
