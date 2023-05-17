@@ -26,8 +26,8 @@ import '@phase2/outline-container';
   [Reactive properties](https://lit.dev/docs/components/properties/) are properties that can trigger the reactive update cycle when changed, re-rendering the component, and optionally be read or written to attributes.
 
   ## Documentation Status
-  <outline-alert status="warning" size="large">
-    <span slot="header">Status: Needs Work/In Progress</span>
+  <outline-alert status="success" size="large">
+    <span slot="header">Status: Complete / Update to data May 2023</span>
     <p>
       This documentation is in need of additional work, or is currently in progress.
     </p>
@@ -41,7 +41,6 @@ import '@phase2/outline-container';
 - Pass to `attribute` an attribute name in kebab-case.
 - Attribute names must not collide with HTML standard ones `title`, `href`, etc.
   - This means it is best to name properties more like `link-title`, `link-href`, etc.
-
 - Lit [documentation]()
 
 ### Slots versus properties
@@ -49,6 +48,7 @@ import '@phase2/outline-container';
   - Properties are used for non-content features that impact the state of the component. For example, active versus inactive states.
 - The component shouldn't change its own public properties, except in response to user input. For example, you could set a property to change background color, but the component itself shouldn't change it's own color.
 - Slots are used for content, such as HTML markup, text, icons, or images. 
+- There are cases in which adding content as a property will make sense, for example using a title to control the state of the component. Use this cautiously, as it can cause issues with a11y tools and automation.
 
 ### Property with default value
 
