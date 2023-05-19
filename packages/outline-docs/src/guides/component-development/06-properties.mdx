@@ -41,14 +41,18 @@ import '@phase2/outline-container';
 - Pass to `attribute` an attribute name in kebab-case.
 - Attribute names must not collide with HTML standard ones `title`, `href`, etc.
   - This means it is best to name properties more like `link-title`, `link-href`, etc.
-- Lit [documentation]()
+- Lit [documentation](https://lit.dev/docs/components/properties/)
 
 ### Slots versus properties
 - When do I use a property? 
-  - Properties are used for non-content features that impact the state of the component. For example, active versus inactive states.
-- The component shouldn't change its own public properties, except in response to user input. For example, you could set a property to change background color, but the component itself shouldn't change it's own color.
-- Slots are used for content, such as HTML markup, text, icons, or images. 
-- There are cases in which adding content as a property will make sense, for example using a title to control the state of the component. Use this cautiously, as it can cause issues with a11y tools and automation.
+  - Properties and slots should mirror HTML as close as possible. For example, if something would just be a in a div, it should probably be a slot. However, something like an aria-label should typically be a property.
+  - Properties are used for non-content features that impact the state of the component. Non-content here means any structured data that isn't just HTML. For example, active versus inactive states. 
+  - There are some exceptions, such as making alt-text for images, which might make more sense to be a property.
+- The component shouldn't change its own public properties, except in response to user input. For example, you could set a property to change background color, but the component itself shouldn't change it's own color. 
+- There are definitely cases where a component is doing something internally that warrants reflecting its internal state back in the HTML markup regardless of any user action. For example, detecting dark mode or an a11y config.
+- In general slots are used for content, such as HTML markup, text, icons, or images. 
+- The more of the component that is slots, the more flexible the component will be. 
+- There are cases in which adding content as a property will make sense, for example using a title to control the state of the component. Use this cautiously, as it can cause issues with a11y tools and automation. This is mostly only with older tools/ low quality tools.
 
 ### Property with default value
 
