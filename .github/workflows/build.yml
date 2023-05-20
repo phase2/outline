@@ -12,7 +12,6 @@ on:
       - alpha
       - beta
       - rc
-      - feature/local-dev-dx
   # Which branches to test on pull request.
   pull_request:
     branches:
