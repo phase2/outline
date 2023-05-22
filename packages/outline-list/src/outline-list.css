@@ -1,3 +1,5 @@
+@import './css-variables/vars-list.css';
+
 .list {
   border: unset;
   margin: 0;
@@ -21,18 +23,12 @@ ol.grid > ::slotted(li) {
 }
 
 .list.row ::slotted(*:not(:last-of-type)) {
-  margin-right: var(
-    --outline--list-spacing,
-    var(--outline--list-default-spacing)
-  );
+  margin-right: var(--outline-list--spacing--computed);
 }
 
 .list.column ::slotted(*:not(:last-of-type)),
 .list.col-center ::slotted(*:not(:last-of-type)) {
-  margin-bottom: var(
-    --outline--list-spacing,
-    var(--outline--list-default-spacing)
-  );
+  margin-bottom: var(--outline-list--spacing--computed);
 }
 
 .columns--2,

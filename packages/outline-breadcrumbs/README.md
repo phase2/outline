@@ -17,10 +17,10 @@ The Outline  Breadcrumbs component
 
 ## CSS Custom Properties
 
-| Property                               | Description                                      |
-|----------------------------------------|--------------------------------------------------|
-| `--outline-breadcrumb-bg`              | color: The background color for the breadcrumbs. |
-| `--outline-breadcrumb-link-color`      | default: The default link color for the breadcrumbs. |
-| `--outline-breadcrumb-link-decoration` | default: The default text decoration for the breadcrumb links. |
-| `--outline-breadcrumb-separator`       | spacing: The spacing between the breadcrumbs.    |
-| `--outline-breadcrumb-text-color`      | default: The default text color for the breadcrumbs. |
+| Property                                | Description                                      |
+|-----------------------------------------|--------------------------------------------------|
+| `--outline-breadcrumb--bg`              | color: The background color for the breadcrumbs. |
+| `--outline-breadcrumb--link-color`      | default: The default link color for the breadcrumbs. |
+| `--outline-breadcrumb--link-decoration` | default: The default text decoration for the breadcrumb links. |
+| `--outline-breadcrumb--separator`       | spacing: The spacing between the breadcrumbs.    |
+| `--outline-breadcrumb--text-color`      | default: The default text color for the breadcrumbs. |

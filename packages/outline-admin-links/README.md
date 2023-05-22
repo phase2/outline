@@ -16,10 +16,10 @@ The Outline Admin Links component
 
 ## CSS Custom Properties
 
-| Property                       | Description                                      |
-|--------------------------------|--------------------------------------------------|
-| `--outline-admin-links-bg`     | default: The default background color for the admin links. |
-| `--outline-admin-links-color`  | default: The default text color for the admin links. |
-| `--outline-admin-links-link-x` | spacing: The horizontal padding for the individual admin links. |
-| `--outline-admin-links-link-y` | spacing: The vertical padding for the individual admin links. |
-| `--outline-admin-links-y`      | spacing: The vertical spacing for the admin links group. |
+| Property                                | Description                                      |
+|-----------------------------------------|--------------------------------------------------|
+| `--outline-admin-links--bg`             | default: The default background color for the admin links. |
+| `--outline-admin-links--color`          | default: The default text color for the admin links. |
+| `--outline-admin-links--link-spacing-x` | spacing: The horizontal padding for the individual admin links. |
+| `--outline-admin-links--link-spacing-y` | spacing: The vertical padding for the individual admin links. |
+| `--outline-admin-links--spacing-y`      | spacing: The vertical spacing for the admin links group. |

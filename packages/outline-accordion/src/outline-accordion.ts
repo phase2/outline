@@ -3,12 +3,11 @@ import {
   customElement,
   property,
   queryAssignedElements,
-  state,
 } from 'lit/decorators.js';
 import {
   OutlineElement,
   MobileController,
-  SlotController,
+  SlotsController,
 } from '@phase2/outline-core';
 import componentStyles from './outline-accordion.css.lit';
 import { OutlineAccordionPanel } from './outline-accordion-panel/outline-accordion-panel';
@@ -22,7 +21,7 @@ import { OutlineAccordionPanel } from './outline-accordion-panel/outline-accordi
 @customElement('outline-accordion')
 export class OutlineAccordion extends OutlineElement {
   private mobileController = new MobileController(this);
-  slots = new SlotController(this, false);
+  slots = new SlotsController(this);
   static styles: CSSResultGroup = [componentStyles];
 
   /**
@@ -49,13 +48,10 @@ export class OutlineAccordion extends OutlineElement {
   @queryAssignedElements({ slot: 'panels' })
   panels: OutlineAccordionPanel[];
 
-  @state() hasLabel: boolean;
-
   render(): TemplateResult {
     return html`
-      ${this.hasLabel
-        ? html`<div class="label"><slot name="label"></slot></div>`
-        : null}
+      ${this.slots.conditionalSlot('label', false)}
+
       <div class="accordion" @keydown=${this.handleKeyboardNav}>
         <slot name="panels"></slot>
       </div>
@@ -111,7 +107,6 @@ export class OutlineAccordion extends OutlineElement {
    */
 
   firstUpdated() {
-    this.hasLabel = this.slots.test('label');
     if (this.allOpen) {
       this.panels.map(panel => {
         panel.setAttribute('active', 'active');

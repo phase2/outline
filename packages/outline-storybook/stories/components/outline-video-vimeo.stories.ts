@@ -6,6 +6,8 @@ import '@phase2/outline-video-vimeo';
 const configuration = {
   title: 'Media/Vimeo Video',
   component: 'outline-video-vimeo',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     videoID: {
       name: 'video-id',
@@ -50,7 +52,7 @@ const Template = (args = configuration.args): TemplateResult => {
   `;
 };
 
-// @todo: Investigate the `Error: page.evaluate: Error: allowedOrigins value "null" is not a valid origin` error. 
+// @todo: Investigate the `Error: page.evaluate: Error: allowedOrigins value "null" is not a valid origin` error.
 export const VimeoVideo: any = Template.bind({});
 VimeoVideo.parameters = {
   axe: {

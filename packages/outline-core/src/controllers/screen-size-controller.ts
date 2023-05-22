@@ -1,13 +1,23 @@
 import { ReactiveControllerHost, ReactiveController } from 'lit';
-import { defaultScreenSizes } from '../../index';
+// @todo: Figure out why outline-config isn't working.
+// import { defaultScreenSizes } from '@phase2/outline-config';
+const defaultScreenSizes = {
+  xs: '480px',
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  xxl: '1440px',
+  xxxl: '2160px',
+};
 
 /**
  * Screen size lookup, ordered small to large.
  *
  * Notice: If you get a linting issue, `Parsing error: Cannot read properties of undefined (reading 'map')`, you need to update your packages.
  * At least:
- * "@typescript-eslint/eslint-plugin": "^4.0.0",
- * "@typescript-eslint/parser": "^4.0.0",
+ * "@typescript-eslint/eslint-plugin": "^5.0.0",
+ * "@typescript-eslint/parser": "^5.0.0",
  */
 export const screenSizeMap = new Map(
   (

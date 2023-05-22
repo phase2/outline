@@ -2,15 +2,10 @@ import { CSSResultGroup, html, TemplateResult } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { OutlineElement, SlotController } from '@phase2/outline-core';
+import { OutlineElement, SlotsController } from '@phase2/outline-core';
 import { LinkTargetType } from '@phase2/outline-link';
 
 import { linkVars } from '@phase2/outline-link';
-import defaultVars from './css-variables/vars-default.css.lit';
-import primaryButtonVars from './css-variables/vars-primary.css.lit';
-import secondaryButtonVars from './css-variables/vars-secondary.css.lit';
-import tertiaryButtonVars from './css-variables/vars-tertiary.css.lit';
-import linkButtonVars from './css-variables/vars-link.css.lit';
 import componentStyles from './outline-button.css.lit';
 
 export type ButtonVariant = 'link' | 'primary' | 'secondary' | 'tertiary';
@@ -33,20 +28,9 @@ export type ButtonSize = 'small' | 'medium' | 'large';
  */
 @customElement('outline-button')
 export class OutlineButton extends OutlineElement {
-  static styles: CSSResultGroup = [
-    linkVars,
-    defaultVars,
-    primaryButtonVars,
-    secondaryButtonVars,
-    tertiaryButtonVars,
-    linkButtonVars,
-    componentStyles,
-  ];
+  static styles: CSSResultGroup = [linkVars, componentStyles];
 
-  slots = new SlotController(
-    this, // This, the host element.
-    false // To shift or not to shift LightDom nodes to ShadowDOM.
-  );
+  slots = new SlotsController(this);
 
   /**
    * The url to use for a link. This will render an anchor element.
@@ -102,8 +86,8 @@ export class OutlineButton extends OutlineElement {
   @state() hasRightIcon: boolean;
 
   firstUpdated(): void {
-    this.hasLeftIcon = this.slots.test('left');
-    this.hasRightIcon = this.slots.test('right');
+    this.hasLeftIcon = Boolean(this.slots.exist('left'));
+    this.hasRightIcon = Boolean(this.slots.exist('right'));
   }
 
   /**

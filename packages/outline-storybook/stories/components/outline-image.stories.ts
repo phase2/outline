@@ -2,7 +2,11 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-import { argImageDisplayMethod, argImageRatioProperty, NarrowStoryDecorator } from '@phase2/outline-image';
+import {
+  argImageDisplayMethod,
+  argImageRatioProperty,
+  NarrowStoryDecorator,
+} from '@phase2/outline-image';
 import { argTypeHidden } from '@phase2/outline-core';
 import '@phase2/outline-image';
 
@@ -19,6 +23,8 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 export default {
   title: 'Media/Image',
   component: 'outline-image',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -51,17 +57,29 @@ Additional stories will will indicate the ratio being used, and and the method o
   },
 };
 
-const Template = ({ imageUrl, imageRatio, imageLabel, imageMode, caption }: any): TemplateResult => html`
-${imageMode == 'prop' ? html`
-<outline-image image-href="${ifDefined(imageUrl)}" image-label="${ifDefined(imageLabel)}" image-ratio="${ifDefined(imageRatio)}">
+const Template = ({
+  imageUrl,
+  imageRatio,
+  imageLabel,
+  imageMode,
+  caption,
+}: any): TemplateResult => html`
+${
+  imageMode == 'prop'
+    ? html`
+<outline-image image-href="${ifDefined(imageUrl)}" image-label="${ifDefined(
+        imageLabel
+      )}" image-ratio="${ifDefined(imageRatio)}">
   ${caption ? html`<div slot="caption">${caption}</div>` : null}
 </outline-image>
-` : html`
+`
+    : html`
 <outline-image image-ratio="${ifDefined(imageRatio)}">
   <picture><img src="${imageUrl}" alt="${imageLabel}" /></picture>
   ${caption ? html`<div slot="caption">${caption}</div>` : null}
 </outline-image>
-`}`;
+`
+}`;
 
 export const ImageDefault: any = Template.bind({});
 ImageDefault.args = {
@@ -83,7 +101,8 @@ ImageOne.parameters = {
     description: {
       story: `
 The following sample is set to a \`1:1\` aspect ratio and is using the \`prop\` image display method. 
-    `},
+    `,
+    },
   },
 };
 ImageOne.decorators = NarrowStoryDecorator;
@@ -100,7 +119,8 @@ ImageTwo.parameters = {
     description: {
       story: `
 The following sample is set to a \`3:2\` aspect ratio and is using the \`slot\` image display method. 
-    `},
+    `,
+    },
   },
 };
 ImageTwo.decorators = NarrowStoryDecorator;
@@ -117,7 +137,8 @@ ImageThree.parameters = {
     description: {
       story: `
 The following sample is set to a \`3:4\` aspect ratio and is using the \`prop\` image display method. 
-    `},
+    `,
+    },
   },
 };
 ImageThree.decorators = NarrowStoryDecorator;
@@ -134,7 +155,8 @@ ImageFour.parameters = {
     description: {
       story: `
 The following sample is set to a \`4:3\` aspect ratio and is using the \`slot\` image display method. 
-    `},
+    `,
+    },
   },
 };
 ImageFour.decorators = NarrowStoryDecorator;
@@ -151,7 +173,8 @@ ImageFive.parameters = {
     description: {
       story: `
 The following sample is set to a \`5:4\` aspect ratio and is using the \`prop\` image display method. 
-    `},
+    `,
+    },
   },
 };
 ImageFive.decorators = NarrowStoryDecorator;
@@ -168,7 +191,8 @@ ImageSix.parameters = {
     description: {
       story: `
 The following sample is set to a \`16:9\` aspect ratio and is using the \`slot\` image display method. 
-    `},
+    `,
+    },
   },
 };
 ImageSix.decorators = NarrowStoryDecorator;
@@ -185,7 +209,8 @@ ImageSeven.parameters = {
     description: {
       story: `
 The following sample is set to a \`9/16\` aspect ratio and is using the \`prop\` image display method. 
-    `},
+    `,
+    },
   },
 };
 ImageSeven.decorators = NarrowStoryDecorator;
@@ -202,7 +227,8 @@ ImageEight.parameters = {
     description: {
       story: `
 The following sample is set to a \`21:9\` aspect ratio and is using the \`slot\` image display method. 
-    `},
+    `,
+    },
   },
 };
 ImageEight.decorators = NarrowStoryDecorator;

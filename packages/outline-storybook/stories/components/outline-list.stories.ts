@@ -2,15 +2,14 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
-import {
-  listOrientations,
-  listTypes,
-} from '@phase2/outline-list';
+import { listOrientations, listTypes } from '@phase2/outline-list';
 import '@phase2/outline-list';
 import '@phase2/outline-heading';
 export default {
   title: 'Navigation/List',
   component: 'outline-list',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   parameters: {
     docs: {
       source: {
@@ -60,8 +59,7 @@ export default {
   argTypes: {
     listType: {
       table: { category: 'Properties', defaultValue: { summary: 'div' } },
-      description:
-        'Determines which type of list is rendered.',
+      description: 'Determines which type of list is rendered.',
       options: listTypes,
       control: {
         type: 'select',
@@ -70,8 +68,7 @@ export default {
     },
     orientation: {
       table: { category: 'Properties', defaultValue: { summary: 'row' } },
-      description:
-        'Sets orientation of list',
+      description: 'Sets orientation of list',
       options: listOrientations,
       control: { type: 'select' },
     },
@@ -132,11 +129,15 @@ const Template = ({
       orientation="${orientation}"
       .divider=${divider}
     >
-      ${headingSlotContent ? html`
+      ${
+        headingSlotContent
+          ? html`
       <outline-heading slot="heading" level="h3" levelSize="3xl"
         >${headingSlotContent}</outline-heading
       >
-      `: ``}
+      `
+          : ``
+      }
       ${items(itemCount).map(
         item => html`
           <outline-link

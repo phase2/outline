@@ -4,10 +4,12 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '@phase2/outline-core';
 import { alertSizes, alertStatusTypes } from '@phase2/outline-alert';
 import '@phase2/outline-alert';
-
+import '@phase2/outline-link';
 export default {
   title: 'Content/Alert',
   component: 'outline-alert',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     headerSlot: {
       name: 'slot="outline-alert--header"',
@@ -69,10 +71,11 @@ If the alert has an interaction, you should indicate this with \`isInteractive\`
 `,
       },
       source: {
+        state: 'open',
         // This code sample will be used for every example unless overridden.
         code: `
 <outline-alert
-  statusType="{{ statusType }}"
+  status="{{ statusType }}"
   size="{{ size }}"
   {{ shouldShowIcon }}
   {{ isInteractive }}
@@ -86,7 +89,6 @@ If the alert has an interaction, you should indicate this with \`isInteractive\`
   },
 };
 
-
 const Template = ({
   headerSlot,
   defaultSlot,
@@ -97,10 +99,10 @@ const Template = ({
 }: any): TemplateResult => {
   return html`
     <outline-alert
-      statusType="${ifDefined(statusType)}"
+      status="${ifDefined(statusType)}"
       size="${ifDefined(size)}"
-      ?shouldShowIcon="${shouldShowIcon}"
-      ?isInteractive="${isInteractive}"
+      ?should-show-icon="${shouldShowIcon}"
+      ?is-interactive="${isInteractive}"
     >
       ${ifDefined(headerSlot)} ${ifDefined(defaultSlot)}
     </outline-alert>

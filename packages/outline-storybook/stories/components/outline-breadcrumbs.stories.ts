@@ -5,8 +5,11 @@ import '@phase2/outline-breadcrumbs';
 const configuration = {
   title: 'Navigation/Breadcrumb',
   component: 'outline-breadcrumb',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behavior.
+  tags: ['docsPage'],
   parameters: {
     viewMode: 'docs',
+    docs: { source: { state: 'open' } },
   },
   argTypes: {},
   args: {},

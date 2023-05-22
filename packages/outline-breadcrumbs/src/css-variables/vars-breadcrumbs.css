@@ -1,20 +1,22 @@
 /*
 Default CSS Variables for `outline-breadcrumb`.
-You can override these using `outline.theme.css`, 
+You can override these using `outline.theme.css`,
 or any css file in your consumer application with
 a later loading order than `outline.theme.css`.
-The variables used to override the default 
-`outline-breadcrumb` styling can be found in 
+The variables used to override the default
+`outline-breadcrumb` styling can be found in
 `outline-breadcrumb.ts` delcared with the `@cssprop` annotations.
 */
 
---outline-breadcrumb--default-text-color-default: var(--outline-gray-100);
---outline-breadcrumb--default-link-color-default: var(--outline-white);
---outline-breadcrumb--default-link-color-hover: var(--outline-gray-300);
---outline-breadcrumb--default-link-color-focus: var(--outline-gray-300);
---outline-breadcrumb--default-link-decoration-default: none;
---outline-breadcrumb--default-link-decoration-hover: underline;
---outline-breadcrumb--default-link-decoration-focus: underline;
---outline-breadcrumb--default-bg-color: var(--outline-blue-600);
---outline-breadcrumb--default-bg-padding: var(--spacing-4) var(--spacing-4);
---outline-breadcrumb--default-separator-spacing: var(--spacing-2);
+:host {
+  --outline-breadcrumb--text-color--computed: var(--outline-breadcrumb--text-color, var(--outline-gray-100));
+  --outline-breadcrumb--link-color--computed: var(--outline-breadcrumb--link-color, var(--outline-white));
+  --outline-breadcrumb--link-color-hover--computed: var(--outline-breadcrumb--link-color-hover, var(--outline-gray-300));
+  --outline-breadcrumb--link-color-focus--computed: var(--outline-breadcrumb--link-color-focus, var(--outline-gray-300));
+  --outline-breadcrumb--link-decoration--computed: var(--outline-breadcrumb--link-decoration, none);
+  --outline-breadcrumb--link-decoration-hover--computed: var(--outline-breadcrumb--link-decoration-hover, underline);
+  --outline-breadcrumb--link-decoration-focus--computed: var(--outline-breadcrumb--link-decoration-focus, underline);
+  --outline-breadcrumb--bg-color--computed: var(--outline-breadcrumb--bg-color, var(--outline-blue-600));
+  --outline-breadcrumb--bg-padding--computed: var(--outline-breadcrumb--bg-padding, var(--spacing-4) var(--spacing-4));
+  --outline-breadcrumb--separator-spacing--computed: var(--outline-breadcrumb--separator-spacing, var(--spacing-2));
+}

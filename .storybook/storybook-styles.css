@@ -53,3 +53,7 @@ body {
 .sbdocs .sbdocs-content {
   max-width: 1600px;
 }
+
+.docblock-source {
+  margin: 0 !important;
+}

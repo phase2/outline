@@ -5,21 +5,21 @@ import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 export default {
   title: 'Content/Accordion/Single Panel',
   component: 'outline-accordion-panel',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     clean: {
       control: {
         type: 'boolean',
       },
-      description:
-        'Sets the panel to the "clean" variant.',
+      description: 'Sets the panel to the "clean" variant.',
       table: { category: 'Properties', defaultValue: { summary: 'false' } },
     },
     active: {
       control: {
         type: 'boolean',
       },
-      description:
-        'Sets the panel to active/open.',
+      description: 'Sets the panel to active/open.',
       table: { category: 'Properties', defaultValue: { summary: 'false' } },
     },
     headingSlotContent: {
@@ -38,9 +38,9 @@ export default {
   args: {
     clean: false,
     active: false,
-    headingSlotContent: '<outline-heading level="h3" level-style="semibold" slot="heading">Accordion Panel</outline-heading>',
-    defaultSlotContent:
-      `<div>
+    headingSlotContent:
+      '<outline-heading level="h3" level-style="semibold" slot="heading">Accordion Panel</outline-heading>',
+    defaultSlotContent: `<div>
         <outline-heading level="p" level-size="xl" level-style="semibold">Etiam ut purus mattis mauris</outline-heading>
         <p>Suspendisse eu ligula. Proin pretium, leo ac pellentesque mollis, felis nunc ultrices eros, sed gravida augue augue mollis justo. Maecenas ullamcorper dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem. Nam at tortor in tellus interdum sagittis..</p>
       </div>`,

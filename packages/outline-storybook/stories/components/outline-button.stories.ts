@@ -1,19 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import {
-  argTypeSlotContent,
-} from '@phase2/outline-core';
+import { argTypeSlotContent } from '@phase2/outline-core';
 import { ButtonVariant, ButtonSize } from '@phase2/outline-button';
 
 import '@phase2/outline-button';
 
-const buttonOptions: ButtonVariant[] = ['link', 'primary', 'secondary', 'tertiary'];
+const buttonOptions: ButtonVariant[] = [
+  'link',
+  'primary',
+  'secondary',
+  'tertiary',
+];
 const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default {
   title: 'Navigation/Button',
   component: 'outline-button',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     ...argTypeSlotContent,
     target: {
@@ -83,7 +88,7 @@ export default {
 
 This is rendered as an \`a\` element if a link and a \`button\` element if not a link. This allows for consistent styling that matches the user expectation of a button while matching the browser expectation for those elements.
 
-<outline-alert statusType="info" size="large" class="mb-6">
+<outline-alert status="info" size="large" class="mb-6">
   <span slot="header">CSS Variables</span>
   <p>Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.</p>
   <p>Additional documentation and references for available CSS Variables can be found in the following locations.</p>
@@ -186,7 +191,7 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
 `;
 
 export const PrimaryButtons: any = PrimaryButtonsTemplate.bind({});
-PrimaryButtons.parameters = {  
+PrimaryButtons.parameters = {
   docs: {
     description: {
       story: `
@@ -248,7 +253,7 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
 `;
 
 export const SecondaryButtons: any = SecondaryButtonsTemplate.bind({});
-SecondaryButtons.parameters = {  
+SecondaryButtons.parameters = {
   docs: {
     description: {
       story: `
@@ -312,7 +317,7 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
 `;
 
 export const TertiaryButtons: any = TertiaryButtonsTemplate.bind({});
-TertiaryButtons.parameters = {  
+TertiaryButtons.parameters = {
   docs: {
     description: {
       story: `
@@ -376,7 +381,7 @@ const LinkButtonsTemplate = (): TemplateResult =>
 `;
 
 export const LinkButtons: any = LinkButtonsTemplate.bind({});
-LinkButtons.parameters = {  
+LinkButtons.parameters = {
   docs: {
     description: {
       story: `

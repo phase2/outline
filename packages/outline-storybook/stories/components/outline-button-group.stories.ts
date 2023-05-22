@@ -7,11 +7,12 @@ import '@phase2/outline-button-group';
 export default {
   title: 'Navigation/Button Group',
   component: 'outline-button-group',
+  // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
+  tags: ['docsPage'],
   argTypes: {
     orientation: {
       table: { category: 'Properties', defaultValue: { summary: 'row' } },
-      description:
-        'Sets the orientation of group of buttons.',
+      description: 'Sets the orientation of group of buttons.',
       options: listOrientations,
       control: { type: 'select' },
     },
@@ -37,7 +38,7 @@ export default {
         component: `
 ## The \`outline-button-group\` element
 
-<outline-alert statusType="warning" size="large" class="mb-6">
+<outline-alert status="warning" size="large" class="mb-6">
   <span slot="header">Status: Experimental</span>
   <div>This component is still in an experimental stage, and has additional work to be feature complete.</div>
 </outline-alert>
@@ -57,7 +58,7 @@ const items = (itemCount: any) => {
 const Template = ({
   navLabel,
   itemCount,
-  orientation
+  orientation,
 }: any): TemplateResult => {
   return html`
   <outline-button-group

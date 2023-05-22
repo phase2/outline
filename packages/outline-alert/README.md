@@ -4,12 +4,12 @@ The Outline Alert component
 
 ## Properties
 
-| Property         | Attribute        | Type                                          | Default | Description                                   |
-|------------------|------------------|-----------------------------------------------|---------|-----------------------------------------------|
-| `isInteractive`  | `isInteractive`  | `boolean`                                     | false   | This is important context for screen readers. |
-| `shouldShowIcon` | `shouldShowIcon` | `boolean`                                     | true    |                                               |
-| `size`           | `size`           | `"small" \| "large"`                          | "large" |                                               |
-| `statusType`     | `statusType`     | `"info" \| "warning" \| "error" \| "success"` | "info"  |                                               |
+| Property         | Attribute        | Type                                          | Default | Description                                     |
+|------------------|------------------|-------------------------------------------------|---------|-----------------------------------------------|
+| `isInteractive`  | `is-interactive`   | `boolean`                                     | false   | This is important context for screen readers. |
+| `shouldShowIcon` | `should-show-icon` | `boolean`                                     | false   |                                               |
+| `size`           | `size`             | `"small" \| "large"`                          | "large" |                                               |
+| `status`     | `status`           | `"info" \| "warning" \| "error" \| "success"` | "info"  |                                               |
 
 ## Slots
 
@@ -20,9 +20,9 @@ The Outline Alert component
 
 ## CSS Custom Properties
 
-| Property                  | Description                                      |
-|---------------------------|--------------------------------------------------|
-| `--outline-alert-error`   | background: The background color for the error alert. |
-| `--outline-alert-info`    | background: The background color for the info alert. |
-| `--outline-alert-success` | background: The background color for the success alert. |
-| `--outline-alert-warning` | background: The background color for the warning alert. |
+| Property                   | Description                                               |
+|----------------------------|-----------------------------------------------------------|
+| `--outline-alert--error`   | background: The background color for the error alert.     |
+| `--outline-alert--info`    | background: The background color for the info alert.      |
+| `--outline-alert--success` | background: The background color for the success alert.   |
+| `--outline-alert--warning` | background: The background color for the warning alert.   |

@@ -4,7 +4,6 @@ import { classMap } from 'lit/directives/class-map.js';
 
 import { OutlineElement } from '@phase2/outline-core';
 
-import componentVars from './css-variables/vars-list.css.lit';
 import componentStyles from './outline-list.css.lit';
 
 export const listTypes = ['ol', 'ul', 'div'] as const;
@@ -22,14 +21,14 @@ export type ClassInfo = { [name: string]: string | boolean | number };
  * @element outline-list
  * @extends OutlineElement
  *
- * @cssprop --outline-list-default-spacing - The default spacing between items.
- * @cssprop --outline-list-default-spacing-xs - The default spacing between items for extra small screens.
- * @cssprop --outline-list-default-spacing-sm - The default spacing between items for small screens.
- * @cssprop --outline-list-default-spacing-md - The default spacing between items for medium screens.
- * @cssprop --outline-list-default-spacing-lg - The default spacing between items for large screens.
- * @cssprop --outline-list-default-spacing-xl - The default spacing between items for extra large screens.
- * @cssprop --outline-list-default-spacing-xxl - The default spacing between items for extra extra large screens.
- * @cssprop --outline-list-default-spacing-xxxl - The default spacing between items for extra extra extra large screens.
+ * @cssprop --outline-list--spacing - The default spacing between items.
+ * @cssprop --outline-list--spacing-xs - The default spacing between items for extra small screens.
+ * @cssprop --outline-list--spacing-sm - The default spacing between items for small screens.
+ * @cssprop --outline-list--spacing-md - The default spacing between items for medium screens.
+ * @cssprop --outline-list--spacing-lg - The default spacing between items for large screens.
+ * @cssprop --outline-list--spacing-xl - The default spacing between items for extra large screens.
+ * @cssprop --outline-list--spacing-xxl - The default spacing between items for extra extra large screens.
+ * @cssprop --outline-list--spacing-xxxl - The default spacing between items for extra extra extra large screens.
  *
  * @slot default slot.
  * @slot heading: for content above the default slot.
@@ -37,7 +36,7 @@ export type ClassInfo = { [name: string]: string | boolean | number };
  */
 @customElement('outline-list')
 export class OutlineList extends OutlineElement {
-  static styles: CSSResultGroup = [componentVars, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
 
   /**
    * Determines which type of list is rendered.

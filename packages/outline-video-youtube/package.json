@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-video-youtube",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "The Outline Components for the web video youtube component",
   "keywords": [
     "outline components",
@@ -13,6 +13,7 @@
   "typings": "index.d.ts",
   "files": [
     "/dist/",
+    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",
@@ -27,7 +28,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.1.0",
+    "@phase2/outline-core": "^0.1.9",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },

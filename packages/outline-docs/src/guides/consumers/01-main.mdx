@@ -1,5 +1,6 @@
-import { html } from 'lit';
-import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
 
 <Meta
   title="Documentation/Guides/Component Integration/Introduction"
@@ -13,23 +14,25 @@ import { Meta, Canvas, Story, Preview } from '@storybook/addon-docs';
   }}
 />
 
-<Story name="Introduction">
-  {() => {
-    return html``;
-  }}
-</Story>
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Description
+  This guide will will help consumer application developers understand the methods and best practices when integerating with Outline and Web Components.
+
+  ## Documentation Status
+  <outline-alert status="warning" size="large">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
 
 # Outline Implementation Guide
-
-> This guide will will help consumer application developers understand the methods and best practices when integerating with Outline and web components.
-
-<outline-alert statusType="info" size="large" class="mb-6">
-  <span slot="outline-alert--header">Documentation Status</span>
-  The documentation on this page is in need of additional updates, corrections or
-  information. <span class="font-semibold italic">
-    Expect frequent updates and/or changes.
-  </span>
-</outline-alert>
 
 ## Introduction
 

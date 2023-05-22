@@ -1,6 +1,9 @@
 ::slotted(*) {
   display: block;
-  margin-bottom: var(--spacing-6);
+}
+
+::slotted(*:not(:only-child)) {
+  margin-bottom: var(--spacing-2);
 }
 
 .container {
