@@ -12,35 +12,40 @@ export type Prompts = {
   description: string | null;
 };
 /**
- * @param {string} prompts - prompts: Object of the values from the prompt questions;
+ * @param {string} prompts - Object of the values from the prompt questions;
+ * @param {boolean} [local=false] - Whether to run in local development mode;
  * @returns {void}
  */
-export const initProject = (prompts: Prompts): void => {
+export const initProject = (prompts: Prompts, local: boolean = false): void => {
   const currDir = process.cwd();
   const resolvedPath = path.resolve(currDir, prompts.slug);
-  const storybookSource = path.resolve(
-    resolvedPath,
-    './node_modules/@phase2/outline-storybook'
-  );
-  const starterPath = path.resolve(
-    `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
-    prompts.template
-  );
+  const storybookSource = local
+    ? `${__dirname}/../../../../outline-storybook`
+    : path.resolve(resolvedPath, './node_modules/@phase2/outline-storybook');
+  const starterPath = local
+    ? `${__dirname}/../../../../outline-templates/${prompts.template}`
+    : path.resolve(
+        `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
+        prompts.template
+      );
 
   mkdirsSync(resolvedPath);
   process.chdir(resolvedPath);
   console.log(`${chalk.blue('info')}: Moved to directory: ${resolvedPath}`);
-  console.log(
-    `${chalk.bold.blue('info')}: Downloading Outline ${
-      prompts.template
-    } starter template`
-  );
-  execSync(
-    `yarn add @phase2/outline-templates @phase2/outline-storybook --cwd='./'`,
-    {
-      stdio: [0, 1, 2],
-    }
-  );
+
+  if (!local) {
+    console.log(
+      `${chalk.bold.blue('info')}: Downloading Outline ${
+        prompts.template
+      } starter template`
+    );
+    execSync(
+      `yarn add @phase2/outline-templates @phase2/outline-storybook --cwd='./'`,
+      {
+        stdio: [0, 1, 2],
+      }
+    );
+  }
 
   // Move the default files to the root directory.
   try {
@@ -58,8 +63,10 @@ export const initProject = (prompts: Prompts): void => {
     throw console.error(`${chalk.red('error')}: ${error}`);
   }
 
-  console.log(`${chalk.blue('info')}: Installing Outline dependencies`);
-  execSync('yarnpkg', { stdio: [0, 1, 2] });
+  if (!local) {
+    console.log(`${chalk.blue('info')}: Installing Outline dependencies`);
+    execSync('yarnpkg', { stdio: [0, 1, 2] });
+  }
 
   // NPM does not package .gitignore files. To include it we renamed it. Now rename it correctly.
   try {
