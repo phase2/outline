@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { ReactiveControllerHost, CSSResultGroup, CSSResult } from 'lit';
-import { addScopeToStyles } from '../internal/light-dom';
+import { addScopeToStyles } from '../internal/light-dom.mjs';
 
 /**
  * The LightComStyles ReactiveController.
