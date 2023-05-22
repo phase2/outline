@@ -1,5 +1,11 @@
 # @phase2/outline-core
 
+## 0.1.11
+
+### Patch Changes
+
+- 3580b00: Package Updates for `outline-form`, `outline-storybook`, `outline-core`, and `outline-docs`.
+
 ## 0.1.10
 
 ### Patch Changes
