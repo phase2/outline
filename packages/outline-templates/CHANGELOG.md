@@ -1,5 +1,11 @@
 # @phase2/outline-templates
 
+## 0.0.39
+
+### Patch Changes
+
+- Version bump/tweaks.
+
 ## 0.0.37
 
 ### Patch Changes
