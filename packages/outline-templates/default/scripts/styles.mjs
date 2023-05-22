@@ -6,7 +6,7 @@ import postcss from 'postcss';
 import fs from 'fs';
 import path from 'path';
 import glob from 'glob';
-import config from '@phase2/outline-config/postcss.config.js';
+import config from '../postcss.config.js';
 import outline from '../outline.config.js';
 import { addScopeToStyles } from '@phase2/outline-core/src/internal/light-dom.mjs';
 
