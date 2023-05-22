@@ -1,0 +1,140 @@
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-button';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
+import '@phase2/outline-icon';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Component Structure"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Component Composition
+
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ### Documentation Status
+  <outline-alert status="success" size="large">
+    <span slot="header">Status: Complete / Up to date (Last Updated: May 2023)</span>
+  </outline-alert>
+</outline-container>
+
+> [Component composition](https://lit.dev/docs/composition/component-composition/) is the process of assembling complex components from simpler components.
+
+A component can use subcomponents in its template.
+Components can use standard DOM mechanisms to communicate: setting properties on subcomponents, and listening for events from subcomponents.
+
+## Component Structure Overview
+Everything used in the component examples below are part of the [lit.dev](https://lit.dev/) library except for the componentStyles include(more info noted below). The following is a brief overview of the main parts of a component. For more information, please see the [Lit](https://lit.dev/docs/) documentation.
+
+componentStyles is a custom stylesheet that is imported into the component. This is where you would put any custom styles for your component. This is not required, but is recommended.
+We import lit.ts compiled version of a PostCSS file, which allows using PostCSS files.
+
+## Creating a New Component
+#### 💡 Outline Specific Note: A new, custom, project-specific component should always extend OutlineElement and retain the Outline namespace (omitting core). (This differs from prior versions where we have used project names as the namespaces)
+From the source above on new components:
+
+>When deciding how to break up functionality, there are several things that help identify when to make a new component. A piece of UI may be a good candidate for a component if one or more of the following applies:
+>- It has its own state.
+>- It has its own template.
+>- It's used in more than one place, either in this component or in multiple components.
+>- It focuses on doing one thing well.
+>- It has a well-defined API.
+>
+>Reusable controls like buttons, checkboxes, and input fields can make great components. But more complex UI pieces like drawers and carousels are also great candidates for componentization.
+
+### Creating a basic New Component
+```typescript
+import { CSSResultGroup, TemplateResult, html } from 'lit';
+import { customElement } from 'lit/decorators.js';
+import { OutlineElement } from '@phase2/outline-core';
+import componentStyles from './outline-widget.css.lit';
+
+/**
+ * The Outline Widget component
+ * @element outline-widget
+ * @slot default - The default slot
+ */
+
+@customElement('outline-widget')
+export class OutlineWidget extends OutlineElement {
+  static styles: CSSResultGroup = [componentStyles];
+
+  render(): TemplateResult {
+    return html`Hello World!`;
+  }
+}
+```
+## Extending Components
+### Extending a component (alias only)
+Anytime you need to use a base component, you must extend it. Base components are always named 'outline-core-my-component' by default. The extended name should simply be 'outline-my-component'. This example is the most basic form of extending which just replaces the base styles with any custom project styles you may have. Note: You will need to create a new stylesheet in your extended component directory.
+
+```typescript
+import { OutlineCoreButton } from '@phase2/outline-core-button';
+import componentStyles from './outline-button.css.lit';
+
+/**
+ * The Outline Button component
+ * @element outline-button
+ * @slot default - The default slot
+ */
+
+@customElement('outline-button')
+export class OutlineButton extends OutlineCoreButton {
+  static styles: CSSResultGroup = [componentStyles];
+}
+```
+
+### Extending a component (alias, property, and render)
+Here we extend a component just like we did in the last example, but we add a property and change the render function to reflect that new property, adding a class so that styles can be updated based on the passed property.
+```typescript
+import { OutlineCoreButton } from '@phase2/outline-core-button';
+import componentStyles from './outline-button.css.lit';
+
+/**
+ * The Outline Button component
+ * @element outline-button
+ * @attr {string} button-size - The button size. One of: small, medium, large.
+ * @slot default - The default slot
+ */
+
+export type ButtonSize = 'small' | 'medium' | 'large';
+
+@customElement('outline-button')
+export class OutlineButton extends OutlineCoreButton {
+  static styles: CSSResultGroup = [componentStyles];
+
+  /**
+   * The button size to use.
+   */
+  @property({ type: String, reflect: true, attribute: 'button-size' })
+  buttonSize: ButtonSize = 'medium';
+
+  render(): TemplateResult {
+    return html`
+      <button class="${this.buttonSize}">
+        <slot></slot>
+      </button>
+    `;
+  }
+}
+```
+
+## Rendering the Components
+To render these components in a story or any consumer (Drupal for example) you would simply do the following (Note we only use button as the other examples are not real and are just for documentation purposes):
+```html
+<outline-button>This is a button</outline-button>
+```
+Renders as:
+<outline-button>This is a button</outline-button>

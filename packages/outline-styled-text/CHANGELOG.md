@@ -1,5 +1,11 @@
 # @phase2/outline-styled-text
 
+## 0.0.7
+
+### Patch Changes
+
+- Version bumps
+
 ## 0.0.6
 
 ### Patch Changes

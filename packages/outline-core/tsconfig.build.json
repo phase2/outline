@@ -2,7 +2,8 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "allowJs": true
   },
   "include": ["index.ts", "src/**/*", "tests/**/*"]
 }
