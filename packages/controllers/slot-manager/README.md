@@ -1,26 +1,26 @@
-# SlotsController
+# Slot Manager
 
-The `SlotsController` is a reactive controller that allows cloning slots into the shadow DOM of a component. It provides methods for managing slots, adding annotations, and dispatching events from cloned slots in the shadow DOM to the equivalent slots in the light DOM.
+The `SlotManager` is a reactive controller that allows cloning slots into the shadow DOM of a component. It provides methods for managing slots, adding annotations, and dispatching events from cloned slots in the shadow DOM to the equivalent slots in the light DOM.
 
 ## Installation
 
-To use the `SlotsController`, you need to install the required dependencies:
+To use the `SlotManager`, you need to install the required dependencies:
 
 ```bash
-npm install lit
+yarn add -D @phase2/slot-manager
 ```
 
 ## Usage
 
-Import the `SlotsController` and instantiate it in your component:
+Import the `SlotManager` and instantiate it in your component:
 
 ```javascript
-import { SlotsController } from './SlotsController';
+import { SlotManager } from './slot-manager';
 
-class MyComponent extends HTMLElement {
+class MyComponent extends LitElement {
   constructor() {
     super();
-    const slotsController = new SlotsController(this);
+    const SlotManager = new SlotManager(this);
     // ... @todo Add more usage examples
     // default slot example
     // slot exist function
@@ -32,11 +32,11 @@ class MyComponent extends HTMLElement {
 
 ## API
 
-### SlotsController(host: ReactiveControllerHost & HTMLElement)
+### SlotManager(host: ReactiveControllerHost & HTMLElement)
 
-Creates a new instance of the `SlotsController` for the given host element.
+Creates a new instance of the `SlotManager` for the given host element.
 
-- `host`: The host element that will be controlled by the `SlotsController`.
+- `host`: The host element that will be controlled by the `SlotManager`.
 
 #### Methods
 
@@ -83,7 +83,3 @@ Conditionally renders a slot with a wrapper and additional classes.
 - `renderInShadow`: Whether to render the slot in the shadow DOM. Defaults to `true`.
 - `extraClasses`: Additional classes to add to the wrapper element. Defaults to `null`.
 - `extraAttributes`: Additional attributes to add to the wrapper element. Defaults to an empty array.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
