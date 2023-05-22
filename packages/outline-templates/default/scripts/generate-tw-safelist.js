@@ -13,7 +13,7 @@ const colorPalette = colors => Object.keys(flattenColorPalette(colors));
 const tailwindColors = colorPalette(tailwindThemeConfig.colors);
 const tailwindFontSizes = Object.keys(tailwindThemeConfig.fontSize);
 const tailwindFontWeights = Object.keys(tailwindThemeConfig.fontWeight);
-const tailwidSpacingValues = Object.keys(tailwindThemeConfig.spacing);
+const tailwindSpacingValues = Object.keys(tailwindThemeConfig.spacing);
 
 const variableMap = (variable, prefix) =>
   variable.map(v => `${prefix}-${v}`).join('\n');
@@ -38,6 +38,6 @@ ${variableMap(tailwindFontSizes, 'text')}
 ${variableMap(tailwindFontWeights, 'font')}
 
 ## Width Values
-${variableMap(tailwidSpacingValues, 'w')}
+${variableMap(tailwindSpacingValues, 'w')}
 `
 );

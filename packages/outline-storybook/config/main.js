@@ -1,5 +1,6 @@
 const path = require('path');
 const outlineConfig = require('../../outline.config');
+import { outlineStories } from '@phase2/outline-docs';
 
 const excludedStories = outlineConfig.excludedStories;
 function getExcluded() {
@@ -18,11 +19,12 @@ module.exports = {
     options: {},
   },
   docs: {
-    docsPage: 'automatic',
+    autodocs: true,
     defaultName: 'Full Documentation', // set to change the name of generated docs entries
   },
   staticDirs: ['../assets'],
   stories: [
+    ...outlineStories,
     // // Explicitly order the main documentation.
     //'./stories/guides/welcome.stories.mdx',
     // // Intentionally order the Code Style Guide pages.

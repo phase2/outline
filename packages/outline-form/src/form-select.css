@@ -1,0 +1,32 @@
+/**
+ * @file
+ * Select input elements.
+ */
+
+select {
+  background-color: var(--outline-form--bg-color--computed);
+  border: 1px solid var(--outline-form--border-color--computed);
+  padding: var(--outline-form--padding-y--computed)
+    var(--outline-form--padding-x--computed);
+  margin-right: 2rem;
+  appearance: none;
+  border-radius: var(--outline-form--border-radius--computed);
+  font-family: var(--ff-body);
+  font-size: var(--outline-form--text-size--computed);
+  width: 100%;
+  color: var(--outline-form--color--computed);
+  background-image: url("data:image/svg+xml,%3Csvg width='15' height='8' viewBox='0 0 15 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7.81303 7.83121L14.6455 0.979811C14.8692 0.755333 14.8688 0.391897 14.6443 0.167795C14.4198 -0.0561333 14.0562 -0.0555547 13.8323 0.168952L7.40651 6.61254L0.980746 0.16872C0.756818 -0.0557579 0.393412 -0.0563366 0.168904 0.167563C0.0563612 0.279903 8.96267e-05 0.427077 8.96203e-05 0.574251C8.96139e-05 0.721049 0.0559854 0.867644 0.167747 0.979782L7.00003 7.83121C7.10759 7.93933 7.25399 8 7.40651 8C7.55904 8 7.70526 7.93916 7.81303 7.83121Z' fill='%231B365D'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+
+  &.error {
+    border: 1px solid var(--outline-form--border-color-error--computed);
+  }
+}
+
+select::-ms-expand {
+  display: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  /* remove default arrow on ie10 and ie11 */
+}

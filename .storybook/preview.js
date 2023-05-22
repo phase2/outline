@@ -1,5 +1,4 @@
 import './storybook-styles.css';
-// Registers and enables scss language support
 
 export const parameters = {
   actions: {
@@ -11,7 +10,6 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        'Outline',
         'Getting Started',
         'Documentation',
         'Design Tokens',

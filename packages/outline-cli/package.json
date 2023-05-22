@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-cli",
   "description": "Outline command-line interface for creating new Outline projects and Outline commands",
-  "version": "0.0.13",
+  "version": "0.0.35",
   "author": "Phase2 Technology",
   "bin": {
     "outline": "./bin/run"
@@ -11,9 +11,9 @@
     "@oclif/core": "^1",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^2.0.1",
-    "@phase2/outline-storybook": "^0.0.10",
-    "@phase2/outline-templates": "^0.0.12",
-    "@types/inquirer": "^8.2.1",
+    "@phase2/outline-storybook": "^0.0.33",
+    "@phase2/outline-templates": "^0.0.39",
+    "@types/inquirer": "^9.0.3",
     "chalk": "^4.1.2",
     "fs": "^0.0.2-security",
     "fs-extra": "^10.1.0",
@@ -25,11 +25,15 @@
     "@types/fs-extra": "^9.0.13",
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "chai": "^4",
     "eslint": "^7.32.0",
     "eslint-config-oclif": "^4",
     "eslint-config-oclif-typescript": "^1.0.2",
     "globby": "^11",
+    "inquirer-directory": "^2.2.0",
+    "inquirer-file-tree-selection-prompt": "^2.0.5",
     "mocha": "^9",
     "oclif": "^3",
     "shx": "^0.3.3",
@@ -85,5 +89,8 @@
     "todo-test": "mocha --forbid-only \"test/**/*.test.ts\"",
     "version": "oclif readme && git add README.md"
   },
-  "types": "index.d.ts"
+  "types": "index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
 }

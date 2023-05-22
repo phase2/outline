@@ -5,7 +5,7 @@ import type { LinkTargetType, LinkRelType } from '@phase2/outline-link';
 // Import the component itself.
 import '@phase2/outline-link';
 
-const sampleImage = 'https://picsum.photos/1440';
+import sampleImage from '@phase2/outline-static-assets/media/tech/1440/code-6.jpg';
 
 export default {
   title: 'Navigation/Link',
@@ -24,7 +24,8 @@ export default {
     },
     linkText: {
       name: 'link-text',
-      description: 'The text to display for the link component. This text is part of the ShadowDOM vs omitting this property and utilizing the default slot will render the text in LightDOM.',
+      description:
+        'The text to display for the link component. This text is part of the ShadowDOM vs omitting this property and utilizing the default slot will render the text in LightDOM.',
       control: {
         type: 'text',
       },
@@ -129,7 +130,8 @@ PropsAndSlottedText.parameters = {
     description: {
       story: `
 The following sample utilizes the \`link-href\` to pass the URL reference, and passes in the link content, simple text in this case, via the default slot.
-    `},
+    `,
+    },
   },
 };
 
@@ -145,7 +147,8 @@ PropertiesOnly.parameters = {
     description: {
       story: `
 The following sample utilizes the \`link-href\` and \`link-text\` properties to render a link completely via the Shadow DOM.
-    `},
+    `,
+    },
   },
 };
 
@@ -163,7 +166,8 @@ FullySlotted.parameters = {
       story: `
 The following sample assumes the consumer application will be sending the entire link element and anything it contains as markup.
 This allows for the consumer application to fully control the link element with any special features that may be included, while still adhering to the basic styling of the \`outline-link\` component.
-    `},
+    `,
+    },
   },
 };
 
@@ -181,7 +185,8 @@ SlottedImageLink.parameters = {
       story: `
 The following sample goes a step beyond the previous example and provides more than just a simple text link from the consumer application. 
 An example of when this would be used could be a CMS providing pre-built responsive images using the \`picture\` element. 
-    `},
+    `,
+    },
   },
   layout: 'fullscreen',
 };

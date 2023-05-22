@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-config",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Primary Outline configuration files.",
   "keywords": [
     "outline",
@@ -29,6 +29,7 @@
     "access": "public"
   },
   "exports": {
+    ".": "./index.ts",
     "./outline.config": "./outline.config.js",
     "./commitlint.config": "./commitlint.config.js",
     "./postcss.config": "./postcss.config.js",

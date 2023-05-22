@@ -123,16 +123,18 @@ export class OutlineModal
                 name="outline-modal--header"
                 @slotchange="${this._handleSlotChange}"
               ></slot>
-              ${this.shouldForceAction
-                ? null
-                : html`
+              ${
+                this.shouldForceAction
+                  ? null
+                  : html`
                     <button
                       id="close"
                       aria-label="Close modal"
                       @click="${this.close}"
                       @keydown="${this._handleCloseKeydown}"
                     ></button>
-                  `}
+                  `
+              }
             </div>
             <div id="main">
               <slot></slot>

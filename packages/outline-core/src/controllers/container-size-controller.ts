@@ -1,5 +1,7 @@
 import { ReactiveControllerHost, ReactiveController } from 'lit';
-export const defaultScreenSizes = {
+// @todo: Figure out why outline-config isn't working.
+// import { defaultScreenSizes } from '@phase2/outline-config';
+const defaultScreenSizes = {
   xs: '480px',
   sm: '640px',
   md: '768px',

@@ -1,8 +1,6 @@
-# This is a basic workflow to help you get started with Actions
-
+# Build Workflows for Outline.js
 name: Outline Core Build
-
-# Controls when the workflow will run
+# Controls when the action will run. Triggers the workflow on push or pull request
 on:
   # Which branches to test on push/merge.
   push:
@@ -38,6 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        # The node versions to test against.
         node: [ 16, 18 ]
     # The steps for the setup job.
     steps:
@@ -45,10 +44,13 @@ jobs:
       - name: Checkout Codebase
         uses: actions/checkout@v3 
 
+      # @see https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v3
         with:
+          # The node version to use.
           node-version: ${{ matrix.node }}
           cache: 'yarn'
+          # The registry to use by default for package publishing.
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
@@ -74,15 +76,9 @@ jobs:
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
-      - name: Build Outline
-        run: yarn build --force
-
-      - name: Build Storybook
-        run: yarn storybook:build
-        
   # Job to run build, and basic assurances the codebase is ready for additional processing.
-  build:
-    name: Build Codebase
+  build_outline:
+    name: Build Outline Codebase
     runs-on: ubuntu-latest
     needs: ['setup']
     strategy:
@@ -120,6 +116,54 @@ jobs:
 
       - name: Build Storybook
         run: yarn storybook:build
+
+  # Test initialization of a new project
+  build_project:
+    name: Initialize and Test Build of Project Codebase
+    runs-on: ubuntu-latest
+    needs: ['build_outline']
+    strategy:
+      matrix:
+        node: [ 16, 18 ]
+    # The steps for the setup job.
+    steps:
+      # @see https://github.com/marketplace/actions/checkout
+      - name: Checkout Codebase
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+          cache: 'yarn'
+
+      # @see https://github.com/marketplace/actions/cache
+      # node_modules caching is validated by always running yarn install.
+      # Turborepo cache lives inside node_modules/.cache/turbo
+      - uses: actions/cache@v3
+        id: yarn-cache
+        with:
+          path: |
+            node_modules
+            storybook-static
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
+
+      - name: Install
+        run: yarn install --prefer-offline
+
+      - name: Build from cache
+        run: yarn build
+
+      - name: Generate a project
+        run: |
+          PROJDIR=$(mktemp -d)
+          cd $PROJDIR
+          npx ${{ github.workspace }}/packages/outline-cli init -a -l -s prj
+          cd prj
+          yarn install --prefer-offline
+          yarn build
+          yarn storybook:build
 
   # Job to run package publishing process.
   test:
@@ -173,13 +217,13 @@ jobs:
     name: "Publish: GitHub Pages"
     if: github.ref == 'refs/heads/next'
     runs-on: ubuntu-latest
-    needs: ['setup', 'build', 'test']
+    needs: ['setup', 'build_outline', 'test']
 
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - uses: actions/setup-node@v3
         with:
@@ -195,9 +239,9 @@ jobs:
           path: |
             node_modules
             storybook-static
-          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-16-yarn-
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
@@ -215,18 +259,20 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: success()
-        uses: crazy-max/ghaction-github-pages@v2
+        uses: crazy-max/ghaction-github-pages@v3
         with:
           target_branch: gh-pages
           build_dir: storybook-static
           commit_message: 'chore(deploy): Storybook'
-          keep_history: true
+          keep_history: false
+          jekyll: false
+          fqdn: outline.phase2tech.com
         env:
           GITHUB_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
       # @see https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload Storybook artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: storybook-latest
           path: storybook-static/
@@ -238,7 +284,7 @@ jobs:
     name: "Publish: GitHub Packages"
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/release'
-    needs: ['setup', 'build', 'test']
+    needs: ['setup', 'build_outline', 'test']
 
     # The steps for the build job.
     steps:
@@ -263,9 +309,9 @@ jobs:
           path: |
             node_modules
             storybook-static
-          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-16-yarn-
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
@@ -283,14 +329,14 @@ jobs:
         if: steps.changesets.outputs.hasChangesets == 'false'
         # You can do something when a publish should happen.
         run: yarn changeset publish
-            
+
   # Job to run package publishing process.
   # This should ONLY be ran on on branches where 
   deploy-npm-packages:
     name: "Publish: NPM Packages"
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/next'
-    needs: ['setup', 'build', 'test']
+    if: github.ref == 'refs/heads/release'
+    needs: ['setup', 'build_outline', 'test']
 
     # The steps for the build job.
     steps:
@@ -315,9 +361,9 @@ jobs:
           path: |
             node_modules
             storybook-static
-          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-16-yarn-
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
@@ -339,12 +385,12 @@ jobs:
   chromatic-deployment:
     name: "Publish: Chromatic"
     runs-on: ubuntu-latest
-    needs: ['setup', 'build', 'test']
+    needs: ['setup', 'build_outline', 'test']
 
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           fetch-depth: 0 # 👈 Required to retrieve git history
 
@@ -362,9 +408,9 @@ jobs:
           path: |
             node_modules
             storybook-static
-          key: ${{ runner.os }}-node-16-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-node-${{ matrix.node }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-16-yarn-
+            ${{ runner.os }}-node-${{ matrix.node }}-yarn-
 
       - name: Install
         run: yarn install --prefer-offline
