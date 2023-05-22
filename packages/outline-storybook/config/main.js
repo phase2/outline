@@ -1,6 +1,6 @@
 const path = require('path');
 const outlineConfig = require('../../outline.config');
-import {outlineStories} from '@phase2/outline-docs';
+import { outlineStories } from '@phase2/outline-docs';
 
 const excludedStories = outlineConfig.excludedStories;
 function getExcluded() {
