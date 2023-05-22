@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-docs",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Outline Documentation",
   "keywords": [
     "outline",
@@ -23,7 +23,7 @@
   },
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../scripts/build.js",
+    "build": "node ../../scripts/build.js && cp -r src dist",
     "package": "yarn publish"
   },
   "dependencies": {
