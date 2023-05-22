@@ -1,5 +1,11 @@
 # @phase2/outline-templates
 
+## 0.0.37
+
+### Patch Changes
+
+- Bump for templates.
+
 ## 0.0.35
 
 ### Patch Changes

@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-templates",
   "description": "The Outline Starter Templates",
-  "version": "0.0.35",
+  "version": "0.0.37",
   "license": "MIT",
   "scripts": {
     "package": "yarn publish"
