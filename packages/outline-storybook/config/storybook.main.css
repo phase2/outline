@@ -451,7 +451,7 @@ video{
   --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 
 }
-.border-2, .border, .border-t-2, .border-b{
+.border-2, .border, .border-b, .border-t-2{
   border-color: currentColor;
 
 }
@@ -702,12 +702,12 @@ video{
   border-width: 1px;
 
 }
-.border-t-2{
-  border-top-width: 2px;
-
-}
 .border-b{
   border-bottom-width: 1px;
+
+}
+.border-t-2{
+  border-top-width: 2px;
 
 }
 .border-dashed{
