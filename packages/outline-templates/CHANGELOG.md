@@ -1,5 +1,11 @@
 # @phase2/outline-templates
 
+## 0.0.40
+
+### Patch Changes
+
+- b1b1e32: Upgrade to Storybook 7.0.12
+
 ## 0.0.39
 
 ### Patch Changes
