@@ -3,6 +3,9 @@
   "description": "The Outline Starter Templates",
   "version": "0.0.40",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "package": "yarn publish"
   },
