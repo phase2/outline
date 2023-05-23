@@ -325,10 +325,7 @@ jobs:
       - name: Install
         run: yarn install --prefer-offline
 
-      - name: Build Outline
-        run: yarn build
-
-      - name: Manage Changesets
+      - name: 'Changesets: Publish'
         id: changesets
         uses: changesets/action@v1
         with:
@@ -336,14 +333,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.NPM_NPM_PACKAGES }}
           NPM_TOKEN: ${{ secrets.NPM_NPM_PACKAGES }}
-
-      - name: Changeset
-        if: steps.changesets.outputs.hasChangesets == 'false' 
-        uses: generates/changeset-action@v3.0.0
-      
-      - name: Commit Changes
-        if: steps.changesets.outputs.hasChangesets == 'false'
-        uses: generates/commit-action@v1.0.1
 
   chromatic-deployment:
     name: "Publish: Chromatic"
