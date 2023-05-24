@@ -1,5 +1,11 @@
 # @phase2/outline-templates
 
+## 0.0.41
+
+### Patch Changes
+
+- Release fix to ensure latest packages are pulled.
+
 ## 0.0.40
 
 ### Patch Changes

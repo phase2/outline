@@ -1,5 +1,11 @@
 # @phase2/outline-core
 
+## 0.1.12
+
+### Patch Changes
+
+- Release fix to ensure latest packages are pulled.
+
 ## 0.1.11
 
 ### Patch Changes
