@@ -38,5 +38,10 @@ module.exports = {
       : [`../components/**/*.stories.@(js|ts|mdx)`]),
     './stories/!(guides|tokens|demonstration|examples)**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
-  addons: ['@storybook/addon-essentials'],
+  addons: [
+    {
+      name: '@storybook/addon-essentials',
+    },
+    '@storybook/addon-mdx-gfm',
+  ],
 };

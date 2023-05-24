@@ -1,5 +1,24 @@
 # @phase2/outline-storybook
 
+## 0.0.36
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-docs@0.0.11
+
+## 0.0.35
+
+### Patch Changes
+
+- Version bump
+
+## 0.0.34
+
+### Patch Changes
+
+- b1b1e32: Upgrade to Storybook 7.0.12
+
 ## 0.0.33
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-docs",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Outline Documentation",
   "keywords": [
     "outline",
@@ -13,6 +13,7 @@
   "typings": "index.d.ts",
   "files": [
     "/dist/",
+    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",

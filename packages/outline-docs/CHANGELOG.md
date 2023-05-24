@@ -1,5 +1,11 @@
 # @phase2/outline-docs
 
+## 0.0.11
+
+### Patch Changes
+
+- Fix for build
+
 ## 0.0.10
 
 ### Patch Changes
