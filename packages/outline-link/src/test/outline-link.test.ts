@@ -1,11 +1,11 @@
-import { OutlineLink } from '@phase2/outline-link';
+import { OutlineCoreLink } from '@phase2/outline-link';
 import { assert, fixture } from '@open-wc/testing';
 import { html } from 'lit/static-html.js';
 
 describe('outline-link', () => {
   it('is defined', () => {
     const el = document.createElement('outline-link');
-    assert.instanceOf(el, OutlineLink);
+    assert.instanceOf(el, OutlineCoreLink);
   });
 
   it('renders with default values', async () => {

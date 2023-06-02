@@ -9,7 +9,7 @@ import sampleImage from '@phase2/outline-static-assets/media/tech/1440/code-6.jp
 
 export default {
   title: 'Navigation/Link',
-  component: 'outline-link',
+  component: 'outline-core-link',
   // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
   tags: ['docsPage'],
   argTypes: {
@@ -87,13 +87,13 @@ const LinkTemplate = ({
   linkTarget,
 }: Options): TemplateResult =>
   html`
-    <outline-link
+    <outline-core-link
       link-href="${ifDefined(linkHref)}"
       link-rel="${ifDefined(linkRel)}"
       link-target="${ifDefined(linkTarget)}"
     >
       ${ifDefined(linkText)}
-    </outline-link>
+    </outline-core-link>
   `;
 
 export const Link = LinkTemplate.bind({});
@@ -108,22 +108,22 @@ Link.parameters = {
   docs: {
     source: {
       code: `
-<outline-link
+<outline-core-link
   link-href="{{ linkHref }}"
   link-rel="{{ linkRel }}"
   link-target="{{ linkTarget }}"
 >
   {{ defaultSlot }}
-</outline-link>
+</outline-core-link>
       `,
     },
   },
 };
 export const PropsAndSlottedText = (): TemplateResult =>
   html`
-<outline-link link-href="https://outline.phase2tech.com">
+<outline-core-link link-href="https://outline.phase2tech.com">
   Link using properties, with slotted link text
-</outline-link>
+</outline-core-link>
   `;
 PropsAndSlottedText.parameters = {
   docs: {
@@ -137,10 +137,10 @@ The following sample utilizes the \`link-href\` to pass the URL reference, and p
 
 export const PropertiesOnly = (): TemplateResult =>
   html`
-<outline-link
+<outline-core-link
   link-href="https://outline.phase2tech.com"
   link-text="Link using properties, including the link text"
-></outline-link>
+></outline-core-link>
   `;
 PropertiesOnly.parameters = {
   docs: {
@@ -154,11 +154,11 @@ The following sample utilizes the \`link-href\` and \`link-text\` properties to 
 
 export const FullySlotted = (): TemplateResult =>
   html`
-<outline-link>
+<outline-core-link>
   <a href="https://outline.phase2tech.com" target="_blank">
     Link using fully slotted link element
   </a>
-</outline-link>
+</outline-core-link>
   `;
 FullySlotted.parameters = {
   docs: {
@@ -173,11 +173,11 @@ This allows for the consumer application to fully control the link element with 
 
 export const SlottedImageLink = (): TemplateResult =>
   html`
-<outline-link>
+<outline-core-link>
   <a href="https://outline.phase2tech.com" target="_blank">
     <img src="${sampleImage}" alt="Creative" />
   </a>
-</outline-link>
+</outline-core-link>
   `;
 SlottedImageLink.parameters = {
   docs: {
