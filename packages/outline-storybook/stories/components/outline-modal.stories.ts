@@ -154,7 +154,7 @@ You can access the boolean \`isOpen\` property to determine if the modal is open
   {{ shouldForceAction }}
   elementToFocusSelector="{{ elementToFocusSelector }}"
 >
-  <outline-link slot="outline-modal--trigger">{{ triggerSlot}}</outline-link>
+  <outline-core-link slot="outline-modal--trigger">{{ triggerSlot}}</outline-core-link>
   <outline-heading slot="outline-modal--header">{{ headerSlot}}</outline-heading>
   <p slot="outline-modal--accessibility-description">{{ accessibilityDescription }}</p>
   {{ defaultSlot }}
@@ -189,9 +189,9 @@ const Template = ({
 export const Small: any = Template.bind({});
 Small.args = {
   triggerSlot: html`
-    <outline-link slot="outline-modal--trigger">
+    <outline-core-link slot="outline-modal--trigger">
       <p>Open small modal.</p>
-    </outline-link>
+    </outline-core-link>
   `,
   headerSlot: html`
     <outline-heading slot="outline-modal--header">
@@ -212,9 +212,9 @@ Small.args = {
 export const Medium: any = Template.bind({});
 Medium.args = {
   triggerSlot: html`
-    <outline-link slot="outline-modal--trigger">
+    <outline-core-link slot="outline-modal--trigger">
       Open medium modal
-    </outline-link>
+    </outline-core-link>
   `,
   headerSlot: html` <outline-heading slot="outline-modal--header">
     The modal header
@@ -233,9 +233,9 @@ Medium.args = {
 export const FullScreen: any = Template.bind({});
 FullScreen.args = {
   triggerSlot: html`
-    <outline-link slot="outline-modal--trigger">
+    <outline-core-link slot="outline-modal--trigger">
       Open full screen modal
-    </outline-link>
+    </outline-core-link>
   `,
   headerSlot: html`
     <outline-heading slot="outline-modal--header">
@@ -278,9 +278,9 @@ ButtonTrigger.args = {
 export const NoHeader: any = Template.bind({});
 NoHeader.args = {
   triggerSlot: html`
-    <outline-link slot="outline-modal--trigger">
+    <outline-core-link slot="outline-modal--trigger">
       <p>Open modal without header.</p>
-    </outline-link>
+    </outline-core-link>
   `,
   defaultSlot: html`
     <p>Here is a first line of the modal.</p>
@@ -296,9 +296,9 @@ NoHeader.args = {
 export const AccessibilityDescription: any = Template.bind({});
 AccessibilityDescription.args = {
   triggerSlot: html`
-    <outline-link slot="outline-modal--trigger">
+    <outline-core-link slot="outline-modal--trigger">
       <p>Open a modal with an accessibility description.</p>
-    </outline-link>
+    </outline-core-link>
   `,
   headerSlot: html`
     <outline-heading slot="outline-modal--header">
@@ -325,9 +325,9 @@ AccessibilityDescription.args = {
 export const CustomFocusElement: any = Template.bind({});
 CustomFocusElement.args = {
   triggerSlot: html`
-    <outline-link slot="outline-modal--trigger">
+    <outline-core-link slot="outline-modal--trigger">
       <p>Open modal and focus on accept button.</p>
-    </outline-link>
+    </outline-core-link>
   `,
   headerSlot: html`
     <outline-heading slot="outline-modal--header">
@@ -375,9 +375,9 @@ CustomFocusElement.args = {
 export const AutoFocusedElement: any = Template.bind({});
 AutoFocusedElement.args = {
   triggerSlot: html`
-    <outline-link slot="outline-modal--trigger">
+    <outline-core-link slot="outline-modal--trigger">
       <p>Open modal and focus on accept button automatically.</p>
-    </outline-link>
+    </outline-core-link>
   `,
   headerSlot: html`
     <outline-heading slot="outline-modal--header">
@@ -421,9 +421,9 @@ AutoFocusedElement.args = {
 export const ForceAction: any = Template.bind({});
 ForceAction.args = {
   triggerSlot: html`
-    <outline-link slot="outline-modal--trigger">
+    <outline-core-link slot="outline-modal--trigger">
       <p>Open modal and force an action.</p>
-    </outline-link>
+    </outline-core-link>
   `,
   headerSlot: html`
     <outline-heading slot="outline-modal--header">

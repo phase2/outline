@@ -95,7 +95,7 @@ const configuration = {
   },
   args: {
     dropdownSlot: `
-<p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+<p>This is the content of the dropdown. This is a pretend <outline-core-link link-href="#">link</outline-core-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
 <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
 `,
     isDisabled: false,
@@ -250,7 +250,7 @@ SecondaryMenuDropdown.decorators = paddedMenuWrapper;
 
 const dropdownContent = html`
 <div slot="dropdown">
-  <p>This is the content of the dropdown. This is a pretend <outline-link link-href="#">link</outline-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
+  <p>This is the content of the dropdown. This is a pretend <outline-core-link link-href="#">link</outline-core-link> so we can tab in. While this is a simple <code>p</code> tag, any content can be placed in this dropdown using <code>slot="dropdown"</code> on your top level element in the dropdown panel.</p>
   <p>This dropdown panel can be styled as needed for any menus that need to extend the <code>outline-dropdown</code> component.</p>
 </div>
 `;

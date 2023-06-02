@@ -23,10 +23,10 @@ export default {
           >
             items.map(item => html\`
              <li style={padding: 1rem; list-style: none}>
-              <outline-link
+              <outline-core-link
                 link-href="{item.linkHref}"
                 link-text="{item.text}"
-              ></outline-link>
+              ></outline-core-link>
             </li>\`
           )}
 
@@ -39,13 +39,13 @@ export default {
             >
               <outline-heading slot="heading" level="h3" levelSize="3xl">Links List</outline-heading>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link link-href='#' link-text="link 1"></outline-link>
+                  <outline-core-link link-href='#' link-text="link 1"></outline-core-link>
               </li>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link link-href='#' link-text="link 2"></outline-link>
+                  <outline-core-link link-href='#' link-text="link 2"></outline-core-link>
               </li>
               <li style=${`padding: 1rem; list-style: none`}>
-                  <outline-link link-href='#' link-text="link 3"></outline-link>
+                  <outline-core-link link-href='#' link-text="link 3"></outline-core-link>
               </li>
             )}
             <outline-button slot="footer" @click={this.orderBy}>Order by criteria</outline-button>
@@ -140,10 +140,10 @@ const Template = ({
       }
       ${items(itemCount).map(
         item => html`
-          <outline-link
+          <outline-core-link
             link-href=${item.linkHref}
             link-text=${item.text}
-          ></outline-link>
+          ></outline-core-link>
         `
       )}
       <slot slot="footer">${ifDefined(unsafeHTML(footerSlotContent))}</slot>

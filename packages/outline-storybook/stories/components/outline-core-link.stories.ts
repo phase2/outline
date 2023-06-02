@@ -1,9 +1,13 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { argTypeRel, argTypeTarget, argTypeHref } from '@phase2/outline-link';
-import type { LinkTargetType, LinkRelType } from '@phase2/outline-link';
+import {
+  argTypeRel,
+  argTypeTarget,
+  argTypeHref,
+} from '@phase2/outline-core-link';
+import type { LinkTargetType, LinkRelType } from '@phase2/outline-core-link';
 // Import the component itself.
-import '@phase2/outline-link';
+import '@phase2/outline-core-link';
 
 import sampleImage from '@phase2/outline-static-assets/media/tech/1440/code-6.jpg';
 
@@ -42,7 +46,7 @@ export default {
     docs: {
       description: {
         component: `
-The \`outline-link\` component allows complete flexibility in how you choose to render a link element.
+The \`outline-core-link\` component allows complete flexibility in how you choose to render a link element.
 
 ## Description & Usage
 
@@ -52,21 +56,21 @@ The \`outline-link\` component allows complete flexibility in how you choose to 
 
 ## CSS Variables
 
-The primary coloring of the \`outline-link\` component is handled by the following CSS Variables. 
+The primary coloring of the \`outline-core-link\` component is handled by the following CSS Variables. 
 
 > Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.
 
-Additional documentation and references for these CSS Variables can be found in \`outline-link/css-variables/vars-link.css\`.
+Additional documentation and references for these CSS Variables can be found in \`outline-core-link/css-variables/vars-link.css\`.
 
-- \`--outline-link-transition-property\`: The CSS transition property to use for the link.
-- \`--outline-link-transition-duration\`: The CSS transition duration to use for the link.
-- \`--outline-link-transition-timing-function\`: The CSS transition timing function to use for the link.
-- \`--outline-link-color-default\`: The default link color.
-- \`--outline-link-color-default-decoration\`: Text decoration for the default link.
-- \`--outline-link-color-hover\`: The link color when hovering on the link.
-- \`--outline-link-color-hover-decoration\`: Text decoration for the link when hovering.
-- \`--outline-link-color-focus\`: The link color when focusing on the link.
-- \`--outline-link-color-focus-decoration\`: Text decoration for the link when focusing.
+- \`--outline-core-link-transition-property\`: The CSS transition property to use for the link.
+- \`--outline-core-link-transition-duration\`: The CSS transition duration to use for the link.
+- \`--outline-core-link-transition-timing-function\`: The CSS transition timing function to use for the link.
+- \`--outline-core-link-color-default\`: The default link color.
+- \`--outline-core-link-color-default-decoration\`: Text decoration for the default link.
+- \`--outline-core-link-color-hover\`: The link color when hovering on the link.
+- \`--outline-core-link-color-hover-decoration\`: Text decoration for the link when hovering.
+- \`--outline-core-link-color-focus\`: The link color when focusing on the link.
+- \`--outline-core-link-color-focus-decoration\`: Text decoration for the link when focusing.
 `,
       },
     },
@@ -165,7 +169,7 @@ FullySlotted.parameters = {
     description: {
       story: `
 The following sample assumes the consumer application will be sending the entire link element and anything it contains as markup.
-This allows for the consumer application to fully control the link element with any special features that may be included, while still adhering to the basic styling of the \`outline-link\` component.
+This allows for the consumer application to fully control the link element with any special features that may be included, while still adhering to the basic styling of the \`outline-core-link\` component.
     `,
     },
   },
