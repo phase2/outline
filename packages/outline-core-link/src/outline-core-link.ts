@@ -78,7 +78,7 @@ export class OutlineCoreLink extends OutlineElement {
   /**
    * You can override target manually, but if not, we'll set it to "_blank" if the link is external.
    */
-  linkTargetRender(): string | undefined {
+  linkTargetRender(): LinkTargetType | undefined {
     if (this.linkTarget) {
       return this.linkTarget;
     }
