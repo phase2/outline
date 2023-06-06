@@ -1,0 +1,41 @@
+{
+  "name": "@phase2/outline-accordion",
+  "version": "0.1.4",
+  "description": "The Outline Components for the web accordion component",
+  "keywords": [
+    "outline components",
+    "outline design",
+    "accordion"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "/dist/",
+    "/src/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-accordion"
+  },
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "node ../../../../scripts/build.js",
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "@phase2/outline-core": "^0.1.10",
+    "@phase2/outline-icon": "^0.1.2",
+    "lit": "^2.3.1",
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}

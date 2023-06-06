@@ -1,0 +1,108 @@
+import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+import { ifDefined } from 'lit/directives/if-defined.js';
+import { OutlineElement } from '@phase2/outline-core';
+import componentStyles from './outline-alert.css.lit';
+
+export const alertSizes = ['small', 'large'] as const;
+export type AlertSize = typeof alertSizes[number];
+
+export const alertStatusTypes = [
+  'info',
+  'warning',
+  'error',
+  'success',
+] as const;
+export type AlertStatusType = typeof alertStatusTypes[number];
+
+// This can be useful for testing.
+export interface OutlineAlertInterface extends HTMLElement {
+  status: AlertStatusType;
+  size: AlertSize;
+  isInteractive: boolean;
+  shouldShowIcon: boolean;
+}
+
+/**
+ * The Outline Alert component
+ *
+ * @element outline-alert
+ * @deprecated since version 0.1.6
+ * @extends OutlineElement
+ * @slot default - The alert contents.
+ * @slot header - The header in the alert.
+ * @cssprop --outline-alert--info-background: The background color for the info alert.
+ * @cssprop --outline-alert--info-text: The text color for the info alert.
+ * @cssprop --outline-alert--info-border: The border color for the info alert.
+ * @cssprop --outline-alert--success-background: The background color for the success alert.
+ * @cssprop --outline-alert--success-text: The text color for the success alert.
+ * @cssprop --outline-alert--success-border: The border color for the success alert.
+ * @cssprop --outline-alert--warning-background: The background color for the warning alert.
+ * @cssprop --outline-alert--warning-text: The text color for the warning alert.
+ * @cssprop --outline-alert--warning-border: The border color for the warning alert.
+ * @cssprop --outline-alert--error-background: The background color for the error alert.
+ * @cssprop --outline-alert--error-text: The text color for the error alert.
+ * @cssprop --outline-alert--error-border: The border color for the error alert.
+ * @todo: Make the alert styling more flexible.
+ */
+@customElement('outline-alert')
+export class OutlineAlert
+  extends OutlineElement
+  implements OutlineAlertInterface
+{
+  static styles: CSSResultGroup = [componentStyles];
+
+  @property({ type: String, attribute: 'status' })
+  status: AlertStatusType = 'info';
+
+  /**
+   * This is important context for screen readers.
+   */
+  @property({ type: Boolean, attribute: 'is-interactive' })
+  isInteractive = false;
+
+  @property({ type: Boolean, attribute: 'should-show-icon' })
+  shouldShowIcon = false;
+
+  @property({ type: String, attribute: 'size' })
+  size: AlertSize = 'large';
+
+  render(): TemplateResult {
+    // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
+    return html`
+      <div
+        class="alert-body"
+        role="${this.isInteractive ? 'alertdialog' : 'alert'}"
+        aria-labelledby=${ifDefined(this.isInteractive ? 'message' : undefined)}
+      >
+        ${
+          this.shouldShowIcon === true
+            ? html`
+              <div class="icon">
+                <!--@todo include icon when we have that ready.-->
+              </div>
+            `
+            : null
+        }
+        ${
+          this.size === 'large'
+            ? html`
+              <div class="alert-header">
+                <slot name="header">${this.status}</slot>
+              </div>
+            `
+            : null
+        }
+        <div class="message" id="message">
+          <slot></slot>
+        </div>
+      </div>
+    `;
+  }
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'outline-alert': OutlineAlert;
+  }
+}

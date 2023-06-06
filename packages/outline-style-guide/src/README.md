@@ -4,9 +4,9 @@ The Outline Section Link component
 
 ## Properties
 
-| Property | Type             | Default                                          |
-|----------|------------------|--------------------------------------------------|
-| `slots`  | `SlotController` | "new SlotController(\n    this, // This, the host element.\n    false // To shift or not to shift LightDom nodes to ShadowDOM.\n  )" |
+| Property | Type              | Default                     |
+|----------|-------------------|-----------------------------|
+| `slots`  | `SlotsController` | "new SlotsController(this)" |
 
 ## Slots
 
