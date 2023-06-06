@@ -12,10 +12,11 @@
   "storybook_port": 6042,
   "workspaces": [
     "./packages/*",
-    "./packages/@experimental/*",
     "./packages/components/*",
     "./packages/components/@deprecated/*",
-    "./packages/controllers/*"
+    "./packages/documentation/*",
+    "./packages/controllers/*",
+    "./packages/tools/*"
   ],
   "files": [
     "./packages/*/dist"

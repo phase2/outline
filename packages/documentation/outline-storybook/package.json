@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-storybook"
+    "directory": "packages/documentation/outline-storybook"
   },
   "dependencies": {
     "@phase2/outline-core": "^0.1.11",

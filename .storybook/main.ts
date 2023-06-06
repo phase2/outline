@@ -1,4 +1,7 @@
-module.exports = {
+import remarkGfm from 'remark-gfm';
+import type { StorybookConfig } from '@storybook/web-components-vite';
+
+const config: StorybookConfig = {
   stories: [
     // Intentionally ordering welcome page first.
     '../packages/outline-docs/src/guides/welcome.mdx',
@@ -17,19 +20,25 @@ module.exports = {
   ],
   typescript: {
     check: false,
-    checkOptions: {},
   },
   addons: [
     {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
+    {
       name: '@storybook/addon-essentials',
     },
-    '@storybook/addon-mdx-gfm',
   ],
   features: {
     storyStoreV7: true,
-    postcss: false,
     buildStoriesJson: true,
-    modernInlineRender: true,
   },
   framework: {
     name: '@storybook/web-components-vite',
@@ -40,3 +49,5 @@ module.exports = {
     defaultName: 'Documentation', // set to change the name of generated docs entries
   },
 };
+
+export default config;

@@ -1,37 +1,39 @@
 {
-  "name": "@phase2/outline-docs",
-  "version": "0.0.11",
-  "description": "Outline Documentation",
+  "name": "@phase2/outline-examples",
+  "version": "0.0.5",
+  "description": "Examples of Outline component creation and usage",
   "keywords": [
     "outline",
     "web-components",
-    "design system",
-    "documentation"
+    "design system"
   ],
   "main": "index.ts",
   "types": "index.ts",
   "typings": "index.d.ts",
   "files": [
     "/dist/",
-    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-docs"
+    "directory": "packages/documentation/outline-examples"
   },
-  "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../scripts/build.js && cp -r src dist",
+    "build": "node ../../../scripts/build.js",
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.1.11",
+    "@phase2/outline-core": "^0.1.9",
+    "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
   }
 }

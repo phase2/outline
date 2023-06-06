@@ -1,7 +1,7 @@
 {
-  "name": "@phase2/outline-config",
-  "version": "0.0.10",
-  "description": "Primary Outline configuration files.",
+  "name": "@phase2/outline-style-guide",
+  "version": "0.0.4",
+  "description": "Web Components utilized primarily in a component style guide.",
   "keywords": [
     "outline",
     "web-components",
@@ -11,7 +11,7 @@
   "types": "index.ts",
   "typings": "index.d.ts",
   "files": [
-    "*",
+    "/dist/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",
@@ -19,21 +19,21 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-config"
+    "directory": "packages/documentation/outline-style-guide"
   },
   "scripts": {
+    "build": "node ../../../scripts/build.js",
     "package": "yarn publish"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@phase2/outline-core": "^0.1.9",
+    "lit": "^2.0.2",
+    "tslib": "^2.1.0"
+  },
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./index.ts",
-    "./outline.config": "./outline.config.js",
-    "./commitlint.config": "./commitlint.config.js",
-    "./postcss.config": "./postcss.config.js",
-    "./svgo.config": "./svgo.config.js",
-    "./tailwind.config": "./tailwind.config.js"
+    ".": "./index.ts"
   }
 }
