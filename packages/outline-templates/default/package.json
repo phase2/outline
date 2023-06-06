@@ -47,7 +47,6 @@
     "storybook:axe:dev:webkit": "yarn axe-storybook --storybook-address=\"http://localhost:${npm_package_sbport}\" --browser webkit",
     "storybook:wait": "wait-on ./src/custom-elements.json ./src/component-list.json ./src/resolved-tailwind-config.ts ./src/resolved-outline-config.ts",
     "storybook:dev": "storybook dev -c src/.storybook -p ${npm_package_sbport}",
-    "storybook:prod": "yarn storybook:prod",
     "storybook:build": "yarn prep && yarn storybook:wait && NODE_ENV=production storybook build -c src/.storybook -o storybook-static",
     "lint": "npm-run-all -s lint:*",
     "lint:eslint": "eslint .",
