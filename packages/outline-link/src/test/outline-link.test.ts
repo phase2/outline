@@ -1,15 +1,15 @@
-import { OutlineCoreLink } from '@phase2/outline-link';
+import { OutlineLink } from '@phase2/outline-link';
 import { assert, fixture } from '@open-wc/testing';
 import { html } from 'lit/static-html.js';
 
-describe('outline-core-link', () => {
+describe('outline-link', () => {
   it('is defined', () => {
-    const el = document.createElement('outline-core-link');
-    assert.instanceOf(el, OutlineCoreLink);
+    const el = document.createElement('outline-link');
+    assert.instanceOf(el, OutlineLink);
   });
 
   it('renders with default values', async () => {
-    const el = await fixture(html`<outline-core-link></outline-core-link>`);
+    const el = await fixture(html`<outline-link></outline-link>`);
     assert.shadowDom.equal(
       el,
       `
@@ -20,9 +20,9 @@ describe('outline-core-link', () => {
 
   it('renders with link-href attribute', async () => {
     const el = await fixture(
-      html`<outline-core-link
+      html`<outline-link
         link-href="http://outline.phase2tech.com/"
-      ></outline-core-link>`
+      ></outline-link>`
     );
     assert.shadowDom.equal(
       el,
@@ -34,8 +34,8 @@ describe('outline-core-link', () => {
 
   it('renders with link-href attribute and slotted text', async () => {
     const el = await fixture(
-      html`<outline-core-link link-href="http://outline.phase2tech.com/"
-        >link</outline-core-link
+      html`<outline-link link-href="http://outline.phase2tech.com/"
+        >link</outline-link
       >`
     );
     assert.shadowDom.equal(
@@ -49,10 +49,10 @@ describe('outline-core-link', () => {
 
   it('renders with link-href and link-text attributes', async () => {
     const el = await fixture(
-      html`<outline-core-link
+      html`<outline-link
         link-href="http://outline.phase2tech.com/"
         link-text="link"
-      ></outline-core-link>`
+      ></outline-link>`
     );
     assert.shadowDom.equal(
       el,
@@ -64,8 +64,8 @@ describe('outline-core-link', () => {
 
   it('renders with fully slotted link', async () => {
     const el = await fixture(
-      html`<outline-core-link
-        ><a href="http://outline.phase2tech.com/">link</a></outline-core-link
+      html`<outline-link
+        ><a href="http://outline.phase2tech.com/">link</a></outline-link
       >`
     );
     assert.lightDom.equal(

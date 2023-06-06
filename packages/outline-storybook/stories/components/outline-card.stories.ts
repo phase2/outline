@@ -129,7 +129,7 @@ CardWithImageHeader.args = {
     <div slot="footer" class="p-4 flex justify-between">
       <p class="font-semibold">02/2020</p>
       <p class="font-semibold text-blue-500 hover:text-blue-900">
-        <outline-core-link link-href="#">Read More</outline-core-link>
+        <outline-link link-href="#">Read More</outline-link>
       </p>
     </div>
   `,
@@ -210,7 +210,7 @@ const cleanTemplate = (): TemplateResult =>
         <div slot="footer" class="p-4 flex justify-between text-xs">
           <p class="font-semibold">02/2020</p>
           <p class="font-semibold text-blue-500 hover:text-blue-900">
-          <outline-core-link link-href="#">Read More</outline-core-link>
+          <outline-link link-href="#">Read More</outline-link>
           </p>
         </div>
       </outline-card>

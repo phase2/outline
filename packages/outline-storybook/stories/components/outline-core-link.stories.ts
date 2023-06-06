@@ -1,11 +1,6 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import {
-  argTypeRel,
-  argTypeTarget,
-  argTypeHref,
-} from '@phase2/outline-core-link';
-import type { LinkTargetType, LinkRelType } from '@phase2/outline-core-link';
+import type { LinkTargetType } from '@phase2/outline-core-link';
 // Import the component itself.
 import '@phase2/outline-core-link';
 
@@ -18,13 +13,21 @@ export default {
   tags: ['docsPage'],
   argTypes: {
     linkHref: {
-      ...argTypeHref,
-    },
-    linkRel: {
-      ...argTypeRel,
+      name: 'link-href',
+      description: 'https://www.w3schools.com/tags/att_a_href.asp',
+      control: {
+        type: 'text',
+      },
+      table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
     },
     linkTarget: {
-      ...argTypeTarget,
+      name: 'link-target',
+      description: 'https://www.w3schools.com/tags/att_a_target.asp',
+      options: ['', '_blank', '_self'],
+      control: {
+        type: 'select',
+      },
+      table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
     },
     linkText: {
       name: 'link-text',
@@ -38,8 +41,7 @@ export default {
   },
   args: {
     linkHref: 'https://outline.phase2tech.com',
-    linkRel: 'external',
-    linkTarget: '_blank',
+    linkTarget: '',
     linkText: 'Sample Link',
   },
   parameters: {
@@ -50,13 +52,16 @@ The \`outline-core-link\` component allows complete flexibility in how you choos
 
 ## Description & Usage
 
-- Providing both a \`link-href\` and \`link-text\` attribute negates the need or usage of any slotted content.
-- Providing a \`link-href\` without the \`link-text\` attribute will use the slotted content as the content/text of the link.
-- Providing neither the \`link-href\` nor the \`link-text\` attributes will assumes the entire link, including \`<a></a>\` be passed into the slot from the consumer application. 
+- You must provide and set the \`link-href\` property to a valid URL.
+- You can optionally set the \`link-target\` property to a valid target value.
+- You can optionally set the \`link-text\` property to a valid text value.
+- You can optionally set the \`link-rel\` property to a valid rel value.
+- If the link is external, the component will automatically add \`rel="noopener noreferrer"\` to the link and open the link in a new tab. 
+- If you would like to put a link in a slot, you should now create a new component to handle this. 
 
 ## CSS Variables
 
-The primary coloring of the \`outline-core-link\` component is handled by the following CSS Variables. 
+The primary coloring of the \`outline-core-link\` component is handled by the following CSS Variables.
 
 > Any consumer application that includes \`outline.theme.css\` can simply overwrite any relevant CSS Variables in a subsequent CSS include to affect change on the element styling using the following variables.
 
@@ -79,21 +84,18 @@ Additional documentation and references for these CSS Variables can be found in 
 
 interface Options {
   linkHref?: string;
-  linkRel?: LinkRelType;
   linkText?: string;
   linkTarget?: LinkTargetType;
 }
 
 const LinkTemplate = ({
   linkHref,
-  linkRel,
   linkText,
   linkTarget,
 }: Options): TemplateResult =>
   html`
     <outline-core-link
       link-href="${ifDefined(linkHref)}"
-      link-rel="${ifDefined(linkRel)}"
       link-target="${ifDefined(linkTarget)}"
     >
       ${ifDefined(linkText)}
@@ -156,39 +158,18 @@ The following sample utilizes the \`link-href\` and \`link-text\` properties to 
   },
 };
 
-export const FullySlotted = (): TemplateResult =>
-  html`
-<outline-core-link>
-  <a href="https://outline.phase2tech.com" target="_blank">
-    Link using fully slotted link element
-  </a>
-</outline-core-link>
-  `;
-FullySlotted.parameters = {
-  docs: {
-    description: {
-      story: `
-The following sample assumes the consumer application will be sending the entire link element and anything it contains as markup.
-This allows for the consumer application to fully control the link element with any special features that may be included, while still adhering to the basic styling of the \`outline-core-link\` component.
-    `,
-    },
-  },
-};
-
 export const SlottedImageLink = (): TemplateResult =>
   html`
-<outline-core-link>
-  <a href="https://outline.phase2tech.com" target="_blank">
+<outline-core-link link-href="https://outline.phase2tech.com">
     <img src="${sampleImage}" alt="Creative" />
-  </a>
 </outline-core-link>
   `;
 SlottedImageLink.parameters = {
   docs: {
     description: {
       story: `
-The following sample goes a step beyond the previous example and provides more than just a simple text link from the consumer application. 
-An example of when this would be used could be a CMS providing pre-built responsive images using the \`picture\` element. 
+The following sample goes a step beyond the previous example and provides more than just a simple text link from the consumer application.
+An example of when this would be used could be a CMS providing pre-built responsive images using the \`picture\` element.
     `,
     },
   },

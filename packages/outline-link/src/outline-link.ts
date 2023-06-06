@@ -9,9 +9,9 @@ import type { LinkTargetType, LinkRelType } from './config';
 import componentStyles from './outline-link.css.lit';
 
 /**
- * The Outline Core Link component
+ * The Outline  Link component
  *
- * @element outline-core-link
+ * @element outline-link
  * @extends OutlineElement
  * @slot - The default slot for this element.
  * @cssprop --outline-link-transition-property: The CSS transition property to use for the link.
@@ -24,20 +24,20 @@ import componentStyles from './outline-link.css.lit';
  * @cssprop --outline-link-color-focus: The link color when focusing on the link.
  * @todo - Add support for outline/ring on the focus state of the link.
  */
-@customElement('outline-core-link')
-export class OutlineCoreLink extends OutlineElement {
+@customElement('outline-link')
+export class OutlineLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
   /**
    * Link url
    */
   @property({ type: String, attribute: 'link-href' })
-  linkHref: string;
+  linkHref: string | boolean = false;
 
   /**
    * Link text
    */
   @property({ type: String, attribute: 'link-text' })
-  linkText: string;
+  linkText: string | boolean = false;
 
   /**
    * Link target
@@ -52,53 +52,29 @@ export class OutlineCoreLink extends OutlineElement {
   linkRel: LinkRelType;
 
   /**
-   * Check to see if the link is external, pass target="_blank" and rel="external" if so. Returns true if the link is external.
+   * This methodology allows us to create a component that can use properties
+   * passed into it to generate a link element (<a>). This requires the linkHref
+   * attribute is passed, otherwise, anything passed in will override the default
+   * content in the slot allowing you to pass a pre-generated link into the
+   * outline-link component wrapper.
    */
-  isURLExternal(url: string): boolean {
-    return (
-      new URL(url, window.location.href).hostname !== window.location.hostname
-    );
-  }
-
-  /**
-   * You can override Rel manually, but if not, we'll set it to "noreferrer noopener" if the link is external.
-   * Tabnabbing vulnerability 🤯
-   * TLDR: when a link has the attribute target="_blank", always add ref="noreferrer noopener"
-   * https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#tabnabbing
-   */
-  linkRelRender(): string | undefined {
-    if (this.linkRel) {
-      return this.linkRel;
-    }
-    return this.isURLExternal(this.linkHref)
-      ? 'noreferrer noopener'
-      : undefined;
-  }
-
-  /**
-   * You can override target manually, but if not, we'll set it to "_blank" if the link is external.
-   */
-  linkTargetRender(): string | undefined {
-    if (this.linkTarget) {
-      return this.linkTarget;
-    }
-    return this.isURLExternal(this.linkHref) ? '_blank' : undefined;
-  }
-
   render(): TemplateResult {
-    return html`
-      <a
-        href=${this.linkHref}
-        rel="${ifDefined(this.linkRelRender())}"
-        target="${ifDefined(this.linkTargetRender())}"
-      >
-        ${this.linkText ? html`${this.linkText}` : html`<slot></slot>`}
-      </a>`;
+    return html`${
+      this.linkHref
+        ? html` <a
+          href=${this.linkHref}
+          rel="${ifDefined(this.linkRel)}"
+          target="${ifDefined(this.linkTarget)}"
+        >
+          ${this.linkText ? html`${this.linkText}` : html`<slot></slot>`}
+        </a>`
+        : html`<slot></slot>`
+    }`;
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    'outline-core-link': OutlineCoreLink;
+    'outline-link': OutlineLink;
   }
 }

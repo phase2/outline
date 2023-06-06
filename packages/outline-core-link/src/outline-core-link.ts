@@ -14,14 +14,14 @@ import componentStyles from './outline-core-link.css.lit';
  * @element outline-core-link
  * @extends OutlineElement
  * @slot - The default slot for this element.
- * @cssprop --outline-link-transition-property: The CSS transition property to use for the link.
- * @cssprop --outline-link-transition-duration: The CSS transition duration to use for the link.
- * @cssprop --outline-link-transition-timing-function: The CSS transition timing function to use for the link.
- * @cssprop --outline-link-color-default: The default link color.
- * @cssprop --outline-link-color-default-decoration: Text decoration for the default link.
- * @cssprop --outline-link-color-hover: The link color when hovering on the link.
- * @cssprop --outline-link-color-hover-decoration: Text decoration for the link when hovering.
- * @cssprop --outline-link-color-focus: The link color when focusing on the link.
+ * @cssprop --outline-core-link-transition-property: The CSS transition property to use for the link.
+ * @cssprop --outline-core-link-transition-duration: The CSS transition duration to use for the link.
+ * @cssprop --outline-core-link-transition-timing-function: The CSS transition timing function to use for the link.
+ * @cssprop --outline-core-link-color-default: The default link color.
+ * @cssprop --outline-core-link-color-default-decoration: Text decoration for the default link.
+ * @cssprop --outline-core-link-color-hover: The link color when hovering on the link.
+ * @cssprop --outline-core-link-color-hover-decoration: Text decoration for the link when hovering.
+ * @cssprop --outline-core-link-color-focus: The link color when focusing on the link.
  * @todo - Add support for outline/ring on the focus state of the link.
  */
 @customElement('outline-core-link')
