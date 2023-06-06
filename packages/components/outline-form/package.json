@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-form"
+    "directory": "packages/components/outline-form"
   },
   "license": "BSD-3-Clause",
   "scripts": {

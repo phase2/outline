@@ -20,7 +20,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-video-vimeo"
+    "directory": "packages/components/deprecatedoutline-video-vimeo"
   },
   "license": "BSD-3-Clause",
   "scripts": {
