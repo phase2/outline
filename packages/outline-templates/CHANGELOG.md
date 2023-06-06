@@ -1,5 +1,11 @@
 # @phase2/outline-templates
 
+## 0.0.42
+
+### Patch Changes
+
+- 2cd42bd: Initial setup of outline-core-link
+
 ## 0.0.41
 
 ### Patch Changes

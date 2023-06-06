@@ -1,5 +1,11 @@
 # @phase2/outline-storybook
 
+## 0.0.37
+
+### Patch Changes
+
+- 2cd42bd: Initial setup of outline-core-link
+
 ## 0.0.36
 
 ### Patch Changes
