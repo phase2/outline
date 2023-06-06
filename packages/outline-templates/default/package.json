@@ -87,6 +87,7 @@
     "@phase2/outline-config": "latest",
     "@phase2/outline-container": "latest",
     "@phase2/outline-core": "latest",
+    "@phase2/outline-core-link": "latest",
     "@phase2/outline-docs": "latest",
     "@phase2/outline-dropdown": "latest",
     "@phase2/outline-examples": "latest",
