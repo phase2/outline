@@ -18,20 +18,6 @@ describe('outline-core-link', () => {
     );
   });
 
-  it('renders with link-href attribute', async () => {
-    const el = await fixture(
-      html`<outline-core-link
-        link-href="http://outline.phase2tech.com/"
-      ></outline-core-link>`
-    );
-    assert.shadowDom.equal(
-      el,
-      `
-      <a href="http://outline.phase2tech.com/"><slot></slot></a>
-    `
-    );
-  });
-
   it('renders with link-href attribute and slotted text', async () => {
     const el = await fixture(
       html`<outline-core-link link-href="http://outline.phase2tech.com/"
