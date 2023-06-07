@@ -21,10 +21,10 @@ export const initProject = (prompts: Prompts, local = false): void => {
   const currDir = process.cwd();
   const resolvedPath = path.resolve(currDir, prompts.slug);
   const storybookSource = local
-    ? `${__dirname}/../../../../outline-storybook`
+    ? `${__dirname}/../../../../../documentation/outline-storybook`
     : path.resolve(resolvedPath, './node_modules/@phase2/outline-storybook');
   const starterPath = local
-    ? `${__dirname}/../../../../outline-templates/${prompts.template}`
+    ? `${__dirname}/../../../../../outline-templates/${prompts.template}`
     : path.resolve(
         `${resolvedPath + '/node_modules/@phase2/outline-templates/'}`,
         prompts.template
