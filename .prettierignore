@@ -8,7 +8,7 @@ custom-elements.json
 component-list.json
 resolved-outline-config.ts
 resolved-tailwind-config.ts
-packages/outline-storybook/config/storybook.main.css
+packages/documentation/outline-storybook/config/storybook.main.css
 src/components.d.ts
 *.md
 *.mdx
