@@ -159,7 +159,7 @@ jobs:
         run: |
           PROJDIR=$(mktemp -d)
           cd $PROJDIR
-          npx ${{ github.workspace }}/packages/outline-cli init -a -l -s prj
+          npx ${{ github.workspace }}/packages/tools/outline-cli init -a -l -s prj
           cd prj
           yarn install --prefer-offline
           yarn build
