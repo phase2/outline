@@ -42,7 +42,6 @@ const global = (src, dest) => {
     postcss([...config.plugins])
       .process(css, { from: src, to: dest })
       .then(result => {
-        //console.log(`Writing ${src} to ${dest}...`);
         fs.writeFile(dest, result.css, () => true);
         if (result.map) {
           fs.writeFile(`${dest}.map`, result.map.toString(), () => true);
@@ -61,7 +60,6 @@ const createCssLiterals = filepath => {
     return;
   }
   const filename = filepath.replace(/^.*[\\/]/, '');
-  //console.log(filename);
   fs.readFile(filepath, (err, css) => {
     const nFilePath = `${filepath}.lit.ts`;
     postcss([...config.plugins])
@@ -169,7 +167,12 @@ glob('packages/**/*.global.css', { dot: true }, (err, files) => {
 // Run the component style generation.
 glob(
   'packages/**/*.css',
-  { ignore: ['packages/outline-storybook/**/*.css', '.storybook/**/*.css'] },
+  {
+    ignore: [
+      'packages/tools/outline-storybook/**/*.css',
+      '.storybook/**/*.css',
+    ],
+  },
   (err, files) => {
     files.forEach(createCssLiterals);
   }
