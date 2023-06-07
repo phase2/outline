@@ -21,7 +21,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/components/deprecatedoutline-image-slider"
+    "directory": "packages/components/@deprecated/outline-image-slider"
   },
   "scripts": {
     "build": "node ../../../../scripts/build.js",

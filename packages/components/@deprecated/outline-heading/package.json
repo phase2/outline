@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/components/deprecatedoutline-heading"
+    "directory": "packages/components/@deprecated/outline-heading"
   },
   "license": "BSD-3-Clause",
   "scripts": {
