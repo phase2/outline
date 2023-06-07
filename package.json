@@ -32,7 +32,6 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "prepare": "husky install",
-    "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
     "build": "turbo run build",
     "changeset": "changeset",
     "changeset:publish": "yarn build && yarn changeset:version && yarn changeset publish",
@@ -48,8 +47,8 @@
     "fix": "yarn format && yarn lint",
     "format": "npm-run-all -s format:*",
     "format:code": "eslint --fix . && prettier --write .",
-    "generate": "npm-run-all -s generate:*",
-    "generate:md": "lit-analyzer packages/**/*.ts --format markdown",
+    "generate": "yarn build && npm-run-all -c generate:*",
+    "generate:readme": "wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
     "lint": "npm-run-all -s lint:eslint lint:prettier",
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit",
