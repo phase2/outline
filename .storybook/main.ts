@@ -4,19 +4,19 @@ import type { StorybookConfig } from '@storybook/web-components-vite';
 const config: StorybookConfig = {
   stories: [
     // Intentionally ordering welcome page first.
-    '../packages/outline-docs/src/guides/welcome.mdx',
+    '../packages/documentation/outline-docs/src/guides/welcome.mdx',
     // Component development guides.
-    '../packages/outline-docs/src/guides/development/component-development/**/*.mdx',
+    '../packages/documentation/outline-docs/src/guides/development/component-development/**/*.mdx',
     // Component usage guides.
-    '../packages/outline-docs/src/guides/consumers/**/*.mdx',
+    '../packages/documentation/outline-docs/src/guides/consumers/**/*.mdx',
     // QA/UAT usage guides.
-    '../packages/outline-docs/src/guides/qa-uat/**/*.mdx',
+    '../packages/documentation/outline-docs/src/guides/qa-uat/**/*.mdx',
     // Tooling usage guides.
-    '../packages/outline-docs/src/guides/tooling/**/*.mdx',
+    '../packages/documentation/outline-docs/src/guides/tooling/**/*.mdx',
     // Documentation stories.
-    '../packages/outline-docs/src/guides/**/*.stories.@(js|ts|mdx)',
+    '../packages/documentation/outline-docs/src/guides/**/*.stories.@(js|ts|mdx)',
     // Component stories.
-    '../packages/outline-storybook/stories/**/*.stories.@(js|ts|mdx)',
+    '../packages/documentation/outline-storybook/stories/**/*.stories.@(js|ts|mdx)',
   ],
   typescript: {
     check: false,
