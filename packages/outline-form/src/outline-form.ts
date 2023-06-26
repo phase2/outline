@@ -13,7 +13,7 @@ import componentStyles from './outline-form.css.lit';
 @customElement('outline-form')
 export class OutlineForm extends OutlineElement {
   static styles = componentStyles;
-// Removing due to LightDomStyles dependency
+  // Removing due to LightDomStyles dependency
   //lightDomStyles = new LightDomStyles(this, globalStyles);
 
   render(): TemplateResult {
