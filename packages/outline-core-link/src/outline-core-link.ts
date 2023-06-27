@@ -1,5 +1,5 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Our base component, which all others extend.
@@ -7,8 +7,6 @@ import { OutlineElement } from '@phase2/outline-core';
 
 import type { LinkTargetType, LinkRelType } from './config';
 import componentStyles from './outline-core-link.css.lit';
-import { classMap } from 'lit-html/directives/class-map';
-import { unsafeStatic } from 'lit-html/static';
 
 /**
  * The Outline Core Link component
@@ -29,6 +27,12 @@ import { unsafeStatic } from 'lit-html/static';
 @customElement('outline-core-link')
 export class OutlineCoreLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
+
+  /**
+   * If the element is fully slotted.
+   */
+  @state() fullySlotted = false;
+
   /**
    * Link url
    */
@@ -97,10 +101,31 @@ export class OutlineCoreLink extends OutlineElement {
     </a>`;
   }
 
+  isValidTopLevelLink(): boolean {
+    const slot: NodeList = this.querySelectorAll('*');
+    if (slot.length === 1 && slot[0].nodeName === 'A') {
+      return true;
+    }
+    return false;
+  }
+
   fullMarkupInSlot(): TemplateResult {
-    return html`
-      <slot></slot>
-    `;
+    if (!this.isValidTopLevelLink()) {
+      console.error(
+        'outline-core-link must have a single <a> tag as a child of the default slot.'
+      );
+      return html`<span style="font-weight:bold;color:#FF0000;">ERROR: SEE CONSOLE</span>`;
+    } else {
+      this.fullySlotted = true;
+      // const slot: NodeList = this.querySelectorAll('*');
+      // const slottedLink: HTMLAnchorElement | null = this.querySelector('a');
+      // console.log(`this.fullySlotted: ${this.fullySlotted}`);
+      // console.log(`slot:`, slot);
+      // console.log(`slottedLink:`, slottedLink);
+      return html`
+        <slot></slot>
+      `;
+    }
   }
 
   render(): TemplateResult {
