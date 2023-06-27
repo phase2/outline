@@ -7,8 +7,6 @@ import { OutlineElement } from '@phase2/outline-core';
 
 import type { LinkTargetType, LinkRelType } from './config';
 import componentStyles from './outline-core-link.css.lit';
-import { classMap } from 'lit-html/directives/class-map';
-import { unsafeStatic } from 'lit-html/static';
 
 /**
  * The Outline Core Link component
@@ -87,28 +85,15 @@ export class OutlineCoreLink extends OutlineElement {
     return this.isURLExternal(this.linkHref) ? '_blank' : undefined;
   }
 
-  generateLink(): TemplateResult {
-    return html` <a
-      href=${this.linkHref}
-      rel="${ifDefined(this.linkRelRender())}"
-      target="${ifDefined(this.linkTargetRender())}"
-    >
-      ${this.linkText ? html`${this.linkText}` : html`<slot></slot>`}
-    </a>`;
-  }
-
-  fullMarkupInSlot(): TemplateResult {
-    return html`
-      <slot></slot>
-    `;
-  }
-
   render(): TemplateResult {
-    if (this.linkHref) {
-      return this.generateLink();
-    } else {
-      return this.fullMarkupInSlot();
-    }
+    return html`
+      <a
+        href=${this.linkHref}
+        rel="${ifDefined(this.linkRelRender())}"
+        target="${ifDefined(this.linkTargetRender())}"
+      >
+        ${this.linkText ? html`${this.linkText}` : html`<slot></slot>`}
+      </a>`;
   }
 }
 
