@@ -8,7 +8,11 @@ import { OutlineElement } from '@phase2/outline-core';
 import type { LinkTargetType, LinkRelType } from './config';
 import componentStyles from './outline-core-link.css.lit';
 
+/** The element name, reused throughout the codebase */
+const componentName = 'outline-core-link';
+
 /**
+ *
  * The Outline Core Link component
  *
  * @element outline-core-link
@@ -24,7 +28,7 @@ import componentStyles from './outline-core-link.css.lit';
  * @cssprop --outline-core-link-color-focus: The link color when focusing on the link.
  * @todo - Add support for outline/ring on the focus state of the link.
  */
-@customElement('outline-core-link')
+@customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
@@ -101,20 +105,37 @@ export class OutlineCoreLink extends OutlineElement {
     </a>`;
   }
 
+  /**
+   * Get all elements in the default slot.
+   *
+   * @returns NodeList of all elements in the default slot.
+   */
+  getSlottedContent(): NodeList {
+    return this.querySelectorAll('*');
+  }
+
   isValidTopLevelLink(): boolean {
-    const slot: NodeList = this.querySelectorAll('*');
+    const slot: NodeList = this.getSlottedContent();
     if (slot.length === 1 && slot[0].nodeName === 'A') {
       return true;
     }
     return false;
   }
 
+  /**
+   * If the element is fully slotted, return the full markup in the default slot.
+   *
+   * @todo - Enable a global debug mode in outline.config.js that will determine if the console.group is logged.
+   * @returns HTMLSlotElement
+   */
   fullMarkupInSlot(): TemplateResult {
     if (!this.isValidTopLevelLink()) {
+      console.group(componentName);
       console.error(
-        'outline-core-link must have a single <a> tag as a child of the default slot.'
+        `${componentName} must have a single <a> tag as a child of the default slot.`
       );
-      return html`<span style="font-weight:bold;color:#FF0000;">ERROR: SEE CONSOLE</span>`;
+      console.log(this.getSlottedContent());
+      console.groupEnd();
     } else {
       this.fullySlotted = true;
       // const slot: NodeList = this.querySelectorAll('*');
@@ -122,10 +143,10 @@ export class OutlineCoreLink extends OutlineElement {
       // console.log(`this.fullySlotted: ${this.fullySlotted}`);
       // console.log(`slot:`, slot);
       // console.log(`slottedLink:`, slottedLink);
-      return html`
-        <slot></slot>
-      `;
     }
+    return html`
+      <slot></slot>
+    `;
   }
 
   render(): TemplateResult {
@@ -139,6 +160,6 @@ export class OutlineCoreLink extends OutlineElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'outline-core-link': OutlineCoreLink;
+    componentName: OutlineCoreLink;
   }
 }
