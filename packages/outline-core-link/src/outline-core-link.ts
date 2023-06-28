@@ -33,6 +33,11 @@ export class OutlineCoreLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   /**
+   * If the link is slotted, we'll test, modify & render the slotted link instead of the linkHref and linkText properties.
+   */
+  @state() isSlottedLink = false;
+
+  /**
    * Link url
    */
   @property({ type: String, attribute: 'link-href' })
@@ -149,8 +154,8 @@ export class OutlineCoreLink extends OutlineElement {
    */
   fullMarkupInSlot(): TemplateResult {
     const debug = true;
-    if (!this.isValidTopLevelSlottedLink() && debug) {
-      this.debugSlottedContent();
+    if (!this.isValidTopLevelSlottedLink()) {
+      if (debug) this.debugSlottedContent();
     } else {
       this.adjustSlottedContent();
     }
@@ -163,6 +168,7 @@ export class OutlineCoreLink extends OutlineElement {
     if (this.linkHref) {
       return this.generateLink();
     } else {
+      this.isSlottedLink = true;
       return this.fullMarkupInSlot();
     }
   }
