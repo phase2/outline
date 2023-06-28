@@ -81,6 +81,8 @@ Consumer Links are links that are created by a consumer application that uses th
 
 > *If you would like to render your link via properties, you should use the **Component Link** mode described above.*
 
+---
+
 <p><outline-core-link><a href="https://www.phase2technology.com" className="sb-unstyled" target="_blank">Consumer Link</a></outline-core-link></p>
 
 ```html preview-story
@@ -97,6 +99,8 @@ The above example simply shows how a consumer application can pass in a valid `a
 
 **Consumer Links** that are attempting to wrap the `a` tag provided to the `slot` will see an error in the console, and likely see broken styling. 
 
+---
+
 <p><outline-core-link><span><a href="https://www.phase2technology.com" className="sb-unstyled" target="_blank">"Broken" Consumer Link</a></span></outline-core-link></p>
 
 ```html preview-story
@@ -108,8 +112,50 @@ The above example simply shows how a consumer application can pass in a valid `a
   </span>
 </outline-core-link>
 ```
+
+In the above example, because we wrapped our `a` inside a `span` tag, the default styling provided by the component is visually broken. 
+
+#### **Overriding a Consumer Link**
+
+With the flexible implementation of `outline-core-link`, it is possible to override the `a` tag provided to the `slot` by passing attributes to the `outline-core-link` component itself.
+What this means is that if you create an `a` tag, that includes a `target` attribute, but also add a `link-target` to your `outline-core-link` wrapper, the value from `outline-core-link` will override the value of the `target` attribute on the slotted `a` tag.
+
 ---
 
+<p><outline-core-link link-target="_blank"><a href="https://www.phase2technology.com" className="sb-unstyled" target="_self">Overriding target attribute</a></outline-core-link></p>
+
+```html preview-story
+<outline-core-link link-target="_blank">
+  <a 
+    href="https://www.phase2technology.com"    
+    target="_self"
+  >
+    Overriding target attribute
+  </a>
+</outline-core-link>
+```
+
+In the above example, the `target` was set originally by the consumer application as `_self`, however, we were able to override it by simply using the `link-target` attribute on the `outline-core-link` component.
+
+---
+
+<p><outline-core-link link-rel="noreferrer noopener alternate"><a href="https://www.phase2technology.com" className="sb-unstyled" rel="alternate" target="_blank">Overriding rel attribute</a></outline-core-link></p>
+
+```html preview-story
+<outline-core-link link-rel="noreferrer noopener alternate">
+  <a 
+    href="https://www.phase2technology.com"
+    target="_blank"
+    rel="alternate"
+  >
+    Overriding rel attribute
+  </a>
+</outline-core-link>
+```
+
+In the above example, the `target` was set originally by the consumer application as `_self`, however, we were able to override it by simply using the `link-target` attribute on the `outline-core-link` component.
+
+---
 
 ## When to use **`outline-core-link`** in **"Component Link"** mode
 

@@ -33,11 +33,6 @@ export class OutlineCoreLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   /**
-   * If the element is fully slotted.
-   */
-  @state() fullySlotted = false;
-
-  /**
    * Link url
    */
   @property({ type: String, attribute: 'link-href' })
@@ -114,12 +109,36 @@ export class OutlineCoreLink extends OutlineElement {
     return this.querySelectorAll('*');
   }
 
-  isValidTopLevelLink(): boolean {
+  isValidTopLevelSlottedLink(): boolean {
     const slot: NodeList = this.getSlottedContent();
     if (slot.length === 1 && slot[0].nodeName === 'A') {
       return true;
     }
     return false;
+  }
+
+  /**
+   * If the element is not slotted properly, log an error to the console.
+   * @todo - Enable a global debug mode in outline.config.js that will determine if the console.group is logged in this and other component level debugging code.
+   * @returns void
+   */
+  debugSlottedContent(): void {
+    console.group(componentName);
+    console.error(
+      `${componentName} must have a single <a> tag as a child of the default slot.`
+    );
+    console.log(this.getSlottedContent());
+    console.groupEnd();
+  }
+
+  adjustSlottedContent(): void {
+    const slottedLink: HTMLAnchorElement | null = this.querySelector('a');
+    if (this.linkTarget) {
+      slottedLink?.setAttribute('target', this.linkTarget);
+    }
+    if (this.linkRel) {
+      slottedLink?.setAttribute('rel', this.linkRel);
+    }
   }
 
   /**
@@ -129,20 +148,11 @@ export class OutlineCoreLink extends OutlineElement {
    * @returns HTMLSlotElement
    */
   fullMarkupInSlot(): TemplateResult {
-    if (!this.isValidTopLevelLink()) {
-      console.group(componentName);
-      console.error(
-        `${componentName} must have a single <a> tag as a child of the default slot.`
-      );
-      console.log(this.getSlottedContent());
-      console.groupEnd();
+    const debug = true;
+    if (!this.isValidTopLevelSlottedLink() && debug) {
+      this.debugSlottedContent();
     } else {
-      this.fullySlotted = true;
-      // const slot: NodeList = this.querySelectorAll('*');
-      // const slottedLink: HTMLAnchorElement | null = this.querySelector('a');
-      // console.log(`this.fullySlotted: ${this.fullySlotted}`);
-      // console.log(`slot:`, slot);
-      // console.log(`slottedLink:`, slottedLink);
+      this.adjustSlottedContent();
     }
     return html`
       <slot></slot>
