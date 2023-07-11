@@ -1,5 +1,12 @@
 # @phase2/outline-cli
 
+## 0.0.41
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-templates@0.0.43
+
 ## 0.0.40
 
 ### Patch Changes

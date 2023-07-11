@@ -1,5 +1,11 @@
 # @phase2/outline-templates
 
+## 0.0.43
+
+### Patch Changes
+
+- Update to watch scripts.
+
 ## 0.0.42
 
 ### Patch Changes
