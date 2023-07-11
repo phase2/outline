@@ -67,7 +67,10 @@
     "clean:modules": "rimraf node_modules",
     "reset": "yarn clean && yarn install",
     "restart": "yarn clean && yarn install && yarn start",
-    "test": "yarn build && wtr"
+    "test": "yarn build && wtr",
+    "watch": "npm-run-all -p watch:*",
+    "watch:storybook": "yarn storybook:dev",
+    "watch:css": "node scripts/styles.mjs --watch"
   },
   "keywords": [
     "web-components",
