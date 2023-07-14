@@ -26,7 +26,7 @@ import '@phase2/outline-container';
 
   ## Documentation Status
   <outline-alert status="warning" size="large">
-    <span slot="header">Status: Needs Work/In Progress</span>
+    <span slot="header">Status: Needs Work/In Progress (Last Updated: July 2023)</span>
     <p>
       This documentation is in need of additional work, or is currently in progress.
     </p>
@@ -38,6 +38,18 @@ import '@phase2/outline-container';
 - [Reactive Controllers](https://lit.dev/docs/composition/controllers/) should be instantiated immediately below the style definition.
 
 ## Reactive Controllers
+
+A reactive controller is an object that can hook into a component's reactive update cycle. Controllers can bundle state and behavior related to a feature, making it reusable across multiple component definitions.
+
+You can use controllers to implement features that require their own state and access to the component's lifecycle, such as:
+
+>- Handling global events like mouse events
+>- Managing asynchronous tasks like fetching data over the network
+>- Running animations
+
+Only use controllers when you actually need one, not just because it's there. Simple components that just render content probably don't need a controller, unless you are doing something like conditional slots.
+
+## Example Controller: 
 
 ```typescript
 import { reactiveController } from './reactive-controller'; 
@@ -56,3 +68,61 @@ export class OutlineWidget extends OutlineElement {
   ... 
 }
 ```
+## Controller Options 
+We currently use two main controllers, which are called the lightdom and shadowdom. 
+
+#### Light DOM
+
+## LightDomStyles Controller ##
+
+Scoped CSS rules can be created in a number of ways:
+* **Added to the consumer's global style sheet.** However, you cannot `@import` an existing stylesheet within a scoping selector such as the component name, making it difficult to reuse existing styles in the design system without duplicating styling.
+
+* **Scoped at build time.** Outline supports creating a file named `SCOPE.global.css` where `SCOPE` is the scope selector
+you wish to add.  For example, `my-component.global.css` will wrap the css rules with the `my-component {}` selector.
+The build scripts convert this file to `SCOPE.global.scoped.css` and `SCOPE.global.scoped.css.lit.ts` which can be
+imported from another css file, or within your component.ts file. This scoped css can be injected into the
+global stylesheet using the `LightDomStyles` controller as discussed below. This method increases the size of
+the design system JS file to include the scoped css.
+> An example of adding light DOM scoped at build time is the `outline-form` component.
+
+* **Scoped at run time.** The `LightDomStyles` controller mentioned below can automatically scope css rules as they are
+added to the global stylesheet. This method does not increase the size of the design system, but adds a small
+amount of javascript processing time when the component is rendered.
+
+### Using `LightDomStyles` to inject global styles
+Rather than relying on the consumer to add global styles, the component itself can inject styles into the global stylesheet
+using the `LightDomStyles` controller. This controller accepts string of CSS and an optional "scope" selector
+and creates a `style` element in the `body` element of the page containing the scoped CSS.
+
+Example using styles scoped at build time (`*.global.css` files):
+```
+import globalStyles from './my-component.global.scoped.css.lit';
+import { LightDomStyles } from '@phase2/outline-core';
+...
+  lightDomStyles = new LightDomStyles(this, [globalStyles]);
+```
+
+Example using styles scoped at run time:
+```
+import componentStyles from './my-component.css.lit';
+import { LightDomStyles } from '@phase2/outline-core';
+...
+  lightDomStyles = new LightDomStyles(this, [componentStyles], this.tagName.toLowerCase());
+```
+
+> NOTE: When using build-time scoping, you can scope using a class instead of the component name if needed by naming the file `.CLASS.global.css`
+
+> NOTE: Light DOM styles *can* be overridden by the consumer and CSS rules with a higher precedence can also override the basic scoping. You can handle this in the component by creating more specific CSS selectors if you don't have control over the consumer styling causing the conflict.
+
+> NOTE: You can freely mix light DOM styling with normal component styling. For example if styling a `ul/li` list, the `ul` style can be within the component normally using `::slotted(ul)` and the style for the `li` can be added to a `my-component.global.css` file and injected via `lightDomStyles`. This helps minimize the bleeding of consumer styles into the component.
+
+
+#### Shadow DOM (slot manager)
+
+## When do I use what? 
+- In general, using the slot manager way makes styling easier, but MAY cause some edge issues that need to be solved. If you use the light DOM controller, you will need to use global styling that follows [BEM](https://getbem.com/). 
+
+## Light DOM component example
+
+## Shadow DOM component example 
