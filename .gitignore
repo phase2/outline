@@ -2,7 +2,7 @@
 .aws
 .npmrc
 
-# General 
+# General
 .env-local
 .hidden
 *~
@@ -60,7 +60,7 @@ mutagen.yml.lock
 www/
 .turbo
 
-# Outline specific 
+# Outline specific
 custom-elements.json
 component-list.json
 resolved-outline-config.ts
@@ -68,3 +68,6 @@ resolved-tailwind-config.ts
 safelist.txt
 *.lit.ts
 *.generated.css
+
+# env
+.env.local
