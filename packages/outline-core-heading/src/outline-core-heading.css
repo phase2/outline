@@ -33,91 +33,91 @@ h6 {
 }
 
 .outline-text--xs {
-  @apply text-xs ;
+  @apply text-xs;
 }
 
 .outline-text--sm {
-  @apply text-sm ;
+  @apply text-sm;
 }
 
 .outline-text--lg {
-  @apply text-lg ;
+  @apply text-lg;
 }
 
 .outline-text--lg.mobile {
-  @apply text-base ;
+  @apply text-base;
 }
 
 .outline-text--xl {
-  @apply text-xl ;
+  @apply text-xl;
 }
 
 .outline-text--xl.mobile {
-  @apply text-base ;
+  @apply text-base;
 }
 
 .outline-text--2xl {
-  @apply text-2xl ;
+  @apply text-2xl;
 }
 
 .outline-text--2xl.mobile {
-  @apply text-lg ;
+  @apply text-lg;
 }
 
 .outline-text--3xl {
-  @apply text-3xl ;
+  @apply text-3xl;
 }
 
 .outline-text--3xl.mobile {
-  @apply text-lg ;
+  @apply text-lg;
 }
 
 .outline-text--4xl {
-  @apply text-4xl ;
+  @apply text-4xl;
 }
 
 .outline-text--4xl.mobile {
-  @apply text-xl ;
+  @apply text-xl;
 }
 
 .outline-text--5xl {
-  @apply text-5xl ;
+  @apply text-5xl;
 }
 
 .outline-text--5xl.mobile {
-  @apply text-2xl ;
+  @apply text-2xl;
 }
 
 .outline-text--6xl {
-  @apply text-6xl ;
+  @apply text-6xl;
 }
 
 .outline-text--6xl.mobile {
-  @apply text-3xl ;
+  @apply text-3xl;
 }
 
 .outline-text--7xl {
-  @apply text-7xl ;
+  @apply text-7xl;
 }
 
 .outline-text--7xl.mobile {
-  @apply text-4xl ;
+  @apply text-4xl;
 }
 
 .outline-text--8xl {
-  @apply text-8xl ;
+  @apply text-8xl;
 }
 
 .outline-text--8xl.mobile {
-  @apply text-5xl ;
+  @apply text-5xl;
 }
 
 .outline-text--9xl {
-  @apply text-9xl ;
+  @apply text-9xl;
 }
 
 .outline-text--9xl.mobile {
-  @apply text-6xl ;
+  @apply text-6xl;
 }
 
 /* Font weights */

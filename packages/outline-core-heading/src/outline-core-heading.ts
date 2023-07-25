@@ -19,14 +19,13 @@ import {
 
 @customElement('outline-core-heading')
 export class OutlineCoreHeading extends OutlineElement {
-
   static styles = [componentStyles];
 
   /**
    * The tag to apply: h1 | h2 | h3 | h4 | h5 | h6
    */
   @property({ type: String, reflect: true, attribute: 'level' })
-  level: AllowedHeadingLevels = 'h2';
+  level: AllowedHeadingLevels;
 
   /**
    * The size of the heading.
@@ -40,7 +39,7 @@ export class OutlineCoreHeading extends OutlineElement {
    * @type {AllowedHeadingWeights}
    */
   @property({ type: String, reflect: true, attribute: 'weight' })
-  weight: AllowedHeadingWeights = 'bold';
+  weight: AllowedHeadingWeights;
 
   /**
    * Additional CSS classes to apply to the heading element.
@@ -49,14 +48,9 @@ export class OutlineCoreHeading extends OutlineElement {
   @property({ type: String, reflect: true, attribute: 'additional-classes' })
   additionalClasses: string;
 
-  /**
-   * Whether the heading should be displayed as a clickable card.
-   * @type {boolean}
-   */
-  @property({ type: Boolean, reflect: true, attribute: 'clickable-card' })
-  clickableCard = false;
-
-  generateHeading(classes: { [key: string]: boolean | string }): TemplateResult {
+  generateHeading(classes: {
+    [key: string]: boolean | string;
+  }): TemplateResult {
     return html`
       <${unsafeStatic(this.level as string)} class=${classMap(classes)}>
         <slot></slot>
@@ -64,24 +58,27 @@ export class OutlineCoreHeading extends OutlineElement {
     `;
   }
 
-  fullMarkupInSlot(): TemplateResult {
+  fullMarkupInSlot(classes: {
+    [key: string]: boolean | string;
+  }): TemplateResult {
     return html`
-      <slot></slot>
+      
+      <slot class=${classMap(classes)}></slot>
+      
     `;
   }
 
   render(): TemplateResult {
     const classes = {
-      [`outline-text--${this.size}`]: this.size,
+      [`outline-text--${this.size}`]: true,
       [`outline-font--${this.weight}`]: true,
       [`${this.additionalClasses}`]: this.additionalClasses,
-      'clickable-card': !!this.clickableCard,
     };
 
     if (this.level) {
       return this.generateHeading(classes);
     } else {
-      return this.fullMarkupInSlot();
+      return this.fullMarkupInSlot(classes);
     }
   }
 }

@@ -6,10 +6,10 @@ import { argTypeSlotContent } from '@phase2/outline-core';
 import {
   AllowedHeadingLevels,
   HeadingSizes,
-  HeadingStyles,
-} from '@phase2/outline-heading';
+  HeadingWeights,
+} from '@phase2/outline-core-heading';
 
-import '@phase2/outline-heading';
+import '@phase2/outline-core-heading';
 import '@phase2/outline-container';
 
 const levelOptions: AllowedHeadingLevels[] = [
@@ -23,19 +23,20 @@ const levelOptions: AllowedHeadingLevels[] = [
 
 export default {
   title: 'Content/Heading',
-  component: 'outline-heading',
+  component: 'outline-core-heading',
   // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
   tags: ['docsPage'],
   argTypes: {
     level: {
-      description: 'HTML level. Used by screen readers.',
+      description:
+        'level property. Using this property means your heading will be in the shadowDOM which IS NOT RECOMMENDED.',
       options: levelOptions,
       control: {
         type: 'select',
       },
-      table: { category: 'Properties', defaultValue: { summary: 'h2' } },
+      table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
     },
-    levelSize: {
+    size: {
       description: 'Presentation level. Used for styling.',
       options: HeadingSizes,
       control: {
@@ -43,9 +44,9 @@ export default {
       },
       table: { category: 'Properties', defaultValue: { summary: 'NULL' } },
     },
-    levelStyle: {
+    weight: {
       description: 'Presentation style. Font weight variation.',
-      options: HeadingStyles,
+      options: HeadingWeights,
       control: {
         type: 'select',
       },
@@ -61,108 +62,74 @@ export default {
     docs: {
       description: {
         component: `
-This component renders a heading.
-
-## Difference from \`h1\`, \`h2\`, etc elements
-
-This is rendered as various \`h1\`, etc elements, but is styled based on the \`level-size\`. This allows screen readers to properly read the structure of a page even when this diverges from the visual presentation of these headers.
-
-## Variation
-
-You can also set the font weight using the \`level-style\` attribute.
-
-        `,
-      },
-      source: {
-        code: `
-<outline-heading
-  level="{{ level }}"
-  level-size="{{ level-size }}"
-  level-style="{{ levelStyle }}"
->
-  {{ defaultSlot}
-</outline-heading>
+This component renders styles for a heading as the default. You will need to hard define the appropriate <h> tag within your slot that wraps your content. This component is intended to have the <h> tag and the content within rendered to the light DOM. If you MUST use shadowDOM you can define the level prop but you must also remove the <h> tag from your slot content. This is not recommended.
         `,
       },
     },
   },
 };
 
-const Template = ({
-  level,
-  levelSize,
-  levelStyle,
-  defaultSlot,
-}: any): TemplateResult =>
+const Template = ({ level, size, weight, defaultSlot }: any): TemplateResult =>
   html`
     <outline-container>
-      <outline-heading
+      <outline-core-heading
         level="${ifDefined(level)}"
-        level-size="${ifDefined(levelSize)}"
-        level-style="${ifDefined(levelStyle)}"
+        size="${ifDefined(size)}"
+        weight="${ifDefined(weight)}"
       >
-        ${defaultSlot}
-      </outline-heading>
+        ${level ? defaultSlot : html`<h1>${defaultSlot}</h1>`} 
+
+      </outline-core-heading>
     </outline-container>
   `;
 
 export const Heading: any = Template.bind({});
 Heading.args = {
-  level: 'h1',
-  levelSize: '3xl',
-  levelStyle: 'semibold',
+  level: null,
+  size: '3xl',
+  weight: 'semibold',
 };
 
-const StandardHeadingsTemplate = (): TemplateResult => {
+const SlottedHeadingsWithAttributesTemplate = (): TemplateResult => {
   return html`
-<outline-heading level="h1">This is a standard Heading 1.</outline-heading>
-<outline-heading level="h2">This is a standard Heading 2.</outline-heading>
-<outline-heading level="h3">This is a standard Heading 3.</outline-heading>
-<outline-heading level="h4">This is a standard Heading 4.</outline-heading>
-<outline-heading level="h5">This is a standard Heading 5.</outline-heading>
-<outline-heading level="h6">This is a standard Heading 6.</outline-heading>
+<outline-core-heading size="3xl" weight="bold"><h1>This is a standard Heading 1.</h1></outline-core-heading>
+<outline-core-heading size="2xl" weight="semibold"><h2>This is a standard Heading 2.</h2></outline-core-heading>
+<outline-core-heading size="xl" weight="semibold"><h3>This is a standard Heading 3.</h3></outline-core-heading>
+<outline-core-heading size="lg" weight="semibold"><h4>This is a standard Heading 4.</h4></outline-core-heading>
+<outline-core-heading size="base" weight="semibold"><h5>This is a standard Heading 5.</h5></outline-core-heading>
+<outline-core-heading size="base" weight="semibold"><h6>This is a standard Heading 6.</h6></outline-core-heading>
 `;
 };
 
-export const StandardHeadings = () => StandardHeadingsTemplate();
-StandardHeadings.parameters = {
+export const SlottedHeadingsWithAttributes = () =>
+  SlottedHeadingsWithAttributesTemplate();
+SlottedHeadingsWithAttributes.parameters = {
   docs: {
     description: {
-      story: `This example shows the standard heading elements. 
-      This uses only the \`level\` attribute to declare the semantic level of the heading element.
-      This also allows us to show the default shift of sizes between smaller and larger breakpoints.
+      story: `This example shows the recommended way of creating headings using slots. The size and weight attributes are optional and can be customized for each heading.
       `,
-    },
-    source: {
-      code: `
-<outline-heading level="h1">This is a standard Heading 1 element.</outline-heading>
-<outline-heading level="h2">This is a standard Heading 2 element.</outline-heading>
-<outline-heading level="h3">This is a standard Heading 3 element.</outline-heading>
-<outline-heading level="h4">This is a standard Heading 4 element.</outline-heading>
-<outline-heading level="h5">This is a standard Heading 5 element.</outline-heading>
-<outline-heading level="h6">This is a standard Heading 6 element.</outline-heading>
-`,
     },
   },
 };
 
-const DefaultHeadingTemplate = (): TemplateResult => {
+const SlottedHeadingsWithNoAttributesTemplate = (): TemplateResult => {
   return html`
-<outline-heading>Sample heading text that should take up multiple lines so we can test for proper size and leading.</outline-heading>
+<outline-core-heading><h1>This is a standard Heading 1.</h1></outline-core-heading>
+<outline-core-heading><h2>This is a standard Heading 2.</h2></outline-core-heading>
+<outline-core-heading><h3>This is a standard Heading 3.</h3></outline-core-heading>
+<outline-core-heading><h4>This is a standard Heading 4.</h4></outline-core-heading>
+<outline-core-heading><h5>This is a standard Heading 5.</h5></outline-core-heading>
+<outline-core-heading><h6>This is a standard Heading 6.</h6></outline-core-heading>
 `;
 };
-export const DefaultHeading: any = DefaultHeadingTemplate.bind({});
-DefaultHeading.args = {};
-DefaultHeading.parameters = {
+
+export const SlottedHeadingsWithNoAttributes = () =>
+  SlottedHeadingsWithNoAttributesTemplate();
+SlottedHeadingsWithNoAttributes.parameters = {
   docs: {
     description: {
-      story: `This example shows an <code>outline-heading</code> element with no attributes being rendered.
+      story: `This example shows the recommended way of creating headings using slots but with no attributes for styling.
       `,
-    },
-    source: {
-      code: `
-<outline-heading>Sample heading text that should take up multiple lines so we can test for proper size and leading.</outline-heading>
-`,
     },
   },
 };
