@@ -1,5 +1,11 @@
 # @phase2/outline-templates
 
+## 0.0.44
+
+### Patch Changes
+
+- c33b7e4: Additional fixes for style generation.
+
 ## 0.0.43
 
 ### Patch Changes
