@@ -1,0 +1,255 @@
+@import './css-variables/vars-default.css';
+@import './css-variables/vars-link.css';
+@import './css-variables/vars-primary.css';
+@import './css-variables/vars-secondary.css';
+@import './css-variables/vars-tertiary.css';
+
+:host {
+  /*
+   * Configuration values for `outline-button`.
+   */
+
+  /* Shared, but variables that can be overridden per button */
+
+  display: inline-flex;
+
+  vertical-align: middle;
+}
+
+.btn button {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  cursor: pointer;
+  transition-property: color, background-color, border-color,
+    text-decoration-color, fill, stroke, outline, outline-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+  text-decoration-line: none;
+  outline: none;
+  border: none;
+
+  line-height: 1.5;
+
+  border-radius: var(--outline-button--radius--computed);
+  font-family: var(--outline-button--family--computed);
+  font-weight: var(--outline-button--weight--computed);
+  padding: var(--outline-button--padding--computed);
+}
+
+.btn[aria-disabled='true'] {
+  pointer-events: none;
+  cursor: not-allowed;
+  user-select: none;
+}
+
+.btn.primary {
+  padding: var(--outline-button--primary-padding--computed);
+  border-radius: var(--outline-button--primary-radius--computed);
+  /* Can change per button state */
+  background-color: var(--outline-button--primary-bg-color--computed);
+  color: var(--outline-button--primary-color--computed);
+  font-weight: var(--outline-button--primary-weight--computed);
+  box-shadow: var(--outline-button--primary-ring--computed);
+
+  &:hover {
+    background-color: var(--outline-button--primary-bg-color-hover--computed);
+    color: var(--outline-button--primary-color-hover--computed);
+    font-weight: var(--outline-button--primary-weight-hover--computed);
+    box-shadow: var(--outline-button--primary-ring-hover--computed);
+  }
+
+  &:focus {
+    background-color: var(--outline-button--primary-bg-color-focus--computed);
+    color: var(--outline-button--primary-color-focus--computed);
+    font-weight: var(--outline-button--primary-weight-focus--computed);
+    box-shadow: var(--outline-button--primary-ring-focus--computed);
+  }
+}
+
+.btn.primary[aria-disabled='true'] {
+  background-color: var(--outline-button--primary-disabled-bg-color--computed);
+  color: var(--outline-button--primary-disabled-color--computed);
+  font-weight: var(--outline-button--primary-disabled-weight--computed);
+  box-shadow: var(--outline-button--primary-disabled-ring--computed);
+
+  &:focus {
+    background-color: var(
+      --outline-button--primary-disabled-bg-color-focus--computed
+    );
+    color: var(--outline-button--primary-disabled-color-focus--computed);
+    font-weight: var(--outline-button--primary-disabled-weight-focus--computed);
+    box-shadow: var(--outline-button--primary-disabled-ring-focus--computed);
+  }
+}
+
+.btn.secondary {
+  padding: var(--outline-button--secondary-padding--computed);
+  border-radius: var(--outline-button--secondary-radius--computed);
+
+  background-color: var(--outline-button--secondary-bg-color--computed);
+  color: var(--outline-button--secondary-color--computed);
+  font-weight: var(--outline-button--secondary-weight--computed);
+  box-shadow: var(--outline-button--secondary-ring--computed);
+
+  &:hover {
+    background-color: var(--outline-button--secondary-bg-color-hover--computed);
+    color: var(--outline-button--secondary-color-hover--computed);
+    font-weight: var(--outline-button--secondary-weight-hover--computed);
+    box-shadow: var(--outline-button--secondary-ring-hover--computed);
+  }
+
+  &:focus {
+    background-color: var(--outline-button--secondary-bg-color-focus--computed);
+    color: var(--outline-button--secondary-color-focus--computed);
+    font-weight: var(--outline-button--secondary-weight-focus--computed);
+    box-shadow: var(--outline-button--secondary-ring-focus--computed);
+  }
+}
+
+.btn.secondary[aria-disabled='true'] {
+  background-color: var(
+    --outline-button--secondary-disabled-bg-color--computed
+  );
+  color: var(--outline-button--secondary-disabled-color--computed);
+  font-weight: var(--outline-button--secondary-disabled-weight--computed);
+  box-shadow: var(--outline-button--secondary-disabled-ring--computed);
+
+  &:focus {
+    background-color: var(
+      --outline-button--secondary-disabled-bg-color-focus--computed
+    );
+    color: var(--outline-button--secondary-disabled-color-focus--computed);
+    font-weight: var(
+      --outline-button--secondary-disabled-weight-focus--computed
+    );
+    box-shadow: var(--outline-button--secondary-disabled-ring-focus--computed);
+  }
+}
+
+.btn.tertiary {
+  padding: var(--outline-button--tertiary-padding--computed);
+  border-radius: var(--outline-button--tertiary-radius--computed);
+
+  background-color: var(--outline-button--tertiary-bg-color--computed);
+  color: var(--outline-button--tertiary-color--computed);
+  font-weight: var(--outline-button--tertiary-weight-default--computed);
+  box-shadow: var(--outline-button--tertiary-ring-default--computed);
+
+  &:hover {
+    background-color: var(--outline-button--tertiary-bg-color-hover--computed);
+    color: var(--outline-button--tertiary-color-hover--computed);
+    font-weight: var(--outline-button--tertiary-weight-hover--computed);
+    box-shadow: var(--outline-button--tertiary-ring-hover--computed);
+  }
+
+  &:focus {
+    background-color: var(--outline-button--tertiary-bg-color-focus--computed);
+    color: var(--outline-button--tertiary-color-focus--computed);
+    font-weight: var(--outline-button--tertiary-weight-focus--computed);
+    box-shadow: var(--outline-button--tertiary-ring-focus--computed);
+  }
+}
+
+.btn.tertiary[aria-disabled='true'] {
+  background-color: var(--outline-button--tertiary-disabled-bg-color--computed);
+  color: var(--outline-button--tertiary-disabled-color--computed);
+  font-weight: var(--outline-button--tertiary-disabled-weight--computed);
+  box-shadow: var(--outline-button--tertiary-disabled-ring--computed);
+
+  &:focus {
+    background-color: var(
+      --outline-button--tertiary-disabled-bg-color-focus--computed
+    );
+    color: var(--outline-button--tertiary-disabled-color-focus--computed);
+    font-weight: var(
+      --outline-button--tertiary-disabled-weight-focus--computed
+    );
+    box-shadow: var(--outline-button--tertiary-disabled-ring-focus--computed);
+  }
+}
+
+.btn.link {
+  padding: var(--outline-button--link-padding--computed);
+  border-radius: var(--outline-button--link-radius--computed);
+
+  background-color: var(--outline-button--link-bg-color--computed);
+  color: var(--outline-button--link-color--computed);
+  font-weight: var(--outline-button--link-weight--computed);
+  text-decoration: var(--outline-button--link-decoration--computed);
+  box-shadow: var(--outline-button--link-ring--computed);
+
+  &:hover {
+    background-color: var(--outline-button--link-bg-color-hover--computed);
+    color: var(--outline-button--link-color-hover--computed);
+    font-weight: var(--outline-button--link-weight-hover--computed);
+    text-decoration: var(--outline-button--link-decoration-hover--computed);
+    box-shadow: var(--outline-button--link-ring-hover--computed);
+  }
+
+  &:focus {
+    background-color: var(--outline-button--link-bg-color-focus--computed);
+    color: var(--outline-button--link-color-focus--computed);
+    font-weight: var(--outline-button--link-weight-focus--computed);
+    text-decoration: var(--outline-button--link-decoration-focus--computed);
+    box-shadow: var(--outline-button--link-ring-focus--computed);
+  }
+}
+
+.btn.link[aria-disabled='true'] {
+  background-color: var(--outline-button--link-disabled-bg-color--computed);
+  color: var(--outline-button--link-disabled-color--computed);
+  font-weight: var(--outline-button--link-disabled-weight--computed);
+  text-decoration: var(--outline-button--link-disabled-decoration--computed);
+  box-shadow: var(--outline-button--link-disabled-ring--computed);
+
+  &:focus {
+    background-color: var(
+      --outline-button--link-disabled-bg-color-focus--computed
+    );
+    color: var(--outline-button--link-disabled-color-focus--computed);
+    font-weight: var(--outline-button--link-disabled-weight-focus--computed);
+    text-decoration: var(
+      --outline-button--link-disabled-decoration-focus--computed
+    );
+    box-shadow: var(--outline-button--link-disabled-ring-focus--computed);
+  }
+}
+
+:host(.icon__button) {
+  .btn.primary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .btn.secondary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .btn.tertiary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .btn.link {
+    border: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Button Sizing */
+.btn.small {
+  font-size: var(--fs-sm);
+  line-height: var(--lh-sm);
+}
+
+.btn.medium {
+  font-size: var(--fs-base);
+  line-height: var(--lh-base);
+}
+
+.btn.large {
+  font-size: var(--fs-lg);
+  line-height: var(--lh-lg);
+}

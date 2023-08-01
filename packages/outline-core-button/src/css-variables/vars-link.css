@@ -1,0 +1,84 @@
+/*
+Default CSS Variables for the `outline-button` link variant.
+You can override these using `outline.theme.css`,
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default
+`outline-button` styling can be found in
+`outline-button.ts` delcared with the `@cssprop` annotations.
+*/
+
+/*
+--outline-button--link-padding
+--outline-button--link-radius
+--outline-button--link-bg-color
+--outline-button--link-text-color
+--outline-button--link-decoration
+--outline-button--link-weight
+--outline-button--link-ring
+
+--outline-button--link-bg-color-hover
+--outline-button--link-text-color-hover
+--outline-button--link-decoration-hover
+--outline-button--link-weight-hover
+--outline-button--link-ring-hover
+
+--outline-button--link-bg-color-focus
+--outline-button--link-text-color-focus
+--outline-button--link-decoration-focus
+--outline-button--link-weight-focus
+--outline-button--link-ring-focus
+
+--outline-button--link-disabled-bg-color
+--outline-button--link-disabled-text-color
+--outline-button--link-disabled-decoration
+--outline-button--link-disabled-weight
+--outline-button--link-disabled-ring
+--outline-button--link-disabled-bg-color-focus
+--outline-button--link-disabled-text-color-focus
+--outline-button--link-disabled-decoration-focus
+--outline-button--link-disabled-weight-focus
+--outline-button--link-disabled-ring-focus
+*/
+
+:host {
+
+  /* Link Button(s) */
+  --outline-button--link-padding--computed: var(--outline-button--link-padding, var(--outline-button--padding--computed));
+  --outline-button--link-radius--computed: var(--outline-button--link-radius, var(--outline-button--radius--computed));
+
+  /* Link Button(s) - Default */
+  --outline-button--link-bg-color--computed: var(--outline-button--link-bg-color, var(--outline-transparent));
+  --outline-button--link-color--computed: var(--outline-button--link-color, var(--outline-link--color--computed));
+  --outline-button--link-decoration--computed: var(--outline-button--link-decoration,  var(--outline-link--decoration--computed));
+  --outline-button--link-weight--computed: var(--outline-button--link-weight, var(--outline-button--weight--computed));
+  --outline-button--link-ring--computed: var(--outline-button--link-ring, none);
+
+  /* Link Button(s) - Hover */
+  --outline-button--link-bg-color-hover--computed: var(--outline-button--link-bg-color-hover, var(--outline-transparent));
+  --outline-button--link-color-hover--computed: var(--outline-button--link-color-hover, var(--outline-link--color-hover--computed));
+  --outline-button--link-decoration-hover--computed: var(--outline-button--link-decoration-hover, underline);
+  --outline-button--link-weight-hover--computed: var(--outline-button--link-weight-hover, var(--outline-button--weight--computed));
+  --outline-button--link-ring-hover--computed: var(--outline-button--link-ring-hover, none);
+
+  /* Link Button(s) - Focus */
+  --outline-button--link-bg-color-focus--computed: var(--outline-button--link-bg-color-focus, var(--outline-transparent));
+  --outline-button--link-color-focus--computed: var(--outline-button--link-color-focus, var(--outline-link--color-focus--computed));
+  --outline-button--link-decoration-focus--computed: var(--outline-button--link-decoration-focus, underline);
+  --outline-button--link-weight-focus--computed: var(--outline-button--link-weight-focus, var(--outline-button--weight--computed));
+  --outline-button--link-ring-focus--computed: var(--outline-button--link-ring-focus, none);
+
+  /* Link Button(s) - Disabled */
+  --outline-button--link-disabled-bg-color--computed: var(--outline-button--link-disabled-bg-color, var(--outline-transparent));
+  --outline-button--link-disabled-color--computed: var(--outline-button--link-disabled-color, var(--outline-gray-500));
+  --outline-button--link-disabled-decoration--computed: var(--outline-button--link-disabled-decoration, none);
+  --outline-button--link-disabled-weight--computed: var(--outline-button--link-disabled-weight, var(--outline-button--weight--computed));
+  --outline-button--link-disabled-ring--computed: var(--outline-button--link-disabled-ring, none);
+
+  /* Link Button(s) - Disabled:Focus */
+  --outline-button--link-disabled-bg-color-focus--computed: var(--outline-button--link-disabled-bg-color-focus, var(--outline-transparent));
+  --outline-button--link-disabled-color-focus--computed: var(--outline-button--link-disabled-color-focus, var(--outline-gray-500));
+  --outline-button--link-disabled-decoration-focus--computed: var(--outline-button--link-disabled-decoration-focus, none);
+  --outline-button--link-disabled-weight-focus--computed: var(--outline-button--link-disabled-weight-focus, var(--outline-button--weight--computed));
+  --outline-button--link-disabled-ring-focus--computed: var(--outline-button--link-disabled-ring-focus, var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-500));
+}
