@@ -163,11 +163,10 @@ export class OutlineCoreLink extends OutlineElement {
    * @returns HTMLSlotElement
    */
   fullMarkupInSlot(): TemplateResult {
-    const debug = false;
-    if (!this.isValidTopLevelSlottedLink()) {
-      if (debug) this.debugSlottedContent();
-    } else {
+    if (this.isValidTopLevelSlottedLink()) {
       this.adjustSlottedContent();
+    } else {
+      this.debugSlottedContent();
     }
     return html`
       <slot></slot>
