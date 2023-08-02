@@ -147,7 +147,7 @@ export class OutlineCoreLink extends OutlineElement {
    * and adjust the target and rel attributes if they are set on the outline-core-link element.
    */
   adjustSlottedContent(): void {
-    const slottedLink: HTMLAnchorElement | null = this.querySelector('a');
+    const slottedLink = this.querySelector('a') as HTMLAnchorElement | null;
     if (this.linkTarget) {
       slottedLink?.setAttribute('target', this.linkTarget);
     }
