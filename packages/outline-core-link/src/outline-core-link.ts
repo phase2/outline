@@ -1,5 +1,5 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import { customElement, property, state } from 'lit/decorators.js';
+import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Our base component, which all others extend.
@@ -31,11 +31,6 @@ const componentName = 'outline-core-link';
 @customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
-
-  /**
-   * If the link is slotted, we'll test, modify & render the slotted link instead of the linkHref and linkText properties.
-   */
-  @state() isSlottedLink = false;
 
   /**
    * Link url
@@ -183,7 +178,6 @@ export class OutlineCoreLink extends OutlineElement {
     if (this.linkHref) {
       return this.generateLink();
     } else {
-      this.isSlottedLink = true;
       return this.fullMarkupInSlot();
     }
   }
