@@ -1,5 +1,11 @@
 # @phase2/outline-storybook
 
+## 0.0.38
+
+### Patch Changes
+
+- Update `outline-core-link` to accomodate slotted links.
+
 ## 0.0.37
 
 ### Patch Changes

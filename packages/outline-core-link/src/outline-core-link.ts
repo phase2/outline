@@ -1,5 +1,5 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
-import { customElement, property, query, state } from 'lit/decorators.js';
+import { customElement, property, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Our base component, which all others extend.
@@ -107,6 +107,7 @@ export class OutlineCoreLink extends OutlineElement {
 
   /**
    * Get all elements in the default slot.
+   * @todo - Move method to a controller.
    *
    * @returns NodeList of all elements in the default slot.
    */
@@ -114,6 +115,12 @@ export class OutlineCoreLink extends OutlineElement {
     return this.querySelectorAll('*');
   }
 
+  /**
+   * Check to see if the element is slotted properly.
+   * @todo - Move method to a controller.
+   *
+   * @returns boolean
+   */
   isValidTopLevelSlottedLink(): boolean {
     const slot: NodeList = this.getSlottedContent();
     if (slot.length === 1 && slot[0].nodeName === 'A') {
@@ -125,6 +132,8 @@ export class OutlineCoreLink extends OutlineElement {
   /**
    * If the element is not slotted properly, log an error to the console.
    * @todo - Enable a global debug mode in outline.config.js that will determine if the console.group is logged in this and other component level debugging code.
+   * @todo - Implement a controller to handle debugging Outline components.
+   *
    * @returns void
    */
   debugSlottedContent(): void {
@@ -136,6 +145,12 @@ export class OutlineCoreLink extends OutlineElement {
     console.groupEnd();
   }
 
+  /**
+   * Adjust attributes on a slotted link.
+   *
+   * When the link is slotted, we'll test, modify & render the slotted link,
+   * and adjust the target and rel attributes if they are set on the outline-core-link element.
+   */
   adjustSlottedContent(): void {
     const slottedLink: HTMLAnchorElement | null = this.querySelector('a');
     if (this.linkTarget) {
@@ -153,7 +168,7 @@ export class OutlineCoreLink extends OutlineElement {
    * @returns HTMLSlotElement
    */
   fullMarkupInSlot(): TemplateResult {
-    const debug = true;
+    const debug = false;
     if (!this.isValidTopLevelSlottedLink()) {
       if (debug) this.debugSlottedContent();
     } else {
