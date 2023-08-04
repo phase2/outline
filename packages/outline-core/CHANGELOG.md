@@ -1,5 +1,11 @@
 # @phase2/outline-core
 
+## 0.2.0
+
+### Minor Changes
+
+- Updated lightDomStyles functionality for components
+
 ## 0.1.12
 
 ### Patch Changes
