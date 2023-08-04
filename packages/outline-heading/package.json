@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-heading",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "The Outline Components for the web heading component",
   "keywords": [
     "outline components",
@@ -27,7 +27,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.1.9",
+    "@phase2/outline-core": "^0.2.0",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },

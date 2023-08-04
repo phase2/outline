@@ -1,5 +1,16 @@
 # @phase2/outline-form
 
+## 0.1.0
+
+### Minor Changes
+
+- Updated lightDomStyles functionality for components
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-core@0.2.0
+
 ## 0.0.8
 
 ### Patch Changes
