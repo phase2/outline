@@ -1,5 +1,11 @@
 # @phase2/outline-docs
 
+## 0.0.14
+
+### Patch Changes
+
+- Attempted update to docs.
+
 ## 0.0.13
 
 ### Patch Changes

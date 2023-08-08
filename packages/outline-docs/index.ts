@@ -1,6 +1,6 @@
-import path from 'path';
+const path = require('path');
 
-export const outlineStories = [
+exports.outlineStories = [
   // Intentionally ordering welcome page first.
   path.join(__dirname, 'src/guides/welcome.mdx'),
   // Component development guides.
