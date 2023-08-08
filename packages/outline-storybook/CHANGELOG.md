@@ -1,5 +1,41 @@
 # @phase2/outline-storybook
 
+## 0.0.42
+
+### Patch Changes
+
+- Updates to setup and defaults
+
+## 0.0.41
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-docs@0.0.14
+
+## 0.0.40
+
+### Patch Changes
+
+- Updated dependencies [c889a22]
+  - @phase2/outline-docs@0.0.13
+
+## 0.0.39
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-core@0.2.0
+  - @phase2/outline-alert@0.1.7
+  - @phase2/outline-code-block@0.1.3
+  - @phase2/outline-docs@0.0.12
+
+## 0.0.38
+
+### Patch Changes
+
+- Update `outline-core-link` to accomodate slotted links.
+
 ## 0.0.37
 
 ### Patch Changes
