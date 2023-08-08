@@ -132,7 +132,7 @@ const Template = ({
 
 export const Link: any = Template.bind({});
 Link.args = {
-  defaultSlot: 'Link Button',
+  defaultSlot: html`<button>Not a link button</button>`,
   url: 'https://outline.phase2tech.com',
   target: '_blank',
   variant: 'primary',
