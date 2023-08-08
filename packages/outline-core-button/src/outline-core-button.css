@@ -54,39 +54,38 @@
     box-shadow: var(--outline-button--primary-ring--computed);
   }
 
-    ::slotted(button:hover) {
-      background-color: var(--outline-button--primary-bg-color-hover--computed);
-      color: var(--outline-button--primary-color-hover--computed);
-      font-weight: var(--outline-button--primary-weight-hover--computed);
-      box-shadow: var(--outline-button--primary-ring-hover--computed);
-    }
+  ::slotted(button:hover) {
+    background-color: var(--outline-button--primary-bg-color-hover--computed);
+    color: var(--outline-button--primary-color-hover--computed);
+    font-weight: var(--outline-button--primary-weight-hover--computed);
+    box-shadow: var(--outline-button--primary-ring-hover--computed);
+  }
 
-
-    ::slotted(button:focus) {
-      background-color: var(--outline-button--primary-bg-color-focus--computed);
-      color: var(--outline-button--primary-color-focus--computed);
-      font-weight: var(--outline-button--primary-weight-focus--computed);
-      box-shadow: var(--outline-button--primary-ring-focus--computed);
-    }
-
+  ::slotted(button:focus) {
+    background-color: var(--outline-button--primary-bg-color-focus--computed);
+    color: var(--outline-button--primary-color-focus--computed);
+    font-weight: var(--outline-button--primary-weight-focus--computed);
+    box-shadow: var(--outline-button--primary-ring-focus--computed);
+  }
 }
 
 .btn.primary[aria-disabled='true'] {
   ::slotted(button) {
-    background-color: var(--outline-button--primary-disabled-bg-color--computed);
+    background-color: var(
+      --outline-button--primary-disabled-bg-color--computed
+    );
     color: var(--outline-button--primary-disabled-color--computed);
     font-weight: var(--outline-button--primary-disabled-weight--computed);
     box-shadow: var(--outline-button--primary-disabled-ring--computed);
   }
 
-    ::slotted(button:focus) {
-      background-color: var(
-        --outline-button--primary-disabled-bg-color-focus--computed
-      );
-      color: var(--outline-button--primary-disabled-color-focus--computed);
-      font-weight: var(--outline-button--primary-disabled-weight-focus--computed);
-      box-shadow: var(--outline-button--primary-disabled-ring-focus--computed);
-
+  ::slotted(button:focus) {
+    background-color: var(
+      --outline-button--primary-disabled-bg-color-focus--computed
+    );
+    color: var(--outline-button--primary-disabled-color-focus--computed);
+    font-weight: var(--outline-button--primary-disabled-weight-focus--computed);
+    box-shadow: var(--outline-button--primary-disabled-ring-focus--computed);
   }
 }
 
@@ -101,21 +100,19 @@
     box-shadow: var(--outline-button--secondary-ring--computed);
   }
 
-    ::slotted(button:hover) {
-      background-color: var(--outline-button--secondary-bg-color-hover--computed);
-      color: var(--outline-button--secondary-color-hover--computed);
-      font-weight: var(--outline-button--secondary-weight-hover--computed);
-      box-shadow: var(--outline-button--secondary-ring-hover--computed);
-
+  ::slotted(button:hover) {
+    background-color: var(--outline-button--secondary-bg-color-hover--computed);
+    color: var(--outline-button--secondary-color-hover--computed);
+    font-weight: var(--outline-button--secondary-weight-hover--computed);
+    box-shadow: var(--outline-button--secondary-ring-hover--computed);
   }
 
-    ::slotted(button:focus) {
-      background-color: var(--outline-button--secondary-bg-color-focus--computed);
-      color: var(--outline-button--secondary-color-focus--computed);
-      font-weight: var(--outline-button--secondary-weight-focus--computed);
-      box-shadow: var(--outline-button--secondary-ring-focus--computed);
-    }
-
+  ::slotted(button:focus) {
+    background-color: var(--outline-button--secondary-bg-color-focus--computed);
+    color: var(--outline-button--secondary-color-focus--computed);
+    font-weight: var(--outline-button--secondary-weight-focus--computed);
+    box-shadow: var(--outline-button--secondary-ring-focus--computed);
+  }
 }
 
 .btn.secondary[aria-disabled='true'] {
@@ -128,17 +125,16 @@
     box-shadow: var(--outline-button--secondary-disabled-ring--computed);
   }
 
-    ::slotted(button:focus) {
-      background-color: var(
-        --outline-button--secondary-disabled-bg-color-focus--computed
-      );
-      color: var(--outline-button--secondary-disabled-color-focus--computed);
-      font-weight: var(
-        --outline-button--secondary-disabled-weight-focus--computed
-      );
-      box-shadow: var(--outline-button--secondary-disabled-ring-focus--computed);
-    }
-
+  ::slotted(button:focus) {
+    background-color: var(
+      --outline-button--secondary-disabled-bg-color-focus--computed
+    );
+    color: var(--outline-button--secondary-disabled-color-focus--computed);
+    font-weight: var(
+      --outline-button--secondary-disabled-weight-focus--computed
+    );
+    box-shadow: var(--outline-button--secondary-disabled-ring-focus--computed);
+  }
 }
 
 .btn.tertiary {
@@ -152,41 +148,40 @@
     box-shadow: var(--outline-button--tertiary-ring-default--computed);
   }
 
-    ::slotted(button:hover) {
-      background-color: var(--outline-button--tertiary-bg-color-hover--computed);
-      color: var(--outline-button--tertiary-color-hover--computed);
-      font-weight: var(--outline-button--tertiary-weight-hover--computed);
-      box-shadow: var(--outline-button--tertiary-ring-hover--computed);
-
+  ::slotted(button:hover) {
+    background-color: var(--outline-button--tertiary-bg-color-hover--computed);
+    color: var(--outline-button--tertiary-color-hover--computed);
+    font-weight: var(--outline-button--tertiary-weight-hover--computed);
+    box-shadow: var(--outline-button--tertiary-ring-hover--computed);
   }
 
-    ::slotted(button:focus) {
-      background-color: var(--outline-button--tertiary-bg-color-focus--computed);
-      color: var(--outline-button--tertiary-color-focus--computed);
-      font-weight: var(--outline-button--tertiary-weight-focus--computed);
-      box-shadow: var(--outline-button--tertiary-ring-focus--computed);
-
+  ::slotted(button:focus) {
+    background-color: var(--outline-button--tertiary-bg-color-focus--computed);
+    color: var(--outline-button--tertiary-color-focus--computed);
+    font-weight: var(--outline-button--tertiary-weight-focus--computed);
+    box-shadow: var(--outline-button--tertiary-ring-focus--computed);
   }
 }
 
 .btn.tertiary[aria-disabled='true'] {
   ::slotted(button) {
-    background-color: var(--outline-button--tertiary-disabled-bg-color--computed);
+    background-color: var(
+      --outline-button--tertiary-disabled-bg-color--computed
+    );
     color: var(--outline-button--tertiary-disabled-color--computed);
     font-weight: var(--outline-button--tertiary-disabled-weight--computed);
     box-shadow: var(--outline-button--tertiary-disabled-ring--computed);
   }
 
-    ::slotted(button:focus) {
-      background-color: var(
-        --outline-button--tertiary-disabled-bg-color-focus--computed
-      );
-      color: var(--outline-button--tertiary-disabled-color-focus--computed);
-      font-weight: var(
-        --outline-button--tertiary-disabled-weight-focus--computed
-      );
-      box-shadow: var(--outline-button--tertiary-disabled-ring-focus--computed);
-
+  ::slotted(button:focus) {
+    background-color: var(
+      --outline-button--tertiary-disabled-bg-color-focus--computed
+    );
+    color: var(--outline-button--tertiary-disabled-color-focus--computed);
+    font-weight: var(
+      --outline-button--tertiary-disabled-weight-focus--computed
+    );
+    box-shadow: var(--outline-button--tertiary-disabled-ring-focus--computed);
   }
 }
 
@@ -202,23 +197,21 @@
     box-shadow: var(--outline-button--link-ring--computed);
   }
 
-    ::slotted(button:hover) {
-      background-color: var(--outline-button--link-bg-color-hover--computed);
-      color: var(--outline-button--link-color-hover--computed);
-      font-weight: var(--outline-button--link-weight-hover--computed);
-      text-decoration: var(--outline-button--link-decoration-hover--computed);
-      box-shadow: var(--outline-button--link-ring-hover--computed);
-
+  ::slotted(button:hover) {
+    background-color: var(--outline-button--link-bg-color-hover--computed);
+    color: var(--outline-button--link-color-hover--computed);
+    font-weight: var(--outline-button--link-weight-hover--computed);
+    text-decoration: var(--outline-button--link-decoration-hover--computed);
+    box-shadow: var(--outline-button--link-ring-hover--computed);
   }
 
-    ::slotted(button:focus) {
-      background-color: var(--outline-button--link-bg-color-focus--computed);
-      color: var(--outline-button--link-color-focus--computed);
-      font-weight: var(--outline-button--link-weight-focus--computed);
-      text-decoration: var(--outline-button--link-decoration-focus--computed);
-      box-shadow: var(--outline-button--link-ring-focus--computed);
-    }
-
+  ::slotted(button:focus) {
+    background-color: var(--outline-button--link-bg-color-focus--computed);
+    color: var(--outline-button--link-color-focus--computed);
+    font-weight: var(--outline-button--link-weight-focus--computed);
+    text-decoration: var(--outline-button--link-decoration-focus--computed);
+    box-shadow: var(--outline-button--link-ring-focus--computed);
+  }
 }
 
 .btn.link[aria-disabled='true'] {
@@ -230,17 +223,16 @@
     box-shadow: var(--outline-button--link-disabled-ring--computed);
   }
 
-    ::slotted(button:focus) {
-      background-color: var(
-        --outline-button--link-disabled-bg-color-focus--computed
-      );
-      color: var(--outline-button--link-disabled-color-focus--computed);
-      font-weight: var(--outline-button--link-disabled-weight-focus--computed);
-      text-decoration: var(
-        --outline-button--link-disabled-decoration-focus--computed
-      );
-      box-shadow: var(--outline-button--link-disabled-ring-focus--computed);
-
+  ::slotted(button:focus) {
+    background-color: var(
+      --outline-button--link-disabled-bg-color-focus--computed
+    );
+    color: var(--outline-button--link-disabled-color-focus--computed);
+    font-weight: var(--outline-button--link-disabled-weight-focus--computed);
+    text-decoration: var(
+      --outline-button--link-disabled-decoration-focus--computed
+    );
+    box-shadow: var(--outline-button--link-disabled-ring-focus--computed);
   }
 }
 

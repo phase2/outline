@@ -77,12 +77,13 @@ export class OutlineCoreButton extends OutlineElement {
    * @todo This should utilize `outline-core-link` component.
    */
   render(): TemplateResult {
-    return html
-    `<div class="btn ${this.buttonVariant} ${this.buttonSize}">
+    return html`
+      <div class="btn ${this.buttonVariant} ${this.buttonSize}">
         ${this.iconTemplate('left')}
         <slot></slot>
         ${this.iconTemplate('right')}
-    </div>`;
+      </div>
+    `;
   }
 
   /**
@@ -98,7 +99,7 @@ export class OutlineCoreButton extends OutlineElement {
   }
 
   updated() {
-    // TODO: Debug slot controller application. 
+    // TODO: Debug slot controller application.
     // checks the is-disabled prop and manages aria-disabled attributes on the <outline-core-button> element itself.
     if (this.hasAttribute('is-disabled')) {
       this.setAttribute('aria-disabled', 'true');
