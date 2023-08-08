@@ -1,5 +1,12 @@
 # @phase2/outline-cli
 
+## 0.0.49
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-storybook@0.0.45
+
 ## 0.0.48
 
 ### Patch Changes
