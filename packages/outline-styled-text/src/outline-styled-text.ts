@@ -12,7 +12,7 @@ import componentStyles from './outline-styled-text.css.lit';
  */
 @customElement('outline-styled-text')
 export class OutlineStyledText extends OutlineElement {
-  static styles: CSSResultGroup = [OutlineElement.styles, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
   slots = new SlotsController(this);
 
   render(): TemplateResult {

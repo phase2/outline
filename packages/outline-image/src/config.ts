@@ -3,7 +3,7 @@
  * This file should contain various sample data and shared functions.
  */
 import { html, TemplateResult } from 'lit';
-import { aspectRatios } from './outline-image';
+import { aspectRatios } from '@phase2/outline-image';
 
 export const argImageRatioProperty = (
   attributeName: string,
