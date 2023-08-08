@@ -24,7 +24,7 @@
   },
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../scripts/build.js && cp -r src dist",
+    "build": "node ../../scripts/build.js",
     "package": "yarn publish"
   },
   "dependencies": {
@@ -33,5 +33,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
   }
 }
