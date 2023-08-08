@@ -8,6 +8,5 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "es5",
-  "useTabs": false,
-  "embeddedLanguageFormatting": "off"
+  "useTabs": false
 }
