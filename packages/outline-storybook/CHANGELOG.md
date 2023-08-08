@@ -1,5 +1,13 @@
 # @phase2/outline-storybook
 
+## 0.0.46
+
+### Patch Changes
+
+- Fixes to CSS tools.
+- Updated dependencies
+  - @phase2/outline-core@0.2.1
+
 ## 0.0.45
 
 ### Patch Changes

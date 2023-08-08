@@ -75,7 +75,7 @@
     "node": ">=16"
   },
   "devDependencies": {
-    "@adobe/css-tools": "^4.3.0-beta.2",
+    "@adobe/css-tools": "^4.3.0",
     "@babel/core": "^7.18.13",
     "@changesets/cli": "^2.24.3",
     "@commitlint/cli": "^17.4.0",

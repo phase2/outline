@@ -1,5 +1,11 @@
 # @phase2/outline-core
 
+## 0.2.1
+
+### Patch Changes
+
+- Fixes to CSS tools.
+
 ## 0.2.0
 
 ### Minor Changes

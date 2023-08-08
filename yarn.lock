@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@adobe/css-tools@^4.3.0-beta.2":
-  version "4.3.0-rc.1"
-  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.3.0-rc.1.tgz#20885a8bfe608512a9a191267b1df0017745e3fe"
-  integrity sha512-9QU7yHfQvQ++yc2zQlpu2eUcYgl7lIcAWPqLQ7X3mbKGK4ivMMuKQLRPQoKdbAdluDltb8Q49jGAVYcfsND0yA==
+"@adobe/css-tools@^4.3.0":
+  version "4.3.0"
+  resolved "https://registry.yarnpkg.com/@adobe/css-tools/-/css-tools-4.3.0.tgz#1991d273fb29edbd2f63060f5bdaf0af26aa64e3"
+  integrity sha512-+RNNcQvw2V1bmnBTPAtOLfW/9mhH2vC67+rUSi5T8EtEWt6lEnGNY2GuhZ1/YwbgikT1TkhvidCDmN5Q5YCo/w==
 
 "@ampproject/remapping@^2.1.0":
   version "2.2.0"
@@ -3773,7 +3773,7 @@
     prop-types "^15.7.2"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-mdx-gfm@^7.0.12", "@storybook/addon-mdx-gfm@^7.0.14":
+"@storybook/addon-mdx-gfm@^7.0.12":
   version "7.0.14"
   resolved "https://registry.yarnpkg.com/@storybook/addon-mdx-gfm/-/addon-mdx-gfm-7.0.14.tgz#0e96afc0dfe22180b48807bf3784f68042667074"
   integrity sha512-KDwqSIe7oLcyL2JzPqrmmEY0w+oMlSmS1+jR5QqDrYkVIisZI8p+j6XhGS/sle5P6VUZQJGdxSp86q+LyAks5w==
