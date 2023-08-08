@@ -141,7 +141,7 @@ Link.args = {
 
 const PrimaryButtonsTemplate = (): TemplateResult =>
   html`
-  <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
+  <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>
   <div class="my-6">
     <outline-core-button class="mr-2 mb-4" button-url="#" button-size="large" button-label="Large Link">Large Link</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-url="#" button-label="Link">Link</outline-core-button>
@@ -150,8 +150,8 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-label="Button">Button</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-size="large" button-label="Large Button">Large Button</outline-core-button>
   </div>
-  
-  <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>  
+
+  <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>
   <div class="my-6">
     <outline-core-button class="mr-2 mb-4" button-url="#" button-size="large" button-label="Large Link" is-disabled>Large Link</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-url="#" button-label="Link" is-disabled>Link</outline-core-button>
@@ -161,7 +161,7 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-core-button>
   </div>
 
-  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>  
+  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>
   <div class="my-6">
     <outline-core-button class="mr-2 mb-4" button-url="#" button-size="large" button-label="Large Link">
       Large Link
@@ -174,7 +174,7 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-url="#" button-size="small" button-label="Small Link">
       Small Link
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
-    </outline-core-button>  
+    </outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-size="small" button-label="Small Button">
       Small Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
@@ -182,7 +182,7 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-label="Button">
       Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
-    </outline-core-button>  
+    </outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-size="large" button-label="Large Button">
       Large Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
@@ -196,7 +196,7 @@ PrimaryButtons.parameters = {
     description: {
       story: `
 ## The \`primary\` variant.
-  
+
 This is the primary button style variant. It is used for buttons that behave like a button, but look like a link, but is a button. Or a link.
 `,
     },
@@ -205,7 +205,7 @@ This is the primary button style variant. It is used for buttons that behave lik
 
 const SecondaryButtonsTemplate = (): TemplateResult =>
   html`
-<outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
+<outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>
 <div class="my-6">
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="large" button-label="Large Link">Large Link</outline-core-button>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-label="Link">Link</outline-core-button>
@@ -214,7 +214,7 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-label="Button">Button</outline-core-button>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="large" button-label="Large Button">Large Button</outline-core-button>
 </div>
-<outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>  
+<outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>
 <div class="my-6">
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="large" button-label="Large Link" is-disabled>Large Link</outline-core-button>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-label="Link" is-disabled>Link</outline-core-button>
@@ -223,7 +223,7 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-label="Button" is-disabled>Button</outline-core-button>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-core-button>
 </div>
-<outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>    
+<outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>
 <div class="my-6">
 <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="large" button-label="Large Link">
     Large Link
@@ -236,7 +236,7 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="small" button-label="Small Link">
     Small Link
     <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
-  </outline-core-button> 
+  </outline-core-button>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="small" button-label="Small Button">
     Small Button
     <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
@@ -244,7 +244,7 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-label="Button">
     Button
     <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
-  </outline-core-button>  
+  </outline-core-button>
   <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="large" button-label="Large Button">
     Large Button
     <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
@@ -258,7 +258,7 @@ SecondaryButtons.parameters = {
     description: {
       story: `
 ## The \`secondary\` variant.
-  
+
 This is the secondary button style variant. It is used for buttons that behave like a button, but look like a link, but is a button. Or a link.
 `,
     },
@@ -267,7 +267,7 @@ This is the secondary button style variant. It is used for buttons that behave l
 
 const TertiaryButtonsTemplate = (): TemplateResult =>
   html`
-  <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
+  <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>
   <div class="my-6">
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Link">Large Link</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-label="Link">Link</outline-core-button>
@@ -276,8 +276,8 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-label="Button">Button</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="large" button-label="Large Button">Large Button</outline-core-button>
   </div>
-  
-  <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>    
+
+  <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>
   <div class="my-6">
   <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Link" is-disabled>Large Link</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-label="Link" is-disabled>Link</outline-core-button>
@@ -287,7 +287,7 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-core-button>
   </div>
 
-  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>    
+  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>
   <div class="my-6">
   <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Link">
       Large Link
@@ -300,7 +300,7 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Link">
       Small Link
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
-    </outline-core-button>  
+    </outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="small" button-label="Small Button">
       Small Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
@@ -308,7 +308,7 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-label="Button">
       Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
-    </outline-core-button>  
+    </outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="large" button-label="Large Button">
       Large Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
@@ -322,7 +322,7 @@ TertiaryButtons.parameters = {
     description: {
       story: `
 ## The \`tertiary\` variant.
-  
+
 This is the tertiary button style variant. It is used for buttons that behave like a button, but look like a link, but is a button. Or a link.
 `,
     },
@@ -330,8 +330,8 @@ This is the tertiary button style variant. It is used for buttons that behave li
 };
 
 const LinkButtonsTemplate = (): TemplateResult =>
-  html`  
-  <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>  
+  html`
+  <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>
   <div class="my-6">
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-url="#" button-size="large" button-label="Large Link">Large Link</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-url="#" button-label="Link">Link</outline-core-button>
@@ -340,8 +340,8 @@ const LinkButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-label="Button">Button</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-size="large" button-label="Large Button">Large Button</outline-core-button>
   </div>
-  
-  <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>    
+
+  <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>
   <div class="my-6">
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-url="#" button-size="large" button-label="Large Link" is-disabled>Large Link</outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-url="#" button-label="Link" is-disabled>Link</outline-core-button>
@@ -351,7 +351,7 @@ const LinkButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-size="large" button-label="Large Button" is-disabled>Large Button</outline-core-button>
   </div>
 
-  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>    
+  <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>
   <div class="my-6">
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-url="#" button-size="large" button-label="Large Link">
       Large Link
@@ -364,7 +364,7 @@ const LinkButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-url="#" button-size="small" button-label="Small Link">
       Small Link
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
-    </outline-core-button>  
+    </outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-size="small" button-label="Small Button">
       Small Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
@@ -372,7 +372,7 @@ const LinkButtonsTemplate = (): TemplateResult =>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-label="Button">
       Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
-    </outline-core-button>  
+    </outline-core-button>
     <outline-core-button class="mr-2 mb-4" button-variant="link" button-size="large" button-label="Large Button">
       Large Button
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
@@ -386,7 +386,7 @@ LinkButtons.parameters = {
     description: {
       story: `
 ## The \`link\` variant.
-  
+
 This is the link button style variant. It is used for buttons that behave like a button, but look like a link, but is a button. Or a link.
 `,
     },
