@@ -1,4 +1,3 @@
-const path = require('path');
 const outlineConfig = require('../../outline.config');
 import { outlineStories } from '@phase2/outline-docs';
 

@@ -3,6 +3,8 @@
     "module": "esnext",
     "target": "es2017",
     "baseUrl": ".",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "emitDeclarationOnly": true,
     "isolatedModules": true,
     "composite": true,

@@ -84,7 +84,6 @@
     "@storybook/addon-actions": "^7.0.14",
     "@storybook/addon-essentials": "^7.0.14",
     "@storybook/addon-links": "^7.0.14",
-    "@storybook/addon-mdx-gfm": "^7.0.14",
     "@storybook/addon-postcss": "^3.0.0-alpha.1",
     "@storybook/web-components": "^7.0.14",
     "@storybook/web-components-vite": "^7.0.14",
