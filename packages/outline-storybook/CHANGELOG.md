@@ -1,5 +1,11 @@
 # @phase2/outline-storybook
 
+## 0.0.42
+
+### Patch Changes
+
+- Updates to setup and defaults
+
 ## 0.0.41
 
 ### Patch Changes

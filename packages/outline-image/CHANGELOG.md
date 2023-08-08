@@ -1,5 +1,11 @@
 # @phase2/outline-image
 
+## 0.1.6
+
+### Patch Changes
+
+- Updates to setup and defaults
+
 ## 0.1.5
 
 ### Patch Changes
