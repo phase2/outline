@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core-link",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "The Outline Components for the web link component",
   "keywords": [
     "outline",
@@ -28,7 +28,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.0",
+    "@phase2/outline-core": "^0.2.3",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },
