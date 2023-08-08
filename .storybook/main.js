@@ -11,7 +11,7 @@ module.exports = {
     // Tooling usage guides.
     '../packages/outline-docs/src/guides/tooling/**/*.mdx',
     // Documentation stories.
-    '../packages/outline-docs/src/guides/**/*.stories.@(js|ts|mdx)',
+    '../packages/outline-docs/src/guides/**/*.@(js|ts|mdx)',
     // Component stories.
     '../packages/outline-storybook/stories/**/*.stories.@(js|ts|mdx)',
   ],
@@ -23,7 +23,6 @@ module.exports = {
     {
       name: '@storybook/addon-essentials',
     },
-    '@storybook/addon-mdx-gfm',
   ],
   features: {
     storyStoreV7: true,
