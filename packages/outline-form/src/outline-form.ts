@@ -12,7 +12,7 @@ import globalStyles from './outline-form.global.scoped.css.lit';
  */
 @customElement('outline-form')
 export class OutlineForm extends OutlineElement {
-  static styles: CSSResultGroup = [OutlineElement.styles, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
 
   lightDomStyles = new LightDomStyles(this, globalStyles);
 
