@@ -41,7 +41,7 @@ const _processCssRule = (rule: cssTools.CssAtRuleAST, scopeId: string) => {
     }
   } else if ('rules' in rule) {
     // Handle rules that have recursive rules (such as media)
-    rule.rules.forEach((innerRule: cssTools.CssAtRuleAST) => {
+    rule.rules?.forEach((innerRule: cssTools.CssAtRuleAST) => {
       _processCssRule(innerRule, scopeId);
     });
   }

@@ -1,5 +1,55 @@
 # @phase2/outline-storybook
 
+## 0.0.48
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+- Updated dependencies
+  - @phase2/outline-alert@0.1.8
+  - @phase2/outline-code-block@0.1.4
+  - @phase2/outline-docs@0.0.17
+  - @phase2/outline-core@0.2.3
+  - @phase2/outline-static-assets@0.0.4
+
+## 0.0.47
+
+### Patch Changes
+
+- Fixes
+- Updated dependencies
+  - @phase2/outline-core@0.2.2
+
+## 0.0.46
+
+### Patch Changes
+
+- Fixes to CSS tools.
+- Updated dependencies
+  - @phase2/outline-core@0.2.1
+
+## 0.0.45
+
+### Patch Changes
+
+- Fixes
+- Updated dependencies
+  - @phase2/outline-docs@0.0.16
+
+## 0.0.44
+
+### Patch Changes
+
+- Fixes
+
+## 0.0.43
+
+### Patch Changes
+
+- Updates for build
+- Updated dependencies
+  - @phase2/outline-docs@0.0.15
+
 ## 0.0.42
 
 ### Patch Changes

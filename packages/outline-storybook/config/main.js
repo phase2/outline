@@ -1,12 +1,11 @@
-const path = require('path');
 const outlineConfig = require('../../outline.config');
-import { outlineStories } from '@phase2/outline-docs';
 
 const excludedStories = outlineConfig.excludedStories;
 function getExcluded() {
   return excludedStories.join('|');
 }
 
+const nodePath = '../../node_modules/@phase2/outline-docs';
 module.exports = {
   features: {
     storyStoreV7: true,
@@ -24,7 +23,16 @@ module.exports = {
   },
   staticDirs: ['../assets'],
   stories: [
-    ...outlineStories,
+    // Welcome guide.
+    `${nodePath}/src/guides/welcome.mdx`,
+    // Component development guides.
+    `${nodePath}/src/guides/development/component-development/**/*.mdx`,
+    // Component usage guides.
+    `${nodePath}/src/guides/consumers/**/*.mdx`,
+    // QA/UAT usage guides.
+    `${nodePath}/src/guides/qa-uat/**/*.mdx`,
+    // Tooling usage guides.
+    `${nodePath}/src/guides/tooling/**/*.mdx`,
     // // Explicitly order the main documentation.
     //'./stories/guides/welcome.stories.mdx',
     // // Intentionally order the Code Style Guide pages.

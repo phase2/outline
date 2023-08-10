@@ -1,5 +1,25 @@
 # @phase2/outline-docs
 
+## 0.0.17
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+- Updated dependencies
+  - @phase2/outline-core@0.2.3
+
+## 0.0.16
+
+### Patch Changes
+
+- Fixes
+
+## 0.0.15
+
+### Patch Changes
+
+- Updates for build
+
 ## 0.0.14
 
 ### Patch Changes
