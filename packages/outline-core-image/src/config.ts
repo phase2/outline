@@ -1,3 +1,3 @@
 /**
- * @file Shared configuration for the outline-core-image component.
+ * @file Shared configuration for the `outline-core-image` component.
  */

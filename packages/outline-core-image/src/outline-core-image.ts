@@ -17,9 +17,10 @@ const componentName = 'outline-core-image';
  * @extends OutlineElement
  * @slot - The default slot for this element.
  *
- * @todo - Complete component.
- * @todo - Run `yarn analyze` to generate README.md.
- * @todo - Update `package.json` to remove the `private` flag.
+ * @todo: Complete component.
+ * @todo: Run `yarn analyze` to generate README.md.
+ * @todo: Update `package.json` to remove the `private` flag.
+ * @todo: Create PR for updated and completed component.
  */
 @customElement(componentName)
 export class OutlineCoreImage extends OutlineElement {
