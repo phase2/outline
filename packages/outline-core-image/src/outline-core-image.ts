@@ -18,6 +18,7 @@ const componentName = 'outline-core-image';
  * @slot - The default slot for this element.
  *
  * @todo: Complete component.
+ * @todo: Update `../docs/outline-core-image.mdx` to accurately document the component.
  * @todo: Run `yarn analyze` to generate README.md.
  * @todo: Update `package.json` to remove the `private` flag.
  * @todo: Create PR for updated and completed component.

@@ -1,7 +1,0 @@
-/* 
-Add any global level, shared CSS for the `outline-core-image` component. 
-This would be CSS that targets particular contents of the component,
-typically provided through a <slot> that is rendered in the Light DOM.
-
-This file will be processed and available for loading through mulitple methods.
-*/
