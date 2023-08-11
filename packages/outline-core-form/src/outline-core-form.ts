@@ -21,6 +21,7 @@ const componentName = 'outline-core-form';
  * @todo: Update `../docs/outline-core-form.mdx` to accurately document the component.
  * @todo: Run `yarn analyze` to generate README.md.
  * @todo: Update `package.json` to remove the `private` flag.
+ * @todo: Update `.changeset/config.json` to remove this component from the `ignore` list.
  * @todo: Create PR for updated and completed component.
  */
 @customElement(componentName)
