@@ -1,6 +1,7 @@
 {
   "name": "@phase2/outline-core-card",
   "private": true,
+  "version": "0.0.0",
   "description": "The Outline Components for the card component",
   "keywords": [
     "outline",
