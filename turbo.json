@@ -16,7 +16,14 @@
     },
     "package": {
       "dependsOn": ["build", "test", "lint"],
-      "inputs": ["/packages/*"],
+      "inputs": [
+        "./packages/*",
+        "./packages/components/*",
+        "./packages/components/@deprecated/*",
+        "./packages/documentation/*",
+        "./packages/controllers/*",
+        "./packages/tools/*"
+      ],
       "outputs": []
     }
   }

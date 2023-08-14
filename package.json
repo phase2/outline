@@ -11,7 +11,12 @@
   "private": true,
   "storybook_port": 6042,
   "workspaces": [
-    "./packages/*"
+    "./packages/*",
+    "./packages/components/*",
+    "./packages/components/@deprecated/*",
+    "./packages/documentation/*",
+    "./packages/controllers/*",
+    "./packages/tools/*"
   ],
   "files": [
     "./packages/*/dist"

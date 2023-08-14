@@ -1,5 +1,6 @@
 import { TemplateResult, html, CSSResultGroup } from 'lit';
-import { OutlineElement, LightDomStyles } from '@phase2/outline-core';
+import { OutlineElement } from '@phase2/outline-core';
+import { StyleController } from '@phase2/outline-controller-style-controller';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-form.css.lit';
 import globalStyles from './outline-form.global.scoped.css.lit';
@@ -14,7 +15,7 @@ import globalStyles from './outline-form.global.scoped.css.lit';
 export class OutlineForm extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
-  lightDomStyles = new LightDomStyles(this, globalStyles);
+  globalStyles = new StyleController(this, globalStyles);
 
   render(): TemplateResult {
     return html`<slot></slot>`;
