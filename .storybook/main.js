@@ -12,7 +12,9 @@ module.exports = {
     '../packages/outline-docs/src/guides/tooling/**/*.mdx',
     // Documentation stories.
     '../packages/outline-docs/src/guides/**/*.@(js|ts|mdx)',
-    // Component stories.
+    // Modern component stories.
+    '../packages/**/docs/*.mdx',
+    // Old component stories.
     '../packages/outline-storybook/stories/**/*.stories.@(js|ts|mdx)',
   ],
   typescript: {
