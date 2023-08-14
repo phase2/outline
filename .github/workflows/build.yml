@@ -86,9 +86,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
-          cache: 'yarn'
-          cache-dependency-path: 'yarn.lock'
+          node-version-file: '.nvmrc'
           # The registry to use by default for package publishing.
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
@@ -131,7 +129,7 @@ jobs:
 
   #     - uses: actions/setup-node@v3
   #       with:
-  #         node-version: 18
+  #         node-version-file: '.nvmrc'
   #         cache: 'yarn'
   #         cache-dependency-path: 'yarn.lock'
   #         # The registry to use by default for package publishing.
@@ -168,7 +166,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
           # The registry to use by default for package publishing.
@@ -221,7 +219,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
           # The registry to use by default for package publishing.
@@ -298,7 +296,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org/'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
@@ -348,7 +346,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
 
