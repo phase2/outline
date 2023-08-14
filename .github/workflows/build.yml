@@ -66,7 +66,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: $ {{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys:
             ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-
@@ -110,7 +110,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: $ {{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys:
             ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-
@@ -197,7 +197,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: $ {{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys:
             ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-
@@ -255,7 +255,7 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          path: $ {{ steps.yarn-cache-dir-path.outputs.dir }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
           restore-keys:
             ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-
@@ -336,7 +336,7 @@ jobs:
   #       env:
   #         cache-name: cache-node-modules
   #       with:
-  #         path: $ {{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
   #         key: ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
   #         restore-keys:
   #           ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-
@@ -388,7 +388,7 @@ jobs:
   #       env:
   #         cache-name: cache-node-modules
   #       with:
-  #         path: $ {{ steps.yarn-cache-dir-path.outputs.dir }}
+  #         path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
   #         key: ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
   #         restore-keys:
   #           ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-
