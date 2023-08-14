@@ -59,6 +59,11 @@ jobs:
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
+      # Ensure we have a clean cache before installing, 
+      # and caching new dependencies.
+      - name: Clear yarn cache
+        run: yarn cache clean --all
+
       - name: Install
         run: yarn install --check-cache
         env: 
