@@ -1,6 +1,6 @@
 import { TemplateResult, html, CSSResultGroup } from 'lit';
 import { OutlineElement } from '@phase2/outline-core';
-import { StyleController } from '@phase2/outline-controller-style-controller';
+import { LightDomStyles as StyleController } from '@phase2/outline-controller-light-dom-styles-controller';
 import { customElement } from 'lit/decorators.js';
 import componentStyles from './outline-form.css.lit';
 import globalStyles from './outline-form.global.scoped.css.lit';
