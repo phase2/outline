@@ -1,19 +1,13 @@
 /* eslint-disable global-require */
 /* eslint-disable no-console */
-import yargs from 'yargs';
-import gaze from 'gaze';
 import postcss from 'postcss';
 import fs from 'fs';
 import path from 'path';
-import glob from 'glob';
+import { glob } from 'glob';
+import { writeFile, readFile } from 'node:fs/promises';
 import outline from '../outline.config.js';
 import config from '@phase2/outline-config/postcss.config';
 import { addScopeToStyles } from '@phase2/outline-core/src/internal/light-dom.mjs';
-
-const options = yargs.option('watch', {
-  type: 'boolean',
-  describe: 'Watch the file system for changes and render automatically',
-}).argv;
 
 /**
  * Function declared via watcher to handle looping in any globally focus style generation.
@@ -101,88 +95,66 @@ ${result.css}\`;`,
 };
 
 /**
+ * Write light dom styles files.
+ *
+ * @param {string} filepath
+ * @param {string} fileExtension
+ * @param {string} cssPrefix
+ */
+const writeLightDomStyles = async (
+  filepath,
+  fileExtension = '',
+  cssPrefix = ''
+) => {
+  const css = await readFile(filepath, 'utf8');
+  const nFilePath = `${filepath.replace(
+    '.global.',
+    '.global.scoped.'
+  )}${fileExtension}`;
+  const componentName = path.basename(filepath, '.global.css');
+  const result = await postcss([...config.plugins]).process(css, {
+    from: filepath,
+    to: nFilePath,
+  });
+  const newCss = addScopeToStyles(result.css, componentName);
+  const data =
+    cssPrefix === ''
+      ? newCss
+      : `${cssPrefix}
+    ${newCss}\`;`;
+  await writeFile(nFilePath, data);
+};
+
+/**
  * Function to wrap all generic .css files with CSS template literals suitable for consumption via Lit.
  *
  * @param {string} filepath
  */
-const createLightDomStyles = filepath => {
-  fs.readFile(filepath, 'utf8', (err, css) => {
-    const nFilePath = `${filepath.replace(
-      '.global.',
-      '.global.scoped.'
-    )}.lit.ts`;
-    const componentName = path.basename(filepath, '.global.css');
-    postcss([...config.plugins])
-      .process(css, { from: filepath, to: nFilePath })
-      .then(result => {
-        const newCss = addScopeToStyles(result.css, componentName);
-        fs.writeFile(
-          nFilePath,
-          `
-import { css } from 'lit';
-export default css\`
-/* Scoped CSS. */
-${newCss}\`;`,
-          () => true
-        );
-      });
-  });
-  fs.readFile(filepath, 'utf8', (err, css) => {
-    const nFilePath = filepath.replace('.global.', '.global.scoped.');
-    const componentName = path.basename(filepath, '.global.css');
-    postcss([...config.plugins])
-      .process(css, { from: filepath, to: nFilePath })
-      .then(result => {
-        const newCss = addScopeToStyles(result.css, componentName);
-        fs.writeFile(nFilePath, newCss, () => true);
-      });
-  });
-};
+const createLightDomStyles = async filepath => {
+  const cssPrefix = `import { css } from 'lit';
+  export default css\`
+  /* Scoped CSS. */`;
+  await writeLightDomStyles(filepath, '.lit.ts', cssPrefix);
 
-// Run the global style generation.
-createCssGlobals();
+  await writeLightDomStyles(filepath);
+};
 
 // Add scoping to any *.global.css files.
 // Allow dot files to allow class-based scoping.
-glob('packages/**/*.global.css', { dot: true }, (err, files) => {
-  files.forEach(createLightDomStyles);
+const globalCssFiles = await glob('packages/**/*.global.css', {
+  dot: true,
 });
 
+// Await for light dom styles since we may include the generated files further down the chain.
+for await (const globalCssFile of globalCssFiles) {
+  await createLightDomStyles(globalCssFile);
+}
+
 // Run the component style generation.
-glob(
-  'packages/**/*.css',
-  { ignore: ['packages/outline-storybook/**/*.css', '.storybook/**/*.css'] },
-  (err, files) => {
-    files.forEach(createCssLiterals);
-  }
-);
+const componentCss = await glob('packages/**/*.css', {
+  ignore: ['packages/outline-storybook/**/*.css', '.storybook/**/*.css'],
+});
+componentCss.forEach(createCssLiterals);
 
-// Watch mode with --watch in cli.
-// if (options.watch) {
-//   // Watch globals.
-//   gaze('*.css', (err, watcher) => {
-//     watcher.on('added', createCssGlobals);
-//     watcher.on('changed', createCssGlobals);
-//   });
-
-//   // Watch components global scoping.
-//   gaze(
-//     'packages/**/*.global.css',
-//     { dot: true },
-//     (err, watcher) => {
-//       watcher.on('added', createLightDomStyles);
-//       watcher.on('changed', createLightDomStyles);
-//     }
-//   );
-// }
-
-//   // Watch components.
-//   gaze(
-//     'packages/**/*.css',
-//     { ignore: ['**/dist/**/*.css', '**/packages/outline-storybook/**/*.css'] },
-//     (err, watcher) => {
-//       watcher.on('added', createCssLiterals);
-//       watcher.on('changed', createCssLiterals);
-//     }
-//   );
-// }
+// Run the global style generation.
+createCssGlobals();

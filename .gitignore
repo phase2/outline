@@ -68,3 +68,4 @@ resolved-tailwind-config.ts
 safelist.txt
 *.lit.ts
 *.generated.css
+*.scoped.css
