@@ -28,3 +28,6 @@ outline.theme.css
 **/vars-*.css
 *.d.ts
 *.global.scoped.css
+
+# Ignore all HTML files:
+**/*.stories.ts
