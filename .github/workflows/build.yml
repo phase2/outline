@@ -48,6 +48,8 @@ jobs:
           cache-dependency-path: |
             **/yarn.lock
             **/node_modules
+            **/dist
+            **/.turbo
           # The registry to use by default for package publishing.
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
@@ -105,6 +107,8 @@ jobs:
           cache-dependency-path: |
             **/yarn.lock
             **/node_modules
+            **/dist
+            **/.turbo
           # The registry to use by default for package publishing.
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
@@ -140,6 +144,8 @@ jobs:
           cache-dependency-path: |
             **/yarn.lock
             **/node_modules
+            **/dist
+            **/.turbo
           # The registry to use by default for package publishing.
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
