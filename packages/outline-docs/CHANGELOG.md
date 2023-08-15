@@ -1,5 +1,13 @@
 # @phase2/outline-docs
 
+## 0.0.18
+
+### Patch Changes
+
+- Updates for light dom package
+- Updated dependencies
+  - @phase2/outline-core@0.2.4
+
 ## 0.0.17
 
 ### Patch Changes
