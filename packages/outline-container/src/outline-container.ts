@@ -91,16 +91,14 @@ export class OutlineContainer extends OutlineElement {
       'justify-start': this.justifyStart,
     };
     return html`
-      ${
-        this.topMargin || this.bottomMargin
-          ? html` <style>
+      ${this.topMargin || this.bottomMargin
+        ? html` <style>
             .container {
               margin-top: var(--${this.topMargin});
               margin-bottom: var(--${this.bottomMargin});
             }
           </style>`
-          : ''
-      }
+        : ''}
       <div class=${classMap(classes)}>
         <slot></slot>
       </div>

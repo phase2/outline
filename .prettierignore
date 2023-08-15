@@ -29,5 +29,5 @@ outline.theme.css
 *.d.ts
 *.global.scoped.css
 
-# Ignore all HTML files:
+# Ignore all stories (Storybook) files:
 **/*.stories.ts
