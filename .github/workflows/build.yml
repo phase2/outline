@@ -32,7 +32,7 @@ on:
 jobs:
   # Basic setup job to prepare codebase.
   setup:
-    name: Install Codebase
+    name: Install & Lint Codebase
     runs-on: ubuntu-latest
     # The steps for the setup job.
     steps:
@@ -80,6 +80,11 @@ jobs:
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
 
+      - name: Run eslint
+        run: yarn lint:eslint
+
+      - name: Run prettier
+        run: yarn lint:prettier
   # Job to run build, and basic assurances the codebase is ready for additional processing.
   build_outline:
     name: Build Outline Codebase
@@ -111,49 +116,12 @@ jobs:
       - name: Build Storybook
         run: yarn storybook:build
 
-  # Job to run package publishing process.
-  test:
-    name: Test Codebase
-    runs-on: ubuntu-latest
-    needs: ['setup']
-    # The steps for the setup job.
-    steps:
-      # @see https://github.com/marketplace/actions/checkout
-      - name: Checkout Codebase
-        uses: actions/checkout@v3
-
-      # @see https://github.com/marketplace/actions/setup-node-js-environment 
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: '.nvmrc'
-          cache: 'yarn'
-          cache-dependency-path: 'yarn.lock'
-          # The registry to use by default for package publishing.
-          registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
-          scope: '@phase2'
-
-      - name: Install
-        run: yarn install
-
-      - name: Build Outline
-        run: yarn build
-
-      - name: Run eslint
-        run: yarn lint:eslint
-
-      - name: Run prettier
-        run: yarn lint:prettier
-
-      - name: Build Storybook
-        run: yarn storybook:build
-
   # Basic setup job to prepare codebase.
   deploy-github-pages:
     name: "Publish: GitHub Pages"
     if: github.ref == 'refs/heads/next'
     runs-on: ubuntu-latest
-    needs: ['setup', 'build_outline', 'test']
+    needs: ['setup', 'build_outline']
 
     # The steps for the setup job.
     steps:
