@@ -40,13 +40,14 @@ jobs:
       - name: Checkout Codebase
         uses: actions/checkout@v3 
 
-      # @see https://github.com/marketplace/actions/setup-node-js-environment
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
       - uses: actions/setup-node@v3
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
-          cache-dependency-path: 'yarn.lock'
+          cache-dependency-path: |
+            **/yarn.lock
+            **/node_modules
           # The registry to use by default for package publishing.
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
@@ -101,7 +102,9 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
-          cache-dependency-path: 'yarn.lock'
+          cache-dependency-path: |
+            **/yarn.lock
+            **/node_modules
           # The registry to use by default for package publishing.
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
