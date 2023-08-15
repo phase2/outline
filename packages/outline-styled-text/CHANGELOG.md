@@ -1,5 +1,13 @@
 # @phase2/outline-styled-text
 
+## 0.0.9
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+- Updated dependencies
+  - @phase2/outline-core@0.2.3
+
 ## 0.0.8
 
 ### Patch Changes

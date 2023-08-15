@@ -1,5 +1,16 @@
 # @phase2/outline-dropdown
 
+## 0.1.7
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+- Updated dependencies
+  - @phase2/outline-button@0.1.6
+  - @phase2/outline-icon@0.1.4
+  - @phase2/outline-link@0.1.6
+  - @phase2/outline-core@0.2.3
+
 ## 0.1.6
 
 ### Patch Changes

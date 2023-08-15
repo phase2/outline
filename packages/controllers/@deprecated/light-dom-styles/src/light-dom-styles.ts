@@ -41,7 +41,7 @@ const _processCssRule = (rule: cssTools.CssAtRuleAST, scopeId: string) => {
     }
   } else if ('rules' in rule) {
     // Handle rules that have recursive rules (such as media)
-    rule.rules.forEach((innerRule: cssTools.CssAtRuleAST) => {
+    rule.rules?.forEach((innerRule: cssTools.CssAtRuleAST) => {
       _processCssRule(innerRule, scopeId);
     });
   }
@@ -76,7 +76,12 @@ export declare type ComponentStyles = {
   name: string;
   styles: CSSResultGroup;
 };
-
+/**
+ * The LightDomStyles ReactiveController.
+ *
+ * This controller allows components to inject styles into the light-dom.
+ * @deprecated Use the @phase2/outline-controller-style-controller instead.
+ */
 export class LightDomStyles {
   // The scope to wrap the rules, defaults to the component name (tag).
   // If scopeId is empty, rules are added to light dom but not scoped.

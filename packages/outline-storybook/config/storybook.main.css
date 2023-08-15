@@ -682,6 +682,12 @@ video{
   overflow: hidden;
 
 }
+.truncate{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
 .whitespace-pre-wrap{
   white-space: pre-wrap;
 

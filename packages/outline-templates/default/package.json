@@ -89,7 +89,7 @@
     "@phase2/outline-code-block": "latest",
     "@phase2/outline-config": "latest",
     "@phase2/outline-container": "latest",
-    "@phase2/outline-core": "latest",
+    "@phase2/outline-core": "^0.2.3",
     "@phase2/outline-core-link": "latest",
     "@phase2/outline-docs": "latest",
     "@phase2/outline-dropdown": "latest",
@@ -118,7 +118,7 @@
     "node": ">=16"
   },
   "devDependencies": {
-    "@adobe/css-tools": "4.0.2",
+    "@adobe/css-tools": "^4.3.0",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-decorators": "^7.14.2",
     "@commitlint/cli": "^13.2.0",

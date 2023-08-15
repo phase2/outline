@@ -182,6 +182,6 @@ export class OutlineCoreLink extends OutlineElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    componentName: OutlineCoreLink;
+    [componentName]: OutlineCoreLink;
   }
 }

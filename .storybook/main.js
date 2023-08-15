@@ -1,3 +1,4 @@
+import { dirname, join } from 'path';
 module.exports = {
   stories: [
     // Intentionally ordering welcome page first.
@@ -12,7 +13,9 @@ module.exports = {
     '../packages/outline-docs/src/guides/tooling/**/*.mdx',
     // Documentation stories.
     '../packages/outline-docs/src/guides/**/*.@(js|ts|mdx)',
-    // Component stories.
+    // Modern component stories.
+    '../packages/**/docs/*.mdx',
+    // Old component stories.
     '../packages/outline-storybook/stories/**/*.stories.@(js|ts|mdx)',
   ],
   typescript: {
@@ -23,6 +26,7 @@ module.exports = {
     {
       name: '@storybook/addon-essentials',
     },
+    getAbsolutePath('@storybook/addon-mdx-gfm'),
   ],
   features: {
     storyStoreV7: true,
@@ -31,7 +35,7 @@ module.exports = {
     modernInlineRender: true,
   },
   framework: {
-    name: '@storybook/web-components-vite',
+    name: getAbsolutePath('@storybook/web-components-vite'),
     options: {},
   },
   docs: {
@@ -39,3 +43,7 @@ module.exports = {
     defaultName: 'Documentation', // set to change the name of generated docs entries
   },
 };
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')));
+}
