@@ -1,5 +1,14 @@
 # @phase2/outline-storybook
 
+## 0.0.49
+
+### Patch Changes
+
+- Updates for light dom package
+- Updated dependencies
+  - @phase2/outline-core@0.2.4
+  - @phase2/outline-docs@0.0.18
+
 ## 0.0.48
 
 ### Patch Changes

@@ -1,14 +1,12 @@
 {
-  "name": "@phase2/outline-core-text",
-  "private": true,
-  "version": "0.0.0",
-  "description": "The Outline Components for the image component",
+  "name": "@phase2/outline-controller-light-dom-styles-controller",
+  "version": "0.0.1",
+  "description": "Deprecated controller to manage styles via Light DOM.",
   "keywords": [
-    "outline",
-    "web-components",
-    "design system",
-    "image",
-    "picture"
+    "outline components",
+    "outline design",
+    "CSS",
+    "style"
   ],
   "main": "index.ts",
   "types": "index.ts",
@@ -22,16 +20,18 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-core-text"
+    "directory": "packages/controllers/@deprecated/light-dom-styles"
   },
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../scripts/build.js",
+    "build": "node ../../../../scripts/build.js",
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.4",
     "lit": "^2.3.1"
+  },
+  "devDependencies": {
+    "tslib": "^2.1.0"
   },
   "publishConfig": {
     "access": "public"
