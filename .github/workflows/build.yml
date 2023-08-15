@@ -137,7 +137,9 @@ jobs:
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
-          cache-dependency-path: 'yarn.lock'
+          cache-dependency-path: |
+            **/yarn.lock
+            **/node_modules
           # The registry to use by default for package publishing.
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
