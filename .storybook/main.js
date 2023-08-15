@@ -1,4 +1,4 @@
-import { dirname, join } from "path";
+import { dirname, join } from 'path';
 module.exports = {
   stories: [
     // Intentionally ordering welcome page first.
@@ -22,9 +22,12 @@ module.exports = {
     check: false,
     checkOptions: {},
   },
-  addons: [{
-    name: '@storybook/addon-essentials',
-  }, getAbsolutePath("@storybook/addon-mdx-gfm")],
+  addons: [
+    {
+      name: '@storybook/addon-essentials',
+    },
+    getAbsolutePath('@storybook/addon-mdx-gfm'),
+  ],
   features: {
     storyStoreV7: true,
     postcss: false,
@@ -32,7 +35,7 @@ module.exports = {
     modernInlineRender: true,
   },
   framework: {
-    name: getAbsolutePath("@storybook/web-components-vite"),
+    name: getAbsolutePath('@storybook/web-components-vite'),
     options: {},
   },
   docs: {
@@ -42,5 +45,5 @@ module.exports = {
 };
 
 function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")));
+  return dirname(require.resolve(join(value, 'package.json')));
 }
