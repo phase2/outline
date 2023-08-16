@@ -1,6 +1,68 @@
 /* eslint-disable no-console */
 import { ReactiveControllerHost, CSSResultGroup, CSSResult } from 'lit';
-import { addScopeToStyles } from '../internal/light-dom.mjs';
+import * as cssTools from '@adobe/css-tools';
+
+/**
+ * Helper function to add Scope to a specific CSS Selector.
+ * Handles :host and ::slotted conversions.
+ */
+const _scopeSelector = (selector: string, scopeId: string) => {
+  // Check if selector is already scoped.
+  if (selector.startsWith(scopeId)) {
+    return selector;
+  }
+  // Skip :root selectors.
+  else if (selector.includes(':root')) {
+    return selector;
+  }
+  // Convert ":host(Something)" to "ScopeSomething"
+  else if (selector.includes(':host(')) {
+    return selector.replace(/:host\((.+?)\)/, scopeId + '$1');
+  }
+  // Convert remaining ":host" to "Scope"
+  else if (selector.includes(':host')) {
+    return selector.replace(':host', scopeId);
+  }
+  // Convert "::slotted(Something)" to "Scope Something".
+  else if (selector.includes('::slotted(')) {
+    return selector.replace(/::slotted\((.+?)\)/, scopeId + ' $1');
+  }
+  // Otherwise, just prefix selector with Scope.
+  return scopeId + ' ' + selector;
+};
+
+/**
+ * Add scope to a single CSS rule.
+ */
+const _processCssRule = (rule: cssTools.CssAtRuleAST, scopeId: string) => {
+  if ('selectors' in rule && rule.selectors.length > 0) {
+    for (let i = 0; i < rule.selectors.length; i++) {
+      rule.selectors[i] = _scopeSelector(rule.selectors[i], scopeId);
+    }
+  } else if ('rules' in rule) {
+    // Handle rules that have recursive rules (such as media)
+    rule.rules?.forEach((innerRule: cssTools.CssAtRuleAST) => {
+      _processCssRule(innerRule, scopeId);
+    });
+  }
+};
+
+/**
+ * Add the scopeId to each CSS rule selector.
+ * Handle the :host and ::slotted selectors.
+ */
+const addScopeToStyles = (cssStyles: string, scopeId: string) => {
+  // Use css-tools to parse the string into a tree.
+  const ast = cssTools.parse(cssStyles);
+  if (ast && ast.stylesheet && ast.stylesheet.rules.length > 0) {
+    ast.stylesheet.rules.forEach(function (rule: cssTools.CssAtRuleAST) {
+      _processCssRule(rule, scopeId);
+    });
+  }
+
+  // Convert tree back to a string and return the new css.
+  return cssTools.stringify(ast, { compress: true });
+};
 
 /**
  * The LightComStyles ReactiveController.
@@ -14,7 +76,12 @@ export declare type ComponentStyles = {
   name: string;
   styles: CSSResultGroup;
 };
-
+/**
+ * The LightDomStyles ReactiveController.
+ *
+ * This controller allows components to inject styles into the light-dom.
+ * @deprecated Use the @phase2/outline-controller-style-controller instead.
+ */
 export class LightDomStyles {
   // The scope to wrap the rules, defaults to the component name (tag).
   // If scopeId is empty, rules are added to light dom but not scoped.

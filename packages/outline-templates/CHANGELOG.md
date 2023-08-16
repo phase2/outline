@@ -1,5 +1,41 @@
 # @phase2/outline-templates
 
+## 0.0.47
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+
+## 0.0.46
+
+### Patch Changes
+
+- Fixes to CSS tools.
+
+## 0.0.45
+
+### Patch Changes
+
+- Updates to setup and defaults
+
+## 0.0.44
+
+### Patch Changes
+
+- c33b7e4: Additional fixes for style generation.
+
+## 0.0.43
+
+### Patch Changes
+
+- Update to watch scripts.
+
+## 0.0.42
+
+### Patch Changes
+
+- 2cd42bd: Initial setup of outline-core-link
+
 ## 0.0.41
 
 ### Patch Changes

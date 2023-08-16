@@ -1,5 +1,22 @@
 # @phase2/outline-list
 
+## 0.1.5
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+- Updated dependencies
+  - @phase2/outline-heading@0.1.4
+  - @phase2/outline-core@0.2.3
+
+## 0.1.4
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-core@0.2.0
+  - @phase2/outline-heading@0.1.3
+
 ## 0.1.3
 
 ### Patch Changes

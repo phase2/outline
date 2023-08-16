@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core",
-  "version": "0.1.12",
+  "version": "0.2.4",
   "description": "Core functionality that is shared across all Outline Web Components",
   "keywords": [
     "outline",
@@ -27,7 +27,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-config": "^0.0.10"
+    "@phase2/outline-config": "^0.0.11"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",

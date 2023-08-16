@@ -1,5 +1,20 @@
 # @phase2/outline-alert
 
+## 0.1.8
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+- Updated dependencies
+  - @phase2/outline-core@0.2.3
+
+## 0.1.7
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-core@0.2.0
+
 ## 0.1.6
 
 ### Patch Changes

@@ -1,5 +1,22 @@
 # @phase2/outline-button
 
+## 0.1.6
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+- Updated dependencies
+  - @phase2/outline-link@0.1.6
+  - @phase2/outline-core@0.2.3
+
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-core@0.2.0
+  - @phase2/outline-link@0.1.5
+
 ## 0.1.4
 
 ### Patch Changes

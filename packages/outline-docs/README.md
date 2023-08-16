@@ -7,8 +7,6 @@ The following shows a very minimal sample of how to get the included stories int
 Use it as a guide to modify your `src/.storybook/main.js` file or wherever your project is defining config for storybook.
 
 ```js
-import {outlineStories} from '@phase2/outline-docs';
-
 module exports {
   features: {
     storyStoreV7: true,
@@ -25,7 +23,6 @@ module exports {
     defaultName: 'Full Documentation', // set to change the name of generated docs entries
   },
   stories: [
-    ...outlineStories,
     '../components/**/*.stories.@(js|ts|mdx)',
     './stories/!(guides|tokens|demonstration|examples)**/*.stories.@(js|jsx|ts|tsx|mdx)',
   ],
