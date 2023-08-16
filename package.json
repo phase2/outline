@@ -34,7 +34,7 @@
   "scripts": {
     "prepare": "husky install",
     "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
-    "build": "turbo run build",
+    "build": "turbo run build --concurrency=100%",
     "changeset": "changeset",
     "changeset:publish": "yarn build && yarn changeset:version && yarn changeset publish",
     "changeset:version": "changeset version",
