@@ -1,21 +1,21 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "baseBranch": "origin/next",
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**"]
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "dev": {
+      "outputs": []
     },
     "test": {
-      "dependsOn": ["build"],
-      "outputs": [],
-      "inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+      "outputs": []
     },
     "lint": {
       "outputs": []
     },
     "package": {
-      "dependsOn": ["build", "test", "lint"],
+      "dependsOn": ["build"],
       "inputs": [
         "./packages/*",
         "./packages/components/*",
