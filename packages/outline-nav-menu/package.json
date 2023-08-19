@@ -1,0 +1,46 @@
+{
+  "name": "@phase2/outline-nav-menu",
+  "version": "0.1.3",
+  "description": "The Outline Components navigation menu component",
+  "keywords": [
+    "outline",
+    "web-components",
+    "design system",
+    "main navigation",
+    "mega menu"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "/dist/",
+    "/src/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-nav-menu"
+  },
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "node ../../scripts/build.js",
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "@phase2/outline-core": "^0.1.9",
+    "@types/lodash": "^4.14.192",
+    "@types/lodash-es": "^4.17.7",
+    "lit": "^2.3.1",
+    "lodash-es": "^4.17.21",
+    "tslib": "^2.1.0"
+  },
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}
