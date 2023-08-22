@@ -22,8 +22,8 @@
   align-items: center;
   cursor: pointer;
   transition-property: color, background-color, border-color,
-    text-decoration-color, fill, stroke, outline, outline-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration-color, fill, stroke, outline, outline-color, box-shadow;
+  transition-timing-function: ease-in;
   transition-duration: 300ms;
   text-decoration-line: none;
   outline: none;

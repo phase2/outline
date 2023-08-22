@@ -1,4 +1,5 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { animate, fadeIn, fadeOut } from '@lit-labs/motion';
 import { customElement, property, query, state } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
@@ -94,6 +95,9 @@ export class OutlineModal
 
   private _overlayTemplate(): TemplateResult {
     let template = html``;
+    const keyFrameOptions = {
+      duration: 300,
+    };
 
     if (this.isOpen) {
       template = html`
@@ -103,6 +107,13 @@ export class OutlineModal
           class="${this.size}"
           @click="${this._handleOverlayClick}"
           @keydown="${this._handleOverlayKeydown}"
+          ${animate({
+            properties: ['opacity'],
+            in: fadeIn,
+            out: fadeOut,
+            skipInitial: false,
+            keyframeOptions: keyFrameOptions,
+          })}
         >
           <div
             id="container"

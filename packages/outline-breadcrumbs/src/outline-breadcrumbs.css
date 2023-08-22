@@ -8,9 +8,12 @@
 
 a,
 ::slotted(a) {
-  @apply font-body transition-colors duration-300;
+  @apply font-body;
   text-decoration: var(--outline-breadcrumb--link-decoration--computed);
   color: var(--outline-breadcrumb--link-color--computed);
+  transition-property: color, text-decoration;
+  transition-timing-function: ease-in;
+  transition-duration: 300ms;
 }
 
 a:hover,
