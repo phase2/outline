@@ -1,5 +1,11 @@
 # @phase2/outline-alert
 
+## 0.1.9
+
+### Patch Changes
+
+- Updated template literals
+
 ## 0.1.8
 
 ### Patch Changes

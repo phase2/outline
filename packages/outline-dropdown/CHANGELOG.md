@@ -1,5 +1,13 @@
 # @phase2/outline-dropdown
 
+## 0.1.8
+
+### Patch Changes
+
+- Updated template literals
+- Updated dependencies
+  - @phase2/outline-link@0.1.7
+
 ## 0.1.7
 
 ### Patch Changes

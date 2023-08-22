@@ -1,5 +1,11 @@
 # @phase2/outline-link
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated template literals
+
 ## 0.1.6
 
 ### Patch Changes

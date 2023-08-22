@@ -1,5 +1,11 @@
 # @phase2/outline-tabs
 
+## 0.1.7
+
+### Patch Changes
+
+- Updated template literals
+
 ## 0.1.6
 
 ### Patch Changes
