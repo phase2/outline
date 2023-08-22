@@ -389,10 +389,9 @@ export class OutlineTabGroup extends OutlineElement {
   }
 
   render() {
-    return html`${
-      this.mobileController.isMobile
-        ? html`<slot name="accordion-wrapper"></slot> `
-        : html`<div
+    return html`${this.mobileController.isMobile
+      ? html`<slot name="accordion-wrapper"></slot> `
+      : html`<div
           part="base"
           class=${classMap({
             'tab-group': true,
@@ -418,8 +417,7 @@ export class OutlineTabGroup extends OutlineElement {
           <div part="body" class="tab-group__body">
             <slot @slotchange=${this.syncTabsAndPanels}></slot>
           </div>
-        </div>`
-    } `;
+        </div>`} `;
   }
 }
 

@@ -76,18 +76,16 @@ export class OutlineImage extends OutlineElement {
   }
 
   render(): TemplateResult {
-    return html`${
-      this.imageHref
-        ? html` <figure>
+    return html`${this.imageHref
+      ? html` <figure>
           <picture>
             <img src=${this.imageHref} alt="${ifDefined(this.imageLabel)}" />
           </picture>
           ${this.captionSlotTemplate()}
         </figure>`
-        : html`<figure>${this.slots.renderInShadow(
-            ''
-          )}${this.captionSlotTemplate()}</figure>`
-    } `;
+      : html`<figure>
+          ${this.slots.renderInShadow('')}${this.captionSlotTemplate()}
+        </figure>`} `;
   }
 }
 

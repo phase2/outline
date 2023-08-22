@@ -27,11 +27,7 @@ export class OutlineAdminLinks extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   render(): TemplateResult {
-    return html`
-      <div class="links">
-        ${this.slots.renderInShadow('')}
-      </div>
-    `;
+    return html` <div class="links">${this.slots.renderInShadow('')}</div> `;
   }
 }
 

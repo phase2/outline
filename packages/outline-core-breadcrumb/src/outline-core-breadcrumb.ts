@@ -29,9 +29,7 @@ export class OutlineCoreBreadcrumb extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   render(): TemplateResult {
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 }
 

@@ -168,9 +168,7 @@ export class OutlineCoreLink extends OutlineElement {
     } else {
       this.debugSlottedContent();
     }
-    return html`
-      <slot></slot>
-    `;
+    return html` <slot></slot> `;
   }
 
   render(): TemplateResult {
