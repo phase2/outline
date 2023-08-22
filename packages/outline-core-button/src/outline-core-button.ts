@@ -78,7 +78,9 @@ export class OutlineCoreButton extends OutlineElement {
    */
   render(): TemplateResult {
     return html`
-      <div class="btn ${this.buttonVariant} ${this.buttonSize}">
+      <div class="btn ${this.buttonVariant} ${this.buttonSize} ${
+      this.isDisabled ? 'is-disabled' : ''
+    }">
         ${this.iconTemplate('left')}
         <slot></slot>
         ${this.iconTemplate('right')}
@@ -94,7 +96,6 @@ export class OutlineCoreButton extends OutlineElement {
    * @returns - The icon template.
    */
   iconTemplate(slotName: string): TemplateResult | null {
-    if (!this.slots.exist(slotName)) return null;
     return html`<slot name="${slotName}"></slot>`;
   }
 
