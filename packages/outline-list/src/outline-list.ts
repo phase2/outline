@@ -8,11 +8,11 @@ import componentStyles from './outline-list.css.lit';
 
 export const listTypes = ['ol', 'ul', 'div'] as const;
 
-export type ListType = typeof listTypes[number];
+export type ListType = (typeof listTypes)[number];
 
 export const listOrientations = ['column', 'row', 'col-center'] as const;
 
-export type ListOrientation = typeof listOrientations[number];
+export type ListOrientation = (typeof listOrientations)[number];
 
 export type ClassInfo = { [name: string]: string | boolean | number };
 

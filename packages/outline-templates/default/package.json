@@ -113,7 +113,7 @@
     "lit": "^2.2.6"
   },
   "engines": {
-    "node": ">=16"
+    "node": ">=18"
   },
   "devDependencies": {
     "@adobe/css-tools": "^4.3.0",
@@ -131,7 +131,6 @@
     "@storybook/addon-actions": "^7.0.12",
     "@storybook/addon-essentials": "^7.0.12",
     "@storybook/addon-links": "^7.0.12",
-    "@storybook/addon-mdx-gfm": "^7.0.12",
     "@storybook/addon-postcss": "^3.0.0-alpha.1",
     "@storybook/web-components": "^7.0.12",
     "@storybook/web-components-vite": "^7.0.12",

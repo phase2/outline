@@ -1,4 +1,5 @@
 import { dirname, join } from 'path';
+
 module.exports = {
   stories: [
     // Intentionally ordering welcome page first.
@@ -26,16 +27,15 @@ module.exports = {
     {
       name: '@storybook/addon-essentials',
     },
-    getAbsolutePath('@storybook/addon-mdx-gfm'),
   ],
   features: {
     storyStoreV7: true,
-    postcss: false,
+    postcss: true,
     buildStoriesJson: true,
     modernInlineRender: true,
   },
   framework: {
-    name: getAbsolutePath('@storybook/web-components-vite'),
+    name: '@storybook/web-components-vite',
     options: {},
   },
   docs: {

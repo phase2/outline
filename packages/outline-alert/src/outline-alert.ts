@@ -5,7 +5,7 @@ import { OutlineElement } from '@phase2/outline-core';
 import componentStyles from './outline-alert.css.lit';
 
 export const alertSizes = ['small', 'large'] as const;
-export type AlertSize = typeof alertSizes[number];
+export type AlertSize = (typeof alertSizes)[number];
 
 export const alertStatusTypes = [
   'info',
@@ -13,7 +13,7 @@ export const alertStatusTypes = [
   'error',
   'success',
 ] as const;
-export type AlertStatusType = typeof alertStatusTypes[number];
+export type AlertStatusType = (typeof alertStatusTypes)[number];
 
 // This can be useful for testing.
 export interface OutlineAlertInterface extends HTMLElement {
