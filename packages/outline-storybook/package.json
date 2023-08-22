@@ -16,7 +16,8 @@
     "@phase2/outline-alert": "^0.1.8",
     "@phase2/outline-code-block": "^0.1.4",
     "@phase2/outline-docs": "^0.0.17",
-    "@phase2/outline-static-assets": "^0.0.4"
+    "@phase2/outline-static-assets": "^0.0.4",
+    "@phase2/outline-core-heading": "^0.0.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^7.0.12",

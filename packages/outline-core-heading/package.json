@@ -1,5 +1,6 @@
 {
   "name": "@phase2/outline-core-heading",
+  "version": "0.0.0",
   "description": "The Outline Components for the web heading component",
   "keywords": [
     "outline components",
@@ -18,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-heading"
+    "directory": "packages/outline-core-heading"
   },
   "license": "BSD-3-Clause",
   "scripts": {
