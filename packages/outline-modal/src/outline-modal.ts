@@ -6,7 +6,7 @@ import { OutlineElement } from '@phase2/outline-core';
 import componentStyles from './outline-modal.css.lit';
 
 export const modalSizes = ['small', 'medium', 'full-screen'] as const;
-export type ModalSize = typeof modalSizes[number];
+export type ModalSize = (typeof modalSizes)[number];
 
 // This is helpful in testing.
 export interface OutlineModalInterface extends HTMLElement {

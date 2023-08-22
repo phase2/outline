@@ -16,7 +16,7 @@ export const aspectRatios = [
   '21/9',
   '42/9',
 ] as const;
-export type AspectRatios = typeof aspectRatios[number];
+export type AspectRatios = (typeof aspectRatios)[number];
 /**
  * The image component, with support for parallax scrolling.
  * @element outline-image

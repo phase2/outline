@@ -1,5 +1,5 @@
 export const HeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', undefined];
-export type AllowedHeadingLevels = typeof HeadingLevels[number];
+export type AllowedHeadingLevels = (typeof HeadingLevels)[number];
 
 // Updated to limit the allowed values to the set we want to be selectable in Storybook.
 export const HeadingSizes = [
@@ -17,7 +17,7 @@ export const HeadingSizes = [
   '8xl',
   '9xl',
 ] as const;
-export type AllowedHeadingSizes = typeof HeadingSizes[number];
+export type AllowedHeadingSizes = (typeof HeadingSizes)[number];
 
 export const HeadingStyles = [
   'thin',
@@ -30,4 +30,4 @@ export const HeadingStyles = [
   'extrabold',
   'black',
 ] as const;
-export type AllowedHeadingStyles = typeof HeadingStyles[number];
+export type AllowedHeadingStyles = (typeof HeadingStyles)[number];

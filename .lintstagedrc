@@ -3,7 +3,5 @@
     "eslint --rule 'no-console: error' --fix",
     "prettier --write"
   ],
-  "*.{json,md}": [
-    "prettier --write"
-  ]
+  "*.{json,md}": ["prettier --write"]
 }
