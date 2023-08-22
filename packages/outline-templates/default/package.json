@@ -18,9 +18,7 @@
     "url": "https://phase2technology.com"
   },
   "license": "BSD-3-Clause",
-  "publishConfig": {
-    "registry": "https://us-central1-npm.pkg.dev/phase2-devcloud/phase2-npm/"
-  },
+  "publishConfig": {},
   "sbport": 6099,
   "scripts": {
     "prestart": "yarn prep",
