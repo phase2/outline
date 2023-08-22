@@ -137,7 +137,7 @@
     "tailwindcss": "3.0.0",
     "ts-lit-plugin": "^1.2.1",
     "turbo": "^1.2.16",
-    "vite": "4.1.4"
+    "vite": "^4.1.4"
   },
   "dependencies": {},
   "bugs": {
