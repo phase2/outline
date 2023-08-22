@@ -1,0 +1,29 @@
+{
+  "name": "documentation",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev --port=3042",
+    "start": "yarn dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^2.9.7"
+  },
+  "devDependencies": {
+    "@astrojs/lit": "^2.1.0",
+    "@phase2/outline-core-link": "^0.0.6",
+    "@webcomponents/template-shadowroot": "^0.2.1",
+    "lit": "^2.7.0",
+    "postcss": "^8.4.28",
+    "postcss-preset-env": "^9.1.1"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-preset-env": {}
+    }
+  }
+}
