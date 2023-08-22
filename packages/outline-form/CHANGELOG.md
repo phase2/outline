@@ -1,5 +1,11 @@
 # @phase2/outline-form
 
+## 0.1.3
+
+### Patch Changes
+
+- Fix for updated dependencies
+
 ## 0.1.2
 
 ### Patch Changes
