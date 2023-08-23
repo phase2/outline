@@ -1,7 +1,7 @@
-import {Flags, Command} from '@oclif/core'
-import inquirer from 'inquirer'
-import {initProject} from '../actions/init/init-project'
-import type {Prompts} from '../actions/init/init-project'
+import { Flags, Command } from '@oclif/core';
+import inquirer from 'inquirer';
+import { initProject } from '../actions/init/init-project';
+import type { Prompts } from '../actions/init/init-project';
 
 export default class Init extends Command {
   static description = 'Scaffolds a new Outline Project';
@@ -13,8 +13,8 @@ export default class Init extends Command {
       description: 'Enable/disable interactive mode.',
       default: false,
     }),
-    name: Flags.string({char: 'n', description: 'Project name.'}),
-    slug: Flags.string({char: 's', description: 'Project slug.'}),
+    name: Flags.string({ char: 'n', description: 'Project name.' }),
+    slug: Flags.string({ char: 's', description: 'Project slug.' }),
     packageName: Flags.string({
       char: 'p',
       description: 'Project package name.',
@@ -28,12 +28,12 @@ export default class Init extends Command {
       description: 'Run in local development mode.',
       default: false,
     }),
-    template: Flags.string({char: 't', description: 'Project template.'}),
+    template: Flags.string({ char: 't', description: 'Project template.' }),
   };
 
   public async run(): Promise<void> {
     // Get flags as an object.
-    const {flags} = await this.parse(Init)
+    const { flags } = await this.parse(Init);
     if (!flags.automated) {
       const name = await inquirer.prompt([
         {
@@ -43,13 +43,13 @@ export default class Init extends Command {
           type: 'input',
           validate: function (input) {
             if (input) {
-              return true
+              return true;
             }
 
-            return false
+            return false;
           },
         },
-      ])
+      ]);
 
       const slug = await inquirer.prompt([
         {
@@ -59,13 +59,13 @@ export default class Init extends Command {
           type: 'input',
           validate: function (input) {
             if (input) {
-              return true
+              return true;
             }
 
-            return false
+            return false;
           },
         },
-      ])
+      ]);
 
       const packageName = await inquirer.prompt([
         {
@@ -75,13 +75,13 @@ export default class Init extends Command {
           default: `@phase2/${slug.slug}`,
           validate: function (input) {
             if (input) {
-              return true
+              return true;
             }
 
-            return false
+            return false;
           },
         },
-      ])
+      ]);
 
       const description = await inquirer.prompt([
         {
@@ -91,22 +91,22 @@ export default class Init extends Command {
           default: 'Design system built with OutlineJS.',
           validate: function (input) {
             if (input) {
-              return true
+              return true;
             }
 
-            return false
+            return false;
           },
         },
-      ])
+      ]);
 
       const template = await inquirer.prompt([
         {
           name: 'template',
           message: 'What is your project starter template?',
           type: 'list',
-          choices: [{name: 'default'}],
+          choices: [{ name: 'default' }],
         },
-      ])
+      ]);
 
       // Enable "interactive mode".
       const prompts: Prompts = {
@@ -115,8 +115,8 @@ export default class Init extends Command {
         packageName: packageName.packageName,
         description: description.description,
         template: template.template,
-      }
-      initProject(prompts, flags.local)
+      };
+      initProject(prompts, flags.local);
     } else {
       // Enable "manual mode".
       const prompts: Prompts = {
@@ -125,8 +125,8 @@ export default class Init extends Command {
         packageName: flags.packageName ?? '@phase2/design-system',
         description: flags.description ?? 'Design system built with OutlineJS.',
         template: flags.template ?? 'default',
-      }
-      initProject(prompts, flags.local)
+      };
+      initProject(prompts, flags.local);
     }
   }
 }
