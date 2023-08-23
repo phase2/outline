@@ -1,5 +1,13 @@
 # @phase2/outline-grid
 
+## 0.0.9
+
+### Patch Changes
+
+- d00800e0: Sweeping shuffle to reorganize the packages directory.
+- Updated dependencies [d00800e0]
+  - @phase2/outline-core@0.2.5
+
 ## 0.0.8
 
 ### Patch Changes

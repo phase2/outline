@@ -30,7 +30,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.4",
+    "@phase2/outline-core": "^0.2.5",
     "lit": "^2.3.1"
   },
   "publishConfig": {

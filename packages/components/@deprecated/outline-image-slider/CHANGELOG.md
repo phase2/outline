@@ -1,5 +1,13 @@
 # @phase2/outline-image-slider
 
+## 0.1.6
+
+### Patch Changes
+
+- d00800e0: Sweeping shuffle to reorganize the packages directory.
+- Updated dependencies [d00800e0]
+  - @phase2/outline-core@0.2.5
+
 ## 0.1.5
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-controller-light-dom-styles-controller",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Deprecated controller to manage styles via Light DOM.",
   "keywords": [
     "outline components",

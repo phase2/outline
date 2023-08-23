@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-list",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "The Outline Components for the web list component",
   "keywords": [
     "outline",
@@ -29,8 +29,8 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.3",
-    "@phase2/outline-heading": "^0.1.4",
+    "@phase2/outline-core": "^0.2.5",
+    "@phase2/outline-heading": "^0.1.5",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },

@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-tabs",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "The Outline Components for the web tabs component",
   "keywords": [
     "outline components",
@@ -28,9 +28,9 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.3",
-    "@phase2/outline-accordion": "^0.1.6",
-    "@phase2/outline-heading": "^0.1.4",
+    "@phase2/outline-core": "^0.2.5",
+    "@phase2/outline-accordion": "^0.1.7",
+    "@phase2/outline-heading": "^0.1.5",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },

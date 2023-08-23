@@ -1,5 +1,14 @@
 # @phase2/outline-accordion
 
+## 0.1.7
+
+### Patch Changes
+
+- d00800e0: Sweeping shuffle to reorganize the packages directory.
+- Updated dependencies [d00800e0]
+  - @phase2/outline-icon@0.1.5
+  - @phase2/outline-core@0.2.5
+
 ## 0.1.6
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @phase2/outline-storybook
 
+## 0.0.51
+
+### Patch Changes
+
+- d00800e0: Sweeping shuffle to reorganize the packages directory.
+- Updated dependencies [d00800e0]
+  - @phase2/outline-code-block@0.1.5
+  - @phase2/outline-alert@0.1.10
+  - @phase2/outline-static-assets@0.0.5
+  - @phase2/outline-docs@0.0.19
+  - @phase2/outline-core@0.2.5
+
 ## 0.0.50
 
 ### Patch Changes

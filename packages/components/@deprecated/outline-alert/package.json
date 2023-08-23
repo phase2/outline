@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-alert",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "The Outline Components for the web alert component",
   "keywords": [
     "outline components",
@@ -28,7 +28,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.3",
+    "@phase2/outline-core": "^0.2.5",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },

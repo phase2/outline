@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-style-guide",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Web Components utilized primarily in a component style guide.",
   "keywords": [
     "outline",
@@ -27,7 +27,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.3",
+    "@phase2/outline-core": "^0.2.5",
     "lit": "^2.0.2",
     "tslib": "^2.1.0"
   },
