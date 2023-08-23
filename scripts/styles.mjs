@@ -182,7 +182,7 @@ if (options.watch) {
     {
       ignore: [
         '**/dist/**/*.css',
-        '*packages/documentation/outline-storybook/**/*.css',
+        'packages/documentation/outline-storybook/**/*.css',
       ],
     },
     (err, watcher) => {

@@ -22,7 +22,7 @@
     "directory": "packages/outline-style-guide"
   },
   "scripts": {
-    "build": "node ../../scripts/build.js",
+    "build": "node ../../../scripts/build.js",
     "package": "yarn publish"
   },
   "dependencies": {
