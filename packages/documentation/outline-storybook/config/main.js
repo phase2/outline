@@ -50,6 +50,5 @@ module.exports = {
     {
       name: '@storybook/addon-essentials',
     },
-    '@storybook/addon-mdx-gfm',
   ],
 };

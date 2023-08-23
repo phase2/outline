@@ -1,5 +1,11 @@
 # @phase2/outline-storybook
 
+## 0.1.0
+
+### Minor Changes
+
+- Updates for circular dependencies
+
 ## 0.0.51
 
 ### Patch Changes
