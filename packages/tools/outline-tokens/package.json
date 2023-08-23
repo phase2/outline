@@ -1,0 +1,40 @@
+{
+  "name": "@phase2/outline-tokens",
+  "version": "0.1.1",
+  "description": "The Outline Tokens package.",
+  "keywords": [
+    "outline components",
+    "outline design",
+    "design tokens"
+  ],
+  "files": [
+    "/dist/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/tools/outline-tokens"
+  },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/tools/outline-tokens",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "sd-init": "style-dictionary init basic",
+    "prebuild": "node ../../../scripts/clean.js",
+    "build": "style-dictionary build --config ./config.json",
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  },
+  "devDependencies": {
+    "style-dictionary": "^3.7.1"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "name": "@phase2/outline-cli",
+  "description": "Outline command-line interface for creating new Outline projects and Outline commands",
+  "version": "0.0.54",
+  "author": "Phase2 Technology",
+  "bin": {
+    "outline": "./bin/run"
+  },
+  "bugs": "https://github.com/phase2/outline/issues",
+  "dependencies": {
+    "@oclif/core": "^1",
+    "@oclif/plugin-help": "^5",
+    "@oclif/plugin-plugins": "^2.0.1",
+    "@phase2/outline-storybook": "^0.0.50",
+    "@phase2/outline-templates": "^0.0.47",
+    "@types/inquirer": "^9.0.3",
+    "chalk": "^4.1.2",
+    "fs": "^0.0.2-security",
+    "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "@oclif/test": "^2",
+    "@types/chai": "^4",
+    "@types/fs-extra": "^9.0.13",
+    "@types/mocha": "^9.0.0",
+    "@types/node": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
+    "chai": "^4",
+    "eslint": "^7.32.0",
+    "eslint-config-oclif": "^4",
+    "eslint-config-oclif-typescript": "^1.0.2",
+    "globby": "^11",
+    "inquirer-directory": "^2.2.0",
+    "inquirer-file-tree-selection-prompt": "^2.0.5",
+    "mocha": "^9",
+    "oclif": "^3",
+    "shx": "^0.3.3",
+    "ts-node": "^10.2.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "files": [
+    "/bin",
+    "/dist",
+    "/npm-shrinkwrap.json",
+    "/oclif.manifest.json"
+  ],
+  "keywords": [
+    "outline",
+    "web-components",
+    "design system",
+    "command line interface"
+  ],
+  "license": "BSD-3-Clause",
+  "main": "dist/index.js",
+  "oclif": {
+    "bin": "outline",
+    "dirname": "outline",
+    "commands": "./dist/commands",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topicSeparator": " ",
+    "topics": {
+      "init": {
+        "description": "Create new Outline projects"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/tools/outline-cli"
+  },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/tools/outline-cli",
+  "scripts": {
+    "build": "shx rm -rf dist && tsc -b",
+    "lint": "eslint . --ext .ts --config .eslintrc",
+    "postpack": "shx rm -f oclif.manifest.json",
+    "posttest": "yarn lint",
+    "package": "yarn publish",
+    "prepack": "yarn build && oclif manifest && oclif readme",
+    "todo-test": "mocha --forbid-only \"test/**/*.test.ts\"",
+    "version": "oclif readme && git add README.md"
+  },
+  "types": "index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  }
+}

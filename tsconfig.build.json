@@ -17,7 +17,7 @@
   },
   "include": ["packages/**/*.ts"],
   "exclude": [
-    "packages/outline-cli/*",
+    "packages/tools/outline-cli/*",
     "node_modules",
     "dist",
     "**/node_modules/*",

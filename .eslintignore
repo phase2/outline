@@ -18,4 +18,4 @@ storybook-static/
 .yarn/
 project/
 *.d.ts
-packages/outline-cli/
+packages/tools/outline-cli/
