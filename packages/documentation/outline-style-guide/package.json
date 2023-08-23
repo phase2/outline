@@ -19,8 +19,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-style-guide"
+    "directory": "packages/documentation/outline-style-guide"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/documentation/outline-style-guide",
   "scripts": {
     "build": "node ../../../scripts/build.js",
     "package": "yarn publish"

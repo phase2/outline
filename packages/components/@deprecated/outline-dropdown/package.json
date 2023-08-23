@@ -20,8 +20,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-dropdown"
+    "directory": "packages/components/@deprecated/outline-dropdown"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/components/@deprecated/outline-dropdown",
   "license": "BSD-3-Clause",
   "scripts": {
     "package": "yarn publish"

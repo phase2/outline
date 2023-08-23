@@ -15,8 +15,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-tokens"
+    "directory": "packages/tools/outline-tokens"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/tools/outline-tokens",
   "license": "BSD-3-Clause",
   "scripts": {
     "sd-init": "style-dictionary init basic",

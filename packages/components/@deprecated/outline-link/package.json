@@ -20,8 +20,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-link"
+    "directory": "packages/components/@deprecated/outline-link"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/components/@deprecated/outline-link",
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "node ../../../../scripts/build.js",

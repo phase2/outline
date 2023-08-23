@@ -50,7 +50,6 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/phase2/outline.git",
   "keywords": [
     "outline",
     "web-components",
@@ -77,8 +76,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-cli"
+    "directory": "packages/tools/outline-cli"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/tools/outline-cli",
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint . --ext .ts --config .eslintrc",

@@ -20,8 +20,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-docs"
+    "directory": "packages/documentation/outline-docs"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/documentation/outline-docs",
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "node ../../../scripts/build.js",

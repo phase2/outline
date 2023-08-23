@@ -9,8 +9,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-static-assets"
+    "directory": "packages/documentation/outline-static-assets"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/documentation/outline-static-assets",
   "dependencies": {},
   "publishConfig": {
     "access": "public"

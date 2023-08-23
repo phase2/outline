@@ -19,8 +19,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-alert"
+    "directory": "packages/components/@deprecated/outline-alert"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/components/@deprecated/outline-alert",
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "node ../../../../scripts/build.js",
