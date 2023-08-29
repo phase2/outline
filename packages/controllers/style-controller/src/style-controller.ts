@@ -1,7 +1,14 @@
 /*
   Instructions for using in a component:
+  `outline-styled-text.ts`
   import slotStyles from './outline-styled-text.css.lit';
   stylesManager = new StyleManager(this, slotStyles);
+
+  When using postcss-nested-import plugin we can use @nested-import
+  `outline-styled-text.css`
+  outline-styled-text {
+    @nested-import './outline-styled-text-slot-styles.css';
+  }
 */
 import { CSSResult, ReactiveController, ReactiveControllerHost } from 'lit';
 
@@ -12,10 +19,12 @@ import { CSSResult, ReactiveController, ReactiveControllerHost } from 'lit';
 export class StyleManager implements ReactiveController {
   protected host: ReactiveControllerHost & Element;
   protected cssStyles: CSSResult;
+  protected generateRandomId: boolean;
 
-  constructor(host: ReactiveControllerHost & Element, cssStyles: CSSResult) {
+  constructor(host: ReactiveControllerHost & Element, cssStyles: CSSResult, generateRandomId = false) {
     this.host = host;
     this.cssStyles = cssStyles;
+    this.generateRandomId = generateRandomId;
     host.addController(this);
   }
 
@@ -31,17 +40,23 @@ export class StyleManager implements ReactiveController {
   addSlotStyles(cssStyles: CSSResult) {
     const documentSheet = new CSSStyleSheet();
 
-    // Add a random ID for this specific instance of the component
-    this.host.id = `${this.host.tagName}-${this.generateRandomString(4)}`;
+    if (this.generateRandomId) {
+      // Add a random ID for this specific instance of the component
+      this.host.id = `${this.host.tagName}-${this.generateRandomString(4)}`;
 
-    // Create nested CSS rule with the element's unique id
-    const ruleStringWithElementAsPrefix =
-      '#' +
-      this.host.id +
-      ` { ${this.addPrefixToCurlyGroups(cssStyles, '& ')};  }`;
+      // Create nested CSS rule with the element's unique id
+      const ruleStringWithElementAsPrefix =
+        '#' +
+        this.host.id +
+        ` { ${this.addPrefixToCurlyGroups(cssStyles, '& ')};  }`;
+        // Add all the rules to the document's stylesheet
+        documentSheet.replaceSync(ruleStringWithElementAsPrefix);
+    }
+    else {
+      // assuming postcss-nested-import plugin is used
+      documentSheet.replaceSync(cssStyles.cssText);
+    }
 
-    // Add all the rules to the document's stylesheet
-    documentSheet.replaceSync(ruleStringWithElementAsPrefix);
     document.adoptedStyleSheets = [
       ...document.adoptedStyleSheets,
       documentSheet,
