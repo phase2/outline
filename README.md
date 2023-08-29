@@ -69,6 +69,6 @@ outline init
 
 Detailed information regarding how to contribute to Outline development, can be found in [CONTRIBUTING.md](./CONTRIBUTING.md). **Expect this information to be refined soon.**
 
-Please see [./docs/README.md](.packages/outline-docs/src/guides/development/component-development) for information about developing for Outline.
+Please see [Component Development Guide](.packages/outline-docs/src/guides/development/component-development) for information about developing for Outline.
 
 [![Deploys by Netlify](https://www.netlify.com/v3/img/components/netlify-color-accent.svg 'Deploys by Netlify')](https://www.netlify.com)
