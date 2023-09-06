@@ -1,3 +1,5 @@
+[![Latest version for outline-controller-light-dom-styles-controller](https://img.shields.io/npm/v/@phase2/outline-core-link)](https://www.npmjs.com/package/@phase2/outline-controller-light-dom-styles-controller)
+
 # `LightDomStyles` Controller
 
 > This controller is deprecated, and the `StyleController` from `@phase2/outline-controller-style-controller` should be utilized in its place when possible.

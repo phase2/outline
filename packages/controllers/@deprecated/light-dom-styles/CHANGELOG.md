@@ -1,5 +1,11 @@
 # @phase2/outline-controller-light-dom-styles-controller
 
+## 0.0.3
+
+### Patch Changes
+
+- Documentation updates
+
 ## 0.0.2
 
 ### Patch Changes
