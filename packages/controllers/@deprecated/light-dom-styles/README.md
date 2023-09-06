@@ -1,4 +1,4 @@
-[![Latest version for outline-controller-light-dom-styles-controller](https://img.shields.io/npm/v/@phase2/outline-core-link)](https://www.npmjs.com/package/@phase2/outline-controller-light-dom-styles-controller)
+[![Latest version for outline-controller-light-dom-styles-controller](https://img.shields.io/npm/v/@phase2/outline-controller-light-dom-styles-controller)](https://www.npmjs.com/package/@phase2/outline-controller-light-dom-styles-controller)
 
 # `LightDomStyles` Controller
 

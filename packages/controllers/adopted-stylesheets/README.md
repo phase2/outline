@@ -1,6 +1,6 @@
 # `AdoptedStylesheets` Controller
 
-[![Latest version for outline-adopted-stylesheets-controller](https://img.shields.io/npm/v/@phase2/outline-core-link)](https://www.npmjs.com/package/@phase2/outline-adopted-stylesheets-controller)
+[![Latest version for outline-adopted-stylesheets-controller](https://img.shields.io/npm/v/@phase2/outline-adopted-stylesheets-controller)](https://www.npmjs.com/package/@phase2/outline-adopted-stylesheets-controller)
 
 > The `AdoptedStylesheets` controller is a part of the `@phase2/outline-adopted-stylesheets-controller` package.  This controller helps components attach "global" document styles without duplication at the component level as well as de-duping any previous inclusions into `AdoptedStylesheets`.
 

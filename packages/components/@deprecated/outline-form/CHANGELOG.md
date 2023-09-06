@@ -1,5 +1,12 @@
 # @phase2/outline-form
 
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies
+  - @phase2/outline-controller-light-dom-styles-controller@0.0.4
+
 ## 0.1.5
 
 ### Patch Changes
