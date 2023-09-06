@@ -35,7 +35,7 @@ module.exports = {
     modernInlineRender: true,
   },
   framework: {
-    name: getAbsolutePath("@storybook/web-components-vite"),
+    name: getAbsolutePath('@storybook/web-components-vite'),
     options: {},
   },
   docs: {
