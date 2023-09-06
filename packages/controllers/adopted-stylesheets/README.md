@@ -1,10 +1,10 @@
-[![Latest version for outline-adopted-stylesheets-controller](https://img.shields.io/npm/v/@phase2/outline-core-link)](https://www.npmjs.com/package/@phase2/outline-adopted-stylesheets-controller)
-
 # `AdoptedStylesheets` Controller
+
+[![Latest version for outline-adopted-stylesheets-controller](https://img.shields.io/npm/v/@phase2/outline-core-link)](https://www.npmjs.com/package/@phase2/outline-adopted-stylesheets-controller)
 
 > The `AdoptedStylesheets` controller is a part of the `@phase2/outline-adopted-stylesheets-controller` package.  This controller helps components attach "global" document styles without duplication at the component level as well as de-duping any previous inclusions into `AdoptedStylesheets`.
 
-## Installing the `LightDomStyles` Controller
+## Installing the `AdoptedStylesheets` Controller
 
 Install the new package:
 
@@ -14,7 +14,10 @@ yarn add @phase2/outline-adopted-stylesheets-controller
 
 ## Overview
 
-Adopted stylesheets are a way to apply styles to a document or a shadow root. They are a part of the CSS Shadow Parts specification. You can read more about them [here](https://wicg.github.io/construct-stylesheets/).
+Adopted stylesheets are a method to apply styles to a document or a shadow root. They are a part of the CSS Shadow Parts specification. Unfortunately, the original documentation link is no longer available. However, you can find more information about adopted stylesheets and their usage in web components in the following resources:
+
+- [MDN Web Docs: Document adoptedStyleSheets](https://developer.mozilla.org/en-US/docs/Web/API/Document/adoptedStyleSheets): This documentation provides an in-depth look at the `adoptedStyleSheets` property of the `Document` interface.
+- [MDN Web Docs: ShadowRoot adoptedStyleSheets](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets): This documentation provides an in-depth look at the `adoptedStyleSheets` property of the `ShadowRoot` interface.
 
 ## Methods
 
