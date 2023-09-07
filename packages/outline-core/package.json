@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core",
-  "version": "0.1.11",
+  "version": "0.2.5",
   "description": "Core functionality that is shared across all Outline Web Components",
   "keywords": [
     "outline",
@@ -21,13 +21,14 @@
     "url": "https://github.com/phase2/outline.git",
     "directory": "packages/outline-core"
   },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/outline-core",
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "node ../../scripts/build.js",
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-config": "^0.0.10"
+    "@phase2/outline-config": "^0.0.12"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -92,8 +93,6 @@
   "exports": {
     ".": "./index.ts",
     "./src/outline-element": "./src/outline-element/outline-element.ts",
-    "./src/outline-element/outline-element.a11y.css.lit": "./src/outline-element/outline-element.a11y.css.lit.ts",
-    "./src/outline-element/outline-element.base.css.lit": "./src/outline-element/outline-element.base.css.lit.ts",
     "./src/internal/light-dom.mjs": "./src/internal/light-dom.mjs"
   }
 }
