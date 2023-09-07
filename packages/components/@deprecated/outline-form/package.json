@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-form",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "The Outline Components for the form component",
   "keywords": [
     "outline components",
@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@phase2/outline-core": "^0.2.5",
-    "@phase2/outline-controller-light-dom-styles-controller": "^0.0.2",
+    "@phase2/outline-controller-light-dom-styles-controller": "^0.0.4",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },
