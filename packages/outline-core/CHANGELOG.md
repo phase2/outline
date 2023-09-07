@@ -1,5 +1,19 @@
 # @phase2/outline-core
 
+## 0.2.5
+
+### Patch Changes
+
+- d00800e0: Sweeping shuffle to reorganize the packages directory.
+- Updated dependencies [d00800e0]
+  - @phase2/outline-config@0.0.12
+
+## 0.2.4
+
+### Patch Changes
+
+- Updates for light dom package
+
 ## 0.2.3
 
 ### Patch Changes

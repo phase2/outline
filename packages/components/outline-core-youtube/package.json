@@ -1,0 +1,43 @@
+{
+  "name": "@phase2/outline-core-youtube",
+  "private": true,
+  "version": "0.0.0",
+  "description": "The Outline Components for the image component",
+  "keywords": [
+    "outline",
+    "web-components",
+    "design system",
+    "image",
+    "picture"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "/dist/",
+    "/src/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/outline-core-youtube"
+  },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/components/outline-core-youtube",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "node ../../../scripts/build.js",
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "@phase2/outline-core": "^0.2.5",
+    "lit": "^2.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}
