@@ -1,5 +1,23 @@
 # @phase2/outline-templates
 
+## 0.0.48
+
+### Patch Changes
+
+- d00800e0: Sweeping shuffle to reorganize the packages directory.
+
+## 0.0.47
+
+### Patch Changes
+
+- Hopeful fixes for all the things.
+
+## 0.0.46
+
+### Patch Changes
+
+- Fixes to CSS tools.
+
 ## 0.0.45
 
 ### Patch Changes
