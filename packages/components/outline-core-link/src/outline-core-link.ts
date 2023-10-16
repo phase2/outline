@@ -77,7 +77,6 @@ export class OutlineCoreLink extends OutlineElement {
 
       ${globalStyles}
     `);
-    this.adoptedStylesheets = new AdoptedStyleSheets(globalStyles);
     this.addController(this.adoptedStylesheets);
   }
 
