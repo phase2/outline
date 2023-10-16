@@ -1,4 +1,10 @@
 import { dirname, join } from 'path';
+const outlineConfig = require('../outline.config');
+
+const excludedStories = outlineConfig.excludedStories;
+function getExcluded() {
+  return excludedStories.join('|');
+}
 
 module.exports = {
   stories: [
@@ -15,8 +21,12 @@ module.exports = {
     // Documentation stories.
     '../packages/documentation/outline-docs/src/guides/**/*.@(js|ts|mdx)',
     // Modern component stories.
-    '../packages/**/docs/*.mdx',
+    //'../packages/**/docs/*.mdx',
+
     // Old component stories.
+    ...(excludedStories.length
+      ? [`../packages/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
+      : [`../packages/**/*.stories.@(js|ts|mdx)`]),
     '../packages/documentation/outline-storybook/stories/**/*.stories.@(js|ts|mdx)',
   ],
   typescript: {
