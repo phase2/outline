@@ -1,12 +1,15 @@
-import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { html, TemplateResult, CSSResultGroup, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
+import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
+import componentStyles from './style/outline-core-link.css.lit';
+import componentVars from './style/outline-core-link.vars.css.lit';
+import globalStyles from './style/outline-core-link.lightDom.css.lit';
 
 import type { LinkTargetType, LinkRelType } from './config';
-import componentStyles from './outline-core-link.css.lit';
 
 /** The element name, reused throughout the codebase */
 const componentName = 'outline-core-link';
@@ -30,7 +33,9 @@ const componentName = 'outline-core-link';
  */
 @customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [componentVars, componentStyles];
+  adoptedStylesheets: AdoptedStyleSheets;
+  debug = false;
 
   /**
    * Link url
@@ -55,6 +60,34 @@ export class OutlineCoreLink extends OutlineElement {
    */
   @property({ type: String, attribute: 'link-rel' })
   linkRel: LinkRelType;
+
+  /**
+   * The `connectedCallback` method is called whenever the element is inserted into the DOM.
+   * In this method, we're creating an instance of `AdoptedStyleSheets` and adding it as a controller.
+   *
+   * Adding the `connectedCallback` controller via  more efficient than creating the instance and adding the controller in the constructor.
+   * The reason is that it delays these operations until the element is actually inserted into the DOM.
+   * If you have many such elements that are created but not immediately added to the DOM,
+   * this can improve the startup performance of your application.
+   */
+  connectedCallback() {
+    super.connectedCallback();
+    this.adoptedStylesheets = new AdoptedStyleSheets(css`
+      ${componentVars}
+
+      ${globalStyles}
+    `);
+    this.adoptedStylesheets = new AdoptedStyleSheets(globalStyles);
+    this.addController(this.adoptedStylesheets);
+  }
+
+  render(): TemplateResult {
+    if (this.linkHref) {
+      return this.generateLink();
+    } else {
+      return this.fullMarkupInSlot();
+    }
+  }
 
   /**
    * Check to see if the link is external, pass target="_blank" and rel="external" if so. Returns true if the link is external.
@@ -163,20 +196,11 @@ export class OutlineCoreLink extends OutlineElement {
    * @returns HTMLSlotElement
    */
   fullMarkupInSlot(): TemplateResult {
-    if (this.isValidTopLevelSlottedLink()) {
-      this.adjustSlottedContent();
-    } else {
+    this.adjustSlottedContent();
+    if (this.debug) {
       this.debugSlottedContent();
     }
     return html` <slot></slot> `;
-  }
-
-  render(): TemplateResult {
-    if (this.linkHref) {
-      return this.generateLink();
-    } else {
-      return this.fullMarkupInSlot();
-    }
   }
 }
 

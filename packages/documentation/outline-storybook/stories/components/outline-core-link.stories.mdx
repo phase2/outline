@@ -68,26 +68,6 @@ Consumer Links are links that are created by a consumer application that uses th
 
 The above example simply shows how a consumer application can pass in a valid `a` tag via the default slot, and the `outline-core-link` component will ensure proper markup and styling.
 
-### **Breaking a Consumer Link**
-
-**Consumer Links** that are attempting to wrap the `a` tag provided to the `slot` will see an error in the console, and likely see broken styling. 
-
----
-
-<p><outline-core-link><span><a href="https://www.phase2technology.com" className="sb-unstyled" target="_blank">"Broken" Consumer Link</a></span></outline-core-link></p>
-
-```html preview-story
-<outline-core-link>
-  <span>
-    <a href="https://www.phase2technology.com" target="_blank">
-      "Broken" Consumer Link
-    </a>
-  </span>
-</outline-core-link>
-```
-
-In the above example, because we wrapped our `a` inside a `span` tag, the default styling provided by the component is visually broken. 
-
 ### **Overriding a Consumer Link**
 
 With the flexible implementation of `outline-core-link`, it is possible to override the `a` tag provided to the `slot` by passing attributes to the `outline-core-link` component itself.
