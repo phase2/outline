@@ -1,32 +1,53 @@
-# Outline Documentation
+# Starlight Starter Kit: Basics
 
-Developing for Outline has different considerations than developing with Outline.
+[![Built with Starlight](https://astro.badg.es/v2/built-with-starlight/tiny.svg)](https://starlight.astro.build)
 
-## Developing With Outline
-
-If you are using Outline to create a design system, you should refer to the scaffolding information in the main [../README.md](README.md) file along with the documentation in the [../packages/outline-docs](@phase2/outline-docs) package. This package should be added by default when you initialize your Outline project and its contents should show in your project's Storybook instance.
-
-## Developing For Outline
-
-If you are developing to improve Outline there are two modes to consider for Outline packages:
-
- * running in the context of the Outline project
- * running in the context of a project using Outline.
-
-Running in the context of the Outline project is relatively straightforward as it simply involves running commands in this repo. For example, `yarn run start` will start Storybook in dev mode. Running in the context of a project, however, is more complicated. There are two techniques you should be aware of.
-
-### Linking
-
-If you want to test your work within the context of a project and your change doesn't involve the installation of a package or initialization of a project, [linking techniques](https://classic.yarnpkg.com/lang/en/docs/cli/link/) may be sufficient for your needs.
-
-### Outline CLI and project template development
-
-When adjusting the project initialization process it can be executed via direct reference instead of using the `@phase2/outline-cli` package. There is also a flag to the `init` command, `-l`, that will cause the templates used to come from the `../packages/outline-templates` and `../packages/outline-storybook` directories instead of the published `@phase2/outline-templates` and `@phase2/outline-storybook` packages. It will also cause the initial `yarnpkg` command in the generated project to be skipped.
-
-For example, to spin up a project directory as a sibling to this repo run:
-
-```bash
-npx ./outline/packages/outline-cli init -l
+```
+npm create astro@latest -- --template starlight
 ```
 
-> Note: Do not forget to execute a build before testing the project initialization process. Use of the -l flag does not currently cause any initially installed packages to use linking technique above.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
+[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
+
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+
+## 🚀 Project Structure
+
+Inside of your Astro + Starlight project, you'll see the following folders and files:
+
+```
+.
+├── public/
+├── src/
+│   ├── assets/
+│   ├── content/
+│   │   ├── docs/
+│   │   └── config.ts
+│   └── env.d.ts
+├── astro.config.mjs
+├── package.json
+└── tsconfig.json
+```
+
+Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
+
+Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+
+Static assets, like favicons, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 👀 Want to learn more?
+
+Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).

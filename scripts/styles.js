@@ -1,16 +1,14 @@
 /* eslint-disable global-require */
 /* eslint-disable no-console */
-import yargs from 'yargs';
-import gaze from 'gaze';
-import postcss from 'postcss';
-import fs from 'fs';
-import path from 'path';
-import glob from 'glob';
-import outline from '../outline.config.js';
-import config from '@phase2/outline-config/postcss.config';
-import { addScopeToStyles } from '@phase2/outline-core/src/internal/light-dom.mjs';
+const yargs = require('yargs');
+const gaze = require('gaze');
+const postcss = require('postcss');
+const fs = require('fs');
+const glob = require('glob');
+const config = require('../postcss.config.js');
+const outline = require('../outline.config.js');
 
-const options = yargs.option('watch', {
+const options = yargs.options('watch', {
   type: 'boolean',
   describe: 'Watch the file system for changes and render automatically',
 }).argv;
@@ -100,53 +98,8 @@ ${result.css}\`;`,
   );
 };
 
-/**
- * Function to wrap all generic .css files with CSS template literals suitable for consumption via Lit.
- *
- * @param {string} filepath
- */
-const createLightDomStyles = filepath => {
-  fs.readFile(filepath, 'utf8', (err, css) => {
-    const nFilePath = `${filepath.replace(
-      '.global.',
-      '.global.scoped.'
-    )}.lit.ts`;
-    const componentName = path.basename(filepath, '.global.css');
-    postcss([...config.plugins])
-      .process(css, { from: filepath, to: nFilePath })
-      .then(result => {
-        const newCss = addScopeToStyles(result.css, componentName);
-        fs.writeFile(
-          nFilePath,
-          `
-import { css } from 'lit';
-export default css\`
-/* Scoped CSS. */
-${newCss}\`;`,
-          () => true
-        );
-      });
-  });
-  fs.readFile(filepath, 'utf8', (err, css) => {
-    const nFilePath = filepath.replace('.global.', '.global.scoped.');
-    const componentName = path.basename(filepath, '.global.css');
-    postcss([...config.plugins])
-      .process(css, { from: filepath, to: nFilePath })
-      .then(result => {
-        const newCss = addScopeToStyles(result.css, componentName);
-        fs.writeFile(nFilePath, newCss, () => true);
-      });
-  });
-};
-
 // Run the global style generation.
 createCssGlobals();
-
-// Add scoping to any *.global.css files.
-// Allow dot files to allow class-based scoping.
-glob('packages/**/*.global.css', { dot: true }, (err, files) => {
-  files.forEach(createLightDomStyles);
-});
 
 // Run the component style generation.
 glob(
@@ -168,12 +121,6 @@ if (options.watch) {
   gaze('*.css', { ignore: ['**/packages/**/*.css'] }, (err, watcher) => {
     watcher.on('added', createCssGlobals);
     watcher.on('changed', createCssGlobals);
-  });
-
-  // Watch components global scoping.
-  gaze('packages/**/*.global.css', { dot: true }, (err, watcher) => {
-    watcher.on('added', createLightDomStyles);
-    watcher.on('changed', createLightDomStyles);
   });
 
   // Watch components.

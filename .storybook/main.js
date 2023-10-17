@@ -2,6 +2,7 @@ import { dirname, join } from 'path';
 const outlineConfig = require('../outline.config');
 
 const excludedStories = outlineConfig.excludedStories;
+console.log(excludedStories);
 function getExcluded() {
   return excludedStories.join('|');
 }

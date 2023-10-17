@@ -17,7 +17,8 @@
     "./packages/documentation/*",
     "./packages/controllers/*",
     "./packages/controllers/@deprecated/*",
-    "./packages/tools/*"
+    "./packages/tools/*",
+    "./docs"
   ],
   "files": [
     "./packages/*/dist"
@@ -56,7 +57,7 @@
     "lint:prettier": "prettier --check .",
     "package": "turbo run package",
     "prep": "npm-run-all -s prep:*",
-    "prep:css": "node scripts/styles.mjs",
+    "prep:css": "node scripts/styles.js",
     "prebuild": "yarn prep",
     "prestart": "yarn prep",
     "rebuild": "yarn reset && yarn build",
@@ -71,7 +72,7 @@
     "test": "turbo run test",
     "watch": "npm-run-all -p watch:*",
     "watch:storybook": "yarn storybook dev -p ${npm_package_storybook_port}",
-    "watch:css": "node scripts/styles.mjs --watch"
+    "watch:css": "node scripts/styles.js --watch"
   },
   "keywords": [
     "web-components",
@@ -98,10 +99,6 @@
     "@types/estree": "^0.0.47",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
-    "@web/test-runner": "^0.13.15",
-    "@web/test-runner-browserstack": "^0.4.2",
-    "@web/test-runner-playwright": "^0.8.6",
-    "autoprefixer": "10.4.0",
     "chromatic": "^6.11.3",
     "esbuild": "^0.15.7",
     "eslint": "^7.32.0",
@@ -110,17 +107,13 @@
     "eslint-plugin-react": "^7.23.0",
     "eslint-plugin-storybook": "^0.6.15",
     "gaze": "^1.1.3",
-    "jest": "^26.6.3",
-    "jest-cli": "^26.6.3",
     "lefthook": "^1.5.2",
     "lint-staged": "^10.5.4",
     "lit-analyzer": "^1.2.1",
     "lit-html": "^2.3.1",
     "npm-run-all": "^4.1.5",
     "postcss": "8.4.8",
-    "postcss-custom-properties": "12.1.8",
     "postcss-discard-comments": "5.1.0",
-    "postcss-import": "14.0.2",
     "postcss-loader": "^7.0.1",
     "postcss-nested-import": "^1.3.0",
     "postcss-preset-env": "^7.8.1",
