@@ -1,5 +1,11 @@
 # @phase2/outline-templates
 
+## 0.0.49
+
+### Patch Changes
+
+- Bump for update to default nvmrc
+
 ## 0.0.48
 
 ### Patch Changes
