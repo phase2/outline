@@ -33,7 +33,7 @@ const componentName = 'outline-core-link';
  */
 @customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
-  static styles: CSSResultGroup = [componentVars, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
   adoptedStylesheets: AdoptedStyleSheets;
   debug = false;
 
@@ -73,8 +73,9 @@ export class OutlineCoreLink extends OutlineElement {
   connectedCallback() {
     super.connectedCallback();
     this.adoptedStylesheets = new AdoptedStyleSheets(css`
-      ${componentVars}
-
+      outline-core-link {
+        ${componentVars}
+      }
       ${globalStyles}
     `);
     this.addController(this.adoptedStylesheets);

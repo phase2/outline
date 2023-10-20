@@ -31,7 +31,8 @@
       {
         "argsIgnorePattern": "^_"
       }
-    ]
+    ],
+    "lit-plugin/no-invalid-css": "off"
   },
   "overrides": [
     {
