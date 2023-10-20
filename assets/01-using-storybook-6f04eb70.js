@@ -1,0 +1,10 @@
+import{j as t}from"./jsx-runtime-f69cb261.js";import{M as r}from"./chunk-S4VUQJ4A-550f3e34.js";import"./outline-alert-3efcdbe8.js";import"./outline-container-cbfed8dd.js";import{u as e}from"./index-70c40187.js";import"./iframe-43601686.js";import"../sb-preview/runtime.js";import"./index-bab9eea1.js";import"./index-356e4a49.js";import"./lit-element-411ba165.js";import"./screen-size-controller-4280a32a.js";import"./property-f36ea729.js";import"./if-defined-93280f6e.js";import"./class-map-aeb7fbb6.js";import"./directive-12249aa5.js";function i(n){const o=Object.assign({h2:"h2",p:"p",h1:"h1",h3:"h3",ul:"ul",li:"li"},e(),n.components);return t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"Documentation/Guides/QA & UAT/Using Storybook",parameters:{viewMode:"docs",previewTabs:{canvas:{hidden:!0}}}}),`
+`,t.jsxs("outline-container",{"container-width":"full","container-align":"left","top-margin":"spacing-2","bottom-margin":"spacing-8",children:[t.jsx(o.h2,{id:"description",children:"Description"}),t.jsx(o.p,{children:"This guide will help QA & UAT contributors to better understand Storybook, and how to utilize it for testing components."}),t.jsx(o.h2,{id:"documentation-status",children:"Documentation Status"}),t.jsxs("outline-alert",{status:"warning",size:"large",children:[t.jsx("span",{slot:"header",children:"Status: Needs Work/In Progress"}),t.jsx("p",{children:t.jsx(o.p,{children:"This documentation is in need of additional work, or is currently in progress."})})]})]}),`
+`,t.jsx(o.h1,{id:"outline-storybook-guide",children:"Outline Storybook Guide"}),`
+`,t.jsx(o.h2,{id:"introduction-to-storybook",children:"Introduction to Storybook"}),`
+`,t.jsx(o.h3,{id:"storybook-basics",children:"Storybook Basics"}),`
+`,t.jsxs(o.ul,{children:[`
+`,t.jsx(o.li,{children:"Use the search feature to find the component or page you are looking for."}),`
+`,t.jsx(o.li,{children:"Use the sidebar to navigate between components and pages."}),`
+`]})]})}function y(n={}){const{wrapper:o}=Object.assign({},e(),n.components);return o?t.jsx(o,Object.assign({},n,{children:t.jsx(i,n)})):i(n)}export{y as default};
+//# sourceMappingURL=01-using-storybook-6f04eb70.js.map
