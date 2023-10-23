@@ -22,13 +22,15 @@ module.exports = {
     // Documentation stories.
     '../packages/documentation/outline-docs/src/guides/**/*.@(js|ts|mdx)',
     // Modern component stories.
-    //'../packages/**/docs/*.mdx',
+    '../packages/**/docs/*.mdx',
 
-    // Old component stories.
-    ...(excludedStories.length
-      ? [`../packages/**/!(${getExcluded()})*.stories.@(js|ts|mdx)`]
-      : [`../packages/**/*.stories.@(js|ts|mdx)`]),
-    '../packages/documentation/outline-storybook/stories/**/*.stories.@(js|ts|mdx)',
+    // // Old component stories.
+    // ...(excludedStories.length
+    //   ? [
+    //       `../packages/!(@deprecated)**/!(${getExcluded()})*.stories.@(js|ts|mdx)`,
+    //     ]
+    //   : [`../packages/**/*.stories.@(js|ts|mdx)`]),
+    // '../packages/documentation/outline-storybook/stories/**/*.stories.@(js|ts|mdx)',
   ],
   typescript: {
     check: false,
