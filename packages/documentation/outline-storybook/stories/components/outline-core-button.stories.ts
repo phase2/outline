@@ -3,8 +3,9 @@ import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '@phase2/outline-core';
 import { ButtonVariant, ButtonSize } from '@phase2/outline-core-button';
-
+import '../../../../components/outline-extended-button'
 import '@phase2/outline-core-button';
+
 
 const buttonOptions: ButtonVariant[] = [
   'link',
@@ -117,7 +118,7 @@ const Template = ({
   onKeyUp,
 }: any): TemplateResult =>
   html`
-<outline-core-button
+<outline-extended-button
   button-url="${ifDefined(url)}"
   button-target="${ifDefined(target)}"
   button-variant="${variant}"
