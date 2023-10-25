@@ -47,12 +47,6 @@ export interface OutlineCoreAlertInterface extends HTMLElement {
  * @cssprop --outline-alert--error-text: The text color for the error alert.
  * @cssprop --outline-alert--error-border: The border color for the error alert.
  * @todo: Make the alert styling more flexible.
- * @todo: Complete component.
- * @todo: Update `../docs/outline-core-alert.mdx` to accurately document the component.
- * @todo: Run `yarn analyze` to generate README.md.
- * @todo: Update `package.json` to remove the `private` flag.
- * @todo: Update `.changeset/config.json` to remove this component from the `ignore` list.
- * @todo: Create PR for updated and completed component.
  */
 @customElement(componentName)
 export class OutlineCoreAlert

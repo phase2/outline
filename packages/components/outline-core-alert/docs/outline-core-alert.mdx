@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/addon-docs';
-
 import '@phase2/outline-core-alert';
 
 <Meta
@@ -21,7 +20,7 @@ import '@phase2/outline-core-alert';
 
 The `outline-core-alert` component ...
 
-<outline-core-alert status="warning" size="large">
+<outline-core-alert status="warning">
   <span slot="header">Documentation Status: @TODO</span>
   <p>This documentation is in need of completion as the component is built out.</p>
   <ul>
@@ -34,6 +33,31 @@ The `outline-core-alert` component ...
 ## Introduction to the **`outline-core-alert`** component
 The `outline-core-alert` component is a versatile alert box that can be used to display important messages to the user. It supports various statuses such as 'info', 'warning', 'error', and 'success', each with its own distinct styling.
 
+### Slots
+
+The `outline-core-alert` component supports two slots: 'header' and the `default` slot. 
+The 'header' slot is used for the alert's title, and the `default` slot is used for the alert's content. 
+Any content not wrapped inside the `header` slot would by default, be placed inside the `default` slot.
+
+Here's an example of how to use these slots:
+
+<outline-core-alert status="success">
+  <span slot="header">Content in header slot</span>
+  <p>This is a paragraph added to the default slot.</p>
+  <p>This is another paragraph added to the default slot.</p>
+</outline-core-alert>
+<br />
+```html
+<outline-core-alert status="success">
+  <span slot="header">Content in header slot</span>
+  <p>This is a paragraph added to the default slot.</p>
+  <p>This is another paragraph added to the default slot.</p>
+</outline-core-alert>
+```
+
+In the above example, the 'header' slot is used to display the title 'Warning', and the 'default' slot is used to display the message 'This is a warning alert.'.
+
+
 ### Usage
 
 To use the `outline-core-alert` component, you need to import it in your file like so:
@@ -42,8 +66,18 @@ To use the `outline-core-alert` component, you need to import it in your file li
 import '@phase2/outline-core-alert';
 ```
 
-After importing, you can use the `outline-core-alert` component in your HTML. Here's an example:
+After importing, you can use the `outline-core-alert` component in your HTML. 
+The available options are 'info', 'warning', 'error', and 'success'. 
+The content inside the `outline-core-alert` tags is the message that will be displayed in the alert box.
 
+Here are examples of each `status` type:
+
+#### `info`
+<outline-core-alert status="info">
+  <span slot="header">Information</span>
+  <p>This is an informational alert.</p>
+</outline-core-alert>
+<br />
 ```html
 <outline-core-alert status="info">
   <span slot="header">Information</span>
@@ -51,7 +85,46 @@ After importing, you can use the `outline-core-alert` component in your HTML. He
 </outline-core-alert>
 ```
 
-In the above example, the `status` attribute is used to specify the type of alert. The available options are 'info', 'warning', 'error', and 'success'. The content inside the `outline-core-alert` tags is the message that will be displayed in the alert box.
+#### `warning`
+<outline-core-alert status="warning">
+  <span slot="header">Warning</span>
+  <p>This is a warning alert.</p>
+</outline-core-alert>
+<br />
+```html
+<outline-core-alert status="warning">
+  <span slot="header">Warning</span>
+  <p>This is a warning alert.</p>
+</outline-core-alert>
+```
+
+#### `error`
+<outline-core-alert status="error">
+  <span slot="header">Error</span>
+  <p>This is an error alert.</p>
+</outline-core-alert>
+<br />
+```html
+<outline-core-alert status="error">
+  <span slot="header">Error</span>
+  <p>This is an error alert.</p>
+</outline-core-alert>
+```
+
+#### `success`
+<outline-core-alert status="success">
+  <span slot="header">Success</span>
+  <p>This is a success alert.</p>
+</outline-core-alert>
+<br />
+```html
+<outline-core-alert status="success">
+  <span slot="header">Success</span>
+  <p>This is a success alert.</p>
+</outline-core-alert>
+```
+
+Each `status` type changes the visual style of the alert to correspond with the type of message being conveyed.
 
 ### Styling
 
@@ -73,16 +146,3 @@ The `outline-core-alert` component uses CSS variables for styling. You can overr
 ```
 
 Each variable corresponds to a specific part of the alert's style. For example, `--outline-alert--info-background--computed` controls the background color of 'info' alerts, and `--outline-alert--info-text--computed` controls the text color.
-
-### Slots
-
-The `outline-core-alert` component supports two slots: 'header' and 'default'. The 'header' slot is used for the alert's title, and the 'default' slot is used for the alert's content. Here's an example of how to use these slots:
-
-```html
-<outline-core-alert status="warning">
-  <span slot="header">Warning</span>
-  <p slot="default">This is a warning alert.</p>
-</outline-core-alert>
-```
-
-In the above example, the 'header' slot is used to display the title 'Warning', and the 'default' slot is used to display the message 'This is a warning alert.'.

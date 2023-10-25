@@ -1,3 +1,7 @@
+:host {
+  @nested-import './outline-core-alert.vars.css';
+}
+
 .alert-body {
   display: block;
   border-width: 0;
