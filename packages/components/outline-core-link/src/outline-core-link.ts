@@ -6,7 +6,6 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { OutlineElement } from '@phase2/outline-core';
 import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
 import componentStyles from './style/outline-core-link.css.lit';
-import componentVars from './style/outline-core-link.vars.css.lit';
 import globalStyles from './style/outline-core-link.lightDom.css.lit';
 
 import type { LinkTargetType, LinkRelType } from './config';
@@ -73,9 +72,6 @@ export class OutlineCoreLink extends OutlineElement {
   connectedCallback() {
     super.connectedCallback();
     this.adoptedStylesheets = new AdoptedStyleSheets(css`
-      outline-core-link {
-        ${componentVars}
-      }
       ${globalStyles}
     `);
     this.addController(this.adoptedStylesheets);
@@ -145,14 +141,17 @@ export class OutlineCoreLink extends OutlineElement {
 
   /**
    * Check to see if the element is slotted properly.
+   * This method checks for an `a` tag anywhere in the content provided to the Light DOM of a component.
    * @todo - Move method to a controller.
    *
    * @returns boolean
    */
-  isValidTopLevelSlottedLink(): boolean {
+  hasSlottedLink(): boolean {
     const slot: NodeList = this.getSlottedContent();
-    if (slot.length === 1 && slot[0].nodeName === 'A') {
-      return true;
+    for (let i = 0; i < slot.length; i++) {
+      if (slot[i].nodeName === 'A') {
+        return true;
+      }
     }
     return false;
   }
@@ -196,8 +195,9 @@ export class OutlineCoreLink extends OutlineElement {
    * @returns HTMLSlotElement
    */
   fullMarkupInSlot(): TemplateResult {
-    this.adjustSlottedContent();
-    if (this.debug) {
+    if (this.hasSlottedLink()) {
+      this.adjustSlottedContent();
+    } else if (this.debug) {
       this.debugSlottedContent();
     }
     return html` <slot></slot> `;
