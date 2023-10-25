@@ -34,7 +34,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
-    "build": "turbo run build --concurrency=100%",
+    "build": "turbo run build --concurrency=100% --filter=!./packages/**/@deprecated/*",
     "changeset": "changeset",
     "changeset:publish": "yarn build && yarn changeset:version && yarn changeset publish",
     "changeset:version": "changeset version",
@@ -55,7 +55,7 @@
     "lint:eslint": "eslint .",
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --check .",
-    "package": "turbo run package",
+    "package": "turbo run package --filter=!./packages/**/@deprecated/*",
     "prep": "npm-run-all -s prep:*",
     "prep:css": "node scripts/styles.js",
     "prebuild": "yarn prep",
