@@ -2,6 +2,10 @@ import { html, TemplateResult, CSSResultGroup, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { OutlineElement } from '@phase2/outline-core';
+import {
+  CoreAlertStatusType,
+  OutlineCoreAlertInterface,
+} from '@phase2/outline-core-alert';
 import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
 import componentStyles from './style/outline-core-alert.css.lit';
 import componentVars from './style/outline-core-alert.vars.css.lit';
@@ -9,20 +13,6 @@ import globalStyles from './style/outline-core-alert.lightDom.css.lit';
 
 /** The element name, reused throughout the codebase */
 const componentName = 'outline-core-alert';
-
-export const coreAlertStatusTypes = [
-  'info',
-  'warning',
-  'error',
-  'success',
-] as const;
-export type CoreAlertStatusType = (typeof coreAlertStatusTypes)[number];
-
-// This can be useful for testing.
-export interface OutlineCoreAlertInterface extends HTMLElement {
-  status: CoreAlertStatusType;
-  isInteractive: boolean;
-}
 
 /**
  *

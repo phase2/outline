@@ -20,9 +20,12 @@ import '@phase2/outline-core-alert';
 
 The `outline-core-alert` component ...
 
-<outline-core-alert status="info">
-  <span slot="header">Documentation Status: Up to date (10/25/2023)</span>
-  <p>This documentation is up to date with the latest version of the component.</p>
+<outline-core-alert status="warning">
+  <span slot="header">Documentation Status:  (11/07/2023)</span>
+  <p>This documentation is in need of various updates.</p>
+  <ul>
+    <li>**@todo:** Update CSS Variables to utilize `@csstools/postcss-design-tokens`</li>
+  </ul>
 </outline-core-alert>
 <br />
 
@@ -31,8 +34,8 @@ The `outline-core-alert` component is a versatile alert box that can be used to 
 
 ### Slots
 
-The `outline-core-alert` component supports two slots: 'header' and the `default` slot. 
-The 'header' slot is used for the alert's title, and the `default` slot is used for the alert's content. 
+The `outline-core-alert` component supports two slots: `header` and the `default` slot. 
+The `header` slot is used for the alert's title, and the `default` slot is used for the alert's content. 
 Any content not wrapped inside the `header` slot would by default, be placed inside the `default` slot.
 
 Here's an example of how to use these slots:
@@ -51,7 +54,7 @@ Here's an example of how to use these slots:
 </outline-core-alert>
 ```
 
-In the above example, the 'header' slot is used to display the title 'Warning', and the 'default' slot is used to display the message 'This is a warning alert.'.
+In the above example, the `header` slot is used to display the title 'Warning', and the 'default' slot is used to display the message 'This is a warning alert.'.
 
 
 ### Usage

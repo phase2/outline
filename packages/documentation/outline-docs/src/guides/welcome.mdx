@@ -1,5 +1,5 @@
-import { html } from 'lit';
-import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-core-alert';
 
 <Meta
   title="Documentation/Welcome"
@@ -14,6 +14,12 @@ import { Meta, Canvas, Story } from '@storybook/addon-docs';
 />
 
 # Welcome to your design system
+
+<outline-core-alert status="success">
+  <span slot="header">Documentation Status: (11/07/2023)</span>
+  <p>This documentation is up to date.</p>
+</outline-core-alert>
+<br />
 
 > This document serves as a landing page for your custom design system based on Outline.
 > It should be customized to meet the needs of an appropriate landing page for your project.

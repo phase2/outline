@@ -1,6 +1,5 @@
 import { Meta } from '@storybook/addon-docs';
 import '@phase2/outline-core-alert';
-import '@phase2/outline-container';
 
 <Meta
   title="Documentation/Component Development/Coding Guide & Standards/Render"
@@ -14,28 +13,19 @@ import '@phase2/outline-container';
   }}
 />
 
-<outline-container
-  container-width="full"
-  container-align="left"
-  top-margin="spacing-2"
-  bottom-margin="spacing-8"
->
-  ## Description
-  The Lit `render` method is what allows us to compose and return any markup required for our component.
-  In this simple example, this render function is simply returning hard coded HTML markup. Most web components
-  we develop would never contain just hard coded HTML, as the components are designed to be flexible and reusable,
-  which calls for a more dynamic `render` method. Yet, there’s absolutely nothing wrong with returning simple HTML markup exactly as shown below.
+# Render Method
+The Lit `render` method is what allows us to compose and return any markup required for our component.
+In this simple example, this render function is simply returning hard coded HTML markup. Most web components
+we develop would never contain just hard coded HTML, as the components are designed to be flexible and reusable,
+which calls for a more dynamic `render` method. Yet, there’s absolutely nothing wrong with returning simple HTML markup exactly as shown below.
 
-  ## Documentation Status
-  <outline-core-alert status="warning" >
-    <span slot="header">Status: Needs Work/In Progress</span>
-    <p>
-      This documentation is in need of additional work, or is currently in progress.
-    </p>
-  </outline-core-alert>
-</outline-container>
+<outline-core-alert status="warning">
+  <span slot="header">Documentation Status: (11/07/2023)</span>
+  <p>This documentation is in need of various updates.</p>
+</outline-core-alert>
+<br />
 
-## Render Method
+## Render Method Example
 
 ```typescript
 ...  
