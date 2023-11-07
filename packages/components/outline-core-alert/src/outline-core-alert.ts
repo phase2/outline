@@ -71,7 +71,7 @@ export class OutlineCoreAlert
   }
 
   render(): TemplateResult {
-    // The `body` wrapper is used to avoid styles (like border) that are preventing us from styling `:host`.
+    // The `body` wrapper is used to circumvent limitations with styling the `:host` directly, such as applying borders.
     return html`
       <div
         class="alert-body"

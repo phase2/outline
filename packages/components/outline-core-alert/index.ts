@@ -6,8 +6,6 @@
  *
  * @code
  * import { OutlineCoreAlert } from '@phase2/outline-core-alert';
- * import { constantOne, constantTwo } from '@phase2/outline-core-alert';
- * import type { ThingType } from '@phase2/outline-core-alert';
  * import {
  *   CoreAlertStatusType,
  *   OutlineCoreAlertInterface,
