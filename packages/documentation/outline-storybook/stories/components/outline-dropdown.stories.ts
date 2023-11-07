@@ -112,10 +112,10 @@ const configuration = {
         component: `
 ## The \`outline-dropdown\` element
 
-<outline-alert status="warning" size="large" class="mb-6">
+<outline-core-alert status="warning" size="large" class="mb-6">
   <span slot="header">Status: Experimental</span>
   <div>This component is still in an experimental stage, and has additional work to be feature complete.</div>
-</outline-alert>
+</outline-core-alert>
         `,
       },
     },
