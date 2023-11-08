@@ -4,6 +4,7 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { ButtonSize, ButtonVariant } from '@phase2/outline-button';
 import '@phase2/outline-dropdown';
+import '@phase2/outline-core-alert';
 
 const triggerVariants: ButtonVariant[] = [
   'link',
@@ -112,7 +113,7 @@ const configuration = {
         component: `
 ## The \`outline-dropdown\` element
 
-<outline-core-alert status="warning" size="large" class="mb-6">
+<outline-core-alert status="warning">
   <span slot="header">Status: Experimental</span>
   <div>This component is still in an experimental stage, and has additional work to be feature complete.</div>
 </outline-core-alert>
