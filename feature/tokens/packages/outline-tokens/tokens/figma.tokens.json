@@ -23,7 +23,7 @@
           "type": "color"
         },
         "900": {
-          "value": "#2563EB",
+          "value": "#112d6b",
           "type": "color"
         }
       },
@@ -1349,7 +1349,7 @@
     }
   },
   "component/card": {},
-  "component/feature": {},
+  "component/blockquote": {},
   "$themes": [],
   "$metadata": {
     "tokenSetOrder": [
@@ -1359,7 +1359,7 @@
       "theme/light",
       "component/button",
       "component/card",
-      "component/feature"
+      "component/blockquote"
     ]
   }
 }
