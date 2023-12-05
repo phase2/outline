@@ -112,7 +112,6 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
     <outline-core-button button-url="#" button-label="Button"><button>Button</button></outline-core-button>
     <outline-core-button button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
-    <outline-core-button button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
     <outline-core-button button-label="Button"><button>Button</button></outline-core-button>
     <outline-core-button button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
   </div>
@@ -122,7 +121,6 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
     <outline-core-button button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
     <outline-core-button button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
-    <outline-core-button button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
     <outline-core-button button-label="Button" is-disabled><button>Button</button></outline-core-button>
     <outline-core-button button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
   </div>
@@ -140,10 +138,6 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
     <outline-core-button button-url="#" button-size="small" button-label="Small Button">
     <button> Small Button</button>
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
-    </outline-core-button>
-    <outline-core-button button-size="small" button-label="Small Button">
-    <button>Small Button</button>
-      <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
     </outline-core-button>
     <outline-core-button button-label="Button">
     <button>Button</button>
@@ -176,7 +170,6 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
   <outline-core-button button-variant="secondary" button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
   <outline-core-button button-variant="secondary" button-url="#" button-label="Button"><button>Button</button></outline-core-button>
   <outline-core-button button-variant="secondary" button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
-  <outline-core-button button-variant="secondary" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
   <outline-core-button button-variant="secondary" button-label="Button"><button>Button</button></outline-core-button>
   <outline-core-button button-variant="secondary" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
 </div>
@@ -185,7 +178,6 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
   <outline-core-button button-variant="secondary" button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
   <outline-core-button button-variant="secondary" button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
   <outline-core-button button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
-  <outline-core-button button-variant="secondary" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
   <outline-core-button button-variant="secondary" button-label="Button" is-disabled><button>Button</button></outline-core-button>
   <outline-core-button button-variant="secondary" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
 </div>
@@ -237,8 +229,8 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
   <div class="my-6">
     <outline-core-button button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
     <outline-core-button button-variant="tertiary" button-url="#" button-label="Button"><button>Button</button></outline-core-button>
-    <outline-core-button button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button"><button>Small Button<button></outline-core-button>
-    <outline-core-button button-variant="tertiary" button-label="Button"><button>Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-url="#" button-label="Button"><button>Button</button></outline-core-button>
     <outline-core-button button-variant="tertiary" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
   </div>
 
@@ -265,9 +257,9 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
     <button>Small Button</button>
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button button-variant="tertiary" button-label="Button">
-    <button> Button</button>
-      <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
+    <outline-core-button button-variant="tertiary" button-url="#" button-label="Button">
+    <button>Button</button>
+      <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
     </outline-core-button>
     <outline-core-button button-variant="tertiary" button-size="large" button-label="Large Button">
       <button>Large Button</button>
