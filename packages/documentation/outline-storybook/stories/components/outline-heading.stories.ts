@@ -86,18 +86,18 @@ const Template = ({ level, size, weight, defaultSlot }: any): TemplateResult =>
 export const Heading: any = Template.bind({});
 Heading.args = {
   level: null,
-  size: '3xl',
+  size: 'xxxl',
   weight: 'semibold',
 };
 
 const SlottedHeadingsWithAttributesTemplate = (): TemplateResult => {
   return html`
-<outline-core-heading size="3xl" weight="bold"><h1>This is a standard Heading 1.</h1></outline-core-heading>
-<outline-core-heading size="2xl" weight="semibold"><h2>This is a standard Heading 2.</h2></outline-core-heading>
+<outline-core-heading size="xxxl" weight="bold"><h1>This is a standard Heading 1.</h1></outline-core-heading>
+<outline-core-heading size="xxl" weight="semibold"><h2>This is a standard Heading 2.</h2></outline-core-heading>
 <outline-core-heading size="xl" weight="semibold"><h3>This is a standard Heading 3.</h3></outline-core-heading>
 <outline-core-heading size="lg" weight="semibold"><h4>This is a standard Heading 4.</h4></outline-core-heading>
-<outline-core-heading size="base" weight="semibold"><h5>This is a standard Heading 5.</h5></outline-core-heading>
-<outline-core-heading size="base" weight="semibold"><h6>This is a standard Heading 6.</h6></outline-core-heading>
+<outline-core-heading size="md" weight="semibold"><h5>This is a standard Heading 5.</h5></outline-core-heading>
+<outline-core-heading size="md" weight="semibold"><h6>This is a standard Heading 6.</h6></outline-core-heading>
 `;
 };
 
@@ -129,6 +129,28 @@ SlottedHeadingsWithNoAttributes.parameters = {
   docs: {
     description: {
       story: `This example shows the recommended way of creating headings using slots but with no attributes for styling.
+      `,
+    },
+  },
+};
+
+const ShadowDomHeadingsWithAttributesTemplate = (): TemplateResult => {
+  return html`
+<outline-core-heading level="h1" size="xxxl" weight="bold">This is a standard Heading 1.</outline-core-heading>
+<outline-core-heading level="h2" size="xxl" weight="semibold">This is a standard Heading 2.</outline-core-heading>
+<outline-core-heading level="h3" size="xl" weight="semibold">This is a standard Heading 3.</outline-core-heading>
+<outline-core-heading level="h4" size="lg" weight="semibold">This is a standard Heading 4.</outline-core-heading>
+<outline-core-heading level="h5" size="md" weight="semibold">This is a standard Heading 5.</outline-core-heading>
+<outline-core-heading level="h6" size="md" weight="semibold">This is a standard Heading 6.</outline-core-heading>
+`;
+};
+
+export const ShadowDomHeadingsWithAttributes = () =>
+ShadowDomHeadingsWithAttributesTemplate();
+ShadowDomHeadingsWithAttributes.parameters = {
+  docs: {
+    description: {
+      story: `This example shows how to use ShadowDOM if you must. Not recommended.
       `,
     },
   },
