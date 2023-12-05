@@ -109,47 +109,47 @@ const PrimaryButtonsTemplate = (): TemplateResult =>
   html`
   <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>
   <div class="my-6">
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-label="Button"><button>Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-label="Button"><button>Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
+    <outline-core-button button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
+    <outline-core-button button-url="#" button-label="Button"><button>Button</button></outline-core-button>
+    <outline-core-button button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
+    <outline-core-button button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
+    <outline-core-button button-label="Button"><button>Button</button></outline-core-button>
+    <outline-core-button button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
   </div>
 
   <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>
   <div class="my-6">
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-label="Button" is-disabled><button>Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
+    <outline-core-button button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
+    <outline-core-button button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
+    <outline-core-button button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
+    <outline-core-button button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
+    <outline-core-button button-label="Button" is-disabled><button>Button</button></outline-core-button>
+    <outline-core-button button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
   </div>
 
   <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>
   <div class="my-6">
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-size="large" button-label="Large Button">
+    <outline-core-button button-url="#" button-size="large" button-label="Large Button">
       <button>Large Button</button>
       <outline-icon slot="right" name="chevron-right" library="system" size="1rem" class="ml-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-label="Button">
+    <outline-core-button button-url="#" button-label="Button">
     <button>Button</button>
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-url="#" button-size="small" button-label="Small Button">
+    <outline-core-button button-url="#" button-size="small" button-label="Small Button">
     <button> Small Button</button>
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-size="small" button-label="Small Button">
+    <outline-core-button button-size="small" button-label="Small Button">
     <button>Small Button</button>
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-label="Button">
+    <outline-core-button button-label="Button">
     <button>Button</button>
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-size="large" button-label="Large Button">
+    <outline-core-button button-size="large" button-label="Large Button">
     <button>Large Button</button>
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
     </outline-core-button>
@@ -173,45 +173,45 @@ const SecondaryButtonsTemplate = (): TemplateResult =>
   html`
 <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>
 <div class="my-6">
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-label="Button"><button>Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-label="Button"><button>Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-url="#" button-label="Button"><button>Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-label="Button"><button>Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
 </div>
 <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>
 <div class="my-6">
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-label="Button" is-disabled><button>Button</button></outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-label="Button" is-disabled><button>Button</button></outline-core-button>
+  <outline-core-button button-variant="secondary" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
 </div>
 <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>
 <div class="my-6">
-<outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="large" button-label="Large Button">
+<outline-core-button button-variant="secondary" button-url="#" button-size="large" button-label="Large Button">
 <button>Large Button</button>
     <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
   </outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-label="Button">
+  <outline-core-button button-variant="secondary" button-url="#" button-label="Button">
   <button>Button</button>
     <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
   </outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-url="#" button-size="small" button-label="Small Button">
+  <outline-core-button button-variant="secondary" button-url="#" button-size="small" button-label="Small Button">
   <button>Small Button</button>
     <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
   </outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="small" button-label="Small Button">
+  <outline-core-button button-variant="secondary" button-size="small" button-label="Small Button">
   <button>Small Button</button>
     <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
   </outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-label="Button">
+  <outline-core-button button-variant="secondary" button-label="Button">
   <button>Button</button>
     <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
   </outline-core-button>
-  <outline-core-button class="mr-2 mb-4" button-variant="secondary" button-size="large" button-label="Large Button">
+  <outline-core-button button-variant="secondary" button-size="large" button-label="Large Button">
   <button>Large Button</button>
     <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
   </outline-core-button>
@@ -235,47 +235,41 @@ const TertiaryButtonsTemplate = (): TemplateResult =>
   html`
   <outline-heading level-size="xl" level-style="semibold">Default, Hover & Focus States</outline-heading>
   <div class="my-6">
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-label="Button"><button>Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button"><button>Small Button<button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-label="Button"><button>Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-url="#" button-label="Button"><button>Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button"><button>Small Button<button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-label="Button"><button>Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
   </div>
 
   <outline-heading level-size="xl" level-style="semibold">Disabled States</outline-heading>
   <div class="my-6">
-  <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-label="Button" is-disabled><button>Button</button></outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
+  <outline-core-button button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-label="Button" is-disabled><button>Button</button></outline-core-button>
+    <outline-core-button button-variant="tertiary" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
   </div>
 
   <outline-heading level-size="xl" level-style="semibold">Including Icons</outline-heading>
   <div class="my-6">
-  <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button">
+  <outline-core-button button-variant="tertiary" button-url="#" button-size="large" button-label="Large Button">
   <button>Large Button</button>
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-label="Button">
+    <outline-core-button button-variant="tertiary" button-url="#" button-label="Button">
     <button>Button</button>
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button">
+    <outline-core-button button-variant="tertiary" button-url="#" button-size="small" button-label="Small Button">
     <button>Small Button</button>
       <outline-icon slot="right" name="chevron-right" library="system" size="1em" class="ml-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="small" button-label="Small Button">
-      <button>Small Button</button>
-      <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
-    </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-label="Button">
+    <outline-core-button button-variant="tertiary" button-label="Button">
     <button> Button</button>
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
     </outline-core-button>
-    <outline-core-button class="mr-2 mb-4" button-variant="tertiary" button-size="large" button-label="Large Button">
+    <outline-core-button button-variant="tertiary" button-size="large" button-label="Large Button">
       <button>Large Button</button>
       <outline-icon slot="left" name="chevron-left" library="system" size="1em" class="mr-2"></outline-icon>
     </outline-core-button>
