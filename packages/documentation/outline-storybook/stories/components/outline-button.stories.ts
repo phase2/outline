@@ -15,7 +15,7 @@ const buttonOptions: ButtonVariant[] = [
 const buttonSizes: ButtonSize[] = ['small', 'medium', 'large'];
 
 export default {
-  title: 'Navigation/Button',
+  title: 'Navigation/Button (Deprecated)',
   component: 'outline-button',
   // Tags are a new feature coming in 7.1, that we are using to drive this behaviour.
   tags: ['docsPage'],

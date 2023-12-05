@@ -1,9 +1,0 @@
-{
-    "extends": "../../../tsconfig.json",
-    "compilerOptions": {
-      "rootDir": ".",
-      "outDir": "./dist"
-    },
-    "include": ["index.ts", "src/**/*", "tests/**/*"],
-    "references": [{ "path": "../../outline-core/tsconfig.build.json" }]
-  }

@@ -10,7 +10,7 @@ export const buttonVariantsTypes = ['primary', 'secondary', 'tertiary'];
 export const buttonSizeTypes = ['small', 'medium', 'large'];
 
 // export type ButtonVariant = keyof typeof buttonVariantsTypes;
-export type ButtonVariant = typeof buttonVariantsTypes[number];
+export type ButtonVariant = (typeof buttonVariantsTypes)[number];
 export type ButtonSize = keyof typeof buttonSizeTypes;
 
 /**
@@ -33,7 +33,7 @@ export class OutlineCoreButton extends OutlineElement {
   static styles: CSSResultGroup = [linkVars, componentStyles];
   AdoptedStyleSheets: AdoptedStyleSheets;
 
-  @state() buttonsVariantList = buttonVariantsTypes
+  @state() buttonsVariantList = buttonVariantsTypes;
 
   connectedCallback() {
     super.connectedCallback();
@@ -66,13 +66,16 @@ export class OutlineCoreButton extends OutlineElement {
     type: String,
     attribute: 'button-variant',
     converter: buttonVariant => {
-        if (buttonVariant && !Object.values(buttonVariantsTypes).includes(buttonVariant)) {
-          buttonVariant = buttonVariantsTypes[0];
-        }
+      if (
+        buttonVariant &&
+        !Object.values(buttonVariantsTypes).includes(buttonVariant)
+      ) {
+        buttonVariant = buttonVariantsTypes[0];
+      }
       return buttonVariant;
     },
   })
-  buttonVariant: ButtonVariant;
+  buttonVariant: ButtonVariant = 'primary';
 
   /**
    * The button size to use.
@@ -81,9 +84,9 @@ export class OutlineCoreButton extends OutlineElement {
     type: String,
     attribute: 'button-size',
     converter: buttonSize => {
-        if (buttonSize && !Object.values(buttonSizeTypes).includes(buttonSize)) {
-          buttonSize = buttonSizeTypes[0];
-        }
+      if (buttonSize && !Object.values(buttonSizeTypes).includes(buttonSize)) {
+        buttonSize = buttonSizeTypes[0];
+      }
       return buttonSize;
     },
   })
@@ -96,7 +99,7 @@ export class OutlineCoreButton extends OutlineElement {
   @property({ type: Boolean, attribute: 'is-disabled' })
   isDisabled = false;
 
- // Slotted elements classes arent getting overridden when the component updates.
+  // Slotted elements classes arent getting overridden when the component updates.
 
   /**
    * Component render function
@@ -107,7 +110,8 @@ export class OutlineCoreButton extends OutlineElement {
     const typedValues = buttonSizeTypes.concat(buttonVariantsTypes);
     // added Disabled prop to class list for removal
     typedValues.push('disabled');
-    const slottedButton: HTMLButtonElement | null = this.querySelector('button') ?? null;
+    const slottedButton: HTMLButtonElement | null =
+      this.querySelector('button') ?? null;
     if (slottedButton) {
       // add classes from shadow DOM of component to light DOM of Slot
       slottedButton.classList.remove(...typedValues);
@@ -121,14 +125,13 @@ export class OutlineCoreButton extends OutlineElement {
         slottedButton?.classList.add('disabled');
       }
     }
-    
+
     return html`
       <div>
         <slot></slot>
       </div>
     `;
   }
-
 
   updated() {
     // TODO: Debug slot controller application.
