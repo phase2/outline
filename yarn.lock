@@ -2617,6 +2617,18 @@
     "@types/sinon-chai" "^3.2.3"
     chai-a11y-axe "^1.5.0"
 
+"@phase2/outline-config@^0.0.10":
+  version "0.0.10"
+  resolved "https://registry.yarnpkg.com/@phase2/outline-config/-/outline-config-0.0.10.tgz#ddeee1a39bd2be507ce36fc9983d12cb3a8f7a03"
+  integrity sha512-pHykGIyBj6kmAcJ8CijQjmFANN6cAIdWLoZEOeF0rdo0alHuwsWVvOq9e5vKzDeaiIEU8rwRvF1QpLNtOf2kcA==
+
+"@phase2/outline-core@^0.1.10":
+  version "0.1.12"
+  resolved "https://registry.yarnpkg.com/@phase2/outline-core/-/outline-core-0.1.12.tgz#a76a369523359b87b8b23f7986d7a6e372e8c547"
+  integrity sha512-mWbBKAl3Z3v5ZQO/CIDXXlNQfwsG8QxG3cVY6MfJziBV5elLwS+26MECfXsh2rSov1S0sh0quq6jpvbVgSeGCg==
+  dependencies:
+    "@phase2/outline-config" "^0.0.10"
+
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
@@ -13808,6 +13820,10 @@ turbo-windows-64@1.10.16:
   resolved "https://registry.yarnpkg.com/turbo-windows-64/-/turbo-windows-64-1.10.16.tgz#87c46a78502a86dec73634b255a6b3471285969b"
   integrity sha512-+jsf68krs0N66FfC4/zZvioUap/Tq3sPFumnMV+EBo8jFdqs4yehd6+MxIwYTjSQLIcpH8KoNMB0gQYhJRLZzw==
 
+turbo-windows-arm64@1.10.16:
+  version "1.10.16"
+  resolved "https://registry.yarnpkg.com/turbo-windows-arm64/-/turbo-windows-arm64-1.10.16.tgz#a6208c2bc27e5e6ef0aa4a3e64389c4285c3f274"
+  integrity sha512-sKm3hcMM1bl0B3PLG4ifidicOGfoJmOEacM5JtgBkYM48ncMHjkHfFY7HrJHZHUnXM4l05RQTpLFoOl/uIo2HQ==
 turbo-windows-arm64@1.10.16:
   version "1.10.16"
   resolved "https://registry.yarnpkg.com/turbo-windows-arm64/-/turbo-windows-arm64-1.10.16.tgz#a6208c2bc27e5e6ef0aa4a3e64389c4285c3f274"

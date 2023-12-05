@@ -34,7 +34,7 @@ The `AdoptedStylesheets` controller provides the following methods:
 Here is an example of how to use the `AdoptedStylesheets` controller in a component:
 
 ```typescript
-import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
+import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
 import { css, CSSResult } from 'lit';
 import { OutlineElement } from '@phase2/outline-core';
 import globalStyles from './my-component.lightDom.css.lit';

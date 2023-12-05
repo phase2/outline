@@ -1,5 +1,11 @@
 # @phase2/outline-storybook
 
+## 0.1.2
+
+### Patch Changes
+
+- Updates for outline-core-button.
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,13 +1,11 @@
 {
-  "name": "@phase2/outline-adopted-stylesheets-controller",
-  "version": "0.0.5",
-  "description": "Controller to help with managing native AdoptedStylesheet implementations.",
+  "name": "@phase2/outline-core-button",
+  "version": "0.0.2",
+  "description": "The Outline Components for the web button component",
   "keywords": [
     "outline components",
     "outline design",
-    "CSS",
-    "style",
-    "AdoptedStylesheets"
+    "button"
   ],
   "main": "index.ts",
   "types": "index.ts",
@@ -21,18 +19,17 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/controllers/adopted-stylesheets"
+    "directory": "packages/outline-core-button"
   },
-  "homepage": "https://github.com/phase2/outline/tree/next/packages/controllers/adopted-stylesheets",
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "node ../../../scripts/build.js",
     "package": "yarn publish"
   },
   "dependencies": {
-    "lit": "^2.3.1"
-  },
-  "devDependencies": {
+    "@phase2/outline-core": "^0.1.10",
+    "@phase2/outline-link": "^0.1.4",
+    "lit": "^2.3.1",
     "tslib": "^2.1.0"
   },
   "publishConfig": {
