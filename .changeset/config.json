@@ -7,5 +7,18 @@
   "access": "restricted",
   "baseBranch": "next",
   "updateInternalDependencies": "patch",
-  "ignore": []
+  "ignore": [
+    "@phase2/outline-core-accordion",
+    "@phase2/outline-core-alert",
+    "@phase2/outline-core-breadcrumb",
+    "@phase2/outline-core-card",
+    "@phase2/outline-core-container",
+    "@phase2/outline-core-form",
+    "@phase2/outline-core-icon",
+    "@phase2/outline-core-image",
+    "@phase2/outline-core-list",
+    "@phase2/outline-core-modal",
+    "@phase2/outline-core-text",
+    "@phase2/outline-core-youtube"
+  ]
 }
