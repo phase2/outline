@@ -16,8 +16,11 @@ const componentName = 'outline-core-breadcrumb';
  * @element outline-core-breadcrumb
  * @extends OutlineElement
  * @slot - The default slot for this element.
- *
- * @todo: Complete component.
+ * @slot home-icon - slot for the home icon
+ * @slot back-icon - slot for the back icon
+ * @prop {String} breadcrumb - The breadcrumb items to display in an unordered list 
+ * 
+ * @todo: Complete component. - Morgan 
  * @todo: Update `../docs/outline-core-breadcrumb.mdx` to accurately document the component.
  * @todo: Run `yarn analyze` to generate README.md.
  * @todo: Update `package.json` to remove the `private` flag.
