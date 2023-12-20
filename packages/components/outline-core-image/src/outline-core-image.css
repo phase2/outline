@@ -1,0 +1,33 @@
+/* 
+Styles for `outline-core-image.css`
+
+=== REMOVE BELOW THIS LINE (AFTER READING) ===
+@todo: Extrapolate these comments/documentation to a more official location
+Add any component level, structural CSS for the `COMPONENT-NAME` component.
+This would be CSS that is targeted to this component only, 
+and is dependent on the HTML structure of the component that 
+is encapsulated in the component's Shadow DOM.
+--- 
+Shoud the need arise to style the component based on slotted content 
+with an unknown markup structure provided by the consuming application 
+in the Light DOM via slots provided by the component, 
+consider the following best practices:
+
+The root element of a `slot` should either be 
+- Semantically expected tag at the top level 
+  - `outline-core-link` for instance requires (if slotted) an `a` tag as the root element of the slot.
+  - `outline-core-button` also requires (if slotted) a `button` tag as the root element of the slot.
+- A custom element that provides its own styling and encapsulation
+  - `outline-core-card` would be a component example that
+    - Provides its own styling and encapsulation to handle functionality and responsive behaviors
+    - And also either:
+      - Instructs the consuming application to provide a custom element as the first level child of a `slot`, thus providing it's own styling. 
+      - Allows for slotted content to be styled by the consuming application
+
+Upcoming work will allow for the "styling by the consuming application" option to be more easily 
+implemented in a standardized and simplified way.
+
+When updates to build tooling is in place, CSS would be added to an `COMPONENT-NAME.global.css` file, 
+and then processed either to be loaded on the fly, or manually via a standard `*.global.css` file.
+=== REMOVE ABOVE THIS LINE (AFTER YOU READ IT) ===
+*/

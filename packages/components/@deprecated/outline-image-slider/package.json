@@ -1,0 +1,43 @@
+{
+  "name": "@phase2/outline-image-slider",
+  "version": "0.1.6",
+  "description": "The Outline Components for the image slider component",
+  "keywords": [
+    "outline",
+    "web-components",
+    "design system",
+    "image slider"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "/dist/",
+    "/src/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/components/@deprecated/outline-image-slider"
+  },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/components/@deprecated/outline-image-slider",
+  "scripts": {
+    "build": "node ../../../../scripts/build.js",
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "@phase2/outline-core": "^0.2.5",
+    "@splidejs/splide": "^4.0.7",
+    "lit": "^2.3.1",
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}
