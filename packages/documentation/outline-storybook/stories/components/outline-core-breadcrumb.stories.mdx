@@ -19,17 +19,27 @@ import { OutlineCoreBreadcrumb } from '../../../../../packages/components/outlin
 # `<outline-core-breadcrumb>` `OutlineCoreBreadcrumb`
 
 <outline-core-breadcrumb>
-  <nav className="breadcrumb">
-    <span>
-      <a href="#">Home</a>
-    </span>
-    <span>
-      <a href="#">About Us</a>
-    </span>
-    <span>
-      <a href="#">Our History</a>
-    </span>
-    <span className="last">The current page title</span>
+  <div slot="home-icon">
+  </div>
+  <div slot="back-icon">
+  </div>
+  <div slot="separator-icon">
+  </div>
+  <nav>
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">About Us</a>
+      </li>
+      <li>
+        <a href="#">Our History</a>
+      </li>
+      <li>
+        The current page title
+      </li>
+    </ul>
   </nav>
 </outline-core-breadcrumb>
 <br />
