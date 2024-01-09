@@ -1,0 +1,35 @@
+import { html } from 'lit';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+
+import { OutlineCoreBreadcrumb } from '../../../../../packages/components/outline-core-breadcrumb/src/outline-core-breadcrumb';
+
+<Meta
+  title="Navigation/AwesomeBreadcrumb"
+  component="outline-core-breadcrumb"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# `<outline-core-breadcrumb>` `OutlineCoreBreadcrumb`
+
+<outline-core-breadcrumb>
+  <nav className="breadcrumb">
+    <span>
+      <a href="#">Home</a>
+    </span>
+    <span>
+      <a href="#">About Us</a>
+    </span>
+    <span>
+      <a href="#">Our History</a>
+    </span>
+    <span className="last">The current page title</span>
+  </nav>
+</outline-core-breadcrumb>
+<br />
