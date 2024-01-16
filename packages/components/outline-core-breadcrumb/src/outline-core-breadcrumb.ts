@@ -18,16 +18,15 @@ const componentName = 'outline-core-breadcrumb';
  * @slot - The default slot for this element.
  * @slot home-icon - slot for the home icon
  * @slot back-icon - slot for the back icon
- * @prop {String} breadcrumb - The breadcrumb items to display in an unordered list 
- * 
- * @todo: Complete component. - Morgan 
+ * @prop {String} breadcrumb - The breadcrumb items to display in an unordered list
+ *
+ * @todo: Complete component. - Morgan
  * @todo: Update `../docs/outline-core-breadcrumb.mdx` to accurately document the component.
  * @todo: Run `yarn analyze` to generate README.md.
  * @todo: Update `package.json` to remove the `private` flag.
  * @todo: Update `.changeset/config.json` to remove this component from the `ignore` list.
  * @todo: Create PR for updated and completed component.
  */
-
 
 @customElement(componentName)
 export class OutlineCoreBreadcrumb extends OutlineElement {
@@ -107,7 +106,6 @@ export class OutlineCoreBreadcrumb extends OutlineElement {
   }
 
   render(): TemplateResult {
-
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const isMobile = this.resizeController.currentBreakpointRange === 0;
     const listItems = this.getElementsByTagName('li');
@@ -118,10 +116,8 @@ export class OutlineCoreBreadcrumb extends OutlineElement {
     ) as HTMLLIElement;
 
     this.applyBackIcon(backLink);
-    
-    return isMobile ?
-    html `${backLink}` :  html`<slot></slot>`;
-  
+
+    return isMobile ? html`${backLink}` : html`<slot></slot>`;
   }
 }
 
