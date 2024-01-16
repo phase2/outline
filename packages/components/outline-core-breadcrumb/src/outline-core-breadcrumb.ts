@@ -108,6 +108,7 @@ export class OutlineCoreBreadcrumb extends OutlineElement {
 
   render(): TemplateResult {
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const isMobile = this.resizeController.currentBreakpointRange === 0;
     const listItems = this.getElementsByTagName('li');
     const totalListItems = listItems.length;
@@ -117,10 +118,10 @@ export class OutlineCoreBreadcrumb extends OutlineElement {
     ) as HTMLLIElement;
 
     this.applyBackIcon(backLink);
-
+    
     return isMobile ?
-    html `${backLink}` : 
-    html`${this.slots.conditionalSlot('breadcrumb', true)}`;
+    html `${backLink}` :  html`<slot></slot>`;
+  
   }
 }
 
