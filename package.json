@@ -139,7 +139,9 @@
     "turbo": "^1.2.16",
     "vite": "^4.1.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@phase2/outline-button": "^0.1.7"
+  },
   "bugs": {
     "url": "https://github.com/phase2/outline/issues"
   },

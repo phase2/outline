@@ -1,9 +1,10 @@
 import { html, TemplateResult, CSSResultGroup } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-
+import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
+import globalStyles from './outline-core-link.lightdom.css.lit';
 
 import type { LinkTargetType, LinkRelType } from './config';
 import componentStyles from './outline-core-link.css.lit';
@@ -31,7 +32,13 @@ const componentName = 'outline-core-link';
 @customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
+  AdoptedStyleSheets: AdoptedStyleSheets;
 
+  connectedCallback() {
+    super.connectedCallback();
+    this.AdoptedStyleSheets = new AdoptedStyleSheets(globalStyles);
+    this.addController(this.AdoptedStyleSheets);
+  }
   /**
    * Link url
    */
