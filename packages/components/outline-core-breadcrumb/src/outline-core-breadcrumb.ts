@@ -125,7 +125,11 @@ export class OutlineCoreBreadcrumb extends OutlineElement {
 
     this.applyBackIcon(backLink);
 
-    return isMobile ? html`${backLink}` : html`<slot></slot>`;
+    return isMobile ? html`${backLink}` : html`<div>
+    <slot name="home-icon"></slot> 
+    <slot name="back-icon"></slot> 
+    <slot></slot>
+    </div>`;
   }
 }
 
