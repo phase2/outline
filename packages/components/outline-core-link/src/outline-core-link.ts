@@ -19,6 +19,8 @@ const componentName = 'outline-core-link';
  *
  * @element outline-core-link
  * @extends OutlineElement
+ * @since 0.0.1
+ *
  * @slot - The default slot for this element.
  * @cssprop --outline-core-link-transition-property: The CSS transition property to use for the link.
  * @cssprop --outline-core-link-transition-duration: The CSS transition duration to use for the link.
@@ -33,7 +35,7 @@ const componentName = 'outline-core-link';
 @customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
-  adoptedStylesheets: AdoptedStyleSheets;
+  private adoptedStylesheets: AdoptedStyleSheets;
   debug = false;
 
   /**

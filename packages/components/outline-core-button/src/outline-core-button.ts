@@ -1,4 +1,4 @@
-import { CSSResultGroup, html, TemplateResult } from 'lit';
+import { html, TemplateResult, CSSResultGroup, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { OutlineElement } from '@phase2/outline-core';
 import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
@@ -14,6 +14,7 @@ export type ButtonSize = keyof typeof buttonSizeTypes;
 /**
  * The Outline Core Button component
  * @element outline-core-button
+ * @extends OutlineElement
  * @since 0.0.1
  *
  * @prop {string} buttonUrl - The url to use for a link. This will render an anchor element.
@@ -33,14 +34,25 @@ export type ButtonSize = keyof typeof buttonSizeTypes;
 @customElement('outline-core-button')
 export class OutlineCoreButton extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
-  AdoptedStyleSheets: AdoptedStyleSheets;
+  private adoptedStylesheets: AdoptedStyleSheets;
 
   @state() buttonsVariantList = buttonVariantsTypes;
 
+  /**
+   * The `connectedCallback` method is called whenever the element is inserted into the DOM.
+   * In this method, we're creating an instance of `AdoptedStyleSheets` and adding it as a controller.
+   *
+   * Adding the `connectedCallback` controller via  more efficient than creating the instance and adding the controller in the constructor.
+   * The reason is that it delays these operations until the element is actually inserted into the DOM.
+   * If you have many such elements that are created but not immediately added to the DOM,
+   * this can improve the startup performance of your application.
+   */
   connectedCallback() {
     super.connectedCallback();
-    this.AdoptedStyleSheets = new AdoptedStyleSheets(globalStyles);
-    this.addController(this.AdoptedStyleSheets);
+    this.adoptedStylesheets = new AdoptedStyleSheets(css`
+      ${globalStyles}
+    `);
+    this.addController(this.adoptedStylesheets);
   }
 
   /**

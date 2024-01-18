@@ -1,8 +1,8 @@
-@import './css-variables/vars-default.css';
-@import './css-variables/vars-link.css';
-@import './css-variables/vars-primary.css';
-@import './css-variables/vars-secondary.css';
-@import './css-variables/vars-tertiary.css';
+@nested-import './css-variables/vars-default.css';
+@nested-import './css-variables/vars-link.css';
+@nested-import './css-variables/vars-primary.css';
+@nested-import './css-variables/vars-secondary.css';
+@nested-import './css-variables/vars-tertiary.css';
 
 :host {
   /*
