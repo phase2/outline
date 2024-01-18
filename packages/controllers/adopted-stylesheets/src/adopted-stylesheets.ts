@@ -20,6 +20,9 @@ export class AdoptedStyleSheets implements ReactiveController {
    * @param {Document | ShadowRoot} root - The root where the stylesheet will be adopted.
    */
   constructor(globalStyles: CSSResult, root: Document | ShadowRoot) {
+    if (!root) {
+      throw new Error('Root must not be null or undefined');
+    }
     const cssText = globalStyles.cssText;
     if (!AdoptedStyleSheets.styleSheetMap.has(cssText)) {
       const newSheet = new CSSStyleSheet();
