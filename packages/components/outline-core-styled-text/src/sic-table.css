@@ -1,5 +1,5 @@
 table {
-  color: var(--sic-heading-color);
+  color: var(--outline-core-heading-color);
   max-width: 100%;
   height: 100%;
   overflow: auto;

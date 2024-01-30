@@ -6,24 +6,24 @@ import { OutlineElement } from '@phase2/outline-core';
 
 import componentStyles from './outline-core-styled-text.css.lit';
 
+import { checkFileType } from './utilities/check-file-type';
+import { externalLinkText } from './utilities/external-link-text';
+import { tooltipLink } from './utilities/tooltip';
+import { wrapLastWord } from './utilities/wrap-last-word';
 
-import { wrapLastWord } from '../../../utilities/wrap-last-word';
-import { tooltipLink } from '../../../utilities/tooltip';
-import { externalLinkText } from '../../../utilities/external-link-text';
-import { checkFileType } from '../../../utilities/check-file-type';
 
 wrapLastWord;
 
 /**
- * The Sic Styled Text component
- * @element sic-styled-text
+ * The Outline Core Styled Text component
+ * @element outline-core-styled-text
  * @since 1.0.0
  * @slot - default slot
  *
- * Lightdom styles in sic-styled-text.lightdom.css included in /shared.css
+ * Lightdom styles in outline-core-styled-text.lightdom.css included in /shared.css
  */
-@customElement('sic-styled-text')
-export class SicStyledText extends OutlineElement {
+@customElement('outline-core-styled-text')
+export class OutlineCoreStyledText extends OutlineElement {
   static styles: CSSResultGroup = [OutlineElement.styles, componentStyles];
 
   connectedCallback(): void {
@@ -34,7 +34,7 @@ export class SicStyledText extends OutlineElement {
       checkFileType(el);
       if (
         el.getAttribute('target') === '_blank' ||
-        el.classList.contains('sic-cta')
+        el.classList.contains('outline-core-cta')
       ) {
         // Wraps last word in a span.last-word element.
         // span.last-word is where the icon is added via pseudo
@@ -46,7 +46,7 @@ export class SicStyledText extends OutlineElement {
         }
       }
       //
-      if (el.classList.contains('sic-tooltip')) {
+      if (el.classList.contains('outline-core-tooltip')) {
         tooltipLink(el as HTMLElement);
       }
     });
@@ -59,6 +59,6 @@ export class SicStyledText extends OutlineElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'sic-styled-text': SicStyledText;
+    'outline-core-styled-text': OutlineCoreStyledText;
   }
 }
