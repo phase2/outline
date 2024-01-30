@@ -13,11 +13,7 @@
   "main": "index.ts",
   "types": "index.ts",
   "typings": "index.d.ts",
-  "files": [
-    "/dist/",
-    "/src/",
-    "!/dist/tsconfig.build.tsbuildinfo"
-  ],
+  "files": ["/dist/", "/src/", "!/dist/tsconfig.build.tsbuildinfo"],
   "author": "Phase2 Technology",
   "repository": {
     "type": "git",

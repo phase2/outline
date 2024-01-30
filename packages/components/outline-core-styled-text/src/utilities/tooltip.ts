@@ -5,7 +5,10 @@ import { wrapLastWord } from './wrap-last-word';
  */
 export function tooltipLink(el: HTMLElement) {
   // Check if the element contains an image
-  if (el.querySelector('.outline-core-tooltip-popup') || !el.hasAttribute('title')) {
+  if (
+    el.querySelector('.outline-core-tooltip-popup') ||
+    !el.hasAttribute('title')
+  ) {
     return;
   }
 

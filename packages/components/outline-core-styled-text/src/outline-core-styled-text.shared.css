@@ -5,7 +5,10 @@
 p {
   display: block;
   font-size: var(--outline-body-text--font-size, var(--body-01-font-size));
-  line-height: var(--outline-body-text--line-height, var(--body-01-line-height));
+  line-height: var(
+    --outline-body-text--line-height,
+    var(--body-01-line-height)
+  );
   margin-bottom: var(--outline-body-text--margin-bottom, 1em);
   font-weight: var(--fw-normal);
 
@@ -284,13 +287,19 @@ table {
   }
   a.outline-cta {
     font-size: inherit;
-    color: var(--outline-disclaimer-cta--text-color, var(--outline-cta--text-color));
+    color: var(
+      --outline-disclaimer-cta--text-color,
+      var(--outline-cta--text-color)
+    );
     text-decoration: underline;
 
     .last-word {
       text-decoration: underline;
       &::after {
-        background-image: var(--outline-disclaimer-cta--icon, var(--outline-cta--icon));
+        background-image: var(
+          --outline-disclaimer-cta--icon,
+          var(--outline-cta--icon)
+        );
         height: var(--spacing-03);
         width: var(--spacing-03);
         margin-left: calc(var(--spacing-02));

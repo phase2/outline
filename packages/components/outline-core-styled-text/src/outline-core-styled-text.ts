@@ -11,7 +11,6 @@ import { externalLinkText } from './utilities/external-link-text';
 import { tooltipLink } from './utilities/tooltip';
 import { wrapLastWord } from './utilities/wrap-last-word';
 
-
 wrapLastWord;
 
 /**
