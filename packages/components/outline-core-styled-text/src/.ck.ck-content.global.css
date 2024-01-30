@@ -15,24 +15,24 @@
 /** Import Tokens.
 * Scope the css variables so they do not conflict with Drupal Admin theme's CSS variables.
 */
-@import '@phase2/sic-tokens/dist/tokens.default.css';
+@import '@phase2/outline-core-tokens/dist/tokens.default.css';
 @import '../../../../outline.theme.css';
 
-@import '../sic-heading/sic-heading.css';
-@import '../sic-button/sic-button.css';
-@import '../sic-cta/sic-cta.css';
-@import '../sic-cta/sic-cta.shared.css';
-@import '../sic-link/sic-link.css';
-@import '../sic-tooltip/sic-tooltip.shared.css';
-@import './sic-styled-text.shared.css';
+@import '../outline-core-heading/outline-core-heading.css';
+@import '../outline-core-button/outline-core-button.css';
+@import '../outline-core-cta/outline-core-cta.css';
+@import '../outline-core-cta/outline-core-cta.shared.css';
+@import '../outline-core-link/outline-core-link.css';
+@import '../outline-core-tooltip/outline-core-tooltip.shared.css';
+@import './outline-core-styled-text.shared.css';
 
 /**
  * Reset to :host rules that are set in:
- * `@import '../sic-button/sic-button.css';` that affects ckeditor width.
- * `@import '../sic-heading/sic-heading.css';` affect font-weight and color.
+ * `@import '../outline-core-button/outline-core-button.css';` that affects ckeditor width.
+ * `@import '../outline-core-heading/outline-core-heading.css';` affect font-weight and color.
  */
 :host {
-  color: var(--sic-text-color);
+  color: var(--outline-core-text-color);
   display: block;
   font-weight: unset;
   width: unset;
@@ -43,7 +43,7 @@
 }
 
 /* Override for tooltip styles. */
-a.sic-tooltip {
+/* a.sic-tooltip {
   text-decoration: underline;
 
   &::after {
@@ -61,4 +61,4 @@ a.sic-tooltip {
       url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23004ea8" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>')
     );
   }
-}
+} */

@@ -1,18 +1,18 @@
-/* Rendered WYSIWYG content is wrapped in <sic-styled-text> on the frontend. */
+/* Rendered WYSIWYG content is wrapped in <outline-core-styled-text> on the frontend. */
 /* WYSIWYG content is wrapped in .ck-content for targeting within CKEditor. */
 /* See https://www.drupal.org/node/3259165 */
 
-sic-styled-text {
+outline-core-styled-text {
   /* Support floats. */
   display: block;
   font-family: var(--ff-display);
   font-weight: var(--fw-normal);
-  color: var(--sic-text-color);
+  color: var(--outline-core-text-color);
 
-  @nested-import './sic-styled-text.shared.css';
-  @nested-import './sic-table.css';
-  @nested-import '../sic-cta/sic-cta.shared.css';
-  @nested-import '../sic-tooltip/sic-tooltip.shared.css';
+  @nested-import './outline-core-styled-text.shared.css';
+  @nested-import './outline-core-table.css';
+  @nested-import '../outline-core-cta/outline-core-cta.shared.css';
+  /* @nested-import '../outline-core-tooltip/outline-core-tooltip.shared.css'; */
 
   /* @screen queries not handled correctly by nested-import, so manually added. */
   /* Add margin-bottom to top-level ul and ol only. */

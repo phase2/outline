@@ -1,11 +1,16 @@
 import { TemplateResult, html, CSSResultGroup } from 'lit';
-import { OutlineElement } from '../../base/outline-element/outline-element';
 import { customElement } from 'lit/decorators.js';
+
+// Our base component, which all others extend.
+import { OutlineElement } from '@phase2/outline-core';
+
+import componentStyles from './outline-core-styled-text.css.lit';
+
+
 import { wrapLastWord } from '../../../utilities/wrap-last-word';
 import { tooltipLink } from '../../../utilities/tooltip';
 import { externalLinkText } from '../../../utilities/external-link-text';
 import { checkFileType } from '../../../utilities/check-file-type';
-import componentStyles from './sic-styled-text.css.lit';
 
 wrapLastWord;
 
