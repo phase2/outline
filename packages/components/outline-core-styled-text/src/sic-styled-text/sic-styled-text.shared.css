@@ -1,0 +1,454 @@
+/* Rendered WYSIWYG content is wrapped in <sic-styled-text> on the frontend. */
+/* WYSIWYG content is wrapped in .ck-content for targeting within CKEditor. */
+/* See https://www.drupal.org/node/3259165 */
+
+p {
+  display: block;
+  font-size: var(--sic-body-text--font-size, var(--body-01-font-size));
+  line-height: var(--sic-body-text--line-height, var(--body-01-line-height));
+  margin-bottom: var(--sic-body-text--margin-bottom, 1em);
+  font-weight: var(--fw-normal);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.headline-07,
+.headline-06,
+.headline-05,
+.headline-04,
+.headline-03,
+.headline-02,
+.headline-01 {
+  color: var(--sic-heading-color);
+  font-family: var(--ff-display);
+  font-weight: var(--fw-bold);
+  display: block;
+  margin-bottom: var(--spacing-04);
+}
+
+h1,
+.headline-07 {
+  font-size: var(--headline-07-font-size);
+  line-height: var(--headline-07-line-height);
+}
+
+h2 {
+  font-size: var(--headline-05-font-size);
+  line-height: var(--headline-05-line-height);
+}
+
+h3 {
+  font-size: var(--headline-04-font-size);
+  line-height: var(--headline-04-line-height);
+}
+
+h4 {
+  font-size: var(--headline-03-font-size);
+  line-height: var(--headline-03-line-height);
+}
+
+h5 {
+  font-size: var(--headline-02-font-size);
+  line-height: var(--headline-02-line-height);
+}
+
+h6 {
+  font-size: var(--headline-01-font-size);
+  line-height: var(--headline-01-line-height);
+}
+
+.headline-06 {
+  font-size: var(--headline-06-font-size);
+  line-height: var(--headline-06-line-height);
+}
+
+.headline-05 {
+  font-size: var(--headline-05-font-size);
+  line-height: var(--headline-05-line-height);
+}
+
+.headline-04 {
+  font-size: var(--headline-04-font-size);
+  line-height: var(--headline-04-line-height);
+}
+
+.headline-03 {
+  font-size: var(--headline-03-font-size);
+  line-height: var(--headline-03-line-height);
+}
+
+.headline-02 {
+  font-size: var(--headline-02-font-size);
+  line-height: var(--headline-02-line-height);
+}
+
+.headline-01 {
+  font-size: var(--headline-01-font-size);
+  line-height: var(--headline-01-line-height);
+}
+
+/* Add extra spacing between paragraphs and
+ * headings using the sibling selector.
+*/
+p {
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + .headline-07,
+  + .headline-06,
+  + .headline-05,
+  + .headline-04 {
+    margin-top: var(--spacing-10);
+  }
+
+  + h5,
+  + h6,
+  + .headline-01,
+  + .headline-02,
+  + .headline-03 {
+    margin-top: var(--spacing-8);
+  }
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: var(--spacing-04);
+  li {
+    list-style-type: disc;
+    ul li {
+      list-style-type: circle;
+      ul li {
+        list-style-type: square;
+        ul li {
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: var(--spacing-04);
+  margin-bottom: var(--spacing-02);
+  li {
+    list-style-type: decimal;
+    ol li {
+      list-style-type: lower-alpha;
+      ol li {
+        list-style-type: lower-roman;
+        ol li {
+          list-style-type: decimal;
+        }
+      }
+    }
+  }
+}
+
+ol {
+  li::marker {
+    color: var(--sic-text-color);
+  }
+}
+
+/* Add margin-bottom to top-level ul and ol only */
+/* Media queries are applied in sic-styled-text.lightdom.css */
+& > ul,
+& > ol {
+  margin-bottom: 1.5em;
+  padding-left: var(--spacing-05);
+}
+
+li {
+  list-style-position: outside;
+  padding-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: var(--spacing-02);
+  font-size: var(--sic-body-text--font-size, var(--body-01-font-size));
+  &::marker {
+    color: var(--sic-accent-color);
+    font-size: var(--fs-xl);
+  }
+}
+
+blockquote {
+  display: flex;
+  gap: var(--spacing-05);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  p {
+    font-size: var(--body-03-font-size);
+    margin-bottom: 0;
+  }
+  font-weight: bold;
+  sic-icon {
+    color: var(--color-primary-light);
+  }
+}
+
+/* Set a global HR for color purposes. */
+hr {
+  border-color: var(--sic-accent-color);
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+figcaption {
+  font-size: var(--sic-body-text--font-size, var(--body-01-font-size));
+  color: var(--sic-text-color);
+  text-align: center;
+}
+
+em {
+  font-style: italic;
+}
+
+sup {
+  vertical-align: super;
+  font-size: 60%;
+  top: 0;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: 60%;
+  bottom: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* Most styles are imported from `sic-table` but we add styled-text specific CSS here */
+table {
+  margin-bottom: var(--spacing-04);
+}
+
+/* Article byline */
+.article-byline {
+  font-size: var(--body-article-byline, var(--fs-lg));
+}
+
+/* Disclaimer */
+.disclaimer {
+  --sic-link--text-color--hover: var(--color-neutral-white);
+  --sic-link--bg-color--hover: var(--sic-text-color);
+  --sic-cta--text-color: var(--sic-text-color);
+  --sic-cta--text-color--hover: var(--color-neutral-white);
+  --sic-cta--icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23505050' viewBox='0 0 320 512'%3E%3Cpath d='M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z'/%3E%3C/svg%3E");
+  --sic-cta--icon--hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 320 512'%3E%3Cpath d='M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z'/%3E%3C/svg%3E");
+  --sic-cta--icon-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 25'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23505050' fill-rule='evenodd' d='M20.25 15.824h-1.5a.739.739 0 0 0-.75.727v5.086H3V7.105h6.75c.414 0 .75-.325.75-.726V4.926a.739.739 0 0 0-.75-.727h-7.5C1.007 4.2 0 5.175 0 6.38v15.984c0 1.204 1.007 2.18 2.25 2.18h16.5c1.243 0 2.25-.976 2.25-2.18v-5.812a.739.739 0 0 0-.75-.727Zm2-14.531h-7.438c-.724 0-1.312.57-1.312 1.271v.85c.01.337.158.657.41.888.254.232.592.356.94.347L18 4.562 6.331 15.783l-.003.004a1.066 1.066 0 0 0 0 1.54L7.45 18.41l.003.003c.44.423 1.152.421 1.59-.004L20.625 7.105l-.088 3.052v.035c0 .703.588 1.272 1.312 1.272h.838c.725 0 1.313-.57 1.313-1.272V2.988c0-.936-.783-1.695-1.75-1.695Z' clip-rule='evenodd'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23505050' d='M0 .5h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  --sic-cta--icon-external--hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 25'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23ffffff' fill-rule='evenodd' d='M20.25 15.824h-1.5a.739.739 0 0 0-.75.727v5.086H3V7.105h6.75c.414 0 .75-.325.75-.726V4.926a.739.739 0 0 0-.75-.727h-7.5C1.007 4.2 0 5.175 0 6.38v15.984c0 1.204 1.007 2.18 2.25 2.18h16.5c1.243 0 2.25-.976 2.25-2.18v-5.812a.739.739 0 0 0-.75-.727Zm2-14.531h-7.438c-.724 0-1.312.57-1.312 1.271v.85c.01.337.158.657.41.888.254.232.592.356.94.347L18 4.562 6.331 15.783l-.003.004a1.066 1.066 0 0 0 0 1.54L7.45 18.41l.003.003c.44.423 1.152.421 1.59-.004L20.625 7.105l-.088 3.052v.035c0 .703.588 1.272 1.312 1.272h.838c.725 0 1.313-.57 1.313-1.272V2.988c0-.936-.783-1.695-1.75-1.695Z' clip-rule='evenodd'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23505050' d='M0 .5h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  --sic-button--bg-color: var(--sic-text-color);
+  --sic-button--text-color: var(--color-neutral-white);
+  --sic-button--border-color: var(--sic-text-color);
+  --sic-button--bg-color--hover: transparent;
+  --sic-button--text-color--hover: var(--sic-text-color);
+  --sic-button--border-color--hover: var(--sic-text-color);
+  --sic-button--icon-external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 25'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23FFFFFF' fill-rule='evenodd' d='M20.25 15.824h-1.5a.739.739 0 0 0-.75.727v5.086H3V7.105h6.75c.414 0 .75-.325.75-.726V4.926a.739.739 0 0 0-.75-.727h-7.5C1.007 4.2 0 5.175 0 6.38v15.984c0 1.204 1.007 2.18 2.25 2.18h16.5c1.243 0 2.25-.976 2.25-2.18v-5.812a.739.739 0 0 0-.75-.727Zm2-14.531h-7.438c-.724 0-1.312.57-1.312 1.271v.85c.01.337.158.657.41.888.254.232.592.356.94.347L18 4.562 6.331 15.783l-.003.004a1.066 1.066 0 0 0 0 1.54L7.45 18.41l.003.003c.44.423 1.152.421 1.59-.004L20.625 7.105l-.088 3.052v.035c0 .703.588 1.272 1.312 1.272h.838c.725 0 1.313-.57 1.313-1.272V2.988c0-.936-.783-1.695-1.75-1.695Z' clip-rule='evenodd'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 .5h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  --sic-button--icon-external--hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 25'%3E%3Cg clip-path='url(%23a)'%3E%3Cpath fill='%23505050' fill-rule='evenodd' d='M20.25 15.824h-1.5a.739.739 0 0 0-.75.727v5.086H3V7.105h6.75c.414 0 .75-.325.75-.726V4.926a.739.739 0 0 0-.75-.727h-7.5C1.007 4.2 0 5.175 0 6.38v15.984c0 1.204 1.007 2.18 2.25 2.18h16.5c1.243 0 2.25-.976 2.25-2.18v-5.812a.739.739 0 0 0-.75-.727Zm2-14.531h-7.438c-.724 0-1.312.57-1.312 1.271v.85c.01.337.158.657.41.888.254.232.592.356.94.347L18 4.562 6.331 15.783l-.003.004a1.066 1.066 0 0 0 0 1.54L7.45 18.41l.003.003c.44.423 1.152.421 1.59-.004L20.625 7.105l-.088 3.052v.035c0 .703.588 1.272 1.312 1.272h.838c.725 0 1.313-.57 1.313-1.272V2.988c0-.936-.783-1.695-1.75-1.695Z' clip-rule='evenodd'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='a'%3E%3Cpath fill='%23fff' d='M0 .5h24v24H0z'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
+  font-size: calc(var(--body-helper-min-font-size));
+  line-height: calc(var(--body-helper-min-line-height));
+  display: block;
+  margin-bottom: 1em;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    font-weight: var(--fw-bold);
+    text-decoration: underline;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      color: var(
+        --sic-disclaimer-link--text-color--hover,
+        var(--sic-link--text-color--hover)
+      );
+      background-color: var(
+        --sic-disclaimer-link--bg-color--hover,
+        var(--sic-link--bg-color--hover)
+      );
+    }
+  }
+  a.sic-cta {
+    font-size: inherit;
+    color: var(--sic-disclaimer-cta--text-color, var(--sic-cta--text-color));
+    text-decoration: underline;
+
+    .last-word {
+      text-decoration: underline;
+      &::after {
+        background-image: var(--sic-disclaimer-cta--icon, var(--sic-cta--icon));
+        height: var(--spacing-03);
+        width: var(--spacing-03);
+        margin-left: calc(var(--spacing-02));
+      }
+    }
+    &:hover,
+    &:focus-visible,
+    &:focus {
+      background-color: var(--sic-text-color);
+      background-image: none;
+      color: var(
+        --sic-disclaimer-cta--text-color--hover,
+        var(--sic-cta--text-color--hover)
+      );
+      text-decoration: underline;
+
+      .last-word {
+        text-decoration: underline;
+
+        &::after {
+          background-image: var(
+            --sic-disclaimer-cta--icon--hover,
+            var(--sic-cta--icon--hover)
+          );
+          transform: translateX(calc(var(--spacing-01)));
+        }
+      }
+    }
+
+    &.icon-external,
+    &[target='_blank'] {
+      .last-word {
+        &::after {
+          background-image: var(
+            --sic-disclaimer-cta--icon-external,
+            var(--sic-cta--icon-external)
+          );
+          height: var(--spacing-03);
+          width: var(--spacing-03);
+        }
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:focus {
+        .last-word {
+          &::after {
+            background-image: var(
+              --sic-disclaimer-cta--icon-external--hover,
+              var(--sic-cta--icon-external--hover)
+            );
+            transform: translateX(-2px) translateY(-1px);
+          }
+        }
+      }
+    }
+  }
+
+  a.btn {
+    font-size: inherit;
+    color: var(
+      --sic-disclaimer-button--text-color,
+      var(--sic-button--text-color)
+    );
+    padding: var(--spacing-02) var(--spacing-04);
+    min-height: 0;
+    text-decoration: none;
+
+    &:hover {
+      color: var(
+        --sic-disclaimer-button--text-color--hover,
+        var(--sic-button--text-color--hover)
+      );
+      background-color: var(
+        --sic-disclaimer-button--bg-color--hover,
+        var(--sic-button--bg-color--hover)
+      );
+      border-color: var(
+        --sic-disclaimer-button--border-color--hover,
+        var(--sic-button--border-color--hover)
+      );
+    }
+
+    &.icon-external,
+    &[target='_blank'] {
+      .last-word::after {
+        background-image: var(
+          --sic-disclaimer-button--icon-external,
+          var(--sic-button--icon-external)
+        );
+        height: var(--spacing-03);
+        width: var(--spacing-03);
+        margin-left: calc(var(--spacing-02));
+      }
+
+      &:hover {
+        .last-word {
+          &::after {
+            background-image: var(
+              --sic-disclaimer-button--icon-external--hover,
+              var(--sic-button--icon-external--hover)
+            );
+          }
+        }
+      }
+    }
+  }
+
+  li {
+    font-size: calc(var(--body-helper-min-font-size));
+    line-height: calc(var(--body-helper-min-line-height));
+    margin-top: var(--spacing-01);
+    margin-bottom: var(--spacing-01);
+
+    &::marker {
+      color: var(--sic-text-color);
+    }
+  }
+}
+ul.disclaimer {
+  li::marker {
+    font-size: 10px;
+  }
+}
+ol.disclaimer {
+  li::marker {
+    font-size: 0.9em;
+  }
+}
+
+/* Allow sic-cta in sic-styled-text to wrap if long text */
+a.sic-cta {
+  white-space: initial;
+}
+
+a[name],
+a:not([href]) {
+  color: inherit;
+  cursor: text;
+  text-decoration: none;
+  font-weight: inherit;
+  font-size: inherit;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color: var(--sic-text-color);
+    background-color: transparent;
+  }
+}
+
+.clear-left {
+  clear: left;
+}
+
+.clear-right {
+  clear: right;
+}
+
+.clear-both {
+  clear: both;
+}

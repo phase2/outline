@@ -1,0 +1,39 @@
+/* Rendered WYSIWYG content is wrapped in <sic-styled-text> on the frontend. */
+/* WYSIWYG content is wrapped in .ck-content for targeting within CKEditor. */
+/* See https://www.drupal.org/node/3259165 */
+
+sic-styled-text {
+  /* Support floats. */
+  display: block;
+  font-family: var(--ff-display);
+  font-weight: var(--fw-normal);
+  color: var(--sic-text-color);
+
+  @nested-import './sic-styled-text.shared.css';
+  @nested-import './sic-table.css';
+  @nested-import '../sic-cta/sic-cta.shared.css';
+  @nested-import '../sic-tooltip/sic-tooltip.shared.css';
+
+  /* @screen queries not handled correctly by nested-import, so manually added. */
+  /* Add margin-bottom to top-level ul and ol only. */
+  & > ul,
+  & > ol {
+    margin-bottom: 1.5em;
+    padding-left: var(--spacing-05);
+
+    ul,
+    ol {
+      padding-left: var(--spacing-05);
+
+      @screen sm {
+        padding-left: var(--spacing-06);
+      }
+      @screen md {
+        padding-left: var(--spacing-08);
+      }
+      @screen lg {
+        padding-left: var(--spacing-12);
+      }
+    }
+  }
+}

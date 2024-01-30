@@ -1,0 +1,112 @@
+table {
+  color: var(--sic-heading-color);
+  max-width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: inline-block;
+  border-radius: var(--border-radius-rounded-default);
+  outline: 1px solid var(--color-neutral-light);
+  outline-offset: -1px;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  --table-head-font-size: var(--fs-lg);
+  --table-head-font-weight: var(--fw-bold);
+  --table-body-font-size: var(--fs-base);
+  --table-body-font-weight: var(--fw-normal);
+
+  tbody {
+    width: 100%;
+  }
+
+  thead,
+  tr:nth-child(even) {
+    background-color: var(--color-primary-lightest);
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: var(--color-neutral-white);
+  }
+
+  th,
+  td {
+    border: 1px solid var(--color-neutral-lighter);
+    border-collapse: collapse;
+    padding-right: 4rem;
+    padding-left: var(--spacing-04);
+    min-width: 20ch;
+    padding-top: var(--spacing-04);
+    padding-bottom: var(--spacing-04);
+  }
+
+  tbody {
+    th,
+    td,
+    /* Overriding all text styles except headings. This ensures consistent */
+    /* styling of unexpected markup, particularly migrated content. */
+    th *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6),
+    td *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+      font-size: var(--table-body-font-size);
+      sup {
+        font-size: 60% !important;
+      }
+
+      sub {
+        font-size: 60% !important;
+      }
+    }
+
+    td,
+    td *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(a):not(strong) {
+      font-weight: var(--table-body-font-weight);
+    }
+
+    th,
+    th *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6),
+    strong {
+      font-weight: var(--table-head-font-weight);
+    }
+
+    a,
+    a > span.last-word {
+      font-weight: var(--fw-bold);
+    }
+  }
+
+  thead {
+    th,
+    th *,
+    td,
+    td * {
+      font-size: var(--table-head-font-size);
+      font-weight: var(--table-head-font-weight);
+      sup {
+        font-size: 60%;
+      }
+      sub {
+        font-size: 60%;
+      }
+    }
+  }
+
+  th {
+    text-align: left;
+  }
+
+  ::-webkit-scrollbar {
+    max-width: var(--spacing-01);
+    max-height: var(--spacing-01);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-neutral-light);
+    border-radius: var(--spacing-03);
+  }
+  sup {
+    top: 0;
+  }
+
+  sub {
+    vertical-align: sub;
+  }
+}
