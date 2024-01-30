@@ -15,7 +15,7 @@
 /** Import Tokens.
 * Scope the css variables so they do not conflict with Drupal Admin theme's CSS variables.
 */
-@import '@phase2/outline-core-tokens/dist/tokens.default.css';
+/* @import '@phase2/outline-core-tokens/dist/tokens.default.css';
 @import '../../../../outline.theme.css';
 
 @import '../outline-core-heading/outline-core-heading.css';
@@ -23,7 +23,7 @@
 @import '../outline-core-cta/outline-core-cta.css';
 @import '../outline-core-cta/outline-core-cta.shared.css';
 @import '../outline-core-link/outline-core-link.css';
-@import '../outline-core-tooltip/outline-core-tooltip.shared.css';
+@import '../outline-core-tooltip/outline-core-tooltip.shared.css';*/
 @import './outline-core-styled-text.shared.css';
 
 /**

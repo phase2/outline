@@ -1,8 +1,8 @@
 {
   "name": "@phase2/outline-core-styled-text",
   "private": true,
-  "version": "0.0.0",
-  "description": "The Outline Components for the image component",
+  "version": "0.0.1",
+  "description": "The Outline Components for the styled text component",
   "keywords": [
     "outline",
     "web-components",
