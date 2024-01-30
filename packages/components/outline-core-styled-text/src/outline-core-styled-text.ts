@@ -23,7 +23,7 @@ wrapLastWord;
  */
 @customElement('outline-core-styled-text')
 export class OutlineCoreStyledText extends OutlineElement {
-  static styles: CSSResultGroup = [OutlineElement.styles, componentStyles];
+  static styles: CSSResultGroup = [componentStyles];
 
   connectedCallback(): void {
     super.connectedCallback();
