@@ -82,24 +82,6 @@ const createComponentLiterals = (result, path) => {
     `
 import { css } from 'lit';
 export default css\`
-/* Apply standardized box sizing to the component. */
-:host {
-  box-sizing: border-box;
-}
-:host *,
-:host *::before,
-:host *::after {
-  box-sizing: inherit;
-}
-/* Apply proper CSS for accessibly hiding elements to each component. */
-.visually-hidden {
-  position: absolute !important;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  width: 1px;
-  height: 1px;
-  word-wrap: normal;
-}
 /* Apply component specific CSS */
 ${result.css}\`;`,
     () => true
@@ -169,38 +151,43 @@ glob('packages/**/*.global.css', { dot: true }, (err, files) => {
 // Run the component style generation.
 glob(
   'packages/**/*.css',
-  { ignore: ['packages/outline-storybook/**/*.css', '.storybook/**/*.css'] },
+  {
+    ignore: [
+      'packages/documentation/outline-storybook/**/*.css',
+      '.storybook/**/*.css',
+    ],
+  },
   (err, files) => {
     files.forEach(createCssLiterals);
   }
 );
 
 // Watch mode with --watch in cli.
-// if (options.watch) {
-//   // Watch globals.
-//   gaze('*.css', (err, watcher) => {
-//     watcher.on('added', createCssGlobals);
-//     watcher.on('changed', createCssGlobals);
-//   });
+if (options.watch) {
+  // Watch globals.
+  gaze('*.css', { ignore: ['**/packages/**/*.css'] }, (err, watcher) => {
+    watcher.on('added', createCssGlobals);
+    watcher.on('changed', createCssGlobals);
+  });
 
-//   // Watch components global scoping.
-//   gaze(
-//     'packages/**/*.global.css',
-//     { dot: true },
-//     (err, watcher) => {
-//       watcher.on('added', createLightDomStyles);
-//       watcher.on('changed', createLightDomStyles);
-//     }
-//   );
-// }
+  // Watch components global scoping.
+  gaze('packages/**/*.global.css', { dot: true }, (err, watcher) => {
+    watcher.on('added', createLightDomStyles);
+    watcher.on('changed', createLightDomStyles);
+  });
 
-//   // Watch components.
-//   gaze(
-//     'packages/**/*.css',
-//     { ignore: ['**/dist/**/*.css', '**/packages/outline-storybook/**/*.css'] },
-//     (err, watcher) => {
-//       watcher.on('added', createCssLiterals);
-//       watcher.on('changed', createCssLiterals);
-//     }
-//   );
-// }
+  // Watch components.
+  gaze(
+    'packages/**/*.css',
+    {
+      ignore: [
+        '**/dist/**/*.css',
+        'packages/documentation/outline-storybook/**/*.css',
+      ],
+    },
+    (err, watcher) => {
+      watcher.on('added', createCssLiterals);
+      watcher.on('changed', createCssLiterals);
+    }
+  );
+}
