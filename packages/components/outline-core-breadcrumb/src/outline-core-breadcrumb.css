@@ -4,9 +4,9 @@ ol,
 ul {
   list-style: none;
 
-  margin: 10px;
+  margin: .5rem;
 
-  padding: 10px;
+  padding: .5rem;
 
   display: flex;
 
@@ -14,7 +14,7 @@ ul {
 
   flex-wrap: wrap;
 
-  gap: 10px;
+  gap: .5rem;
 }
 
 li {
@@ -23,9 +23,9 @@ li {
   flex-direction: row;
   align-items: center;
   position: relative;
-  padding: 10px;
+  padding: .5rem;
 
-  margin: 10px; 
+  margin: .5rem; 
 }
 
 /**
@@ -35,7 +35,7 @@ li {
 li:not(:first-of-type)::before {
   content: '';
   display: flex;
-  margin-right: 10px; 
+  margin-right: .5rem; 
   height: 1em;
   width: 1px;
   background: currentColor;
@@ -47,8 +47,8 @@ a {
   display: inline-flex;
   align-items: center;
 
-  padding:10px;
-  margin:10px; 
+  padding:.5rem;
+  margin:.5rem; 
 
 
   &:hover {
@@ -67,7 +67,7 @@ a {
 }
 
 .separator {
-  margin-left: 10px; 
+  margin-left: .5rem; 
 }
 
 .previous-link {
