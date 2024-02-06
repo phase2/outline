@@ -35,7 +35,7 @@ export class AdoptedStylesheets implements ReactiveController {
   private host: ReactiveControllerHost;
 
   /**
-   * The constructor for the `AdoptedStyleSheets` class.
+   * The constructor for the `AdoptedStylesheets` class.
    *
    * @param {ReactiveControllerHost} host - The host that this controller is associated with.
    * @param {string} cssText - A string that contains the CSS styles to be adopted.
