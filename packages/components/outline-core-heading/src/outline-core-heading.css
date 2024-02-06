@@ -1,0 +1,90 @@
+.clickable-card {
+  /* Required to allow the functionallity of full card being clickable  */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    a {
+      &:hover {
+        text-decoration: none;
+      }
+      &:after {
+        position: absolute;
+        inset: 0;
+        content: '';
+      }
+    }
+  }
+}
+
+.md {
+  @apply text-base;
+}
+
+.xs {
+  @apply text-xs;
+}
+
+.sm {
+  @apply text-sm;
+}
+
+.lg {
+  @apply text-lg;
+}
+
+.lg.mobile {
+  @apply text-base;
+}
+
+.xl {
+  @apply text-xl;
+}
+
+.xl.mobile {
+  @apply text-base;
+}
+
+.xxl {
+  @apply text-2xl;
+}
+
+.xxl.mobile {
+  @apply text-lg;
+}
+
+.xxxl {
+  @apply text-3xl;
+}
+
+.xxxl.mobile {
+  @apply text-lg;
+}
+
+/* Font weights */
+.thin {
+  @apply font-thin;
+}
+.extralight {
+  @apply font-extralight;
+}
+.light {
+  @apply font-light;
+}
+.normal {
+  @apply font-normal;
+}
+.semibold {
+  @apply font-semibold;
+}
+.bold {
+  @apply font-bold;
+}
+.extrabold {
+  @apply font-extrabold;
+}
+.black {
+  @apply font-black;
+}
