@@ -1,0 +1,44 @@
+{
+  "name": "@phase2/outline-dropdown",
+  "version": "0.1.9",
+  "description": "The Outline Components for the dropdown web component",
+  "keywords": [
+    "outline",
+    "web-components",
+    "design system",
+    "dropdown"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "/dist/",
+    "/src/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/components/@deprecated/outline-dropdown"
+  },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/components/@deprecated/outline-dropdown",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "@phase2/outline-button": "^0.1.7",
+    "@phase2/outline-core": "^0.2.5",
+    "@phase2/outline-icon": "^0.1.5",
+    "@phase2/outline-link": "^0.1.8",
+    "lit": "^2.3.1",
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}

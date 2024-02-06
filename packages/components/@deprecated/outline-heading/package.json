@@ -1,0 +1,41 @@
+{
+  "name": "@phase2/outline-heading",
+  "version": "0.1.5",
+  "description": "The Outline Components for the web heading component",
+  "keywords": [
+    "outline components",
+    "outline design",
+    "heading"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "/dist/",
+    "/src/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/components/@deprecated/outline-heading"
+  },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/components/@deprecated/outline-heading",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "node ../../../../scripts/build.js",
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "@phase2/outline-core": "^0.2.5",
+    "lit": "^2.3.1",
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}

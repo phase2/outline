@@ -1,5 +1,17 @@
 # @phase2/outline-templates
 
+## 0.0.49
+
+### Patch Changes
+
+- Bump for update to default nvmrc
+
+## 0.0.48
+
+### Patch Changes
+
+- d00800e0: Sweeping shuffle to reorganize the packages directory.
+
 ## 0.0.47
 
 ### Patch Changes
