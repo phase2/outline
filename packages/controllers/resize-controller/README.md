@@ -7,7 +7,7 @@ The `resize-controller` is a utility module that allows you to observe and react
 You can install the `resize-controller` package using yarn:
 
 ```
-yarn add -D @phase2/resize-controller
+yarn add -D @phase2/outline-controller-resize-controller
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ To use the `resize-controller` in your web component, follow these steps:
 1. Import the necessary classes and functions from the `lit` package:
 
 ```javascript
-import { ResizeController } from 'resize-controller';
+import { ResizeController } from '@phase2/outline-controller-resize-controller';
 ```
 
 2. Create an instance of the `ResizeController` and pass the host element and options:
