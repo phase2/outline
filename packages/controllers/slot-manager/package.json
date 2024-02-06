@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-controller-slot-manager",
-  "version": "0.0.1",
-  "description": "Controller to help with slots (renderInShadow, exist, etc.)",
+  "version": "0.0.0",
+  "description": "Slot management utilities for web components.",
   "keywords": [
     "outline components",
     "outline design",
