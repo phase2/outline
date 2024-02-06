@@ -1,12 +1,13 @@
 {
-  "name": "@phase2/outline-controller-light-dom-styles-controller",
+  "name": "@phase2/outline-adopted-stylesheets-controller",
   "version": "0.0.4",
-  "description": "Deprecated controller to manage styles via Light DOM.",
+  "description": "Controller to help with managing native AdoptedStylesheet implementations.",
   "keywords": [
     "outline components",
     "outline design",
     "CSS",
-    "style"
+    "style",
+    "AdoptedStylesheets"
   ],
   "main": "index.ts",
   "types": "index.ts",
@@ -20,12 +21,12 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/controllers/@deprecated/light-dom-styles"
+    "directory": "packages/controllers/adopted-stylesheets"
   },
-  "homepage": "https://github.com/phase2/outline/tree/next/packages/controllers/@deprecated/light-dom-styles",
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/controllers/adopted-stylesheets",
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../../../scripts/build.js",
+    "build": "node ../../../scripts/build.js",
     "package": "yarn publish"
   },
   "dependencies": {

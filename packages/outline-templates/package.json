@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-templates",
   "description": "The Outline Starter Templates",
-  "version": "0.0.48",
+  "version": "0.0.49",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
