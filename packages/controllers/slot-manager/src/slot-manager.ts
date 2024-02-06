@@ -12,13 +12,8 @@ type SlotName = string | null;
 
 /**
  * @class SlotManager
- * @description The SlotManager ReactiveController.
- * This controller allows cloning slots into the shadow DOM,
- * by calling a function inside render() of the component.
- * Any changes in the light DOM trigger requestUpdate() and thus re-cloning
- * of the slots into the shadow DOM.
- * The controller dispatches any events that were specified when they are triggered
- * in the cloned slots in shadow DOM to the equivalent light DOM slot.
+ * @description Slot management utilities for Lit web components.
+ *
  * @param {ReactiveControllerHost & Element} host - The host element.
  */
 export class SlotManager {
