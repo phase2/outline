@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-controller-resize-controller",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Controller to help with managing classes / markup updates based on component's width",
   "keywords": [
     "outline components",
