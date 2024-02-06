@@ -1,0 +1,35 @@
+@import './css-variables/vars-link.css';
+
+a,
+::slotted(a) {
+  font-family: var(--ff-body) !important;
+  text-decoration: var(
+    --outline-core-link--text-decoration--computed
+  ) !important;
+  color: var(--outline-core-link--color--computed) !important;
+  transition-property: var(
+    --outline-core-link--transition-property--computed
+  ) !important;
+  transition-timing-function: var(
+    --outline-core-link--transition-timing-function--computed
+  ) !important;
+  transition-duration: var(
+    --outline-core-link--transition-duration--computed
+  ) !important;
+}
+
+a:hover,
+::slotted(a:hover) {
+  text-decoration: var(
+    --outline-core-link--text-decoration-hover--computed
+  ) !important;
+  color: var(--outline-core-link--color-hover--computed) !important;
+}
+
+a:focus,
+::slotted(a:focus) {
+  text-decoration: var(
+    --outline-core-link--text-decoration-focus--computed
+  ) !important;
+  color: var(--outline-core-link--color-focus--computed) !important;
+}
