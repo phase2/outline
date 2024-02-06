@@ -388,11 +388,9 @@ export class SlotsController {
         class="${ifDefined(classMap(wrapperClasses))}"
         ${this.printExtraAttributes(extraAttributes)}
       >
-        ${
-          renderInShadow
-            ? html`${this.renderInShadow(slotName)}`
-            : html`<slot name=${slotName}></slot> `
-        }
+        ${renderInShadow
+          ? html`${this.renderInShadow(slotName)}`
+          : html`<slot name=${slotName}></slot> `}
       </div>`;
     } else {
       return null;
