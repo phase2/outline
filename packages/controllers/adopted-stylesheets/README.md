@@ -38,64 +38,56 @@ The `AdoptedStylesheets` controller provides the following methods:
 
 ## Usage
 
-Here are examples of how to use the `AdoptedStylesheets` controller in a component:
+Here is an example of how to use the `AdoptedStylesheets` controller in a component. Samples will show incorporating two stylesheets, one to the `document` (global) and one to the `shadowRoot` (encapsulated). 
 
-### Sample 1: Attach a stylesheet to `document`
-
-```typescript
-import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
-import { css, CSSResult, LitElement } from 'lit';
-import globalStyles from './global-styles';
-
-class MyComponent extends LitElement {
-  AdoptedStylesheets: AdoptedStylesheets;
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.AdoptedStylesheets = new AdoptedStylesheets(globalStyles, document);
-    this.addController(this.AdoptedStylesheets);
-  }
-}
-```
-
-### Sample 2: Attach a stylesheet to `this.shadowRoot`
+### Importing the package
 
 ```typescript
 import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
-import { css, CSSResult, LitElement } from 'lit';
-import encapsulatedStyles from './encapsulated-styles';
-
-class MyComponent extends LitElement {
-  AdoptedStylesheets: AdoptedStylesheets;
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.AdoptedStylesheets = new AdoptedStylesheets(encapsulatedStyles, this.shadowRoot);
-    this.addController(this.AdoptedStylesheets);
-  }
-}
 ```
 
-### Sample 3: Attach stylesheets to both `document` and `this.shadowRoot`
+### Importing your stylesheet(s)
 
 ```typescript
-import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
-import { css, CSSResult, LitElement } from 'lit';
-import globalStyles from './global-styles';
-import encapsulatedStyles from './encapsulated-styles';
+import globalStyles from './styles/global-styles.css?inline';
+import encapsulatedStyles from './styles/encapsulated-styles.css?inline';
+```
 
-class MyComponent extends LitElement {
-  GlobalStylesheets: AdoptedStylesheets;
-  EncapsulatedStylesheets: AdoptedStylesheets;
+In the snippet above, you'll notice that we're importing stylesheets directly into our component using the `?inline` flag. This is a feature provided by modern bundlers like Vite and Webpack. The `?inline` flag tells the bundler to import the contents of the CSS file as a string, which can then be used directly in our JavaScript or TypeScript code.
 
-  connectedCallback() {
-    super.connectedCallback();
-    this.GlobalStylesheets = new AdoptedStylesheets(globalStyles, document);
-    this.addController(this.GlobalStylesheets);
-    this.EncapsulatedStylesheets = new AdoptedStylesheets(encapsulatedStyles, this.shadowRoot);
-    this.addController(this.EncapsulatedStylesheets);
-  }
+### Attaching a global stylesheet
+
+```typescript
+export class MyComponent extends LitElement {
+  
+  GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
+    this,
+    globalStyles,
+    document,
+  );
+  
+  EncapsulatedStylesheets: AdoptedStylesheets | undefined;
 }
 ```
 
-In the provided examples, the `connectedCallback` method is utilized. This method is invoked whenever the element is inserted into the DOM. Within this method, an instance of `AdoptedStylesheets` is created and added as a controller. This is a more efficient approach than creating the instance and adding the controller within the `constructor`. The reason for this is that it delays these operations until the element is actually inserted into the DOM. If there are many such elements that are created but not immediately added to the DOM, this approach can significantly improve the startup performance of your application. Therefore, the `connectedCallback` method is a crucial part of managing the lifecycle of a web component, especially when dealing with adopted stylesheets.
+Above, the definition of `GlobalStylesheets` is calling the controller, and attaching immediately upon execution. Read on to understand why `EncapsulatedStylesheets` must be assigned differently.
+
+### Attaching an encapsulated stylesheet via `createRenderRoot`
+
+Because of the methods by which Adopted Stylesheets work, we must ensure that we have a `shadowRoot` prior to attaching styles to it. While this may seem overly verbose compared to using `static styles`, however, `static styles` is a Lit-ism, and then has us using the "Lit way" to attach our encapsulated styles, and "this way" to attach global ones. This consolidation is purposeful to ensure we are utilizing the same, modern, browser standards based methods when possible.
+
+```typescript
+createRenderRoot() {
+  const root = super.createRenderRoot();
+  this.EncapsulatedStylesheets = this.shadowRoot
+    ? new AdoptedStylesheets(this, encapsulatedStyles, this.shadowRoot)
+    : undefined;
+  return root;
+}
+```
+
+The `createRenderRoot` method is used here for a very specific reason. In Lit, the `createRenderRoot` method is used to specify the container to which the template is rendered. By default, Lit renders the template into the component's Shadow DOM. This is done by returning `this.shadowRoot` in the `createRenderRoot` method, which is the default behavior.
+
+In this specific case, we are using `createRenderRoot` to adopt stylesheets into the shadow root of the component. This is done by creating a new instance of the `AdoptedStyleSheets` class and assigning it to `this.EncapsulatedStylesheets`. The `AdoptedStyleSheets` class is a controller that manages CSS stylesheets that are adopted into the document or a shadow root. By adopting the stylesheets into the shadow root, we ensure that the styles are scoped to this component and do not leak out to the rest of the page.
+
+This could not be achieved with other lifecycle methods in Lit. The `createRenderRoot` method is the only method that gives us direct access to the shadow root before the template is rendered, which is necessary for adopting the stylesheets. Other lifecycle methods like `connectedCallback`, `disconnectedCallback`, `updated`, `firstUpdated`, etc., are called at different stages of the component's lifecycle and do not give us the opportunity to adopt the stylesheets into the shadow root before the template is rendered.

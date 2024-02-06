@@ -1,37 +1,64 @@
-import { ReactiveController, CSSResult } from 'lit';
+import { ReactiveController, ReactiveControllerHost } from 'lit';
 
 /**
- * `AdoptedStyleSheets` is a class that implements the `ReactiveController` interface from the `lit` library.
+ * `AdoptedStylesheets` is a class that implements the `ReactiveController` interface from the `lit` library.
  * This class is used to manage CSS stylesheets that are adopted into the document or a shadow root.
  *
- * @property {Map<string, CSSStyleSheet>} styleSheetMap - A static map that stores CSS stylesheets. The key is the CSS text and the value is the corresponding CSSStyleSheet object.
  * @property {CSSStyleSheet} adoptedSheet - The CSSStyleSheet object that is adopted into the document or a shadow root.
  * @property {Document | ShadowRoot} root - The root where the stylesheet will be adopted.
  */
-export class AdoptedStyleSheets implements ReactiveController {
+export class AdoptedStylesheets implements ReactiveController {
+  /**
+   * A static map that stores CSSStyleSheet objects by their CSS text.
+   * This allows for reuse of CSSStyleSheet objects across multiple instances of the class.
+   * @type {Map<string, CSSStyleSheet>}
+   */
   private static styleSheetMap = new Map<string, CSSStyleSheet>();
+
+  /**
+   * The CSSStyleSheet object that is adopted into the document or a shadow root.
+   * @type {CSSStyleSheet}
+   */
   private adoptedSheet: CSSStyleSheet;
+
+  /**
+   * The root where the stylesheet will be adopted.
+   * This can be either the document or a shadow root.
+   * @type {Document | ShadowRoot}
+   */
   private root: Document | ShadowRoot;
+
+  /**
+   * The host that this controller is associated with.
+   * @type {ReactiveControllerHost}
+   */
+  private host: ReactiveControllerHost;
 
   /**
    * The constructor for the `AdoptedStyleSheets` class.
    *
-   * @param {CSSResult} globalStyles - A `CSSResult` object that contains the CSS styles to be adopted.
+   * @param {ReactiveControllerHost} host - The host that this controller is associated with.
+   * @param {string} cssText - A string that contains the CSS styles to be adopted.
    * @param {Document | ShadowRoot} root - The root where the stylesheet will be adopted.
    */
-  constructor(globalStyles: CSSResult, root: Document | ShadowRoot) {
-    if (!root) {
-      throw new Error('Root must not be null or undefined');
-    }
-    const cssText = globalStyles.cssText;
-    if (!AdoptedStyleSheets.styleSheetMap.has(cssText)) {
+  constructor(
+    host: ReactiveControllerHost,
+    cssText: string,
+    root: Document | ShadowRoot
+  ) {
+    this.host = host;
+    this.host.addController(this);
+    this.root = root;
+
+    if (!AdoptedStylesheets.styleSheetMap.has(cssText)) {
       const newSheet = new CSSStyleSheet();
-      newSheet.replaceSync(cssText);
-      AdoptedStyleSheets.styleSheetMap.set(cssText, newSheet);
+      newSheet.replace(cssText).catch(error => {
+        console.error('Failed to replace CSS text:', error);
+      });
+      AdoptedStylesheets.styleSheetMap.set(cssText, newSheet);
     }
     this.adoptedSheet =
-      AdoptedStyleSheets.styleSheetMap.get(cssText) || new CSSStyleSheet();
-    this.root = root;
+      AdoptedStylesheets.styleSheetMap.get(cssText) || new CSSStyleSheet();
   }
 
   /**
@@ -39,7 +66,10 @@ export class AdoptedStyleSheets implements ReactiveController {
    * This method adopts the CSSStyleSheet object into the root's adopted stylesheets if it's not already included.
    */
   hostConnected() {
-    if (!this.root.adoptedStyleSheets.includes(this.adoptedSheet)) {
+    if (
+      this.root &&
+      !this.root.adoptedStyleSheets.includes(this.adoptedSheet)
+    ) {
       this.root.adoptedStyleSheets = [
         ...this.root.adoptedStyleSheets,
         this.adoptedSheet,
@@ -52,7 +82,7 @@ export class AdoptedStyleSheets implements ReactiveController {
    * This method removes the CSSStyleSheet object from the root's adopted stylesheets if it's included.
    */
   hostDisconnected() {
-    if (this.root.adoptedStyleSheets.includes(this.adoptedSheet)) {
+    if (this.root && this.root.adoptedStyleSheets.includes(this.adoptedSheet)) {
       this.root.adoptedStyleSheets = this.root.adoptedStyleSheets.filter(
         sheet => sheet !== this.adoptedSheet
       );
