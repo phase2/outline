@@ -1,30 +1,38 @@
 # `AdoptedStylesheets` Controller
 
-[![Latest version for outline-adopted-stylesheets-controller](https://img.shields.io/npm/v/@phase2/outline-adopted-stylesheets-controller)](https://www.npmjs.com/package/@phase2/outline-adopted-stylesheets-controller)
+[![Latest version for outline-adopted-stylesheets-controller](https://img.shields.io/npm/v/@phase2/outline-adopted-stylesheets-controller)](https://www.npmjs.com/package/@phase2/outline-adopted-stylesheets-controller) [![Node.js version](https://img.shields.io/node/v/@phase2/outline-adopted-stylesheets-controller)](https://nodejs.org/en/download/releases/) [![Lit 2](https://img.shields.io/badge/Lit-2-blue)](https://lit.dev/) [![Lit 3](https://img.shields.io/badge/Lit-3-blue)](https://lit.dev/)
 
-> The `AdoptedStylesheets` controller is a part of the `@phase2/outline-adopted-stylesheets-controller` package. This controller assists components in attaching "global" document styles without duplication at the component level, as well as de-duping any previous inclusions into `AdoptedStylesheets`.
+## Overview
+
+Adopted stylesheets offer a way to apply styles to a document or a shadow root, as part of the CSS Shadow Parts specification. The `AdoptedStylesheets` controller, a Lit Reactive Controller, is a robust tool for managing styles in web components. It provides a uniform method to manage both global and encapsulated styles, utilizing modern browser standards. This controller aids in preventing style duplication at the component level and ensures efficient style inclusion into `AdoptedStylesheets`. For more information on Lit Reactive Controllers, visit the [Lit documentation](https://lit.dev/docs/composition/controllers/).
 
 ## Installing the `AdoptedStylesheets` Controller
 
 To install the new package, use the following command, specific to your package manager:
 
+### With Yarn
+
+> For more information on using Yarn, visit the [Yarn documentation](https://classic.yarnpkg.com/en/docs/).
+
 ```bash
-# With Yarn
 yarn add @phase2/outline-adopted-stylesheets-controller
-
-# With NPM
-npm i --save-dev @phase2/outline-adopted-stylesheets-controller
-
-# With PNPM
-pnpm add --save-dev @phase2/outline-adopted-stylesheets-controller
 ```
 
-## Overview
+### With NPM
 
-Adopted stylesheets are a method to apply styles to a document or a shadow root. They are a part of the CSS Shadow Parts specification. For more information about adopted stylesheets and their usage in web components, refer to the following resources:
+> For more information on using NPM, visit the [NPM documentation](https://docs.npmjs.com/).
 
-- [MDN Web Docs: Document adoptedStyleSheets](https://developer.mozilla.org/en-US/docs/Web/API/Document/adoptedStyleSheets): This documentation provides an in-depth look at the `adoptedStyleSheets` property of the `Document` interface.
-- [MDN Web Docs: ShadowRoot adoptedStyleSheets](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets): This documentation provides an in-depth look at the `adoptedStyleSheets` property of the `ShadowRoot` interface.
+```bash
+npm i --save-dev @phase2/outline-adopted-stylesheets-controller
+```
+
+### With PNPM
+
+> For more information on using PNPM, visit the [PNPM documentation](https://pnpm.io/usage).
+
+```bash
+pnpm add --save-dev @phase2/outline-adopted-stylesheets-controller
+```
 
 ## Methods
 
@@ -38,7 +46,7 @@ The `AdoptedStylesheets` controller provides the following methods:
 
 ## Usage
 
-Here is an example of how to use the `AdoptedStylesheets` controller in a component. Samples will show incorporating two stylesheets, one to the `document` (global) and one to the `shadowRoot` (encapsulated). 
+Here is an example of how to use the `AdoptedStylesheets` controller in a component. Samples will show incorporating two stylesheets, one to the `document` (global) and one to the `shadowRoot` (encapsulated).
 
 ### Importing the package
 
@@ -53,7 +61,21 @@ import globalStyles from './styles/global-styles.css?inline';
 import encapsulatedStyles from './styles/encapsulated-styles.css?inline';
 ```
 
-In the snippet above, you'll notice that we're importing stylesheets directly into our component using the `?inline` flag. This is a feature provided by modern bundlers like Vite and Webpack. The `?inline` flag tells the bundler to import the contents of the CSS file as a string, which can then be used directly in our JavaScript or TypeScript code.
+#### CSS Structure
+
+The `globalStyles` and `encapsulatedStyles` are imported from their respective CSS files. These stylesheets are used to style the web component and the document respectively.
+
+- `globalStyles`: This stylesheet is used to style the entire document.
+
+- `encapsulatedStyles`: This stylesheet is used to style the web component itself.
+
+By separating the styles into global and encapsulated stylesheets, you can manage the styles in a more organized and efficient way. It also allows for better encapsulation and control over the styles, as you can decide which styles should be applied globally and which should be scoped to the web component.
+
+#### `CSSStyleSheet` instead of `CSSResultGroup`
+
+The `?inline` flag is used when importing stylesheets in modern bundlers like Vite and Webpack. This flag tells the bundler to import the contents of the CSS file as a string, which can then be used directly in JavaScript or TypeScript code. This is particularly useful when working with web components, as it allows for the dynamic inclusion of styles.
+
+The benefit of using the `CSSStyleSheet` type over the Lit-specific `CSSResultGroup` is that `CSSStyleSheet` is a web standard, while `CSSResultGroup` is specific to Lit. By using `CSSStyleSheet`, you're leveraging browser-native capabilities, which can lead to better performance and compatibility.
 
 ### Attaching a global stylesheet
 
@@ -61,9 +83,9 @@ In the snippet above, you'll notice that we're importing stylesheets directly in
 export class MyComponent extends LitElement {
   
   GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
-    this,
-    globalStyles,
-    document,
+    this, // The host that this controller is associated with
+    globalStyles, // A string that contains the CSS styles to be adopted
+    document, // The root where the stylesheet will be adopted
   );
   
   EncapsulatedStylesheets: AdoptedStylesheets | undefined;
@@ -91,3 +113,10 @@ The `createRenderRoot` method is used here for a very specific reason. In Lit, t
 In this specific case, we are using `createRenderRoot` to adopt stylesheets into the shadow root of the component. This is done by creating a new instance of the `AdoptedStyleSheets` class and assigning it to `this.EncapsulatedStylesheets`. The `AdoptedStyleSheets` class is a controller that manages CSS stylesheets that are adopted into the document or a shadow root. By adopting the stylesheets into the shadow root, we ensure that the styles are scoped to this component and do not leak out to the rest of the page.
 
 This could not be achieved with other lifecycle methods in Lit. The `createRenderRoot` method is the only method that gives us direct access to the shadow root before the template is rendered, which is necessary for adopting the stylesheets. Other lifecycle methods like `connectedCallback`, `disconnectedCallback`, `updated`, `firstUpdated`, etc., are called at different stages of the component's lifecycle and do not give us the opportunity to adopt the stylesheets into the shadow root before the template is rendered.
+
+## Additional Information
+
+For more information about adopted stylesheets and their usage in web components, refer to the following resources:
+
+- [MDN Web Docs: Document adoptedStyleSheets](https://developer.mozilla.org/en-US/docs/Web/API/Document/adoptedStyleSheets): This documentation provides an in-depth look at the `adoptedStyleSheets` property of the `Document` interface.
+- [MDN Web Docs: ShadowRoot adoptedStyleSheets](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets): This documentation provides an in-depth look at the `adoptedStyleSheets` property of the `ShadowRoot` interface.
