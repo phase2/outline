@@ -44,7 +44,7 @@ export class AdoptedStylesheets implements ReactiveController {
   constructor(
     host: ReactiveControllerHost,
     cssText: string,
-    root: Document | ShadowRoot
+    root: Document | ShadowRoot = document
   ) {
     this.host = host;
     this.host.addController(this);

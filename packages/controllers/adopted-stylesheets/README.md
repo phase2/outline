@@ -38,7 +38,7 @@ pnpm add --save-dev @phase2/outline-adopted-stylesheets-controller
 
 The `AdoptedStylesheets` controller provides the following methods:
 
-- `constructor(globalStyles: CSSResult, root: Document | ShadowRoot)`: This method is used to create a new instance of the `AdoptedStylesheets` controller. It takes a `CSSResult` object and a root (either a `Document` or `ShadowRoot`) as parameters.
+- `constructor(globalStyles: CSSResult, [root: Document | ShadowRoot = document])`: This method is used to create a new instance of the `AdoptedStylesheets` controller. It takes a `CSSResult` object and an optional root (either a `Document` or `ShadowRoot`) as parameters.
 
 - `hostConnected()`: This method is called when the host element is connected to the DOM. It adds the document's stylesheet to the adopted stylesheets if it is not already present.
 
@@ -84,15 +84,14 @@ export class MyComponent extends LitElement {
   
   GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
     this, // The host that this controller is associated with
-    globalStyles, // A string that contains the CSS styles to be adopted
-    document, // The root where the stylesheet will be adopted
+    globalStyles // A string that contains the CSS styles to be adopted
   );
   
   EncapsulatedStylesheets: AdoptedStylesheets | undefined;
 }
 ```
 
-Above, the definition of `GlobalStylesheets` is calling the controller, and attaching immediately upon execution. Read on to understand why `EncapsulatedStylesheets` must be assigned differently.
+Above, the definition of `GlobalStylesheets` is calling the controller, and attaching immediately. Read on to understand why `EncapsulatedStylesheets` must be assigned differently and is only instantiated here.
 
 ### Attaching an encapsulated stylesheet via `createRenderRoot`
 
