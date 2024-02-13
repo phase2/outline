@@ -4,7 +4,7 @@ import { customElement } from 'lit/decorators.js';
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
 
-import componentStyles from './outline-core-styled-text.css.lit';
+import componentStyles from './outline-core-ckeditor.css.lit';
 
 import { checkFileType } from './utilities/check-file-type';
 import { externalLinkText } from './utilities/external-link-text';
@@ -15,14 +15,14 @@ wrapLastWord;
 
 /**
  * The Outline Core Styled Text component
- * @element outline-core-styled-text
+ * @element outline-core-ckeditor
  * @since 1.0.0
  * @slot - default slot
  *
- * Lightdom styles in outline-core-styled-text.lightdom.css included in /shared.css
+ * Lightdom styles in outline-core-ckeditor.lightdom.css included in /shared.css
  */
-@customElement('outline-core-styled-text')
-export class OutlineCoreStyledText extends OutlineElement {
+@customElement('outline-core-ckeditor')
+export class OutlineCoreCkeditor extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
 
   connectedCallback(): void {
@@ -58,6 +58,6 @@ export class OutlineCoreStyledText extends OutlineElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'outline-core-styled-text': OutlineCoreStyledText;
+    'outline-core-ckeditor': OutlineCoreCkeditor;
   }
 }

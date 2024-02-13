@@ -1,11 +1,11 @@
 /**
- * @file Exports for the OutlineCoreStyledText component.
+ * @file Exports for the OutlineCoreCkeditor component.
  *
  * Any export here is then available via the following import,
  * which should be available in the consuming application:
  *
  * @code
- * import { OutlineCoreStyledText } from '@phase2/outline-core-styled-text';
+ * import { OutlineCoreCkeditor } from '@phase2/outline-core-styled-text';
  * import { constantOne, constantTwo } from '@phase2/outline-core-styled-text';
  * import type { ThingType } from '@phase2/outline-core-styled-text';
  * @endcode
@@ -16,6 +16,6 @@
  */
 
 // Export the primary component.
-export { OutlineCoreStyledText } from './src/outline-core-styled-text';
+export { OutlineCoreCkeditor } from './src/outline-core-ckeditor';
 
 // Export any additional sub-components, variables and methods as required.

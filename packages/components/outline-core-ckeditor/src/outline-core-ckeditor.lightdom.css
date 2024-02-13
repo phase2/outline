@@ -1,15 +1,15 @@
-/* Rendered WYSIWYG content is wrapped in <outline-core-styled-text> on the frontend. */
+/* Rendered WYSIWYG content is wrapped in <outline-core-ckeditor> on the frontend. */
 /* WYSIWYG content is wrapped in .ck-content for targeting within CKEditor. */
 /* See https://www.drupal.org/node/3259165 */
 
-outline-core-styled-text {
+outline-core-ckeditor {
   /* Support floats. */
   display: block;
   font-family: var(--ff-display);
   font-weight: var(--fw-normal);
   color: var(--outline-core-text-color);
 
-  @nested-import './outline-core-styled-text.shared.css';
+  @nested-import './outline-core-ckeditor.shared.css';
   @nested-import './outline-core-table.css';
   @nested-import '../outline-core-cta/outline-core-cta.shared.css';
   /* @nested-import '../outline-core-tooltip/outline-core-tooltip.shared.css'; */

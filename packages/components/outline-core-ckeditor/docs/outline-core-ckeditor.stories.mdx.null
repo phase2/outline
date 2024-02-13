@@ -1,6 +1,5 @@
 import { html } from 'lit';
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
-import { OutlineCoreStyledText } from '../src/outline-core-styled-text';
 
 
 <Meta
@@ -17,13 +16,13 @@ import { OutlineCoreStyledText } from '../src/outline-core-styled-text';
 
 # Overview
 
-These are the basic styles provided by the outline-core-styled-text component.
-`<outline-core-styled-text>` should wrap wysiwyg content.
+These are the basic styles provided by the outline-core-ckeditor component.
+`<outline-core-ckeditor>` should wrap wysiwyg content.
 
 ## Use In Components
 
-`<outline-core-styled-text>` will not inherit any css styles set on parent element.
-Components that contain slots that may use `<outline-core-styled-text>` will need to set
+`<outline-core-ckeditor>` will not inherit any css styles set on parent element.
+Components that contain slots that may use `<outline-core-ckeditor>` will need to set
 css variables in component different values are needed.
 
 ## Settings
@@ -41,7 +40,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Headings">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <h1>
           This is an H1 heading
           <sup>2</sup>
@@ -52,7 +51,7 @@ css variables in component different values are needed.
         <h5>This is an H5 heading</h5>
         <h6>This is an H6 heading</h6>
         <h6>This is an H6 heading with <a name="bookmark"> a named link</a></h6>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -63,16 +62,16 @@ css variables in component different values are needed.
   <Story name="Basic Text">
     {html`
       <div class="outline-core-bg--secondary-default p-4">
-        <outline-core-styled-text>
+        <outline-core-ckeditor>
           <p>
             <a href="example.pdf" target="_blank">Example PDF link</a>
           </p>
           <p>
             <a href="example.docx" target="_blank">Example .docx link</a>
           </p>
-        </outline-core-styled-text>
+        </outline-core-ckeditor>
       </div>
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <p>
           <a href="example.pdf" target="_blank">Example PDF link</a>
         </p>
@@ -131,7 +130,7 @@ css variables in component different values are needed.
             >This is an example of "text-body-helper" size font.</span
           >
         </p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -141,7 +140,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Disclaimer Text">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <p class="disclaimer">Connecting you to care anywhere</p>
         <p class="disclaimer">
           Sed fringilla mauris sit amet nibh. Ut varius tincidunt libero. Sed
@@ -172,9 +171,9 @@ css variables in component different values are needed.
         <p class="disclaimer">
           <strong>Buttons:</strong> <a class="btn" href="/brokers-advisors/individual-disability-insurance/IDI-connect/2019-top-5-idi-connect-articles" title="2019 Top 5 IDI Connect Articles">button link</a> and <a class="btn" href="http://google.com" target="_blank">external button link</a>
         </p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
       <div class="outline-core-bg--secondary-default p-4 mt-4">
-        <outline-core-styled-text>
+        <outline-core-ckeditor>
           <p class="disclaimer">Connecting you to care anywhere</p>
           <p class="disclaimer">
             Sed fringilla mauris sit amet nibh. Ut varius tincidunt libero. Sed
@@ -205,7 +204,7 @@ css variables in component different values are needed.
           <p class="disclaimer">
             <strong>Buttons:</strong> <a class="btn" href="/brokers-advisors/individual-disability-insurance/IDI-connect/2019-top-5-idi-connect-articles" title="2019 Top 5 IDI Connect Articles">button link</a> and <a class="btn" href="http://google.com" target="_blank">external button link</a>
           </p>
-        </outline-core-styled-text>
+        </outline-core-ckeditor>
       </div>
     `}
   </Story>
@@ -216,7 +215,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Block Quote">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <p>
           Sed fringilla mauris sit amet nibh. Ut varius tincidunt libero. Sed
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
@@ -236,7 +235,7 @@ css variables in component different values are needed.
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
           id, imperdiet feugiat, pede.
         </p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -246,7 +245,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Horizontal Rule">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <p>
           Sed fringilla mauris sit amet nibh. Ut varius tincidunt libero. Sed
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
@@ -258,7 +257,7 @@ css variables in component different values are needed.
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
           id, imperdiet feugiat, pede.
         </p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -270,7 +269,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Unordered List">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <p>
           Sed fringilla mauris sit amet nibh. Ut varius tincidunt libero. Sed
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
@@ -312,7 +311,7 @@ css variables in component different values are needed.
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
           id, imperdiet feugiat, pede.
         </p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -324,7 +323,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Two columns List">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <p>
           Sed fringilla mauris sit amet nibh. Ut varius tincidunt libero. Sed
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
@@ -349,7 +348,7 @@ css variables in component different values are needed.
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
           id, imperdiet feugiat, pede.
         </p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -359,7 +358,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Ordered List">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <p>
           Sed fringilla mauris sit amet nibh. Ut varius tincidunt libero. Sed
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
@@ -392,7 +391,7 @@ css variables in component different values are needed.
           hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy
           id, imperdiet feugiat, pede.
         </p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -402,7 +401,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Table">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <table>
           <thead>
             <tr>
@@ -448,7 +447,7 @@ css variables in component different values are needed.
             </tr>
           </tbody>
         </table>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -458,7 +457,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Button and Link">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <p>
           Sed fringilla mauris sit amet nibh. <a href="/node/1616">Standard Link</a> Ut varius tincidunt libero. <a href="http://standard.com" target="_blank">External Link</a> Sed hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.
         </p>
@@ -466,9 +465,9 @@ css variables in component different values are needed.
         <p><a href="/node/1616">Standard Link</a>  <a href="http://standard.com" target="_blank">External Link</a></p>
         <p><outline-core-cta><a href="/node/1616">CTA Link</a></outline-core-cta></p>
         <p><a href="https://standard.com" class="outline-core-cta">Call to action</a><a href="https://standard.com" class="outline-core-cta" target="_blank">Call to action external</a></p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
       <div class="outline-core-bg--secondary-default mt-4 p-4">
-        <outline-core-styled-text>
+        <outline-core-ckeditor>
           <p>
             Sed fringilla mauris sit amet nibh. <a href="/node/1616">Standard Link</a> Ut varius tincidunt libero. <a href="http://standard.com" target="_blank">External Link</a> Sed hendrerit. Proin magna. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.
           </p>
@@ -476,7 +475,7 @@ css variables in component different values are needed.
           <p><a href="/node/1616">Standard Link</a>  <a href="http://standard.com" target="_blank">External Link</a></p>
           <p><outline-core-cta><a href="/node/1616">CTA Link</a></outline-core-cta></p>
           <p><a href="https://standard.com" class="outline-core-cta">Call to action</a><a href="https://standard.com" class="outline-core-cta" target="_blank">Call to action external</a></p>
-        </outline-core-styled-text>
+        </outline-core-ckeditor>
       </div>
     `}
   </Story>
@@ -487,19 +486,19 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Tooltip">
     {html`
-      <outline-core-styled-text>
-        <p><em>Tooltip in <code>"outline-core-styled-text"</code> uses a link with "outline-core-tooltip" class and a "title" attribute to create the tooltip.</em></p>
+      <outline-core-ckeditor>
+        <p><em>Tooltip in <code>"outline-core-ckeditor"</code> uses a link with "outline-core-tooltip" class and a "title" attribute to create the tooltip.</em></p>
         <hr>
         <p>
           Sed fringilla mauris sit amet nibh. <a href="#" class="outline-core-tooltip" title="Tooltip content, Proin magna. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.">Tooltip Link</a> Ut varius tincidunt libero sed hendrerit.
         </p>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
       <div class="outline-core-bg--secondary-default mt-4 p-4">
-        <outline-core-styled-text>
+        <outline-core-ckeditor>
           <p>
             Sed fringilla mauris sit amet nibh. <a href="#" class="outline-core-tooltip" title="Tooltip content, Proin magna. Nullam nulla eros, ultricies sit amet, nonummy id, imperdiet feugiat, pede.">Tooltip Link</a> Ut varius tincidunt libero sed hendrerit.
           </p>
-        </outline-core-styled-text>
+        </outline-core-ckeditor>
       </div>
     `}
   </Story>
@@ -510,7 +509,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Base Styled Text">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <h2>What is Lorem Ipsum?</h2>
         <p>
           <strong>Lorem Ipsum</strong>&nbsp;is simply dummy text of the printing
@@ -647,7 +646,7 @@ css variables in component different values are needed.
           <li>Sweets - 5 or fewer servings/week</li>
           <li>Wine - 1 serving/day</li>
         </ul>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>
@@ -657,7 +656,7 @@ css variables in component different values are needed.
 <Canvas>
   <Story name="Table Styled Text">
     {html`
-      <outline-core-styled-text>
+      <outline-core-ckeditor>
         <table>
           <thead>
             <tr>
@@ -697,7 +696,7 @@ css variables in component different values are needed.
             </tr>
           </tbody>
         </table>
-      </outline-core-styled-text>
+      </outline-core-ckeditor>
     `}
   </Story>
 </Canvas>

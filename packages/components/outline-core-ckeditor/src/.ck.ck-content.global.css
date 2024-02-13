@@ -24,7 +24,7 @@
 @import '../outline-core-cta/outline-core-cta.shared.css';
 @import '../outline-core-link/outline-core-link.css';
 @import '../outline-core-tooltip/outline-core-tooltip.shared.css';*/
-@import './outline-core-styled-text.shared.css';
+@import './outline-core-ckeditor.shared.css';
 
 /**
  * Reset to :host rules that are set in:

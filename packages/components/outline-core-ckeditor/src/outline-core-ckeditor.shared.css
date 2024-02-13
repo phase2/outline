@@ -1,4 +1,4 @@
-/* Rendered WYSIWYG content is wrapped in <outline-core-styled-text> on the frontend. */
+/* Rendered WYSIWYG content is wrapped in <outline-core-ckeditor> on the frontend. */
 /* WYSIWYG content is wrapped in .ck-content for targeting within CKEditor. */
 /* See https://www.drupal.org/node/3259165 */
 
@@ -164,7 +164,7 @@ ol {
 }
 
 /* Add margin-bottom to top-level ul and ol only */
-/* Media queries are applied in outline-core-styled-text.lightdom.css */
+/* Media queries are applied in outline-core-ckeditor.lightdom.css */
 & > ul,
 & > ol {
   margin-bottom: 1.5em;
@@ -231,7 +231,7 @@ strong {
   font-weight: 700;
 }
 
-/* Most styles are imported from `outline-table` but we add styled-text specific CSS here */
+/* Most styles are imported from `outline-table` but we add ckeditor specific CSS here */
 table {
   margin-bottom: var(--spacing-04);
 }
@@ -430,7 +430,7 @@ ol.disclaimer {
   }
 }
 
-/* Allow outline-cta in outline-core-styled-text to wrap if long text */
+/* Allow outline-cta in outline-core-ckeditor to wrap if long text */
 a.outline-cta {
   white-space: initial;
 }
