@@ -3,12 +3,8 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        "dist/**",
-        ".next/**",
-        "!./packages/components/@deprecated/*",
-        "!./packages/tools/@deprecated/*"
-      ]
+      "inputs": ["./packages/**/*", "!./packages/deprecated/*"],
+      "outputs": ["dist/**", ".next/**"]
     },
     "dev": {
       "outputs": []
@@ -21,11 +17,7 @@
     },
     "package": {
       "dependsOn": ["build"],
-      "inputs": [
-        "./packages/*",
-        "!./packages/components/@deprecated/*",
-        "!./packages/tools/@deprecated/*"
-      ],
+      "inputs": ["./packages/*", "!./packages/deprecated/*"],
       "outputs": []
     }
   }

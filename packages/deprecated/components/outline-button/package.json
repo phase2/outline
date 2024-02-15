@@ -1,0 +1,42 @@
+{
+  "name": "@phase2/outline-button",
+  "version": "0.1.7",
+  "description": "The Outline Components for the web button component",
+  "keywords": [
+    "outline components",
+    "outline design",
+    "button"
+  ],
+  "main": "index.ts",
+  "types": "index.ts",
+  "typings": "index.d.ts",
+  "files": [
+    "/dist/",
+    "/src/",
+    "!/dist/tsconfig.build.tsbuildinfo"
+  ],
+  "author": "Phase2 Technology",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phase2/outline.git",
+    "directory": "packages/@deprecated/components/outline-button"
+  },
+  "homepage": "https://github.com/phase2/outline/tree/next/packages/@deprecated/components/outline-button",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "build": "node ../../../../scripts/build.js",
+    "package": "yarn publish"
+  },
+  "dependencies": {
+    "@phase2/outline-core": "^0.2.5",
+    "@phase2/outline-link": "^0.1.8",
+    "lit": "^2.3.1",
+    "tslib": "^2.1.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.ts"
+  }
+}

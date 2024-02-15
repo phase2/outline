@@ -13,10 +13,9 @@
   "workspaces": [
     "./packages/*",
     "./packages/components/*",
-    "./packages/components/@deprecated/*",
+    "./packages/deprecated/*",
     "./packages/documentation/*",
     "./packages/controllers/*",
-    "./packages/controllers/@deprecated/*",
     "./packages/tools/*",
     "./docs"
   ],
@@ -34,7 +33,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
-    "build": "turbo run build --concurrency=100% --filter=!./packages/**/@deprecated/*",
+    "build": "turbo run build --concurrency=100%",
     "changeset": "changeset",
     "changeset:publish": "yarn build && yarn changeset:version && yarn changeset publish",
     "changeset:version": "changeset version",
