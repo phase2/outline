@@ -41,6 +41,9 @@ jobs:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout Codebase
         uses: actions/checkout@v4 
+      
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
       - uses: actions/setup-node@v4
@@ -59,9 +62,6 @@ jobs:
       
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
-
-      - name: Use local Yarn version
-        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       - name: Install
         run: yarn install
@@ -85,6 +85,9 @@ jobs:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout Codebase
         uses: actions/checkout@v4
+      
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
       - uses: actions/setup-node@v4
@@ -100,9 +103,6 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-
-      - name: Use local Yarn version
-        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       - name: Install
         run: yarn install
@@ -128,6 +128,9 @@ jobs:
       - name: Checkout codebase
         uses: actions/checkout@v4
 
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
+
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
       - uses: actions/setup-node@v4
         with:
@@ -142,10 +145,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-     
-      - name: Use local Yarn version
-        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
-        
+   
       - name: Install
         run: yarn install
 
