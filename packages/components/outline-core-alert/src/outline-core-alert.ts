@@ -1,4 +1,4 @@
-import { html, TemplateResult, CSSResultGroup, css } from 'lit';
+import { html, TemplateResult, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { OutlineElement } from '@phase2/outline-core';

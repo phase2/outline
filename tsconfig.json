@@ -26,5 +26,6 @@
         "strict": true
       }
     ]
-  }
+  },
+  "exclude": ["packages/deprecated/**/*"]
 }

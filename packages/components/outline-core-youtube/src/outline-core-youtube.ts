@@ -1,4 +1,4 @@
-import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 // Our base component, which all others extend.
