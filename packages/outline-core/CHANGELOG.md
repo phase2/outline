@@ -1,5 +1,16 @@
 # @phase2/outline-core
 
+## 0.2.6
+
+### Patch Changes
+
+- 3ce056db: Update and reorganization
+- b880f153: Cleaup and organization.
+- Updated dependencies [ee19425e]
+- Updated dependencies [3ce056db]
+- Updated dependencies [b880f153]
+  - @phase2/outline-config@0.0.13
+
 ## 0.2.5
 
 ### Patch Changes

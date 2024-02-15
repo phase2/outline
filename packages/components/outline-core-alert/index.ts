@@ -6,8 +6,10 @@
  *
  * @code
  * import { OutlineCoreAlert } from '@phase2/outline-core-alert';
- * import { constantOne, constantTwo } from '@phase2/outline-core-alert';
- * import type { ThingType } from '@phase2/outline-core-alert';
+ * import {
+ *   CoreAlertStatusType,
+ *   OutlineCoreAlertInterface,
+ * } from '@phase2/outline-core-alert';
  * @endcode
  *
  * Any of the above exports can be used in the consuming application
@@ -17,5 +19,12 @@
 
 // Export the primary component.
 export { OutlineCoreAlert } from './src/outline-core-alert';
+
+export type {
+  CoreAlertStatusType,
+  OutlineCoreAlertInterface,
+} from './src/config';
+
+export { coreAlertStatusTypes } from './src/config';
 
 // Export any additional sub-components, variables and methods as required.

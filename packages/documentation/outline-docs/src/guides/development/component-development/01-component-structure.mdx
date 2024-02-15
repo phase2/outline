@@ -1,11 +1,8 @@
 import { Meta } from '@storybook/addon-docs';
-import '@phase2/outline-button';
-import '@phase2/outline-alert';
-import '@phase2/outline-container';
-import '@phase2/outline-icon';
+import '@phase2/outline-core-alert';
 
 <Meta
-  title="Documentation/Guides/Component Development/Coding Guide & Standards/Component Structure"
+  title="Coding Guide/Component Development/Component Structure"
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -18,19 +15,12 @@ import '@phase2/outline-icon';
 
 # Component Composition
 
-<outline-container
-  container-width="full"
-  container-align="left"
-  top-margin="spacing-2"
-  bottom-margin="spacing-8"
->
-  ### Documentation Status
-  <outline-alert status="success" size="large">
-    <span slot="header">Status: Complete / Up to date (Last Updated: May 2023)</span>
-  </outline-alert>
-</outline-container>
-
 > [Component composition](https://lit.dev/docs/composition/component-composition/) is the process of assembling complex components from simpler components.
+
+<outline-core-alert status="success">
+  <span slot="header">Documentation Status: (11/07/2023)</span>
+  <p>This documentation is currently up to date.</p>
+</outline-core-alert>
 
 A component can use subcomponents in its template.
 Components can use standard DOM mechanisms to communicate: setting properties on subcomponents, and listening for events from subcomponents.
@@ -132,9 +122,7 @@ export class OutlineButton extends OutlineCoreButton {
 ```
 
 ## Rendering the Components
-To render these components in a story or any consumer (Drupal for example) you would simply do the following (Note we only use button as the other examples are not real and are just for documentation purposes):
+To render these components in a story or any consumer (Drupal for example) you would simply do the following:
 ```html
 <outline-button>This is a button</outline-button>
 ```
-Renders as:
-<outline-button>This is a button</outline-button>

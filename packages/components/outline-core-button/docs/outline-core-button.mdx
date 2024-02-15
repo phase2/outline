@@ -1,0 +1,65 @@
+import { Meta } from '@storybook/addon-docs';
+
+import '@phase2/outline-core-button';
+import '@phase2/outline-core-alert';
+
+<Meta
+  title="Navigation/Button"
+  component="outline-core-button"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+[![Latest version for outline-core-button](https://img.shields.io/npm/v/@phase2/outline-core-button)](https://www.npmjs.com/package/@phase2/outline-core-button)
+
+# `<outline-core-button>` `OutlineCoreButton`
+
+The `outline-core-button` component allows complete flexibility in how you choose to render a link element across a single or multiple applications.
+
+<outline-core-alert status="warning" size="large">
+  <span slot="header">Documentation Status: Needs work</span>
+  <p>This documentation is accurate, though the inclusion of several of the following topics or examples would be ideal.</p>
+  <ul>
+    <li>**@todo:** Fix styling for Primary variant.</li>
+    <li>**@todo:** Fix styling for Secondary variant.</li>
+    <li>**@todo:** Fix styling for Tertiary variant.</li>
+    <li>**@todo:** Demonstrate overriding variants, and adding new ones.</li>
+  </ul>
+</outline-core-alert>
+<br />
+
+## Introduction to the **`outline-core-button`** component
+
+The `outline-core-button` component ...
+
+## Primary Buttons
+### Default, Hover & Focus States
+<div>
+  <outline-core-button button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
+  <outline-core-button button-url="#" button-label="Button"><button>Button</button></outline-core-button>
+  <outline-core-button button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
+</div>
+---
+```html preview-story
+<outline-core-button button-url="#" button-size="large" button-label="Large Button"><button>Large Button</button></outline-core-button>
+<outline-core-button button-url="#" button-label="Button"><button>Button</button></outline-core-button>
+<outline-core-button button-url="#" button-size="small" button-label="Small Button"><button>Small Button</button></outline-core-button>
+```
+### Disabled States
+<div>
+  <outline-core-button button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
+  <outline-core-button button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
+  <outline-core-button button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
+</div>
+---
+```html preview-story
+<outline-core-button button-url="#" button-size="large" button-label="Large Button" is-disabled><button>Large Button</button></outline-core-button>
+<outline-core-button button-url="#" button-label="Button" is-disabled><button>Button</button></outline-core-button>
+<outline-core-button button-url="#" button-size="small" button-label="Small Button" is-disabled><button>Small Button</button></outline-core-button>
+```

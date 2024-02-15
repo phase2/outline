@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit';
 import { StoryFn } from '@storybook/web-components';
 
-import '@phase2/outline-alert';
+import '@phase2/outline-core-alert';
 import '@phase2/outline-container';
 import '@phase2/outline-image';
 
@@ -40,21 +40,21 @@ The \`outline-container\` component is a container/wrapper for components,
 page sections or entire pages. It is used to provide a consistent layout.
 
 ## Component Status
-<outline-alert status="warning" size="large" className="mb-6">
+<outline-core-alert status="warning" size="large" className="mb-6">
   <span slot="header">Status: Needs Work/In Progress</span>
   <p>
     The \`OutlineContainer\` class, is a wrapper component that provides the
     \`outline-container\` component, giving consistent containers for
     content spacing both horizontally and vertically.
   </p>
-</outline-alert>
+</outline-core-alert>
 <br />
-<outline-alert status="error" size="large" className="mb-6">
+<outline-core-alert status="error" size="large" className="mb-6">
   <span slot="header">@todo</span>
   <ul>
     <li>Fix for Documentation section styling. (\`README.md\` import)</li>
   </ul>
-</outline-alert>
+</outline-core-alert>
         `,
       },
     },
@@ -86,13 +86,13 @@ gridFullWidth.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert status="info" size="large">
+<outline-core-alert status="info" size="large">
   <span slot="header">Container: Full</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
     set to \`full\`.
   </p>
-</outline-alert>
+</outline-core-alert>
     `,
     },
   },
@@ -120,13 +120,13 @@ gridWideWidth.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert status="info" size="large">
+<outline-core-alert status="info" size="large">
   <span slot="header">Container: Wide</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
     set to \`wide\`.
   </p>
-</outline-alert>
+</outline-core-alert>
     `,
     },
   },
@@ -154,13 +154,13 @@ gridMediumWidth.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert status="info" size="large">
+<outline-core-alert status="info" size="large">
   <span slot="header">Container: Medium</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
     set to \`medium\`.
   </p>
-</outline-alert>
+</outline-core-alert>
     `,
     },
   },
@@ -188,13 +188,13 @@ gridNarrowWidth.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert status="info" size="large">
+<outline-core-alert status="info" size="large">
   <span slot="header">Container: Narrow</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
     set to \`narrow\`.
   </p>
-</outline-alert>
+</outline-core-alert>
     `,
     },
   },
@@ -223,13 +223,13 @@ gridNarrowWidthLeft.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert status="info" size="large">
+<outline-core-alert status="info" size="large">
   <span slot="header">Container: Narrow</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
     set to \`narrow\`.
   </p>
-</outline-alert>
+</outline-core-alert>
     `,
     },
   },
@@ -258,13 +258,13 @@ gridNarrowWidthRight.parameters = {
   docs: {
     description: {
       story: `
-<outline-alert status="info" size="large">
+<outline-core-alert status="info" size="large">
   <span slot="header">Container: Narrow</span>
   <p>
     This \`outline-container\` component is using the \`container-width\`
     set to \`narrow\`.
   </p>
-</outline-alert>
+</outline-core-alert>
     `,
     },
   },

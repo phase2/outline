@@ -59,6 +59,7 @@ node_modules/
 mutagen.yml.lock
 www/
 .turbo
+.turbo-cookie
 
 # Outline specific 
 custom-elements.json
