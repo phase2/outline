@@ -1,5 +1,0 @@
-/* Prevent FOUC in all custom components */
-:not(:defined),
-:not(:defined) * {
-  opacity: 0;
-}
