@@ -57,31 +57,11 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
       
-      - name: Setup Corepack
-        run: corepack enable
-      
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
-      # # @see https://github.com/marketplace/actions/cache
-      # # node_modules caching is validated by always running yarn install.
-      # # Turborepo cache lives inside node_modules/.cache/turbo
-      # - name: Get yarn cache directory path
-      #   id: yarn-cache-dir-path
-      #   run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      # - name: Setup Cache
-      #   id: cache-yarn
-      #   uses: actions/cache@v3
-      #   env:
-      #     cache-name: cache-node-modules
-      #   with:
-      #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-      #     key: ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-      #     restore-keys:
-      #       ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-
-      #       ${{ runner.os }}-node-yarn-${{ env.cache-name }}-
-      #       ${{ runner.os }}-node-yarn-
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       - name: Install
         run: yarn install
@@ -121,8 +101,8 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
-      - name: Setup Corepack
-        run: corepack enable
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       - name: Install
         run: yarn install
@@ -162,10 +142,9 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-
      
-      - name: Setup Corepack
-        run: corepack enable
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
         
       - name: Install
         run: yarn install
