@@ -45,6 +45,7 @@
     "clean:css": "rimraf packages/**/*.lit.*",
     "clean:maps": "rimraf packages/**/*.map",
     "clean:types": "rimraf packages/**/*.d.ts",
+    "dev": "yarn watch",
     "fix": "yarn format && yarn lint",
     "format": "npm-run-all -s format:*",
     "format:code": "eslint --fix . && prettier --write .",
@@ -61,13 +62,12 @@
     "reset:root": "rimraf node_modules",
     "reset:install": "yarn install",
     "restart": "yarn reset && yarn start",
-    "start": "yarn watch",
+    "start": "yarn dev",
     "storybook": "storybook",
     "storybook:build": "storybook build",
     "test": "turbo run test",
     "watch": "npm-run-all -p watch:*",
-    "watch:storybook": "yarn storybook dev -p ${npm_package_storybook_port}",
-    "watch:css": "node scripts/styles.js --watch"
+    "watch:storybook": "yarn storybook dev -p ${npm_package_storybook_port}"
   },
   "keywords": [
     "web-components",
@@ -133,6 +133,6 @@
   "homepage": "https://github.com/phase2/outline#readme",
   "_id": "@phase2/outline@0.1.1",
   "dependencies": {
-    "@phase2/outline-adopted-stylesheets-controller": "0.0.6"
+    "lit": "^3.1.2"
   }
 }

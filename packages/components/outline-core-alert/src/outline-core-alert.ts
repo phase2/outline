@@ -1,4 +1,4 @@
-import { html, TemplateResult, css } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { OutlineElement } from '@phase2/outline-core';
@@ -6,7 +6,7 @@ import {
   CoreAlertStatusType,
   OutlineCoreAlertInterface,
 } from '@phase2/outline-core-alert';
-import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
+import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
 import globalStyles from './style/outline-core-alert.global.css?inline';
 
 /** The element name, reused throughout the codebase */
@@ -42,7 +42,10 @@ export class OutlineCoreAlert
   implements OutlineCoreAlertInterface
 {
   // static styles: CSSResultGroup = [componentStyles];
-  adoptedStylesheets: AdoptedStyleSheets;
+  GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
+    this,
+    globalStyles
+  );
   debug = false;
 
   @property({ type: String, attribute: 'status' })
@@ -53,17 +56,6 @@ export class OutlineCoreAlert
    */
   @property({ type: Boolean, attribute: 'is-interactive' })
   isInteractive = false;
-
-  /**
-   * @see `outline-core-link` documentation as to the purpose of this method.
-   */
-  connectedCallback() {
-    super.connectedCallback();
-    this.adoptedStylesheets = new AdoptedStyleSheets(css`
-      ${globalStyles}
-    `);
-    this.addController(this.adoptedStylesheets);
-  }
 
   render(): TemplateResult {
     // The `body` wrapper is used to circumvent limitations with styling the `:host` directly, such as applying borders.

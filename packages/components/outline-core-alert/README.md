@@ -6,7 +6,7 @@ The Outline Core Alert component
 
 | Property             | Attribute        | Type                                          | Default | Description                                   |
 |----------------------|------------------|-----------------------------------------------|---------|-----------------------------------------------|
-| `adoptedStylesheets` |                  | `AdoptedStyleSheets`                          |         |                                               |
+| `adoptedStylesheets` |                  | `AdoptedStylesheets`                          |         |                                               |
 | `debug`              |                  | `boolean`                                     | false   |                                               |
 | `isInteractive`      | `is-interactive` | `boolean`                                     | false   | This is important context for screen readers. |
 | `status`             | `status`         | `"info" \| "warning" \| "error" \| "success"` | "info"  |                                               |
