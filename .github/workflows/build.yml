@@ -34,14 +34,16 @@ jobs:
   setup:
     name: Install & Lint Codebase
     runs-on: ubuntu-latest
+    container: 
+      image: ubuntu:latest
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout Codebase
-        uses: actions/checkout@v3 
+        uses: actions/checkout@v4 
 
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
@@ -92,15 +94,17 @@ jobs:
   build_outline:
     name: Build Outline Codebase
     runs-on: ubuntu-latest
+    container: 
+      image: ubuntu:latest
     needs: ['setup']
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout Codebase
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
@@ -128,16 +132,18 @@ jobs:
     name: "Publish: GitHub Pages"
     if: github.ref == 'refs/heads/next'
     runs-on: ubuntu-latest
+    container: 
+      image: ubuntu:latest
     needs: ['setup', 'build_outline']
 
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
@@ -180,7 +186,7 @@ jobs:
 
       # @see https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload Storybook artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: storybook-latest
           path: storybook-static/
