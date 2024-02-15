@@ -63,7 +63,7 @@ jobs:
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
-      - name: Install
+      - name: Install Dependencies
         run: yarn install
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
@@ -104,11 +104,11 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
-      - name: Install
+      - name: Install Dependencies
         run: yarn install
 
-      - name: Build Turborepo Packages
-        run: yarn build
+      - name: Build Packages
+        run: yarn build --force
 
       - name: Build Storybook
         run: yarn storybook:build
@@ -146,10 +146,10 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
    
-      - name: Install
+      - name: Install Dependencies
         run: yarn install
 
-      - name: Build Outline
+      - name: Build Packages
         run: yarn build
 
       - name: Build Storybook
