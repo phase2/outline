@@ -4,7 +4,7 @@ import { customElement } from 'lit/decorators.js';
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
 
-import componentStyles from './outline-core-text.css.lit';
+// import componentStyles from './outline-core-text.css.lit';
 
 /** The element name, reused throughout the codebase */
 const componentName = 'outline-core-text';
@@ -26,7 +26,7 @@ const componentName = 'outline-core-text';
  */
 @customElement(componentName)
 export class OutlineCoreText extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  // static styles: CSSResultGroup = [componentStyles];
 
   render(): TemplateResult {
     return html` <slot></slot> `;

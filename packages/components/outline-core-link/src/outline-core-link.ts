@@ -5,8 +5,8 @@ import { ifDefined } from 'lit/directives/if-defined.js';
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
 import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
-import componentStyles from './style/outline-core-link.css.lit';
-import globalStyles from './style/outline-core-link.lightDom.css.lit';
+import encapsulatedStyles from './style/outline-core-link.encapsulated.css?inline';
+import globalStyles from './style/outline-core-link.global.css?inline';
 
 import type { LinkTargetType, LinkRelType } from './config';
 
@@ -34,7 +34,7 @@ const componentName = 'outline-core-link';
  */
 @customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [encapsulatedStyles];
   private adoptedStylesheets: AdoptedStyleSheets;
   debug = false;
 

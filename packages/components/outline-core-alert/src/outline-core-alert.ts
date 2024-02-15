@@ -7,9 +7,7 @@ import {
   OutlineCoreAlertInterface,
 } from '@phase2/outline-core-alert';
 import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
-import componentStyles from './style/outline-core-alert.css.lit';
-import componentVars from './style/outline-core-alert.vars.css.lit';
-import globalStyles from './style/outline-core-alert.lightDom.css.lit';
+import globalStyles from './style/outline-core-alert.global.css?inline';
 
 /** The element name, reused throughout the codebase */
 const componentName = 'outline-core-alert';
@@ -43,7 +41,7 @@ export class OutlineCoreAlert
   extends OutlineElement
   implements OutlineCoreAlertInterface
 {
-  static styles: CSSResultGroup = [componentStyles];
+  // static styles: CSSResultGroup = [componentStyles];
   adoptedStylesheets: AdoptedStyleSheets;
   debug = false;
 
@@ -62,9 +60,6 @@ export class OutlineCoreAlert
   connectedCallback() {
     super.connectedCallback();
     this.adoptedStylesheets = new AdoptedStyleSheets(css`
-      outline-core-alert {
-        ${componentVars}
-      }
       ${globalStyles}
     `);
     this.addController(this.adoptedStylesheets);

@@ -39,7 +39,7 @@
     "changeset:publish": "yarn build && yarn changeset:version && yarn changeset publish",
     "changeset:version": "changeset version",
     "chromatic": "chromatic --build-script-name storybook:build --exit-zero-on-changes --skip '@(renovate/**|dependabot/**)'",
-    "clean": "npm-run-all -s clean:*",
+    "clean": "npm-run-all -p clean:*",
     "clean:dist": "rimraf dist && rimraf packages/**/dist",
     "clean:turbo": "rimraf packages/**/.turbo",
     "clean:storybook": "rimraf storybook-static",
@@ -56,14 +56,10 @@
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --check .",
     "package": "turbo run package --filter=!./packages/**/@deprecated/*",
-    "prep": "npm-run-all -s prep:*",
-    "prep:css": "node scripts/styles.js",
-    "prebuild": "yarn prep",
-    "prestart": "yarn prep",
     "rebuild": "yarn reset && yarn build",
     "reset": "yarn clean && npm-run-all -s reset:*",
     "reset:packages": "rimraf packages/**/node_modules",
-    "reset:root": "rimraf ./node_modules",
+    "reset:root": "rimraf node_modules",
     "reset:install": "yarn install",
     "restart": "yarn reset && yarn start",
     "start": "yarn watch",
@@ -136,5 +132,8 @@
   },
   "readme": "ERROR: No README data found!",
   "homepage": "https://github.com/phase2/outline#readme",
-  "_id": "@phase2/outline@0.1.1"
+  "_id": "@phase2/outline@0.1.1",
+  "dependencies": {
+    "@phase2/outline-adopted-stylesheets-controller": "0.0.6"
+  }
 }

@@ -2,8 +2,9 @@ import { html, TemplateResult, CSSResultGroup, css } from 'lit';
 import { customElement, property, state } from 'lit/decorators.js';
 import { OutlineElement } from '@phase2/outline-core';
 import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
-import componentStyles from './outline-core-button.css.lit';
-import globalStyles from './outline-core-button.lightdom.css.lit';
+
+import encapsulatedStyles from './outline-core-button.encapsulated.css?inline';
+import globalStyles from './outline-core-button.global.css?inline';
 
 export const buttonVariantsTypes = ['primary', 'secondary', 'tertiary'];
 export const buttonSizeTypes = ['small', 'medium', 'large'];
@@ -33,7 +34,7 @@ export type ButtonSize = keyof typeof buttonSizeTypes;
  */
 @customElement('outline-core-button')
 export class OutlineCoreButton extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  static styles: CSSResultGroup = [encapsulatedStyles];
   private adoptedStylesheets: AdoptedStyleSheets;
 
   @state() buttonsVariantList = buttonVariantsTypes;

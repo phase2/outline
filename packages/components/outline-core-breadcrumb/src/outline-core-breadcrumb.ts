@@ -4,7 +4,7 @@ import { customElement } from 'lit/decorators.js';
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
 
-import componentStyles from './outline-core-breadcrumb.css.lit';
+// import componentStyles from './outline-core-breadcrumb.css.lit';
 
 /** The element name, reused throughout the codebase */
 const componentName = 'outline-core-breadcrumb';
@@ -26,7 +26,7 @@ const componentName = 'outline-core-breadcrumb';
  */
 @customElement(componentName)
 export class OutlineCoreBreadcrumb extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  // static styles: CSSResultGroup = [componentStyles];
 
   render(): TemplateResult {
     return html` <slot></slot> `;
