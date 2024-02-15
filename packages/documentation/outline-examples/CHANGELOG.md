@@ -1,5 +1,15 @@
 # @phase2/outline-examples
 
+## 0.0.9
+
+### Patch Changes
+
+- 3ce056db: Update and reorganization
+- b880f153: Cleaup and organization.
+- Updated dependencies [3ce056db]
+- Updated dependencies [b880f153]
+  - @phase2/outline-core@0.2.6
+
 ## 0.0.8
 
 ### Patch Changes

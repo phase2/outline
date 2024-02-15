@@ -1,5 +1,11 @@
 # @phase2/outline-adopted-stylesheets-controller
 
+## 0.0.6
+
+### Patch Changes
+
+- 3ce056db: Update and reorganization
+
 ## 0.0.5
 
 ### Patch Changes

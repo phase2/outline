@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-form",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "The Outline Components for the form component",
   "keywords": [
     "outline components",
@@ -28,7 +28,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.5",
+    "@phase2/outline-core": "^0.2.6",
     "@phase2/outline-controller-light-dom-styles-controller": "^0.0.4",
     "lit": "^2.3.1",
     "tslib": "^2.1.0"

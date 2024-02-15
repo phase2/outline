@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-adopted-stylesheets-controller",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Controller to help with managing native AdoptedStylesheet implementations.",
   "keywords": [
     "outline components",

@@ -1,5 +1,16 @@
 # @phase2/outline-form
 
+## 0.1.7
+
+### Patch Changes
+
+- ee19425e: Update for core link best practices.
+- 3ce056db: Update and reorganization
+- b880f153: Cleaup and organization.
+- Updated dependencies [3ce056db]
+- Updated dependencies [b880f153]
+  - @phase2/outline-core@0.2.6
+
 ## 0.1.6
 
 ### Patch Changes
