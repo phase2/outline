@@ -15,7 +15,7 @@ To install the new package, use the following command, specific to your package 
 > For more information on using Yarn, visit the [Yarn documentation](https://classic.yarnpkg.com/en/docs/).
 
 ```bash
-yarn add @phase2/outline-adopted-stylesheets-controller
+yarn add --dev @phase2/outline-adopted-stylesheets-controller
 ```
 
 ### With NPM
@@ -79,13 +79,11 @@ The benefit of using the `CSSStyleSheet` type over the Lit-specific `CSSResultGr
 
 ### Attaching a global stylesheet
 
+> This snippet shows setting up both the global and encapsulated instance properties.
+
 ```typescript
 export class MyComponent extends LitElement {
-  
-  GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
-    this, // The host that this controller is associated with
-    globalStyles // A string that contains the CSS styles to be adopted
-  );
+  GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(globalStyles, document);
   
   EncapsulatedStylesheets: AdoptedStylesheets | undefined;
 }
@@ -95,7 +93,7 @@ Above, the definition of `GlobalStylesheets` is calling the controller, and atta
 
 ### Attaching an encapsulated stylesheet via `createRenderRoot`
 
-Because of the methods by which Adopted Stylesheets work, we must ensure that we have a `shadowRoot` prior to attaching styles to it. While this may seem overly verbose compared to using `static styles`, however, `static styles` is a Lit-ism, and then has us using the "Lit way" to attach our encapsulated styles, and "this way" to attach global ones. This consolidation is purposeful to ensure we are utilizing the same, modern, browser standards based methods when possible.
+Because of the methods by which Adopted Stylesheets work, we must ensure that we have a `shadowRoot` prior to attaching styles to it. This may seem overly verbose compared to using `static styles = css''`, however, `static styles` is a Lit-ism, and in turn has us using the "Lit way" to attach our encapsulated styles, and "this way" to attach global ones. **This consolidation is purposeful to ensure we are utilizing the same, modern, browser standards based methods when possible.**
 
 ```typescript
 createRenderRoot() {
