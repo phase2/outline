@@ -35,7 +35,7 @@ jobs:
     name: Install & Lint Codebase
     runs-on: ubuntu-latest
     container: 
-      image: ubuntu:latest
+      image: node:lts
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
@@ -78,7 +78,7 @@ jobs:
     name: Build Outline Codebase
     runs-on: ubuntu-latest
     container: 
-      image: ubuntu:latest
+      image: node:lts
     needs: ['setup']
     # The steps for the setup job.
     steps:
@@ -119,7 +119,7 @@ jobs:
     if: github.ref == 'refs/heads/next'
     runs-on: ubuntu-latest
     container: 
-      image: ubuntu:latest
+      image: node:lts
     needs: ['setup', 'build_outline']
 
     # The steps for the setup job.
