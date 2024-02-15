@@ -1,7 +1,7 @@
 {
   "name": "@phase2/outline-core-alert",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The Outline Components for the image component",
   "keywords": [
     "outline",
@@ -31,7 +31,6 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.6",
     "lit": "^3.1.2"
   },
   "publishConfig": {
@@ -39,5 +38,9 @@
   },
   "exports": {
     ".": "./index.ts"
+  },
+  "devDependencies": {
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.0",
+    "@phase2/outline-core": "^0.2.6"
   }
 }

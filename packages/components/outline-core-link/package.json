@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core-link",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "The Outline Components for the web link component",
   "keywords": [
     "outline",
@@ -29,7 +29,6 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.6",
     "lit": "^3.1.2",
     "tslib": "^2.1.0"
   },
@@ -40,6 +39,7 @@
     ".": "./index.ts"
   },
   "devDependencies": {
-    "postcss-nested-import": "^1.3.0"
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.0",
+    "@phase2/outline-core": "^0.2.6"
   }
 }

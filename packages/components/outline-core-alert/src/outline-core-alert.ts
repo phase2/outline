@@ -58,6 +58,9 @@ export class OutlineCoreAlert
   isInteractive = false;
 
   render(): TemplateResult {
+    console.log(this.GlobalStylesheets);
+    console.log(globalStyles);
+
     // The `body` wrapper is used to circumvent limitations with styling the `:host` directly, such as applying borders.
     return html`
       <div

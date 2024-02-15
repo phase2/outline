@@ -1,5 +1,11 @@
 # @phase2/outline-core-link
 
+## 0.0.9
+
+### Patch Changes
+
+- Updates to CSS usage
+
 ## 0.0.8
 
 ### Patch Changes

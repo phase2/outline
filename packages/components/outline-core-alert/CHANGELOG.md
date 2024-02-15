@@ -1,5 +1,11 @@
 # @phase2/outline-core-alert
 
+## 0.0.2
+
+### Patch Changes
+
+- Updates to CSS usage
+
 ## 0.0.1
 
 ### Patch Changes
