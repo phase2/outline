@@ -2,8 +2,8 @@
 import { html, TemplateResult } from 'lit';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { argTypeSlotContent } from '@phase2/outline-core';
-import { alertSizes, alertStatusTypes } from '@phase2/outline-alert';
-import '@phase2/outline-alert';
+import { alertSizes, alertStatusTypes } from '@phase2/outline-core-alert';
+import '@phase2/outline-core-alert';
 import '@phase2/outline-link';
 export default {
   title: 'Content/Alert',
@@ -82,7 +82,7 @@ If the alert has an interaction, you should indicate this with \`isInteractive\`
 >
   <span slot="outline-alert--header">{{ headerSlot }}</span>
   {{ defaultSlot }}
-</outline-alert>
+</outline-core-alert>
         `,
       },
     },
@@ -105,7 +105,7 @@ const Template = ({
       ?is-interactive="${isInteractive}"
     >
       ${ifDefined(headerSlot)} ${ifDefined(defaultSlot)}
-    </outline-alert>
+    </outline-core-alert>
   `;
 };
 

@@ -9,7 +9,6 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "@phase2/outline-core-accordion",
-    "@phase2/outline-core-alert",
     "@phase2/outline-core-breadcrumb",
     "@phase2/outline-core-card",
     "@phase2/outline-core-container",

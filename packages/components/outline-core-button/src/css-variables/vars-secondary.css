@@ -1,0 +1,74 @@
+/*
+Default CSS Variables for the `outline-core-button` secondary variant.
+You can override these using `outline.theme.css`,
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default
+`outline-core-button` styling can be found in
+`outline-core-button.ts` delcared with the `@cssprop` annotations.
+*/
+
+/*
+--outline-core-button--secondary-padding
+--outline-core-button--secondary-radius
+--outline-core-button--secondary-bg-color
+--outline-core-button--secondary-text-color
+--outline-core-button--secondary-weight
+--outline-core-button--secondary-ring
+
+--outline-core-button--secondary-bg-color-hover
+--outline-core-button--secondary-text-color-hover
+--outline-core-button--secondary-weight-hover
+--outline-core-button--secondary-ring-hover
+
+--outline-core-button--secondary-bg-color-focus
+--outline-core-button--secondary-text-color-focus
+--outline-core-button--secondary-weight-focus
+--outline-core-button--secondary-ring-focus
+
+--outline-core-button--secondary-disabled-bg-color
+--outline-core-button--secondary-disabled-text-color
+--outline-core-button--secondary-disabled-weight
+--outline-core-button--secondary-disabled-ring
+--outline-core-button--secondary-disabled-bg-color-focus
+--outline-core-button--secondary-disabled-text-color-focus
+--outline-core-button--secondary-disabled-weight-focus
+--outline-core-button--secondary-disabled-ring-focus
+*/
+
+:host {
+
+  /* Secondary Button(s) */
+  --outline-core-button--secondary-padding--computed: var(--outline-core-button--secondary-padding, var(--outline-core-button--padding--computed));
+  --outline-core-button--secondary-radius--computed: var(--outline-core-button--secondary-radius, var(--outline-core-button--radius--computed));
+
+  /* Secondary Button(s) - Default */
+  --outline-core-button--secondary-bg-color--computed: var(--outline-core-button--secondary-bg-color, var(--outline-white));
+  --outline-core-button--secondary-color--computed: var(--outline-core-button--secondary-color, var(--outline-blue-600));
+  --outline-core-button--secondary-weight--computed: var(--outline-core-button--secondary-weight, var(--outline-core-button--weight--computed));
+  --outline-core-button--secondary-ring--computed: var(--outline-core-button--secondary-ring, var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-blue-600));
+
+  /* Secondary Button(s) - Hover */
+  --outline-core-button--secondary-bg-color-hover--computed: var(--outline-core-button--secondary-bg-color-hover, var(--outline-blue-600));
+  --outline-core-button--secondary-color-hover--computed: var(--outline-core-button--secondary-color-hover, var(--outline-white));
+  --outline-core-button--secondary-weight-hover--computed: var(--outline-core-button--secondary-weight-hover, var(--outline-core-button--weight--computed));
+  --outline-core-button--secondary-ring-hover--computed: var(--outline-core-button--secondary-ring-hover, none);
+
+  /* Secondary Button(s) - Focus */
+  --outline-core-button--secondary-bg-color-focus--computed: var(--outline-core-button--secondary-bg-color-focus, var(--outline-blue-600));
+  --outline-core-button--secondary-color-focus--computed: var(--outline-core-button--secondary-color-focus, var(--outline-white));
+  --outline-core-button--secondary-weight-focus--computed: var(--outline-core-button--secondary-weight-focus, var(--outline-core-button--weight--computed));
+  --outline-core-button--secondary-ring-focus--computed: var(--outline-core-button--secondary-ring-focus, none);
+
+  /* Secondary Button(s) - Disabled */
+  --outline-core-button--secondary-disabled-bg-color--computed: var(--outline-core-button--secondary-disabled-bg-color, var(--outline-white));
+  --outline-core-button--secondary-disabled-color--computed: var(--outline-core-button--secondary-disabled-color, var(--outline-gray-400));
+  --outline-core-button--secondary-disabled-weight--computed: var(--outline-core-button--secondary-disabled-weight, var(--outline-core-button--weight--computed));
+  --outline-core-button--secondary-disabled-ring--computed: var(--outline-core-button--secondary-disabled-ring, var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-300));
+
+  /* Secondary Button(s) - Disabled:Focus */
+  --outline-core-button--secondary-disabled-bg-color-focus--computed: var(--outline-core-button--secondary-disabled-bg-color-focus, var(--outline-white));
+  --outline-core-button--secondary-disabled-color-focus--computed: var(--outline-core-button--secondary-disabled-color-focus, var(--outline-gray-400));
+  --outline-core-button--secondary-disabled-weight-focus--computed: var(--outline-core-button--secondary-disabled-weight-focus, var(--outline-core-button--weight--computed));
+  --outline-core-button--secondary-disabled-ring-focus--computed: var(--outline-core-button--secondary-disabled-ring-focus, var(--outline-ring-inset) 0 0 0 var(--outline-ring-offset-width) var(--outline-gray-400));
+}

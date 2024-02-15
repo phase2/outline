@@ -1,0 +1,23 @@
+/*
+Default CSS Variables for `outline-core-button`.
+You can override these using `outline.theme.css`,
+or any css file in your consumer application with
+a later loading order than `outline.theme.css`.
+The variables used to override the default
+`outline-core-button` styling can be found in
+`outline-core-button.ts` delcared with the `@cssprop` annotations.
+*/
+
+/*
+--outline-core-button--family
+--outline-core-button--weight
+--outline-core-button--padding
+--outline-core-button--radius
+*/
+
+:host {
+  --outline-core-button--family--computed: var(--outline-core-button--family, var(--ff-body));
+  --outline-core-button--weight--computed: var(--outline-core-button--weight, var(--fw-semibold));
+  --outline-core-button--padding--computed: var(--outline-core-button--padding, var(--spacing-2) var(--spacing-4));
+  --outline-core-button--radius--computed: var(--outline-core-button--radius, var(--spacing-2));
+}

@@ -1,0 +1,57 @@
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-core-alert';
+
+<Meta
+  title="Coding Guide/Tooling/Helpful Commands"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+# Helpful Commands
+
+<outline-core-alert status="warning">
+  <span slot="header">Documentation Status: (11/07/2023)</span>
+  <p>This documentation is in need of various updates.</p>
+</outline-core-alert>
+<br />
+
+## Commonly Used Commands
+
+Through standard [NPM scripts](https://docs.npmjs.com/cli/v8/using-npm/scripts), coupled with custom logic in the `./scripts` directory, Outline provides a host of capabilities to provide an incredible developer experience.
+
+- `yarn start` - Runs the local Storybook development server
+- `yarn build` - Compiles the system for production to the dist directory
+- `yarn test` - Run automated [Web Test Runner](https://modern-web.dev/docs/test-runner/overview/) tests
+- `yarn lint` - Runs both [eslint](https://eslint.org/) and [Prettier](https://prettier.io/) to evaluate select files for coding standards violations
+- `yarn format` - Runs both [svgo](https://github.com/svg/svgo) and [Prettier](https://prettier.io/) to format select files to meet coding standards
+- `yarn build:watch` - Runs `yarn build` in watch mode. Should be ran in conjunction with `yarn wds` described below.
+- `yarn serve` - Runs a basic HTML consumer application with [Web Dev Server](https://modern-web.dev/docs/dev-server/overview/) powered by the files in the ./dev directory. Allows for testing components outside of the Storybook interface. Usefully in many testing cases.
+  - **Note**: This `yarn serve` can cause issues, and sometimes using `yarn build:watch` and `yarn wds` in separate termininals is recommended.
+- `yarn:storybook:axe:dev:chromium` - Runs `axe-core` CLI interface against a local Storybook instance.
+  - **Note**: Storybook, via `yarn start` must be running.
+
+## Resetting local environment
+
+The following commands help clean a local environment.
+
+- `yarn clean` - Cleanup generated assets
+- `yarn reset` - Clean all generated assets and re-install dependencies
+- `yarn reboot` - Reset the local environment, then restart Storybook
+
+## Coding standards
+
+Code is not automatically formatted upon commit, but automated tests will fail if you don't format code according to the tooling (Prettier).
+
+You can run `yarn format` or configure your IDE to run these commands for you.
+
+_Caution: Prettier will sometimes format code in a weird way, so you may want to review its changes._
+
+### Linting
+
+You can run `yarn lint` to view any coding style warnings.
