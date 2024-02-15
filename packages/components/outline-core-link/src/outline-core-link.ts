@@ -1,12 +1,14 @@
-import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { html, TemplateResult, CSSResultGroup, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
+import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
+import componentStyles from './style/outline-core-link.css.lit';
+import globalStyles from './style/outline-core-link.lightDom.css.lit';
 
 import type { LinkTargetType, LinkRelType } from './config';
-import componentStyles from './outline-core-link.css.lit';
 
 /** The element name, reused throughout the codebase */
 const componentName = 'outline-core-link';
@@ -17,6 +19,8 @@ const componentName = 'outline-core-link';
  *
  * @element outline-core-link
  * @extends OutlineElement
+ * @since 0.0.1
+ *
  * @slot - The default slot for this element.
  * @cssprop --outline-core-link-transition-property: The CSS transition property to use for the link.
  * @cssprop --outline-core-link-transition-duration: The CSS transition duration to use for the link.
@@ -31,6 +35,8 @@ const componentName = 'outline-core-link';
 @customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles];
+  private adoptedStylesheets: AdoptedStyleSheets;
+  debug = false;
 
   /**
    * Link url
@@ -55,6 +61,31 @@ export class OutlineCoreLink extends OutlineElement {
    */
   @property({ type: String, attribute: 'link-rel' })
   linkRel: LinkRelType;
+
+  /**
+   * The `connectedCallback` method is called whenever the element is inserted into the DOM.
+   * In this method, we're creating an instance of `AdoptedStyleSheets` and adding it as a controller.
+   *
+   * Adding the `connectedCallback` controller via  more efficient than creating the instance and adding the controller in the constructor.
+   * The reason is that it delays these operations until the element is actually inserted into the DOM.
+   * If you have many such elements that are created but not immediately added to the DOM,
+   * this can improve the startup performance of your application.
+   */
+  connectedCallback() {
+    super.connectedCallback();
+    this.adoptedStylesheets = new AdoptedStyleSheets(css`
+      ${globalStyles}
+    `);
+    this.addController(this.adoptedStylesheets);
+  }
+
+  render(): TemplateResult {
+    if (this.linkHref) {
+      return this.generateLink();
+    } else {
+      return this.fullMarkupInSlot();
+    }
+  }
 
   /**
    * Check to see if the link is external, pass target="_blank" and rel="external" if so. Returns true if the link is external.
@@ -112,14 +143,17 @@ export class OutlineCoreLink extends OutlineElement {
 
   /**
    * Check to see if the element is slotted properly.
+   * This method checks for an `a` tag anywhere in the content provided to the Light DOM of a component.
    * @todo - Move method to a controller.
    *
    * @returns boolean
    */
-  isValidTopLevelSlottedLink(): boolean {
+  hasSlottedLink(): boolean {
     const slot: NodeList = this.getSlottedContent();
-    if (slot.length === 1 && slot[0].nodeName === 'A') {
-      return true;
+    for (let i = 0; i < slot.length; i++) {
+      if (slot[i].nodeName === 'A') {
+        return true;
+      }
     }
     return false;
   }
@@ -163,20 +197,12 @@ export class OutlineCoreLink extends OutlineElement {
    * @returns HTMLSlotElement
    */
   fullMarkupInSlot(): TemplateResult {
-    if (this.isValidTopLevelSlottedLink()) {
+    if (this.hasSlottedLink()) {
       this.adjustSlottedContent();
-    } else {
+    } else if (this.debug) {
       this.debugSlottedContent();
     }
     return html` <slot></slot> `;
-  }
-
-  render(): TemplateResult {
-    if (this.linkHref) {
-      return this.generateLink();
-    } else {
-      return this.fullMarkupInSlot();
-    }
   }
 }
 

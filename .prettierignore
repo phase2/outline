@@ -1,3 +1,4 @@
+changeset/
 dist/
 www/
 dev/
@@ -31,3 +32,4 @@ outline.theme.css
 
 # Ignore all stories (Storybook) files:
 **/*.stories.ts
+storybook.main.css

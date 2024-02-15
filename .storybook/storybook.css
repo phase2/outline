@@ -1,5 +1,3 @@
 @import url('https://rsms.me/inter/inter.css');
 /* Outline */
 @import '../packages/outline-templates/default/outline.theme.css';
-/* Global Tailwind Utilities */
-@import '../packages/outline-templates/default/tailwind.css';

@@ -28,7 +28,7 @@
     "prep:outline": "node scripts/resolve-outline-config.js",
     "prep:component-list": "wca analyze './src/components/**/!(*.stories|*.lit|*.test|*.d).ts' './node_modules/@phase2/**/!(*.stories|*.lit|*.test).ts' --discoverNodeModules --features --format json --outFile ./src/component-list.json",
     "prep:custom-elements": "wca analyze './src/components/**/!(*.stories|*.lit|*.test|*.d).ts' './node_modules/@phase2/**/!(*.stories|*.lit|*.test).ts' --discoverNodeModules --format json --outFile ./src/custom-elements.json",
-    "prep:css": "node scripts/styles.mjs",
+    "prep:css": "node scripts/styles.js",
     "prep:tailwind": "node scripts/resolve-tailwind-config.js",
     "prep:safelist": "node scripts/generate-tw-safelist.js",
     "prebuild": "yarn prep",
@@ -68,7 +68,7 @@
     "test": "yarn build && wtr",
     "watch": "npm-run-all -p watch:*",
     "watch:storybook": "yarn storybook:dev",
-    "watch:css": "node scripts/styles.mjs --watch"
+    "watch:css": "node scripts/styles.js --watch"
   },
   "keywords": [
     "web-components",
@@ -155,12 +155,10 @@
     "eslint-plugin-react": "^7.23.0",
     "eslint-plugin-storybook": "^0.6.15",
     "gaze": "^1.1.3",
-    "husky": "^4.3.8",
     "lint-staged": "^10.5.4",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.4",
     "postcss-cli": "^8.3.1",
-    "postcss-discard-comments": "^5.1.0",
     "postcss-loader": "^5.2.0",
     "postcss-preset-env": "^7.0.0",
     "prettier": "^2.0.4",

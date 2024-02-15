@@ -1,6 +1,6 @@
 import '@phase2/outline-container';
 import '@phase2/outline-image';
-import '@phase2/outline-alert';
+import '@phase2/outline-core-alert';
 
 import { html } from 'lit';
 import { Meta } from '@storybook/addon-docs';
@@ -47,31 +47,31 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
   page sections or entire pages. It is used to provide a consistent layout.
 
   ## Component Status
-  <outline-alert status="warning" size="large" className="mb-6">
+  <outline-core-alert status="warning" size="large" className="mb-6">
     <span slot="header">Status: Needs Work/In Progress</span>
     <p>
       The `OutlineContainer` class, is a wrapper component that provides the
       `outline-container` component, giving consistent containers for content
       spacing both horizontally and vertically.
     </p>
-  </outline-alert>
-  <outline-alert status="error" size="large" className="mb-6">
+  </outline-core-alert>
+  <outline-core-alert status="error" size="large" className="mb-6">
     <span slot="header">@todo</span>
     <ul>
       <li>Increase flexibility & configurability: Fix for styles on `outline-container` breakpoints. (`outline-container.css`)</li>
     </ul>
-  </outline-alert>
+  </outline-core-alert>
 </outline-container>
 
 ## Examples
 <outline-container container-width="full" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2">
-  <outline-alert status="info" size="large">
+  <outline-core-alert status="info" size="large">
     <span slot="header">Container: Full</span>
     <p>
       This `outline-container` component is using the `container-width` set to
       `full`. This, by default is demonstrating the container with an `outline-image` tag to display the full size of the container.
     </p>
-  </outline-alert>
+  </outline-core-alert>
   <outline-container
     container-width="full"
     top-margin="spacing-0"
@@ -100,13 +100,13 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 </outline-container>
 
 <outline-container container-width="wide" top-margin="spacing-6" bottom-margin="spacing-12" component-spacing="spacing-2">
-  <outline-alert status="info" size="large">
+  <outline-core-alert status="info" size="large">
     <span slot="header">Container: Wide</span>
     <p>
       This `outline-container` component is using the `container-width` set to
       `wide`. This, by default is demonstrating the container with an `outline-image` tag to display the full size of the container.
     </p>
-  </outline-alert>
+  </outline-core-alert>
   <outline-container
     container-width="full"
   >
@@ -132,13 +132,13 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 </outline-container>
 
 <outline-container container-width="medium" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2">
-  <outline-alert status="info" size="large">
+  <outline-core-alert status="info" size="large">
     <span slot="header">Container: Medium</span>
     <p>
       This `outline-container` component is using the `container-width` set to
       `medium`. This, by default is demonstrating the container with an `outline-image` tag to display the full size of the container.
     </p>
-  </outline-alert>
+  </outline-core-alert>
   <outline-container
     container-width="full"
     top-margin="spacing-2"
@@ -166,13 +166,13 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 </outline-container>
 
 <outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2">
-  <outline-alert status="info" size="large">
+  <outline-core-alert status="info" size="large">
     <span slot="header">Container: Narrow</span>
     <p>
       This `outline-container` component is using the `container-width` set to
       `narrow`. This, by default is demonstrating the container with an `outline-image` tag to display the full size of the container.
     </p>
-  </outline-alert>
+  </outline-core-alert>
   <outline-container
     container-width="full"
     top-margin="spacing-2"
@@ -200,7 +200,7 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 </outline-container>
 
 <outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2" justify-end>
-  <outline-alert status="info" size="large">
+  <outline-core-alert status="info" size="large">
     <span slot="header">Container: Narrow (Right)</span>
     <p>
       This `outline-container` component is using the `container-width` set to
@@ -210,7 +210,7 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       The `justify-end` attribute is used in order to align the content to the
       right.
     </p>
-  </outline-alert>
+  </outline-core-alert>
   <outline-container
     container-width="full"
     top-margin="spacing-2"
@@ -239,7 +239,7 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
 </outline-container>
 
 <outline-container container-width="narrow" top-margin="spacing-0" bottom-margin="spacing-12" component-spacing="spacing-2" component-spacing="spacing-2" justify-start>
-  <outline-alert status="info" size="large">
+  <outline-core-alert status="info" size="large">
     <span slot="header">Container: Narrow (Left)</span>
     <p>
       This `outline-container` component is using the `container-width` set to
@@ -249,7 +249,7 @@ import code7 from '@phase2/outline-static-assets/media/tech/1440/code-7.jpg';
       The `justify-start` attribute is used in order to align the content to the
       left.
     </p>
-  </outline-alert>
+  </outline-core-alert>
   <outline-container
     container-width="full"
     top-margin="spacing-2"
