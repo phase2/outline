@@ -56,7 +56,10 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-        
+      
+      - name: Setup Corepack
+        run: corepack enable
+      
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
@@ -118,6 +121,9 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
+      - name: Setup Corepack
+        run: corepack enable
+
       - name: Install
         run: yarn install
 
@@ -157,6 +163,10 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
+     
+      - name: Setup Corepack
+        run: corepack enable
+        
       - name: Install
         run: yarn install
 
