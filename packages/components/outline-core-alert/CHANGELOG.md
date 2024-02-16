@@ -1,5 +1,11 @@
 # @phase2/outline-core-alert
 
+## 0.0.1
+
+### Patch Changes
+
+- ce4612e: Updated releases
+
 ## 0.0.2
 
 ### Patch Changes

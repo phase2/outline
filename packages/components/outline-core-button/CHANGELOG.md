@@ -1,5 +1,11 @@
 # @phase2/outline-core-button
 
+## 0.0.5
+
+### Patch Changes
+
+- ce4612e: Updated releases
+
 ## 0.0.4
 
 ### Patch Changes

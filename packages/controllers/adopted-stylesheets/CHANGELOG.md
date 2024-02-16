@@ -1,5 +1,11 @@
 # @phase2/outline-adopted-stylesheets-controller
 
+## 1.0.1
+
+### Patch Changes
+
+- ce4612e: Updated releases
+
 ## 1.0.0
 
 ### Major Changes

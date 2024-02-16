@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core-alert",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The Outline Components for the image component",
   "keywords": [
     "outline",
@@ -39,7 +39,7 @@
     ".": "./index.ts"
   },
   "devDependencies": {
-    "@phase2/outline-adopted-stylesheets-controller": "^1.0.0",
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.1",
     "@phase2/outline-core": "^0.2.6"
   }
 }

@@ -1,5 +1,11 @@
 # @phase2/outline-core-link
 
+## 0.0.10
+
+### Patch Changes
+
+- ce4612e: Updated releases
+
 ## 0.0.9
 
 ### Patch Changes
