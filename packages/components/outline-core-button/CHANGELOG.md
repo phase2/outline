@@ -1,5 +1,11 @@
 # @phase2/outline-core-button
 
+## 0.0.4
+
+### Patch Changes
+
+- Updates to CSS usage
+
 ## 0.0.3
 
 ### Patch Changes

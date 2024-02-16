@@ -13,10 +13,9 @@
   "workspaces": [
     "./packages/*",
     "./packages/components/*",
-    "./packages/components/@deprecated/*",
+    "./packages/deprecated/*",
     "./packages/documentation/*",
     "./packages/controllers/*",
-    "./packages/controllers/@deprecated/*",
     "./packages/tools/*",
     "./docs"
   ],
@@ -34,18 +33,19 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "analyze": "yarn build && wca analyze 'packages/**/*.ts' --outFiles '{dir}/../README.md'",
-    "build": "turbo run build --concurrency=100% --filter=!./packages/**/@deprecated/*",
+    "build": "turbo run build --concurrency=100%",
     "changeset": "changeset",
     "changeset:publish": "yarn build && yarn changeset:version && yarn changeset publish",
     "changeset:version": "changeset version",
     "chromatic": "chromatic --build-script-name storybook:build --exit-zero-on-changes --skip '@(renovate/**|dependabot/**)'",
-    "clean": "npm-run-all -s clean:*",
+    "clean": "npm-run-all -p clean:*",
     "clean:dist": "rimraf dist && rimraf packages/**/dist",
     "clean:turbo": "rimraf packages/**/.turbo",
     "clean:storybook": "rimraf storybook-static",
     "clean:css": "rimraf packages/**/*.lit.*",
     "clean:maps": "rimraf packages/**/*.map",
     "clean:types": "rimraf packages/**/*.d.ts",
+    "dev": "yarn watch",
     "fix": "yarn format && yarn lint",
     "format": "npm-run-all -s format:*",
     "format:code": "eslint --fix . && prettier --write .",
@@ -56,23 +56,18 @@
     "lint:tsc": "tsc --noEmit",
     "lint:prettier": "prettier --check .",
     "package": "turbo run package --filter=!./packages/**/@deprecated/*",
-    "prep": "npm-run-all -s prep:*",
-    "prep:css": "node scripts/styles.js",
-    "prebuild": "yarn prep",
-    "prestart": "yarn prep",
     "rebuild": "yarn reset && yarn build",
     "reset": "yarn clean && npm-run-all -s reset:*",
     "reset:packages": "rimraf packages/**/node_modules",
-    "reset:root": "rimraf ./node_modules",
+    "reset:root": "rimraf node_modules",
     "reset:install": "yarn install",
     "restart": "yarn reset && yarn start",
-    "start": "yarn watch",
+    "start": "yarn dev",
     "storybook": "storybook",
     "storybook:build": "storybook build",
     "test": "turbo run test",
     "watch": "npm-run-all -p watch:*",
-    "watch:storybook": "yarn storybook dev -p ${npm_package_storybook_port}",
-    "watch:css": "node scripts/styles.js --watch"
+    "watch:storybook": "yarn storybook dev -p ${npm_package_storybook_port}"
   },
   "keywords": [
     "web-components",
@@ -136,5 +131,8 @@
   },
   "readme": "ERROR: No README data found!",
   "homepage": "https://github.com/phase2/outline#readme",
-  "_id": "@phase2/outline@0.1.1"
+  "_id": "@phase2/outline@0.1.1",
+  "dependencies": {
+    "lit": "^3.1.2"
+  }
 }

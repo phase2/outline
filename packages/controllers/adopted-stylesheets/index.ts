@@ -1,1 +1,1 @@
-export { AdoptedStyleSheets } from './src/adopted-stylesheets';
+export { AdoptedStylesheets } from './src/adopted-stylesheets';

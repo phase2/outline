@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@lit-labs/ssr-dom-shim@^1.0.0", "@lit-labs/ssr-dom-shim@^1.1.0":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@lit-labs/ssr-dom-shim/-/ssr-dom-shim-1.1.1.tgz#64df34e2f12e68e78ac57e571d25ec07fa460ca9"
-  integrity sha512-kXOeFbfCm4fFf2A3WwVEeQj55tMZa8c8/f9AKHMobQMkzNUfUj+antR3fRPaZJawsa1aZiP/Da3ndpZrwEe4rQ==
+"@lit-labs/ssr-dom-shim@^1.0.0", "@lit-labs/ssr-dom-shim@^1.1.0", "@lit-labs/ssr-dom-shim@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@lit-labs/ssr-dom-shim/-/ssr-dom-shim-1.2.0.tgz#353ce4a76c83fadec272ea5674ede767650762fd"
+  integrity sha512-yWJKmpGE6lUURKAaIltoPIE/wrbY3TEkqQt+X0m+7fQNnAv0keydnYvbiJFP1PnMhizmIWRWOG5KLhYyc/xl+g==
 
 "@lit/reactive-element@^1.3.0", "@lit/reactive-element@^1.6.0":
   version "1.6.3"
@@ -14,17 +14,31 @@
   dependencies:
     "@lit-labs/ssr-dom-shim" "^1.0.0"
 
-"@phase2/outline-config@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-config/-/outline-config-0.0.12.tgz#b51eee5d95ee43ae883192c5ad06f3d550b61da9"
-  integrity sha512-SLhMfsURIbsLHwlfBVW5rKkWT9nx2scs+YHfPgOlTMHTqihyraYExD8apu8m3yy56zj+XFg4MHaT4Z6+ItNr8w==
-
-"@phase2/outline-core@^0.2.5":
-  version "0.2.5"
-  resolved "https://registry.yarnpkg.com/@phase2/outline-core/-/outline-core-0.2.5.tgz#bfb919f99e11e87da20784a424b659007eb623a5"
-  integrity sha512-chc15ORP1GOa8GCRMagCeSshMhIgO+8dsYfGGQzJ1YUnsMn+5t5utBdhG4CtaPa6XUq2zmJKx5bHO6IFBk7qxA==
+"@lit/reactive-element@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@lit/reactive-element/-/reactive-element-2.0.4.tgz#8f2ed950a848016383894a26180ff06c56ae001b"
+  integrity sha512-GFn91inaUa2oHLak8awSIigYz0cU0Payr1rcFsrkf5OJ5eSPxElyZfKh0f2p9FsTiZWXQdWGJeXZICEfXXYSXQ==
   dependencies:
-    "@phase2/outline-config" "^0.0.12"
+    "@lit-labs/ssr-dom-shim" "^1.2.0"
+
+"@phase2/outline-adopted-stylesheets-controller@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@phase2/outline-adopted-stylesheets-controller/-/outline-adopted-stylesheets-controller-0.0.6.tgz#3d8a2a9f63877882ab112c0d4c4a1f9ba45d72dd"
+  integrity sha512-LUZZjU5ksxxSydTmSIaXWrrMvG9N9RBw/ZDhorIfoGgpFCcHLIyr3q0XckFFua3RthFBGmlaRbzhtG8WtJasug==
+  dependencies:
+    lit "^2.3.1"
+
+"@phase2/outline-config@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@phase2/outline-config/-/outline-config-0.0.13.tgz#01505a7d9c309dad03115543a2e1dfc6cd791aad"
+  integrity sha512-Vwzliu3v3Rndg3sZ3aBdpHVwLRADZXKaW+rUo7ZIBK7CABkbTwoO5laGiNkcSV3ZoRtkLDPH3OW+NV97YRtkSg==
+
+"@phase2/outline-core@^0.2.6":
+  version "0.2.6"
+  resolved "https://registry.yarnpkg.com/@phase2/outline-core/-/outline-core-0.2.6.tgz#9b946b6fd4341850884dc9527f21f05a4ed578ac"
+  integrity sha512-qMB6QxZCFN2hGADrqeVER2IR1v6zW100x2xo8N5NoHGTIOydLZfVtaAEBr0pSAnleqhBTeHnzws0/yLH+vIkBA==
+  dependencies:
+    "@phase2/outline-config" "^0.0.13"
 
 "@types/trusted-types@^2.0.2":
   version "2.0.4"
@@ -59,10 +73,26 @@ lit-element@^3.3.0:
     "@lit/reactive-element" "^1.3.0"
     lit-html "^2.8.0"
 
+lit-element@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/lit-element/-/lit-element-4.0.4.tgz#e0b37ebbe2394bcb9578d611a409f49475dff361"
+  integrity sha512-98CvgulX6eCPs6TyAIQoJZBCQPo80rgXR+dVBs61cstJXqtI+USQZAbA4gFHh6L/mxBx9MrgPLHLsUgDUHAcCQ==
+  dependencies:
+    "@lit-labs/ssr-dom-shim" "^1.2.0"
+    "@lit/reactive-element" "^2.0.4"
+    lit-html "^3.1.2"
+
 lit-html@^2.8.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-2.8.0.tgz#96456a4bb4ee717b9a7d2f94562a16509d39bffa"
   integrity sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==
+  dependencies:
+    "@types/trusted-types" "^2.0.2"
+
+lit-html@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/lit-html/-/lit-html-3.1.2.tgz#6655ce82367472de7680c62b1bcb0beb0e426fa1"
+  integrity sha512-3OBZSUrPnAHoKJ9AMjRL/m01YJxQMf+TMHanNtTHG68ubjnZxK0RFl102DPzsw4mWnHibfZIBJm3LWCZ/LmMvg==
   dependencies:
     "@types/trusted-types" "^2.0.2"
 
@@ -74,6 +104,15 @@ lit@^2.3.1:
     "@lit/reactive-element" "^1.6.0"
     lit-element "^3.3.0"
     lit-html "^2.8.0"
+
+lit@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/lit/-/lit-3.1.2.tgz#f276258e8a56593f1d834a5fd00a7eb5e891ae73"
+  integrity sha512-VZx5iAyMtX7CV4K8iTLdCkMaYZ7ipjJZ0JcSdJ0zIdGxxyurjIn7yuuSxNBD7QmjvcNJwr0JS4cAdAtsy7gZ6w==
+  dependencies:
+    "@lit/reactive-element" "^2.0.4"
+    lit-element "^4.0.4"
+    lit-html "^3.1.2"
 
 path-parse@^1.0.7:
   version "1.0.7"

@@ -106,7 +106,8 @@ glob(
   'packages/**/*.css',
   {
     ignore: [
-      'packages/documentation/outline-storybook/**/*.css',
+      './packages/components/@deprecated/**/*.css',
+      './packages/tools/@deprecated/**/*.css',
       '.storybook/**/*.css',
     ],
   },
@@ -129,7 +130,8 @@ if (options.watch) {
     {
       ignore: [
         '**/dist/**/*.css',
-        'packages/documentation/outline-storybook/**/*.css',
+        './packages/components/@deprecated/**/*.css',
+        './packages/tools/@deprecated/**/*.css',
       ],
     },
     (err, watcher) => {

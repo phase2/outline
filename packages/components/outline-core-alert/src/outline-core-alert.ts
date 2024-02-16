@@ -1,4 +1,4 @@
-import { html, TemplateResult, CSSResultGroup, css } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 import { OutlineElement } from '@phase2/outline-core';
@@ -6,10 +6,9 @@ import {
   CoreAlertStatusType,
   OutlineCoreAlertInterface,
 } from '@phase2/outline-core-alert';
-import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
-import componentStyles from './style/outline-core-alert.css.lit';
-import componentVars from './style/outline-core-alert.vars.css.lit';
-import globalStyles from './style/outline-core-alert.lightDom.css.lit';
+import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
+import encapsulatedStyles from './style/outline-core-alert.encapsulated.css?inline';
+import globalStyles from './style/outline-core-alert.global.css?inline';
 
 /** The element name, reused throughout the codebase */
 const componentName = 'outline-core-alert';
@@ -43,8 +42,11 @@ export class OutlineCoreAlert
   extends OutlineElement
   implements OutlineCoreAlertInterface
 {
-  static styles: CSSResultGroup = [componentStyles];
-  adoptedStylesheets: AdoptedStyleSheets;
+  GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
+    this,
+    globalStyles
+  );
+  EncapsulatedStylesheets: AdoptedStylesheets | undefined;
   debug = false;
 
   @property({ type: String, attribute: 'status' })
@@ -56,18 +58,12 @@ export class OutlineCoreAlert
   @property({ type: Boolean, attribute: 'is-interactive' })
   isInteractive = false;
 
-  /**
-   * @see `outline-core-link` documentation as to the purpose of this method.
-   */
-  connectedCallback() {
-    super.connectedCallback();
-    this.adoptedStylesheets = new AdoptedStyleSheets(css`
-      outline-core-alert {
-        ${componentVars}
-      }
-      ${globalStyles}
-    `);
-    this.addController(this.adoptedStylesheets);
+  createRenderRoot() {
+    const root = super.createRenderRoot();
+    this.EncapsulatedStylesheets = this.shadowRoot
+      ? new AdoptedStylesheets(this, encapsulatedStyles, this.shadowRoot)
+      : undefined;
+    return root;
   }
 
   render(): TemplateResult {
