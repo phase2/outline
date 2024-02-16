@@ -1,4 +1,4 @@
-import { html, TemplateResult, CSSResultGroup, css } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
@@ -37,7 +37,8 @@ export class OutlineCoreLink extends OutlineElement {
   // static styles: CSSResultGroup = [encapsulatedStyles];
   GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
     this,
-    globalStyles
+    globalStyles,
+    document
   );
   debug = false;
 

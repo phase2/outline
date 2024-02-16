@@ -7,6 +7,7 @@ import {
   OutlineCoreAlertInterface,
 } from '@phase2/outline-core-alert';
 import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
+import encapsulatedStyles from './style/outline-core-alert.encapsulated.css?inline';
 import globalStyles from './style/outline-core-alert.global.css?inline';
 
 /** The element name, reused throughout the codebase */
@@ -41,11 +42,11 @@ export class OutlineCoreAlert
   extends OutlineElement
   implements OutlineCoreAlertInterface
 {
-  // static styles: CSSResultGroup = [componentStyles];
   GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
     this,
     globalStyles
   );
+  EncapsulatedStylesheets: AdoptedStylesheets | undefined;
   debug = false;
 
   @property({ type: String, attribute: 'status' })
@@ -56,6 +57,14 @@ export class OutlineCoreAlert
    */
   @property({ type: Boolean, attribute: 'is-interactive' })
   isInteractive = false;
+
+  createRenderRoot() {
+    const root = super.createRenderRoot();
+    this.EncapsulatedStylesheets = this.shadowRoot
+      ? new AdoptedStylesheets(this, encapsulatedStyles, this.shadowRoot)
+      : undefined;
+    return root;
+  }
 
   render(): TemplateResult {
     // The `body` wrapper is used to circumvent limitations with styling the `:host` directly, such as applying borders.
