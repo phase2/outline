@@ -1,5 +1,28 @@
 # @phase2/outline-core-link
 
+## 0.0.10
+
+### Patch Changes
+
+- ce4612e: Updated releases
+
+## 0.0.9
+
+### Patch Changes
+
+- Updates to CSS usage
+
+## 0.0.8
+
+### Patch Changes
+
+- ee19425e: Update for core link best practices.
+- 3ce056db: Update and reorganization
+- b880f153: Cleaup and organization.
+- Updated dependencies [3ce056db]
+- Updated dependencies [b880f153]
+  - @phase2/outline-core@0.2.6
+
 ## 0.0.7
 
 ### Patch Changes

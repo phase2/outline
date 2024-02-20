@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-adopted-stylesheets-controller",
-  "version": "0.0.4",
+  "version": "1.0.1",
   "description": "Controller to help with managing native AdoptedStylesheet implementations.",
   "keywords": [
     "outline components",
@@ -9,6 +9,9 @@
     "style",
     "AdoptedStylesheets"
   ],
+  "engines": {
+    "node": ">=20"
+  },
   "main": "index.ts",
   "types": "index.ts",
   "typings": "index.d.ts",
@@ -30,7 +33,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "lit": "^2.3.1"
+    "lit": "^3.1.2"
   },
   "devDependencies": {
     "tslib": "^2.1.0"

@@ -10,15 +10,13 @@ export const parameters = {
   options: {
     storySort: {
       order: [
-        'Getting Started',
-        'Documentation',
-        'Design Tokens',
+        'Welcome Guide',
+        'Coding Guide',
         'Media',
         'Navigation',
         'Content',
         'Templates',
         'Pages',
-        'Code Examples',
         'Utility Components',
       ],
     },
