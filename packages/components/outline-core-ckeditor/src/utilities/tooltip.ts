@@ -6,7 +6,7 @@ import { wrapLastWord } from './wrap-last-word';
 export function tooltipLink(el: HTMLElement) {
   // Check if the element contains an image
   if (
-    el.querySelector('.outline-core-tooltip-popup') ||
+    el.querySelector('.outline-core-ckeditor-tooltip') ||
     !el.hasAttribute('title')
   ) {
     return;
@@ -19,8 +19,8 @@ export function tooltipLink(el: HTMLElement) {
     }
 
     const id: string = self.crypto.randomUUID
-      ? `outline-core-tooltip-${self.crypto.randomUUID()}`
-      : `outline-core-tooltip-${self.crypto
+      ? `outline-core-ckeditor-tooltip-${self.crypto.randomUUID()}`
+      : `outline-core-ckeditor-tooltip-${self.crypto
           .getRandomValues(new Uint32Array(3))
           .join('-')}`;
 
@@ -37,7 +37,7 @@ export function tooltipLink(el: HTMLElement) {
     const tooltipPopup = document.createElement('span');
     tooltipPopup.setAttribute('id', id);
     tooltipPopup.setAttribute('role', 'tooltip');
-    tooltipPopup.classList.add('outline-core-tooltip-popup');
+    tooltipPopup.classList.add('outline-core-ckeditor-tooltip');
     tooltipPopup.classList.add('hidden');
     tooltipPopup.innerHTML = tooltipText;
 
@@ -131,14 +131,14 @@ export class Tooltip {
 
   // Show or hide the tooltip
   showTooltip() {
-    this.container.classList.add('tooltip-visible');
+    this.container.classList.add('outline-core-ckeditor-tooltip--visible');
     if (this.tooltip) {
       this.tooltip.classList.remove('hidden');
     }
   }
 
   hideTooltip() {
-    this.container.classList.remove('tooltip-visible');
+    this.container.classList.remove('outline-core-ckeditor-tooltip--visible');
     if (this.tooltip) {
       this.tooltip.classList.add('hidden');
     }
@@ -160,11 +160,11 @@ export class Tooltip {
   initialiseClassList() {
     switch (this.tooltipPosition) {
       case 'bottom':
-        this.container.classList.add('bottom');
+        this.container.classList.add('outline-core-ckeditor-tooltip--bottom');
         break;
 
       default:
-        this.container.classList.remove('bottom');
+        this.container.classList.remove('outline-core-ckeditor-tooltip--bottom');
         break;
     }
   }
@@ -220,7 +220,7 @@ export class Tooltip {
 
   // Move the tooltip so it fits within the viewport
   moveTooltipUp() {
-    this.container.classList.remove('bottom');
+    this.container.classList.remove('outline-core-ckeditor-tooltip--bottom');
   }
 
   moveTooltipRight(bounds: DOMRect) {
@@ -232,7 +232,7 @@ export class Tooltip {
   }
 
   moveTooltipDown() {
-    this.container.classList.add('bottom');
+    this.container.classList.add('outline-core-ckeditor-tooltip--bottom');
   }
 
   moveTooltipLeft(bounds: DOMRect, windowWidth: number) {
