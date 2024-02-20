@@ -34,14 +34,19 @@ jobs:
   setup:
     name: Install & Lint Codebase
     runs-on: ubuntu-latest
+    container: 
+      image: node:lts
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout Codebase
-        uses: actions/checkout@v3 
+        uses: actions/checkout@v4 
+      
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
@@ -54,31 +59,11 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-        
+      
       - name: Initialize .npmrc
         run: cp $NPM_CONFIG_USERCONFIG .npmrc
 
-      # # @see https://github.com/marketplace/actions/cache
-      # # node_modules caching is validated by always running yarn install.
-      # # Turborepo cache lives inside node_modules/.cache/turbo
-      # - name: Get yarn cache directory path
-      #   id: yarn-cache-dir-path
-      #   run: echo "dir=$(yarn cache dir)" >> $GITHUB_OUTPUT
-
-      # - name: Setup Cache
-      #   id: cache-yarn
-      #   uses: actions/cache@v3
-      #   env:
-      #     cache-name: cache-node-modules
-      #   with:
-      #     path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-      #     key: ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
-      #     restore-keys:
-      #       ${{ runner.os }}-node-yarn-18-${{ env.cache-name }}-
-      #       ${{ runner.os }}-node-yarn-${{ env.cache-name }}-
-      #       ${{ runner.os }}-node-yarn-
-
-      - name: Install
+      - name: Install Dependencies
         run: yarn install
         env: 
           NODE_AUTH_TOKEN: ${{ secrets.NPM_GITHUB_PACKAGES }}
@@ -92,15 +77,20 @@ jobs:
   build_outline:
     name: Build Outline Codebase
     runs-on: ubuntu-latest
+    container: 
+      image: node:lts
     needs: ['setup']
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout Codebase
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+      
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
@@ -114,11 +104,11 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
 
-      - name: Install
+      - name: Install Dependencies
         run: yarn install
 
-      - name: Build Turborepo Packages
-        run: yarn build
+      - name: Build Packages
+        run: yarn build --force
 
       - name: Build Storybook
         run: yarn storybook:build
@@ -128,16 +118,21 @@ jobs:
     name: "Publish: GitHub Pages"
     if: github.ref == 'refs/heads/next'
     runs-on: ubuntu-latest
+    container: 
+      image: node:lts
     needs: ['setup', 'build_outline']
 
     # The steps for the setup job.
     steps:
       # @see https://github.com/marketplace/actions/checkout
       - name: Checkout codebase
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
+      - name: Use local Yarn version
+        run: echo "$(pwd)/.yarn/releases" >> $GITHUB_PATH
 
       # @see https://github.com/marketplace/actions/setup-node-js-environment 
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
@@ -150,11 +145,11 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@phase2'
-
-      - name: Install
+   
+      - name: Install Dependencies
         run: yarn install
 
-      - name: Build Outline
+      - name: Build Packages
         run: yarn build
 
       - name: Build Storybook
@@ -180,7 +175,7 @@ jobs:
 
       # @see https://github.com/marketplace/actions/upload-a-build-artifact
       - name: Upload Storybook artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: storybook-latest
           path: storybook-static/

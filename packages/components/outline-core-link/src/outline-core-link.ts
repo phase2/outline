@@ -1,12 +1,14 @@
-import { html, TemplateResult, CSSResultGroup } from 'lit';
+import { html, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
+import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
+import encapsulatedStyles from './style/outline-core-link.encapsulated.css?inline';
+import globalStyles from './style/outline-core-link.global.css?inline';
 
 import type { LinkTargetType, LinkRelType } from './config';
-import componentStyles from './outline-core-link.css.lit';
 
 /** The element name, reused throughout the codebase */
 const componentName = 'outline-core-link';
@@ -17,6 +19,8 @@ const componentName = 'outline-core-link';
  *
  * @element outline-core-link
  * @extends OutlineElement
+ * @since 0.0.1
+ *
  * @slot - The default slot for this element.
  * @cssprop --outline-core-link-transition-property: The CSS transition property to use for the link.
  * @cssprop --outline-core-link-transition-duration: The CSS transition duration to use for the link.
@@ -30,7 +34,13 @@ const componentName = 'outline-core-link';
  */
 @customElement(componentName)
 export class OutlineCoreLink extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+  // static styles: CSSResultGroup = [encapsulatedStyles];
+  GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
+    this,
+    globalStyles,
+    document
+  );
+  debug = false;
 
   /**
    * Link url
@@ -55,6 +65,22 @@ export class OutlineCoreLink extends OutlineElement {
    */
   @property({ type: String, attribute: 'link-rel' })
   linkRel: LinkRelType;
+
+  createRenderRoot() {
+    const root = super.createRenderRoot();
+    this.EncapsulatedStylesheets = this.shadowRoot
+      ? new AdoptedStylesheets(this, encapsulatedStyles, this.shadowRoot)
+      : undefined;
+    return root;
+  }
+
+  render(): TemplateResult {
+    if (this.linkHref) {
+      return this.generateLink();
+    } else {
+      return this.fullMarkupInSlot();
+    }
+  }
 
   /**
    * Check to see if the link is external, pass target="_blank" and rel="external" if so. Returns true if the link is external.
@@ -112,14 +138,17 @@ export class OutlineCoreLink extends OutlineElement {
 
   /**
    * Check to see if the element is slotted properly.
+   * This method checks for an `a` tag anywhere in the content provided to the Light DOM of a component.
    * @todo - Move method to a controller.
    *
    * @returns boolean
    */
-  isValidTopLevelSlottedLink(): boolean {
+  hasSlottedLink(): boolean {
     const slot: NodeList = this.getSlottedContent();
-    if (slot.length === 1 && slot[0].nodeName === 'A') {
-      return true;
+    for (let i = 0; i < slot.length; i++) {
+      if (slot[i].nodeName === 'A') {
+        return true;
+      }
     }
     return false;
   }
@@ -163,20 +192,12 @@ export class OutlineCoreLink extends OutlineElement {
    * @returns HTMLSlotElement
    */
   fullMarkupInSlot(): TemplateResult {
-    if (this.isValidTopLevelSlottedLink()) {
+    if (this.hasSlottedLink()) {
       this.adjustSlottedContent();
-    } else {
+    } else if (this.debug) {
       this.debugSlottedContent();
     }
     return html` <slot></slot> `;
-  }
-
-  render(): TemplateResult {
-    if (this.linkHref) {
-      return this.generateLink();
-    } else {
-      return this.fullMarkupInSlot();
-    }
   }
 }
 

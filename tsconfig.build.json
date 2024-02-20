@@ -5,7 +5,6 @@
     "baseUrl": ".",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "emitDeclarationOnly": true,
     "isolatedModules": true,
     "composite": true,
     "declaration": true,
