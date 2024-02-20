@@ -4,14 +4,16 @@ import { customElement } from 'lit/decorators.js';
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
 
-import componentStyles from './outline-core-ckeditor.css.lit';
+import globalStyles from './outline-core-ckeditor-imports.css?inline';
+import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
+
 
 import { checkFileType } from './utilities/check-file-type';
 import { externalLinkText } from './utilities/external-link-text';
 import { tooltipLink } from './utilities/tooltip';
 import { wrapLastWord } from './utilities/wrap-last-word';
 
-wrapLastWord;
+// wrapLastWord;
 
 /**
  * The Outline Core Styled Text component
@@ -22,8 +24,13 @@ wrapLastWord;
  * Lightdom styles in outline-core-ckeditor.lightdom.css included in /shared.css
  */
 @customElement('outline-core-ckeditor')
-export class OutlineCoreCkeditor extends OutlineElement {
-  static styles: CSSResultGroup = [componentStyles];
+export class OutlineCoreCkeditor extends OutlineElement
+  // static styles: CSSResultGroup = [componentStyles];
+  {
+    GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
+      this,
+      globalStyles
+    );
 
   connectedCallback(): void {
     super.connectedCallback();
