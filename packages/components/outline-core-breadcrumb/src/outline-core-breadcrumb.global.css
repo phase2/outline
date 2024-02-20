@@ -1,5 +1,3 @@
-/** Jake, I removed your notes I promise I read them. - Morgan **/
-
 ol,
 ul {
   list-style: none;
@@ -59,9 +57,6 @@ a {
     border-radius: var(--border-radius-button-default);
     outline-offset: var(--spacing-px);
 
-    @screen lg {
-      outline: solid 3px blue;
-    }
   }
 }
 

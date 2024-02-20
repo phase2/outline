@@ -1,7 +1,7 @@
 import { html } from 'lit';
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
-import { OutlineCoreBreadcrumb } from '../../../../../packages/components/outline-core-breadcrumb/src/outline-core-breadcrumb';
+import { OutlineCoreBreadcrumb } from '../src/outline-core-breadcrumb';
 
 <Meta
   title="Navigation/ Core Breadcrumb"
@@ -18,7 +18,7 @@ import { OutlineCoreBreadcrumb } from '../../../../../packages/components/outlin
 
 
 <outline-core-breadcrumb>
-  <nav>
+  <nav aria-label="Breadcrumb">
     <ul>
       <li>
         <a href="#">Home</a>
@@ -29,7 +29,7 @@ import { OutlineCoreBreadcrumb } from '../../../../../packages/components/outlin
       <li>
         <a href="#">Our History</a>
       </li>
-      <li>
+      <li aria-current="page">
         The current page title
       </li>
     </ul>

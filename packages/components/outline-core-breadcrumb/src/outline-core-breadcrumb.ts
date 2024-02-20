@@ -1,10 +1,11 @@
 import { html, TemplateResult, CSSResultGroup, css } from 'lit';
 import { customElement } from 'lit/decorators.js';
-import { AdoptedStyleSheets } from '@phase2/outline-adopted-stylesheets-controller';
+import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
 // Our base component, which all others extend.
-import { OutlineElement, SlotsController } from '@phase2/outline-core';
+import { OutlineElement } from '@phase2/outline-core';
 import componentStyles from './outline-core-breadcrumb.css.lit';
-import globalStyles from './outline-core-breadcrumb.lightdom.css.lit';
+import globalStyles from './outline-core-breadcrumb.global.css?inline';
+import encapsulatedStyles from './outline-core-breadcrumb.encapsulated.css?inline';
 import { ResizeController } from './resize-controller';
 
 /** The element name, reused throughout the codebase */
@@ -28,15 +29,13 @@ const componentName = 'outline-core-breadcrumb';
 @customElement(componentName)
 export class OutlineCoreBreadcrumb extends OutlineElement {
   static styles: CSSResultGroup = [componentStyles, componentStyles, css``];
-  AdoptedStyleSheets: AdoptedStyleSheets;
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.AdoptedStyleSheets = new AdoptedStyleSheets(globalStyles);
-    this.addController(this.AdoptedStyleSheets);
-  }
-
-  slots = new SlotsController(this);
+  GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
+    this,
+    globalStyles
+  );
+  EncapsulatedStylesheets: AdoptedStylesheets | undefined;
+// THIS NEEDS TO BE HERE FOR STORYBOOK TO WORK
+  debug = false;
   resizeController = new ResizeController(this, {
     breakpoints: [768, 1440],
   });
