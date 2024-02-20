@@ -25,7 +25,7 @@ li {
   position: relative;
   padding: 10px;
 
-  margin: 10px; 
+  margin: 10px;
 }
 
 /**
@@ -35,7 +35,7 @@ li {
 li:not(:first-of-type)::before {
   content: '';
   display: flex;
-  margin-right: 10px; 
+  margin-right: 10px;
   height: 1em;
   width: 1px;
   background: currentColor;
@@ -47,16 +47,15 @@ a {
   display: inline-flex;
   align-items: center;
 
-  padding:10px;
-  margin:10px; 
-
+  padding: 10px;
+  margin: 10px;
 
   &:hover {
     text-decoration: underline;
   }
   &:focus,
   &:focus-visible {
-    outline: solid 3px blue; 
+    outline: solid 3px blue;
     border-radius: var(--border-radius-button-default);
     outline-offset: var(--spacing-px);
 
@@ -67,7 +66,7 @@ a {
 }
 
 .separator {
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
 .previous-link {

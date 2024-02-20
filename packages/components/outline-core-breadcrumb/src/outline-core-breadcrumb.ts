@@ -51,9 +51,11 @@ export class OutlineCoreBreadcrumb extends OutlineElement {
       true
     ) as HTMLLIElement;
 
-    return isMobile ? html`${backLink}` : html`<div> 
-    <slot></slot>
-    </div>`;
+    return isMobile
+      ? html`${backLink}`
+      : html`<div>
+          <slot></slot>
+        </div>`;
   }
 }
 
