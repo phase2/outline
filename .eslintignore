@@ -1,21 +1,23 @@
-node_modules/*
-docs/*
-dist/*
-docs-src/*
-rollup.config.js
-custom-elements.json
-component-list.json
-resolved-outline-config.ts
-resolved-tailwind-config.ts
+# Directories
+.changeset/
 .history/
-storybook-static/
-*.js
-*.lit.ts
+.husky/
 .github/
-.octane-ci/
-.bin/
-.docksal/
+.turbo/
+.vscode/
 .yarn/
-project/
-*.d.ts
-packages/deprecated
+docs/
+dist/
+build/
+node_modules/
+storybook-static/
+
+# File Patterns
+scripts/*.js
+packages/tools/outline-config/*
+# This handles .js configurations in the root dir.
+*.js
+
+# Specific Files
+
+# Other
