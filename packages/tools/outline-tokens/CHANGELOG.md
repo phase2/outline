@@ -1,5 +1,11 @@
 # @phase2/outline-tokens
 
+## 0.1.3
+
+### Patch Changes
+
+- Release bump.
+
 ## 0.1.2
 
 ### Patch Changes

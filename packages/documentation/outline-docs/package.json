@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-docs",
-  "version": "0.0.20",
+  "version": "0.0.21",
   "description": "Outline Documentation",
   "keywords": [
     "outline",
@@ -29,7 +29,7 @@
     "package": "yarn publish"
   },
   "dependencies": {
-    "@phase2/outline-core": "^0.2.6",
+    "@phase2/outline-core": "^0.2.7",
     "tslib": "^2.1.0"
   },
   "publishConfig": {
