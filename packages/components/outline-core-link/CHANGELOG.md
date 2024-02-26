@@ -1,5 +1,11 @@
 # @phase2/outline-core-link
 
+## 0.0.12
+
+### Patch Changes
+
+- e433ced: Build tooling update.
+
 ## 0.0.11
 
 ### Patch Changes
