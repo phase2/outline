@@ -24,6 +24,7 @@
   "license": "BSD-3-Clause",
   "scripts": {
     "build": "vite build && npx tsc --project tsconfig.build.json",
+    "postbuild": "cp -R src/style dist/style",
     "package": "yarn publish"
   },
   "dependencies": {
