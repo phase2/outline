@@ -263,13 +263,13 @@ table {
     &:hover,
     &:focus,
     &:focus-visible {
-      color: var(--outline-core-ckeditor--link-text-color-hover);
-      background-color: var(--outline-core-ckeditor--link-bg-color-hover);
+      color: var(--outline-core-ckeditor--link--text-color--hover);
+      background-color: var(--outline-core-ckeditor--link--bg-color--hover);
     }
   }
   a.ckeditor-cta {
     font-size: inherit;
-    color: var(--outline-core-ckeditor--cta-text-color);
+    color: var(--outline-core-ckeditor--cta--text-color);
     text-decoration: underline;
 
     .last-word {
@@ -286,7 +286,7 @@ table {
     &:focus {
       background-color: var(--outline-core-ckeditor--text-color);
       background-image: none;
-      color: var(--outline-core-ckeditor--cta-text-color-hover);
+      color: var(--outline-core-ckeditor--cta--text-color--hover);
       text-decoration: underline;
 
       .last-word {
@@ -324,15 +324,15 @@ table {
 
   a.btn {
     font-size: inherit;
-    color: var(--outline-core-ckeditor--button-text-color);
+    color: var(--outline-core-ckeditor--button--text-color);
     padding: var(--outline-core-ckeditor--spacing-02) var(--outline-core-ckeditor--spacing-04);
     min-height: 0;
     text-decoration: none;
 
     &:hover {
-      color: var(--outline-core-ckeditor--button-text-color-hover);
-      background-color: var(--outline-core-ckeditor--button-bg-color-hover);
-      border-color: var(--outline-core-ckeditor--button-border-color-hover);
+      color: var(--outline-core-ckeditor--button--text-color--hover);
+      background-color: var(--outline-core-ckeditor--button--bg-color--hover);
+      border-color: var(--outline-core-ckeditor--button--border-color--hover);
     }
 
     &.icon-external,

@@ -1,28 +1,39 @@
-/* This section is reserved for variables imported from Figma or other design tools.
-These variables should be connected to all other CSS files for consistent styling across the platform. */
+/* What is the purpose of this file?
+
+In your project, all these values will need to be customized. Instead of
+creating an endless chain of vars based on defaults which will likely not be
+consistent in outline core, we create a simple set of vars as an example.
+This file can be copied, correct values for your project assigned, and imported
+directly into your component. Combined with the starterkit file, you should
+have a good base for your ckeditor styles. */
 
 
 
---outline-core-ckeditor--body-text--font-size: 1rem;
---outline-core-ckeditor--body-01-font-size: 1rem;
---outline-core-ckeditor--body-helper-min-font-size: 0.875rem;
---outline-core-ckeditor--body-text--line-height: 1.5;
---outline-core-ckeditor--body-01-line-height: 1.5;
---outline-core-ckeditor--body-helper-min-line-height: 1.4;
---outline-core-ckeditor--body-text--margin-bottom: 1rem;
---outline-core-ckeditor--headline-07-font-size: 2.25rem;
---outline-core-ckeditor--headline-07-line-height: 1.2;
+--outline-core-ckeditor--ff-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/* Font Weights */
 --outline-core-ckeditor--fw-normal: 400;
 --outline-core-ckeditor--fw-bold: 700;
---outline-core-ckeditor--ff-display: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/* Text Colors */
+--outline-core-ckeditor--text-color: #333333;
 --outline-core-ckeditor--heading-color: #171717;
 --outline-core-ckeditor--button-text-color: #ffffff;
---outline-core-ckeditor--text-color: #333333;
+
+/* Primary UI Colors */
 --outline-core-ckeditor--color-primary-light: #f0f0f0;
 --outline-core-ckeditor--accent-color: #fa5c5c;
 
+/* Body Text */
+--outline-core-ckeditor--body-text--font-size: 1rem;
+--outline-core-ckeditor--body-text--line-height: 1.5;
+--outline-core-ckeditor--body-text--margin-bottom: 1rem;
 
+/* Body Helper Text */
+--outline-core-ckeditor--body-helper-min-font-size: 0.875rem;
+--outline-core-ckeditor--body-helper-min-line-height: 1.4;
 
+/* Headline Font Sizes and Line Heights */
 --outline-core-ckeditor--headline-01-font-size: 1rem;
 --outline-core-ckeditor--headline-01-line-height: 1.4;
 --outline-core-ckeditor--headline-02-font-size: 1.125rem;
@@ -35,8 +46,10 @@ These variables should be connected to all other CSS files for consistent stylin
 --outline-core-ckeditor--headline-05-line-height: 1.4;
 --outline-core-ckeditor--headline-06-font-size: 1.625rem;
 --outline-core-ckeditor--headline-06-line-height: 1.4;
+--outline-core-ckeditor--headline-07-font-size: 2.25rem;
+--outline-core-ckeditor--headline-07-line-height: 1.2;
 
-
+/* Spacing defaults */
 --outline-core-ckeditor--spacing-01: 0.25rem;
 --outline-core-ckeditor--spacing-02: 0.5rem;
 --outline-core-ckeditor--spacing-03: 0.75rem;
@@ -59,16 +72,6 @@ These variables should be connected to all other CSS files for consistent stylin
 --outline-core-ckeditor--button--bg-color--hover: transparent;
 --outline-core-ckeditor--button--text-color--hover: #000000;
 --outline-core-ckeditor--button--border-color--hover: #000000;
---outline-core-ckeditor--link-text-color-hover: #ffffff;
---outline-core-ckeditor--link-bg-color-hover: #000000;
---outline-core-ckeditor--cta-text-color: #000000;
---outline-core-ckeditor--cta-text-color-hover: #ffffff;
---outline-core-ckeditor--button-bg-color: #000000;
---outline-core-ckeditor--button-text-color: #ffffff;
---outline-core-ckeditor--button-border-color: #000000;
---outline-core-ckeditor--button-bg-color-hover: transparent;
---outline-core-ckeditor--button-text-color-hover: #000000;
---outline-core-ckeditor--button-border-color-hover: #000000;
 
 --outline-core-ckeditor--cta--icon: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23505050' viewBox='0 0 320 512'%3E%3Cpath d='M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z'/%3E%3C/svg%3E");
 --outline-core-ckeditor--cta--icon--hover: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 320 512'%3E%3Cpath d='M285.476 272.971 91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z'/%3E%3C/svg%3E");
