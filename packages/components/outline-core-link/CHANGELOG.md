@@ -1,5 +1,11 @@
 # @phase2/outline-core-link
 
+## 0.0.13
+
+### Patch Changes
+
+- Fix for bundled assets.
+
 ## 0.0.12
 
 ### Patch Changes
