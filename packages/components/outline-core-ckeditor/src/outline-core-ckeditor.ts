@@ -1,10 +1,11 @@
-import { TemplateResult, html, CSSResultGroup } from 'lit';
+import { TemplateResult, html } from 'lit';
 import { customElement } from 'lit/decorators.js';
 
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
 
-import globalStyles from './outline-core-ckeditor-imports.css.lit';
+import globalStyles from './outline-core-ckeditor-imports.css?inline';
+
 import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
 
 
@@ -29,7 +30,8 @@ export class OutlineCoreCkeditor extends OutlineElement
   {
     GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
       this,
-      globalStyles
+      globalStyles,
+      document
     );
 
   connectedCallback(): void {
