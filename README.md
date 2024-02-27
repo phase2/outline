@@ -1,4 +1,3 @@
-
 # OutlineJS
 
 [![Version](https://img.shields.io/npm/v/@phase2/outline-core.svg)](https://npmjs.org/package/@phase2/outline-core)
