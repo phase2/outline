@@ -4,7 +4,7 @@ import { customElement } from 'lit/decorators.js';
 // Our base component, which all others extend.
 import { OutlineElement } from '@phase2/outline-core';
 
-import globalStyles from './outline-core-ckeditor-imports.css?inline';
+import globalStyles from './outline-core-ckeditor-imports.css.lit';
 import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
 
 

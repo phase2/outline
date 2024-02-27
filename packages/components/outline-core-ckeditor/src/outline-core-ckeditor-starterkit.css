@@ -1,6 +1,6 @@
 /* This CSS file provides a set of good default styles for integrating CKEditor within a Drupal environment. It ensures consistent styling and behavior of the WYSIWYG editor across the platform. */
 
-/* Rendered WYSIWYG content is wrapped in <outline-core-ckeditor> on the frontend. */
+/* Rendered WYSIWYG content is wrapped in <outline-core-ckeditor> in the theme layer. */
 /* WYSIWYG content is wrapped in .ck.ck-content for targeting within CKEditor. This gets added in outline-core-ckeditor-imports.css */
 /* See https://www.drupal.org/node/3259165 */
 
