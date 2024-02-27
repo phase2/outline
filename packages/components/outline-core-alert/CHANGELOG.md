@@ -1,5 +1,11 @@
 # @phase2/outline-core-alert
 
+## 0.0.2
+
+### Patch Changes
+
+- Release bump.
+
 ## 0.0.1
 
 ### Patch Changes

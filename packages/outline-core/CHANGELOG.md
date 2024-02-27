@@ -1,5 +1,13 @@
 # @phase2/outline-core
 
+## 0.2.7
+
+### Patch Changes
+
+- Release bump.
+- Updated dependencies
+  - @phase2/outline-config@0.0.14
+
 ## 0.2.6
 
 ### Patch Changes

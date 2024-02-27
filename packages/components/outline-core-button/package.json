@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core-button",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The Outline Components for the web button component",
   "keywords": [
     "outline components",
@@ -37,7 +37,7 @@
     ".": "./index.ts"
   },
   "devDependencies": {
-    "@phase2/outline-adopted-stylesheets-controller": "^1.0.1",
-    "@phase2/outline-core": "^0.2.6"
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.2",
+    "@phase2/outline-core": "^0.2.7"
   }
 }

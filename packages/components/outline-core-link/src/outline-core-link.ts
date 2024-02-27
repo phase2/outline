@@ -1,9 +1,7 @@
-import { html, TemplateResult } from 'lit';
+import { html, LitElement, TemplateResult } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
 
-// Our base component, which all others extend.
-import { OutlineElement } from '@phase2/outline-core';
 import { AdoptedStylesheets } from '@phase2/outline-adopted-stylesheets-controller';
 import encapsulatedStyles from './style/outline-core-link.encapsulated.css?inline';
 import globalStyles from './style/outline-core-link.global.css?inline';
@@ -18,7 +16,7 @@ const componentName = 'outline-core-link';
  * The Outline Core Link component
  *
  * @element outline-core-link
- * @extends OutlineElement
+ * @extends LitElement
  * @since 0.0.1
  *
  * @slot - The default slot for this element.
@@ -33,13 +31,16 @@ const componentName = 'outline-core-link';
  * @todo - Add support for outline/ring on the focus state of the link.
  */
 @customElement(componentName)
-export class OutlineCoreLink extends OutlineElement {
+export class OutlineCoreLink extends LitElement {
   // static styles: CSSResultGroup = [encapsulatedStyles];
   GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
     this,
     globalStyles,
     document
   );
+
+  EncapsulatedStylesheets: AdoptedStylesheets | undefined;
+
   debug = false;
 
   /**

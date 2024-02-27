@@ -1,45 +1,43 @@
 {
   "name": "@phase2/outline-core-link",
-  "version": "0.0.10",
+  "version": "0.0.12",
   "description": "The Outline Components for the web link component",
   "keywords": [
     "outline",
-    "web-components",
+    "web component",
     "design system",
     "link"
   ],
-  "main": "index.ts",
-  "types": "index.ts",
-  "typings": "index.d.ts",
+  "main": "dist/index.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "/dist/",
-    "/src/",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",
   "repository": {
     "type": "git",
     "url": "https://github.com/phase2/outline.git",
-    "directory": "packages/outline-core-link"
+    "directory": "packages/components/outline-core-link"
   },
   "homepage": "https://github.com/phase2/outline/tree/next/packages/components/outline-core-link",
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../../scripts/build.js",
+    "build": "vite build && npx tsc --project tsconfig.build.json",
     "package": "yarn publish"
   },
   "dependencies": {
-    "lit": "^3.1.2",
-    "tslib": "^2.1.0"
+    "lit": "^3.1.2"
   },
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./index.ts"
+    ".": "./dist/index.js",
+    "./bundle": "./dist/outline-core-link.js"
   },
   "devDependencies": {
-    "@phase2/outline-adopted-stylesheets-controller": "^1.0.1",
-    "@phase2/outline-core": "^0.2.6"
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.2",
+    "vite": "^5.1.4"
   }
 }

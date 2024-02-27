@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.build.json",
   "compilerOptions": {
     "lib": ["es2017", "dom", "dom.iterable"],
     "strict": true,
