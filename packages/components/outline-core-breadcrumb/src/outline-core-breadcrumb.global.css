@@ -1,0 +1,71 @@
+ol,
+ul {
+  list-style: none;
+
+  margin: 10px;
+
+  padding: 10px;
+
+  display: flex;
+
+  flex-direction: row;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+
+  margin: 10px;
+}
+
+/**
+* Using width,height,background,transform for breadcrumb separator because
+* content: "/"; was getting read by screen readers.
+*/
+li:not(:first-of-type)::before {
+  content: '';
+  display: flex;
+  margin-right: 10px;
+  height: 1em;
+  width: 1px;
+  background: currentColor;
+  transform: rotate(23deg);
+}
+
+a {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+
+  padding: 10px;
+  margin: 10px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+  &:focus,
+  &:focus-visible {
+    outline: solid 3px blue;
+    border-radius: var(--border-radius-button-default);
+    outline-offset: var(--spacing-px);
+
+  }
+}
+
+.separator {
+  margin-left: 10px;
+}
+
+.previous-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
