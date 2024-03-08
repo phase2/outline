@@ -16,8 +16,8 @@ import '@phase2/outline-core-alert';
 # Styling Components
 
 <outline-core-alert status="error">
-  <span slot="header">Documentation Status: (11/07/2023)</span>
-  <p>This documentation is In need of rewrite.</p>
+  <span slot="header">Documentation Status: (03/08/2024)</span>
+  <p>This documentation is In need of a complete rewrite.</p>
 </outline-core-alert>
 <br/>
 
@@ -50,9 +50,10 @@ export class OutlineWidget extends LitElement {
 
 ## Inheriting Styles
 
-Interestingly, the above sample is a component, `OutlineWidget`, that extends `OutlineElement`.
+Interestingly, the above sample is a component, `OutlineWidget`, that extends `LitElement`.
 This component is simply declaring the styles in `OutlineWidget`, and assumes zero style inheritance from the parent component.
-Now, assume that `OutlineElement` provides styles that either should or could be inherited by any component that extends it. If we want to include styles from the parent component, we need to [inherit styles from the superclass](https://lit.dev/docs/components/styles/#inheriting-styles-from-a-superclass).
+Now, assume that `OutlineElement` provides styles that either should or could be inherited by any component that extends it. 
+If we want to include styles from the parent component, we need to [inherit styles from the superclass](https://lit.dev/docs/components/styles/#inheriting-styles-from-a-superclass).
 
 ```typescript
 import componentStyles from './outline-widget.css.lit';
@@ -60,7 +61,7 @@ import componentStyles from './outline-widget.css.lit';
 
 @customElement('outline-widget')
 export class OutlineWidget extends LitElement {
-  static styles: CSSResultGroup = [ OutlineElement.styles, componentStyles ];
+  static styles: CSSResultGroup = [ super.styles, componentStyles ];
   ...
 }
 ```
@@ -71,7 +72,7 @@ The following example shows both importing content from the default `outline-wid
 
 ```typescript
 import { css } from 'lit';
-import componentStyles from './outline-widget.css.lit';
+import componentStyles from './outline-widget.css?inline';
 
 @customElement('outline-widget')
 export class OutlineWidget extends LitElement {
