@@ -18,6 +18,11 @@
   "files": [
     "/dist/",
     "/src/",
+    "/index.ts",
+    "/README.md",
+    "/LICENSE",
+    "/CHANGELOG.md",
+    "/package.json",
     "!/dist/tsconfig.build.tsbuildinfo"
   ],
   "author": "Phase2 Technology",
@@ -29,7 +34,7 @@
   "homepage": "https://github.com/phase2/outline/tree/next/packages/components/outline-core-alert",
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../../scripts/build.js",
+    "build": "node ../../../scripts/bundle.js",
     "package": "yarn publish"
   },
   "publishConfig": {
