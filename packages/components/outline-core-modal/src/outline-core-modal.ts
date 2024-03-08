@@ -1,8 +1,5 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult, LitElement } from 'lit';
 import { customElement } from 'lit/decorators.js';
-
-// Our base component, which all others extend.
-import { OutlineElement } from '@phase2/outline-core';
 
 // import componentStyles from './outline-core-modal.css.lit';
 
@@ -14,7 +11,7 @@ const componentName = 'outline-core-modal';
  * The Outline Core Image component
  *
  * @element outline-core-modal
- * @extends OutlineElement
+ * @extends LitElement
  * @slot - The default slot for this element.
  *
  * @todo: Complete component.
@@ -25,7 +22,7 @@ const componentName = 'outline-core-modal';
  * @todo: Create PR for updated and completed component.
  */
 @customElement(componentName)
-export class OutlineCoreModal extends OutlineElement {
+export class OutlineCoreModal extends LitElement {
   // static styles: CSSResultGroup = [componentStyles];
 
   render(): TemplateResult {
@@ -33,6 +30,11 @@ export class OutlineCoreModal extends OutlineElement {
   }
 }
 
+/**
+ * TypeScript declaration extends the HTMLElementTagNameMap interface, adding
+ * the 'v-tile' web component. This enhances type checking and autocompletion in IDEs.
+ * @see {@link https://lit.dev/docs/components/defining/#typescript-typings | Providing good TypeScript typings}
+ */
 declare global {
   interface HTMLElementTagNameMap {
     [componentName]: OutlineCoreModal;

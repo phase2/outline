@@ -9,9 +9,12 @@
     "image",
     "picture"
   ],
-  "main": "index.ts",
-  "types": "index.ts",
-  "typings": "index.d.ts",
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "/dist/",
     "/src/",
@@ -36,7 +39,12 @@
     "access": "public"
   },
   "exports": {
-    ".": "./index.ts"
+    ".": {
+      "development": "./src/index.ts",
+      "production": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
   "devDependencies": {
     "@phase2/outline-adopted-stylesheets-controller": "^1.0.2",

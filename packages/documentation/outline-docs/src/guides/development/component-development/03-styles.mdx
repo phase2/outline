@@ -42,7 +42,7 @@ import componentStyles from './outline-widget.css.lit';
 ...
 
 @customElement('outline-widget')
-export class OutlineWidget extends OutlineElement {
+export class OutlineWidget extends LitElement {
   static styles: CSSResultGroup = [componentStyles];
   ...
 }
@@ -59,7 +59,7 @@ import componentStyles from './outline-widget.css.lit';
 ...
 
 @customElement('outline-widget')
-export class OutlineWidget extends OutlineElement {
+export class OutlineWidget extends LitElement {
   static styles: CSSResultGroup = [ OutlineElement.styles, componentStyles ];
   ...
 }
@@ -74,7 +74,7 @@ import { css } from 'lit';
 import componentStyles from './outline-widget.css.lit';
 
 @customElement('outline-widget')
-export class OutlineWidget extends OutlineElement {
+export class OutlineWidget extends LitElement {
   static styles: CSSResultGroup = [
     componentStyles,
     css\`

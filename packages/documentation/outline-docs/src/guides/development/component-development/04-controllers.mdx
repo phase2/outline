@@ -38,7 +38,7 @@ import { reactiveController } from './reactive-controller';
 
 @customElement('outline-widget')
 
-export class OutlineWidget extends OutlineElement { 
+export class OutlineWidget extends LitElement { 
   static styles: CSSResultGroup = [componentStyles]; 
   const reactiveController = new ReactiveController(this); 
   ... 

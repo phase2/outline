@@ -1,9 +1,9 @@
 {
-  "extends": "../../../tsconfig.json",
+  "extends": "../../../tsconfig.build.json",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "./dist"
   },
-  "include": ["index.ts", "src/**/*", "tests/**/*"],
-  "references": [{ "path": "../../outline-core/tsconfig.build.json" }]
+  "include": ["index.ts", "src/**/*", "tests/**/*", "../../env.d.ts"],
+  "exclude": ["**/*.js"]
 }
