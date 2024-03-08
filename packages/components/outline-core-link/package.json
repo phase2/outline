@@ -13,7 +13,7 @@
   },
   "type": "module",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "dist/src/outline-core-link.d.ts",
   "files": [
     "/dist/",
     "/src/",
@@ -35,19 +35,22 @@
     "build": "node ../../../scripts/bundle.js",
     "package": "yarn publish"
   },
-  "dependencies": {
-    "lit": "^3.1.2"
-  },
   "publishConfig": {
     "access": "public"
   },
   "exports": {
     ".": {
+      "import": "./index.ts",
+      "require": "./dist/index.js",
       "default": "./dist/index.js"
-    }
+    },
+    "./package.json": "./package.json"
+  },
+  "dependencies": {
+    "lit": "^3.1.2",
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.2"
   },
   "devDependencies": {
-    "@phase2/outline-adopted-stylesheets-controller": "^1.0.2",
     "postcss": "^8.4.35",
     "postcss-discard-comments": "^6.0.1",
     "postcss-nested": "^6.0.1",
