@@ -1,5 +1,11 @@
 # @phase2/outline-adopted-stylesheets-controller
 
+## 1.0.3
+
+### Patch Changes
+
+- Dependency chain updates
+
 ## 1.0.2
 
 ### Patch Changes

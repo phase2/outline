@@ -1,6 +1,6 @@
 {
   "name": "@phase2/outline-core-link",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "The Outline Components for the web link component",
   "keywords": [
     "outline",
@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "lit": "^3.1.2",
-    "@phase2/outline-adopted-stylesheets-controller": "^1.0.2"
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.3"
   },
   "devDependencies": {
     "postcss": "^8.4.35",

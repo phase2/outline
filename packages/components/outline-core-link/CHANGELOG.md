@@ -1,5 +1,13 @@
 # @phase2/outline-core-link
 
+## 0.0.15
+
+### Patch Changes
+
+- Dependency chain updates
+- Updated dependencies
+  - @phase2/outline-adopted-stylesheets-controller@1.0.3
+
 ## 0.0.14
 
 ### Patch Changes
