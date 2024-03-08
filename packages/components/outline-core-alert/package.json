@@ -9,9 +9,12 @@
     "image",
     "picture"
   ],
-  "main": "index.ts",
-  "types": "index.ts",
-  "typings": "index.d.ts",
+  "engines": {
+    "node": ">=20"
+  },
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/src/outline-core-alert.d.ts",
   "files": [
     "/dist/",
     "/src/",
@@ -29,17 +32,20 @@
     "build": "node ../../../scripts/build.js",
     "package": "yarn publish"
   },
-  "dependencies": {
-    "lit": "^3.1.2"
-  },
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./index.ts"
+    ".": {
+      "import": "./index.ts",
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "devDependencies": {
-    "@phase2/outline-adopted-stylesheets-controller": "^1.0.2",
-    "@phase2/outline-core": "^0.2.7"
-  }
+  "dependencies": {
+    "lit": "^3.1.2",
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.2"
+  },
+  "devDependencies": {}
 }

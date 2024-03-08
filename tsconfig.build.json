@@ -1,18 +1,8 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "module": "esnext",
-    "target": "es2017",
-    "baseUrl": ".",
-    "isolatedModules": true,
-    "composite": true,
     "declaration": true,
-    "declarationMap": true,
-    "sourceMap": false,
-    "importHelpers": true
-  },
-  "paths": {
-    "@phase2/*": ["packages/*"]
+    "emitDeclarationOnly": true
   },
   "include": ["packages/**/*.ts", "packages/env.d.ts"],
   "exclude": [

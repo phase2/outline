@@ -202,6 +202,11 @@ export class OutlineCoreLink extends LitElement {
   }
 }
 
+/**
+ * TypeScript declaration extends the HTMLElementTagNameMap interface, adding
+ * the web component. This enhances type checking and autocompletion in IDEs.
+ * @see {@link https://lit.dev/docs/components/defining/#typescript-typings | Providing good TypeScript typings}
+ */
 declare global {
   interface HTMLElementTagNameMap {
     [componentName]: OutlineCoreLink;

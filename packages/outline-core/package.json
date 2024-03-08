@@ -7,9 +7,9 @@
     "web-components",
     "design system"
   ],
-  "main": "index.ts",
-  "types": "index.ts",
-  "typings": "index.d.ts",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "/dist/",
     "/src/",
@@ -24,18 +24,15 @@
   "homepage": "https://github.com/phase2/outline/tree/next/packages/outline-core",
   "license": "BSD-3-Clause",
   "scripts": {
-    "build": "node ../../scripts/build.js",
+    "build": "node ../../scripts/bundle.js",
     "package": "yarn publish"
   },
-  "dependencies": {
-    "@phase2/outline-config": "^0.0.14"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },
   "exports": {
-    ".": "./index.ts",
-    "./src/outline-element": "./src/outline-element/outline-element.ts"
+    ".": "./dist/index.js"
   }
 }

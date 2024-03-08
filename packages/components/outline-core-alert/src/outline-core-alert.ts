@@ -1,7 +1,6 @@
-import { html, TemplateResult } from 'lit';
+import { html, TemplateResult, LitElement } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
 import { ifDefined } from 'lit/directives/if-defined.js';
-import { OutlineElement } from '@phase2/outline-core';
 import {
   CoreAlertStatusType,
   OutlineCoreAlertInterface,
@@ -18,7 +17,7 @@ const componentName = 'outline-core-alert';
  * The Outline Core Alert component
  *
  * @element outline-core-alert
- * @extends OutlineElement
+ * @extends LitElement
  * @slot header - The header in the alert.
  * @slot icon-start - The icon to display at the start of the alert.
  * @slot default - The alert contents.
@@ -39,7 +38,7 @@ const componentName = 'outline-core-alert';
  */
 @customElement(componentName)
 export class OutlineCoreAlert
-  extends OutlineElement
+  extends LitElement
   implements OutlineCoreAlertInterface
 {
   GlobalStylesheets: AdoptedStylesheets | undefined = new AdoptedStylesheets(
@@ -89,6 +88,11 @@ export class OutlineCoreAlert
   }
 }
 
+/**
+ * TypeScript declaration extends the HTMLElementTagNameMap interface, adding
+ * the web component. This enhances type checking and autocompletion in IDEs.
+ * @see {@link https://lit.dev/docs/components/defining/#typescript-typings | Providing good TypeScript typings}
+ */
 declare global {
   interface HTMLElementTagNameMap {
     [componentName]: OutlineCoreAlert;

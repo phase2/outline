@@ -43,7 +43,7 @@ with `OutlineElement` in its chain.
  * The Outline Widget component * @element outline-widget 
  */
 @customElement('outline-widget') 
-export class OutlineWidget extends OutlineElement { 
+export class OutlineWidget extends LitElement { 
   ... 
 }
 ```
@@ -59,7 +59,7 @@ import componentStyles from './outline-widget.css.lit';
  * The Outline Widget component * @element outline-widget 
  */
 @customElement('outline-widget') 
-export class OutlineWidget extends OutlineElement { 
+export class OutlineWidget extends LitElement { 
   static styles: CSSResultGroup = [componentStyles]; 
   ...
 }
@@ -88,7 +88,7 @@ import { OutlineElement } from '@phase2/outline-core';
  * The Outline Widget component * @element outline-widget 
  */
 @customElement('outline-widget') 
-export class OutlineWidget extends OutlineElement { 
+export class OutlineWidget extends LitElement { 
   /** 
    * This is our boolean property in our new component. 
    */ 

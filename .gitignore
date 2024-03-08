@@ -24,6 +24,7 @@ log.txt
 
 ## Types & Maps
 *.d.ts
+!component.d.ts
 *.d.ts.map
 *.js.map
 *.map

@@ -30,7 +30,7 @@ module.exports = {
     modernInlineRender: false,
   },
   framework: {
-    name: '@storybook/web-components-vite',
+    name: getAbsolutePath('@storybook/web-components-vite'),
     options: {},
   },
   docs: {
@@ -38,3 +38,7 @@ module.exports = {
     defaultName: 'Documentation', // set to change the name of generated docs entries
   },
 };
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')));
+}
