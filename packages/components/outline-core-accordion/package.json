@@ -40,7 +40,7 @@
     ".": "./index.ts"
   },
   "devDependencies": {
-    "@phase2/outline-adopted-stylesheets-controller": "^1.0.3",
+    "@phase2/outline-adopted-stylesheets-controller": "^1.0.4",
     "@phase2/outline-core": "^0.2.7"
   }
 }

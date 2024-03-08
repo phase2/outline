@@ -1,5 +1,13 @@
 # @phase2/outline-core-alert
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated exports
+- Updated dependencies
+  - @phase2/outline-adopted-stylesheets-controller@1.0.4
+
 ## 0.0.3
 
 ### Patch Changes
