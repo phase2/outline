@@ -1,0 +1,409 @@
+/* This CSS file provides a set of good default styles for integrating CKEditor within a Drupal environment. It ensures consistent styling and behavior of the WYSIWYG editor across the platform. */
+
+/* Rendered WYSIWYG content is wrapped in <outline-core-ckeditor> in the theme layer. */
+/* WYSIWYG content is wrapped in .ck.ck-content for targeting within CKEditor. This gets added in outline-core-ckeditor-imports.css */
+/* See https://www.drupal.org/node/3259165 */
+
+@import './outline-core-ckeditor-vars.css';
+
+p {
+  display: block;
+  font-size: var(--outline-core-ckeditor--body-text--font-size, var(--outline-core-ckeditor--body-01-font-size));
+  line-height: var(
+    --outline-core-ckeditor--body-text--line-height,
+    var(--outline-core-ckeditor--body-01-line-height)
+  );
+  margin-bottom: var(--outline-core-ckeditor--body-text--margin-bottom, 1em);
+  font-weight: var(--outline-core-ckeditor--fw-normal);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.headline-07,
+.headline-06,
+.headline-05,
+.headline-04,
+.headline-03,
+.headline-02,
+.headline-01 {
+  color: var(--outline-core-ckeditor--heading-color);
+  font-family: var(--outline-core-ckeditor--ff-display);
+  font-weight: var(--outline-core-ckeditor--fw-bold);
+  display: block;
+  margin-bottom: var(--outline-core-ckeditor--spacing-04);
+}
+
+h1,
+.headline-07 {
+  font-size: var(--outline-core-ckeditor--headline-07-font-size);
+  line-height: var(--outline-core-ckeditor--headline-07-line-height);
+}
+
+h2 {
+  font-size: var(--outline-core-ckeditor--headline-05-font-size);
+  line-height: var(--outline-core-ckeditor--headline-05-line-height);
+}
+
+h3 {
+  font-size: var(--outline-core-ckeditor--headline-04-font-size);
+  line-height: var(--outline-core-ckeditor--headline-04-line-height);
+}
+
+h4 {
+  font-size: var(--outline-core-ckeditor--headline-03-font-size);
+  line-height: var(--outline-core-ckeditor--headline-03-line-height);
+}
+
+h5 {
+  font-size: var(--outline-core-ckeditor--headline-02-font-size);
+  line-height: var(--outline-core-ckeditor--headline-02-line-height);
+}
+
+h6 {
+  font-size: var(--outline-core-ckeditor--headline-01-font-size);
+  line-height: var(--outline-core-ckeditor--headline-01-line-height);
+}
+
+.headline-06 {
+  font-size: var(--outline-core-ckeditor--headline-06-font-size);
+  line-height: var(--outline-core-ckeditor--headline-06-line-height);
+}
+
+.headline-05 {
+  font-size: var(--outline-core-ckeditor--headline-05-font-size);
+  line-height: var(--outline-core-ckeditor--headline-05-line-height);
+}
+
+.headline-04 {
+  font-size: var(--outline-core-ckeditor--headline-04-font-size);
+  line-height: var(--outline-core-ckeditor--headline-04-line-height);
+}
+
+.headline-03 {
+  font-size: var(--outline-core-ckeditor--headline-03-font-size);
+  line-height: var(--outline-core-ckeditor--headline-03-line-height);
+}
+
+.headline-02 {
+  font-size: var(--outline-core-ckeditor--headline-02-font-size);
+  line-height: var(--outline-core-ckeditor--headline-02-line-height);
+}
+
+.headline-01 {
+  font-size: var(--outline-core-ckeditor--headline-01-font-size);
+  line-height: var(--outline-core-ckeditor--headline-01-line-height);
+}
+
+/* Add extra spacing between paragraphs and
+ * headings using the sibling selector.
+*/
+p {
+  + h1,
+  + h2,
+  + h3,
+  + h4,
+  + .headline-07,
+  + .headline-06,
+  + .headline-05,
+  + .headline-04 {
+    margin-top: var(--outline-core-ckeditor--spacing-10);
+  }
+
+  + h5,
+  + h6,
+  + .headline-01,
+  + .headline-02,
+  + .headline-03 {
+    margin-top: var(--outline-core-ckeditor--spacing-8);
+  }
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: var(--outline-core-ckeditor--spacing-04);
+  li {
+    list-style-type: disc;
+    ul li {
+      list-style-type: circle;
+      ul li {
+        list-style-type: square;
+        ul li {
+          list-style-type: disc;
+        }
+      }
+    }
+  }
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: var(--outline-core-ckeditor--spacing-04);
+  margin-bottom: var(--outline-core-ckeditor--spacing-02);
+  li {
+    list-style-type: decimal;
+    ol li {
+      list-style-type: lower-alpha;
+      ol li {
+        list-style-type: lower-roman;
+        ol li {
+          list-style-type: decimal;
+        }
+      }
+    }
+  }
+}
+
+ol {
+  li::marker {
+    color: var(--outline-core-ckeditor--text-color);
+  }
+}
+
+/* Add margin-bottom to top-level ul and ol only */
+/* Media queries are applied in outline-core-ckeditor.lightdom.css */
+& > ul,
+& > ol {
+  margin-bottom: 1.5em;
+  padding-left: var(--outline-core-ckeditor--spacing-05);
+}
+
+li {
+  list-style-position: outside;
+  padding-left: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: var(--outline-core-ckeditor--spacing-02);
+  font-size: var(--outline-core-ckeditor--body-text--font-size, var(--outline-core-ckeditor--body-01-font-size));
+  &::marker {
+    color: var(--outline-core-ckeditor--accent-color);
+    font-size: var(--outline-core-ckeditor--fs-xl);
+  }
+}
+
+blockquote {
+  display: flex;
+  gap: var(--outline-core-ckeditor--spacing-05);
+  margin-top: 1em;
+  margin-bottom: 1em;
+  p {
+    font-size: var(--outline-core-ckeditor--body-03-font-size);
+    margin-bottom: 0;
+  }
+  font-weight: bold;
+  outline-icon {
+    color: var(--outline-core-ckeditor--color-primary-light);
+  }
+}
+
+/* Set a global HR for color purposes. */
+hr {
+  border-color: var(--outline-core-ckeditor--accent-color);
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+figcaption {
+  font-size: var(--outline-core-ckeditor--body-text--font-size, var(--outline-core-ckeditor--body-01-font-size));
+  color: var(--outline-core-ckeditor--text-color);
+  text-align: center;
+}
+
+em {
+  font-style: italic;
+}
+
+sup {
+  vertical-align: super;
+  font-size: 60%;
+  top: 0;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: 60%;
+  bottom: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+/* Most styles are imported from `outline-table` but we add ckeditor specific CSS here */
+table {
+  margin-bottom: var(--outline-core-ckeditor--spacing-04);
+}
+
+/* Article byline */
+.article-byline {
+  font-size: var(--outline-core-ckeditor--body-article-byline-font-size, var(--outline-core-ckeditor--fs-lg));
+}
+
+/* Disclaimer */
+.disclaimer {
+
+  font-size: var(--outline-core-ckeditor--body-helper-min-font-size);
+  line-height: var(--outline-core-ckeditor--body-helper-min-line-height);
+  display: block;
+  margin-bottom: 1em;
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  a {
+    font-weight: var(--outline-core-ckeditor--fw-bold);
+    text-decoration: underline;
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      color: var(--outline-core-ckeditor--link--text-color--hover);
+      background-color: var(--outline-core-ckeditor--link--bg-color--hover);
+    }
+  }
+  a.ckeditor-cta {
+    font-size: inherit;
+    color: var(--outline-core-ckeditor--cta--text-color);
+    text-decoration: underline;
+
+    .last-word {
+      text-decoration: underline;
+      &::after {
+        background-image: var(--outline-core-ckeditor--cta-icon);
+        height: var(--outline-core-ckeditor--spacing-03);
+        width: var(--outline-core-ckeditor--spacing-03);
+        margin-left: calc(var(--outline-core-ckeditor--spacing-02));
+      }
+    }
+    &:hover,
+    &:focus-visible,
+    &:focus {
+      background-color: var(--outline-core-ckeditor--text-color);
+      background-image: none;
+      color: var(--outline-core-ckeditor--cta--text-color--hover);
+      text-decoration: underline;
+
+      .last-word {
+        text-decoration: underline;
+
+        &::after {
+          background-image: var(--outline-core-ckeditor--cta-icon-hover);
+          transform: translateX(calc(var(--outline-core-ckeditor--spacing-01)));
+        }
+      }
+    }
+
+    &.icon-external,
+    &[target='_blank'] {
+      .last-word {
+        &::after {
+          background-image: var(--outline-core-ckeditor--cta-icon-external);
+          height: var(--outline-core-ckeditor--spacing-03);
+          width: var(--outline-core-ckeditor--spacing-03);
+        }
+      }
+
+      &:hover,
+      &:focus-visible,
+      &:focus {
+        .last-word {
+          &::after {
+            background-image: var(--outline-core-ckeditor--cta-icon-external-hover);
+            transform: translateX(-2px) translateY(-1px);
+          }
+        }
+      }
+    }
+  }
+
+  a.btn {
+    font-size: inherit;
+    color: var(--outline-core-ckeditor--button--text-color);
+    padding: var(--outline-core-ckeditor--spacing-02) var(--outline-core-ckeditor--spacing-04);
+    min-height: 0;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--outline-core-ckeditor--button--text-color--hover);
+      background-color: var(--outline-core-ckeditor--button--bg-color--hover);
+      border-color: var(--outline-core-ckeditor--button--border-color--hover);
+    }
+
+    &.icon-external,
+    &[target='_blank'] {
+      .last-word::after {
+        background-image: var(--outline-core-ckeditor--button-icon-external);
+        height: var(--outline-core-ckeditor--spacing-03);
+        width: var(--outline-core-ckeditor--spacing-03);
+        margin-left: calc(var(--outline-core-ckeditor--spacing-02));
+      }
+
+      &:hover {
+        .last-word {
+          &::after {
+            background-image: var(--outline-core-ckeditor--button-icon-external-hover);
+          }
+        }
+      }
+    }
+  }
+
+  li {
+    font-size: var(--outline-core-ckeditor--body-helper-min-font-size);
+    line-height: var(--outline-core-ckeditor--body-helper-min-line-height);
+    margin-top: var(--outline-core-ckeditor--spacing-01);
+    margin-bottom: var(--outline-core-ckeditor--spacing-01);
+
+    &::marker {
+      color: var(--outline-core-ckeditor--text-color);
+    }
+  }
+}
+ul.ckeditor-disclaimer {
+  li::marker {
+    font-size: 10px;
+  }
+}
+ol.ckeditor-disclaimer {
+  li::marker {
+    font-size: 0.9em;
+  }
+}
+
+/* Allow ckeditor-cta in ckeditor to wrap if long text */
+a.ckeditor-cta {
+  white-space: initial;
+}
+
+a[name],
+a:not([href]) {
+  color: inherit;
+  cursor: text;
+  text-decoration: none;
+  font-weight: inherit;
+  font-size: inherit;
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color: var(--outline-core-ckeditor--text-color);
+    background-color: transparent;
+  }
+}
+
+.clear-left {
+  clear: left;
+}
+
+.clear-right {
+  clear: right;
+}
+
+.clear-both {
+  clear: both;
+}

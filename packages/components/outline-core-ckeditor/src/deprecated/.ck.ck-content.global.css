@@ -1,0 +1,64 @@
+/**
+* All CSS selectors/rules in this file will be nested within `.ck.ck-content {` due to the name of this file.
+*
+* This file brings in all the necessary CSS for the WYSIWYG elements and restricts its influence to the `.ck.ck-content` selector.
+* The lightDOM controller accomplishes this by extracting the file name before .global.css and creating a new stylesheet called .ck.ck-content.global.scoped.css,
+* which contains the CSS specifically scoped to that selector.
+*
+* Subsequently, .ck.ck-content.global.scoped.css is imported into /project/design/src/ckeditor5.css, along with the
+* design system tokens, and is then built into the theme. The resulting built file is the one that gets included on pages that have CKEditor.
+*
+* See https://www.drupal.org/node/3259165
+* See https://ckeditor.com/docs/ckeditor5/latest/installation/advanced/content-styles.html#sharing-content-styles-between-frontend-and-backend
+**/
+
+/** Import Tokens.
+* Scope the css variables so they do not conflict with Drupal Admin theme's CSS variables.
+*/
+/* @import '@phase2/outline-core-tokens/dist/tokens.default.css';
+@import '../../../../outline.theme.css';
+
+@import '../outline-core-heading/outline-core-heading.css';
+@import '../outline-core-button/outline-core-button.css';
+@import '../outline-core-cta/outline-core-cta.css';
+@import '../outline-core-cta/outline-core-cta.shared.css';
+@import '../outline-core-link/outline-core-link.css';
+@import '../outline-core-tooltip/outline-core-tooltip.shared.css';*/
+@import './outline-core-ckeditor.shared.css';
+
+/**
+ * Reset to :host rules that are set in:
+ * `@import '../outline-core-button/outline-core-button.css';` that affects ckeditor width.
+ * `@import '../outline-core-heading/outline-core-heading.css';` affect font-weight and color.
+ */
+:host {
+  color: var(--outline-core-text-color);
+  display: block;
+  font-weight: unset;
+  width: unset;
+
+  @screen sm {
+    width: unset;
+  }
+}
+
+/* Override for tooltip styles. */
+/* a.sic-tooltip {
+  text-decoration: underline;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    margin-left: calc(var(--spacing-01));
+    margin-bottom: -0.1em;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: var(--sic-link--icon-size, 0.8em);
+    width: var(--sic-link--icon-size, 0.8em);
+    background-image: var(
+      --sic-tooltip--icon,
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23004ea8" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>')
+    );
+  }
+} */
