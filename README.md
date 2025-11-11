@@ -1,6 +1,11 @@
 
 # OutlineJS
 
+## For Phase2 Team Members
+
+If you're working on Phase2 projects, please refer to our [internal Outline Working Group repository](https://github.com/phase2/outline-wg/tree/main/project/design) for Phase2-specific best practices, implementation guidelines, and the latest organizational standards.
+
+
 [![Version](https://img.shields.io/npm/v/@phase2/outline-core.svg)](https://npmjs.org/package/@phase2/outline-core)
 [![GitPod](https://img.shields.io/badge/gitpod-development-lightgray?logo=gitpod&logoColor=ffffff&style=flat)](https://gitpod.io/#https://github.com/phase2/outline)
 [![License](https://img.shields.io/npm/l/@phase2/outline-cli.svg)](https://github.com/phase2/outline/blob/next/package.json)
