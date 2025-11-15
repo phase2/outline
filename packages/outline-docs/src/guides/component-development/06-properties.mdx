@@ -1,0 +1,143 @@
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Properties"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Description
+  Outline components receive input and store their state as JavaScript class fields(normally called attributes) or properties.
+  
+  [Reactive properties](https://lit.dev/docs/components/properties/) are properties that can trigger the reactive update cycle when changed, re-rendering the component, and optionally be read or written to attributes.
+
+  ## Documentation Status
+  <outline-alert status="success" size="large">
+    <span slot="header">Status: Complete / Update to data May 2023</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
+
+### Property usage basics
+- Properties should be commented using [JSDoc](https://github.com/jsdoc/jsdoc).
+- Each property should provide a comment including a description of the attribute functionality or purpose.
+- Pass to `type` the appropriate [converter](https://lit.dev/docs/components/properties/#conversion-type) (`String`, `Boolean`, etc.).
+- Pass to `attribute` an attribute name in kebab-case.
+- Attribute names must not collide with HTML standard ones `title`, `href`, etc.
+  - This means it is best to name properties more like `link-title`, `link-href`, etc.
+- Lit [documentation](https://lit.dev/docs/components/properties/)
+
+### Slots versus properties
+- When do I use a property? 
+  - Properties and slots should mirror HTML as close as possible. For example, if something would just be a in a div, it should probably be a slot. However, something like an aria-label should typically be a property.
+  - Properties are used for non-content features that impact the state of the component. Non-content here means any structured data that isn't just HTML. For example, active versus inactive states. 
+  - There are some exceptions, such as making alt-text for images, which might make more sense to be a property.
+- The component shouldn't change its own public properties, except in response to user input. For example, you could set a property to change background color, but the component itself shouldn't change it's own color. 
+- There are definitely cases where a component is doing something internally that warrants reflecting its internal state back in the HTML markup regardless of any user action. For example, detecting dark mode or an a11y config.
+- In general slots are used for content, such as HTML markup, text, icons, or images. 
+- The more of the component that is slots, the more flexible the component will be. 
+- There are cases in which adding content as a property will make sense, for example using a title to control the state of the component. Use this cautiously, as it can cause issues with a11y tools and automation. This is mostly only with older tools/ low quality tools.
+
+### Property with default value
+
+The below sample uses the `stringProperty = ''` to provide a default value to the property if it is not supplied or calculated by the component itself.
+
+```typescript
+@property({
+  type: String,
+  attribute: 'string-property'
+}) 
+stringProperty = 'Default Property Value'
+```
+
+### Property without default value
+
+The below sample simply uses the variable name `stringProperty` after the `@property` decorator to not supply a default value, thus making it `NULL` by default.
+
+```typescript
+@property({
+  type: String,
+  attribute: 'string-property'
+})
+stringProperty
+```
+
+## Property Types
+
+### String
+
+```typescript
+@property({
+  type: String, 
+  attribute: 'string-property'
+}) 
+stringProperty = 'Default string value'
+```
+
+### Number
+
+```typescript
+@property({
+  type: Number, 
+  attribute: 'number-property'
+}) 
+numberProperty = 42
+```
+
+### Boolean
+
+Boolean properties are a special case, and should always default to a value of `false`.
+This is so that the property can be accurately passed via HTML markup, which only passes a string value which returns as truthy.
+
+```typescript
+@property({
+  type: Boolean, 
+  attribute: 'boolean-property'
+}) 
+booleanProperty = false
+```
+
+In the above example, a usage of this component would look like `<my-component boolean-property>` means the value of `booleanProperty` is `true`.
+The simple exclusion of the attribute on the HTML element would then represent the default value of `false`.
+
+### Object
+
+```typescript
+@property({
+  type: Object, 
+  attribute: 'object-property'
+}) 
+objectProperty = { 
+  thingOne: 'value', 
+  thingTwo: 'value' 
+}
+```
+
+### Array
+
+```typescript
+@property({
+  type: Array,
+  attribute: 'array-property'
+}) 
+arrayProperty = [ 
+  { thing: 'value' }, 
+  { thing: 'value' } 
+]
+```

@@ -1,0 +1,47 @@
+import { Meta } from '@storybook/addon-docs';
+import '@phase2/outline-alert';
+import '@phase2/outline-container';
+
+<Meta
+  title="Documentation/Guides/Component Development/Coding Guide & Standards/Event Handlers"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+/>
+
+<outline-container
+  container-width="full"
+  container-align="left"
+  top-margin="spacing-2"
+  bottom-margin="spacing-8"
+>
+  ## Description
+  [Events](https://lit.dev/docs/components/events/) are the standard way that elements communicate changes. 
+  These changes typically occur due to user interaction. 
+  For example, a button dispatches a click event when a user clicks on it; 
+  an input dispatches a change event when the user enters a value in it.
+
+  ## Documentation Status
+  <outline-alert status="warning" size="large">
+    <span slot="header">Status: Needs Work/In Progress</span>
+    <p>
+      This documentation is in need of additional work, or is currently in progress.
+    </p>
+  </outline-alert>
+</outline-container>
+
+## Event Handlers
+
+```typescript
+eventHandler = (e: Event) => { 
+  e.preventDefault()   
+  console.log('eventhandler fired')
+}
+```
+
+Event handlers are placed below the template partials.
