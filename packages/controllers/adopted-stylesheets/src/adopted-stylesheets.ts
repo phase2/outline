@@ -1,91 +1,82 @@
 import { ReactiveController, ReactiveControllerHost } from 'lit';
 
 /**
- * `AdoptedStylesheets` is a class that implements the `ReactiveController` interface from the `lit` library.
- * This class is used to manage CSS stylesheets that are adopted into the document or a shadow root.
- *
- * @property {CSSStyleSheet} adoptedSheet - The CSSStyleSheet object that is adopted into the document or a shadow root.
- * @property {Document | ShadowRoot} root - The root where the stylesheet will be adopted.
+ * A controller for managing adopted stylesheets in a Lit element.
+ * This allows for styles to be dynamically applied to the component's
+ * light DOM or shadow DOM.
  */
-export class AdoptedStylesheets implements ReactiveController {
-  /**
-   * A static map that stores CSSStyleSheet objects by their CSS text.
-   * This allows for reuse of CSSStyleSheet objects across multiple instances of the class.
-   * @type {Map<string, CSSStyleSheet>}
-   */
-  private static styleSheetMap = new Map<string, CSSStyleSheet>();
+export class AdoptedStyleSheets implements ReactiveController {
+  // The host element that the controller is associated with.
+  private host: ReactiveControllerHost & HTMLElement;
+  // An object containing the CSS to be applied globally or encapsulated within the shadow DOM.
+  private css: { globalCSS?: string; encapsulatedCSS?: string };
+
+  // A set to track the stylesheets applied to the light DOM.
+  private static appliedLightDomStylesheets: Set<string> = new Set();
 
   /**
-   * The CSSStyleSheet object that is adopted into the document or a shadow root.
-   * @type {CSSStyleSheet}
-   */
-  private adoptedSheet: CSSStyleSheet;
-
-  /**
-   * The root where the stylesheet will be adopted.
-   * This can be either the document or a shadow root.
-   * @type {Document | ShadowRoot}
-   */
-  private root: Document | ShadowRoot;
-
-  /**
-   * The host that this controller is associated with.
-   * @type {ReactiveControllerHost}
-   */
-  private host: ReactiveControllerHost;
-
-  /**
-   * The constructor for the `AdoptedStylesheets` class.
-   *
-   * @param {ReactiveControllerHost} host - The host that this controller is associated with.
-   * @param {string} cssText - A string that contains the CSS styles to be adopted.
-   * @param {Document | ShadowRoot} root - The root where the stylesheet will be adopted.
+   * Constructs an instance of the AdoptedStyleSheets controller.
+   * @param host The host element that the controller will be associated with.
+   * @param css An object containing optional global and encapsulated CSS strings.
    */
   constructor(
-    host: ReactiveControllerHost,
-    cssText: string,
-    root: Document | ShadowRoot = document
+    host: ReactiveControllerHost & HTMLElement,
+    css: {
+      globalCSS?: string;
+      encapsulatedCSS?: string;
+    } = {}
   ) {
     this.host = host;
-    this.host.addController(this);
-    this.root = root;
-
-    if (!AdoptedStylesheets.styleSheetMap.has(cssText)) {
-      const newSheet = new CSSStyleSheet();
-      newSheet.replace(cssText).catch(error => {
-        console.error('Failed to replace CSS text:', error);
-      });
-      AdoptedStylesheets.styleSheetMap.set(cssText, newSheet);
-    }
-    this.adoptedSheet =
-      AdoptedStylesheets.styleSheetMap.get(cssText) || new CSSStyleSheet();
+    this.css = css;
+    this.host.addController(this); // Register this instance as a controller for the host element.
   }
 
   /**
-   * The `hostConnected` method is called when the host element is connected to the DOM.
-   * This method adopts the CSSStyleSheet object into the root's adopted stylesheets if it's not already included.
+   * Applies the given CSS text to the specified target (Document or ShadowRoot).
+   * @param cssText The CSS text to apply.
+   * @param target The target where the CSS should be applied.
+   */
+  private applyCssToDom(cssText: string, target: Document | ShadowRoot) {
+    if (target instanceof Document) {
+      const store = AdoptedStyleSheets.appliedLightDomStylesheets;
+
+      if (store.has(cssText)) {
+        // If the stylesheet has already been applied, no further action is required.
+        return;
+      }
+      store.add(cssText); // Store the stylesheet with the provided key.
+    }
+
+    // Create a new stylesheet and replace its contents with the provided CSS text.
+    const sheet = new CSSStyleSheet();
+    sheet.replaceSync(cssText);
+
+    // Apply the stylesheet to the target's adoptedStyleSheets.
+    target.adoptedStyleSheets = [...target.adoptedStyleSheets, sheet];
+  }
+
+  /**
+   * Lifecycle callback called when the host element is connected to the document's DOM.
+   * Applies global and encapsulated CSS to the respective DOM targets.
    */
   hostConnected() {
-    if (
-      this.root &&
-      !this.root.adoptedStyleSheets.includes(this.adoptedSheet)
-    ) {
-      this.root.adoptedStyleSheets = [
-        ...this.root.adoptedStyleSheets,
-        this.adoptedSheet,
-      ];
+    if (this.css.globalCSS) {
+      this.applyCssToDom(this.css.globalCSS, document); // Apply global CSS to the document if it exists.
+    }
+
+    // Apply encapsulated CSS to the host's shadow root if it exists.
+    if (this.css.encapsulatedCSS && this.host.shadowRoot) {
+      this.applyCssToDom(this.css.encapsulatedCSS, this.host.shadowRoot); // Apply encapsulated CSS to the host's shadow root if it exists.
     }
   }
 
   /**
-   * The `hostDisconnected` method is called when the host element is disconnected from the DOM.
-   * This method removes the CSSStyleSheet object from the root's adopted stylesheets if it's included.
+   * Lifecycle callback called when the host element is disconnected from the document's DOM.
+   * Note: When a component with a Shadow DOM is disconnected from the document's DOM, the Shadow DOM is also removed along with the component.
+   * However, for Light DOM styles, they are not removed here because other instances of the component
+   * might still be present on the page and require these styles.
    */
   hostDisconnected() {
-    if (this.root && this.root.adoptedStyleSheets.includes(this.adoptedSheet)) {
-      this.root.adoptedStyleSheets = this.root.adoptedStyleSheets.filter(
-        sheet => sheet !== this.adoptedSheet
-      );
-    }
+    // No action is taken when the host is disconnected.
   }
 }
