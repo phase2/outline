@@ -1,0 +1,121 @@
+:root {
+  --outline-core-ckeditor-tooltip--arrow-height: 0.5em;
+  --outline-core-ckeditor-tooltip--arrow-color: var(--color-neutral-lighter);
+}
+
+a.outline-core-ckeditor-tooltip {
+  --outline-core-ckeditor-tooltip--arrow-height: 0.5em;
+
+  font-weight: var(--fw-normal);
+  text-decoration: none;
+
+  .last-word {
+    font-weight: var(--fw-normal);
+    text-decoration: none;
+
+    &::after {
+      content: '';
+      display: inline-block;
+      margin-left: calc(var(--spacing-01));
+      margin-bottom: -0.1em;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: var(--outline-core-ckeditor-link--icon-size, 0.8em);
+      width: var(--outline-core-ckeditor-link--icon-size, 0.8em);
+      background-image: var(
+        --outline-core-ckeditor-tooltip--icon,
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="%23004ea8" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>')
+      );
+    }
+  }
+
+  &:hover,
+  &:focus {
+    background-color: transparent;
+    color: var(--text-color);
+    cursor: help;
+  }
+}
+
+.outline-core-ckeditor-tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* The arrow (or tooltip arrow) that connects the tooltip to the container */
+[role='tooltip']::before {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: var(--outline-core-ckeditor-tooltip--arrow-height) solid transparent;
+  border-top-color: var(--outline-core-ckeditor-tooltip--arrow-color);
+  text-shadow: 0 1px 2px hsl(0, 0%, 0%);
+}
+
+/* This allows users to move their cursor from the button to the tooltip */
+[role='tooltip']::after {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  left: 0;
+  display: block;
+  height: calc(var(--outline-core-ckeditor-tooltip--arrow-height) * 2);
+  text-shadow: 0 1px 2px hsl(0, 0%, 0%);
+}
+
+.outline-core-ckeditor-tooltip.tooltip-visible [role='tooltip']::before,
+.outline-core-ckeditor-tooltip.tooltip-visible [role='tooltip']::after {
+  content: '';
+}
+
+.outline-core-ckeditor-tooltip.bottom [role='tooltip']::before,
+.outline-core-ckeditor-tooltip.bottom [role='tooltip']::after,
+.outline-core-ckeditor-tooltip.bottom [role='tooltip'] {
+  top: unset;
+  bottom: 100%;
+}
+
+.outline-core-ckeditor-tooltip.bottom [role='tooltip']::before {
+  border-bottom-color: var(--outline-core-ckeditor-tooltip--arrow-color);
+  border-top-color: transparent;
+}
+
+.outline-core-ckeditor-tooltip.top [role='tooltip'] {
+  bottom: calc(100% + calc(var(--outline-core-ckeditor-tooltip--arrow-height)));
+}
+.outline-core-ckeditor-tooltip.bottom [role='tooltip'] {
+  top: calc(100% + calc(var(--outline-core-ckeditor-tooltip--arrow-height)));
+  bottom: unset;
+}
+
+/* Tooltip styles */
+[role='tooltip'] {
+  position: absolute;
+  bottom: calc(100% + calc(var(--outline-core-ckeditor-tooltip--arrow-height)));
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: var(--spacing-04) var(--spacing-08);
+  border-radius: var(--border-radius-rounded-default);
+  color: var(--color-neutral-default);
+  background: var(--color-neutral-white);
+  width: max-content;
+  max-width: 65vw;
+  box-shadow: 0 1px 2px hsl(0, 0%, 0%);
+  z-index: var(--z-index-popup);
+}
+
+/* Hides the tooltip */
+.hidden {
+  display: none;
+}
+
+/*
+  Removes the emoji container from the pointer event targets.
+  If removed the globalPointerDown() function will break when you click/tap exactly on the emoji.
+*/
+[aria-hidden='true'] {
+  pointer-events: none;
+}

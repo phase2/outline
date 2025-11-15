@@ -1,0 +1,7 @@
+:host {
+  /* Support floats. */
+  display: block;
+  font-family: var(--ff-display);
+  font-weight: inherit;
+  color: var(--sic-text-color);
+}

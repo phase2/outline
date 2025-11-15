@@ -1,0 +1,6 @@
+.ck.ck-content, outline-core-ckeditor {
+  display: block;
+
+  @nested-import './outline-core-ckeditor-starterkit.css';
+
+}
